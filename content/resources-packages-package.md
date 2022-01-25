@@ -1,7 +1,7 @@
 ---
 title: resources.packages.package definition
 description: resources.packages.package definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -531,7 +531,7 @@ resources:
       trigger: true
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: ubuntu-latest
 
 steps:
 - getPackage: contoso 

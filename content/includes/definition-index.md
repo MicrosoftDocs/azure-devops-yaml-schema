@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -54,14 +54,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
@@ -413,14 +405,6 @@ A `pool` specification also holds information about the job's strategy for runni
 ___
 :::row:::
 :::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [pr](../pr.md)
 :::column-end:::
 :::column span="3":::
@@ -703,15 +687,6 @@ ___
 :::moniker range=" = azure-pipelines-2020"
 :::row:::
 :::column:::
-[extends](../extends.md)
-:::column-end:::
-:::column span="3":::
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [jobs](../jobs.md)
 :::column-end:::
 :::column span="3":::
@@ -778,7 +753,7 @@ ___
 [jobs.deployment.strategy.runOnce](../jobs-deployment-strategy-run-once.md)
 :::column-end:::
 :::column span="3":::
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 :::column-end:::
 :::row-end:::
@@ -858,6 +833,16 @@ A pipeline is one or more stages that describe a CI/CD process.
 ___
 :::row:::
 :::column:::
+[pipeline.extends](../pipeline-extends.md)
+:::column-end:::
+:::column span="3":::
+Extend a pipeline using a template.
+
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
 [pool](../pool.md)
 :::column-end:::
 :::column span="3":::
@@ -865,14 +850,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
@@ -1258,15 +1235,6 @@ ___
 :::moniker range=" = azure-pipelines-2020.1"
 :::row:::
 :::column:::
-[extends](../extends.md)
-:::column-end:::
-:::column span="3":::
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [jobs](../jobs.md)
 :::column-end:::
 :::column span="3":::
@@ -1333,7 +1301,7 @@ ___
 [jobs.deployment.strategy.runOnce](../jobs-deployment-strategy-run-once.md)
 :::column-end:::
 :::column span="3":::
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 :::column-end:::
 :::row-end:::
@@ -1413,6 +1381,16 @@ A pipeline is one or more stages that describe a CI/CD process.
 ___
 :::row:::
 :::column:::
+[pipeline.extends](../pipeline-extends.md)
+:::column-end:::
+:::column span="3":::
+Extend a pipeline using a template.
+
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
 [pool](../pool.md)
 :::column-end:::
 :::column span="3":::
@@ -1420,14 +1398,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
@@ -1847,15 +1817,6 @@ ___
 :::moniker range=" = azure-pipelines"
 :::row:::
 :::column:::
-[extends](../extends.md)
-:::column-end:::
-:::column span="3":::
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [jobs](../jobs.md)
 :::column-end:::
 :::column span="3":::
@@ -1922,7 +1883,7 @@ ___
 [jobs.deployment.strategy.runOnce](../jobs-deployment-strategy-run-once.md)
 :::column-end:::
 :::column span="3":::
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 :::column-end:::
 :::row-end:::
@@ -2002,6 +1963,16 @@ A pipeline is one or more stages that describe a CI/CD process.
 ___
 :::row:::
 :::column:::
+[pipeline.extends](../pipeline-extends.md)
+:::column-end:::
+:::column span="3":::
+Extend a pipeline using a template.
+
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
 [pool](../pool.md)
 :::column-end:::
 :::column span="3":::
@@ -2009,14 +1980,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___

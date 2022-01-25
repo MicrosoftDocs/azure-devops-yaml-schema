@@ -1,7 +1,7 @@
 ---
 title: stages.template definition
 description: stages.template definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -235,13 +235,13 @@ stages:
   jobs:
   - job: ${{ parameters.name }}_Windows
     pool:
-      vmImage: vs2017-win2016
+      vmImage: windows-latest
     steps:
     - script: npm install
     - script: npm test -- --file=${{ parameters.testFile }}
   - job: ${{ parameters.name }}_Mac
     pool:
-      vmImage: macos-10.14
+      vmImage: macos-latest
     steps:
     - script: npm install
     - script: npm test -- --file=${{ parameters.testFile }}

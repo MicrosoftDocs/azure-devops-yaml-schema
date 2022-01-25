@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: pool definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -49,8 +49,8 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 
 | Overload | Description |
 |----------|-------------|
-| [pool: string](#pool-string) | Name of pool. |
-| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax. |
+| [pool: string](#pool-string) | Specify a private pool by name. |
+| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax for using demands and Microsoft-hosted pools. |
 
 :::moniker-end
 
@@ -58,8 +58,8 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 
 | Overload | Description |
 |----------|-------------|
-| [pool: string](#pool-string) | Name of pool. |
-| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax. |
+| [pool: string](#pool-string) | Specify a private pool by name. |
+| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax for using demands and Microsoft-hosted pools. |
 
 :::moniker-end
 
@@ -67,8 +67,8 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 
 | Overload | Description |
 |----------|-------------|
-| [pool: string](#pool-string) | Name of pool. |
-| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax. |
+| [pool: string](#pool-string) | Specify a private pool by name. |
+| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax for using demands and Microsoft-hosted pools. |
 
 :::moniker-end
 
@@ -76,8 +76,8 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 
 | Overload | Description |
 |----------|-------------|
-| [pool: string](#pool-string) | Name of pool. |
-| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax. |
+| [pool: string](#pool-string) | Specify a private pool by name. |
+| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax for using demands and Microsoft-hosted pools. |
 
 :::moniker-end
 
@@ -85,8 +85,8 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 
 | Overload | Description |
 |----------|-------------|
-| [pool: string](#pool-string) | Name of pool. |
-| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax. |
+| [pool: string](#pool-string) | Specify a private pool by name. |
+| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax for using demands and Microsoft-hosted pools. |
 
 :::moniker-end
 
@@ -104,33 +104,13 @@ You can specify a pool at the pipeline, stage, or job level.
 
 The pool specified at the lowest level of the hierarchy is used to run the job.
 
-The full syntax is:
-
-```yaml
-pool:
-  name: string  # name of the pool to run this job in
-  demands: string | [ string ]  # see the following "Demands" topic
-  vmImage: string # name of the VM image you want to use; valid only in the Microsoft-hosted pool
-```
-
-If you use a Microsoft-hosted pool, choose an [available virtual machine image](/azure/devops/pipelines/agents/hosted.md#use-a-microsoft-hosted-agent).
-
-If you use a private pool and don't need to specify demands, you can shorten the syntax to:
-
-```yaml
-pool: string # name of the private pool to run this job in
-```
-
-Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts).
-
-
 :::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
 ## pool: string
 
 :::moniker-end
 
-Which pool to use for a job of the pipeline.
+Specify a pool by name to use for a job of the pipeline.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -139,7 +119,7 @@ Which pool to use for a job of the pipeline.
 
 
 ```yaml
-pool: string # Name of the pool.
+pool: string # Specify a private pool by name.
 ```
 
 ### Properties
@@ -156,7 +136,7 @@ pool: string # Name of the pool.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pool. 
+<!-- :::api-desc type="property"::: -->Specify a private pool by name. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -177,7 +157,7 @@ ___
 
 
 ```yaml
-pool: string # Name of the pool.
+pool: string # Specify a private pool by name.
 ```
 
 ### Properties
@@ -194,7 +174,7 @@ pool: string # Name of the pool.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pool. 
+<!-- :::api-desc type="property"::: -->Specify a private pool by name. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -215,7 +195,7 @@ ___
 
 
 ```yaml
-pool: string # Name of the pool.
+pool: string # Specify a private pool by name.
 ```
 
 ### Properties
@@ -232,7 +212,7 @@ pool: string # Name of the pool.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pool. 
+<!-- :::api-desc type="property"::: -->Specify a private pool by name. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -253,7 +233,7 @@ ___
 
 
 ```yaml
-pool: string # Name of the pool.
+pool: string # Specify a private pool by name.
 ```
 
 ### Properties
@@ -270,7 +250,7 @@ pool: string # Name of the pool.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pool. 
+<!-- :::api-desc type="property"::: -->Specify a private pool by name. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -291,7 +271,7 @@ ___
 
 
 ```yaml
-pool: string # Name of the pool.
+pool: string # Specify a private pool by name.
 ```
 
 ### Properties
@@ -308,7 +288,7 @@ pool: string # Name of the pool.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pool. 
+<!-- :::api-desc type="property"::: -->Specify a private pool by name. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -324,7 +304,9 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+### Remarks
+
+Use this syntax to specify a private pool by name.
 
 
 ### Examples
@@ -342,7 +324,7 @@ pool: MyPool
 
 :::moniker-end
 
-Which pool to use for a job of the pipeline.
+Specify a pool to use for a job of the pipeline using the full syntax.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -353,7 +335,7 @@ Which pool to use for a job of the pipeline.
 ```yaml
 pool:
   name: string # Name of a pool. 
-  demands: string | [ string ]  # List of demands (for a private pool)
+  demands: string | [ string ] # List of demands (for a private pool)
   vmImage: string # Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
 ```
 
@@ -389,7 +371,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pool.demands](pool-demands.md)
+string or string list
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->List of demands (for a private pool). 
  <!-- :::api-desc-end::: -->
@@ -434,7 +416,7 @@ ___
 ```yaml
 pool:
   name: string # Name of a pool. 
-  demands: string | [ string ]  # List of demands (for a private pool)
+  demands: string | [ string ] # List of demands (for a private pool)
   vmImage: string # Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
 ```
 
@@ -470,7 +452,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pool.demands](pool-demands.md)
+string or string list
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->List of demands (for a private pool). 
  <!-- :::api-desc-end::: -->
@@ -515,7 +497,7 @@ ___
 ```yaml
 pool:
   name: string # Name of a pool. 
-  demands: string | [ string ]  # List of demands (for a private pool)
+  demands: string | [ string ] # List of demands (for a private pool)
   vmImage: string # Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
 ```
 
@@ -551,7 +533,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pool.demands](pool-demands.md)
+string or string list
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->List of demands (for a private pool). 
  <!-- :::api-desc-end::: -->
@@ -596,7 +578,7 @@ ___
 ```yaml
 pool:
   name: string # Name of a pool. 
-  demands: string | [ string ]  # List of demands (for a private pool)
+  demands: string | [ string ] # List of demands (for a private pool)
   vmImage: string # Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
 ```
 
@@ -632,7 +614,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pool.demands](pool-demands.md)
+string or string list
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->List of demands (for a private pool). 
  <!-- :::api-desc-end::: -->
@@ -677,7 +659,7 @@ ___
 ```yaml
 pool:
   name: string # Name of a pool. 
-  demands: string | [ string ]  # List of demands (for a private pool)
+  demands: string | [ string ] # List of demands (for a private pool)
   vmImage: string # Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
 ```
 
@@ -713,7 +695,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pool.demands](pool-demands.md)
+string or string list
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->List of demands (for a private pool). 
  <!-- :::api-desc-end::: -->
@@ -751,17 +733,54 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+### Remarks
+
+
+
+Specify a Microsoft-hosted pool using the `vmImage` property.
+
+
 
 
 ### Examples
 
-To use a Microsoft-hosted pool, omit the name and specify one of the available [hosted images](/azure/devops/pipelines/agents/hosted.md#use-a-microsoft-hosted-agent):
+:::moniker range="= azure-pipelines"
+
+To use a Microsoft-hosted pool, omit the name and specify one of the available [hosted images](/azure/devops/pipelines/agents/hosted#use-a-microsoft-hosted-agent):
 
 ```yaml
 pool:
-  vmImage: ubuntu-16.04
+  vmImage: ubuntu-latest
 ```
 
+::: moniker-end
 
-<!-- See also -->
+You can specify demands for a private pool using the full syntax.
+
+To add a single demand to your YAML build pipeline, add the `demands:` line to the `pool` section.
+```yaml
+pool:
+  name: Default
+  demands: SpecialSoftware # exists check for SpecialSoftware
+```
+
+Or if you need to add multiple demands, add one per line.
+
+```yaml
+pool:
+  name: MyPool
+  demands:
+  - myCustomCapability   # exists check for myCustomCapability
+  - Agent.Version -equals 2.144.0 # equals check for Agent.Version 2.144.0
+```
+
+> [!NOTE]
+> Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+
+For more information and examples, see [Specify demands](/azure/devops/pipelines/process/demands).
+
+## See also
+
+Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts).
+
+

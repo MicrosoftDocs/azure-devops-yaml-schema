@@ -1,7 +1,5 @@
 - name: YAML schema
   href: index.md
-- name: extends
-  href: extends.md
 - name: jobs
   href: jobs.md
 - name: jobs.deployment
@@ -30,10 +28,10 @@
   href: parameters-name.md
 - name: pipeline
   href: pipeline.md
+- name: pipeline.extends
+  href: pipeline-extends.md
 - name: pool
   href: pool.md
-- name: pool.demands
-  href: pool-demands.md
 - name: pr
   href: pr.md
 - name: resources
@@ -64,6 +62,8 @@
   href: resources-webhooks-webhook.md
 - name: resources.webhooks.webhook.filters
   href: resources-webhooks-webhook-filters.md
+- name: resources.webhooks.webhook.filters.path
+  href: resources-webhooks-webhook-filters-path.md
 - name: schedules
   href: schedules.md
 - name: schedules.cron
