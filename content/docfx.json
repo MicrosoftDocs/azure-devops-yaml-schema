@@ -1,0 +1,68 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "_themes/**",
+          "_themes.pdf/**",
+          "**/docfx.json",
+          "_repo.en-us/**",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices.md"
+        ],
+        "group": "all"
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "_themes/**",
+          "_themes.pdf/**",
+          "**/docfx.json",
+          "_repo.en-us/**"
+        ]
+      }
+    ],
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "uhfHeaderId": "MSDocsHeader-AzureDevOps",
+      "ms.topic": "reference",
+      "breadcrumb_path": "/azure/devops/pipelines/yaml-schema/breadcrumb/toc.json",
+      "extendBreadcrumb": true,
+      "feedback_system": "None",
+      "ms.manager": "mijacobs",
+      "author": "steved0x",
+      "ms.author": "sdanie",
+      "ms.date": "09/28/2021",
+      "ms.prod": "devops",
+      "ms.version": "ALM",
+      "MSHAttr.msprod": "ms.prod:ALM",
+      "ms.prodfamily": "ALM"
+    },
+    "fileMetadata": {},
+    "template": [],
+    "dest": "azure-devops-yaml-schema",
+    "markdownEngineName": "markdig",
+    "groups": {
+      "all": {
+        "dest": "all",
+        "moniker_range": ">= azure-pipelines-2019 <= azure-pipelines"
+      }
+    }
+  }
+}
