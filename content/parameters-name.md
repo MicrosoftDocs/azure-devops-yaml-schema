@@ -1,7 +1,7 @@
 ---
 title: parameters.name definition
 description: parameters.name definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -409,7 +409,8 @@ The `type` value must be one of the `enum` members from the following table.
 | `number` | may be restricted to `values:`, otherwise any number-like string is accepted |
 | `boolean` | `true` or `false` |
 | `object` | any YAML structure |
-| `step` | a single step or steps |
+| `step` | a single step |
+| `stepList` | sequence of steps |
 | `job` | a single job |
 | `jobList` | sequence of jobs |
 | `deployment` | a single deployment job |
@@ -488,11 +489,8 @@ parameters:
   default: ubuntu-latest
   values:
   - windows-latest
-  - vs2017-win2016
   - ubuntu-latest
-  - ubuntu-16.04
   - macOS-latest
-  - macOS-10.14
 
 trigger: none
 

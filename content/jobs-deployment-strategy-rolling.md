@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.rolling definition
 description: jobs.deployment.strategy.rolling definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -510,6 +510,18 @@ With `maxParallel: <# or % of VMs>`, you can control the number/percentage of vi
 
  > [!NOTE]
  > There are a few known gaps in this feature. For example, when you retry a stage, it will re-run the deployment on all VMs not just failed targets. 
+
+### Descriptions of lifecycle hooks
+
+`preDeploy`: Used to run steps that initialize resources before application deployment starts. 
+
+`deploy`: Used to run steps that deploy your application. Download artifact task will be auto injected only in the `deploy` hook for deployment jobs. To stop downloading artifacts, use `- download: none` or choose specific artifacts to download by specifying [Download Pipeline Artifact task](steps-download.md).
+
+`routeTraffic`: Used to run steps that serve the traffic to the updated version. 
+
+`postRouteTraffic`: Used to run the steps after the traffic is routed. Typically, these tasks monitor the health of the updated version for defined interval. 
+
+`on: failure` or `on: success`: Used to run steps for rollback actions or clean-up. 
 
 
 ## Examples

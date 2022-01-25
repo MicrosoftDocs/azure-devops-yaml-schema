@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -703,15 +703,6 @@ ___
 :::moniker range=" = azure-pipelines-2020"
 :::row:::
 :::column:::
-[extends](../extends.md)
-:::column-end:::
-:::column span="3":::
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [jobs](../jobs.md)
 :::column-end:::
 :::column span="3":::
@@ -778,7 +769,7 @@ ___
 [jobs.deployment.strategy.runOnce](../jobs-deployment-strategy-run-once.md)
 :::column-end:::
 :::column span="3":::
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 :::column-end:::
 :::row-end:::
@@ -853,6 +844,16 @@ ___
 :::column-end:::
 :::column span="3":::
 A pipeline is one or more stages that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
+[pipeline.extends](../pipeline-extends.md)
+:::column-end:::
+:::column span="3":::
+Extend a pipeline using a template.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1258,15 +1259,6 @@ ___
 :::moniker range=" = azure-pipelines-2020.1"
 :::row:::
 :::column:::
-[extends](../extends.md)
-:::column-end:::
-:::column span="3":::
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [jobs](../jobs.md)
 :::column-end:::
 :::column span="3":::
@@ -1333,7 +1325,7 @@ ___
 [jobs.deployment.strategy.runOnce](../jobs-deployment-strategy-run-once.md)
 :::column-end:::
 :::column span="3":::
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 :::column-end:::
 :::row-end:::
@@ -1408,6 +1400,16 @@ ___
 :::column-end:::
 :::column span="3":::
 A pipeline is one or more stages that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
+[pipeline.extends](../pipeline-extends.md)
+:::column-end:::
+:::column span="3":::
+Extend a pipeline using a template.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1847,15 +1849,6 @@ ___
 :::moniker range=" = azure-pipelines"
 :::row:::
 :::column:::
-[extends](../extends.md)
-:::column-end:::
-:::column span="3":::
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [jobs](../jobs.md)
 :::column-end:::
 :::column span="3":::
@@ -1922,7 +1915,7 @@ ___
 [jobs.deployment.strategy.runOnce](../jobs-deployment-strategy-run-once.md)
 :::column-end:::
 :::column span="3":::
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 :::column-end:::
 :::row-end:::
@@ -1997,6 +1990,16 @@ ___
 :::column-end:::
 :::column span="3":::
 A pipeline is one or more stages that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
+[pipeline.extends](../pipeline-extends.md)
+:::column-end:::
+:::column span="3":::
+Extend a pipeline using a template.
+
 :::column-end:::
 :::row-end:::
 ___

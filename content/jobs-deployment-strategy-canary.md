@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.canary definition
 description: jobs.deployment.strategy.canary definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -497,13 +497,24 @@ ___
 Canary deployment strategy is an advanced deployment strategy that helps mitigate the risk involved in rolling out new versions of applications. By using this strategy, you can roll out the changes to a small subset of servers first. As you gain more confidence in the new version, you can release it to more servers in your infrastructure and route more traffic to it.
 
 Canary deployment strategy supports the `preDeploy` lifecycle hook (executed once) and iterates with the `deploy`, `routeTraffic`, and `postRouteTraffic` lifecycle hooks. It then exits with either the `success` or `failure` hook.
-
  
 The following variables are available in this strategy:
 
 `strategy.name`: Name of the strategy. For example, canary.
 <br>`strategy.action`: The action to be performed on the Kubernetes cluster. For example, deploy, promote, or reject.
 <br>`strategy.increment`: The increment value used in the current interaction. This variable is available only in `deploy`, `routeTraffic`, and `postRouteTraffic` lifecycle hooks.
+
+### Descriptions of lifecycle hooks
+
+`preDeploy`: Used to run steps that initialize resources before application deployment starts. 
+
+`deploy`: Used to run steps that deploy your application. Download artifact task will be auto injected only in the `deploy` hook for deployment jobs. To stop downloading artifacts, use `- download: none` or choose specific artifacts to download by specifying [Download Pipeline Artifact task](steps-download.md).
+
+`routeTraffic`: Used to run steps that serve the traffic to the updated version. 
+
+`postRouteTraffic`: Used to run the steps after the traffic is routed. Typically, these tasks monitor the health of the updated version for defined interval. 
+
+`on: failure` or `on: success`: Used to run steps for rollback actions or clean-up. 
 
 
 ## Examples

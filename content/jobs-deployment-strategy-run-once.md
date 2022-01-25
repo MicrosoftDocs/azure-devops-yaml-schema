@@ -1,14 +1,14 @@
 ---
 title: jobs.deployment.strategy.runOnce definition
 description: jobs.deployment.strategy.runOnce definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # jobs.deployment.strategy.runOnce definition
 
 
-`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.  
+The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
 
 :::moniker range="= azure-pipelines-2020"
@@ -431,22 +431,26 @@ ___
 
 ## Remarks
 
-If you are using self-hosted agents, you can use the workspace clean options to clean your deployment workspace.
+`runOnce` is the simplest deployment strategy wherein all the lifecycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then, either `on:` `success` or `on:` `failure` is executed.
 
-```yaml
-  jobs:
-  - deployment: deploy
-    pool:
-      vmImage: 'ubuntu-latest'
-      workspace:
-        clean: all
-    environment: staging
 ```
+
+### Descriptions of lifecycle hooks
+
+`preDeploy`: Used to run steps that initialize resources before application deployment starts. 
+
+`deploy`: Used to run steps that deploy your application. Download artifact task will be auto injected only in the `deploy` hook for deployment jobs. To stop downloading artifacts, use `- download: none` or choose specific artifacts to download by specifying [Download Pipeline Artifact task](steps.download.md).
+
+`routeTraffic`: Used to run steps that serve the traffic to the updated version. 
+
+`postRouteTraffic`: Used to run the steps after the traffic is routed. Typically, these tasks monitor the health of the updated version for defined interval. 
+
+`on: failure` or `on: success`: Used to run steps for rollback actions or clean-up. 
 
 
 ## Examples
 
-The following example YAML snippet showcases a simple use of a deploy job by using the `runOnce` deployment strategy. The example includes a checkout step. 
+The following example YAML snippet showcases a simple use of a deployment job by using the `runOnce` deployment strategy. The example includes a checkout step. 
 
 ```YAML
 
@@ -455,11 +459,10 @@ jobs:
 - deployment: DeployWeb
   displayName: deploy Web App
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: ubuntu-latest
   # Creates an environment if it doesn't exist.
   environment: 'smarthotel-dev'
   strategy:
-    # Default deployment strategy, more coming...
     runOnce:
       deploy:
         steps:
@@ -479,7 +482,7 @@ jobs:
 - deployment: DeployWeb
   displayName: deploy Web App
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: ubuntu-latest
   # Records deployment against bookings resource - Kubernetes namespace.
   environment: 'smarthotel-dev.bookings'
   strategy: 

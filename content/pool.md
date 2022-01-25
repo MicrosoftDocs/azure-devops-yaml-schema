@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: pool definition reference.
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -756,11 +756,11 @@ ___
 
 ### Examples
 
-To use a Microsoft-hosted pool, omit the name and specify one of the available [hosted images](/azure/devops/pipelines/agents/hosted.md#use-a-microsoft-hosted-agent):
+To use a Microsoft-hosted pool, omit the name and specify one of the available [hosted images](/azure/devops/pipelines/agents/hosted#use-a-microsoft-hosted-agent):
 
 ```yaml
 pool:
-  vmImage: ubuntu-16.04
+  vmImage: ubuntu-latest
 ```
 
 
