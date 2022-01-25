@@ -32,8 +32,6 @@
   href: pipeline-extends.md
 - name: pool
   href: pool.md
-- name: pool.demands
-  href: pool-demands.md
 - name: pr
   href: pr.md
 - name: resources

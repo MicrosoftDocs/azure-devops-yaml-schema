@@ -59,14 +59,6 @@ A `pool` specification also holds information about the job's strategy for runni
 ___
 :::row:::
 :::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [pr](../pr.md)
 :::column-end:::
 :::column span="3":::
@@ -408,14 +400,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
@@ -866,14 +850,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
@@ -1422,14 +1398,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
@@ -2012,14 +1980,6 @@ ___
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
 A `pool` specification also holds information about the job's strategy for running.
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pool.demands](../pool-demands.md)
-:::column-end:::
-:::column span="3":::
 :::column-end:::
 :::row-end:::
 ___
