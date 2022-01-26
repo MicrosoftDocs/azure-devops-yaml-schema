@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: pipeline definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -3508,7 +3508,7 @@ variables: variables # Variables for this pipeline
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pipeline.extends](pipeline-extends.md)
+[extends](extends.md)
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Required. Extends a template. 
  <!-- :::api-desc-end::: -->
@@ -3723,7 +3723,7 @@ variables: variables # Variables for this pipeline
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pipeline.extends](pipeline-extends.md)
+[extends](extends.md)
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Required. Extends a template. 
  <!-- :::api-desc-end::: -->
@@ -3939,7 +3939,7 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[pipeline.extends](pipeline-extends.md)
+[extends](extends.md)
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Required. Extends a template. 
  <!-- :::api-desc-end::: -->

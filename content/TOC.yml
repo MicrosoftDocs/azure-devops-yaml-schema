@@ -1,5 +1,9 @@
 - name: YAML schema
   href: index.md
+- name: pipeline
+  href: pipeline.md
+- name: extends
+  href: extends.md
 - name: jobs
   href: jobs.md
 - name: jobs.deployment
@@ -26,10 +30,6 @@
   href: parameters.md
 - name: parameters.name
   href: parameters-name.md
-- name: pipeline
-  href: pipeline.md
-- name: pipeline.extends
-  href: pipeline-extends.md
 - name: pool
   href: pool.md
 - name: pr

@@ -1,14 +1,13 @@
 ---
-title: pipeline.extends definition
-description: pipeline.extends definition reference.
-ms.date: 01/25/2022
+title: extends definition
+description: extends definition reference.
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
-# pipeline.extends definition
+# extends definition
 
 
-Extend a pipeline using a template.
 
 
 :::moniker range="= azure-pipelines-2020"
@@ -204,38 +203,5 @@ ___
 <!-- Remarks -->
 
 
-## Examples
+<!-- Examples -->
 
-Templates and their parameters are turned into constants before the pipeline runs.
-Template parameters provide type safety to input parameters.
-In this example, templates restrict which pools can be used in a pipeline by offering an enumeration of possible options rather than a freeform string.
-
-```yaml
-# template.yml
-parameters:
-- name: userpool
-  type: string
-  default: Azure Pipelines
-  values:
-  - Azure Pipelines
-  - private-pool-1
-  - private-pool-2
-
-pool: ${{ parameters.userpool }}
-steps:
-- script: # ... removed for clarity
-```
-
-```yaml
-# azure-pipelines.yml
-extends:
-  template: template.yml
-  parameters:
-    userpool: private-pool-1
-```
-
-
-## See also
-
-- [Template types & usage](/azure/devops/pipelines/process/templates)
-- [Security through templates](/azure/devops/pipelines/security/templates)

@@ -1,7 +1,7 @@
 ---
 title: target.settableVariables definition
 description: target.settableVariables definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines"
 ---
 
@@ -97,6 +97,26 @@ settableVariables: [ string ] #
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variableRestrictions`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
