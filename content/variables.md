@@ -91,7 +91,11 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 ## Remarks
 
-You can specify variables by hard-coding them into your pipeline using name/value pairs, or by list using the full syntax. You can't use both types in the same variables section.
+The `variables` keyword uses two syntax forms: list and mapping.
+
+In mapping syntax, all keys are variable names and their values are variable values. To use variable templates, you must use list syntax. List syntax requires you to specify whether you're mentioning a variable (`name`), a variable group (`group`), or a template (`template`).
+
+You can't use list and mapping variables in the same variables section, but you can combine `name`, `group`, and `template` when using list syntax.
 
 You can specify variables at the pipeline, stage, or job level.
 

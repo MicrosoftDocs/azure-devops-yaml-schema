@@ -16,8 +16,8 @@ Define variables using the full syntax.
 <!-- :::api-definition signature="variable{name}" version="azure-pipelines-2019"::: -->
 
 ```yaml
-variable:
-  name: string # Required as first property. Variable name.. 
+variables:
+- name: string # Required as first property. Variable name.. 
   value: string # Variable value.. 
 ```
 
@@ -78,8 +78,8 @@ ___
 <!-- :::api-definition signature="variable{name}" version="azure-pipelines-2019.1"::: -->
 
 ```yaml
-variable:
-  name: string # Required as first property. Variable name.. 
+variables:
+- name: string # Required as first property. Variable name.. 
   value: string # Variable value.. 
 ```
 
@@ -140,8 +140,8 @@ ___
 <!-- :::api-definition signature="variable{name}" version="azure-pipelines-2020"::: -->
 
 ```yaml
-variable:
-  name: string # Required as first property. Variable name.. 
+variables:
+- name: string # Required as first property. Variable name.. 
   value: string # Variable value.. 
   readonly: boolean # Whether a YAML variable is read-only; default is false..  (false,n,no,off,on,true,y,yes)
 ```
@@ -223,8 +223,8 @@ ___
 <!-- :::api-definition signature="variable{name}" version="azure-pipelines-2020.1"::: -->
 
 ```yaml
-variable:
-  name: string # Required as first property. Variable name.. 
+variables:
+- name: string # Required as first property. Variable name.. 
   value: string # Variable value.. 
   readonly: boolean # Whether a YAML variable is read-only; default is false..  (false,n,no,off,on,true,y,yes)
 ```
@@ -306,8 +306,8 @@ ___
 <!-- :::api-definition signature="variable{name}" version="azure-pipelines"::: -->
 
 ```yaml
-variable:
-  name: string # Required as first property. Variable name.. 
+variables:
+- name: string # Required as first property. Variable name.. 
   value: string # Variable value.. 
   readonly: boolean # Whether a YAML variable is read-only; default is false..  (false,n,no,off,on,true,y,yes)
 ```
