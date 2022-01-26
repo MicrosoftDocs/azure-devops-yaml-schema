@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: stages.stage definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -545,6 +545,49 @@ As an owner of a resource like an environment, you can define checks that are re
 
 Currently, manual approval checks are supported on [environments](/azure/devops/pipelines/process/environments).
 For more information, see [Approvals](/azure/devops/pipelines/process/approvals).
+
+:::moniker range="> azure-pipelines-2020.1"
+
+### Exclusive lock
+
+In YAML pipelines, checks are used to control the execution of stages on [protected resources](/azure/devops/pipelines/security/resources). One of the common checks that you can use is an [exclusive lock check](/azure/devops/pipelines/process/approvals). This check lets only a single run from the pipeline proceed. When multiple runs attempt to deploy to an environment at the same time, the check cancels all the old runs and permits the latest run to be deployed.
+
+You can configure the behavior of the exclusive lock check using the `lockBehavior` property, which has two values:
+
+- `runLatest` - Only the latest run acquires the lock to the resource. This is the default value if no `lockBehavior` is specified.
+- `sequential` - All runs acquire the lock sequentially to the protected resource.
+
+Canceling old runs is a good approach when your releases are cumulative and contain all the code changes from previous runs. However, there are some pipelines in which code changes are not cumulative. By configuring the `lockBehavior` property, you can choose to allow all runs to proceed and deploy sequentially to an environment, or preserve the previous behavior of canceling old runs and allowing just the latest. A value of `sequential` implies that all runs acquire the lock sequentially to the protected resource. A value of `runLatest` implies that only the latest run acquires the lock to the resource.
+
+To use exclusive lock check with `sequential` deployments or `runLatest`, follow these steps:
+
+ 1. Enable the exclusive lock check on the environment (or another protected resource).
+ 2. In the YAML file for the pipeline, specify a new property called `lockBehavior`. This can be specified for the whole pipeline or for a given stage:
+
+Set on a stage:
+
+```yaml
+stages:
+- stage: A
+  lockBehavior: sequential
+  jobs:
+  - job: Job
+    steps:
+    - script: Hey!
+```
+Set on the pipeline:
+
+```yaml
+lockBehavior: runLatest
+stages:
+- stage: A
+  jobs:
+  - job: Job
+    steps:
+    - script: Hey!
+```
+
+:::moniker-end
 
 
 ## Examples
