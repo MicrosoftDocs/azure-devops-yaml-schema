@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: trigger definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -346,6 +346,26 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 ### Properties
 
 
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `trigger`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
 
 
 <!-- :::api-definition-end::: -->
@@ -362,6 +382,26 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `trigger`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -382,6 +422,26 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 ### Properties
 
 
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `trigger`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
 
 
 <!-- :::api-definition-end::: -->
@@ -400,6 +460,26 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 ### Properties
 
 
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `trigger`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
 
 
 <!-- :::api-definition-end::: -->
@@ -416,6 +496,26 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `trigger`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 

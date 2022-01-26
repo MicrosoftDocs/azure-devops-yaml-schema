@@ -1,9 +1,18 @@
 ---
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
+:::row:::
+:::column:::
+[pipeline](../pipeline.md)
+:::column-end:::
+:::column span="3":::
+A pipeline is one or more jobs that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
 :::row:::
 :::column:::
 [jobs](../jobs.md)
@@ -33,15 +42,6 @@ ___
 The `matrix` and `parallel` keywords specify mutually exclusive strategies for duplicating a job.
 
 
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline](../pipeline.md)
-:::column-end:::
-:::column span="3":::
-A pipeline is one or more jobs that describe a CI/CD process.
 :::column-end:::
 :::row-end:::
 ___
@@ -301,8 +301,7 @@ ___
 [variables](../variables.md)
 :::column-end:::
 :::column span="3":::
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+Define variables to use in your pipeline.
 
 :::column-end:::
 :::row-end:::
@@ -312,6 +311,7 @@ ___
 [variables.group](../variables-group.md)
 :::column-end:::
 :::column span="3":::
+Reference variables from a variable group.
 
 :::column-end:::
 :::row-end:::
@@ -321,6 +321,7 @@ ___
 [variables.name](../variables-name.md)
 :::column-end:::
 :::column span="3":::
+Define variables using the full syntax.
 
 :::column-end:::
 :::row-end:::
@@ -330,7 +331,6 @@ ___
 [variables.template](../variables-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of variables in one file and use it multiple times in other files.
 
 :::column-end:::
@@ -339,6 +339,15 @@ ___
 :::moniker-end
 
 :::moniker range=" = azure-pipelines-2019.1"
+:::row:::
+:::column:::
+[pipeline](../pipeline.md)
+:::column-end:::
+:::column span="3":::
+A pipeline is one or more jobs that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
 :::row:::
 :::column:::
 [jobs](../jobs.md)
@@ -384,15 +393,6 @@ The `matrix` and `parallel` keywords specify mutually exclusive strategies for d
 ___
 :::row:::
 :::column:::
-[pipeline](../pipeline.md)
-:::column-end:::
-:::column span="3":::
-A pipeline is one or more jobs that describe a CI/CD process.
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [pool](../pool.md)
 :::column-end:::
 :::column span="3":::
@@ -647,8 +647,7 @@ ___
 [variables](../variables.md)
 :::column-end:::
 :::column span="3":::
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+Define variables to use in your pipeline.
 
 :::column-end:::
 :::row-end:::
@@ -658,6 +657,7 @@ ___
 [variables.group](../variables-group.md)
 :::column-end:::
 :::column span="3":::
+Reference variables from a variable group.
 
 :::column-end:::
 :::row-end:::
@@ -667,6 +667,7 @@ ___
 [variables.name](../variables-name.md)
 :::column-end:::
 :::column span="3":::
+Define variables using the full syntax.
 
 :::column-end:::
 :::row-end:::
@@ -676,7 +677,6 @@ ___
 [variables.template](../variables-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of variables in one file and use it multiple times in other files.
 
 :::column-end:::
@@ -685,6 +685,24 @@ ___
 :::moniker-end
 
 :::moniker range=" = azure-pipelines-2020"
+:::row:::
+:::column:::
+[pipeline](../pipeline.md)
+:::column-end:::
+:::column span="3":::
+A pipeline is one or more stages that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
+[extends](../extends.md)
+:::column-end:::
+:::column span="3":::
+
+:::column-end:::
+:::row-end:::
+___
 :::row:::
 :::column:::
 [jobs](../jobs.md)
@@ -818,25 +836,6 @@ ___
 :::column-end:::
 :::column span="3":::
 A parameter represents a value passed to a pipeline.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline](../pipeline.md)
-:::column-end:::
-:::column span="3":::
-A pipeline is one or more stages that describe a CI/CD process.
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline.extends](../pipeline-extends.md)
-:::column-end:::
-:::column span="3":::
-Extend a pipeline using a template.
 
 :::column-end:::
 :::row-end:::
@@ -1195,8 +1194,7 @@ ___
 [variables](../variables.md)
 :::column-end:::
 :::column span="3":::
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+Define variables to use in your pipeline.
 
 :::column-end:::
 :::row-end:::
@@ -1206,6 +1204,7 @@ ___
 [variables.group](../variables-group.md)
 :::column-end:::
 :::column span="3":::
+Reference variables from a variable group.
 
 :::column-end:::
 :::row-end:::
@@ -1215,6 +1214,7 @@ ___
 [variables.name](../variables-name.md)
 :::column-end:::
 :::column span="3":::
+Define variables using the full syntax.
 
 :::column-end:::
 :::row-end:::
@@ -1224,7 +1224,6 @@ ___
 [variables.template](../variables-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of variables in one file and use it multiple times in other files.
 
 :::column-end:::
@@ -1233,6 +1232,24 @@ ___
 :::moniker-end
 
 :::moniker range=" = azure-pipelines-2020.1"
+:::row:::
+:::column:::
+[pipeline](../pipeline.md)
+:::column-end:::
+:::column span="3":::
+A pipeline is one or more stages that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
+[extends](../extends.md)
+:::column-end:::
+:::column span="3":::
+
+:::column-end:::
+:::row-end:::
+___
 :::row:::
 :::column:::
 [jobs](../jobs.md)
@@ -1366,25 +1383,6 @@ ___
 :::column-end:::
 :::column span="3":::
 A parameter represents a value passed to a pipeline.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline](../pipeline.md)
-:::column-end:::
-:::column span="3":::
-A pipeline is one or more stages that describe a CI/CD process.
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline.extends](../pipeline-extends.md)
-:::column-end:::
-:::column span="3":::
-Extend a pipeline using a template.
 
 :::column-end:::
 :::row-end:::
@@ -1777,8 +1775,7 @@ ___
 [variables](../variables.md)
 :::column-end:::
 :::column span="3":::
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+Define variables to use in your pipeline.
 
 :::column-end:::
 :::row-end:::
@@ -1788,6 +1785,7 @@ ___
 [variables.group](../variables-group.md)
 :::column-end:::
 :::column span="3":::
+Reference variables from a variable group.
 
 :::column-end:::
 :::row-end:::
@@ -1797,6 +1795,7 @@ ___
 [variables.name](../variables-name.md)
 :::column-end:::
 :::column span="3":::
+Define variables using the full syntax.
 
 :::column-end:::
 :::row-end:::
@@ -1806,7 +1805,6 @@ ___
 [variables.template](../variables-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of variables in one file and use it multiple times in other files.
 
 :::column-end:::
@@ -1815,6 +1813,24 @@ ___
 :::moniker-end
 
 :::moniker range=" = azure-pipelines"
+:::row:::
+:::column:::
+[pipeline](../pipeline.md)
+:::column-end:::
+:::column span="3":::
+A pipeline is one or more stages that describe a CI/CD process.
+:::column-end:::
+:::row-end:::
+___
+:::row:::
+:::column:::
+[extends](../extends.md)
+:::column-end:::
+:::column span="3":::
+
+:::column-end:::
+:::row-end:::
+___
 :::row:::
 :::column:::
 [jobs](../jobs.md)
@@ -1948,25 +1964,6 @@ ___
 :::column-end:::
 :::column span="3":::
 A parameter represents a value passed to a pipeline.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline](../pipeline.md)
-:::column-end:::
-:::column span="3":::
-A pipeline is one or more stages that describe a CI/CD process.
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[pipeline.extends](../pipeline-extends.md)
-:::column-end:::
-:::column span="3":::
-Extend a pipeline using a template.
 
 :::column-end:::
 :::row-end:::
@@ -2367,8 +2364,7 @@ ___
 [variables](../variables.md)
 :::column-end:::
 :::column span="3":::
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+Define variables to use in your pipeline.
 
 :::column-end:::
 :::row-end:::
@@ -2378,6 +2374,7 @@ ___
 [variables.group](../variables-group.md)
 :::column-end:::
 :::column span="3":::
+Reference variables from a variable group.
 
 :::column-end:::
 :::row-end:::
@@ -2387,6 +2384,7 @@ ___
 [variables.name](../variables-name.md)
 :::column-end:::
 :::column span="3":::
+Define variables using the full syntax.
 
 :::column-end:::
 :::row-end:::
@@ -2396,7 +2394,6 @@ ___
 [variables.template](../variables-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of variables in one file and use it multiple times in other files.
 
 :::column-end:::

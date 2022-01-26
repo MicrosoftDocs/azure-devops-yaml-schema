@@ -1,13 +1,14 @@
 ---
 title: variables.group definition
 description: variables.group definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # variables.group definition
 
 
+Reference variables from a variable group.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -219,6 +220,24 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+## Examples
 
-<!-- See also -->
+```yaml
+variables:
+- group: my-variable-group
+```
+
+Use a variable group and variables defined in the pipeline.
+
+```yaml
+variables:
+- group: my-variable-group
+- name: my-bare-variable
+  value: 'value of my-bare-variable'
+```
+
+
+## See also
+
+- [Add & use variable groups](/azure/devops/pipelines/library/variable-groups)
+- [Define variables](/azure/devops/pipelines/process/variables)

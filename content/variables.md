@@ -1,15 +1,14 @@
 ---
 title: variables definition
 description: variables definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # variables definition
 
 
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+Define variables to use in your pipeline.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -48,8 +47,8 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 | Overload | Description |
 |----------|-------------|
-| [variables](#variables) |  |
-| [variables: variable list](#variables-variable-list) |  |
+| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
+| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
 
 :::moniker-end
 
@@ -57,8 +56,8 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 | Overload | Description |
 |----------|-------------|
-| [variables](#variables) |  |
-| [variables: variable list](#variables-variable-list) |  |
+| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
+| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
 
 :::moniker-end
 
@@ -66,8 +65,8 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 | Overload | Description |
 |----------|-------------|
-| [variables](#variables) |  |
-| [variables: variable list](#variables-variable-list) |  |
+| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
+| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
 
 :::moniker-end
 
@@ -75,8 +74,8 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 | Overload | Description |
 |----------|-------------|
-| [variables](#variables) |  |
-| [variables: variable list](#variables-variable-list) |  |
+| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
+| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
 
 :::moniker-end
 
@@ -84,25 +83,25 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 | Overload | Description |
 |----------|-------------|
-| [variables](#variables) |  |
-| [variables: variable list](#variables-variable-list) |  |
+| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
+| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
 
 :::moniker-end
 
 
 ## Remarks
 
-Specify variables at the pipeline, stage, or job level.
+You can specify variables by hard-coding them into your pipeline using name/value pairs, or by list using the full syntax. You can't use both types in the same variables section.
 
+You can specify variables at the pipeline, stage, or job level.
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## variables
+## variables: string pairs
 
 :::moniker-end
 
-
-You can add hard-coded values directly, reference [variable groups](/azure/devops/pipelines/library/variable-groups), or insert via variable templates.
+You can specify variables as string/value pairs.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -112,9 +111,30 @@ You can add hard-coded values directly, reference [variable groups](/azure/devop
 
 ```yaml
 variables:
-- ```
+  string: string # Name/value pairs.
+```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `mapping`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string name/value pairs
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -130,9 +150,30 @@ variables:
 
 ```yaml
 variables:
-- ```
+  string: string # Name/value pairs.
+```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `mapping`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string name/value pairs
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -148,9 +189,30 @@ variables:
 
 ```yaml
 variables:
-- ```
+  string: string # Name/value pairs.
+```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `mapping`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string name/value pairs
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -166,9 +228,30 @@ variables:
 
 ```yaml
 variables:
-- ```
+  string: string # Name/value pairs.
+```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `mapping`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string name/value pairs
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -184,9 +267,30 @@ variables:
 
 ```yaml
 variables:
-- ```
+  string: string # Name/value pairs.
+```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `mapping`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string name/value pairs
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -196,14 +300,10 @@ variables:
 :::moniker-end
 
 
-### Remarks
-
-Specify variables at the pipeline, stage, or job level.
-
+<!-- Remarks -->
 
 
 ### Examples
-
 
 For a simple set of hard-coded variables, use this mapping syntax:
 
@@ -211,33 +311,7 @@ For a simple set of hard-coded variables, use this mapping syntax:
 variables: { string: string }
 ```
 
-To include variable groups, switch to this sequence syntax:
-
-```yaml
-variables:
-- name: string  # name of a variable
-  value: string # value of the variable
-- group: string # name of a variable group
-```
-
-You can repeat `name`/`value` pairs and `group`.
-
-Variables can also be set as read only to [enhance security](/azure/devops/pipelines/security/inputs.md#variables). 
-
-```yaml
-variables:
-- name: myReadOnlyVar
-  value: myValue
-  readonly: true
-```
-
-::: moniker range=">=azure-pipelines-2020"
-
-You can also include [variables from templates](/azure/devops/pipelines/process/templates.md#variable-reuse).
-
-::: moniker-end
-
-Mapping syntax:
+Variables defined at different scopes:
 
 ::: moniker range=">= azure-pipelines-2020"
 
@@ -278,16 +352,6 @@ jobs:
 
 ::: moniker-end
 
-Sequence syntax:
-
-```yaml
-variables:
-- name: MY_VARIABLE           # hard-coded value
-  value: some value
-- group: my-variable-group-1  # variable group
-- group: my-variable-group-2  # another variable group
-```
-
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
@@ -295,6 +359,7 @@ variables:
 
 :::moniker-end
 
+Specify variables using the full syntax.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -303,10 +368,30 @@ variables:
 
 
 ```yaml
-variables: [ name | group | template ] # 
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -321,10 +406,30 @@ variables: [ name | group | template ] #
 
 
 ```yaml
-variables: [ name | group | template ] # 
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -339,10 +444,30 @@ variables: [ name | group | template ] #
 
 
 ```yaml
-variables: [ name | group | template ] # 
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -357,10 +482,30 @@ variables: [ name | group | template ] #
 
 
 ```yaml
-variables: [ name | group | template ] # 
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -375,10 +520,30 @@ variables: [ name | group | template ] #
 
 
 ```yaml
-variables: [ name | group | template ] # 
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
 ```
 
 ### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
 
 
 
@@ -388,20 +553,10 @@ variables: [ name | group | template ] #
 :::moniker-end
 
 
-### Remarks
-
-Specify variables at the pipeline, stage, or job level.
-
+<!-- Remarks -->
 
 
 ### Examples
-
-
-For a simple set of hard-coded variables, use this mapping syntax:
-
-```yaml
-variables: { string: string }
-```
 
 To include variable groups, switch to this sequence syntax:
 
@@ -429,47 +584,6 @@ You can also include [variables from templates](/azure/devops/pipelines/process/
 
 ::: moniker-end
 
-Mapping syntax:
-
-::: moniker range=">= azure-pipelines-2020"
-
-```yaml
-variables:      # pipeline-level
-  MY_VAR: 'my value'
-  ANOTHER_VAR: 'another value'
-
-stages:
-- stage: Build
-  variables:    # stage-level
-    STAGE_VAR: 'that happened'
-
-  jobs:
-  - job: FirstJob
-    variables:  # job-level
-      JOB_VAR: 'a job var'
-    steps:
-    - script: echo $(MY_VAR) $(STAGE_VAR) $(JOB_VAR)
-```
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-```yaml
-variables:      # pipeline-level
-  MY_VAR: 'my value'
-  ANOTHER_VAR: 'another value'
-
-jobs:
-- job: FirstJob
-  variables:  # job-level
-    JOB_VAR: 'a job var'
-  steps:
-  - script: echo $(MY_VAR) $(STAGE_VAR) $(JOB_VAR)
-```
-
-::: moniker-end
-
 Sequence syntax:
 
 ```yaml
@@ -481,4 +595,10 @@ variables:
 ```
 
 
-<!-- See also -->
+## See also
+
+- [Add & use variable groups](/azure/devops/pipelines/library/variable-groups)
+- [Define variables](/azure/devops/pipelines/process/variables)
+
+
+

@@ -1,13 +1,14 @@
 ---
 title: variables.name definition
 description: variables.name definition reference.
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # variables.name definition
 
 
+Define variables using the full syntax.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -384,9 +385,23 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+If you want to reference a variable group and define variables in the same variables section, you must use the full syntax.
 
 
-<!-- Examples -->
+## Examples
 
-<!-- See also -->
+```yaml
+variables:
+- name: one
+  value: initialValue
+- name: two
+  value: value2
+```
+
+
+## See also
+
+- [Add & use variable groups](/azure/devops/pipelines/library/variable-groups)
+- [Define variables](/azure/devops/pipelines/process/variables)
