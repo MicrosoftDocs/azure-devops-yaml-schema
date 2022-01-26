@@ -16,8 +16,8 @@ You can define a set of variables in one file and use it multiple times in other
 <!-- :::api-definition signature="variable{template}" version="azure-pipelines-2019"::: -->
 
 ```yaml
-variable:
-  template: string # Required as first property. Template file with variables.. 
+variables:
+- template: string # Required as first property. Template file with variables.. 
   parameters:  # Parameters to map into a the template.
     string: string # Name/value pairs.
 ```
@@ -79,8 +79,8 @@ ___
 <!-- :::api-definition signature="variable{template}" version="azure-pipelines-2019.1"::: -->
 
 ```yaml
-variable:
-  template: string # Required as first property. Template file with variables.. 
+variables:
+- template: string # Required as first property. Template file with variables.. 
   parameters:  # Parameters to map into a the template.
     string: string # Name/value pairs.
 ```
@@ -142,8 +142,8 @@ ___
 <!-- :::api-definition signature="variable{template}" version="azure-pipelines-2020"::: -->
 
 ```yaml
-variable:
-  template: string # Required as first property. Template file with variables.. 
+variables:
+- template: string # Required as first property. Template file with variables.. 
   parameters:  # Parameters to map into a the template.
     string: string # Name/value pairs.
 ```
@@ -205,8 +205,8 @@ ___
 <!-- :::api-definition signature="variable{template}" version="azure-pipelines-2020.1"::: -->
 
 ```yaml
-variable:
-  template: string # Required as first property. Template file with variables.. 
+variables:
+- template: string # Required as first property. Template file with variables.. 
   parameters:  # Parameters to map into a the template.
     string: string # Name/value pairs.
 ```
@@ -268,8 +268,8 @@ ___
 <!-- :::api-definition signature="variable{template}" version="azure-pipelines"::: -->
 
 ```yaml
-variable:
-  template: string # Required as first property. Template file with variables.. 
+variables:
+- template: string # Required as first property. Template file with variables.. 
   parameters:  # Parameters to map into a the template.
     string: string # Name/value pairs.
 ```
@@ -327,13 +327,7 @@ ___
 :::moniker-end
 
 
-## Remarks
-
-The `variables` keyword uses two syntax forms: sequence and mapping.
-In mapping syntax, all keys are variable names and their values are variable values.
-To use variable templates, you must use sequence syntax.
-Sequence syntax requires you to specify whether you're mentioning a variable (`name`), a variable group (`group`), or a template (`template`).
-See [variables](/azure/devops/pipelines/process/variables) topic for more information.
+<!-- Remarks -->
 
 
 ## Examples

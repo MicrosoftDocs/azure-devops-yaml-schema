@@ -16,8 +16,8 @@ Reference variables from a variable group.
 <!-- :::api-definition signature="variable{group}" version="azure-pipelines-2019"::: -->
 
 ```yaml
-variable:
-  group: string # Required as first property. Variable group name.. 
+variables:
+- group: string # Required as first property. Variable group name.. 
 ```
 
 
@@ -57,8 +57,8 @@ ___
 <!-- :::api-definition signature="variable{group}" version="azure-pipelines-2019.1"::: -->
 
 ```yaml
-variable:
-  group: string # Required as first property. Variable group name.. 
+variables:
+- group: string # Required as first property. Variable group name.. 
 ```
 
 
@@ -98,8 +98,8 @@ ___
 <!-- :::api-definition signature="variable{group}" version="azure-pipelines-2020"::: -->
 
 ```yaml
-variable:
-  group: string # Required as first property. Variable group name.. 
+variables:
+- group: string # Required as first property. Variable group name.. 
 ```
 
 
@@ -139,8 +139,8 @@ ___
 <!-- :::api-definition signature="variable{group}" version="azure-pipelines-2020.1"::: -->
 
 ```yaml
-variable:
-  group: string # Required as first property. Variable group name.. 
+variables:
+- group: string # Required as first property. Variable group name.. 
 ```
 
 
@@ -180,8 +180,8 @@ ___
 <!-- :::api-definition signature="variable{group}" version="azure-pipelines"::: -->
 
 ```yaml
-variable:
-  group: string # Required as first property. Variable group name.. 
+variables:
+- group: string # Required as first property. Variable group name.. 
 ```
 
 
