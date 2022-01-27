@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: jobs.deployment definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -1012,6 +1012,24 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+## Examples
+
+```YAML
+jobs:
+  # track deployments on the environment
+- deployment: DeployWeb
+  displayName: deploy Web App
+  pool:
+    vmImage: ubuntu-latest
+  # creates an environment if it doesn't exist
+  environment: 'smarthotel-dev'
+  strategy:
+    # default deployment strategy, more coming...
+    runOnce:
+      deploy:
+        steps:
+        - script: echo my first deployment
+```
+
 
 <!-- See also -->

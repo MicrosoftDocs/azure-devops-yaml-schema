@@ -1494,7 +1494,8 @@ steps:
 
 Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts).
 
-### Examples
+
+## Examples
 
 
 ```yaml
@@ -1507,9 +1508,6 @@ steps:
   env:
     name: Microsoft
 ```
-
-
-<!-- Examples -->
 
 
 ## See also

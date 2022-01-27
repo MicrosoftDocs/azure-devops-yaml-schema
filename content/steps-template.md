@@ -330,6 +330,60 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+## Examples
+
+In the main pipeline:
+
+```yaml
+steps:
+- template: string  # reference to template
+  parameters: { string: any } # provided parameters
+```
+
+In the included template:
+
+```yaml
+parameters: { string: any } # expected parameters
+steps: [ script | bash | pwsh | powershell | checkout | task | templateReference ]
+```
+
+```yaml
+# File: steps/build.yml
+
+steps:
+- script: npm install
+- script: npm test
+```
+
+```yaml
+# File: azure-pipelines.yml
+
+jobs:
+- job: macOS
+  pool:
+    vmImage: macOS-latest
+  steps:
+  - template: steps/build.yml # Template reference
+
+- job: Linux
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - template: steps/build.yml # Template reference
+
+- job: Windows
+  pool:
+    vmImage: windows-latest
+  steps:
+  - template: steps/build.yml # Template reference
+  - script: sign              # Extra step on Windows only
+```
+
+### See also
+
+See [templates](/azure/devops/pipelines/process/templates) for more about working with templates.
+
+
+
 
 <!-- See also -->

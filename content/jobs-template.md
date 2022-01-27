@@ -1,7 +1,7 @@
 ---
 title: jobs.template definition
 description: jobs.template definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -202,9 +202,72 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+In the main pipeline:
+
+```yaml
+- template: string # name of template to include
+  parameters: { string: any } # provided parameters
+```
+
+In the included template:
+
+```yaml
+parameters: { string: any } # expected parameters
+jobs: [ job ]
+```
 
 
-<!-- Examples -->
+## Examples
+
+In this example, a single job is repeated on three platforms.
+The job itself is specified only once.
+
+```yaml
+# File: jobs/build.yml
+
+parameters:
+  name: ''
+  pool: ''
+  sign: false
+
+jobs:
+- job: ${{ parameters.name }}
+  pool: ${{ parameters.pool }}
+  steps:
+  - script: npm install
+  - script: npm test
+  - ${{ if eq(parameters.sign, 'true') }}:
+    - script: sign
+```
+
+```yaml
+# File: azure-pipelines.yml
+
+jobs:
+- template: jobs/build.yml  # Template reference
+  parameters:
+    name: macOS
+    pool:
+      vmImage: macOS-latest
+
+- template: jobs/build.yml  # Template reference
+  parameters:
+    name: Linux
+    pool:
+      vmImage: ubuntu-latest
+
+- template: jobs/build.yml  # Template reference
+  parameters:
+    name: Windows
+    pool:
+      vmImage: windows-latest
+    sign: true  # Extra step on Windows only
+```
+
+
+
+
 
 <!-- See also -->

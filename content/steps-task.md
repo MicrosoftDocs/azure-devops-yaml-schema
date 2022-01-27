@@ -17,7 +17,8 @@ A `task` step runs  a task.
 
 ```yaml
 steps:
-- task```
+- task
+```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -57,7 +58,8 @@ ___
 
 ```yaml
 steps:
-- task```
+- task
+```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -97,7 +99,8 @@ ___
 
 ```yaml
 steps:
-- task```
+- task
+```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -137,7 +140,8 @@ ___
 
 ```yaml
 steps:
-- task```
+- task
+```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -177,7 +181,8 @@ ___
 
 ```yaml
 steps:
-- task```
+- task
+```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -227,7 +232,8 @@ If you don't specify a command mode, you can shorten the `target` structure to:
 Learn more about [conditions](/azure/devops/pipelines/process/conditions),
 [timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks.md#step-target).
 
-### Examples
+
+## Examples
 
 ```yaml
 steps:
@@ -237,9 +243,6 @@ steps:
   inputs:
     solution: '**\*.sln'
 ```
-
-
-<!-- Examples -->
 
 
 ## See also

@@ -1238,7 +1238,8 @@ The task runs a script using cmd.exe on Windows and Bash on other platforms.
 Learn more about [conditions](/azure/devops/pipelines/process/conditions),
 [timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks.md#step-target).
 
-### Examples
+
+## Examples
 
 
 If you don't specify a command mode, you can shorten the `target` structure to:
@@ -1253,9 +1254,6 @@ steps:
 - script: echo Hello world!
   displayName: Say hello
 ```
-
-
-<!-- Examples -->
 
 
 ## See also

@@ -1236,12 +1236,8 @@ The `bash` keyword is a shortcut for the [shell script task](/azure/devops/pipel
 The task runs a script in Bash on Windows, macOS, and Linux.
 
 
-### Remarks
 
-Learn more about [conditions](/azure/devops/pipelines/process/conditions),
-[timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks.md#step-target).
-
-### Examples
+## Examples
 
 
 ```yaml
@@ -1260,9 +1256,6 @@ If you don't specify a command mode, you can shorten the `target` structure to:
 - bash:
   target: string  # container name or the word 'host'
 ```
-
-
-<!-- Examples -->
 
 
 ## See also

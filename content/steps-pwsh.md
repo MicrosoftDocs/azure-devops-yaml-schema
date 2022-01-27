@@ -1447,8 +1447,6 @@ The task runs a script in PowerShell Core on Windows, macOS, and Linux.
 
 Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts).
 
-### Remarks
-
 Each PowerShell session lasts only for the duration of the job in which it runs. Tasks that depend on what has been bootstrapped must be in the same job as the bootstrap.
 
 

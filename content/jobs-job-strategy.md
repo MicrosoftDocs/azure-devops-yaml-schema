@@ -1,7 +1,7 @@
 ---
 title: jobs.job.strategy definition
 description: jobs.job.strategy definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -404,10 +404,66 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+### Remarks
+
+```yaml
+strategy:
+  matrix: { string1: { string2: string3 } }
+  maxParallel: number
+```
+
+For each occurrence of *string1* in the matrix, a copy of the job is generated.
+The name *string1* is the copy's name and is appended to the name of the job.
+For each occurrence of *string2*, a variable called *string2* with the value *string3* is available to the job.
+
+> [!NOTE]
+> Matrix configuration names must contain only basic Latin alphabet letters (A-Z and a-z), digits (0-9), and underscores (`_`).
+> They must start with a letter.
+> Also, their length must be 100 characters or fewer.
+
+The optional `maxParallel` keyword specifies the maximum number of simultaneous matrix legs to run at once.
+
+::: moniker range=">= azure-pipelines-2020"
+
+If `maxParallel` is unspecified or set to 0, no limit is applied.
+
+::: moniker-end
+
+::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
+
+If `maxParallel` is unspecified, no limit is applied.
+
+::: moniker-end
+
+> [!NOTE]
+> The `matrix` syntax doesn't support automatic job scaling but you can implement similar
+> functionality using the `each` keyword. For an example, see [expressions](/azure/devops/pipelines/process/expressions).
 
 
-<!-- Examples -->
+### Examples
+
+```yaml
+jobs:
+- job: Build
+  strategy:
+    matrix:
+      Python35:
+        PYTHON_VERSION: '3.5'
+      Python36:
+        PYTHON_VERSION: '3.6'
+      Python37:
+        PYTHON_VERSION: '3.7'
+    maxParallel: 2
+```
+
+This matrix creates three jobs: "Build Python35," "Build Python36," and "Build Python37."
+Within each job, a variable named PYTHON_VERSION is available.
+In "Build Python35," the variable is set to "3.5".
+It's likewise set to "3.6" in "Build Python36."
+Only two jobs run simultaneously.
+
+
+
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
@@ -620,6 +676,16 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+### Examples
+
+```yaml
+jobs:
+- job: SliceItFourWays
+  strategy:
+    parallel: 4
+```
+
+
+
 
 <!-- See also -->
