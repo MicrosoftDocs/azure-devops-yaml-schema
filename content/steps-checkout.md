@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -1631,12 +1631,8 @@ ___
 
 ## Remarks
 
-The `bash` keyword is a shortcut for the [shell script task](/azure/devops/pipelines/tasks/utility/shell-script).
-The task runs a script in Bash on Windows, macOS, and Linux.
-
 > [!NOTE]
 > In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
-
 
 
 ## Examples
@@ -1669,13 +1665,17 @@ To check out multiple repositories in your pipeline, use multiple `checkout` ste
 
 For more information, see [Check out multiple repositories in your pipeline](/azure/devops/pipelines/repos/multi-repo-checkout).
 
-
-
 ::: moniker-end
 
 
+## See also
+
+- [Supported source repositories](/azure/devops/pipelines/repos/)
 
 
 
 
-<!-- See also -->
+
+
+
+

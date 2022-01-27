@@ -1,14 +1,15 @@
 ---
 title: steps.reviewApp definition
 description: steps.reviewApp definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.reviewApp definition
 
 
-A step is one of a linear sequence of operations that make up a job
+The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
+
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -641,9 +642,14 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+The `reviewApp` keyword is a shortcut for the [Review App task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/ReviewAppV0).
 
 
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [Review App task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/ReviewAppV0)

@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: steps.task definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -17,7 +17,7 @@ A `task` step runs  a task.
 
 ```yaml
 steps:
-- ```
+- task```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -34,7 +34,7 @@ Properties that use this definition: [steps](steps.md)
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[task](task.md)
+task
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
@@ -57,7 +57,7 @@ ___
 
 ```yaml
 steps:
-- ```
+- task```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -74,7 +74,7 @@ Properties that use this definition: [steps](steps.md)
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[task](task.md)
+task
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
@@ -97,7 +97,7 @@ ___
 
 ```yaml
 steps:
-- ```
+- task```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -114,7 +114,7 @@ Properties that use this definition: [steps](steps.md)
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[task](task.md)
+task
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
@@ -137,7 +137,7 @@ ___
 
 ```yaml
 steps:
-- ```
+- task```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -154,7 +154,7 @@ Properties that use this definition: [steps](steps.md)
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[task](task.md)
+task
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
@@ -177,7 +177,7 @@ ___
 
 ```yaml
 steps:
-- ```
+- task```
 
 
 Properties that use this definition: [steps](steps.md)
@@ -194,7 +194,7 @@ Properties that use this definition: [steps](steps.md)
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-[task](task.md)
+task
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
@@ -239,10 +239,11 @@ steps:
 ```
 
 
-
-
-
-
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [Tasks](/azure/devops/pipelines/process/tasks)
+- [Catalog of tasks](/azure/devops/pipelines/tasks/index)
+

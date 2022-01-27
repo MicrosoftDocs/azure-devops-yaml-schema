@@ -1,14 +1,14 @@
 ---
 title: steps.saveCache definition
 description: steps.saveCache definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.saveCache definition
 
 
-A step is one of a linear sequence of operations that make up a job.
+The `saveCache` step saves a cache.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -1125,9 +1125,15 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+The `saveCache` keyword is a shortcut for the [Cache task](/azure/devops/pipelines/tasks/utility/cache).
 
 
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [Pipeline caching](/azure/devops/pipelines/release/caching)
+- [Cache task](/azure/devops/pipelines/tasks/utility/cache)

@@ -1,11 +1,14 @@
 ---
 title: steps.download definition
 description: steps.download definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.download definition
+
+
+The `download` step downloads pipeline artifacts.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -1227,8 +1230,15 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+The `download` keyword is a shortcut for the [Download Pipeline Artifacts task](/azure/devops/pipelines/tasks/utility/download-pipeline-artifact).
 
 
 <!-- Examples -->
 
+
+## See also
+
+- [Publish and download pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts)
+- [Download Pipeline Artifacts task](/azure/devops/pipelines/tasks/utility/download-pipeline-artifact)

@@ -1,7 +1,7 @@
 ---
 title: steps list definition
 description: steps list definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -208,8 +208,12 @@ steps:
 ```
 
 
+## See also
+
+- [Specify jobs in your pipeline](/azure/devops/pipelines/process/phases)
+- [Task types and usage](/azure/devops/pipelines/process/tasks)
 
 
 
 
-<!-- See also -->
+

@@ -1,12 +1,11 @@
 ---
 title: steps.template definition
 description: steps.template definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.template definition
-
 
 
 You can define a set of steps in one file and use it multiple times in another file.

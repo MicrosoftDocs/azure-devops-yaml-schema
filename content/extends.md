@@ -1,14 +1,14 @@
 ---
 title: extends definition
 description: extends definition reference.
-ms.date: 01/26/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # extends definition
 
 
-
+Extends a pipeline using a template.
 
 :::moniker range="= azure-pipelines-2020"
 

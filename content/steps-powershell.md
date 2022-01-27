@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: steps.powershell definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -1509,7 +1509,11 @@ steps:
 ```
 
 
-
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [PowerShell task](/azure/devops/pipelines/tasks/utility/powershell)
+- Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts)
+

@@ -1,14 +1,15 @@
 ---
 title: steps.downloadBuild definition
 description: steps.downloadBuild definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.downloadBuild definition
 
 
-A step is one of a linear sequence of operations that make up a job
+The `downloadBuild` step downloads build artifacts.
+
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -1334,9 +1335,19 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+The `downloadBuild` keyword is a shortcut for the [Download Build Artifacts task](/azure/devops/pipelines/tasks/utility/download-build-artifacts).
+
+> [!NOTE]
+> We recommend upgrading from `downloadBuild` (download build artifacts task) to `download` (download pipeline artifacts task) for faster performance.
 
 
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [download](steps-download.md)
+- [Publish and download pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts)
+- [Download Build Artifacts task](/azure/devops/pipelines/tasks/utility/download-build-artifacts)

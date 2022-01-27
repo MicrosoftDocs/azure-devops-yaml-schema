@@ -1,14 +1,15 @@
 ---
 title: steps.getPackage definition
 description: steps.getPackage definition reference.
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.getPackage definition
 
 
-A step is one of a linear sequence of operations that make up a job
+The `getPackage` step downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
+
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -704,9 +705,14 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+The `getPackage` keyword is a shortcut for the [Download Package task](/azure/devops/pipelines/tasks/utility/download-package).
 
 
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [Download Package task](/azure/devops/pipelines/tasks/utility/download-package)

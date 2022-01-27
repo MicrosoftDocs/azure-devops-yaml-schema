@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/26/2022
+ms.date: 01/27/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -193,6 +193,8 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
+The `download` step downloads pipeline artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -201,7 +203,8 @@ ___
 [steps.downloadBuild](../steps-download-build.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `downloadBuild` step downloads build artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -240,7 +243,8 @@ ___
 [steps.restoreCache](../steps-restore-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `restoreCache` step restores a cache.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -249,7 +253,7 @@ ___
 [steps.saveCache](../steps-save-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job.
+The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -279,7 +283,6 @@ ___
 [steps.template](../steps-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of steps in one file and use it multiple times in another file.
 
 :::column-end:::
@@ -539,6 +542,8 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
+The `download` step downloads pipeline artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -547,7 +552,8 @@ ___
 [steps.downloadBuild](../steps-download-build.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `downloadBuild` step downloads build artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -586,7 +592,8 @@ ___
 [steps.restoreCache](../steps-restore-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `restoreCache` step restores a cache.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -595,7 +602,7 @@ ___
 [steps.saveCache](../steps-save-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job.
+The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -625,7 +632,6 @@ ___
 [steps.template](../steps-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of steps in one file and use it multiple times in another file.
 
 :::column-end:::
@@ -699,7 +705,7 @@ ___
 [extends](../extends.md)
 :::column-end:::
 :::column span="3":::
-
+Extends a pipeline using a template.
 :::column-end:::
 :::row-end:::
 ___
@@ -1058,6 +1064,8 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
+The `download` step downloads pipeline artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1066,7 +1074,8 @@ ___
 [steps.downloadBuild](../steps-download-build.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `downloadBuild` step downloads build artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1075,7 +1084,8 @@ ___
 [steps.getPackage](../steps-get-package.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `getPackage` step downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1114,7 +1124,8 @@ ___
 [steps.restoreCache](../steps-restore-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `restoreCache` step restores a cache.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1123,7 +1134,8 @@ ___
 [steps.reviewApp](../steps-review-app.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1132,7 +1144,7 @@ ___
 [steps.saveCache](../steps-save-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job.
+The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -1162,7 +1174,6 @@ ___
 [steps.template](../steps-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of steps in one file and use it multiple times in another file.
 
 :::column-end:::
@@ -1246,7 +1257,7 @@ ___
 [extends](../extends.md)
 :::column-end:::
 :::column span="3":::
-
+Extends a pipeline using a template.
 :::column-end:::
 :::row-end:::
 ___
@@ -1639,6 +1650,8 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
+The `download` step downloads pipeline artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1647,7 +1660,8 @@ ___
 [steps.downloadBuild](../steps-download-build.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `downloadBuild` step downloads build artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1656,7 +1670,8 @@ ___
 [steps.getPackage](../steps-get-package.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `getPackage` step downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1695,7 +1710,8 @@ ___
 [steps.restoreCache](../steps-restore-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `restoreCache` step restores a cache.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1704,7 +1720,8 @@ ___
 [steps.reviewApp](../steps-review-app.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1713,7 +1730,7 @@ ___
 [steps.saveCache](../steps-save-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job.
+The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -1743,7 +1760,6 @@ ___
 [steps.template](../steps-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of steps in one file and use it multiple times in another file.
 
 :::column-end:::
@@ -1827,7 +1843,7 @@ ___
 [extends](../extends.md)
 :::column-end:::
 :::column span="3":::
-
+Extends a pipeline using a template.
 :::column-end:::
 :::row-end:::
 ___
@@ -2220,6 +2236,8 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
+The `download` step downloads pipeline artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2228,7 +2246,8 @@ ___
 [steps.downloadBuild](../steps-download-build.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `downloadBuild` step downloads build artifacts.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2237,7 +2256,8 @@ ___
 [steps.getPackage](../steps-get-package.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `getPackage` step downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2276,7 +2296,8 @@ ___
 [steps.restoreCache](../steps-restore-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `restoreCache` step restores a cache.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2285,7 +2306,8 @@ ___
 [steps.reviewApp](../steps-review-app.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job
+The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2294,7 +2316,7 @@ ___
 [steps.saveCache](../steps-save-cache.md)
 :::column-end:::
 :::column span="3":::
-A step is one of a linear sequence of operations that make up a job.
+The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -2324,7 +2346,6 @@ ___
 [steps.template](../steps-template.md)
 :::column-end:::
 :::column span="3":::
-
 You can define a set of steps in one file and use it multiple times in another file.
 
 :::column-end:::
