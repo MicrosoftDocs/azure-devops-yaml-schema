@@ -1,7 +1,7 @@
 ---
 title: jobs list definition
 description: jobs list definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -70,7 +70,7 @@ Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage
 |----------|-------------|
 | [jobs.job](jobs-job.md) | Agent pool job. |
 | [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Template job. |
+| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
 
 <!-- :::api-definition-end::: -->
 
@@ -93,7 +93,7 @@ Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage
 |----------|-------------|
 | [jobs.job](jobs-job.md) | Agent pool job. |
 | [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Template job. |
+| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
 
 <!-- :::api-definition-end::: -->
 
@@ -116,7 +116,7 @@ Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage
 |----------|-------------|
 | [jobs.job](jobs-job.md) | Agent pool job. |
 | [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Template job. |
+| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
 
 <!-- :::api-definition-end::: -->
 

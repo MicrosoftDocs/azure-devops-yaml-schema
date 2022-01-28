@@ -1,7 +1,7 @@
 ---
 title: target definition
 description: target definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -77,7 +77,7 @@ Tasks run in an execution context, which is either the agent host or a container
 
 
 ```yaml
-stepTarget: string # Environment in which to run this task.
+target: string # Environment in which to run this task.
 ```
 
 ### Properties
@@ -115,7 +115,7 @@ ___
 
 
 ```yaml
-stepTarget: string # Environment in which to run this task.
+target: string # Environment in which to run this task.
 ```
 
 ### Properties
@@ -153,7 +153,7 @@ ___
 
 
 ```yaml
-stepTarget: string # Environment in which to run this task.
+target: string # Environment in which to run this task.
 ```
 
 ### Properties

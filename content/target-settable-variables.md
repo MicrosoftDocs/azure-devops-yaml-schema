@@ -1,7 +1,7 @@
 ---
 title: target.settableVariables definition
 description: target.settableVariables definition reference.
-ms.date: 01/26/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines"
 ---
 
@@ -41,7 +41,7 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 
 ```yaml
-variableRestrictions: none # Disable variable restrictions and allow all variables.
+settableVariables: none # Disable variable restrictions and allow all variables.
 ```
 
 ### Properties

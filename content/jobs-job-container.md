@@ -1,7 +1,7 @@
 ---
 title: jobs.job.container definition
 description: jobs.job.container definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -93,7 +93,7 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 
 ```yaml
-jobContainer: string # 
+container: string # 
 ```
 
 ### Properties
@@ -131,7 +131,7 @@ ___
 
 
 ```yaml
-jobContainer: string # 
+container: string # 
 ```
 
 ### Properties
@@ -169,7 +169,7 @@ ___
 
 
 ```yaml
-jobContainer: string # 
+container: string # 
 ```
 
 ### Properties
@@ -207,7 +207,7 @@ ___
 
 
 ```yaml
-jobContainer: string # 
+container: string # 
 ```
 
 ### Properties

@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.environment definition
 description: jobs.deployment.environment definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -97,7 +97,7 @@ To specify an environment by name without using any additional properties, use t
 
 
 ```yaml
-deploymentEnvironment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+environment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
 ```
 
 ### Properties
@@ -135,7 +135,7 @@ ___
 
 
 ```yaml
-deploymentEnvironment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+environment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
 ```
 
 ### Properties
@@ -173,7 +173,7 @@ ___
 
 
 ```yaml
-deploymentEnvironment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+environment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
 ```
 
 ### Properties

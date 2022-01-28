@@ -1,7 +1,7 @@
 ---
 title: stages list definition
 description: stages list definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -26,8 +26,8 @@ Properties that use this definition: [pipeline.stages](pipeline.md)
 
 | Type     | Description |
 |----------|-------------|
-| [stages.stage](stages-stage.md) | Stage defined in a pipeline. |
-| [stages.template](stages-template.md) | Stage defined in a template. |
+| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
+| [stages.template](stages-template.md) | Stages defined in a template file. |
 
 <!-- :::api-definition-end::: -->
 
@@ -48,8 +48,8 @@ Properties that use this definition: [pipeline.stages](pipeline.md)
 
 | Type     | Description |
 |----------|-------------|
-| [stages.stage](stages-stage.md) | Stage defined in a pipeline. |
-| [stages.template](stages-template.md) | Stage defined in a template. |
+| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
+| [stages.template](stages-template.md) | Stages defined in a template file. |
 
 <!-- :::api-definition-end::: -->
 
@@ -70,8 +70,8 @@ Properties that use this definition: [pipeline.stages](pipeline.md)
 
 | Type     | Description |
 |----------|-------------|
-| [stages.stage](stages-stage.md) | Stage defined in a pipeline. |
-| [stages.template](stages-template.md) | Stage defined in a template. |
+| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
+| [stages.template](stages-template.md) | Stages defined in a template file. |
 
 <!-- :::api-definition-end::: -->
 
