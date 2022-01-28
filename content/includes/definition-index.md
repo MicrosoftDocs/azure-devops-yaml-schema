@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -377,7 +377,6 @@ ___
 :::column-end:::
 :::column span="3":::
 Container jobs allow you to run jobs on a container instead of the agent host.
-
 
 :::column-end:::
 :::row-end:::
@@ -798,7 +797,6 @@ ___
 :::column-end:::
 :::column span="3":::
 Container jobs allow you to run jobs on a container instead of the agent host.
-
 
 :::column-end:::
 :::row-end:::
@@ -1350,7 +1348,6 @@ ___
 :::column-end:::
 :::column span="3":::
 Container jobs allow you to run jobs on a container instead of the agent host.
-
 
 :::column-end:::
 :::row-end:::
@@ -1936,7 +1933,6 @@ ___
 :::column-end:::
 :::column span="3":::
 Container jobs allow you to run jobs on a container instead of the agent host.
-
 
 :::column-end:::
 :::row-end:::

@@ -11,7 +11,6 @@ monikerRange: "= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipeline
 Container jobs allow you to run jobs on a container instead of the agent host.
 
 
-
 :::moniker range="= azure-pipelines-2019.1"
 
 Properties that use this definition: [pipeline.container](pipeline.md), [jobs.job.container](jobs-job.md)
@@ -42,8 +41,8 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [container: string](#container-string) |  |
-| [container: image](#container-image) |  |
+| [container: string](#container-string) | Specify job container by alias. |
+| [container: image](#container-image) | Specify job container using image tag and options. |
 
 :::moniker-end
 
@@ -51,9 +50,8 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [container: string](#container-string) |  |
-| [container: alias](#container-alias) |  |
-| [container: image](#container-image) |  |
+| [container: string](#container-string) | Specify job container by alias. |
+| [container: image](#container-image) | Specify job container using image tag and options. |
 
 :::moniker-end
 
@@ -61,9 +59,8 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [container: string](#container-string) |  |
-| [container: alias](#container-alias) |  |
-| [container: image](#container-image) |  |
+| [container: string](#container-string) | Specify job container by alias. |
+| [container: image](#container-image) | Specify job container using image tag and options. |
 
 :::moniker-end
 
@@ -71,9 +68,8 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [container: string](#container-string) |  |
-| [container: alias](#container-alias) |  |
-| [container: image](#container-image) |  |
+| [container: string](#container-string) | Specify job container by alias. |
+| [container: image](#container-image) | Specify job container using image tag and options. |
 
 :::moniker-end
 
@@ -85,6 +81,7 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 :::moniker-end
 
+Specify job container using an alias.
 
 
 :::moniker range="= azure-pipelines-2019.1"
@@ -240,10 +237,25 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+### Remarks
+
+The alias can be the name of an image, or it can be a reference to a [container resource](resources-containers-container.md).
 
 
-<!-- Examples -->
+
+### Examples
+
+The following example fetches the ubuntu image tagged 18.04 from [Docker Hub](https://hub.docker.com/) and then starts the container. When the `printenv` command runs, it happens inside the ubuntu:18.04 container.
+
+```yaml
+pool:
+  vmImage: 'ubuntu-18.04'
+
+container: ubuntu:18.04
+
+steps:
+- script: printenv
+```
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
@@ -251,6 +263,7 @@ ___
 
 :::moniker-end
 
+Specify job container using image tag and options.
 
 
 :::moniker range="= azure-pipelines-2019.1"
@@ -950,137 +963,56 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+### Examples
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
-
-## container: alias
-
-:::moniker-end
-
-
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="jobContainer{alias}" version="azure-pipelines-2020"::: -->
-
+Use `options` to configure container startup.
 
 ```yaml
 container:
-  alias: string # The alias of the container resource. 
+  image: ubuntu:18.04
+  options: --hostname container-test --ip 192.168.0.1
+
+steps:
+- script: echo hello
 ```
 
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `alias`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The alias of the container resource. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="jobContainer{alias}" version="azure-pipelines-2020.1"::: -->
-
+In the following example, the containers are defined in the resources section. Each container is then referenced later, by referring to its assigned alias.
 
 ```yaml
-container:
-  alias: string # The alias of the container resource. 
+resources:
+  containers:
+  - container: u14
+    image: ubuntu:14.04
+
+  - container: u16
+    image: ubuntu:16.04
+
+  - container: u18
+    image: ubuntu:18.04
+
+jobs:
+- job: RunInContainer
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  strategy:
+    matrix:
+      ubuntu14:
+        containerResource: u14
+      ubuntu16:
+        containerResource: u16
+      ubuntu18:
+        containerResource: u18
+
+  container: $[ variables['containerResource'] ]
+
+  steps:
+  - script: printenv
 ```
 
-### Properties
+## See also
+
+- [Define container jobs](/azure/devops/pipelines/process/container-phases)
+- [Define resources](/azure/devops/pipelines/process/resources)
 
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `alias`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The alias of the container resource. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="jobContainer{alias}" version="azure-pipelines"::: -->
-
-
-```yaml
-container:
-  alias: string # The alias of the container resource. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `alias`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The alias of the container resource. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-<!-- See also -->
