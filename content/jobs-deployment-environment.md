@@ -86,10 +86,11 @@ strategy:
 
 ## environment: string
 
-:::moniker-end
-
 To specify an environment by name without using any additional properties, use the following syntax.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -226,10 +227,11 @@ strategy:                 # deployment strategy
 
 ## environment: name, resourceName, resourceId, resourceType, tags
 
-:::moniker-end
-
 To configure other properties in addition to the name, use the full syntax.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 

@@ -67,9 +67,10 @@ The available options are the word `host` to target the agent host, plus any con
 
 ## target: string
 
-:::moniker-end
-
 Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`. Available options are the word `host` to target the agent host plus any containers defined in the pipeline.
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -195,9 +196,10 @@ ___
 
 ## target: container, commands
 
-:::moniker-end
-
 Configure step target with environment and allowed list of commands.
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -329,9 +331,10 @@ ___
 
 ## target: container, commands, settableVariables
 
-:::moniker-end
-
 Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`. Available options are the word `host` to target the agent host plus any containers defined in the pipeline.
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines"
 

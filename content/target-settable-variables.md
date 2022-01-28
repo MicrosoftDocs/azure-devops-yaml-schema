@@ -31,9 +31,10 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 ## settableVariables: none
 
+
+
+
 :::moniker-end
-
-
 
 :::moniker range="= azure-pipelines"
 
@@ -83,9 +84,10 @@ ___
 
 ## settableVariables: string list
 
+
+
+
 :::moniker-end
-
-
 
 :::moniker range="= azure-pipelines"
 

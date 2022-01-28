@@ -1,7 +1,7 @@
 ---
 title: pr definition
 description: pr definition reference.
-ms.date: 01/26/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -144,10 +144,11 @@ If you specify an `exclude` clause without an `include` clause for `branches` or
 
 ## pr: none
 
-:::moniker-end
-
 Disable pull request triggers.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -155,7 +156,7 @@ Disable pull request triggers.
 
 
 ```yaml
-pr: none # 
+pr: none # Disable pull request triggers.
 ```
 
 ### Properties
@@ -172,7 +173,7 @@ pr: none #
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -193,7 +194,7 @@ ___
 
 
 ```yaml
-pr: none # 
+pr: none # Disable pull request triggers.
 ```
 
 ### Properties
@@ -210,7 +211,7 @@ pr: none #
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -231,7 +232,7 @@ ___
 
 
 ```yaml
-pr: none # 
+pr: none # Disable pull request triggers.
 ```
 
 ### Properties
@@ -248,7 +249,7 @@ pr: none #
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -269,7 +270,7 @@ ___
 
 
 ```yaml
-pr: none # 
+pr: none # Disable pull request triggers.
 ```
 
 ### Properties
@@ -286,7 +287,7 @@ pr: none #
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -307,7 +308,7 @@ ___
 
 
 ```yaml
-pr: none # 
+pr: none # Disable pull request triggers.
 ```
 
 ### Properties
@@ -324,7 +325,7 @@ pr: none #
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -355,10 +356,11 @@ pr: none # will disable PR builds (but not CI builds)
 
 ## pr: branchFilter list
 
-:::moniker-end
-
 The list syntax specifies a list of branches which trigger a run when a pull request is raised or a push is made to the source branch of a raised pull request.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -383,7 +385,7 @@ pr: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -421,7 +423,7 @@ pr: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -459,7 +461,7 @@ pr: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -497,7 +499,7 @@ pr: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -535,7 +537,7 @@ pr: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -567,9 +569,10 @@ pr:
 
 ## pr: branches, paths
 
-:::moniker-end
-
 Full syntax for complete control.
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -639,22 +642,16 @@ ___
 <!-- Remarks -->
 
 
-### Examples
+<!-- Examples -->
 
-List syntax:
-
-```yaml
-pr:
-- main
-- develop
-```
 :::moniker range="= azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
 ## pr: autoCancel, branches, paths
 
-:::moniker-end
-
 Full syntax for complete control.
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019.1"
 
@@ -915,23 +912,17 @@ ___
 <!-- Remarks -->
 
 
-### Examples
+<!-- Examples -->
 
-List syntax:
-
-```yaml
-pr:
-- main
-- develop
-```
 :::moniker range="= azure-pipelines"
 
 ## pr: autoCancel, branches, paths, drafts
 
-:::moniker-end
-
 Use the full syntax when you need full control of the pull request trigger.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines"
 
@@ -1044,6 +1035,7 @@ ___
 
 
 ### Examples
+
 Full syntax:
 
 ```yaml

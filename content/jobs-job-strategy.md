@@ -96,12 +96,13 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 ## strategy: matrix, maxParallel
 
-:::moniker-end
-
 
 Use of a matrix generates copies of a job, each with different input.
 These copies are useful for testing against different configurations or platform versions.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -469,13 +470,14 @@ Only two jobs run simultaneously.
 
 ## strategy: parallel
 
-:::moniker-end
-
 
 This strategy specifies how many duplicates of a job should run.
 It's useful for slicing up a large test matrix.
 The [Visual Studio Test task](/azure/devops/pipelines/tasks/test/vstest) understands how to divide the test load across the number of scheduled jobs.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 

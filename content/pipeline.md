@@ -172,10 +172,11 @@ Use the `name` property to configure the pipeline run number. For more informati
 
 ## pipeline: jobs
 
-:::moniker-end
-
 You can provide a list of jobs to define a pipeline with a single implicit stage.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -1199,10 +1200,11 @@ jobs:
 
 ## pipeline: steps
 
-:::moniker-end
-
 You can provide a list of steps to define a pipeline with a single implicit job and stage.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -2775,10 +2777,11 @@ steps:
 
 ## pipeline: stages
 
-:::moniker-end
-
 You can provide a list of stages to define a pipeline with multiple stages.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -3467,10 +3470,11 @@ stages:
 
 ## pipeline: extends
 
-:::moniker-end
-
 Extends a pipeline using a template.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 

@@ -1,7 +1,7 @@
 ---
 title: variables definition
 description: variables definition reference.
-ms.date: 01/26/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -103,10 +103,11 @@ You can specify variables at the pipeline, stage, or job level.
 
 ## variables: string pairs
 
-:::moniker-end
-
 You can specify variables as string/value pairs.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -361,10 +362,11 @@ jobs:
 
 ## variables: variable list
 
-:::moniker-end
-
 Specify variables using the full syntax.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 

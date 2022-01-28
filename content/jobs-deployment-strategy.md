@@ -92,10 +92,11 @@ If you are using self-hosted agents, you can use the workspace clean options to 
 
 ## strategy: runOnce
 
-:::moniker-end
-
 The runOnce deployment strategy rolls out changes by executing each of its steps one time.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -226,10 +227,11 @@ ___
 
 ## strategy: rolling
 
-:::moniker-end
-
 A rolling deployment replaces instances of the previous version of an application with instances of the new version of the application on a fixed set of virtual machines (rolling set) in each iteration. 
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 
@@ -358,10 +360,11 @@ ___
 
 ## strategy: canary
 
-:::moniker-end
-
 Canary deployment strategy rolls out changes to a small subset of servers.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2020"
 

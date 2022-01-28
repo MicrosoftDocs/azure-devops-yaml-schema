@@ -79,10 +79,11 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 ## container: string
 
-:::moniker-end
-
 Specify job container using an alias.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019.1"
 
@@ -261,10 +262,11 @@ steps:
 
 ## container: image
 
-:::moniker-end
-
 Specify job container using image tag and options.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019.1"
 

@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: trigger definition reference.
-ms.date: 01/26/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -48,7 +48,7 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 | Overload | Description |
 |----------|-------------|
-| [trigger: none](#trigger-none) | Disable CI triggers. |
+| [trigger: none](#trigger-none) |  |
 | [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
 | [trigger: batch, branches, paths](#trigger-batch-branches-paths) | Full syntax for complete control. |
 
@@ -58,7 +58,7 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 | Overload | Description |
 |----------|-------------|
-| [trigger: none](#trigger-none) | Disable CI triggers. |
+| [trigger: none](#trigger-none) |  |
 | [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
 | [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
 
@@ -68,7 +68,7 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 | Overload | Description |
 |----------|-------------|
-| [trigger: none](#trigger-none) | Disable CI triggers. |
+| [trigger: none](#trigger-none) |  |
 | [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
 | [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
 
@@ -78,7 +78,7 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 | Overload | Description |
 |----------|-------------|
-| [trigger: none](#trigger-none) | Disable CI triggers. |
+| [trigger: none](#trigger-none) |  |
 | [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
 | [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
 
@@ -88,7 +88,7 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 | Overload | Description |
 |----------|-------------|
-| [trigger: none](#trigger-none) | Disable CI triggers. |
+| [trigger: none](#trigger-none) |  |
 | [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
 | [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
 
@@ -121,10 +121,11 @@ If you specify an `exclude` clause without an `include` clause for `branches`, `
 
 ## trigger: none
 
-:::moniker-end
-
 Disablement syntax.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -132,7 +133,7 @@ Disablement syntax.
 
 
 ```yaml
-trigger: none # List of branches that trigger a run.
+trigger: none # Disable CI triggers.
 ```
 
 ### Properties
@@ -149,7 +150,7 @@ trigger: none # List of branches that trigger a run.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -170,7 +171,7 @@ ___
 
 
 ```yaml
-trigger: none # List of branches that trigger a run.
+trigger: none # Disable CI triggers.
 ```
 
 ### Properties
@@ -187,7 +188,7 @@ trigger: none # List of branches that trigger a run.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -208,7 +209,7 @@ ___
 
 
 ```yaml
-trigger: none # List of branches that trigger a run.
+trigger: none # Disable CI triggers.
 ```
 
 ### Properties
@@ -225,7 +226,7 @@ trigger: none # List of branches that trigger a run.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -246,7 +247,7 @@ ___
 
 
 ```yaml
-trigger: none # List of branches that trigger a run.
+trigger: none # Disable CI triggers.
 ```
 
 ### Properties
@@ -263,7 +264,7 @@ trigger: none # List of branches that trigger a run.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -284,7 +285,7 @@ ___
 
 
 ```yaml
-trigger: none # List of branches that trigger a run.
+trigger: none # Disable CI triggers.
 ```
 
 ### Properties
@@ -301,7 +302,7 @@ trigger: none # List of branches that trigger a run.
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: none
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -329,10 +330,11 @@ trigger: none # will disable CI builds entirely
 
 ## trigger: branchFilter list
 
-:::moniker-end
-
 List syntax specifies a list of branches for which a push triggers a run.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -357,7 +359,7 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -395,7 +397,7 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -433,7 +435,7 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -471,7 +473,7 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -509,7 +511,7 @@ trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of branches that trigger a run. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -539,9 +541,10 @@ trigger:
 
 ## trigger: batch, branches, paths
 
-:::moniker-end
-
 Full syntax for complete control.
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -632,21 +635,17 @@ ___
 <!-- Remarks -->
 
 
-### Examples
+<!-- Examples -->
 
-```yaml
-trigger:
-- main
-- develop
-```
 :::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
 ## trigger: batch, branches, paths, tags
 
-:::moniker-end
-
 Use the full sytax control for full control over the CI trigger.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019.1"
 

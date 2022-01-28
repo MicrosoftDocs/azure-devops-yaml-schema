@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: pool definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -108,10 +108,11 @@ The pool specified at the lowest level of the hierarchy is used to run the job.
 
 ## pool: string
 
-:::moniker-end
-
 Specify a pool by name to use for a job of the pipeline.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
@@ -322,10 +323,11 @@ pool: MyPool
 
 ## pool: name, demands, vmImage
 
-:::moniker-end
-
 Specify a pool to use for a job of the pipeline using the full syntax.
 
+
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines-2019"
 
