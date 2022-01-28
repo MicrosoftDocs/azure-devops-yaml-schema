@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy definition
 description: jobs.deployment.strategy definition reference.
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -35,9 +35,9 @@ Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.
 
 | Overload | Description |
 |----------|-------------|
-| [deploymentStrategy: runOnce](#deploymentstrategy-runonce) | Run once deployment strategy. |
-| [deploymentStrategy: rolling](#deploymentstrategy-rolling) | Rolling deployment strategy. |
-| [deploymentStrategy: canary](#deploymentstrategy-canary) | Canary deployment strategy. |
+| [strategy: runOnce](#strategy-runonce) | Run once deployment strategy. |
+| [strategy: rolling](#strategy-rolling) | Rolling deployment strategy. |
+| [strategy: canary](#strategy-canary) | Canary deployment strategy. |
 
 :::moniker-end
 
@@ -45,9 +45,9 @@ Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.
 
 | Overload | Description |
 |----------|-------------|
-| [deploymentStrategy: runOnce](#deploymentstrategy-runonce) | Run once deployment strategy. |
-| [deploymentStrategy: rolling](#deploymentstrategy-rolling) | Rolling deployment strategy. |
-| [deploymentStrategy: canary](#deploymentstrategy-canary) | Canary deployment strategy. |
+| [strategy: runOnce](#strategy-runonce) | Run once deployment strategy. |
+| [strategy: rolling](#strategy-rolling) | Rolling deployment strategy. |
+| [strategy: canary](#strategy-canary) | Canary deployment strategy. |
 
 :::moniker-end
 
@@ -55,9 +55,9 @@ Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.
 
 | Overload | Description |
 |----------|-------------|
-| [deploymentStrategy: runOnce](#deploymentstrategy-runonce) | Run once deployment strategy. |
-| [deploymentStrategy: rolling](#deploymentstrategy-rolling) | Rolling deployment strategy. |
-| [deploymentStrategy: canary](#deploymentstrategy-canary) | Canary deployment strategy. |
+| [strategy: runOnce](#strategy-runonce) | Run once deployment strategy. |
+| [strategy: rolling](#strategy-rolling) | Rolling deployment strategy. |
+| [strategy: canary](#strategy-canary) | Canary deployment strategy. |
 
 :::moniker-end
 
@@ -90,7 +90,7 @@ If you are using self-hosted agents, you can use the workspace clean options to 
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## deploymentStrategy: runOnce
+## strategy: runOnce
 
 :::moniker-end
 
@@ -224,7 +224,7 @@ ___
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## deploymentStrategy: rolling
+## strategy: rolling
 
 :::moniker-end
 
@@ -356,7 +356,7 @@ ___
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## deploymentStrategy: canary
+## strategy: canary
 
 :::moniker-end
 

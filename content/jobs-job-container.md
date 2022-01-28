@@ -42,8 +42,8 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [jobContainer: string](#jobcontainer-string) |  |
-| [jobContainer: image](#jobcontainer-image) |  |
+| [container: string](#container-string) |  |
+| [container: image](#container-image) |  |
 
 :::moniker-end
 
@@ -51,9 +51,9 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [jobContainer: string](#jobcontainer-string) |  |
-| [jobContainer: alias](#jobcontainer-alias) |  |
-| [jobContainer: image](#jobcontainer-image) |  |
+| [container: string](#container-string) |  |
+| [container: alias](#container-alias) |  |
+| [container: image](#container-image) |  |
 
 :::moniker-end
 
@@ -61,9 +61,9 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [jobContainer: string](#jobcontainer-string) |  |
-| [jobContainer: alias](#jobcontainer-alias) |  |
-| [jobContainer: image](#jobcontainer-image) |  |
+| [container: string](#container-string) |  |
+| [container: alias](#container-alias) |  |
+| [container: image](#container-image) |  |
 
 :::moniker-end
 
@@ -71,9 +71,9 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 | Overload | Description |
 |----------|-------------|
-| [jobContainer: string](#jobcontainer-string) |  |
-| [jobContainer: alias](#jobcontainer-alias) |  |
-| [jobContainer: image](#jobcontainer-image) |  |
+| [container: string](#container-string) |  |
+| [container: alias](#container-alias) |  |
+| [container: image](#container-image) |  |
 
 :::moniker-end
 
@@ -81,7 +81,7 @@ Properties that use this definition: [pipeline.container](pipeline.md), [jobs.jo
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## jobContainer: string
+## container: string
 
 :::moniker-end
 
@@ -247,7 +247,7 @@ ___
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## jobContainer: image
+## container: image
 
 :::moniker-end
 
@@ -954,7 +954,7 @@ ___
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## jobContainer: alias
+## container: alias
 
 :::moniker-end
 

@@ -1,7 +1,7 @@
 ---
 title: jobs.job.strategy definition
 description: jobs.job.strategy definition reference.
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -49,8 +49,8 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 | Overload | Description |
 |----------|-------------|
-| [jobStrategy: matrix, maxParallel](#jobstrategy-matrix-maxparallel) | Matrix job strategy. |
-| [jobStrategy: parallel](#jobstrategy-parallel) | Parallel job strategy. |
+| [strategy: matrix, maxParallel](#strategy-matrix-maxparallel) | Matrix job strategy. |
+| [strategy: parallel](#strategy-parallel) | Parallel job strategy. |
 
 :::moniker-end
 
@@ -58,8 +58,8 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 | Overload | Description |
 |----------|-------------|
-| [jobStrategy: matrix, maxParallel](#jobstrategy-matrix-maxparallel) | Matrix job strategy. |
-| [jobStrategy: parallel](#jobstrategy-parallel) | Parallel job strategy. |
+| [strategy: matrix, maxParallel](#strategy-matrix-maxparallel) | Matrix job strategy. |
+| [strategy: parallel](#strategy-parallel) | Parallel job strategy. |
 
 :::moniker-end
 
@@ -67,8 +67,8 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 | Overload | Description |
 |----------|-------------|
-| [jobStrategy: matrix, maxParallel](#jobstrategy-matrix-maxparallel) | Matrix job strategy. |
-| [jobStrategy: parallel](#jobstrategy-parallel) | Parallel job strategy. |
+| [strategy: matrix, maxParallel](#strategy-matrix-maxparallel) | Matrix job strategy. |
+| [strategy: parallel](#strategy-parallel) | Parallel job strategy. |
 
 :::moniker-end
 
@@ -76,8 +76,8 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 | Overload | Description |
 |----------|-------------|
-| [jobStrategy: matrix, maxParallel](#jobstrategy-matrix-maxparallel) | Matrix job strategy. |
-| [jobStrategy: parallel](#jobstrategy-parallel) | Parallel job strategy. |
+| [strategy: matrix, maxParallel](#strategy-matrix-maxparallel) | Matrix job strategy. |
+| [strategy: parallel](#strategy-parallel) | Parallel job strategy. |
 
 :::moniker-end
 
@@ -85,8 +85,8 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 | Overload | Description |
 |----------|-------------|
-| [jobStrategy: matrix, maxParallel](#jobstrategy-matrix-maxparallel) | Matrix job strategy. |
-| [jobStrategy: parallel](#jobstrategy-parallel) | Parallel job strategy. |
+| [strategy: matrix, maxParallel](#strategy-matrix-maxparallel) | Matrix job strategy. |
+| [strategy: parallel](#strategy-parallel) | Parallel job strategy. |
 
 :::moniker-end
 
@@ -94,7 +94,7 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## jobStrategy: matrix, maxParallel
+## strategy: matrix, maxParallel
 
 :::moniker-end
 
@@ -467,7 +467,7 @@ Only two jobs run simultaneously.
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## jobStrategy: parallel
+## strategy: parallel
 
 :::moniker-end
 

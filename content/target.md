@@ -35,8 +35,8 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 
 | Overload | Description |
 |----------|-------------|
-| [stepTarget: string](#steptarget-string) | Configure step target with environment. |
-| [stepTarget: container, commands](#steptarget-container-commands) | Configure step target with environment and allowed list of commands. |
+| [target: string](#target-string) | Configure step target with environment. |
+| [target: container, commands](#target-container-commands) | Configure step target with environment and allowed list of commands. |
 
 :::moniker-end
 
@@ -44,8 +44,8 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 
 | Overload | Description |
 |----------|-------------|
-| [stepTarget: string](#steptarget-string) | Configure step target with environment. |
-| [stepTarget: container, commands](#steptarget-container-commands) | Configure step target with environment and allowed list of commands. |
+| [target: string](#target-string) | Configure step target with environment. |
+| [target: container, commands](#target-container-commands) | Configure step target with environment and allowed list of commands. |
 
 :::moniker-end
 
@@ -53,8 +53,8 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 
 | Overload | Description |
 |----------|-------------|
-| [stepTarget: string](#steptarget-string) | Configure step target with environment. |
-| [stepTarget: container, commands, settableVariables](#steptarget-container-commands-settablevariables) | Configure step target with environment, and allowed list of commands and variables. |
+| [target: string](#target-string) | Configure step target with environment. |
+| [target: container, commands, settableVariables](#target-container-commands-settablevariables) | Configure step target with environment, and allowed list of commands and variables. |
 
 :::moniker-end
 
@@ -65,7 +65,7 @@ The available options are the word `host` to target the agent host, plus any con
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## stepTarget: string
+## target: string
 
 :::moniker-end
 
@@ -193,7 +193,7 @@ ___
 
 :::moniker range="= azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## stepTarget: container, commands
+## target: container, commands
 
 :::moniker-end
 
@@ -327,7 +327,7 @@ ___
 
 :::moniker range="= azure-pipelines"
 
-## stepTarget: container, commands, settableVariables
+## target: container, commands, settableVariables
 
 :::moniker-end
 

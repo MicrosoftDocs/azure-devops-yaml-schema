@@ -20,8 +20,8 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 | Overload | Description |
 |----------|-------------|
-| [variableRestrictions: none](#variablerestrictions-none) | Disable variable restrictions and allow all variables. |
-| [variableRestrictions: string list](#variablerestrictions-string-list) |  |
+| [settableVariables: none](#settablevariables-none) | Disable variable restrictions and allow all variables. |
+| [settableVariables: string list](#settablevariables-string-list) |  |
 
 :::moniker-end
 
@@ -29,7 +29,7 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 :::moniker range="= azure-pipelines"
 
-## variableRestrictions: none
+## settableVariables: none
 
 :::moniker-end
 
@@ -81,7 +81,7 @@ ___
 
 :::moniker range="= azure-pipelines"
 
-## variableRestrictions: string list
+## settableVariables: string list
 
 :::moniker-end
 

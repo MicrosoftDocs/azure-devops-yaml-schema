@@ -35,8 +35,8 @@ Properties that use this definition: [jobs.deployment.environment](jobs-deployme
 
 | Overload | Description |
 |----------|-------------|
-| [deploymentEnvironment: string](#deploymentenvironment-string) | Deployment job with environment name. |
-| [deploymentEnvironment: name, resourceName, resourceId, resourceType, tags](#deploymentenvironment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
+| [environment: string](#environment-string) | Deployment job with environment name. |
+| [environment: name, resourceName, resourceId, resourceType, tags](#environment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
 
 :::moniker-end
 
@@ -44,8 +44,8 @@ Properties that use this definition: [jobs.deployment.environment](jobs-deployme
 
 | Overload | Description |
 |----------|-------------|
-| [deploymentEnvironment: string](#deploymentenvironment-string) | Deployment job with environment name. |
-| [deploymentEnvironment: name, resourceName, resourceId, resourceType, tags](#deploymentenvironment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
+| [environment: string](#environment-string) | Deployment job with environment name. |
+| [environment: name, resourceName, resourceId, resourceType, tags](#environment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
 
 :::moniker-end
 
@@ -53,8 +53,8 @@ Properties that use this definition: [jobs.deployment.environment](jobs-deployme
 
 | Overload | Description |
 |----------|-------------|
-| [deploymentEnvironment: string](#deploymentenvironment-string) | Deployment job with environment name. |
-| [deploymentEnvironment: name, resourceName, resourceId, resourceType, tags](#deploymentenvironment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
+| [environment: string](#environment-string) | Deployment job with environment name. |
+| [environment: name, resourceName, resourceId, resourceType, tags](#environment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
 
 :::moniker-end
 
@@ -84,7 +84,7 @@ strategy:
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## deploymentEnvironment: string
+## environment: string
 
 :::moniker-end
 
@@ -224,7 +224,7 @@ strategy:                 # deployment strategy
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
-## deploymentEnvironment: name, resourceName, resourceId, resourceType, tags
+## environment: name, resourceName, resourceId, resourceType, tags
 
 :::moniker-end
 
