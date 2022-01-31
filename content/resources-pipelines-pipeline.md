@@ -1,14 +1,14 @@
 ---
 title: resources.pipelines.pipeline definition
 description: resources.pipelines.pipeline definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # resources.pipelines.pipeline definition
 
 
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource, and optionally enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 
 :::moniker range="= azure-pipelines-2019"

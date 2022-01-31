@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: resources.containers.container definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -16,7 +16,7 @@ A container resource references a container image.
 <!-- :::api-definition signature="containerResource{container}" version="azure-pipelines-2019"::: -->
 
 ```yaml
-containerResources:
+containers:
 - container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to a private container registry. 
   azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
@@ -26,7 +26,7 @@ containerResources:
 ```
 
 
-Properties that use this definition: [resources.containers.containerResources](resources-containers.md)
+Properties that use this definition: [resources.containers.containers](resources-containers.md)
 
 ## Properties
 
@@ -162,7 +162,7 @@ ___
 <!-- :::api-definition signature="containerResource{container}" version="azure-pipelines-2019.1"::: -->
 
 ```yaml
-containerResources:
+containers:
 - container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to a private container registry. 
   azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
@@ -172,7 +172,7 @@ containerResources:
 ```
 
 
-Properties that use this definition: [resources.containers.containerResources](resources-containers.md)
+Properties that use this definition: [resources.containers.containers](resources-containers.md)
 
 ## Properties
 
@@ -308,7 +308,7 @@ ___
 <!-- :::api-definition signature="containerResource{container}" version="azure-pipelines-2020"::: -->
 
 ```yaml
-containerResources:
+containers:
 - container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
   type: string # Type of the registry like ACR or GCR.
   endpoint: string # ID of the service endpoint connecting to a private container registry. 
@@ -320,7 +320,7 @@ containerResources:
 ```
 
 
-Properties that use this definition: [resources.containers.containerResources](resources-containers.md)
+Properties that use this definition: [resources.containers.containers](resources-containers.md)
 
 ## Properties
 
@@ -496,7 +496,7 @@ ___
 <!-- :::api-definition signature="containerResource{container,image}" version="azure-pipelines-2020.1"::: -->
 
 ```yaml
-containerResources:
+containers:
 - container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
   image: string # Required. Container image tag. 
   type: string # Type of the registry like ACR or GCR.
@@ -520,7 +520,7 @@ containerResources:
 ```
 
 
-Properties that use this definition: [resources.containers.containerResources](resources-containers.md)
+Properties that use this definition: [resources.containers.containers](resources-containers.md)
 
 ## Properties
 
@@ -836,7 +836,7 @@ ___
 <!-- :::api-definition signature="containerResource{container,image}" version="azure-pipelines"::: -->
 
 ```yaml
-containerResources:
+containers:
 - container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
   image: string # Required. Container image tag. 
   type: string # Type of the registry like ACR or GCR.
@@ -860,7 +860,7 @@ containerResources:
 ```
 
 
-Properties that use this definition: [resources.containers.containerResources](resources-containers.md)
+Properties that use this definition: [resources.containers.containers](resources-containers.md)
 
 ## Properties
 

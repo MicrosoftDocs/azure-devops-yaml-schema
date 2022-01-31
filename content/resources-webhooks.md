@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks list definition
 description: resources.webhooks list definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020.1"
 ---
 
@@ -23,7 +23,7 @@ Properties that use this definition: [resources.webhooks](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.webhooks.webhook](resources-webhooks-webhook.md) |  |
+| [resources.webhooks.webhook](resources-webhooks-webhook.md) | A webhook resource enables you to integrate your pipeline with an external service to automate the workflow. |
 
 <!-- :::api-definition-end::: -->
 
@@ -44,7 +44,7 @@ Properties that use this definition: [resources.webhooks](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.webhooks.webhook](resources-webhooks-webhook.md) |  |
+| [resources.webhooks.webhook](resources-webhooks-webhook.md) | A webhook resource enables you to integrate your pipeline with an external service to automate the workflow. |
 
 <!-- :::api-definition-end::: -->
 

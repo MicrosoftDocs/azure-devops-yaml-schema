@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/28/2022
+ms.date: 01/31/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -133,7 +133,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource, and optionally enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -481,7 +481,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource, and optionally enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -952,7 +952,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource, and optionally enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -1503,7 +1503,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource, and optionally enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -1551,6 +1551,8 @@ ___
 [resources.webhooks.webhook.filters](../resources-webhooks-webhook-filters.md)
 :::column-end:::
 :::column span="3":::
+Filters used to customize the triggers for a webhook event.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1559,6 +1561,8 @@ ___
 [resources.webhooks.webhook.filters.path](../resources-webhooks-webhook-filters-path.md)
 :::column-end:::
 :::column span="3":::
+A webhook filter is used to customize the triggers for a webhook event.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2088,7 +2092,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource, and optionally enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -2136,6 +2140,8 @@ ___
 [resources.webhooks.webhook.filters](../resources-webhooks-webhook-filters.md)
 :::column-end:::
 :::column span="3":::
+Filters used to customize the triggers for a webhook event.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2144,6 +2150,8 @@ ___
 [resources.webhooks.webhook.filters.path](../resources-webhooks-webhook-filters-path.md)
 :::column-end:::
 :::column span="3":::
+A webhook filter is used to customize the triggers for a webhook event.
+
 :::column-end:::
 :::row-end:::
 ___

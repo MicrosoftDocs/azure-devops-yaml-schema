@@ -1,7 +1,7 @@
 ---
 title: resources.containers list definition
 description: resources.containers list definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -26,7 +26,7 @@ Properties that use this definition: [resources.containers](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.containers.container](resources-containers-container.md) |  |
+| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
 
 <!-- :::api-definition-end::: -->
 
@@ -47,7 +47,7 @@ Properties that use this definition: [resources.containers](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.containers.container](resources-containers-container.md) |  |
+| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
 
 <!-- :::api-definition-end::: -->
 
@@ -68,7 +68,7 @@ Properties that use this definition: [resources.containers](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.containers.container](resources-containers-container.md) |  |
+| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
 
 <!-- :::api-definition-end::: -->
 
@@ -89,7 +89,7 @@ Properties that use this definition: [resources.containers](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.containers.container](resources-containers-container.md) |  |
+| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
 
 <!-- :::api-definition-end::: -->
 
@@ -110,7 +110,7 @@ Properties that use this definition: [resources.containers](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.containers.container](resources-containers-container.md) |  |
+| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
 
 <!-- :::api-definition-end::: -->
 

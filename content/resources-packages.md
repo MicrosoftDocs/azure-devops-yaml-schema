@@ -1,7 +1,7 @@
 ---
 title: resources.packages list definition
 description: resources.packages list definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -26,7 +26,7 @@ Properties that use this definition: [resources.packages](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.packages.package](resources-packages-package.md) |  |
+| [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
 
 <!-- :::api-definition-end::: -->
 
@@ -47,7 +47,7 @@ Properties that use this definition: [resources.packages](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.packages.package](resources-packages-package.md) |  |
+| [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
 
 <!-- :::api-definition-end::: -->
 
@@ -68,7 +68,7 @@ Properties that use this definition: [resources.packages](resources.md)
 
 | Type     | Description |
 |----------|-------------|
-| [resources.packages.package](resources-packages-package.md) |  |
+| [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
 
 <!-- :::api-definition-end::: -->
 

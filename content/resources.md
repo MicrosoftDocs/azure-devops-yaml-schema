@@ -1,7 +1,7 @@
 ---
 title: resources definition
 description: resources definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -80,7 +80,7 @@ ___
 <!-- :::api-property-type::: --> 
 [resources.pipelines](resources-pipelines.md)
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->List of pipeline resources. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -184,7 +184,7 @@ ___
 <!-- :::api-property-type::: --> 
 [resources.pipelines](resources-pipelines.md)
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->List of pipeline resources. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -289,7 +289,7 @@ ___
 <!-- :::api-property-type::: --> 
 [resources.pipelines](resources-pipelines.md)
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->List of pipeline resources. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -415,7 +415,7 @@ ___
 <!-- :::api-property-type::: --> 
 [resources.pipelines](resources-pipelines.md)
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->List of pipeline resources. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -561,7 +561,7 @@ ___
 <!-- :::api-property-type::: --> 
 [resources.pipelines](resources-pipelines.md)
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->List of pipeline resources. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
