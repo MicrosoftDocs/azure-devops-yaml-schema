@@ -26,7 +26,7 @@ containers:
 ```
 
 
-Properties that use this definition: [resources.containers.containers](resources-containers.md)
+Properties that use this definition: [resources.containers](resources-containers.md)
 
 ## Properties
 
@@ -172,7 +172,7 @@ containers:
 ```
 
 
-Properties that use this definition: [resources.containers.containers](resources-containers.md)
+Properties that use this definition: [resources.containers](resources-containers.md)
 
 ## Properties
 
@@ -320,7 +320,7 @@ containers:
 ```
 
 
-Properties that use this definition: [resources.containers.containers](resources-containers.md)
+Properties that use this definition: [resources.containers](resources-containers.md)
 
 ## Properties
 
@@ -520,7 +520,7 @@ containers:
 ```
 
 
-Properties that use this definition: [resources.containers.containers](resources-containers.md)
+Properties that use this definition: [resources.containers](resources-containers.md)
 
 ## Properties
 
@@ -860,7 +860,7 @@ containers:
 ```
 
 
-Properties that use this definition: [resources.containers.containers](resources-containers.md)
+Properties that use this definition: [resources.containers](resources-containers.md)
 
 ## Properties
 

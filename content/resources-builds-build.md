@@ -1,7 +1,7 @@
 ---
 title: resources.builds.build definition
 description: resources.builds.build definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -26,7 +26,7 @@ builds:
 ```
 
 
-Properties that use this definition: [resources.builds.builds](resources-builds.md)
+Properties that use this definition: [resources.builds](resources-builds.md)
 
 ## Properties
 
@@ -172,7 +172,7 @@ builds:
 ```
 
 
-Properties that use this definition: [resources.builds.builds](resources-builds.md)
+Properties that use this definition: [resources.builds](resources-builds.md)
 
 ## Properties
 
@@ -319,7 +319,7 @@ builds:
 ```
 
 
-Properties that use this definition: [resources.builds.builds](resources-builds.md)
+Properties that use this definition: [resources.builds](resources-builds.md)
 
 ## Properties
 
@@ -486,7 +486,7 @@ builds:
 ```
 
 
-Properties that use this definition: [resources.builds.builds](resources-builds.md)
+Properties that use this definition: [resources.builds](resources-builds.md)
 
 ## Properties
 
@@ -653,7 +653,7 @@ builds:
 ```
 
 
-Properties that use this definition: [resources.builds.builds](resources-builds.md)
+Properties that use this definition: [resources.builds](resources-builds.md)
 
 ## Properties
 

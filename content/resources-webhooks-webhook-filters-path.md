@@ -22,7 +22,7 @@ filters:
 ```
 
 
-Properties that use this definition: [resources.webhooks.webhook.filters.filters](resources-webhooks-webhook-filters.md)
+Properties that use this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md)
 
 ## Properties
 
@@ -84,7 +84,7 @@ filters:
 ```
 
 
-Properties that use this definition: [resources.webhooks.webhook.filters.filters](resources-webhooks-webhook-filters.md)
+Properties that use this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md)
 
 ## Properties
 

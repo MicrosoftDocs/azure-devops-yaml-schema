@@ -25,7 +25,7 @@ pipelines:
 ```
 
 
-Properties that use this definition: [resources.pipelines.pipelines](resources-pipelines.md)
+Properties that use this definition: [resources.pipelines](resources-pipelines.md)
 
 ## Properties
 
@@ -150,7 +150,7 @@ pipelines:
 ```
 
 
-Properties that use this definition: [resources.pipelines.pipelines](resources-pipelines.md)
+Properties that use this definition: [resources.pipelines](resources-pipelines.md)
 
 ## Properties
 
@@ -277,7 +277,7 @@ pipelines:
 ```
 
 
-Properties that use this definition: [resources.pipelines.pipelines](resources-pipelines.md)
+Properties that use this definition: [resources.pipelines](resources-pipelines.md)
 
 ## Properties
 
@@ -444,7 +444,7 @@ pipelines:
 ```
 
 
-Properties that use this definition: [resources.pipelines.pipelines](resources-pipelines.md)
+Properties that use this definition: [resources.pipelines](resources-pipelines.md)
 
 ## Properties
 
@@ -611,7 +611,7 @@ pipelines:
 ```
 
 
-Properties that use this definition: [resources.pipelines.pipelines](resources-pipelines.md)
+Properties that use this definition: [resources.pipelines](resources-pipelines.md)
 
 ## Properties
 

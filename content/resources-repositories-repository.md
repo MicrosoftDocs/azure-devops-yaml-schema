@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -24,7 +24,7 @@ repositories:
 ```
 
 
-Properties that use this definition: [resources.repositories.repositories](resources-repositories.md)
+Properties that use this definition: [resources.repositories](resources-repositories.md)
 
 ## Properties
 
@@ -128,7 +128,7 @@ repositories:
 ```
 
 
-Properties that use this definition: [resources.repositories.repositories](resources-repositories.md)
+Properties that use this definition: [resources.repositories](resources-repositories.md)
 
 ## Properties
 
@@ -233,7 +233,7 @@ repositories:
 ```
 
 
-Properties that use this definition: [resources.repositories.repositories](resources-repositories.md)
+Properties that use this definition: [resources.repositories](resources-repositories.md)
 
 ## Properties
 
@@ -358,7 +358,7 @@ repositories:
 ```
 
 
-Properties that use this definition: [resources.repositories.repositories](resources-repositories.md)
+Properties that use this definition: [resources.repositories](resources-repositories.md)
 
 ## Properties
 
@@ -483,7 +483,7 @@ repositories:
 ```
 
 
-Properties that use this definition: [resources.repositories.repositories](resources-repositories.md)
+Properties that use this definition: [resources.repositories](resources-repositories.md)
 
 ## Properties
 

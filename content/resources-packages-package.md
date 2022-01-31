@@ -1,7 +1,7 @@
 ---
 title: resources.packages.package definition
 description: resources.packages.package definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -27,7 +27,7 @@ packages:
 ```
 
 
-Properties that use this definition: [resources.packages.packages](resources-packages.md)
+Properties that use this definition: [resources.packages](resources-packages.md)
 
 ## Properties
 
@@ -194,7 +194,7 @@ packages:
 ```
 
 
-Properties that use this definition: [resources.packages.packages](resources-packages.md)
+Properties that use this definition: [resources.packages](resources-packages.md)
 
 ## Properties
 
@@ -361,7 +361,7 @@ packages:
 ```
 
 
-Properties that use this definition: [resources.packages.packages](resources-packages.md)
+Properties that use this definition: [resources.packages](resources-packages.md)
 
 ## Properties
 

@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook definition
 description: resources.webhooks.webhook definition reference.
-ms.date: 01/25/2022
+ms.date: 01/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020.1"
 ---
 
@@ -24,7 +24,7 @@ webhooks:
 ```
 
 
-Properties that use this definition: [resources.webhooks.webhooks](resources-webhooks.md)
+Properties that use this definition: [resources.webhooks](resources-webhooks.md)
 
 ## Properties
 
@@ -128,7 +128,7 @@ webhooks:
 ```
 
 
-Properties that use this definition: [resources.webhooks.webhooks](resources-webhooks.md)
+Properties that use this definition: [resources.webhooks](resources-webhooks.md)
 
 ## Properties
 
