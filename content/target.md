@@ -1,14 +1,14 @@
 ---
 title: target definition
 description: target definition reference.
-ms.date: 01/28/2022
+ms.date: 02/03/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # target definition
 
 
-Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`.
+Tasks run in an execution context, which is either the agent host or a container.
 
 
 :::moniker range="= azure-pipelines-2020"
@@ -61,13 +61,14 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 
 ## Remarks
 
-The available options are the word `host` to target the agent host, plus any containers defined in the pipeline.
+An individual step may override its context by specifying a `target`, and optionally configure a container, commands, and settable variables.
 
 :::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 
 ## target: string
 
-Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`. Available options are the word `host` to target the agent host plus any containers defined in the pipeline.
+Specify a step target by name.
+
 
 
 :::moniker-end
@@ -187,8 +188,9 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+### Remarks
 
+Available options are the word `host` to target the agent host plus any containers defined in the pipeline.
 
 <!-- Examples -->
 
@@ -331,7 +333,8 @@ ___
 
 ## target: container, commands, settableVariables
 
-Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`. Available options are the word `host` to target the agent host plus any containers defined in the pipeline.
+Configure step target using a container name, commands, and settable variables.
+
 
 
 :::moniker-end
@@ -418,9 +421,16 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+### Remarks
+
+You don't need to configure all of these properties when configuring a step target. If not specified, the default value for `container` is `host`, the default value of `commands` is `all`, and the default value for `settableVariables` allows all variables to be set by a step.
 
 
 <!-- Examples -->
 
-<!-- See also -->
+
+## See also
+
+- [Task types & usage - step target](/azure/devops/pipelines/process/tasks#step-target)
+
+

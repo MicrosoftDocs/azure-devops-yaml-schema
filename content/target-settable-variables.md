@@ -1,11 +1,14 @@
 ---
 title: target.settableVariables definition
 description: target.settableVariables definition reference.
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 monikerRange: "= azure-pipelines"
 ---
 
 # target.settableVariables definition
+
+
+Variables that can be set by a step.
 
 
 :::moniker range="= azure-pipelines"
@@ -20,17 +23,21 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 | Overload | Description |
 |----------|-------------|
-| [settableVariables: none](#settablevariables-none) | Disable variable restrictions and allow all variables. |
-| [settableVariables: string list](#settablevariables-string-list) | Restrict variable use to the list of allowed variables. |
+| [settableVariables: none](#settablevariables-none) | Disable a step from setting any variables. |
+| [settableVariables: string list](#settablevariables-string-list) | Restrict variable setting to a list of allowed variables. |
 
 :::moniker-end
 
-<!-- Remarks -->
+
+## Remarks
+
+You can disable setting all variables for a step, or restrict the settable variables to a list. If the `settableVariables` property is not set, the default allows all variables to be set by a step.
 
 :::moniker range="= azure-pipelines"
 
 ## settableVariables: none
 
+Disable a step from setting any variables.
 
 
 
@@ -42,7 +49,7 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 
 ```yaml
-settableVariables: none # Disable variable restrictions and allow all variables.
+settableVariables: none # Disable a step from setting any variables.
 ```
 
 ### Properties
@@ -78,12 +85,20 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+### Examples
+
+```yaml
+steps:
+- script: echo This is a step
+  target:
+    settableVariables: none
+```
 
 :::moniker range="= azure-pipelines"
 
 ## settableVariables: string list
 
+Restrict a step from setting any variables not in the specified list.
 
 
 
@@ -95,7 +110,7 @@ ___
 
 
 ```yaml
-settableVariables: [ string ] # Restrict variable use to the list of allowed variables. 
+settableVariables: [ string ] # Restrict variable setting to a list of allowed variables. 
 ```
 
 ### Properties
@@ -131,5 +146,27 @@ ___
 <!-- Remarks -->
 
 
-<!-- Examples -->
+### Examples
+
+In the following example, the `bash` step can only set the value of the `sauce` variable. When the pipeline runs, the `secretSauce` variable is not set, and a warning is displayed on the pipeline run page.
+
+```yaml
+steps:
+  - bash: |
+      echo "##vso[task.setvariable variable=sauce;]crushed tomatoes"
+      echo "##vso[task.setvariable variable=secretSauce;]crushed tomatoes with garlic"
+    target:
+     settableVariables:
+      - sauce
+    name: SetVars
+  - bash: 
+      echo "Sauce is $(sauce)"
+      echo "secretSauce is $(secretSauce)"
+    name: OutputVars
+```
+
+
+## See also
+
+- [Configure settable variables for steps](/azure/devops/pipelines/process/variables#configure-settable-variables-for-steps)
 

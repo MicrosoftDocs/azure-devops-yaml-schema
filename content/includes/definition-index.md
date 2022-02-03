@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/31/2022
+ms.date: 02/03/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -1182,7 +1182,7 @@ ___
 [target](../target.md)
 :::column-end:::
 :::column span="3":::
-Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`.
+Tasks run in an execution context, which is either the agent host or a container.
 
 :::column-end:::
 :::row-end:::
@@ -1533,6 +1533,8 @@ ___
 [resources.webhooks](../resources-webhooks.md)
 :::column-end:::
 :::column span="3":::
+List of webhook resources referenced by the pipeline.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -1771,7 +1773,7 @@ ___
 [target](../target.md)
 :::column-end:::
 :::column span="3":::
-Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`.
+Tasks run in an execution context, which is either the agent host or a container.
 
 :::column-end:::
 :::row-end:::
@@ -2122,6 +2124,8 @@ ___
 [resources.webhooks](../resources-webhooks.md)
 :::column-end:::
 :::column span="3":::
+List of webhook resources referenced by the pipeline.
+
 :::column-end:::
 :::row-end:::
 ___
@@ -2360,7 +2364,7 @@ ___
 [target](../target.md)
 :::column-end:::
 :::column span="3":::
-Tasks run in an execution context, which is either the agent host or a container. An individual step may override its context by specifying a `target`.
+Tasks run in an execution context, which is either the agent host or a container.
 
 :::column-end:::
 :::row-end:::
@@ -2370,6 +2374,8 @@ ___
 [target.settableVariables](../target-settable-variables.md)
 :::column-end:::
 :::column span="3":::
+Variables that can be set by a step.
+
 :::column-end:::
 :::row-end:::
 ___
