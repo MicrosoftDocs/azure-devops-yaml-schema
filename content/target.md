@@ -425,8 +425,44 @@ ___
 
 You don't need to configure all of these properties when configuring a step target. If not specified, the default value for `container` is `host`, the default value of `commands` is `any`, and the default value for `settableVariables` allows all variables to be set by a step.
 
+#### Step targeting and command isolation
 
-<!-- Examples -->
+Azure Pipelines supports running jobs either in containers or on the agent host. Previously, an entire job was set to one of those two targets. Now, individual steps (tasks or scripts) can run on the target you choose. Steps may also target other containers, so a pipeline could run each step in a specialized, purpose-built container. 
+
+> [!NOTE]
+> This feature is in public preview. If you have any feedback or questions about this feature, let us know in the [Developer Community](https://developercommunity.visualstudio.com/spaces/21/index.html). 
+
+Containers can act as isolation boundaries, preventing code from making unexpected changes on the host machine. The way steps [communicate with and access services from the agent](/azure/devops/pipelines/scripts/logging-commands) is not affected by isolating steps in a container. Therefore, we're also introducing a command restriction mode which you can use with step targets. Setting `commands` to `restricted` will restrict the services a step can request from the agent. It will no longer be able to attach logs, upload artifacts, and certain other operations.
+
+
+### Examples
+
+The following example shows running steps on the host in a job container, and in another container.
+
+```yaml
+resources:
+  containers:
+  - container: python
+    image: python:3.8
+  - container: node
+    image: node:13.2
+
+jobs:
+- job: example
+  container: python
+
+  steps:
+  - script: echo Running in the job container
+
+  - script: echo Running on the host
+    target: host
+
+  - script: echo Running in another container, in restricted commands mode
+    target:
+      container: node
+      commands: restricted
+```
+
 
 
 ## See also
