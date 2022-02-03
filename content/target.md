@@ -423,7 +423,7 @@ ___
 
 ### Remarks
 
-You don't need to configure all of these properties when configuring a step target. If not specified, the default value for `container` is `host`, the default value of `commands` is `all`, and the default value for `settableVariables` allows all variables to be set by a step.
+You don't need to configure all of these properties when configuring a step target. If not specified, the default value for `container` is `host`, the default value of `commands` is `any`, and the default value for `settableVariables` allows all variables to be set by a step.
 
 
 <!-- Examples -->
