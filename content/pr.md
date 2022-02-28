@@ -1,7 +1,7 @@
 ---
 title: pr definition
 description: pr definition reference.
-ms.date: 01/28/2022
+ms.date: 02/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -107,7 +107,7 @@ There are three distinct syntax options for the `pr` keyword: a list of branches
 
 > [!IMPORTANT]
 > YAML PR triggers are supported only in GitHub and Bitbucket Cloud.
-> If you use Azure Repos Git, you can configure a [branch policy for build validation](/azure/devops/repos/git/branch-policies.md#build-validation) to trigger your build pipeline for validation.
+> If you use Azure Repos Git, you can configure a [branch policy for build validation](/azure/devops/repos/git/branch-policies#build-validation) to trigger your build pipeline for validation.
 
 ::: moniker-end
 
@@ -115,7 +115,7 @@ There are three distinct syntax options for the `pr` keyword: a list of branches
 
 > [!IMPORTANT]
 > YAML PR triggers are supported only in GitHub.
-> If you use Azure Repos Git, you can configure a [branch policy for build validation](/azure/devops/repos/git/branch-policies.md#build-validation) to trigger your build pipeline for validation.
+> If you use Azure Repos Git, you can configure a [branch policy for build validation](/azure/devops/repos/git/branch-policies#build-validation) to trigger your build pipeline for validation.
 
 ::: moniker-end
 

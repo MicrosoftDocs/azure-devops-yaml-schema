@@ -1,7 +1,7 @@
 ---
 title: resources.packages.package definition
 description: resources.packages.package definition reference.
-ms.date: 01/31/2022
+ms.date: 02/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -518,7 +518,7 @@ ___
 
 ## Examples
 
-In this example, there is an [GitHub service connection](/azure/devops/pipelines/library/service-endpoints.md#common-service-connection-types) named `pat-contoso` to a GitHub npm package named `contoso`. Learn more about [GitHub packages](https://github.com/features/packages). 
+In this example, there is an [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#common-service-connection-types) named `pat-contoso` to a GitHub npm package named `contoso`. Learn more about [GitHub packages](https://github.com/features/packages). 
 
 ```yaml
 resources:

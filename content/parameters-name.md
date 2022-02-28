@@ -1,7 +1,7 @@
 ---
 title: parameters.name definition
 description: parameters.name definition reference.
-ms.date: 01/25/2022
+ms.date: 02/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -389,7 +389,7 @@ ___
 
 ## Remarks
 
-The type and name fields are required when defining parameters. See all [parameter data types](/azure/devops/pipelines/process/runtime-parameters.md#parameter-data-types).
+The type and name fields are required when defining parameters. See all [parameter data types](/azure/devops/pipelines/process/runtime-parameters#parameter-data-types).
 
 ```yaml
 parameters:

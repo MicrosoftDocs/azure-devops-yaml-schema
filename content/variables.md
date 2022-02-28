@@ -1,7 +1,7 @@
 ---
 title: variables definition
 description: variables definition reference.
-ms.date: 01/28/2022
+ms.date: 02/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -575,7 +575,7 @@ variables:
 
 You can repeat `name`/`value` pairs and `group`.
 
-Variables can also be set as read only to [enhance security](/azure/devops/pipelines/security/inputs.md#variables). 
+Variables can also be set as read only to [enhance security](/azure/devops/pipelines/security/inputs#variables). 
 
 ```yaml
 variables:
@@ -586,7 +586,7 @@ variables:
 
 ::: moniker range=">=azure-pipelines-2020"
 
-You can also include [variables from templates](/azure/devops/pipelines/process/templates.md#variable-reuse).
+You can also include [variables from templates](/azure/devops/pipelines/process/templates#variable-reuse).
 
 ::: moniker-end
 

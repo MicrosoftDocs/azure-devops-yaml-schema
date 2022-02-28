@@ -1,7 +1,7 @@
 ---
 title: steps.script definition
 description: steps.script definition reference.
-ms.date: 02/16/2022
+ms.date: 02/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -1257,7 +1257,7 @@ The `script` keyword is a shortcut for the [command-line task](/azure/devops/pip
 The task runs a script using cmd.exe on Windows and Bash on other platforms.
 
 Learn more about [conditions](/azure/devops/pipelines/process/conditions),
-[timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks.md#step-target).
+[timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks#step-target).
 
 
 ## Examples

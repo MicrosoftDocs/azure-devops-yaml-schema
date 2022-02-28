@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 01/31/2022
+ms.date: 02/28/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -599,13 +599,13 @@ ___
 
 ::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
 
-If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates.md#using-other-repositories), you must let the system know about that repository.
+If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates#using-other-repositories), you must let the system know about that repository.
 
 ::: moniker-end
 
 ::: moniker range=">= azure-pipelines-2020"
 
-If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates.md#use-other-repositories), or if you want to use [multi-repo checkout](/azure/devops/pipelines/repos/multi-repo-checkout) with a repository that requires a service connection, you must let the system know about that repository.
+If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates#use-other-repositories), or if you want to use [multi-repo checkout](/azure/devops/pipelines/repos/multi-repo-checkout) with a repository that requires a service connection, you must let the system know about that repository.
 
 ::: moniker-end
 
@@ -625,7 +625,7 @@ The `git` type refers to Azure Repos Git repos.
 
 - If you specify `type: bitbucket`, the `name` value is the full name of the Bitbucket Cloud repo and includes the user or organization.
   An example is `name: MyBitbucket/vscode`.
-  Bitbucket Cloud repos require a [Bitbucket Cloud service connection](/azure/devops/pipelines/library/service-endpoints.md#bitbucket-cloud-service-connection) for authorization.
+  Bitbucket Cloud repos require a [Bitbucket Cloud service connection](/azure/devops/pipelines/library/service-endpoints#bitbucket-cloud-service-connection) for authorization.
 
 
 
