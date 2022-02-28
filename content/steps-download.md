@@ -1,7 +1,7 @@
 ---
 title: steps.download definition
 description: steps.download definition reference.
-ms.date: 01/27/2022
+ms.date: 02/16/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -995,6 +995,7 @@ steps:
     string: string # Name/value pairs.
   name: string # ID of the step.  ([-_A-Za-z0-9]*)
   timeoutInMinutes: string # Time to wait for this task to complete before the server kills it. 
+  retryCountOnTaskFailure: string # Number of retries if the task fails. 
 ```
 
 
@@ -1215,6 +1216,26 @@ ___
 string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Time to wait for this task to complete before the server kills it. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `retryCountOnTaskFailure`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Number of retries if the task fails. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
