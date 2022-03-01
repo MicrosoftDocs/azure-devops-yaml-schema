@@ -44,7 +44,9 @@
       "ms.topic": "reference",
       "breadcrumb_path": "/azure/devops/pipelines/yaml-schema/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None",
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/azure-devops-yaml-schema",
+      "feedback_product_url": "https://developercommunity.visualstudio.com/spaces/21/index.html",
       "ms.manager": "mijacobs",
       "author": "steved0x",
       "ms.author": "sdanie",
@@ -55,7 +57,12 @@
       "ms.prodfamily": "ALM",
       "ms.technology": "devops-cicd"
     },
-    "fileMetadata": {},
+    "fileMetadata":
+    {
+      "recommendations": {
+        "**": "false"
+      }
+    },
     "template": [],
     "dest": "azure-devops-yaml-schema",
     "markdownEngineName": "markdig",
