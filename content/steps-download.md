@@ -1276,7 +1276,7 @@ steps:
   artifact: WebApp
   patterns: '**/.js'
   displayName: Download artifact WebApp
-- download: MyAppA   # downloads artifacts available as part of the pipeline resource
+- download: MyAppA   # downloads artifacts available as part of the pipeline resource specified as MyAppA
 ```
 
 
