@@ -1,7 +1,7 @@
 ---
 title: steps list definition
 description: steps list definition reference.
-ms.date: 01/28/2022
+ms.date: 03/07/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -98,7 +98,7 @@ Properties that use this definition: [pipeline.steps](pipeline.md), [jobs.job.st
 | [steps.checkout](steps-checkout.md) | Checkout repositories. |
 | [steps.download](steps-download.md) | The download step is a shortcut for the Download Pipeline Artifact task, and downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource. |
 | [steps.downloadBuild](steps-download-build.md) | The download step is a shortcut for the Download Build Artifact task, and downloads build artifacts |
-| [steps.getPackage](steps-get-package.md) | Te getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
+| [steps.getPackage](steps-get-package.md) | The getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
 | [steps.publish](steps-publish.md) | The publish step is a shortcut for the Publish Pipeline Artifact task, and publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume. |
 | [steps.template](steps-template.md) | Run the steps in a template file for this step. |
 | [steps.restoreCache](steps-restore-cache.md) | The restoreCache step is a shortcut for the Cache task, and restores a cache. |
@@ -132,7 +132,7 @@ Properties that use this definition: [pipeline.steps](pipeline.md), [jobs.job.st
 | [steps.checkout](steps-checkout.md) | Checkout repositories. |
 | [steps.download](steps-download.md) | The download step is a shortcut for the Download Pipeline Artifact task, and downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource. |
 | [steps.downloadBuild](steps-download-build.md) | The download step is a shortcut for the Download Build Artifact task, and downloads build artifacts |
-| [steps.getPackage](steps-get-package.md) | Te getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
+| [steps.getPackage](steps-get-package.md) | The getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
 | [steps.publish](steps-publish.md) | The publish step is a shortcut for the Publish Pipeline Artifact task, and publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume. |
 | [steps.template](steps-template.md) | Run the steps in a template file for this step. |
 | [steps.restoreCache](steps-restore-cache.md) | The restoreCache step is a shortcut for the Cache task, and restores a cache. |
@@ -166,7 +166,7 @@ Properties that use this definition: [pipeline.steps](pipeline.md), [jobs.job.st
 | [steps.checkout](steps-checkout.md) | Checkout repositories. |
 | [steps.download](steps-download.md) | The download step is a shortcut for the Download Pipeline Artifact task, and downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource. |
 | [steps.downloadBuild](steps-download-build.md) | The download step is a shortcut for the Download Build Artifact task, and downloads build artifacts |
-| [steps.getPackage](steps-get-package.md) | Te getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
+| [steps.getPackage](steps-get-package.md) | The getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
 | [steps.publish](steps-publish.md) | The publish step is a shortcut for the Publish Pipeline Artifact task, and publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume. |
 | [steps.template](steps-template.md) | Run the steps in a template file for this step. |
 | [steps.restoreCache](steps-restore-cache.md) | The restoreCache step is a shortcut for the Cache task, and restores a cache. |

@@ -1,14 +1,14 @@
 ---
 title: steps.download definition
 description: steps.download definition reference.
-ms.date: 02/16/2022
+ms.date: 03/07/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
 # steps.download definition
 
 
-The `download` step downloads pipeline artifacts.
+The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -17,7 +17,7 @@ The `download` step downloads pipeline artifacts.
 
 ```yaml
 steps:
-- download: string # Required as first property. Reference to the pipeline. 
+- download: string # Required as first property. (current, pipeline resource identifier, none) # none disables automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -47,7 +47,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to the pipeline. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. (current, pipeline resource identifier, none) # none disables automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -248,7 +248,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Reference to the pipeline. 
+- download: string # Required as first property. (current, pipeline resource identifier, none) # none disables automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -278,7 +278,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to the pipeline. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. (current, pipeline resource identifier, none) # none disables automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -479,7 +479,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Reference to the pipeline. 
+- download: string # Required as first property. (current, pipeline resource identifier, none) # none disables automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -510,7 +510,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to the pipeline. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. (current, pipeline resource identifier, none) # none disables automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -731,7 +731,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Reference to the pipeline. 
+- download: string # Required as first property. (current, pipeline resource identifier, none) # none disables automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -762,7 +762,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to the pipeline. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. (current, pipeline resource identifier, none) # none disables automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -983,7 +983,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Reference to the pipeline. 
+- download: string # Required as first property. (current, pipeline resource identifier, none) # none disables automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -1015,7 +1015,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to the pipeline. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. (current, pipeline resource identifier, none) # none disables automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1255,8 +1255,29 @@ ___
 
 The `download` keyword is a shortcut for the [Download Pipeline Artifacts task](/azure/devops/pipelines/tasks/utility/download-pipeline-artifact).
 
+### Artifact download location
 
-<!-- Examples -->
+Artifacts from the current pipeline are downloaded to `$(**Pipeline.Workspace**)/<artifact name>`.
+
+Artifacts from the associated pipeline resource are downloaded to `$(**Pipeline.Workspace**)/\<pipeline resource identifier\>/<artifact name>`.
+
+### Automatic download in deployment jobs
+
+All available artifacts from the current pipeline and from the associated pipeline resources are automatically downloaded in deployment jobs and made available for your deployment.
+
+To prevent downloads, specify `download: none`.
+
+
+## Examples
+
+```yaml
+steps:
+- download: current  # refers to artifacts published by current pipeline
+  artifact: WebApp
+  patterns: '**/.js'
+  displayName: Download artifact WebApp
+- download: MyAppA   # downloads artifacts available as part of the pipeline resource
+```
 
 
 ## See also
