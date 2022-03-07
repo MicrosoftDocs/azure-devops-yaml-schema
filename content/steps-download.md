@@ -17,7 +17,7 @@ The `download` step downloads artifacts associated with the current run or from 
 
 ```yaml
 steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none. none disables automatic download.. 
+- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -47,7 +47,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none. none disables automatic download. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none to disable automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -248,7 +248,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none. none disables automatic download.. 
+- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -278,7 +278,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none. none disables automatic download. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none to disable automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -479,7 +479,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none. none disables automatic download.. 
+- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -510,7 +510,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none. none disables automatic download. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none to disable automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -731,7 +731,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none. none disables automatic download.. 
+- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -762,7 +762,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none. none disables automatic download. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none to disable automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -983,7 +983,7 @@ ___
 
 ```yaml
 steps:
-- download: string # Required as first property. Specify current, pipeline resource identifier, or none. none disables automatic download.. 
+- download: string # Required as first property. Specify current, pipeline resource identifier, or none to disable automatic download. 
   artifact: string # Artifact name.. 
   patterns: string # Pattern to download files from artifact. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
@@ -1015,7 +1015,7 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none. none disables automatic download. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Specify current, pipeline resource identifier, or none to disable automatic download. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
