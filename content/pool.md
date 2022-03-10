@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: pool definition reference.
-ms.date: 01/28/2022
+ms.date: 03/09/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -308,6 +308,9 @@ ___
 ### Remarks
 
 Use this syntax to specify a private pool by name.
+
+> [!NOTE]
+> If your pool name has a space in it, enclose the pool name in single quotes, like `pool: 'My pool'`.
 
 
 ### Examples
@@ -737,11 +740,9 @@ ___
 
 ### Remarks
 
-
-
 Specify a Microsoft-hosted pool using the `vmImage` property.
 
-
+If your self-hosted agent pool name has a space in it, enclose the pool name in single quotes, like `name: 'My pool'`.
 
 
 ### Examples
