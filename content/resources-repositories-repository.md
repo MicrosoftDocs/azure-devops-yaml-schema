@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 02/28/2022
+ms.date: 03/23/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -19,8 +19,9 @@ The `repository` keyword lets you specify an external repository.
 repositories:
 - repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
+  name: string # string  # repository name (format depends on `type`). 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/master'. 
+  ref: string # ref name to use; defaults to 'refs/heads/main'. 
 ```
 
 
@@ -73,6 +74,26 @@ ___
 :::row:::
   :::column:::
    <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
    `type`
    <!-- :::api-property-name-end::: -->
   :::column-end:::
@@ -100,7 +121,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/master'. 
+<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -123,8 +144,9 @@ ___
 repositories:
 - repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
+  name: string # string  # repository name (format depends on `type`). 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/master'. 
+  ref: string # ref name to use; defaults to 'refs/heads/main'. 
 ```
 
 
@@ -177,6 +199,26 @@ ___
 :::row:::
   :::column:::
    <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
    `type`
    <!-- :::api-property-name-end::: -->
   :::column-end:::
@@ -204,7 +246,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/master'. 
+<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -228,8 +270,9 @@ repositories:
 - repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # string  # repository name (format depends on `type`). 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/master'. 
+  ref: string # ref name to use; defaults to 'refs/heads/main'. 
 ```
 
 
@@ -302,6 +345,26 @@ ___
 :::row:::
   :::column:::
    <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
    `type`
    <!-- :::api-property-name-end::: -->
   :::column-end:::
@@ -329,7 +392,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/master'. 
+<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -353,8 +416,9 @@ repositories:
 - repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # string  # repository name (format depends on `type`). 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/master'. 
+  ref: string # ref name to use; defaults to 'refs/heads/main'. 
 ```
 
 
@@ -427,6 +491,26 @@ ___
 :::row:::
   :::column:::
    <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
    `type`
    <!-- :::api-property-name-end::: -->
   :::column-end:::
@@ -454,7 +538,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/master'. 
+<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -478,8 +562,9 @@ repositories:
 - repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # string  # repository name (format depends on `type`). 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/master'. 
+  ref: string # ref name to use; defaults to 'refs/heads/main'. 
 ```
 
 
@@ -552,6 +637,26 @@ ___
 :::row:::
   :::column:::
    <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
    `type`
    <!-- :::api-property-name-end::: -->
   :::column-end:::
@@ -579,7 +684,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/master'. 
+<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
