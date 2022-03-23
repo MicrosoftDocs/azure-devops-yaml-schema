@@ -737,7 +737,6 @@ The `git` type refers to Azure Repos Git repos.
 ## Examples
 
 ```yaml
-
 resources:
   repositories:
   - repository: common
