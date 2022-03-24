@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: jobs.job definition reference.
-ms.date: 03/01/2022
+ms.date: 03/24/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -17,7 +17,7 @@ A [job](/azure/devops/pipelines/process/phases) is a collection of steps run by 
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job.  ([-_A-Za-z0-9]*)
+- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
   displayName: string # Human-readable name for the job. 
   dependsOn: string | [ string ]  # Any jobs which must complete before this one
   condition: string # Evaluate this condition expression to determine whether to run this job. 
@@ -51,7 +51,7 @@ Properties that use this definition: [jobs](jobs.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -312,7 +312,7 @@ ___
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job.  ([-_A-Za-z0-9]*)
+- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
   displayName: string # Human-readable name for the job. 
   dependsOn: string | [ string ]  # Any jobs which must complete before this one
   condition: string # Evaluate this condition expression to determine whether to run this job. 
@@ -347,7 +347,7 @@ Properties that use this definition: [jobs](jobs.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -628,7 +628,7 @@ ___
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job.  ([-_A-Za-z0-9]*)
+- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
   displayName: string # Human-readable name for the job. 
   dependsOn: string | [ string ]  # Any jobs which must complete before this one
   condition: string # Evaluate this condition expression to determine whether to run this job. 
@@ -663,7 +663,7 @@ Properties that use this definition: [jobs](jobs.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -944,7 +944,7 @@ ___
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job.  ([-_A-Za-z0-9]*)
+- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
   displayName: string # Human-readable name for the job. 
   dependsOn: string | [ string ]  # Any jobs which must complete before this one
   condition: string # Evaluate this condition expression to determine whether to run this job. 
@@ -982,7 +982,7 @@ Properties that use this definition: [jobs](jobs.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1283,7 +1283,7 @@ ___
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job.  ([-_A-Za-z0-9]*)
+- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
   displayName: string # Human-readable name for the job. 
   dependsOn: string | [ string ]  # Any jobs which must complete before this one
   condition: string # Evaluate this condition expression to determine whether to run this job. 
@@ -1321,7 +1321,7 @@ Properties that use this definition: [jobs](jobs.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: [-_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
