@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: resources.pipelines.pipeline definition reference.
-ms.date: 01/31/2022
+ms.date: 03/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -786,6 +786,15 @@ resources.pipeline.<Alias>.sourceCommit
 resources.pipeline.<Alias>.sourceProvider
 resources.pipeline.<Alias>.requestedFor
 resources.pipeline.<Alias>.requestedForID
+```
+
+Replace `<Alias>` with the ID of the pipeline resource. For the following pipeline resource, the variable to access  `projectName` is `resources.pipeline.MyAppA.projectName`.
+
+```yaml
+resources:
+  pipelines:
+  - pipeline: MyAppA
+    source: MyCIPipelineA
 ```
 
 You can consume artifacts from a pipeline resource by using a `download` task. See the [steps.download](steps-download.md) keyword.
