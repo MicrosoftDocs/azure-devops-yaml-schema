@@ -191,6 +191,7 @@ All steps, regardless of whether they're documented in this article, support the
 - **continueOnError**
 - **enabled**
 - **env**
+- **retryCountOnTaskFailure**
 - **timeoutInMinutes**
 
 
