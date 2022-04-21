@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 02/16/2022
+ms.date: 04/21/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -20,9 +20,9 @@ steps:
 - checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none)
   clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
   fetchDepth: string # Depth of Git graph to fetch. 
-  lfs: string # Fetch Git-LFS objects?. 
-  persistCredentials: string # Keep credentials available for later use?. 
-  submodules: string # Check out Git submodules?. 
+  lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
+  persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
+  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
   displayName: string # Human-readable name for the task. 
@@ -110,7 +110,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Fetch Git-LFS objects? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to download Git-LFS files. Default is not to download them. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -130,7 +130,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Keep credentials available for later use? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -150,7 +150,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Check out Git submodules? 
+<!-- :::api-desc type="property"::: -->Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -314,9 +314,9 @@ steps:
 - checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none)
   clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
   fetchDepth: string # Depth of Git graph to fetch. 
-  lfs: string # Fetch Git-LFS objects?. 
-  persistCredentials: string # Keep credentials available for later use?. 
-  submodules: string # Check out Git submodules?. 
+  lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
+  persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
+  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -405,7 +405,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Fetch Git-LFS objects? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to download Git-LFS files. Default is not to download them. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -425,7 +425,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Keep credentials available for later use? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -445,7 +445,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Check out Git submodules? 
+<!-- :::api-desc type="property"::: -->Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -629,9 +629,9 @@ steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
   clean: string # Scorch the repo before fetching?.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
-  lfs: string # Fetch Git-LFS objects?. 
-  persistCredentials: string # Keep credentials available for later use?. 
-  submodules: string # Check out Git submodules?. 
+  lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
+  persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
+  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -721,7 +721,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Fetch Git-LFS objects? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to download Git-LFS files. Default is not to download them. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -741,7 +741,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Keep credentials available for later use? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -761,7 +761,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Check out Git submodules? 
+<!-- :::api-desc type="property"::: -->Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -965,9 +965,9 @@ steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
   clean: string # Scorch the repo before fetching?.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
-  lfs: string # Fetch Git-LFS objects?. 
-  persistCredentials: string # Keep credentials available for later use?. 
-  submodules: string # Check out Git submodules?. 
+  lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
+  persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
+  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -1057,7 +1057,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Fetch Git-LFS objects? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to download Git-LFS files. Default is not to download them. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1077,7 +1077,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Keep credentials available for later use? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1097,7 +1097,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Check out Git submodules? 
+<!-- :::api-desc type="property"::: -->Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1301,9 +1301,9 @@ steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
   clean: string # Scorch the repo before fetching?.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
-  lfs: string # Fetch Git-LFS objects?. 
-  persistCredentials: string # Keep credentials available for later use?. 
-  submodules: string # Check out Git submodules?. 
+  lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
+  persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
+  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -1394,7 +1394,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Fetch Git-LFS objects? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to download Git-LFS files. Default is not to download them. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1414,7 +1414,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Keep credentials available for later use? 
+<!-- :::api-desc type="property"::: -->Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1434,7 +1434,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Check out Git submodules? 
+<!-- :::api-desc type="property"::: -->Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
