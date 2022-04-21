@@ -97,7 +97,7 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 ## Remarks
 
-For more information about using triggers with a specific repository type, see[Supported source repositories](/azure/devops/pipelines/repos).
+For more information about using triggers with a specific repository type, see [Supported source repositories](/azure/devops/pipelines/repos).
 
 If you specify no push trigger, pushes to any branch trigger a build.
 
