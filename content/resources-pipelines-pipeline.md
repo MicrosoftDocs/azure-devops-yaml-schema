@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: resources.pipelines.pipeline definition reference.
-ms.date: 03/31/2022
+ms.date: 04/21/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -273,7 +273,11 @@ pipelines:
   version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
   branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
   tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger: # specify none to disable, true to include all branches, or specify a list of branches to include and optionally exclude.
+  trigger:  # Specify none to disable, true to include all branches, or use the full syntax.
+    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
+    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
+      include: [ branchFilter ] # List of branches to include. 
+      exclude: [ branchFilter ] # List of branches to exclude. 
 ```
 
 
@@ -413,7 +417,7 @@ ___
 <!-- :::api-property-type::: --> 
 string or trigger
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -440,7 +444,13 @@ pipelines:
   version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
   branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
   tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger: # specify none to disable, true to include all branches, or specify a list of branches to include and optionally exclude.
+  trigger:  # Specify none to disable, true to include all branches, or use the full syntax.
+    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
+    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
+      include: [ branchFilter ] # List of branches to include. 
+      exclude: [ branchFilter ] # List of branches to exclude. 
+    stages: [ string ] # List of stages that when complete will trigger the pipeline. 
+    tags: [ string ] # List of tags that when matched will trigger the pipeline. 
 ```
 
 
@@ -580,7 +590,7 @@ ___
 <!-- :::api-property-type::: --> 
 string or trigger
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -607,7 +617,13 @@ pipelines:
   version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
   branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
   tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger: # specify none to disable, true to include all branches, or specify a list of branches to include and optionally exclude.
+  trigger:  # Specify none to disable, true to include all branches, or use the full syntax.
+    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
+    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
+      include: [ branchFilter ] # List of branches to include. 
+      exclude: [ branchFilter ] # List of branches to exclude. 
+    stages: [ string ] # List of stages that when complete will trigger the pipeline. 
+    tags: [ string ] # List of tags that when matched will trigger the pipeline. 
 ```
 
 
@@ -747,7 +763,7 @@ ___
 <!-- :::api-property-type::: --> 
 string or trigger
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -764,6 +780,18 @@ ___
 
 
 ## Remarks
+
+:::moniker range=">= azure-pipelines-2020.1"
+
+For more information about `stages` and `tags` in the pipeline resource trigger, see [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+
+:::moniker-end
+
+:::moniker range="azure-pipelines-2020"
+
+For more information about pipeline resource triggers, see [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+
+:::moniker-end
 
 > [!IMPORTANT]
 > When you define a resource trigger, if its pipeline resource is from the same repo as the current pipeline, triggering follows the same branch and commit on which the event is raised.

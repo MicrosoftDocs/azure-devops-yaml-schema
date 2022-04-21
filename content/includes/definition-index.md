@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/07/2022
+ms.date: 04/21/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -273,7 +273,7 @@ ___
 [steps.task](../steps-task.md)
 :::column-end:::
 :::column span="3":::
-A `task` step runs  a task.
+A `task` step runs a task.
 
 :::column-end:::
 :::row-end:::
@@ -621,7 +621,7 @@ ___
 [steps.task](../steps-task.md)
 :::column-end:::
 :::column span="3":::
-A `task` step runs  a task.
+A `task` step runs a task.
 
 :::column-end:::
 :::row-end:::
@@ -1162,7 +1162,7 @@ ___
 [steps.task](../steps-task.md)
 :::column-end:::
 :::column span="3":::
-A `task` step runs  a task.
+A `task` step runs a task.
 
 :::column-end:::
 :::row-end:::
@@ -1753,7 +1753,7 @@ ___
 [steps.task](../steps-task.md)
 :::column-end:::
 :::column span="3":::
-A `task` step runs  a task.
+A `task` step runs a task.
 
 :::column-end:::
 :::row-end:::
@@ -2344,7 +2344,7 @@ ___
 [steps.task](../steps-task.md)
 :::column-end:::
 :::column span="3":::
-A `task` step runs  a task.
+A `task` step runs a task.
 
 :::column-end:::
 :::row-end:::
