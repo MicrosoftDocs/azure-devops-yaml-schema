@@ -22,7 +22,7 @@ steps:
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
+  submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
   displayName: string # Human-readable name for the task. 
@@ -316,7 +316,7 @@ steps:
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
+  submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -631,7 +631,7 @@ steps:
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
+  submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -967,7 +967,7 @@ steps:
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
+  submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
@@ -1303,7 +1303,7 @@ steps:
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: true | recursive  # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
+  submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Path of the repository to check out. 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
