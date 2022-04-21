@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: trigger definition reference.
-ms.date: 01/28/2022
+ms.date: 04/21/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -96,6 +96,8 @@ Properties that use this definition: [pipeline.trigger](pipeline.md), [resources
 
 
 ## Remarks
+
+For more information about using triggers with a specific repository type, see [Supported source repositories](/azure/devops/pipelines/repos).
 
 If you specify no push trigger, pushes to any branch trigger a build.
 
