@@ -705,7 +705,7 @@ ___
 ::: moniker range=">= azure-pipelines-2020"
 
 > [!IMPORTANT]
-> Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
+> Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
 
 ::: moniker-end
 
