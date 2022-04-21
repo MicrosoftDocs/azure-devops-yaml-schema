@@ -726,10 +726,9 @@ If your pipeline has [templates in another repository](/azure/devops/pipelines/p
 Pipelines support the following values for the repository type: `git`, `github`, and `bitbucket`.
 The `git` type refers to Azure Repos Git repos.
 
-- If you specify `type: git`, the `name` value refers to another repository in the same project.
-  An example is `name: otherRepo`.
-  To refer to a repo in another project within the same organization, prefix the name with that project's name.
-  An example is `name: OtherProject/otherRepo`.
+- If you specify `type: git`, the `name` value refers to the name of an Azure Repos Git repository.
+  - If your pipeline is in the same Azure DevOps project as the repository, for example a repository named `tools`, you reference it using `name: tools`. 
+  - If your pipeline is in the same Azure DevOps organization as the repository, but in a different Azure DevOps project, for example a project named `ToolsProject`, you must qualify the repository name with the project name: `name: ToolsProject/tools`.
 
 - If you specify `type: github`, the `name` value is the full name of the GitHub repo and includes the user or organization.
   An example is `name: Microsoft/vscode`.
@@ -739,6 +738,7 @@ The `git` type refers to Azure Repos Git repos.
   An example is `name: MyBitbucket/vscode`.
   Bitbucket Cloud repos require a [Bitbucket Cloud service connection](/azure/devops/pipelines/library/service-endpoints#bitbucket-cloud-service-connection) for authorization.
 
+For more information about these types, see [Check out multiple repositories in your pipeline - Repository resource definition](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition).
 
 
 ## Examples
