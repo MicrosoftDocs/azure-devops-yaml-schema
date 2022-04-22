@@ -801,7 +801,7 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 
 :::moniker range=">= azure-pipelines-2020"
 
-There are several ways to define triggers in a pipeline resource. To trigger a run when any run of the pipeline resource completes, use `trigger: true`.
+There are several ways to define triggers in a pipeline resource. To trigger a run when any run of the referenced pipeline completes, use `trigger: true`.
 
 ```yaml
 resources:
@@ -865,7 +865,7 @@ resources:
   - pipeline: source-pipeline
     source: TriggeringPipeline
     trigger:
-      branches: [ branches ]
+      branches: # Branches to include
       tags: # List of tags that when matched will trigger the pipeline. 
       - release25
       stages: # List of stages that when complete will trigger the pipeline. 
