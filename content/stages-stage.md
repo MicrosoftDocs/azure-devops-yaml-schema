@@ -360,7 +360,8 @@ stages:
   jobs: [ job | deployment | template ]
   lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
   templateContext:  # Stage related information passed from a pipeline when extending a template.
-     # Job, stage, or deployment related information passed from a pipeline when extending a template.```
+    
+```
 
 
 Properties that use this definition: [stages](stages.md)

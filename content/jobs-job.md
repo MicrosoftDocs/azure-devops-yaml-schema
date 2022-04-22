@@ -1303,7 +1303,8 @@ jobs:
     pools: [ string ] # Pool references 
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
   templateContext:  # Job related information passed from a pipeline when extending a template.
-     # Job, stage, or deployment related information passed from a pipeline when extending a template.```
+    
+```
 
 
 Properties that use this definition: [jobs](jobs.md)

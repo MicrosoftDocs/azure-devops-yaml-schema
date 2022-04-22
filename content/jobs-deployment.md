@@ -695,7 +695,8 @@ jobs:
   services:  # Container resources to run as a service container.
     string: string # Name/value pairs.
   templateContext:  # Deployment related information passed from a pipeline when extending a template.
-     # Job, stage, or deployment related information passed from a pipeline when extending a template.```
+    
+```
 
 
 Properties that use this definition: [jobs](jobs.md)
