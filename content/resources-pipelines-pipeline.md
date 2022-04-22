@@ -821,23 +821,9 @@ resources:
     trigger: none
 ```
 
-:::moniker-end
+To configure branch filters, use the full syntax. Branch filters can be specified as a list of branches to include, or as a list of branches to include combined with a list of branches to exclude.
 
-:::moniker range=">= azure-pipelines-2020.1"
-
-To configure branch, stage, or tag filters, use the full syntax, which can be one of the following two forms.
-
-:::moniker-end
-
-:::moniker range="azure-pipelines-2020"
-
-To configure branch filters, use the full syntax, which can be one of the following two forms.
-
-:::moniker-end
-
-:::moniker range=">= azure-pipelines-2020"
-
-To specify a list of branches to include and exclude, use the following syntax.
+To specify a list of branches to include and exclude, use the following `trigger` syntax.
 
 ```yaml
 resources:
@@ -854,7 +840,7 @@ resources:
         - features/experimental/*
 ```
 
-To specify a list of branches to include, you can omit the `exclude` value, or you can use the following syntax to specify the list of branches to include directly following `branches`.
+To specify a list of branches to include, with no excludes, omit the `exclude` value, or use the following syntax to specify the list of branches to include directly following `branches`.
 
 ```yaml
 resources:
@@ -871,7 +857,7 @@ resources:
 
 :::moniker range=">= azure-pipelines-2020.1"
 
-Use the following syntax to filter the trigger by stages or tags.
+To filter by stages or tags, use the following `trigger` syntax.
 
 ```yaml
 resources:
