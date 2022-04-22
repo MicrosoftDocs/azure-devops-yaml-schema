@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: jobs.job definition reference.
-ms.date: 03/24/2022
+ms.date: 04/22/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -1302,7 +1302,8 @@ jobs:
     repositories: [ string ] # Repository references 
     pools: [ string ] # Pool references 
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-```
+  templateContext: 
+     # Job, stage, or deployment related information passed from a pipeline when extending a template.```
 
 
 Properties that use this definition: [jobs](jobs.md)
@@ -1602,6 +1603,26 @@ ___
 [steps](steps.md)
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->A list of steps to run. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `templateContext`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+templateContext
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::

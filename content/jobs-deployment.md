@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: jobs.deployment definition reference.
-ms.date: 01/27/2022
+ms.date: 04/22/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -694,7 +694,8 @@ jobs:
   container: jobContainer # Container resource name
   services:  # Container resources to run as a service container.
     string: string # Name/value pairs.
-```
+  templateContext: 
+     # Job, stage, or deployment related information passed from a pipeline when extending a template.```
 
 
 Properties that use this definition: [jobs](jobs.md)
@@ -994,6 +995,26 @@ ___
 string name/value pairs
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `templateContext`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+templateContext
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::

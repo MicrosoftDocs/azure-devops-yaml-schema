@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: stages.stage definition reference.
-ms.date: 01/26/2022
+ms.date: 04/22/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -359,7 +359,8 @@ stages:
   variables: variables # Stage-specific variables
   jobs: [ job | deployment | template ]
   lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-```
+  templateContext: 
+     # Job, stage, or deployment related information passed from a pipeline when extending a template.```
 
 
 Properties that use this definition: [stages](stages.md)
@@ -519,6 +520,26 @@ ___
 string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `templateContext`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+templateContext
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
