@@ -8,7 +8,7 @@ monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-
 # resources.pipelines.pipeline definition
 
 
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 
 :::moniker range="= azure-pipelines-2019"
@@ -273,7 +273,7 @@ pipelines:
   version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
   branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
   tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax.
+  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
     enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
     branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
       include: [ branchFilter ] # List of branches to include. 
@@ -417,7 +417,7 @@ ___
 <!-- :::api-property-type::: --> 
 string or trigger
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax. 
+<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -444,7 +444,7 @@ pipelines:
   version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
   branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
   tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax.
+  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
     enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
     branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
       include: [ branchFilter ] # List of branches to include. 
@@ -590,7 +590,7 @@ ___
 <!-- :::api-property-type::: --> 
 string or trigger
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax. 
+<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -617,7 +617,7 @@ pipelines:
   version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
   branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
   tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax.
+  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
     enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
     branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
       include: [ branchFilter ] # List of branches to include. 
@@ -763,7 +763,7 @@ ___
 <!-- :::api-property-type::: --> 
 string or trigger
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax. 
+<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -793,13 +793,118 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 
 :::moniker-end
 
+:::moniker range=">= azure-pipelines-2020"
+
+### Pipeline resource trigger syntax
+
+:::moniker-end
+
+:::moniker range=">= azure-pipelines-2020"
+
+There are several ways to define triggers in a pipeline resource. To trigger a run when any run of the pipeline resource completes, use `trigger: true`.
+
+```yaml
+resources:
+  pipelines:
+  - pipeline: source-pipeline
+    source: TriggeringPipeline
+    trigger: true
+```
+
+To disable the pipeline resource trigger, specify a value of `none`.
+
+```yaml
+resources:
+  pipelines:
+  - pipeline: source-pipeline
+    source: TriggeringPipeline
+    trigger: none
+```
+
+:::moniker-end
+
+:::moniker range=">= azure-pipelines-2020.1"
+
+To configure branch, stage, or tag filters, use the full syntax, which can be one of the following two forms.
+
+:::moniker-end
+
+:::moniker range="azure-pipelines-2020"
+
+To configure branch filters, use the full syntax, which can be one of the following two forms.
+
+:::moniker-end
+
+:::moniker range=">= azure-pipelines-2020"
+
+To specify a list of branches to include and exclude, use the following syntax.
+
+```yaml
+resources:
+  pipelines:
+  - pipeline: source-pipeline
+    source: TriggeringPipeline
+    trigger:
+      branches:
+        include:
+        - main
+        - develop
+        - features/*
+        exclude:
+        - features/experimental/*
+```
+
+To specify a list of branches to include, you can omit the `exclude` value, or you can use the following syntax to specify the list of branches to include directly following `branches`.
+
+```yaml
+resources:
+  pipelines:
+  - pipeline: source-pipeline
+    source: TriggeringPipeline
+    trigger:
+      branches:
+      - main
+      - develop
+```
+
+:::moniker-end
+
+:::moniker range=">= azure-pipelines-2020.1"
+
+Use the following syntax to filter the trigger by stages or tags.
+
+```yaml
+resources:
+  pipelines:
+  - pipeline: source-pipeline
+    source: TriggeringPipeline
+    trigger:
+      branches: [ branches ]
+      tags: # List of tags that when matched will trigger the pipeline. 
+      - release25
+      stages: # List of stages that when complete will trigger the pipeline. 
+      - build
+```
+
+:::moniker-end
+
+:::moniker range=">= azure-pipelines-2020"
+
+For more information, see [Pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
+
+:::moniker-end
+
+:::moniker range=">= azure-pipelines-2020"
+
 > [!IMPORTANT]
 > When you define a resource trigger, if its pipeline resource is from the same repo as the current pipeline, triggering follows the same branch and commit on which the event is raised.
 > But if the pipeline resource is from a different repo, the current pipeline is triggered on the branch specified by the **Default branch for manual and scheduled builds** setting. For more information, see [Branch considerations for pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers#branch-considerations).
 
+:::moniker-end
+
 :::moniker range=">=azure-pipelines-2020"
 
-#### The pipeline resource metadata as predefined variables
+### Pipeline resource metadata as predefined variables
 
 In each run, the metadata for a pipeline resource is available to all jobs as these predefined variables:
 
