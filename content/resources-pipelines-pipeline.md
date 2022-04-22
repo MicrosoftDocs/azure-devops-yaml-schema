@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: resources.pipelines.pipeline definition reference.
-ms.date: 04/21/2022
+ms.date: 04/22/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -818,14 +818,25 @@ resources.pipeline.<Alias>.requestedFor
 resources.pipeline.<Alias>.requestedForID
 ```
 
-Replace `<Alias>` with the ID of the pipeline resource. For the following pipeline resource, the variable to access  `projectName` is `resources.pipeline.MyAppA.projectName`.
+> [!IMPORTANT]
+> `projectName` is not present in the variables if the pipeline resource does not have a `project` value specified. The `project` property is optional for pipeline resources that reference a pipeline in the same project, but may be specified if desired.
+
+Replace `<Alias>` with the ID of the pipeline resource. For the following pipeline resource, the variable to access  `runID` is `resources.pipeline.source-pipeline.runID`.
 
 ```yaml
 resources:
   pipelines:
-  - pipeline: MyAppA
-    source: MyCIPipelineA
+  - pipeline: source-pipeline
+    source: TriggeringPipeline
 ```
+
+When a pipeline is triggered by one of its pipeline resources, the following variables are set.
+
+| Variable | Value |
+|----------|-------------|
+| `Build.Reason` | `ResourceTrigger` |
+| `Resources.TriggeringAlias` | The name of the pipeline resource, such as `source-pipeline` from the previous example. |
+| `Resource.TriggeringCategory` | `pipeline` |
 
 :::moniker-end
 
