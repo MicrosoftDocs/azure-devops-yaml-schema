@@ -694,7 +694,7 @@ jobs:
   container: jobContainer # Container resource name
   services:  # Container resources to run as a service container.
     string: string # Name/value pairs.
-  templateContext: 
+  templateContext:  # Deployment related information passed from a pipeline when extending a template.
      # Job, stage, or deployment related information passed from a pipeline when extending a template.```
 
 
@@ -1014,7 +1014,7 @@ ___
 <!-- :::api-property-type::: --> 
 templateContext
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->Deployment related information passed from a pipeline when extending a template. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::

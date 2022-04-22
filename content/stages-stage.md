@@ -359,7 +359,7 @@ stages:
   variables: variables # Stage-specific variables
   jobs: [ job | deployment | template ]
   lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-  templateContext: 
+  templateContext:  # Stage related information passed from a pipeline when extending a template.
      # Job, stage, or deployment related information passed from a pipeline when extending a template.```
 
 
@@ -539,7 +539,7 @@ ___
 <!-- :::api-property-type::: --> 
 templateContext
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->Stage related information passed from a pipeline when extending a template. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::

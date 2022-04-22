@@ -1302,7 +1302,7 @@ jobs:
     repositories: [ string ] # Repository references 
     pools: [ string ] # Pool references 
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-  templateContext: 
+  templateContext:  # Job related information passed from a pipeline when extending a template.
      # Job, stage, or deployment related information passed from a pipeline when extending a template.```
 
 
@@ -1622,7 +1622,7 @@ ___
 <!-- :::api-property-type::: --> 
 templateContext
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
+<!-- :::api-desc type="property"::: -->Job related information passed from a pipeline when extending a template. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
