@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: jobs.deployment definition reference.
-ms.date: 04/22/2022
+ms.date: 04/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -11,7 +11,6 @@ monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-
 
 A [deployment job](/azure/devops/pipelines/process/deployment-jobs) is a special type of job.
 It's a collection of steps to run sequentially against the environment.
-In YAML pipelines, we recommend that you put your deployment steps in a deployment job.
 
 
 :::moniker range="= azure-pipelines-2020"
@@ -694,7 +693,7 @@ jobs:
   container: jobContainer # Container resource name
   services:  # Container resources to run as a service container.
     string: string # Name/value pairs.
-  templateContext:  # Deployment related information passed from a pipeline when extending a template.
+  templateContext:  # Deployment related information passed from a pipeline when extending a template. See remarks for more information.
     
 ```
 
@@ -1015,7 +1014,7 @@ ___
 <!-- :::api-property-type::: --> 
 templateContext
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment related information passed from a pipeline when extending a template. 
+<!-- :::api-desc type="property"::: -->Deployment related information passed from a pipeline when extending a template. See remarks for more information. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1031,7 +1030,15 @@ ___
 :::moniker-end
 
 
-<!-- Remarks -->
+## Remarks
+
+In YAML pipelines, we recommend that you put your deployment steps in a deployment job.
+
+:::moniker range="azure-pipelines"
+
+For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
+
+:::moniker-end
 
 
 ## Examples

@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: stages.stage definition reference.
-ms.date: 04/22/2022
+ms.date: 04/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -359,7 +359,7 @@ stages:
   variables: variables # Stage-specific variables
   jobs: [ job | deployment | template ]
   lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-  templateContext:  # Stage related information passed from a pipeline when extending a template.
+  templateContext:  # Stage related information passed from a pipeline when extending a template. See remarks for more information.
     
 ```
 
@@ -540,7 +540,7 @@ ___
 <!-- :::api-property-type::: --> 
 templateContext
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage related information passed from a pipeline when extending a template. 
+<!-- :::api-desc type="property"::: -->Stage related information passed from a pipeline when extending a template. See remarks for more information. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -557,6 +557,12 @@ ___
 
 
 ## Remarks
+
+:::moniker range="azure-pipelines"
+
+For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
+
+:::moniker-end
 
 Use [approval checks](/azure/devops/pipelines/process/approvals) to manually control when a stage should run.
 These checks are commonly used to control deployments to production environments.
