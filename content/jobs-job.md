@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: jobs.job definition reference.
-ms.date: 03/24/2022
+ms.date: 04/26/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -1302,6 +1302,8 @@ jobs:
     repositories: [ string ] # Repository references 
     pools: [ string ] # Pool references 
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+  templateContext:  # Job related information passed from a pipeline when extending a template. See remarks for more information.
+    
 ```
 
 
@@ -1610,6 +1612,26 @@ ___
 
 
 
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `templateContext`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+templateContext
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Job related information passed from a pipeline when extending a template. See remarks for more information. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
 
 
 <!-- :::api-definition-end::: -->
@@ -1623,6 +1645,12 @@ Jobs can run [conditionally](/azure/devops/pipelines/process/phases#conditions) 
 
 > [!NOTE]
 > If you have only one stage and one job, you can use [single-job syntax](/azure/devops/pipelines/process/phases) as a shorter way to describe the steps to run.
+
+:::moniker range="azure-pipelines"
+
+For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
+
+:::moniker-end
 
 
 ## Examples

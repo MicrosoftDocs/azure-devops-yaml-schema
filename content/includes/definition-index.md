@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/22/2022
+ms.date: 04/26/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -726,7 +726,6 @@ ___
 
 A [deployment job](/azure/devops/pipelines/process/deployment-jobs) is a special type of job.
 It's a collection of steps to run sequentially against the environment.
-In YAML pipelines, we recommend that you put your deployment steps in a deployment job.
 
 :::column-end:::
 :::row-end:::
@@ -1277,7 +1276,6 @@ ___
 
 A [deployment job](/azure/devops/pipelines/process/deployment-jobs) is a special type of job.
 It's a collection of steps to run sequentially against the environment.
-In YAML pipelines, we recommend that you put your deployment steps in a deployment job.
 
 :::column-end:::
 :::row-end:::
@@ -1868,7 +1866,6 @@ ___
 
 A [deployment job](/azure/devops/pipelines/process/deployment-jobs) is a special type of job.
 It's a collection of steps to run sequentially against the environment.
-In YAML pipelines, we recommend that you put your deployment steps in a deployment job.
 
 :::column-end:::
 :::row-end:::
