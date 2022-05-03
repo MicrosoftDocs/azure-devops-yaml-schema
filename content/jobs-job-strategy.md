@@ -171,7 +171,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -231,7 +231,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -291,7 +291,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -351,7 +351,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
