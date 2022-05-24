@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.environment definition
 description: jobs.deployment.environment definition reference.
-ms.date: 01/28/2022
+ms.date: 05/24/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -611,14 +611,14 @@ ___
 The full syntax is:
 
 ```yaml
-environment:                # create environment and/or record deployments
-  name: string              # name of the environment to run this job on.
-  resourceName: string      # name of the resource in the environment to record the deployments against
-  resourceId: number        # resource identifier
-  resourceType: string      # type of the resource you want to target. Supported types - virtualMachine, Kubernetes
-  tags: string | [ string ] # tag names to filter the resources in the environment
-strategy:                 # deployment strategy
-  runOnce:                # default strategy
+environment:            # create environment and/or record deployments
+  name: string          # name of the environment to run this job on.
+  resourceName: string  # name of the resource in the environment to record the deployments against
+  resourceId: number    # resource identifier
+  resourceType: string  # type of the resource you want to target. Supported types - virtualMachine, Kubernetes
+  tags: string          # comma separated tag names to filter the resources in the environment
+strategy:               # deployment strategy
+  runOnce:              # default strategy
     deploy:
       steps:
       - script: echo Hello world
@@ -628,8 +628,8 @@ If you specify an environment or one of its resources but don't need to specify 
 
 ```yaml
 environment: environmentName.resourceName
-strategy:                 # deployment strategy
-  runOnce:              # default strategy
+strategy:         # deployment strategy
+  runOnce:        # default strategy
     deploy:
       steps:
       - script: echo Hello world
