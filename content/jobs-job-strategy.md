@@ -1,7 +1,7 @@
 ---
 title: jobs.job.strategy definition
 description: jobs.job.strategy definition reference.
-ms.date: 01/28/2022
+ms.date: 05/24/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -111,7 +111,7 @@ These copies are useful for testing against different configurations or platform
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -171,7 +171,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -231,7 +231,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -291,7 +291,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
@@ -351,7 +351,7 @@ ___
 
 ```yaml
 strategy:
-  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
+  matrix: { string1: { string2: string3 } } # Job matrix, see the following examples. # Matrix defining the job strategy; see the following examples.
   maxParallel: string # Maximum number of jobs running in parallel. 
 ```
 
