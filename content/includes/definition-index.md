@@ -240,26 +240,6 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 ___
 :::row:::
 :::column:::
-[steps.restoreCache](../steps-restore-cache.md)
-:::column-end:::
-:::column span="3":::
-The `restoreCache` step restores a cache.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[steps.saveCache](../steps-save-cache.md)
-:::column-end:::
-:::column span="3":::
-The `saveCache` step saves a cache.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [steps.script](../steps-script.md)
 :::column-end:::
 :::column span="3":::
@@ -582,26 +562,6 @@ ___
 :::column-end:::
 :::column span="3":::
 The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[steps.restoreCache](../steps-restore-cache.md)
-:::column-end:::
-:::column span="3":::
-The `restoreCache` step restores a cache.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[steps.saveCache](../steps-save-cache.md)
-:::column-end:::
-:::column span="3":::
-The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -1118,30 +1078,10 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 ___
 :::row:::
 :::column:::
-[steps.restoreCache](../steps-restore-cache.md)
-:::column-end:::
-:::column span="3":::
-The `restoreCache` step restores a cache.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [steps.reviewApp](../steps-review-app.md)
 :::column-end:::
 :::column span="3":::
 The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[steps.saveCache](../steps-save-cache.md)
-:::column-end:::
-:::column span="3":::
-The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -1708,30 +1648,10 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 ___
 :::row:::
 :::column:::
-[steps.restoreCache](../steps-restore-cache.md)
-:::column-end:::
-:::column span="3":::
-The `restoreCache` step restores a cache.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [steps.reviewApp](../steps-review-app.md)
 :::column-end:::
 :::column span="3":::
 The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[steps.saveCache](../steps-save-cache.md)
-:::column-end:::
-:::column span="3":::
-The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
@@ -2298,30 +2218,10 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 ___
 :::row:::
 :::column:::
-[steps.restoreCache](../steps-restore-cache.md)
-:::column-end:::
-:::column span="3":::
-The `restoreCache` step restores a cache.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
 [steps.reviewApp](../steps-review-app.md)
 :::column-end:::
 :::column span="3":::
 The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
-
-:::column-end:::
-:::row-end:::
-___
-:::row:::
-:::column:::
-[steps.saveCache](../steps-save-cache.md)
-:::column-end:::
-:::column span="3":::
-The `saveCache` step saves a cache.
 
 :::column-end:::
 :::row-end:::
