@@ -92,12 +92,8 @@
   href: steps-publish.md
 - name: steps.pwsh
   href: steps-pwsh.md
-- name: steps.restoreCache
-  href: steps-restore-cache.md
 - name: steps.reviewApp
   href: steps-review-app.md
-- name: steps.saveCache
-  href: steps-save-cache.md
 - name: steps.script
   href: steps-script.md
 - name: steps.task
