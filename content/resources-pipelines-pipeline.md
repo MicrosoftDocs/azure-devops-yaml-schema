@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: resources.pipelines.pipeline definition reference.
-ms.date: 04/22/2022
+ms.date: 06/17/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -780,6 +780,9 @@ ___
 
 
 ## Remarks
+
+> [!NOTE]
+> `pipeline:` specifies the name of the pipeline resource. Use the label defined here when referring to the pipeline resource from other parts of the pipeline, such as when using pipeline resource variables or downloading artifacts.
 
 :::moniker range=">= azure-pipelines-2020.1"
 
