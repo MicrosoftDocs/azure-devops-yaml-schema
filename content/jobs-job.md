@@ -1641,6 +1641,8 @@ ___
 
 ## Remarks
 
+The default `timeoutInMinutes` is set to 60 minutes. For more information, see [Timeouts](/azure/devops/pipelines/process/phases#timeouts).
+
 Jobs can run [conditionally](/azure/devops/pipelines/process/phases#conditions) and might [depend on earlier jobs](/azure/devops/pipelines/process/phases#dependencies).
 
 > [!NOTE]
