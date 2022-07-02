@@ -317,7 +317,7 @@ steps:
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
   submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-  path: string # Path of the repository to check out. 
+  path: string # Where to put the repository. The root directory is $(Pipeline.Workspace). 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
   displayName: string # Human-readable name for the task. 
@@ -465,7 +465,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Path of the repository to check out. 
+<!-- :::api-desc type="property"::: -->Where to put the repository. The root directory is $(Pipeline.Workspace). 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -632,7 +632,7 @@ steps:
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
   submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-  path: string # Path of the repository to check out. 
+  path: string # Where to put the repository. The root directory is $(Pipeline.Workspace). 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
   displayName: string # Human-readable name for the task. 
@@ -781,7 +781,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Path of the repository to check out. 
+<!-- :::api-desc type="property"::: -->Where to put the repository. The root directory is $(Pipeline.Workspace). 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -968,7 +968,7 @@ steps:
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
   submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-  path: string # Path of the repository to check out. 
+  path: string # Where to put the repository. The root directory is $(Pipeline.Workspace). 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
   displayName: string # Human-readable name for the task. 
@@ -1117,7 +1117,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Path of the repository to check out. 
+<!-- :::api-desc type="property"::: -->Where to put the repository. The root directory is $(Pipeline.Workspace). 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1304,7 +1304,7 @@ steps:
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
   submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-  path: string # Path of the repository to check out. 
+  path: string # Where to put the repository. The root directory is $(Pipeline.Workspace). 
   condition: string # Evaluate this condition expression to determine whether to run this task. 
   continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
   displayName: string # Human-readable name for the task. 
@@ -1454,7 +1454,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Path of the repository to check out. 
+<!-- :::api-desc type="property"::: -->Where to put the repository. The root directory is $(Pipeline.Workspace). 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
