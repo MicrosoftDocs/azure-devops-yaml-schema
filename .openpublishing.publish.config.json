@@ -13,6 +13,20 @@
       },
       "build_entry_point": "docs",
       "template_folder": "_themes"
+    },
+    {
+      "docset_name": "pipelines-task-ref",
+      "build_source_folder": "task-reference",
+      "build_output_subfolder": "pipelines-task-ref",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
     }
   ],
   "notification_subscribers": [
@@ -34,8 +48,8 @@
     }
   ],
   "branch_target_mapping": {},
-  "need_generate_pdf_url_template": false,
   "targets": {},
   "docs_build_engine": {},
+  "need_generate_pdf_url_template": false,
   "contribution_branch_mappings": {}
 }
