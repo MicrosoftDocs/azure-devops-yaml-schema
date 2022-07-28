@@ -660,7 +660,7 @@ Full syntax for complete control.
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes)
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes) Default: false.
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
@@ -745,7 +745,7 @@ ___
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes)
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes) Default: false.
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
@@ -830,7 +830,7 @@ ___
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes)
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes)  Default: false.
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
@@ -931,14 +931,14 @@ Use the full syntax when you need full control of the pull request trigger.
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes)
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes) Default: false.
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
   paths:  # File paths to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
-  drafts: boolean # Whether to start a run when a draft PR is created.  (false,n,no,off,on,true,y,yes)
+  drafts: boolean # Whether to start a run when a draft PR is created.  (false,n,no,off,on,true,y,yes) Default: false.
 ```
 
 ### Properties
