@@ -1,8 +1,8 @@
 ---
 title: jobs.deployment.environment definition
 description: jobs.deployment.environment definition reference.
-ms.date: 05/24/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # jobs.deployment.environment definition
@@ -18,6 +18,12 @@ Properties that use this definition: [jobs.deployment.environment](jobs-deployme
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [jobs.deployment.environment](jobs-deployment.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [jobs.deployment.environment](jobs-deployment.md)
 
@@ -41,6 +47,15 @@ Properties that use this definition: [jobs.deployment.environment](jobs-deployme
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1" 
+
+| Overload | Description |
+|----------|-------------|
+| [environment: string](#environment-string) | Deployment job with environment name. |
+| [environment: name, resourceName, resourceId, resourceType, tags](#environment-name-resourcename-resourceid-resourcetype-tags) | Full syntax for complete control. |
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022" 
 
 | Overload | Description |
 |----------|-------------|
@@ -82,7 +97,7 @@ strategy:
           # value for kubernetesServiceConnection input automatically passed down to task by environment.resource input
 ```
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## environment: string
 
@@ -133,6 +148,44 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="deploymentEnvironment{string}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+environment: string # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `deploymentEnvironment`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="deploymentEnvironment{string}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml
@@ -223,7 +276,7 @@ strategy:                 # deployment strategy
 ```
 
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## environment: name, resourceName, resourceId, resourceType, tags
 
@@ -359,6 +412,129 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="deploymentEnvironment{name,resourceName,resourceId,resourceType,tags}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+environment:
+  name: string # Name of environment. 
+  resourceName: string # Name of resource. 
+  resourceId: string # Id of resource. 
+  resourceType: string # Type of environment resource. 
+  tags: string # List of tag filters. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Name of environment. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `resourceName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Name of resource. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `resourceId`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Id of resource. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `resourceType`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Type of environment resource. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `tags`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of tag filters. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="deploymentEnvironment{name,resourceName,resourceId,resourceType,tags}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml

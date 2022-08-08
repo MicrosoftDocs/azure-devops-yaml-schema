@@ -2,7 +2,7 @@
 title: pr definition
 description: pr definition reference.
 ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # pr definition
@@ -31,6 +31,12 @@ Properties that use this definition: [pipeline.pr](pipeline.md)
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [pipeline.pr](pipeline.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [pipeline.pr](pipeline.md)
 
@@ -75,6 +81,16 @@ Properties that use this definition: [pipeline.pr](pipeline.md)
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1" 
+
+| Overload | Description |
+|----------|-------------|
+| [pr: none](#pr-none) | Disable pull request triggers. |
+| [pr: branchFilter list](#pr-branchfilter-list) | List of branches that trigger a run. |
+| [pr: autoCancel, branches, paths](#pr-autocancel-branches-paths) | Full syntax for complete control. |
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022" 
 
 | Overload | Description |
 |----------|-------------|
@@ -140,7 +156,7 @@ If you specify an `exclude` clause without an `include` clause for `branches` or
 
 
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## pr: none
 
@@ -302,6 +318,44 @@ ___
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pr(none)" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+pr: none # Disable pull request triggers.
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `pr`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: none
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 <!-- :::api-definition signature="pr(none)" version="azure-pipelines"::: -->
@@ -352,7 +406,7 @@ Disablement syntax:
 pr: none # will disable PR builds (but not CI builds)
 ```
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## pr: branchFilter list
 
@@ -479,6 +533,44 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="pr[branchFilter]" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+pr: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `pr`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Disable pull request triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pr[branchFilter]" version="azure-pipelines-2022"::: -->
 
 
 ```yaml
@@ -644,7 +736,7 @@ ___
 
 <!-- Examples -->
 
-:::moniker range="= azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## pr: autoCancel, branches, paths
 
@@ -826,6 +918,91 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="pr{autoCancel,branches,paths}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+pr:
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.  (false,n,no,off,on,true,y,yes)
+  branches:  # Branch names to include or exclude for triggering a run.
+    include: [ branchFilter ] # List of items to include. 
+    exclude: [ branchFilter ] # List of items to exclude. 
+  paths:  # File paths to include or exclude for triggering a run.
+    include: [ branchFilter ] # List of items to include. 
+    exclude: [ branchFilter ] # List of items to exclude. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `autoCancel`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. Default: true. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `branches`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+include/exclude string list
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `paths`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+include/exclude string list
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pr{autoCancel,branches,paths}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml

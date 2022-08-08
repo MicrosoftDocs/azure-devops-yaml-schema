@@ -1,8 +1,8 @@
 ---
 title: resources.pipelines list definition
 description: resources.pipelines list definition reference.
-ms.date: 01/31/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # resources.pipelines list definition
@@ -77,6 +77,27 @@ Properties that use this definition: [resources.pipelines](resources.md)
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+pipelines: [ pipeline ] # 
+```
+
+
+Properties that use this definition: [resources.pipelines](resources.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 pipelines: [ pipeline ] # 

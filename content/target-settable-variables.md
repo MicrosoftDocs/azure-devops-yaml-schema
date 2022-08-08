@@ -1,8 +1,8 @@
 ---
 title: target.settableVariables definition
 description: target.settableVariables definition reference.
-ms.date: 02/03/2022
-monikerRange: "= azure-pipelines"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2022"
 ---
 
 # target.settableVariables definition
@@ -11,6 +11,12 @@ monikerRange: "= azure-pipelines"
 Variables that can be set by a step.
 
 
+:::moniker range="= azure-pipelines-2022"
+
+Properties that use this definition: [target.settableVariables](target.md)
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 Properties that use this definition: [target.settableVariables](target.md)
@@ -18,6 +24,15 @@ Properties that use this definition: [target.settableVariables](target.md)
 :::moniker-end
 
 ## Overloads
+
+:::moniker range="= azure-pipelines-2022" 
+
+| Overload | Description |
+|----------|-------------|
+| [settableVariables: none](#settablevariables-none) | Disable a step from setting any variables. |
+| [settableVariables: string list](#settablevariables-string-list) | Restrict variable setting to a list of allowed variables. |
+
+:::moniker-end
 
 :::moniker range="= azure-pipelines" 
 
@@ -33,13 +48,51 @@ Properties that use this definition: [target.settableVariables](target.md)
 
 You can disable setting all variables for a step, or restrict the settable variables to a list. If the `settableVariables` property is not set, the default allows all variables to be set by a step.
 
-:::moniker range="= azure-pipelines"
+:::moniker range="= azure-pipelines || = azure-pipelines-2022"
 
 ## settableVariables: none
 
 Disable a step from setting any variables.
 
 
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="variableRestrictions(none)" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+settableVariables: none # Disable a step from setting any variables.
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variableRestrictions`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Acceptable values: none
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
@@ -94,13 +147,51 @@ steps:
     settableVariables: none
 ```
 
-:::moniker range="= azure-pipelines"
+:::moniker range="= azure-pipelines || = azure-pipelines-2022"
 
 ## settableVariables: string list
 
 Restrict a step from setting any variables not in the specified list.
 
 
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="variableRestrictions[string]" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+settableVariables: [ string ] # Restrict variable setting to a list of allowed variables. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variableRestrictions`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
 
 :::moniker-end
 

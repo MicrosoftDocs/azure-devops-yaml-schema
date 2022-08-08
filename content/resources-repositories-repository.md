@@ -1,8 +1,8 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 04/21/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # resources.repositories.repository definition
@@ -439,6 +439,152 @@ Properties that use this definition: [resources.repositories](resources-reposito
 string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [_A-Za-z0-9]*
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `endpoint`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `trigger`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[trigger](trigger.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `type`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `ref`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2022"::: -->
+
+```yaml
+repositories:
+- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+  endpoint: string # ID of the service endpoint connecting to this repository. 
+  trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # string  # repository name (format depends on `type`). 
+  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
+  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+```
+
+
+Properties that use this definition: [resources.repositories](resources-repositories.md)
+
+## Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `repository`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [-_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
