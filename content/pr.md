@@ -1,7 +1,7 @@
 ---
 title: pr definition
 description: pr definition reference.
-ms.date: 02/28/2022
+ms.date: 08/08/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
 ---
 
@@ -660,7 +660,7 @@ Full syntax for complete control.
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes) Default: false.
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.  (false,n,no,off,on,true,y,yes)
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
@@ -683,7 +683,7 @@ pr:
 <!-- :::api-property-type::: --> 
 boolean
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. 
+<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. Default: true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -745,7 +745,7 @@ ___
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes) Default: false.
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.  (false,n,no,off,on,true,y,yes)
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
@@ -768,7 +768,7 @@ pr:
 <!-- :::api-property-type::: --> 
 boolean
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. 
+<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. Default: true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -830,7 +830,7 @@ ___
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes)  Default: false.
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.  (false,n,no,off,on,true,y,yes)
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
@@ -853,7 +853,7 @@ pr:
 <!-- :::api-property-type::: --> 
 boolean
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. 
+<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. Default: true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -931,14 +931,14 @@ Use the full syntax when you need full control of the pull request trigger.
 
 ```yaml
 pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch.  (false,n,no,off,on,true,y,yes) Default: false.
+  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.  (false,n,no,off,on,true,y,yes)
   branches:  # Branch names to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
   paths:  # File paths to include or exclude for triggering a run.
     include: [ branchFilter ] # List of items to include. 
     exclude: [ branchFilter ] # List of items to exclude. 
-  drafts: boolean # Whether to start a run when a draft PR is created.  (false,n,no,off,on,true,y,yes) Default: false.
+  drafts: boolean # Whether to start a run when a draft PR is created. Default: true.  (false,n,no,off,on,true,y,yes)
 ```
 
 ### Properties
@@ -955,7 +955,7 @@ pr:
 <!-- :::api-property-type::: --> 
 boolean
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. 
+<!-- :::api-desc type="property"::: -->Whether to cancel running PR builds when a new commit lands in the branch. Default: true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1015,7 +1015,7 @@ ___
 <!-- :::api-property-type::: --> 
 boolean
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to start a run when a draft PR is created. 
+<!-- :::api-desc type="property"::: -->Whether to start a run when a draft PR is created. Default: true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
