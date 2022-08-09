@@ -1,8 +1,8 @@
 ---
 title: resources.repositories list definition
 description: resources.repositories list definition reference.
-ms.date: 01/31/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # resources.repositories list definition
@@ -77,6 +77,27 @@ Properties that use this definition: [resources.repositories](resources.md)
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+repositories: [ repository ] # 
+```
+
+
+Properties that use this definition: [resources.repositories](resources.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 repositories: [ repository ] # 

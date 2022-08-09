@@ -1,8 +1,8 @@
 ---
 title: jobs.job.strategy definition
 description: jobs.job.strategy definition reference.
-ms.date: 05/24/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # jobs.job.strategy definition
@@ -32,6 +32,12 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job.strategy](jobs-job.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job.strategy](jobs-job.md)
 
@@ -81,6 +87,15 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022" 
+
+| Overload | Description |
+|----------|-------------|
+| [strategy: matrix, maxParallel](#strategy-matrix-maxparallel) | Matrix job strategy. |
+| [strategy: parallel](#strategy-parallel) | Parallel job strategy. |
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines" 
 
 | Overload | Description |
@@ -92,7 +107,7 @@ Properties that use this definition: [pipeline.strategy](pipeline.md), [jobs.job
 
 <!-- Remarks -->
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## strategy: matrix, maxParallel
 
@@ -344,6 +359,66 @@ ___
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="jobStrategy{matrix,maxParallel}" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+strategy:
+  matrix: { string1: { string2: string3 } } # Matrix defining the job strategy; see the following examples.
+  maxParallel: string # Maximum number of jobs running in parallel. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `matrix`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+jobMatrix
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Matrix defining the job strategy; see the following examples. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `maxParallel`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Maximum number of jobs running in parallel. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 <!-- :::api-definition signature="jobStrategy{matrix,maxParallel}" version="azure-pipelines"::: -->
@@ -466,7 +541,7 @@ Only two jobs run simultaneously.
 
 
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## strategy: parallel
 
@@ -599,6 +674,45 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="jobStrategy{parallel}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+strategy:
+  parallel: string # Run the job this many times. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `parallel`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Run the job this many times. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="jobStrategy{parallel}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml

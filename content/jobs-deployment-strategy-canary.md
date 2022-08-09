@@ -1,8 +1,8 @@
 ---
 title: jobs.deployment.strategy.canary definition
 description: jobs.deployment.strategy.canary definition reference.
-ms.date: 01/25/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # jobs.deployment.strategy.canary definition
@@ -174,6 +174,166 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="canaryDeploymentStrategy{increments,preDeploy,deploy,routeTraffic,postRouteTraffic,on}" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+canary:
+  increments: [ string ] # Maximum batch size for deployment 
+  preDeploy:  # Pre deploy hook for canary deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where pre deploy steps will run
+  deploy:  # Deploy hook for canary deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where deploy steps will run
+  routeTraffic:  # Route traffic hook for canary deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where route traffic steps will run
+  postRouteTraffic:  # Post route traffic hook for canary deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where post route traffic steps will run
+  on:  # On success or failure hook for canary deployment strategy
+    failure:  # Runs on failure of any step
+      steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+      pool: pool # Pool where post on failure steps will run
+    success:  # Runs on success of all of the steps
+      steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+      pool: pool # Pool where on success steps will run
+```
+
+
+Properties that use this definition: [jobs.deployment.strategy.canary](jobs-deployment-strategy.md)
+
+## Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `increments`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string list
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Maximum batch size for deployment. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `preDeploy`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+preDeployHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Pre deploy hook for canary deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `deploy`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+deployHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Deploy hook for canary deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `routeTraffic`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+routeTrafficHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Route traffic hook for canary deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `postRouteTraffic`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+postRouteTrafficHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Post route traffic hook for canary deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `on`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+onSuccessOrFailureHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->On success or failure hook for canary deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="canaryDeploymentStrategy{increments,preDeploy,deploy,routeTraffic,postRouteTraffic,on}" version="azure-pipelines-2022"::: -->
 
 ```yaml
 canary:

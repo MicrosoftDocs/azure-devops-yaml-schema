@@ -1,8 +1,8 @@
 ---
 title: parameters.name definition
 description: parameters.name definition reference.
-ms.date: 02/28/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # parameters.name definition
@@ -139,6 +139,131 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="pipelineTemplateParameter{name}" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+pipelineTemplateParameters:
+- name: string # Required as first property. Parameter name.. 
+  displayName: string # Human-readable name for the parameter. 
+  type: string # Parameter type. Required..  (boolean,container,containerList,deployment,deploymentList,environment,filePath,job,jobList,number,object,pool,secureFile,serviceConnection,stage,stageList,step,stepList,string)
+  default: any # Default value if none is specified.
+  values: [ string ] # Allowed parameter values. 
+```
+
+
+Properties that use this definition: [parameters.pipelineTemplateParameters](parameters.md)
+
+## Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Required as first parameter. Parameter name. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `displayName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Human-readable name for the parameter. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `type`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+pipelineTemplateParameterType
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Parameter type. Required. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `default`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+Depends on the type
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Default value if none is specified. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `values`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string list
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Allowed parameter values. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pipelineTemplateParameter{name}" version="azure-pipelines-2022"::: -->
 
 ```yaml
 pipelineTemplateParameters:

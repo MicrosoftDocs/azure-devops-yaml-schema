@@ -1,8 +1,8 @@
 ---
 title: jobs.deployment.strategy definition
 description: jobs.deployment.strategy definition reference.
-ms.date: 01/28/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # jobs.deployment.strategy definition
@@ -18,6 +18,12 @@ Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.md)
 
@@ -42,6 +48,16 @@ Properties that use this definition: [jobs.deployment.strategy](jobs-deployment.
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1" 
+
+| Overload | Description |
+|----------|-------------|
+| [strategy: runOnce](#strategy-runonce) | Run once deployment strategy. |
+| [strategy: rolling](#strategy-rolling) | Rolling deployment strategy. |
+| [strategy: canary](#strategy-canary) | Canary deployment strategy. |
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022" 
 
 | Overload | Description |
 |----------|-------------|
@@ -88,7 +104,7 @@ If you are using self-hosted agents, you can use the workspace clean options to 
     environment: staging
 ```
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## strategy: runOnce
 
@@ -176,6 +192,45 @@ ___
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="deploymentStrategy{runOnce}" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+strategy:
+  runOnce:  # RunOnce Deployment strategy
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `runOnce`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[jobs.deployment.strategy.runOnce](jobs-deployment-strategy-run-once.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->RunOnce Deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 <!-- :::api-definition signature="deploymentStrategy{runOnce}" version="azure-pipelines"::: -->
@@ -223,7 +278,7 @@ ___
 
 <!-- Examples -->
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## strategy: rolling
 
@@ -311,6 +366,45 @@ ___
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="deploymentStrategy{rolling}" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+strategy:
+  rolling:  # Rolling Deployment strategy
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `rolling`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[jobs.deployment.strategy.rolling](jobs-deployment-strategy-rolling.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Rolling Deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 <!-- :::api-definition signature="deploymentStrategy{rolling}" version="azure-pipelines"::: -->
@@ -356,7 +450,7 @@ ___
 
 <!-- Examples -->
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## strategy: canary
 
@@ -408,6 +502,45 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="deploymentStrategy{canary}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+strategy:
+  canary:  # Canary Deployment strategy
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `canary`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[jobs.deployment.strategy.canary](jobs-deployment-strategy-canary.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Canary Deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="deploymentStrategy{canary}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml

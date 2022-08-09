@@ -1,8 +1,8 @@
 ---
 title: pool definition
 description: pool definition reference.
-ms.date: 03/09/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # pool definition
@@ -32,6 +32,12 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage.pool](stages-stage.md), [jobs.job.pool](jobs-job.md), [jobs.deployment.pool](jobs-deployment.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage.pool](stages-stage.md), [jobs.job.pool](jobs-job.md), [jobs.deployment.pool](jobs-deployment.md)
 
@@ -81,6 +87,15 @@ Properties that use this definition: [pipeline.pool](pipeline.md), [stages.stage
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022" 
+
+| Overload | Description |
+|----------|-------------|
+| [pool: string](#pool-string) | Specify a private pool by name. |
+| [pool: name, demands, vmImage](#pool-name-demands-vmimage) | Full syntax for using demands and Microsoft-hosted pools. |
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines" 
 
 | Overload | Description |
@@ -104,7 +119,7 @@ You can specify a pool at the pipeline, stage, or job level.
 
 The pool specified at the lowest level of the hierarchy is used to run the job.
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## pool: string
 
@@ -266,6 +281,44 @@ ___
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pool{string}" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+pool: string # Specify a private pool by name.
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `pool`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Specify a private pool by name. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 <!-- :::api-definition signature="pool{string}" version="azure-pipelines"::: -->
@@ -322,7 +375,7 @@ pool: MyPool
 ```
 
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## pool: name, demands, vmImage
 
@@ -578,6 +631,87 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="pool{name,demands,vmImage}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+pool:
+  name: string # Name of a pool. 
+  demands: string | [ string ] # List of demands (for a private pool)
+  vmImage: string # Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `name`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Name of a pool. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `demands`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string or string list
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->List of demands (for a private pool). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `vmImage`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Name of the VM image you want to use; valid only in the Microsoft-hosted pool. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pool{name,demands,vmImage}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml

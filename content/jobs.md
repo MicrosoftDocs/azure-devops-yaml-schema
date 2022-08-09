@@ -1,8 +1,8 @@
 ---
 title: jobs list definition
 description: jobs list definition reference.
-ms.date: 02/28/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # jobs list definition
@@ -79,6 +79,29 @@ Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+jobs: [ job | deployment | template ] # 
+```
+
+
+Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage.jobs](stages-stage.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [jobs.job](jobs-job.md) | Agent pool job. |
+| [jobs.deployment](jobs-deployment.md) | Deployment job. |
+| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 jobs: [ job | deployment | template ] # 

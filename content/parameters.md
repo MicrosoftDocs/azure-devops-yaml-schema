@@ -1,8 +1,8 @@
 ---
 title: parameters list definition
 description: parameters list definition reference.
-ms.date: 01/25/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # parameters list definition
@@ -35,6 +35,27 @@ Properties that use this definition: [pipeline.parameters](pipeline.md)
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="pipelineTemplateParameters[pipelineTemplateParameter]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+parameters: [ name ] # 
+```
+
+
+Properties that use this definition: [pipeline.parameters](pipeline.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [parameters.name](parameters-name.md) |  |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="pipelineTemplateParameters[pipelineTemplateParameter]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 parameters: [ name ] # 
