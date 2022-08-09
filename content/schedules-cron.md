@@ -1,8 +1,8 @@
 ---
 title: schedules.cron definition
 description: schedules.cron definition reference.
-ms.date: 01/25/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # schedules.cron definition
@@ -141,6 +141,133 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="schedule{cron}" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+schedules:
+- cron: string # Required as first property. Cron syntax defining a schedule in UTC time.. 
+  displayName: string # Optional friendly name given to a specific schedule.. 
+  branches:  # Branch names to include or exclude for triggering a run.
+    include: [ branchFilter ] # List of items to include. 
+    exclude: [ branchFilter ] # List of items to exclude. 
+  batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false..  (false,n,no,off,on,true,y,yes)
+  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false..  (false,n,no,off,on,true,y,yes)
+```
+
+
+Properties that use this definition: [schedules](schedules.md)
+
+## Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `cron`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Required as first parameter. Cron syntax defining a schedule in UTC time. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `displayName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Optional friendly name given to a specific schedule. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `branches`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+include/exclude string list
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `batch`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Whether to run the pipeline if the previously scheduled run is in-progress; the default is false. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `always`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="schedule{cron}" version="azure-pipelines-2022"::: -->
 
 ```yaml
 schedules:

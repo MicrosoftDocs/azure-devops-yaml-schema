@@ -1,8 +1,8 @@
 ---
 title: target definition
 description: target definition reference.
-ms.date: 02/03/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # target definition
@@ -18,6 +18,12 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [steps.script.target](steps-script.md), [steps.powershell.target](steps-powershell.md), [steps.pwsh.target](steps-pwsh.md), [steps.bash.target](steps-bash.md), [steps.checkout.target](steps-checkout.md), [steps.download.target](steps-download.md), [steps.downloadBuild.target](steps-download-build.md), [steps.getPackage.target](steps-get-package.md), [steps.publish.target](steps-publish.md), [steps.restoreCache.target](steps-restore-cache.md), [steps.saveCache.target](steps-save-cache.md), [steps.reviewApp.target](steps-review-app.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [steps.script.target](steps-script.md), [steps.powershell.target](steps-powershell.md), [steps.pwsh.target](steps-pwsh.md), [steps.bash.target](steps-bash.md), [steps.checkout.target](steps-checkout.md), [steps.download.target](steps-download.md), [steps.downloadBuild.target](steps-download-build.md), [steps.getPackage.target](steps-get-package.md), [steps.publish.target](steps-publish.md), [steps.restoreCache.target](steps-restore-cache.md), [steps.saveCache.target](steps-save-cache.md), [steps.reviewApp.target](steps-review-app.md)
 
@@ -49,6 +55,15 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022" 
+
+| Overload | Description |
+|----------|-------------|
+| [target: string](#target-string) | Configure step target with environment. |
+| [target: container, commands, settableVariables](#target-container-commands-settablevariables) | Configure step target with environment, and allowed list of commands and variables. |
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines" 
 
 | Overload | Description |
@@ -63,7 +78,7 @@ Properties that use this definition: [steps.script.target](steps-script.md), [st
 
 An individual step may override its context by specifying a `target`, and optionally configure a container, commands, and settable variables.
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## target: string
 
@@ -114,6 +129,44 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="stepTarget{string}" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+target: string # Environment in which to run this task.
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `stepTarget`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="stepTarget{string}" version="azure-pipelines-2022"::: -->
 
 
 ```yaml
@@ -329,13 +382,94 @@ ___
 
 <!-- Examples -->
 
-:::moniker range="= azure-pipelines"
+:::moniker range="= azure-pipelines || = azure-pipelines-2022"
 
 ## target: container, commands, settableVariables
 
 Configure step target using a container name, commands, and settable variables.
 
 
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="stepTarget{container,commands,settableVariables}" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+target:
+  container: string # Container to target (or 'host' for host machine). 
+  commands: string # Set of allowed logging commands ('any' or 'restricted').  (any, restricted)
+  settableVariables: string | [ string ]  # Restrictions on which variables that can be set
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `container`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Container to target (or 'host' for host machine). 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `commands`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Set of allowed logging commands ('any' or 'restricted'). Acceptable values: any, restricted
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `settableVariables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[target.settableVariables](target-settable-variables.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Restrictions on which variables that can be set. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
 
 :::moniker-end
 

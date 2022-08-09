@@ -1,8 +1,8 @@
 ---
 title: stages list definition
 description: stages list definition reference.
-ms.date: 01/28/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # stages list definition
@@ -36,6 +36,28 @@ Properties that use this definition: [pipeline.stages](pipeline.md)
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="stages[stage]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+stages: [ stage | template ] # 
+```
+
+
+Properties that use this definition: [pipeline.stages](pipeline.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
+| [stages.template](stages-template.md) | Stages defined in a template file. |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="stages[stage]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 stages: [ stage | template ] # 

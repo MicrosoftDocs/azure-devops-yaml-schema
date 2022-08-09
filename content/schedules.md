@@ -1,8 +1,8 @@
 ---
 title: schedules list definition
 description: schedules list definition reference.
-ms.date: 01/25/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # schedules list definition
@@ -35,6 +35,27 @@ Properties that use this definition: [pipeline.schedules](pipeline.md)
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="schedules[schedule]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+schedules: [ cron ] # 
+```
+
+
+Properties that use this definition: [pipeline.schedules](pipeline.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [schedules.cron](schedules-cron.md) |  |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="schedules[schedule]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 schedules: [ cron ] # 
