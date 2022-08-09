@@ -1,8 +1,8 @@
 ---
 title: jobs.deployment.strategy.runOnce definition
 description: jobs.deployment.strategy.runOnce definition reference.
-ms.date: 01/28/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # jobs.deployment.strategy.runOnce definition
@@ -153,6 +153,145 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="runOnceDeploymentStrategy{preDeploy,deploy,routeTraffic,postRouteTraffic,on}" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+runOnce:
+  preDeploy:  # Pre deploy hook for runOnce deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where pre deploy steps will run
+  deploy:  # Deploy hook for runOnce deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where deploy steps will run
+  routeTraffic:  # Route traffic hook for runOnce deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where route traffic steps will run
+  postRouteTraffic:  # Post route traffic hook for runOnce deployment strategy
+    steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+    pool: pool # Pool where post route traffic steps will run
+  on:  # On success or failure hook for runOnce deployment strategy
+    failure:  # Runs on failure of any step
+      steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+      pool: pool # Pool where post on failure steps will run
+    success:  # Runs on success of all of the steps
+      steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+      pool: pool # Pool where on success steps will run
+```
+
+
+Properties that use this definition: [jobs.deployment.strategy.runOnce](jobs-deployment-strategy.md)
+
+## Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `preDeploy`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+preDeployHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Pre deploy hook for runOnce deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `deploy`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+deployHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Deploy hook for runOnce deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `routeTraffic`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+routeTrafficHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Route traffic hook for runOnce deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `postRouteTraffic`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+postRouteTrafficHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Post route traffic hook for runOnce deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `on`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+onSuccessOrFailureHook
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->On success or failure hook for runOnce deployment strategy. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="runOnceDeploymentStrategy{preDeploy,deploy,routeTraffic,postRouteTraffic,on}" version="azure-pipelines-2022"::: -->
 
 ```yaml
 runOnce:

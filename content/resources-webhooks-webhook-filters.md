@@ -1,8 +1,8 @@
 ---
 title: resources.webhooks.webhook.filters list definition
 description: resources.webhooks.webhook.filters list definition reference.
-ms.date: 01/31/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # resources.webhooks.webhook.filters list definition
@@ -14,6 +14,27 @@ Filters used to customize the triggers for a webhook event.
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="webhookFilters[webhookFilter]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+filters: [ path ] # 
+```
+
+
+Properties that use this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [resources.webhooks.webhook.filters.path](resources-webhooks-webhook-filters-path.md) | Filter the JSON payload data by path/value. |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="webhookFilters[webhookFilter]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 filters: [ path ] # 

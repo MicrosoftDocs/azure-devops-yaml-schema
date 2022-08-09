@@ -1,8 +1,8 @@
 ---
 title: steps list definition
 description: steps list definition reference.
-ms.date: 04/21/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # steps list definition
@@ -112,6 +112,40 @@ Properties that use this definition: [pipeline.steps](pipeline.md), [jobs.job.st
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="steps[step]" version="azure-pipelines-2020.1"::: -->
+
+```yaml
+steps: [ step ] # 
+```
+
+
+Properties that use this definition: [pipeline.steps](pipeline.md), [jobs.job.steps](jobs-job.md)
+
+## List types
+
+| Type     | Description |
+|----------|-------------|
+| [steps.task](steps-task.md) | Run a task. |
+| [steps.script](steps-script.md) | The script step is a shortcut for the command-line task, and runs a script using cmd.exe on Windows and Bash on other platforms. |
+| [steps.powershell](steps-powershell.md) | The powershell step is a shortcut for the PowerShell task, and runs a script in Windows PowerShell. |
+| [steps.pwsh](steps-pwsh.md) | The pwsh step is a shortcut for the PowerShell task when that task's pwsh value is set to true, and runs a script in PowerShell Core on Windows, macOS, and Linux. |
+| [steps.bash](steps-bash.md) | The bash step is a shortcut for the shell script task, and runs a script in Bash on Windows, macOS, and Linux. |
+| [steps.checkout](steps-checkout.md) | Checkout repositories. |
+| [steps.download](steps-download.md) | The download step is a shortcut for the Download Pipeline Artifact task, and downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource. |
+| [steps.downloadBuild](steps-download-build.md) | The download step is a shortcut for the Download Build Artifact task, and downloads build artifacts |
+| [steps.getPackage](steps-get-package.md) | The getPackage step is a shortcut for the Download Package task, and downloads a package from a package management feed. |
+| [steps.publish](steps-publish.md) | The publish step is a shortcut for the Publish Pipeline Artifact task, and publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume. |
+| [steps.template](steps-template.md) | Run the steps in a template file for this step. |
+| [steps.restoreCache](steps-restore-cache.md) | The restoreCache step is a shortcut for the Cache task, and restores a cache. |
+| [steps.saveCache](steps-save-cache.md) | The saveCache step is a shortcut for the Cache task, and saves a cache. |
+| [steps.reviewApp](steps-review-app.md) | The reviewApp step is a shortcut for the Review App task. Use this task under deploy phase provider to create a resource dynamically. |
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="steps[step]" version="azure-pipelines-2022"::: -->
 
 ```yaml
 steps: [ step ] # 

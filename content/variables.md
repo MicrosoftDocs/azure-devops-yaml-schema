@@ -1,8 +1,8 @@
 ---
 title: variables definition
 description: variables definition reference.
-ms.date: 02/28/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+ms.date: 08/08/2022
+monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # variables definition
@@ -30,6 +30,12 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 :::moniker-end
 
 :::moniker range="= azure-pipelines-2020.1"
+
+Properties that use this definition: [pipeline.variables](pipeline.md), [stages.stage.variables](stages-stage.md), [jobs.job.variables](jobs-job.md), [jobs.deployment.variables](jobs-deployment.md)
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
 
 Properties that use this definition: [pipeline.variables](pipeline.md), [stages.stage.variables](stages-stage.md), [jobs.job.variables](jobs-job.md), [jobs.deployment.variables](jobs-deployment.md)
 
@@ -79,6 +85,15 @@ Properties that use this definition: [pipeline.variables](pipeline.md), [stages.
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022" 
+
+| Overload | Description |
+|----------|-------------|
+| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
+| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines" 
 
 | Overload | Description |
@@ -99,7 +114,7 @@ You can't use list and mapping variables in the same variables section, but you 
 
 You can specify variables at the pipeline, stage, or job level.
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## variables: string pairs
 
@@ -265,6 +280,45 @@ ___
 
 :::moniker-end
 
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="variables" version="azure-pipelines-2022"::: -->
+
+
+```yaml
+variables:
+  string: string # Name/value pairs.
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `mapping`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string name/value pairs
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
 :::moniker range="= azure-pipelines"
 
 <!-- :::api-definition signature="variables" version="azure-pipelines"::: -->
@@ -358,7 +412,7 @@ jobs:
 ::: moniker-end
 
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1"
+:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 
 ## variables: variable list
 
@@ -485,6 +539,44 @@ ___
 :::moniker range="= azure-pipelines-2020.1"
 
 <!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2020.1"::: -->
+
+
+```yaml
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
+```
+
+### Properties
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `variables`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+
+
+<!-- :::api-definition-end::: -->
+
+:::moniker-end
+
+:::moniker range="= azure-pipelines-2022"
+
+<!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2022"::: -->
 
 
 ```yaml
