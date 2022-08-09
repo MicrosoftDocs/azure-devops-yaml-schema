@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/08/2022
+ms.date: 08/09/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -133,7 +133,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -461,7 +461,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -911,7 +911,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -1441,7 +1441,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -2011,7 +2011,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -2591,7 +2591,7 @@ ___
 [resources.pipelines.pipeline](../resources-pipelines-pipeline.md)
 :::column-end:::
 :::column span="3":::
-If you have an Azure pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
+If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
 
 :::column-end:::
 :::row-end:::
