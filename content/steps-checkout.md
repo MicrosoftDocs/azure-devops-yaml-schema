@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 08/08/2022
+ms.date: 08/09/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -18,7 +18,7 @@ Use `checkout` to configure how the pipeline checks out source code.
 ```yaml
 steps:
 - checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none)
-  clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
+  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -70,7 +70,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scorch the repo before fetching? Acceptable values: outputs, resources, all
+<!-- :::api-desc type="property"::: -->If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. Acceptable values: true, false
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -312,7 +312,7 @@ ___
 ```yaml
 steps:
 - checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none)
-  clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
+  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -365,7 +365,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scorch the repo before fetching? Acceptable values: outputs, resources, all
+<!-- :::api-desc type="property"::: -->If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. Acceptable values: true, false
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -627,7 +627,7 @@ ___
 ```yaml
 steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
-  clean: string # Scorch the repo before fetching?.  (true, false)
+  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -681,7 +681,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scorch the repo before fetching? Acceptable values: true, false
+<!-- :::api-desc type="property"::: -->If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. Acceptable values: true, false
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -963,7 +963,7 @@ ___
 ```yaml
 steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
-  clean: string # Scorch the repo before fetching?.  (true, false)
+  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -1017,7 +1017,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scorch the repo before fetching? Acceptable values: true, false
+<!-- :::api-desc type="property"::: -->If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. Acceptable values: true, false
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1299,7 +1299,7 @@ ___
 ```yaml
 steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
-  clean: string # Scorch the repo before fetching?.  (true, false)
+  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -1354,7 +1354,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scorch the repo before fetching? Acceptable values: true, false
+<!-- :::api-desc type="property"::: -->If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. Acceptable values: true, false
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1656,7 +1656,7 @@ ___
 ```yaml
 steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
-  clean: string # Scorch the repo before fetching?.  (true, false)
+  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -1711,7 +1711,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scorch the repo before fetching? Acceptable values: true, false
+<!-- :::api-desc type="property"::: -->If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. Acceptable values: true, false
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -2009,8 +2009,7 @@ ___
 
 ## Remarks
 
-> [!NOTE]
-> In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+The default value if the `clean` property is unset is configured by the **clean** setting in the UI settings for YAML pipelines, which is set to clean sources by default. In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces and clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 
 
 ## Examples
