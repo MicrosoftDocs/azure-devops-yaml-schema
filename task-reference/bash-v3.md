@@ -283,6 +283,9 @@ Otherwise, the task will show a warning and `source` the file instead.
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
+You can map in variables using the `env` parameter which is [common across all tasks](/azure/devops/pipelines/yaml-schema/steps-task#remarks), and is list of additional items to map into the process's environment.
+For example, secret variables are not automatically mapped. If you have a secret variable called `Foo`, you can map it in like this:
+
 ```YAML
 steps:
 - task: Bash@3
