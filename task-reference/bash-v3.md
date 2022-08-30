@@ -130,6 +130,7 @@ Arguments passed to the shell script. Either ordinal parameters or named paramet
 **`script`** - **Script**<br>
 Type: string. Required when targetType = inline.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Contents of the script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -139,6 +140,7 @@ Type: string. Required when targetType = inline.<br>
 **`script`** - **Script**<br>
 Type: string. Required when targetType = inline. Default value: '# Write your commands here'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Contents of the script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -149,6 +151,7 @@ Type: string. Required when targetType = inline. Default value: '# Write your co
 **`workingDirectory`** - **Working Directory**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
