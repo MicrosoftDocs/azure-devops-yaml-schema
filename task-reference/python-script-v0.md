@@ -1,0 +1,194 @@
+---
+title: PythonScript@0 - Python script v0 task
+description: Run a Python file or inline script.
+ms.date: 08/10/2022
+monikerRange: ">=azure-pipelines-2019"
+---
+
+# PythonScript@0 - Python script v0 task
+
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+<!-- :::editable-content name="description"::: -->
+Run a Python file or inline script.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+<!-- :::editable-content name="description"::: -->
+Run a Python script.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range=">=azure-pipelines-2019.1"
+
+```yaml
+# Python script v0
+# Run a Python file or inline script.
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: 'filePath'.
+    scriptPath: # string. Required when scriptSource = filePath. Script path. 
+    #script: # string. Required when scriptSource = inline. Script. 
+    #arguments: # string. Arguments. 
+  # Advanced
+    #pythonInterpreter: # string. Python interpreter. 
+    #workingDirectory: # string. Working directory. 
+    #failOnStderr: false # boolean. Fail on standard error. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+```yaml
+# Python Script v0
+# Run a Python script.
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: 'filePath'.
+    scriptPath: # string. Required when scriptSource = filePath. Script path. 
+    #script: # string. Required when scriptSource = inline. Script. 
+    #arguments: # string. Arguments. 
+  # Advanced
+    #pythonInterpreter: # string. Python interpreter. 
+    #workingDirectory: # string. Working directory. 
+    #failOnStderr: false # boolean. Fail on standard error. Default: false.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="scriptSource"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`scriptSource`** - **Script source**<br>
+Type: string. Required. Allowed values: 'filePath', 'inline'. Default value: 'filePath'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Whether the script is a file in the source tree or is written inline in this task.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="scriptPath"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`scriptPath`** - **Script path**<br>
+Type: string. Required when scriptSource = filePath.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="script"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`script`** - **Script**<br>
+Type: string. Required when scriptSource = inline.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The Python script to run.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="arguments"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`arguments`** - **Arguments**<br>
+Type: string.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Arguments passed to the script execution, available through `sys.argv`.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="pythonInterpreter"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`pythonInterpreter`** - **Python interpreter**<br>
+Type: string.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Absolute path to the Python interpreter to use. If not specified, the task will use the interpreter in PATH.<br /> Run the [Use Python Version](https://go.microsoft.com/fwlink/?linkid=871498) task to add a version of Python to PATH.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="workingDirectory"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`workingDirectory`** - **Working directory**<br>
+Type: string.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The working directory where the script will run. If not specified, the value of `System.DefaultWorkingDirectory` will be used. For builds, this variable defaults to the root of the repository. For releases, it defaults to the root of the artifacts directory.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="failOnStderr"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`failOnStderr`** - **Fail on standard error**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is true, this task will fail if any text is written to the stderr stream.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range=">=azure-pipelines-2019"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range=">=azure-pipelines-2019"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version | All supported agent versions. |
+| Task category | Utility |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

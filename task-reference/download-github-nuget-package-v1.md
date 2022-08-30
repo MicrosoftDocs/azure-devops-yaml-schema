@@ -1,0 +1,147 @@
+---
+title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
+description: Restore your nuget packages using dotnet CLI.
+ms.date: 08/10/2022
+monikerRange: ">=azure-pipelines-2020"
+---
+
+# DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
+
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+<!-- :::editable-content name="description"::: -->
+Restore your nuget packages using dotnet CLI.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range=">=azure-pipelines-2020"
+
+```yaml
+# Download GitHub Nuget Packages v1
+# Restore your nuget packages using dotnet CLI.
+- task: DownloadGitHubNugetPackage@1
+  inputs:
+    packageName: # string. Required. Package Name. 
+    version: # string. Required. Package Version. 
+  # Feeds and authentication
+    #externalFeedCredentials: # string. Required when selectOrConfig = config. Credentials for feed from GitHub. 
+  # Advanced
+    #restoreDirectory: # string. Destination directory.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="packageName"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`packageName`** - **Package Name**<br>
+Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Name of the package to download from github.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="version"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`version`** - **Package Version**<br>
+Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Version of the package to download from github.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="externalFeedCredentials"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`externalFeedCredentials`** - **Credentials for feed from GitHub**<br>
+Input alias: `externalEndpoints`. Type: string. Required when selectOrConfig = config.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Credentials to use for external registry from GitHub.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="restoreDirectory"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`restoreDirectory`** - **Destination directory**<br>
+Input alias: `packagesDirectory`. Type: string.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the folder in which packages are installed. If no folder is specified, packages are restored into the default system working directory.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range=">=azure-pipelines-2020"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Build |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.115.0 or greater |
+| Task category | Build |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

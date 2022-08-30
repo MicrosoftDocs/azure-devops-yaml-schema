@@ -1,0 +1,481 @@
+---
+title: CopyFiles@2 - Copy files v2 task
+description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
+ms.date: 08/18/2022
+monikerRange: "<=azure-pipelines"
+---
+
+# CopyFiles@2 - Copy files v2 task
+
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+<!-- :::editable-content name="description"::: -->
+Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2019"
+
+<!-- :::editable-content name="description"::: -->
+Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range=">=azure-pipelines-2022"
+
+```yaml
+# Copy files v2
+# Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
+- task: CopyFiles@2
+  inputs:
+    #SourceFolder: # string. Source Folder. 
+    Contents: '**' # string. Required. Contents. Default: '**'.
+    TargetFolder: # string. Required. Target Folder. 
+  # Advanced
+    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
+    #OverWrite: false # boolean. Overwrite. Default: false.
+    #flattenFolders: false # boolean. Flatten Folders. Default: false.
+    #preserveTimestamp: false # boolean. Preserve Target Timestamp. Default: false.
+    #retryCount: '0' # string. Retry count to copy the file. Default: '0'.
+    #delayBetweenRetries: '1000' # string. Delay between two retries. Default: '1000'.
+    #ignoreMakeDirErrors: false # boolean. Ignore errors during creation of target folder. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+
+```yaml
+# Copy files v2
+# Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
+- task: CopyFiles@2
+  inputs:
+    #SourceFolder: # string. Source Folder. 
+    Contents: '**' # string. Required. Contents. Default: '**'.
+    TargetFolder: # string. Required. Target Folder. 
+  # Advanced
+    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
+    #OverWrite: false # boolean. Overwrite. Default: false.
+    #flattenFolders: false # boolean. Flatten Folders. Default: false.
+    #preserveTimestamp: false # boolean. Preserve Target Timestamp. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+```yaml
+# Copy Files v2
+# Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths).
+- task: CopyFiles@2
+  inputs:
+    #SourceFolder: # string. Source Folder. 
+    Contents: '**' # string. Required. Contents. Default: '**'.
+    TargetFolder: # string. Required. Target Folder. 
+  # Advanced
+    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
+    #OverWrite: false # boolean. Overwrite. Default: false.
+    #flattenFolders: false # boolean. Flatten Folders. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+```yaml
+# YAML Syntax is not supported in TFS 2018.
+# Use the classic designer to add and configure tasks.
+# See the following Inputs section for details on the inputs that this task supports.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="SourceFolder"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`SourceFolder`** - **Source Folder**<br>
+Type: string.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Folder that contains the files you want to copy. If you leave it empty, the copying is done from the root folder of the repo (same as if you had specified [**`$(Build.SourcesDirectory)`**](/azure/devops/pipelines/build/variables)).
+
+If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to copy files from the directory created for the pipeline.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="Contents"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`Contents`** - **Contents**<br>
+Type: string. Required. Default value: '**'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+File paths to include as part of the copy. Supports multiple lines of match patterns.
+
+For example:
+
+* `*` copies all files in the specified source folder
+* `**` copies all files in the specified source folder and all files in all sub-folders
+* `**\bin\**` copies all files recursively from any bin folder
+
+The pattern is used to match only file paths, not folder paths. So you should specify patterns such as `**\bin\**` instead of `**\bin`.
+
+You must use the path separator that matches your build agent type, for example `/`must be used for Linux agents. More examples are shown below.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="TargetFolder"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`TargetFolder`** - **Target Folder**<br>
+Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Target folder or UNC path files will copy to. You can use [variables](/azure/devops/pipelines/build/variables). Example: `$(build.artifactstagingdirectory)`.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="CleanTargetFolder"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`CleanTargetFolder`** - **Clean Target Folder**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Delete all existing files in target folder before copy.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="OverWrite"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`OverWrite`** - **Overwrite**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Replace existing file in target folder.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="flattenFolders"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`flattenFolders`** - **Flatten Folders**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Flatten the folder structure and copy all files into the specified target folder.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="preserveTimestamp"::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+**`preserveTimestamp`** - **Preserve Target Timestamp**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Using the original source file, preserve the target file timestamp.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="retryCount"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`retryCount`** - **Retry count to copy the file**<br>
+Type: string. Default value: '0'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the retry count to copy the file. It might help to resolve intermittent issues e.g. with UNC target paths on a remote host.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="delayBetweenRetries"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`delayBetweenRetries`** - **Delay between two retries.**<br>
+Type: string. Default value: '1000'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the delay between two retries. It might help to be more resilient to intermittent issues e.g. with UNC target paths on a remote host.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ignoreMakeDirErrors"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`ignoreMakeDirErrors`** - **Ignore errors during creation of target folder.**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Ignore errors which happen during creation of target folder. This could be useful to avoid issues with parallel execution of task by several agents with one target folder.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range="<=azure-pipelines"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+If no files are matched, the task will still report success. If a matched file already exists in the target, the task will report failure unless `Overwrite` is set to true.
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Copy file to artifacts staging directory and publish
+
+```yaml
+steps:
+- task: CopyFiles@2
+  inputs:
+    contents: '_buildOutput/**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
+```
+
+### Copy executables and a readme file
+
+#### Goal
+
+You want to copy just the readme and the files needed to run this C# console app:
+
+```
+`-- ConsoleApplication1
+    |-- ConsoleApplication1.sln
+    |-- readme.txt
+    `-- ClassLibrary1
+        |-- ClassLibrary1.csproj
+    `-- ClassLibrary2
+        |-- ClassLibrary2.csproj
+    `-- ConsoleApplication1
+        |-- ConsoleApplication1.csproj
+```
+
+> [!NOTE]
+> _ConsoleApplication1.sln_ contains a _bin_ folder with .dll and .exe files, see the Results below to see what gets moved!
+
+On the Variables tab, ```$(BuildConfiguration)``` is set to ```release```.
+
+#### [YAML](#tab/yaml/)
+
+**Example with multiple match patterns:**
+
+```yaml
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    Contents: |
+      ConsoleApplication1\ConsoleApplication1\bin\**\*.exe
+      ConsoleApplication1\ConsoleApplication1\bin\**\*.dll
+      ConsoleApplication1\readme.txt
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+```
+
+**Example with OR condition:**
+
+```yaml
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    Contents: |
+      ConsoleApplication1\ConsoleApplication1\bin\**\?(*.exe|*.dll)
+      ConsoleApplication1\readme.txt
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+```
+
+**Example with NOT condition:**
+
+```yaml
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    Contents: |
+      ConsoleApplication1\**\bin\**\!(*.pdb|*.config)
+      !ConsoleApplication1\**\ClassLibrary*\**
+      ConsoleApplication1\readme.txt
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+```
+
+**Example with variables in content section**
+
+```yaml
+- task: CopyFiles@2
+  inputs:
+    Contents: '$(Build.Repository.LocalPath)/**' 
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+```
+
+
+#### [Classic](#tab/classic/)
+
+* Source folder
+
+  ```
+  $(Build.SourcesDirectory)
+  ```
+
+* Contents
+
+    **Example with multiple match patterns:**
+
+    ```
+    ConsoleApplication1\ConsoleApplication1\bin\**\*.exe
+    ConsoleApplication1\ConsoleApplication1\bin\**\*.dll
+    ConsoleApplication1\readme.txt
+    ```
+
+    **Example with OR condition:**
+    ```
+    ConsoleApplication1\ConsoleApplication1\bin\**\?(*.exe|*.dll)
+    ConsoleApplication1\readme.txt
+    ```
+
+    **Example with NOT condition:**
+    ```
+    ConsoleApplication1\**\bin\**\!(*.pdb|*.config)
+    !ConsoleApplication1\**\ClassLibrary*\**
+    ConsoleApplication1\readme.txt
+    ```
+
+* Target folder
+
+  ```
+  $(Build.ArtifactStagingDirectory)
+  ```
+
+* * *
+#### Results
+
+These files are copied to the staging directory:
+
+```
+`-- ConsoleApplication1
+    |-- readme.txt
+    `-- ConsoleApplication1
+        `-- bin
+            `-- Release
+                | -- ClassLibrary1.dll
+                | -- ClassLibrary2.dll
+                | -- ConsoleApplication1.exe
+```
+
+### Copy everything from the source directory except the .git folder
+
+
+#### [YAML](#tab/yaml/)
+
+**Example with multiple match patterns:**
+
+```yaml
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **/*
+      !.git/**/*
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+```
+
+#### [Classic](#tab/classic/)
+
+* Source folder
+
+  ```
+  $(Build.SourcesDirectory)
+  ```
+
+* Contents
+
+**Example with multiple match patterns:**
+
+ ```
+     **/*
+     !.git/**/*
+```
+
+* Target folder
+
+  ```
+  $(Build.ArtifactStagingDirectory)
+  ```
+
+* * *
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range=">=azure-pipelines-2022"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task runs using the following [command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): restricted |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task has permission to [set the following variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): Setting variables is disabled |
+| Agent version |  2.182.1 or greater |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2020.1"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  1.91.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns)
+* [How do I use this task to publish artifacts](/devops/pipelines/artifacts/pipeline-artifacts)
+* Learn how to use [verbose logs](/azure/devops/pipelines/troubleshooting/review-logs#configure-verbose-logs) for [troubleshooting](/azure/devops/pipelines/troubleshooting/troubleshooting).
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->
