@@ -1,0 +1,197 @@
+---
+title: PyPIPublisher@0 - PyPI publisher v0 task
+description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+ms.date: 08/18/2022
+monikerRange: "<=azure-pipelines"
+---
+
+# PyPIPublisher@0 - PyPI publisher v0 task
+
+<!-- :::description::: -->
+:::moniker range="<=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range=">=azure-pipelines-2019.1"
+
+```yaml
+# PyPI publisher v0
+# Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+- task: PyPIPublisher@0
+  inputs:
+    pypiConnection: # string. Required. PyPI service connection. 
+    packageDirectory: # string. Required. Python package directory. 
+    #alsoPublishWheel: false # boolean. Also publish a wheel. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+```yaml
+# PyPI Publisher v0
+# Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+- task: PyPIPublisher@0
+  inputs:
+    pypiConnection: # string. Required. PyPI service connection. 
+    packageDirectory: # string. Required. Python package directory. 
+    #alsoPublishWheel: false # boolean. Also publish a wheel. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+```yaml
+# YAML Syntax is not supported in TFS 2018.
+# Use the classic designer to add and configure tasks.
+# See the following Inputs section for details on the inputs that this task supports.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="pypiConnection"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`pypiConnection`** - **PyPI service connection**<br>
+Input alias: `serviceEndpoint`. Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A generic service connection for connecting to the package index.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="packageDirectory"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`packageDirectory`** - **Python package directory**<br>
+Input alias: `wd`. Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The directory of the Python package to be created and published, where setup.py is present.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="alsoPublishWheel"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`alsoPublishWheel`** - **Also publish a wheel**<br>
+Input alias: `wheel`. Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select whether to create and publish a universal wheel package (platform independent) in addition to an sdist package. [More information](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="serviceEndpoint"::: -->
+:::moniker range="=azure-pipelines-2018"
+
+**`serviceEndpoint`** - **PyPI connection**<br>
+Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select the generic service endpoint where PyPI server details are present. 
+
+Note: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic. 
+
+Connection Name – Use a friendly connection name of your choice. 
+Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/). 
+User Name – PyPI registered username. 
+Password – password for your PyPI account.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="wd"::: -->
+:::moniker range="=azure-pipelines-2018"
+
+**`wd`** - **Python package path**<br>
+Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Python package directory to be published, where setup.py is present.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="wheel"::: -->
+:::moniker range="=azure-pipelines-2018"
+
+**`wheel`** - **Upload wheel**<br>
+Type: boolean. Default value: false.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If checked, then task will additionally build and publish universal wheel (platform independent) of this package. For more information regarding universal wheel [see here](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range="<=azure-pipelines"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range=">=azure-pipelines-2019"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.0.0 or greater |
+| Task category | Package |
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.0.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

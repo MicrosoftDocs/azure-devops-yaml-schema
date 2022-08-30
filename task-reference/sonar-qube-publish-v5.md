@@ -1,0 +1,97 @@
+---
+title: SonarQubePublish@5 - Publish Quality Gate Result v5 task
+description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+ms.date: 08/10/2022
+monikerRange: "=azure-pipelines"
+---
+
+# SonarQubePublish@5 - Publish Quality Gate Result v5 task
+
+<!-- :::description::: -->
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Publish Quality Gate Result v5
+# Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: '300'.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="pollingTimeoutSec"::: -->
+:::moniker range="=azure-pipelines"
+
+**`pollingTimeoutSec`** - **Timeout (s)**<br>
+Type: string. Required. Default value: '300'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+This task will poll SonarQube until the analysis is completed, or until the timeout is reached. It also add a build property with the quality gate status of the current build(s) analyses.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range="=azure-pipelines"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Build |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

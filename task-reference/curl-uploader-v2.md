@@ -1,0 +1,287 @@
+---
+title: cURLUploader@2 - cURL Upload Files v2 task
+description: Use cURL's supported protocols to upload files.
+ms.date: 08/18/2022
+monikerRange: "<=azure-pipelines"
+---
+
+# cURLUploader@2 - cURL Upload Files v2 task
+
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+<!-- :::editable-content name="description"::: -->
+Use cURL's supported protocols to upload files.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+<!-- :::editable-content name="description"::: -->
+Use cURL to upload files.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+<!-- :::editable-content name="description"::: -->
+Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range=">=azure-pipelines-2019.1"
+
+```yaml
+# cURL Upload Files v2
+# Use cURL's supported protocols to upload files.
+- task: cURLUploader@2
+  inputs:
+    files: # string. Required. Files. 
+    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: 'ServiceEndpoint'.
+    serviceEndpoint: # string. Required when authType = ServiceEndpoint. Service Connection. 
+    #username: # string. Optional. Use when authType = UserAndPass. Username. 
+    #password: # string. Optional. Use when authType = UserAndPass. Password. 
+    #url: # string. Required when authType = UserAndPass. URL. 
+    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: 'upload/$(Build.BuildId)/'.
+    #options: # string. Optional Arguments. 
+  # Advanced
+    #redirectStderr: true # boolean. Redirect Standard Error to Standard Out. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+```yaml
+# cURL Upload Files v2
+# Use cURL to upload files.
+- task: cURLUploader@2
+  inputs:
+    files: # string. Required. Files. 
+    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: 'ServiceEndpoint'.
+    serviceEndpoint: # string. Required when authType = ServiceEndpoint. Service Connection. 
+    #username: # string. Optional. Use when authType = UserAndPass. Username. 
+    #password: # string. Optional. Use when authType = UserAndPass. Password. 
+    #url: # string. Required when authType = UserAndPass. URL. 
+    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: 'upload/$(Build.BuildId)/'.
+    #options: # string. Optional Arguments. 
+  # Advanced
+    #redirectStderr: true # boolean. Redirect Standard Error to Standard Out. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+```yaml
+# YAML Syntax is not supported in TFS 2018.
+# Use the classic designer to add and configure tasks.
+# See the following Inputs section for details on the inputs that this task supports.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="files"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`files`** - **Files**<br>
+Type: string. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all ZIP files in all subfolders.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="authType"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`authType`** - **Authentication Method**<br>
+Type: string. Allowed values: 'ServiceEndpoint', 'UserAndPass'. Default value: 'ServiceEndpoint'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="serviceEndpoint"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`serviceEndpoint`** - **Service Connection**<br>
+Type: string. Required when authType = ServiceEndpoint.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`serviceEndpoint`** - **Service Endpoint**<br>
+Type: string. Required when authType = ServiceEndpoint.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="username"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`username`** - **Username**<br>
+Type: string. Optional. Use when authType = UserAndPass.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the username for server authentication.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="password"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`password`** - **Password**<br>
+Type: string. Optional. Use when authType = UserAndPass.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="url"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`url`** - **URL**<br>
+Type: string. Required when authType = UserAndPass.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="remotePath"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`remotePath`** - **Remote Directory**<br>
+Type: string. Default value: 'upload/$(Build.BuildId)/'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If supplied, this is the sub-folder on the remote server for the URL supplied in the credentials.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`remotePath`** - **Remote Directory**<br>
+Type: string. Default value: '/upload/$(Build.BuildId)/'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If supplied, this is the sub-folder on the remote server for the URL supplied in the credentials.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="options"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`options`** - **Optional Arguments**<br>
+Type: string.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Additional arguments that will be passed to cURL.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="redirectStderr"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`redirectStderr`** - **Redirect Standard Error to Standard Out**<br>
+Type: boolean. Default value: true.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Adds '--stderr -' as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range="<=azure-pipelines"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range=">=azure-pipelines-2022"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task runs using the following [command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): restricted |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task has permission to [set the following variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): Setting variables is disabled |
+| Agent version |  2.182.1 or greater |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version | All supported agent versions. |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2019"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: curl |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version | All supported agent versions. |
+| Task category | Utility |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

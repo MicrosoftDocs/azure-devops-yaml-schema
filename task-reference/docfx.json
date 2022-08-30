@@ -17,7 +17,8 @@
           "LICENSE",
           "LICENSE-CODE",
           "ThirdPartyNotices.md"
-        ]
+        ],
+        "group": "all"
       }
     ],
     "resource": [
@@ -39,12 +40,37 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+      "uhfHeaderId": "MSDocsHeader-AzureDevOps",
+      "ms.topic": "reference",
       "breadcrumb_path": "/azure/devops/pipelines/tasks/reference/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None"
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/azure-devops-yaml-schema",
+      "feedback_product_url": "https://developercommunity.visualstudio.com/spaces/21/index.html",
+      "ms.manager": "mijacobs",
+      "author": "steved0x",
+      "ms.author": "sdanie",
+      "ms.date": "08/02/2022",
+      "ms.prod": "devops",
+      "ms.version": "ALM",
+      "MSHAttr.msprod": "ms.prod:ALM",
+      "ms.prodfamily": "ALM",
+      "ms.technology": "devops-cicd-tasks"
     },
-    "fileMetadata": {},
+    "fileMetadata":
+    {
+      "recommendations": {
+        "**": "false"
+      }
+    },
     "template": [],
-    "dest": "pipelines-task-ref"
+    "dest": "azure-devops-yaml-schema",
+    "markdownEngineName": "markdig",
+    "groups": {
+      "all": {
+        "dest": "all",
+        "moniker_range": ">= azure-pipelines-2018 <= azure-pipelines"
+      }
+    }
   }
 }

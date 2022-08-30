@@ -1,3 +1,11 @@
-- name: Docs
-  tocHref: /
-  topicHref: /
+- name: Azure DevOps
+  tocHref: /azure/devops/
+  topicHref: /azure/devops/index
+  items: 
+  - name: Azure Pipelines
+    tocHref: /azure/devops/pipelines/
+    topicHref: /azure/devops/pipelines/index
+    items:
+    - name: Tasks
+      tocHref: /azure/devops/pipelines/tasks/reference/
+      topicHref: /azure/devops/pipelines/tasks/reference/index
