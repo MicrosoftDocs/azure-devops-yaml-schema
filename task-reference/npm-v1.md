@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 08/18/2022
+ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -303,7 +303,6 @@ None.
 ### Where can I learn npm commands and arguments?
 
 * [npm docs](https://docs.npmjs.com/)
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

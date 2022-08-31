@@ -4,21 +4,21 @@ items:
 - name: .NET Core
   items:
   - name: DotNetCoreCLI@2
-    href: dot-net-core-cli-v2.md
+    href: dotnet-core-cli-v2.md
     displayName: .NET Core v2
   - name: DotNetCoreCLI@1
-    href: dot-net-core-cli-v1.md
+    href: dotnet-core-cli-v1.md
     displayName: .NET Core v1
   - name: DotNetCoreCLI@0
-    href: dot-net-core-cli-v0.md
+    href: dotnet-core-cli-v0.md
     displayName: .NET Core v0
 - name: .NET Core SDK/runtime installer
   items:
   - name: DotNetCoreInstaller@1
-    href: dot-net-core-installer-v1.md
+    href: dotnet-core-installer-v1.md
     displayName: .NET Core SDK/runtime installer v1
   - name: DotNetCoreInstaller@0
-    href: dot-net-core-installer-v0.md
+    href: dotnet-core-installer-v0.md
     displayName: .NET Core SDK/runtime installer v0
 - name: Android Build
   items:
@@ -911,7 +911,7 @@ items:
 - name: Use .NET Core
   items:
   - name: UseDotNet@2
-    href: use-dot-net-v2.md
+    href: use-dotnet-v2.md
     displayName: Use .NET Core v2
 - name: Use Node.js ecosystem
   items:
