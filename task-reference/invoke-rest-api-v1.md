@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 08/18/2022
+ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -250,7 +250,6 @@ In addition, a C# helper library is available to enable live logging and managin
 ### Can I use the response body as the input for another task?
 
 No, as this task is an agentless task and uses TFS's internal HttpRequest, which doesn't return the content of the HTTP request.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

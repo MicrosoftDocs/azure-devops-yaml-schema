@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 08/10/2022
+ms.date: 08/31/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -160,8 +160,6 @@ The `publish` and `download` keywords are shortcuts for the PublishPipelineArtif
 > You can use the [.artifactignore](/azure/devops/artifacts/reference/artifactignore) file to to control which files will be published.
 
 [!INCLUDE [temp](includes/build-step-common-qa.md)]
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

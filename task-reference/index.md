@@ -1,7 +1,7 @@
 ---
 title: Catalog of the built-in tasks for Azure Pipelines & TFS
 description: Catalog of the built-in tasks for Azure Pipelines & TFS.
-ms.date: 08/23/2022
+ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -16,7 +16,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -139,7 +139,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dot-net-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dotnet-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Docker CLI installer**<br>[DockerInstaller@0](docker-installer-v0.md) | Install Docker CLI on agent machine. |
 | **Duffle tool installer**<br>[DuffleInstaller@0](duffle-installer-v0.md) | Install a specified version of Duffle for installing and managing CNAB bundles. |
 | **Go tool installer**<br>[GoTool@0](go-tool-v0.md) | Find in cache or download a specific version of Go and add it to the PATH. |
@@ -149,7 +149,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
-| **Use .NET Core**<br>[UseDotNet@2](use-dot-net-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
+| **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
 | **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
@@ -216,7 +216,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -335,7 +335,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dot-net-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dotnet-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Docker CLI installer**<br>[DockerInstaller@0](docker-installer-v0.md) | Install Docker CLI on agent machine. |
 | **Duffle tool installer**<br>[DuffleInstaller@0](duffle-installer-v0.md) | Install a specified version of Duffle for installing and managing CNAB bundles. |
 | **Go tool installer**<br>[GoTool@0](go-tool-v0.md) | Find in cache or download a specific version of Go and add it to the PATH. |
@@ -345,7 +345,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
-| **Use .NET Core**<br>[UseDotNet@2](use-dot-net-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
+| **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
 | **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
@@ -412,7 +412,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -530,7 +530,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dot-net-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dotnet-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Docker CLI installer**<br>[DockerInstaller@0](docker-installer-v0.md) | Install Docker CLI on agent machine. |
 | **Duffle tool installer**<br>[DuffleInstaller@0](duffle-installer-v0.md) | Install a specified version of Duffle for installing and managing CNAB bundles. |
 | **Go tool installer**<br>[GoTool@0](go-tool-v0.md) | Find in cache or download a specific version of Go and add it to the PATH. |
@@ -540,7 +540,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
-| **Use .NET Core**<br>[UseDotNet@2](use-dot-net-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
+| **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
 | **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
@@ -606,7 +606,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -723,7 +723,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dot-net-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dotnet-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Docker CLI installer**<br>[DockerInstaller@0](docker-installer-v0.md) | Install Docker CLI on agent machine. |
 | **Duffle tool installer**<br>[DuffleInstaller@0](duffle-installer-v0.md) | Install a specified version of Duffle for installing and managing CNAB bundles. |
 | **Go tool installer**<br>[GoTool@0](go-tool-v0.md) | Find in cache or download a specific version of Go and add it to the PATH. |
@@ -733,7 +733,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
-| **Use .NET Core**<br>[UseDotNet@2](use-dot-net-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
+| **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
 | **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
@@ -799,7 +799,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -907,7 +907,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dot-net-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@1](dotnet-core-installer-v1.md)<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Docker CLI installer**<br>[DockerInstaller@0](docker-installer-v0.md) | Install Docker CLI on agent machine. |
 | **Duffle tool installer**<br>[DuffleInstaller@0](duffle-installer-v0.md) | Install a specified version of Duffle for installing and managing CNAB bundles. |
 | **Go tool installer**<br>[GoTool@0](go-tool-v0.md) | Find in cache or download a specific version of Go and add it to the PATH. |
@@ -916,7 +916,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
-| **Use dotnet**<br>[UseDotNet@2](use-dot-net-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
+| **Use dotnet**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
 | **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
@@ -977,7 +977,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -1070,7 +1070,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Go Tool Installer**<br>[GoTool@0](go-tool-v0.md) | Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this to set the version of Go used in subsequent tasks. |
 | **Helm tool installer**<br>[HelmInstaller@0](helm-installer-v0.md) | Install Helm and Kubernetes on agent machine. |
 | **Java Tool Installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquires a specific version of Java from a user supplied Azure blob or the tools cache and sets JAVA_HOME. Use this task to change the version of Java used in Java tasks. |
@@ -1128,7 +1128,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dot-net-core-cli-v2.md)<br>[DotNetCoreCLI@1](dot-net-core-cli-v1.md)<br>[DotNetCoreCLI@0](dot-net-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -1213,7 +1213,7 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 
 | Task | Description |
 |---|---|
-| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@0](dot-net-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
+| **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Java Tool Installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquires a specific version of Java from a user supplied Azure blob or the tools cache and sets JAVA_HOME. Use this task to change the version of Java used in Java tasks. |
 | **Node Tool Installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or Downloads and caches specified version spec of Node and adds it to the PATH. |
 | **NuGet Tool Installer**<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this step to change the version of NuGet used in the NuGet steps. |
