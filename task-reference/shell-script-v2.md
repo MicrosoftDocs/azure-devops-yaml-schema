@@ -1,7 +1,7 @@
 ---
 title: ShellScript@2 - Shell script v2 task
 description: Run a shell script using Bash.
-ms.date: 08/18/2022
+ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -188,7 +188,6 @@ Add the following task to your pipeline to run the previous script.
   inputs:
     scriptPath: 'test.sh'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

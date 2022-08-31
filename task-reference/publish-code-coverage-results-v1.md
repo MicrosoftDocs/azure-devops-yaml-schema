@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 08/18/2022
+ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -242,7 +242,5 @@ The publish code coverage results task generates and publishes the HTML report, 
 ## See also
 
 * [Publish Test Results](publish-test-results-v2.md)
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

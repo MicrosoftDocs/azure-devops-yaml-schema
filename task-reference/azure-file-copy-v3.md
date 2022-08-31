@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@3 - Azure file copy v3 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 3).
-ms.date: 08/10/2022
+ms.date: 08/31/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -433,7 +433,6 @@ A suitable account can be easily created for use in a service connection:
 1. Add the Azure Active Directory user account to the co-administrators group in your Azure subscription.
 1. Sign into the Azure portal with this user account and change the password.
 1. Use the username and password of this account in the service connection. Deployments will be processed using this account.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
