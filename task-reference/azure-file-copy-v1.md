@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@1 - Azure file copy v1 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 1).
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -364,6 +364,10 @@ Provide a name for the variable for the storage container SAS Token used to acce
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

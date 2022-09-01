@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -169,6 +169,10 @@ Optional UUID of an installed provisioning profile to be used for this build.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

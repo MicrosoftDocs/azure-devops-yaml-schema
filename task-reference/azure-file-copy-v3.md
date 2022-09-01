@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@3 - Azure file copy v3 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 3).
-ms.date: 08/31/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -288,6 +288,10 @@ Provide the time in minutes after which SAS token will expire. Valid only when t
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

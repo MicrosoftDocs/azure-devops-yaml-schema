@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
 description: Deploy Azure function to Kubernetes cluster.
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -145,6 +145,10 @@ Pass arguments to command. Ex:<br>--no-docker --service-type NodePort.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

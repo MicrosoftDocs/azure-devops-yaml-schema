@@ -1,7 +1,7 @@
 ---
 title: IISWebAppDeploymentOnMachineGroup@0 - IIS web app deploy v0 task
 description: Deploy a website or web application using Web Deploy.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -203,6 +203,10 @@ Provide new line separated list of JSON files to substitute the variable values.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

@@ -1,7 +1,7 @@
 ---
 title: steps.publish definition
 description: steps.publish definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1400,7 +1400,7 @@ ___
 
 ## Remarks
 
-The `publish` keyword is a shortcut for the [Publish Pipeline Artifact task](/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact).
+The `publish` keyword is a shortcut for the [Publish Pipeline Artifact task](/azure/devops/pipelines/tasks/reference/publish-pipeline-artifact-v1).
 
 
 Learn more about [publishing artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts#publish-artifacts).
@@ -1418,6 +1418,6 @@ steps:
 
 ## See also
 
-- [Publish Pipeline Artifact task](/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact)
+- [Publish Pipeline Artifact task](/azure/devops/pipelines/tasks/reference/publish-pipeline-artifact-v1)
 - [Publishing artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts#publish-artifacts)
 

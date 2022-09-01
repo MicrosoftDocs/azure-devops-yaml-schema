@@ -1,7 +1,7 @@
 ---
 title: steps.pwsh definition
 description: steps.pwsh definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1778,7 +1778,7 @@ ___
 
 ## Remarks
 
-The `pwsh` keyword is a shortcut for the [PowerShell task](/azure/devops/pipelines/tasks/utility/powershell) when that task's **pwsh** value is set to **true**.
+The `pwsh` keyword is a shortcut for the [PowerShell task](/azure/devops/pipelines/tasks/reference/powershell-v2) when that task's **pwsh** value is set to **true**.
 The task runs a script in PowerShell Core on Windows, macOS, and Linux.
 
 Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts).
@@ -1803,7 +1803,7 @@ steps:
 
 ## See also
 
-- [PowerShell task](/azure/devops/pipelines/tasks/utility/powershell)
+- [PowerShell task](/azure/devops/pipelines/tasks/reference/powershell-v2)
 - Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts)
 
 

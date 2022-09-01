@@ -1,7 +1,7 @@
 ---
 title: gulp@0 - gulp v0 task
 description: Run the gulp Node.js streaming task-based build system (task version 0).
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -266,6 +266,10 @@ Provide the path to your test script files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

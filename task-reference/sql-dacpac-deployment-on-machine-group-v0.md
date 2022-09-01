@@ -1,7 +1,7 @@
 ---
 title: SqlDacpacDeploymentOnMachineGroup@0 - SQL Server database deploy v0 task
 description: Deploy a SQL Server database using DACPAC or SQL scripts.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -285,6 +285,10 @@ Additional Invoke-Sqlcmd arguments that will be applied when deploying the SQL S
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->
