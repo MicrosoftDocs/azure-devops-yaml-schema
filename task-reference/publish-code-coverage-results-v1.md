@@ -156,7 +156,7 @@ The task supports popular coverage result formats such as
 
 This task can only be used in Build pipelines and is not supported in Release pipelines.
 
-Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dot-net-core-cli-v2.md),
+Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dotnet-core-cli-v2.md),
 [Ant](ant-v1.md), [Maven](maven-v2.md), [Gulp](gulp-v1.md), [Grunt](grunt-v0.md)
 also provide the option to publish code coverage data to the pipeline.
 If you are using these tasks, you do not need a separate Publish Code Coverage Results task
