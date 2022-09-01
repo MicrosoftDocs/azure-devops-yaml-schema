@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 08/16/2022
+ms.date: 09/01/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -91,7 +91,20 @@ Enter or Select the name of an existing Azure Load Testing resource.
 **`secrets`** - **Secrets**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add/Update secret parameters using the json syntax as follows::<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key1", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": $(secret1) <br/> &nbsp;&nbsp; },<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key2", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": $(secret2) <br/> &nbsp;&nbsp; }<br/>].
+Add/Update secret parameters using the json syntax as shown in the following example.
+
+```json
+[
+   {
+    "name": "key1",
+    "value": $(secret1)
+   },
+   {
+    "name": "key2",
+    "value": $(secret2)
+   }
+]
+```
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -102,7 +115,20 @@ Add/Update secret parameters using the json syntax as follows::<br/> [<br/>&nbsp
 **`env`** - **env**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add/Update environment variables using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "env1", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "value1" <br/> &nbsp;&nbsp; },<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "env2", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "value2" <br/> &nbsp;&nbsp; }<br/>].
+Add/Update environment variables using the json syntax as shown in the following example.
+
+```json
+[
+   {
+    "name": "env1",
+    "value": "value1"
+   },
+   {
+    "name": "env2",
+    "value": "value2"
+   }
+]
+```
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -132,7 +158,8 @@ The task succeeds if the load test finishes successfully and all [test pass/fail
 
 Although Azure PowerShell isn't listed in the demands for `AzureLoadTest@1`, the agent must have Azure PowerShell installed. Azure PowerShell is installed on [Windows and Linux hosted agent images](/azure/devops/pipelines/agents/hosted#software).
 
-`AzureLoadTest@1` is part of the Azure Load Testing marketplace extension. For more information on installing and using this task, see [Identify performance regressions with Azure Load Testing Preview and Azure Pipelines](/azure/load-testing/tutorial-cicd-azure-pipelines).
+> [!NOTE]
+> `AzureLoadTest@1` is part of the Azure Load Testing marketplace extension. For more information on installing and using this task, see [Identify performance regressions with Azure Load Testing Preview and Azure Pipelines](/azure/load-testing/tutorial-cicd-azure-pipelines).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

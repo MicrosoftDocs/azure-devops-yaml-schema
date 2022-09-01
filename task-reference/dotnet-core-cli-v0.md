@@ -126,7 +126,7 @@ None.
 ## Remarks
 
 > [!IMPORTANT]
-> `DotNetCorCLI@0` is deprecated. For a newer supported version, see [DotNetCoreCLI@2](dot-net-core-cli-v2.md).
+> `DotNetCorCLI@0` is deprecated. For a newer supported version, see [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -158,6 +158,6 @@ None.
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-* [DotNetCoreCLI@2](dot-net-core-cli-v2.md)
+* [DotNetCoreCLI@2](dotnet-core-cli-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
