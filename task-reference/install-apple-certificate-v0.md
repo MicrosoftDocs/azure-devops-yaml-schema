@@ -1,7 +1,7 @@
 ---
 title: InstallAppleCertificate@0 - Install Apple Certificate v0 task
 description: Install an Apple certificate required to build on a macOS agent (task version 0).
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -142,6 +142,10 @@ The Common Name of the subject in the signing certificate.  Will attempt to pars
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

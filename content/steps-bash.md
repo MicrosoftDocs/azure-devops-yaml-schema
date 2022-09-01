@@ -1,7 +1,7 @@
 ---
 title: steps.bash definition
 description: steps.bash definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1526,7 +1526,7 @@ ___
 
 ## Remarks
 
-The `bash` keyword is a shortcut for the [shell script task](/azure/devops/pipelines/tasks/utility/shell-script).
+The `bash` keyword is a shortcut for the [shell script task](/azure/devops/pipelines/tasks/reference/shell-script-v2).
 The task runs a script in Bash on Windows, macOS, and Linux.
 
 
@@ -1554,7 +1554,7 @@ If you don't specify a command mode, you can shorten the `target` structure to:
 
 ## See also
 
-- [shell script task](/azure/devops/pipelines/tasks/utility/shell-script)
+- [shell script task](/azure/devops/pipelines/tasks/reference/shell-script-v2)
 - Learn more about [conditions](/azure/devops/pipelines/process/conditions),
 [timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks#step-target)
 

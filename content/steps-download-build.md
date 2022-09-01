@@ -1,7 +1,7 @@
 ---
 title: steps.downloadBuild definition
 description: steps.downloadBuild definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1652,7 +1652,7 @@ ___
 
 ## Remarks
 
-The `downloadBuild` keyword is a shortcut for the [Download Build Artifacts task](/azure/devops/pipelines/tasks/utility/download-build-artifacts).
+The `downloadBuild` keyword is a shortcut for the [Download Build Artifacts task](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1).
 
 > [!NOTE]
 > We recommend upgrading from `downloadBuild` (download build artifacts task) to `download` (download pipeline artifacts task) for faster performance.
@@ -1665,4 +1665,4 @@ The `downloadBuild` keyword is a shortcut for the [Download Build Artifacts task
 
 - [download](steps-download.md)
 - [Publish and download pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts)
-- [Download Build Artifacts task](/azure/devops/pipelines/tasks/utility/download-build-artifacts)
+- [Download Build Artifacts task](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1)

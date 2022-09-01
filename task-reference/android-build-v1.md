@@ -1,7 +1,7 @@
 ---
 title: AndroidBuild@1 - Android Build v1 task
 description: AndroidBuild@1 is deprecated. Use Gradle.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -225,6 +225,10 @@ Type: boolean. Optional. Use when startEmulator = true. Default value: false.<br
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

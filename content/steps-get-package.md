@@ -1,7 +1,7 @@
 ---
 title: steps.getPackage definition
 description: steps.getPackage definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -980,7 +980,7 @@ ___
 
 ## Remarks
 
-The `getPackage` keyword is a shortcut for the [Download Package task](/azure/devops/pipelines/tasks/utility/download-package).
+The `getPackage` keyword is a shortcut for the [Download Package task](/azure/devops/pipelines/tasks/reference/download-package-v1).
 
 
 <!-- Examples -->
@@ -988,4 +988,4 @@ The `getPackage` keyword is a shortcut for the [Download Package task](/azure/de
 
 ## See also
 
-- [Download Package task](/azure/devops/pipelines/tasks/utility/download-package)
+- [Download Package task](/azure/devops/pipelines/tasks/reference/download-package-v1)

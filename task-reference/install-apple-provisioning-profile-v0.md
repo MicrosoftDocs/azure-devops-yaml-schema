@@ -1,7 +1,7 @@
 ---
 title: InstallAppleProvisioningProfile@0 - Install Apple Provisioning Profile v0 task
 description: Install an Apple provisioning profile required to build on a macOS agent.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -69,6 +69,10 @@ Select to specify that the provisioning profile should be removed from the agent
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->
