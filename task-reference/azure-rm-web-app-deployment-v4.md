@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 08/11/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -615,6 +615,10 @@ Variable substitution runs after configuration transformations. Note: build and 
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -84,6 +84,10 @@ Installs the x86 version of Node regardless of the CPU architecture of the agent
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

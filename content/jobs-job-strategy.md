@@ -1,7 +1,7 @@
 ---
 title: jobs.job.strategy definition
 description: jobs.job.strategy definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -548,7 +548,7 @@ Only two jobs run simultaneously.
 
 This strategy specifies how many duplicates of a job should run.
 It's useful for slicing up a large test matrix.
-The [Visual Studio Test task](/azure/devops/pipelines/tasks/test/vstest) understands how to divide the test load across the number of scheduled jobs.
+The [Visual Studio Test task](/azure/devops/pipelines/tasks/reference/vstest-v2) understands how to divide the test load across the number of scheduled jobs.
 
 
 

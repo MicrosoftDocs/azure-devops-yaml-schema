@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreInstaller@0 - .NET Core SDK/runtime installer v0 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH (task version 0).
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -70,6 +70,10 @@ Specify exact version of .NET Core SDK or runtime to install.<br/>Find the value
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -246,6 +246,10 @@ Provide the path to your test script files.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

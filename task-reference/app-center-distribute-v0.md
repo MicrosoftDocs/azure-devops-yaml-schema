@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@0 - App Center Distribute v0 task
 description: Distribute app builds to testers and users via App Center (task version 1).
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -202,6 +202,10 @@ ID of the distribution group the app will deploy to. Leave it empty to use the d
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

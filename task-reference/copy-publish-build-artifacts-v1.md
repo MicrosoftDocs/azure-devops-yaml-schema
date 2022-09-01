@@ -1,7 +1,7 @@
 ---
 title: CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 description: CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -107,6 +107,10 @@ The UNC file path location to copy the artifact. It must be accessible from the 
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

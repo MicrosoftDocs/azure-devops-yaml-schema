@@ -1,7 +1,7 @@
 ---
 title: AzureFunction@0 - Invoke Azure Function v0 task
 description: Invoke Azure function as a part of your process.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -142,6 +142,10 @@ Criteria which defines when to pass the task. No criteria means response content
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

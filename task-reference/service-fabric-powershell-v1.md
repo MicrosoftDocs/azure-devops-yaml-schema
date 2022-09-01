@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -139,6 +139,10 @@ Additional parameters to pass to PowerShell.  Can be either ordinal or named par
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

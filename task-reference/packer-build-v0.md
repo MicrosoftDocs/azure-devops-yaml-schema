@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@0 - Build machine image v0 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment (task version 0).
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -292,6 +292,10 @@ Provide a name for the output variable which will store generated machine image 
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

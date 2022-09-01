@@ -1,7 +1,7 @@
 ---
 title: ChefKnife@1 - Chef Knife v1 task
 description: Run scripts with Knife commands on your Chef workstation.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -107,6 +107,10 @@ Additional parameters to pass to Script.  Can be either ordinal or named paramet
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

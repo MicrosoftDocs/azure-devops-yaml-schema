@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: steps.task definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -260,7 +260,7 @@ ___
 
 ## Remarks
 
-[Tasks](/azure/devops/pipelines/process/tasks) are the building blocks of a pipeline.
+[Tasks](/azure/devops/pipelines/tasks/reference) are the building blocks of a pipeline.
 There's a [catalog of tasks](/azure/devops/pipelines/tasks/index) available to choose from.
 
 If you don't specify a command mode, you can shorten the `target` structure to:
@@ -270,7 +270,9 @@ If you don't specify a command mode, you can shorten the `target` structure to:
   target: string  # container name or the word 'host'
 ```
 
-All steps and tasks support the following properties in addition to their task or step specific properties.
+### Common task properties
+
+All steps and tasks support the following properties in addition to their task or step specific properties. For more information, see [Task control options](/azure/devops/pipelines/process/tasks#task-control-options) and [Task environment variables](/azure/devops/pipelines/process/tasks#environment-variables).
 
 :::moniker range=">azure-pipelines-2020.1"
 

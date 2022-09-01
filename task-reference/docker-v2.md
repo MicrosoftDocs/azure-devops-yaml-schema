@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -251,6 +251,10 @@ Name of the container resource to start or stop. For use with start and stop com
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

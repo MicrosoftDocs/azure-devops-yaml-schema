@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -59,6 +59,10 @@ If the credential provider is already installed in the user profile, determines 
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

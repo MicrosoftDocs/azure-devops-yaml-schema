@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: steps.powershell definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1778,7 +1778,7 @@ ___
 
 ## Remarks
 
-The `powershell` keyword is a shortcut for the [PowerShell task](/azure/devops/pipelines/tasks/utility/powershell).
+The `powershell` keyword is a shortcut for the [PowerShell task](/azure/devops/pipelines/tasks/reference/powershell-v2).
 The task runs a script in Windows PowerShell.
 
 Each PowerShell session lasts only for the duration of the job in which it runs. Tasks that depend on what has been bootstrapped must be in the same job as the bootstrap.
@@ -1848,6 +1848,6 @@ steps:
 
 ## See also
 
-- [PowerShell task](/azure/devops/pipelines/tasks/utility/powershell)
+- [PowerShell task](/azure/devops/pipelines/tasks/reference/powershell-v2)
 - Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [timeouts](/azure/devops/pipelines/process/phases#timeouts)
 

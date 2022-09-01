@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@2 - App Center distribute v2 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 2).
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -204,6 +204,10 @@ ID of the distribution group or store the app will deploy to. Leave it empty to 
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

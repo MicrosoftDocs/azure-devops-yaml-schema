@@ -1,7 +1,7 @@
 ---
 title: GitHubComment@0 - GitHub Comment v0 task
 description: Write a comment to your Github entity i.e. issue or a Pull Request (PR).
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -83,6 +83,10 @@ Contents of the comment to be written.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

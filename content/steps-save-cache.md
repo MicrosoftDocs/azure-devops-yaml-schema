@@ -1,7 +1,7 @@
 ---
 title: steps.saveCache definition
 description: steps.saveCache definition reference.
-ms.date: 08/08/2022
+ms.date: 09/01/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1400,7 +1400,7 @@ ___
 
 ## Remarks
 
-The `saveCache` keyword is a shortcut for the [Cache task](/azure/devops/pipelines/tasks/utility/cache).
+The `saveCache` keyword is a shortcut for the [Cache task](/azure/devops/pipelines/tasks/reference/cache-v2).
 
 
 <!-- Examples -->
@@ -1409,4 +1409,4 @@ The `saveCache` keyword is a shortcut for the [Cache task](/azure/devops/pipelin
 ## See also
 
 - [Pipeline caching](/azure/devops/pipelines/release/caching)
-- [Cache task](/azure/devops/pipelines/tasks/utility/cache)
+- [Cache task](/azure/devops/pipelines/tasks/reference/cache-v2)

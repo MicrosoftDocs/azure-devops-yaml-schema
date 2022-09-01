@@ -1,7 +1,7 @@
 ---
 title: FuncToolsInstaller@0 - Install Azure Func Core Tools v0 task
 description: Install Azure Func Core Tools.
-ms.date: 08/10/2022
+ms.date: 09/01/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -47,6 +47,10 @@ Specify the version of Azure func tools to install. Ex:<br><br>2.7.1575<br>v2.7.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

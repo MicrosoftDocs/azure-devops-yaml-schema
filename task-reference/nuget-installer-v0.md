@@ -1,7 +1,7 @@
 ---
 title: NuGetInstaller@0 - NuGet Installer v0 task
 description: Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -172,6 +172,10 @@ Optionally supply the path to NuGet.exe. Will override version selection.
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

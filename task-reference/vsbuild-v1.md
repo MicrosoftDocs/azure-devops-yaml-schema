@@ -1,7 +1,7 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 08/23/2022
+ms.date: 09/01/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -281,6 +281,10 @@ Allows setting custom version of Visual Studio. Examples: 15.0, 16.0, 17.0. Make
 
 :::moniker-end
 <!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
 <!-- :::inputs-end::: -->
 
 <!-- :::outputVariables::: -->

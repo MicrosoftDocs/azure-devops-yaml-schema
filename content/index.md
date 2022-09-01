@@ -11,7 +11,7 @@ The YAML schema reference for Azure Pipelines is a detailed reference for YAML p
 
 To create a YAML pipeline, start with the [pipeline](pipeline.md#remarks) definition. For more information about building YAML pipelines, see [Customize your pipeline](/azure/devops/pipelines/customize-pipeline).
 
-The YAML schema reference does not cover tasks. For more information about tasks, see the [Azure Pipelines tasks index](/azure/devops/pipelines/tasks).
+The YAML schema reference does not cover tasks. For more information about tasks, see the [Azure Pipelines tasks index](/azure/devops/pipelines/tasks/reference).
 
 ## YAML schema definition index
 
