@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: pipeline definition reference.
-ms.date: 08/08/2022
+ms.date: 08/31/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1192,6 +1192,7 @@ ___
 jobs: [ job | deployment | template ]
 pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
 name: string # Pipeline run number.. 
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
 trigger: trigger # Continuous integration triggers
 parameters: [ name ]
 pr: pr # Pull request triggers
@@ -1262,6 +1263,26 @@ ___
 string_allowExpressions
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `appendCommitMessageToRunName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -3016,6 +3037,7 @@ services:  # Container resources to run as a service container.
 workspace:  # Workspace options on the agent.
   clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
 name: string # Pipeline run number.. 
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
 trigger: trigger # Continuous integration triggers
 parameters: [ name ]
 pr: pr # Pull request triggers
@@ -3186,6 +3208,26 @@ ___
 string_allowExpressions
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `appendCommitMessageToRunName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -4032,6 +4074,7 @@ ___
 stages: [ stage | template ]
 pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
 name: string # Pipeline run number.. 
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
 trigger: trigger # Continuous integration triggers
 parameters: [ name ]
 pr: pr # Pull request triggers
@@ -4102,6 +4145,26 @@ ___
 string_allowExpressions
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `appendCommitMessageToRunName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -4970,6 +5033,7 @@ extends:  # Required. Extends a template
     string: string # Name/value pairs.
 pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
 name: string # Pipeline run number.. 
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
 trigger: trigger # Continuous integration triggers
 parameters: [ name ]
 pr: pr # Pull request triggers
@@ -5040,6 +5104,26 @@ ___
 string_allowExpressions
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `appendCommitMessageToRunName`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+boolean
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
