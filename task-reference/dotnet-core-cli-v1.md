@@ -123,7 +123,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-For a newer version of this task, see [DotNetCoreCLI@2](dot-net-core-cli-v2.md).
+For a newer version of this task, see [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -155,6 +155,6 @@ For a newer version of this task, see [DotNetCoreCLI@2](dot-net-core-cli-v2.md).
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-* [DotNetCoreCLI@2](dot-net-core-cli-v2.md)
+* [DotNetCoreCLI@2](dotnet-core-cli-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

@@ -565,7 +565,7 @@ Use this task to install and update NuGet package dependencies, or package and p
 
 If your code depends on NuGet packages, make sure to add this step before your [Visual Studio Build task](vsbuild-v1.md). Also make sure to clear the deprecated **Restore NuGet Packages** checkbox in that task.
 
-If you are working with .NET Core or .NET Standard, use the [.NET Core](dot-net-core-cli-v2.md) task, which has full support for all package scenarios and it's currently supported by dotnet.
+If you are working with .NET Core or .NET Standard, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and it's currently supported by dotnet.
 
 > [!TIP]
 > This version of the NuGet task uses NuGet 4.1.0 by default. To select a different version of NuGet, use the [Tool Installer](nuget-installer-v0.md).
