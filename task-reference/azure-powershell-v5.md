@@ -213,6 +213,9 @@ To troubleshoot issues related to service connections, see [Service Connection t
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
+
+The following example shows how to invoke a script from a file and pass script arguments to it.
+
 ```yml
 - task: AzurePowerShell@5
   inputs:
@@ -225,6 +228,21 @@ To troubleshoot issues related to service connections, see [Service Connection t
       -Arg3 val3
     azurePowerShellVersion: latestVersion
     pwsh: true
+```
+
+The following arguments shows how to invoke an inline script.
+
+```yml
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Azure subscription connection placeholder'
+    azurePowerShellVersion: LatestVersion
+    ScriptType: 'InlineScript'
+    Inline: |
+      # You can write your azure powershell scripts inline here. 
+      # You can also pass predefined and custom variables to this script using arguments
+      Write-Host 'Hello'
+      Write-Host 'World!'
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
