@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 08/08/2022
+ms.date: 09/02/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -852,6 +852,8 @@ ___
 
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
+>
+> `batch` is not supported in repository resource triggers.
 
 ::: moniker-end
 
