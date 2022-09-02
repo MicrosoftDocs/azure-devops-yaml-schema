@@ -853,7 +853,7 @@ ___
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
 >
-> If you are using repository resources and checking out multiple repositories, do not set the `batch` property on any of the repository CI triggers other than the `self` repository. `batch` is only supported for CI triggers defined on the `self` repository.
+> If you are using repository resource triggers, do not set the `batch` property on any of the repository CI triggers other than the `self` repository. `batch` is only supported for CI triggers defined on the `self` repository.
 
 ::: moniker-end
 
