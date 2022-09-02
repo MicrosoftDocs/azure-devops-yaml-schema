@@ -1289,7 +1289,7 @@ If you have many team members uploading changes often, you may want to reduce th
 ::: moniker range=">= azure-pipelines-2020"
 
 > [!NOTE]
-> If you are using repository resource triggers, do not set the `batch` property on any of the repository CI triggers other than the `self` repository. `batch` is only supported for CI triggers defined on the `self` repository.
+> `batch` is not supported in repository resource triggers.
 
 ::: moniker-end
 
