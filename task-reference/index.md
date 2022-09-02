@@ -5,7 +5,7 @@ ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
-# Task index
+# Azure Pipelines task index
 
 This article provides an index of built-in tasks. To learn more about tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/process/tasks).
 
