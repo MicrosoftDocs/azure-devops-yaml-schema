@@ -1,5 +1,5 @@
 items:
-- name: Task index
+- name: Azure Pipelines task index
   href: index.md
 - name: .NET Core
   items:
