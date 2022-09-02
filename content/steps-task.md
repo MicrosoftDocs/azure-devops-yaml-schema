@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: steps.task definition reference.
-ms.date: 09/01/2022
+ms.date: 09/02/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -261,7 +261,7 @@ ___
 ## Remarks
 
 [Tasks](/azure/devops/pipelines/tasks/reference) are the building blocks of a pipeline.
-There's a [catalog of tasks](/azure/devops/pipelines/tasks/index) available to choose from.
+There's a [catalog of tasks](/azure/devops/pipelines/tasks/reference) available to choose from.
 
 If you don't specify a command mode, you can shorten the `target` structure to:
 
@@ -342,5 +342,5 @@ steps:
 ## See also
 
 - [Tasks](/azure/devops/pipelines/process/tasks)
-- [Catalog of tasks](/azure/devops/pipelines/tasks/index)
+- [Catalog of tasks](/azure/devops/pipelines/tasks/reference)
 
