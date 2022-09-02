@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: trigger definition reference.
-ms.date: 08/09/2022
+ms.date: 09/02/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1285,6 +1285,13 @@ ___
 ### Remarks
 
 If you have many team members uploading changes often, you may want to reduce the number of runs you start. If you set `batch` to `true`, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. By default, `batch` is `false`.
+
+::: moniker range=">= azure-pipelines-2020"
+
+> [!NOTE]
+> `batch` is not supported in repository resource triggers.
+
+::: moniker-end
 
 For more information, see [Triggers - CI triggers](/azure/devops/pipelines/build/triggers#ci-triggers) and choose your repository type.
 
