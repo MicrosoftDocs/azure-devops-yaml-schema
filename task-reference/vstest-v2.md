@@ -202,7 +202,7 @@ Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the 
 **`testSelector`** - **Select tests using**<br>
 Type: string. Required. Allowed values: 'testAssemblies', 'testPlan', 'testRun'. Default value: 'testAssemblies'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-<ul><li><b>Test assembly: </b>Use this option to specify one or more test assemblies that contain your tests. You can optionally specify a filter criteria to select only specific tests.</li><li><b>Test plan: </b>Use this option to run tests from your test plan that have an automated test method associated with it.</li><li><b>Test run: </b>Use this option when you are setting up an environment to run tests from the Test hub. This option should not be used when running tests in a continuous integration / continuous deployment (CI/CD) pipeline.</li>.
+<ul><li><b>Test assembly: </b>Use this option to specify one or more test assemblies that contain your tests. You can optionally specify a filter criteria to select only specific tests.</li><li><b>Test plan: </b>Use this option to run tests from your test plan that have an automated test method associated with it. To learn more about how to associate tests with a test case work item, see [Associate automated tests with test cases](/azure/devops/test/associate-automated-test-with-test-case).</li><li><b>Test run: </b>Use this option when you are setting up an environment to run tests from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option should not be used when running tests in a continuous integration/continuous deployment (CI/CD) pipeline.</li>.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -213,7 +213,8 @@ Type: string. Required. Allowed values: 'testAssemblies', 'testPlan', 'testRun'.
 **`testAssemblyVer2`** - **Test files**<br>
 Type: string. Required when testSelector = testAssemblies.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run tests from the specified files.<br>Ordered tests and webtests can be run by specifying the .orderedtest and .webtest files respectively. To run .webtest, Visual Studio 2017 Update 4 or higher is needed. <br><br>The file paths are relative to the search folder. Supports multiple lines of minimatch patterns. [More information](https://aka.ms/minimatchexamples).
+Run tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. Supports multiple lines of minimatch patterns. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns)
+Default value: `**\\*test*.dll\n!**\\*TestAdapter.dll\n!**\\obj\\**`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -245,7 +246,7 @@ Select a test plan containing test suites with automated test cases.
 **`testSuite`** - **Test suite**<br>
 Type: string. Required when testSelector = testPlan.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select one or more test suites containing automated test cases. Test case work items must be associated with an automated test method. [Learn more.](https://go.microsoft.com/fwlink/?linkid=847773.
+Select one or more test suites containing automated test cases. Test case work items must be associated with an automated test method. [Learn more](https://go.microsoft.com/fwlink/?linkid=847773).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -267,7 +268,7 @@ Select Test Configuration.
 **`tcmTestRun`** - **Test Run**<br>
 Type: string. Optional. Use when testSelector = testRun. Default value: '$(test.RunId)'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test run based selection is used when triggering automated test runs from the test hub. This option cannot be used for running tests in the CI/CD pipeline.
+Test run based selection is used when triggering automated test runs from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option cannot be used for running tests in the CI/CD pipeline.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -333,7 +334,7 @@ Number of builds after which to automatically run all tests. Test Impact Analysi
 **`uiTests`** - **Test mix contains UI tests**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To run UI tests, ensure that the agent is set to run in interactive mode. Setting up an agent to run interactively must be done before queueing the build / release. Checking this box does <b>not</b> configure the agent in interactive mode automatically. This option in the task is to only serve as a reminder to configure agent appropriately to avoid failures. <br><br> Hosted Windows agents from the VS 2015 and 2017 pools can be used to run UI tests.<br> [More information](https://aka.ms/uitestmoreinfo).
+To run UI tests, ensure that the agent is set to run in [interactive mode](/azure/devops/pipelines/agents/agents) with autologon enabled. Setting up an agent to run interactively must be done before queueing the build/release. Checking this box does not configure the agent in interactive mode automatically. This option in the task is to only serve as a reminder to configure agent appropriately to avoid failures. Hosted Windows agents from the VS 2015 and 2017 pools can be used to run UI tests.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -344,6 +345,7 @@ To run UI tests, ensure that the agent is set to run in interactive mode. Settin
 **`vstestLocationMethod`** - **Select test platform using**<br>
 Type: string. Allowed values: 'version', 'location'. Default value: 'version'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify which test platform should be used.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -386,7 +388,7 @@ Optionally supply the path to VSTest.
 **`runSettingsFile`** - **Settings file**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to runsettings or testsettings file to use with the tests.
+Path to `runsettings` or `testsettings` file to use with the tests.Starting with Visual Studio 15.7, it is recommended to use runsettings for all types of tests. To learn more about converting a .testsettings file to a .runsettings file, see [this topic](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0023-TestSettings-Deprecation.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -593,7 +595,7 @@ Opt in/out of publishing run level attachments.
 **`failOnMinTestsNotRun`** - **Fail the task if a minimum number of tests are not run.**<br>
 Type: boolean. Default value: False.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting this option will fail the task if specified minimum number of tests is not run.
+Use this option to fail the task if a minimum number of tests are not run. This may be useful if any changes to task inputs or underlying test adapter dependencies lead to only a subset of the desired tests to be found.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -615,7 +617,8 @@ Specify the minimum # of tests that should be run for the task to succeed. Total
 **`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Collect advanced diagnostics in case of catastrophic failures.
+Use this option to turn on collection of diagnostic data to troubleshoot catastrophic failures such as test crash.
+When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which tests ran, so that a potentially culprit test can be identified.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -625,7 +628,8 @@ Collect advanced diagnostics in case of catastrophic failures.
 **`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
 Type: boolean. Default value: True.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Collect advanced diagnostics in case of catastrophic failures.
+Use this option to turn on collection of diagnostic data to troubleshoot catastrophic failures such as test crash.
+When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which tests ran, so that a potentially culprit test can be identified.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -636,7 +640,10 @@ Collect advanced diagnostics in case of catastrophic failures.
 **`collectDumpOn`** - **Collect process dump and attach to test run report**<br>
 Type: string. Optional. Use when diagnosticsEnabled = true. Allowed values: 'onAbortOnly', 'always', 'never'. Default value: 'onAbortOnly'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Collect process dump and attach to test run report.
+Use this option to collect a mini-dump that can be used for further analysis.
+* **onAbortOnly** - On abort only: mini-dump will be collected only when test run is aborted.
+* **Always** - mini-dump will always be collected regardless of whether the test run completes or not.
+* **Never** - mini-dump will not be collected regardless of whether the test run completes or not
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
