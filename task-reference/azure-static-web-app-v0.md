@@ -269,7 +269,7 @@ steps:
     inputs:
       app_location: '/build'
       api_location: 'api'
-      output_location: '/src'
+      output_location: '/output'
       azure_static_web_apps_api_token: $(deployment_token)
 ```
 <!-- :::editable-content-end::: -->
