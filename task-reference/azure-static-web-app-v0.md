@@ -245,6 +245,8 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+> [!NOTE]
+> This task only runs on Linux agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
