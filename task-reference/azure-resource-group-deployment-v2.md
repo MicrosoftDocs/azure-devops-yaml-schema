@@ -174,6 +174,7 @@ Location for deploying the resource group. If the resource group already exists 
 **`templateLocation`** - **Template location**<br>
 Type: string. Required. Allowed values: 'Linked artifact', 'URL of the file'. Default value: 'Linked artifact'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Select either **Linked artifact** or **URL of the file**.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -236,7 +237,7 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 **`overrideParameters`** - **Override template parameters**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To view the template parameters in a grid, click on “…” next to Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS. Or type the template parameters to override in the textbox. Example, <br>–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre).<br>If the parameter value you're using has multiple words, enclose them in quotes, even if you're passing them using variables. For example, -name "parameter value" -name2 "$(var)"<br>To override object type parameters use stringified JSON objects. For example, -options ["option1"] -map {"key1": "value1" }.
+To view the template parameters in a grid, click on “…” next to Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS. Or type the template parameters to override in the textbox. Example, <br>–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre).<br>If the parameter value you're using has multiple words, enclose them in quotes, even if you're passing them using variables. For example, -name "parameter value" -name2 "$(var)".<br>To override object type parameters use stringified JSON objects. For example, -options ["option1"] -map {"key1": "value1" }.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -254,7 +255,7 @@ Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details
  Complete mode deletes resources that are not in your template. Complete mode takes relatively more time than incremental mode. If the task times out, consider increasing the timeout, or changing the mode to 'Incremental'. 
  **[Warning] Complete mode will delete all the existing resources in the resource group that are not specified in the template. Do review if the resource group you're deploying to doesn't contain any necessary resources that are not specified in the template.** 
 
- Validate mode enables you to find problems with the template before creating actual resources. 
+ Validate mode enables you to find problems with the template before creating actual resources. Note that this mode always creates a resource group, even if no resources are deployed.
 
  By default, Incremental mode is used.
 <!-- :::editable-content-end::: -->
