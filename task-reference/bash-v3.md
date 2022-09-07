@@ -300,7 +300,7 @@ steps:
     MYSECRET: $(Foo)
 ```
 
-The example above is equivalent to:
+On macOS or Linux, the example above is equivalent to:
 
 ```YAML
 steps:
