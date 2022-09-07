@@ -250,6 +250,26 @@ None.
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+```YAML
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: '/build'
+      api_location: 'api'
+      output_location: '/src'
+      azure_static_web_apps_api_token: $(deployment_token)
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
