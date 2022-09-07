@@ -442,6 +442,24 @@ A suitable account can be easily created for use in a service connection:
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+```yml
+# Example: Upload files from Pipeline staging directory to blob storage.
+- task: AzureFileCopy@3
+  displayName: 'Example Step Name'
+  inputs:
+    sourcePath: '$(Build.ArtifactStagingDirectory)/BlobsToUpload'
+    additionalArgumentsForBlobCopy: |
+      '/Y' # Supresses all AZCopy Confirmations. Used here to allow overwrites
+      '/Pattern:*' # Pattern of files to copy.
+      '/S' # Recursive Copy
+    azureSubscription: 'Subscription Name'
+    destination: AzureBlob
+    storage: storageaccountname
+    containerName: storagecontainername
+    blobPrefix: targetdirectoryincontainer
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
