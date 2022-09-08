@@ -140,7 +140,7 @@ To avoid problems overall, you must make sure this value matches the version of 
 
 The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
 
-**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/tasks/build/visual-studio-build).
+**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -154,7 +154,7 @@ To avoid problems overall, you must make sure this value matches the version of 
 
 The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
 
-**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/tasks/build/visual-studio-build).
+**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -168,7 +168,7 @@ To avoid problems overall, you must make sure this value matches the version of 
 
 The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
 
-**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/tasks/build/visual-studio-build).
+**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

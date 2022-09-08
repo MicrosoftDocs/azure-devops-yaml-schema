@@ -175,7 +175,7 @@ The name of the artifact to download. If left empty, it will download all artifa
 **`itemPattern`** - **Matching patterns**<br>
 Input alias: `patterns`. Type: string. Default value: '**'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-One or more file matching patterns (new line delimited) that limit which files get downloaded.
+One or more file matching patterns (new line delimited) that limit which files get downloaded. [More Information on file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
