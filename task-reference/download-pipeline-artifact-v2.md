@@ -98,6 +98,7 @@ If checked, this build task will try to download artifacts from the triggering b
 **`buildVersionToDownload`** - **Build version to download**<br>
 Input alias: `runVersion`. Type: string. Required when source == specific. Allowed values: 'latest', 'latestFromBranch', 'specific'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies which build version to download.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -174,7 +175,7 @@ The name of the artifact to download. If left empty, it will download all artifa
 **`itemPattern`** - **Matching patterns**<br>
 Input alias: `patterns`. Type: string. Default value: '**'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-One or more file matching patterns (new line delimited) that limit which files get downloaded.
+One or more file matching patterns (new line delimited) that limit which files get downloaded. [More Information on file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -185,7 +186,7 @@ One or more file matching patterns (new line delimited) that limit which files g
 **`targetPath`** - **Destination directory**<br>
 Input alias: `path | downloadPath`. Type: string. Required. Default value: '$(Pipeline.Workspace)'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the artifacts will be downloaded. Can be relative to the pipeline workspace directory or absolute. If multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each.
+Path on the agent machine where the artifacts will be downloaded. Can be relative to the pipeline workspace directory or absolute. If multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
