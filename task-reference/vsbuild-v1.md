@@ -113,7 +113,19 @@ Build with MSBuild and set the Visual Studio version property.
 **`solution`** - **Solution**<br>
 Type: string. Required. Default value: '**\*.sln'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the solution(s) or MSBuild project to run.  Wildcards can be used.  For example, `**\*.sln` for all sln files in all sub folders.
+If you want to build a single solution, click the ... button and select the solution.
+
+If you want to build multiple solutions, specify search criteria. You can use a single-folder wildcard (`*`) and recursive wildcards (`**`). For example, `**.sln` searches for all .sln files in all subdirectories.
+
+Make sure the solutions you specify are downloaded by this build pipeline. On the Repository tab:
+
+- If you use TFVC, make sure that the solution is a child of one of the mappings on the Repository tab.
+- If you use Git, make sure that the project or solution is in your Git repo, and in a branch that you're building.
+
+Tips:
+
+- You can also build MSBuild project (.*proj) files.
+- If you are building a customized MSBuild project file, we recommend you use the MSBuild task instead of the Visual Studio Build task.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -124,7 +136,11 @@ Relative path from repo root of the solution(s) or MSBuild project to run.  Wild
 **`vsVersion`** - **Visual Studio Version**<br>
 Type: string. Allowed values: 'latest', '17.0', '16.0', '15.0', '14.0', '12.0', '11.0'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead.
+To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
+
+The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
+
+**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/tasks/build/visual-studio-build).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -134,7 +150,11 @@ If the preferred version cannot be found, the latest version found will be used 
 **`vsVersion`** - **Visual Studio Version**<br>
 Type: string. Allowed values: 'latest', '16.0', '15.0', '14.0', '12.0', '11.0'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead.
+To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
+
+The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
+
+**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/tasks/build/visual-studio-build).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -144,7 +164,11 @@ If the preferred version cannot be found, the latest version found will be used 
 **`vsVersion`** - **Visual Studio Version**<br>
 Type: string. Allowed values: 'latest', '15.0', '14.0', '12.0', '11.0'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead.
+To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
+
+The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
+
+**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/tasks/build/visual-studio-build).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -155,7 +179,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildArgs`** - **MSBuild Arguments**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to MSBuild.
+You can pass additional arguments to MSBuild. For syntax, see [MSBuild Command-Line Reference](/visualstudio/msbuild/msbuild-command-line-reference).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -166,7 +190,12 @@ Additional arguments passed to MSBuild.
 **`platform`** - **Platform**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the platform you want to build such as Win32, x86, x64 or any cpu.
+Specify the platform you want to build such as `Win32`, `x86`, `x64`, or `any cpu`.
+
+Tips:
+
+- If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
+- Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -177,7 +206,9 @@ Specify the platform you want to build such as Win32, x86, x64 or any cpu.
 **`configuration`** - **Configuration**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the configuration you want to build such as debug or release.
+Specify the configuration you want to build such as `debug` or `release`.
+
+Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -188,7 +219,9 @@ Specify the configuration you want to build such as debug or release.
 **`clean`** - **Clean**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set to False if you want to make this an incremental build.
+Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
+
+Set to True if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -222,6 +255,8 @@ This option is deprecated. To restore NuGet packages, add a [NuGet Tool Installe
 Type: string. Allowed values: 'x86', 'x64'. Default value: 'x86'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of MSBuild to run.
+
+Tip: Because Visual Studio runs as a 32-bit application, you could experience problems when your build is processed by a build agent that is running the 64-bit version of Team Foundation Build Service. By selecting MSBuild x86, you might resolve these kinds of problems.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -277,6 +312,8 @@ If true - enables default logger for msbuild.
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Allows setting custom version of Visual Studio. Examples: 15.0, 16.0, 17.0. Make sure that the required version of Visual Studio is installed in the system.
+
+**Azure Pipelines**: If your team wants to use Visual Studio 2022 with the Microsoft-hosted agents, select windows-2022 as your default build pool. For more info see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

@@ -223,7 +223,7 @@ The NuGet.config in your repository that specifies the feeds from which to resto
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
 Input alias: `externalEndpoints`. Type: string. Optional. Use when selectOrConfig = config.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization/collection, leave this blank; the build’s credentials are used automatically.
+Credentials to use for external registries located in the selected NuGet.config. This is the name of your NuGet service connection. For feeds in this organization/collection, leave this blank; the build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -233,7 +233,7 @@ Credentials to use for external registries located in the selected NuGet.config.
 **`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
 Input alias: `externalEndpoints`. Type: string. Optional. Use when selectOrConfig = config.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. For feeds in this account/collection, leave this blank; the build’s credentials are used automatically.
+Credentials to use for external registries located in the selected NuGet.config. This is the name of your NuGet service connection. For feeds in this account/collection, leave this blank; the build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -299,6 +299,7 @@ The pattern to match or path to nupkg files to be uploaded. Multiple patterns ca
 **`nuGetFeedType`** - **Target feed location**<br>
 Type: string. Required when command = push. Allowed values: 'internal', 'external'. Default value: 'internal'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies whether the target feed is an internal feed/collection or an external NuGet server.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -309,7 +310,7 @@ Type: string. Required when command = push. Allowed values: 'internal', 'externa
 **`publishVstsFeed`** - **Target feed**<br>
 Input alias: `feedPublish`. Type: string. Required when command = push && nuGetFeedType = internal.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a feed hosted in this account. You must have Package Management installed and licensed to select a feed here.
+Select a feed hosted in this account. You must have Azure Artifacts installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -320,7 +321,7 @@ Select a feed hosted in this account. You must have Package Management installed
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 Type: boolean. Optional. Use when command = push && nuGetFeedType = internal. Default value: true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Associate this build/release pipeline’s metadata (run #, source code information) with the package.
+If you continually publish a set of packages and only change the version number of the subset of packages that changed, use this option.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -333,7 +334,7 @@ Type: boolean. Optional. Use when command = push && nuGetFeedType = internal. De
 <!-- :::editable-content name="helpMarkDown"::: -->
 If you continually publish a set of packages and only change the version number of the subset of packages that changed, use this option. It allows the task to report success even if some of your packages are rejected with 409 Conflict errors.
 
-This option is currently only available on Azure Pipelines and using Windows agents. If NuGet.exe encounters a conflict, the task will fail.
+This option is currently only available on Azure Pipelines and using Windows agents. If NuGet.exe encounters a conflict, the task will fail. This option will not work and publish will fail if you are within a proxy environment.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

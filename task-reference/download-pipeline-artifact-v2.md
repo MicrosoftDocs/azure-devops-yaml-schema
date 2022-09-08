@@ -98,6 +98,7 @@ If checked, this build task will try to download artifacts from the triggering b
 **`buildVersionToDownload`** - **Build version to download**<br>
 Input alias: `runVersion`. Type: string. Required when source == specific. Allowed values: 'latest', 'latestFromBranch', 'specific'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies which build version to download.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -185,7 +186,29 @@ One or more file matching patterns (new line delimited) that limit which files g
 **`targetPath`** - **Destination directory**<br>
 Input alias: `path | downloadPath`. Type: string. Required. Default value: '$(Pipeline.Workspace)'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the artifacts will be downloaded. Can be relative to the pipeline workspace directory or absolute. If multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each.
+Path on the agent machine where the artifacts will be downloaded. Can be relative to the pipeline workspace directory or absolute. If multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="checkDownloadedFiles"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`checkDownloadedFiles`** - **Check downloaded files**<br>
+Type: string. Optional. Default value: 'false'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If checked, this build task will check that all files are fully downloaded.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="retryDownloadCount"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`retryDownloadCount`** - **Retry count**<br>
+Type: string. Optional. Default value: '4'.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Number of times to retry downloading a build artifact if the download fails.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
