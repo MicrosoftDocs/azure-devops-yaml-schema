@@ -245,11 +245,33 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+> [!NOTE]
+> This task only runs on Linux agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+```YAML
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: '/build'
+      api_location: 'api'
+      output_location: '/output'
+      azure_static_web_apps_api_token: $(deployment_token)
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
