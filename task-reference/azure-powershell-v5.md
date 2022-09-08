@@ -98,7 +98,7 @@ Enter the script to execute.
 **`ScriptArguments`** - **Script Arguments**<br>
 Type: string. Optional. Use when ScriptType = FilePath.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional parameters to pass to PowerShell.  Can be either ordinal or named parameters.
+Additional parameters to pass to PowerShell. Can be either ordinal or named parameters. Not applicable for inline script option.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
