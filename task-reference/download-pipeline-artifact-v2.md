@@ -191,28 +191,6 @@ Path on the agent machine where the artifacts will be downloaded. Can be relativ
 
 :::moniker-end
 <!-- :::item-end::: -->
-<!-- :::item name="checkDownloadedFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-**`checkDownloadedFiles`** - **Check downloaded files**<br>
-Type: string. Optional. Default value: 'false'.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will check that all files are fully downloaded.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="retryDownloadCount"::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-**`retryDownloadCount`** - **Retry count**<br>
-Type: string. Optional. Default value: '4'.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Number of times to retry downloading a build artifact if the download fails.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
 
 ### Task control options
 
