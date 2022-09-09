@@ -45,7 +45,7 @@ Download Azure Key Vault secrets.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure subscription for the key vault.
+Select the service connection for the Azure subscription containing the Azure Key Vault instance, or create a new connection. [Learn more](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -56,7 +56,7 @@ Select the Azure subscription for the key vault.
 **`KeyVaultName`** - **Key vault**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of an existing key vault.
+Select the name of the Azure Key Vault from which the secrets will be downloaded.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
