@@ -71,21 +71,10 @@ The source of the files to copy. Pre-defined system variables such as `$(Build.R
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
 
-**`azureSubscription`** - **Azure Classic Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. Type: string. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Required if you select **Azure Classic** for the **Azure Connection Type** parameter. The name of an [Azure Classic service connection](/azure/devops/pipelines/library/service-endpoints) configured for the subscription where the target Azure service, virtual machine, or storage account is located.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
 **`azureSubscription`** - **Azure RM Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Required if you select **Azure Resource Manager** for the **Azure Connection Type** parameter. The name of an [Azure Resource Manager service](/azure/devops/pipelines/library/connect-to-azure) connection configured for the subscription where the target Azure service, virtual machine, or storage account is located. See [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview) for more details.
+The name of an [Azure Resource Manager service](/azure/devops/pipelines/library/connect-to-azure) connection configured for the subscription where the target Azure service, virtual machine, or storage account is located. See [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview) for more details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
