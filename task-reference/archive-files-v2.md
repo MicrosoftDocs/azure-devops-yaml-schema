@@ -139,7 +139,7 @@ Enter the root folder or file path to add to the archive. If a folder, everythin
 **`includeRootFolder`** - **Prepend root folder name to archive paths**<br>
 Type: boolean. Required. Default value: true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If selected, the root folder name will be prepended to file paths within the archive. Otherwise, all file paths will start one level lower.<p>For example, suppose the selected root folder is: <b>`/home/user/output/classes/`</b>, and contains: <b>`com/acme/Main.class`</b>. <ul><li>If selected, the resulting archive would contain: <b>`classes/com/acme/Main.class`</b>.</li><li>Otherwise, the resulting archive would contain: <b>`com/acme/Main.class`</b>.</li></ul>.
+If selected, the root folder name will be prepended to file paths within the archive. Otherwise, all file paths will start one level lower.<p>For example, suppose the selected root folder is: <b>`/home/user/output/classes/`</b>, and contains: <b>`com/acme/Main.class`</b>. <ul><li>If selected, the resulting archive would contain: <b>`classes/com/acme/Main.class`</b>.</li><li>Otherwise, the resulting archive would contain: <b>`com/acme/Main.class`</b>.</li></ul>
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
