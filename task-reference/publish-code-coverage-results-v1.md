@@ -84,7 +84,7 @@ The tool with which code coverage results are generated.
 **`summaryFileLocation`** - **Summary file**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the summary file containing code coverage statistics, such as line, method, and class coverage. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml`.
+Path of the summary file containing code coverage statistics, such as line, method, and class coverage. Multiple summary files will be merged into a single report. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
