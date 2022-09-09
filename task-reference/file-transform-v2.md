@@ -46,7 +46,7 @@ Replace tokens with variable values in XML or JSON configuration files.
 **`folderPath`** - **Package or folder**<br>
 Type: string. Required. Default value: '$(System.DefaultWorkingDirectory)/**/*.zip'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip.
+File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip. For zipped folders, the contents are extracted to the TEMP location, transformations executed, and the results zipped in original artifact location.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -57,7 +57,7 @@ File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pip
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 Type: string. Default value: '-transform **\*.Release.config -xml **\*.config'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`.
+Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional and, if not specified, the source configuration file will be replaced with the transformed result file.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
