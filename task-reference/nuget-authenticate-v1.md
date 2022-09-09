@@ -54,7 +54,7 @@ Comma-separated list of NuGet service connection names for feeds outside this or
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the credential provider is already installed in the user profile, determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
+Reinstall the credential provider to the user profile directory even if already installed. If the credential provider is already installed in the user profile, determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
