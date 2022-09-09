@@ -102,6 +102,11 @@ If checked, this build task will try to download artifacts from the triggering b
 **`buildVersionToDownload`** - **Build version to download**<br>
 Type: string. Required when buildType == specific. Allowed values: 'latest', 'latestFromBranch', 'specific'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify which version of the build to download.
+
+- Choose `latest` to download the latest available build version.
+- Choose `latestFromBranch` to download the latest available build version of the branch specified by `branchName` and tags specified by `tags`.
+- Choose `specific` to download the build version specified by `buildId`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -178,7 +183,7 @@ The name of the artifact to download.
 **`itemPattern`** - **Matching pattern**<br>
 Type: string. Default value: '**'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files across all artifacts in the build if "Specific files" option is selected. To download all files within artifact drop use drop/**.</p>.
+Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files across all artifacts in the build if "Specific files" option is selected. To download all files within artifact drop use drop/**.</p>
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

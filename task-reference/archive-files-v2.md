@@ -151,6 +151,11 @@ If selected, the root folder name will be prepended to file paths within the arc
 Type: string. Required. Allowed values: 'zip', '7z', 'tar', 'wim'. Default value: 'zip'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the compression scheme used.  To create <b>`foo.jar`</b>, for example, choose <b>`zip`</b> for the compression, and specify <b>`foo.jar`</b> as the archive file to create.  For all tar files (including compressed ones), choose <b>`tar`</b>.
+
+- `zip` - default, zip format, choose this for all zip compatible types, (.zip, .jar, .war, .ear)
+- `7z` - 7-Zip format, (.7z)
+- `tar` - tar format, choose this for compressed tars, (.tar.gz, .tar.bz2, .tar.xz)
+- `wim` - wim format, (.wim)
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -183,6 +188,11 @@ Optionally choose a compression level, or choose <b>`None`</b> to create an unco
 Type: string. Optional. Use when archiveType = tar. Allowed values: 'gz', 'bz2', 'xz', 'none'. Default value: 'gz'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally choose a compression scheme, or choose <b>`None`</b> to create an uncompressed tar file.
+
+- `gz` - default, gzip compression (.tar.gz, .tar.tgz, .taz)
+- `bz2` - bzip2 compression (.tar.bz2, .tz2, .tbz2)
+- `xz` - xz compression (.tar.xz, .txz)
+- `None` - no compression, choose this to create a uncompressed tar file (.tar)
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -204,7 +214,14 @@ Specify the name of the archive file to create.  For example, to create <b>`foo.
 **`replaceExistingArchive`** - **Replace existing archive**<br>
 Type: boolean. Required. Default value: true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If an existing archive exists, specify whether to overwrite it.  Otherwise, files will be added to it.
+If an existing archive exists, specify whether to overwrite it. Otherwise, files will be added to it as long as it is not a compressed tar.
+
+If adding to an existing archive, these types are supported:
+
+- `zip`
+- `7z`
+- `tar` - uncompressed only
+- `wim`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
