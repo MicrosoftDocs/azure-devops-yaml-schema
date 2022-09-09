@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 09/02/2022
+ms.date: 09/09/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -11,17 +11,21 @@ monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-
 The `repository` keyword lets you specify an external repository.
 
 
+> [!IMPORTANT]
+> The resource might not accept pipeline variables in the properties. Specifically: name, ref. Wildcards are supported in triggers.
+
+
 :::moniker range="= azure-pipelines-2019"
 
 <!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2019"::: -->
 
 ```yaml
 repositories:
-- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
-  name: string # string  # repository name (format depends on `type`). 
+  name: string # string  # repository name (format depends on `type`); does not accept variables.
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
 
@@ -41,7 +45,7 @@ Properties that use this definition: [resources.repositories](resources-reposito
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -81,7 +85,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`); does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -121,7 +125,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -142,11 +146,11 @@ ___
 
 ```yaml
 repositories:
-- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
-  name: string # string  # repository name (format depends on `type`). 
+  name: string # string  # repository name (format depends on `type`); does not accept variables.
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
 
@@ -166,7 +170,7 @@ Properties that use this definition: [resources.repositories](resources-reposito
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -206,7 +210,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`); does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -246,7 +250,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -267,12 +271,12 @@ ___
 
 ```yaml
 repositories:
-- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # string  # repository name (format depends on `type`). 
+  name: string # string  # repository name (format depends on `type`); does not accept variables.
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
 
@@ -292,7 +296,7 @@ Properties that use this definition: [resources.repositories](resources-reposito
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -352,7 +356,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`); does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -392,7 +396,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -413,12 +417,12 @@ ___
 
 ```yaml
 repositories:
-- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # string  # repository name (format depends on `type`). 
+  name: string # string  # repository name (format depends on `type`); does not accept variables.
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
 
@@ -438,7 +442,7 @@ Properties that use this definition: [resources.repositories](resources-reposito
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -498,7 +502,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`); does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -538,7 +542,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -559,12 +563,12 @@ ___
 
 ```yaml
 repositories:
-- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # string  # repository name (format depends on `type`). 
+  name: string # string  # repository name (format depends on `type`); does not accept variables.
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
 
@@ -584,7 +588,7 @@ Properties that use this definition: [resources.repositories](resources-reposito
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [-_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -644,7 +648,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`); does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -684,7 +688,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -705,12 +709,12 @@ ___
 
 ```yaml
 repositories:
-- repository: string # Required as first property. ID of the external repository.  ([-_A-Za-z0-9]*)
+- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # string  # repository name (format depends on `type`). 
+  name: string # string  # repository name (format depends on `type`); does not accept variables.
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to use; defaults to 'refs/heads/main'. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
 
@@ -730,7 +734,7 @@ Properties that use this definition: [resources.repositories](resources-reposito
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the external repository. Acceptable values: [-_A-Za-z0-9]*
+<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -790,7 +794,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`). 
+<!-- :::api-desc type="property"::: -->string  # repository name (format depends on `type`); does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -830,7 +834,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to use; defaults to 'refs/heads/main'. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -853,7 +857,7 @@ ___
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
 >
-> `batch` is not supported in repository resource triggers.
+> WARNING: `batch` is not supported in repository resource triggers.
 
 ::: moniker-end
 
