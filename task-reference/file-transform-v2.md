@@ -29,6 +29,7 @@ Replace tokens with variable values in XML or JSON configuration files.
   inputs:
     folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
     #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. XML Transformation rules. Default: '-transform **\*.Release.config -xml **\*.config'.
+    #enableXmlTransform: # bool. If true then the web transforms will actually happen.  Default false
   # Variable Substitution
     #jsonTargetFiles: # string. JSON target files. 
     #xmlTargetFiles: # string. XML target files.
@@ -58,6 +59,17 @@ File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pip
 Type: string. Default value: '-transform **\*.Release.config -xml **\*.config'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional and, if not specified, the source configuration file will be replaced with the transformed result file.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="enableXmlTransform"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`enableXmlTransform`** - **enableXmlTransform**<br>
+Type: bool. Default value: false<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When true, then the config transforms will actually take place.  If false, the transforms are discovered and processed but not actually saved to the `-xml` path specified in `xmlTransformRules`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
