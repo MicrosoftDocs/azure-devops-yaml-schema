@@ -156,7 +156,7 @@ A list of machine names or tag names that identifies the machines that the task 
 - An output variable from a previous task.
 - A comma-delimited list of tag names or machine names.
 Format when using machine names is a comma-separated list of the machine FQDNs or IP addresses.
-Specify tag names for a filter as {TagName}:{Value} Example: `Role:DB;OS:Win8.1`
+Specify tag names for a filter as {TagName}:{Value} Example: `Role:DB;OS:Win8.1`, ffweb, ffdb, or tags like Role:DB, Web; OS:Win8.1. Note the delimiters used for tags are &#44;(comma), &#58;(colon) and &#59;(semicolon). If multiple tags are provided, then the task will run in all the VMs with the specified tags. The default is to run the task in all the VMs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
