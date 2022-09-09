@@ -63,7 +63,7 @@ Copy files to Azure Blob Storage or virtual machines.
 **`SourcePath`** - **Source**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The source of the files to copy. Pre-defined system variables such as `$(Build.Repository.LocalPath)` can be used. Names containing wildcards such as `*.zip` are not supported.
+The source of the files to copy. Pre-defined system variables such as `$(Build.Repository.LocalPath)` can be used. Names containing wildcards such as `*.zip` are not supported. This path is an absolute path of the source folder, or file on the local machine, or a UNC share. Expression should return a single folder or a file.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
