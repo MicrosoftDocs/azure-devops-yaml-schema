@@ -9,6 +9,17 @@ monikerRange: "<=azure-pipelines"
 
 This article provides an index of built-in tasks. To learn more about tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks).
 
+> [!NOTE]
+> This is a preview of the new task reference experience with the following improvements.
+> * Task articles are generated using the task source code from the [Azure Pipelines tasks open source repository](https://github.com/microsoft/azure-pipelines-tasks).
+> * Task input names and aliases are generated from the task source so they are always up to date.
+> * YAML syntax blocks are generated from the task source so they are up to date.
+> * Supports community contributions with integrated user content such as enhanced task input descriptions, remarks and examples.
+> * Provides task coverage for all supported Azure DevOps versions.
+> * Updated every sprint to cover the latest updates.
+>
+> To view the current version of the Azure Pipelines task reference, see [Azure Pipelines task index](/azure/devops/pipelines/tasks).
+
 > [!IMPORTANT]  
 > :::row:::
 >    :::column span="1":::
@@ -19,7 +30,6 @@ This article provides an index of built-in tasks. To learn more about tasks, inc
 >       To learn which on-premises version you are using, see [What platform/version am I using?](/azure/devops/user-guide/provide-feedback?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json#what-platformversion-am-i-using)
 >    :::column-end:::
 > :::row-end:::
-
 <!-- :::taskIndex::: -->
 :::moniker range="=azure-pipelines"
 
