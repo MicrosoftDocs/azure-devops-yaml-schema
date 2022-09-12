@@ -7,7 +7,10 @@ monikerRange: "<=azure-pipelines"
 
 # Azure Pipelines task index
 
-This article provides an index of built-in tasks. To learn more about tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks).
+Tasks are the building blocks for defining automation in a pipeline, and each task is a packaged script or procedure that has been abstracted with a set of inputs. This article provides an index to the reference for the the built-in tasks.
+
+To learn more about authoring pipelines using tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks) and [Azure Pipelines documentation](/azure/devops/pipelines/).
+
 
 > [!NOTE]
 > This is a preview of the new task reference experience with the following improvements.
