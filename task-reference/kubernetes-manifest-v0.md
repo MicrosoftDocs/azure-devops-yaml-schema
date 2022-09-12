@@ -118,7 +118,7 @@ Choose the action to be performed.
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 Type: string. Required when action != bake.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection.
+Select a Kubernetes service connection. The name of the [Kubernetes service connection](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -150,7 +150,7 @@ Sets the namespace for the commands by using the –namespace flag. If the names
 **`strategy`** - **Strategy**<br>
 Type: string. Optional. Use when action = deploy || action = promote || action = reject. Allowed values: 'canary', 'none'. Default value: 'none'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Deployment strategy to be used.
+The deployment strategy used in the deploy action before a promote action or reject action. Currently, **canary** is the only acceptable deployment strategy.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -161,7 +161,11 @@ Deployment strategy to be used.
 **`trafficSplitMethod`** - **Traffic split method**<br>
 Type: string. Optional. Use when strategy = canary. Allowed values: 'pod', 'smi'. Default value: 'pod'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Traffic split method to be used.
+Acceptable values are **pod** and **smi**. The default value is **pod**.
+
+For the value **smi**, the percentage traffic split is done at the request level by using a service mesh. A service mesh must be set up by a cluster admin. This task handles orchestration of SMI [TrafficSplit](https://github.com/servicemeshinterface/smi-spec/tree/main/apis/traffic-split) objects.
+
+For the value **pod**, the percentage split isn't possible at the request level in the absence of a service mesh. Instead, the percentage input is used to calculate the replicas for baseline and canary. The calculation is a percentage of replicas that are specified in the input manifests for the stable variant.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -172,7 +176,21 @@ Traffic split method to be used.
 **`percentage`** - **Percentage**<br>
 Type: string. Required when strategy = Canary && action = deploy. Default value: '0'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Percentage of traffic redirect to canary deployment.
+The percentage that is used to compute the number of baseline-variant and canary-variant replicas of the workloads that are contained in manifest files.
+
+For the specified percentage input, calculate:
+
+(*percentage* × *number of replicas*) / 100
+
+If the result isn't an integer, the mathematical floor of the result is used when baseline and canary variants are created.
+
+For example, assume the deployment hello-world is in the input manifest file and that the following lines are in the task input:
+
+`replicas: 4`
+`strategy: canary`
+`percentage: 25`
+
+In this case, the deployments hello-world-baseline and hello-world-canary are created with one replica each. The baseline variant is created with the same image and tag as the stable version, which is the four-replica variant before deployment. The canary variant is created with the image and tag corresponding to the newly deployed changes.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -183,7 +201,16 @@ Percentage of traffic redirect to canary deployment.
 **`baselineAndCanaryReplicas`** - **Baseline and canary replicas**<br>
 Type: string. Required when strategy = Canary && action = deploy && trafficSplitMethod = SMI. Default value: '1'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Baseline and canary replicas count.
+When you set **trafficSplitMethod** to **smi**, the percentage traffic split is controlled in the service mesh plane. But you can control the actual number of replicas for canary and baseline variants independently of the traffic split.
+
+For example, assume that the input deployment manifest specifies 30 replicas for the stable variant. Also assume that you specify the following input for the task:
+
+`strategy: canary`
+`trafficSplitMethod: smi`
+`percentage: 20`
+`baselineAndCanaryReplicas: 1`
+
+In this case, the stable variant receives 80% of the traffic, while the baseline and canary variants each receive half of the specified 20%. But baseline and canary variants don't receive three replicas each. They instead receive the specified number of replicas, which means they each receive one replica.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -194,7 +221,7 @@ Baseline and canary replicas count.
 **`manifests`** - **Manifests**<br>
 Type: string. Required when action = deploy || action = promote || action = reject.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Manifests to deploy.
+The path to the manifest files to be used for deployment. Each line represents a single path. A [file-matching pattern](/azure/devops/pipelines/tasks/file-matching-patterns) is an acceptable value for each line. You can use [to merge multiple YAML files into one](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/). This can be useful when using this task in classic release pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -205,7 +232,13 @@ Manifests to deploy.
 **`containers`** - **Containers**<br>
 Type: string. Optional. Use when action = deploy || action = promote || action = bake.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Containers.
+The fully qualified URL of the image to be used for substitutions on the manifest files. This input accepts the specification of multiple artifact substitutions in newline-separated form. Here's an example:
+
+`containers:`|
+  `contosodemo.azurecr.io/foo:test1`
+  ``contosodemo.azurecr.io/bar:test2`
+
+In this example, all references to `contosodemo.azurecr.io/foo` and `contosodemo.azurecr.io/bar` are searched for in the image field of the input manifest files. For each match found, the tag `test1` or `test2` replaces the matched reference.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -215,7 +248,13 @@ Containers.
 **`containers`** - **Containers**<br>
 Type: string. Optional. Use when action = deploy || action = promote.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Containers.
+The fully qualified URL of the image to be used for substitutions on the manifest files. This input accepts the specification of multiple artifact substitutions in newline-separated form. Here's an example:
+
+`containers:` |
+  `contosodemo.azurecr.io/foo:test1`
+  `contosodemo.azurecr.io/bar:test2`
+
+In this example, all references to `contosodemo.azurecr.io/foo` and `contosodemo.azurecr.io/bar` are searched for in the image field of the input manifest files. For each match found, the tag test1 or test2 replaces the matched reference.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -226,7 +265,7 @@ Containers.
 **`imagePullSecrets`** - **ImagePullSecrets**<br>
 Type: string. Optional. Use when action = deploy || action = promote.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-ImagePullSecret to pull image from private registry.
+Multiline input where each line contains the name of a Docker registry secret that has already been set up within the cluster. Each secret name is added under **imagePullSecrets** for the workloads that are found in the input manifest files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -311,7 +350,7 @@ Helm release name to use.
 **`overrideFiles`** - **Override Files**<br>
 Type: string. Optional. Use when action = bake && renderType = helm.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override files to set.
+Multiline input that accepts the path to the override files. The files are used when manifest files from Helm charts are baked.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -321,7 +360,7 @@ Override files to set.
 **`overrideFiles`** - **Override Files**<br>
 Type: string. Optional. Use when action = bake && renderType = helm2.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override files to set.
+Multiline input that accepts the path to the override files. The files are used when manifest files from Helm charts are baked.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -342,7 +381,9 @@ Override values to set.
 **`overrides`** - **Overrides**<br>
 Type: string. Optional. Use when action = bake && renderType = helm2.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override values to set.
+Additional override values that are used via the command-line switch --**set** when manifest files using Helm are baked.
+
+Specify override values as key-value pairs in the format *key:value*. If you use multiple overriding key-value pairs, specify each key-value pair in a separate line. Use a newline character as the delimiter between different key-value pairs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -364,7 +405,10 @@ The argument must be the path to the directory containing the file, or a git rep
 **`resourceToPatch`** - **Resource to patch**<br>
 Type: string. Required when action = patch. Allowed values: 'file', 'name'. Default value: 'file'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-to identify the resource.
+Indicates one of the following patch methods:
+
+- A manifest file identifies the objects to be patched.
+- An individual object is identified by kind and name as the patch target.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -430,7 +474,8 @@ The type of patch being provided; one of [json merge strategic].
 **`arguments`** - **Arguments**<br>
 Type: string. Optional. Use when action = delete.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments for `kubectl delete` command.
+Arguments for `kubectl delete` command. An example is:
+`arguments: deployment hello-world foo-bar`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -485,7 +530,7 @@ Specify keys and literal values to insert in secret.For example, --from-literal=
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
 Type: string. Optional. Use when action = createSecret && secretType = dockerRegistry.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+The credentials of the specified service connection are used to create a Docker registry secret within the cluster. Manifest files under the **imagePullSecrets** field can then refer to this secret's name.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
