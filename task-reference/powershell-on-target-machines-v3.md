@@ -197,7 +197,7 @@ Location of the data script for DSC on the target machines or on a UNC path like
 **`SessionVariables`** - **Session Variables**<br>
 Type: string. Optional. Use when ScriptType = FilePath.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Used to set up the session variables for the PowerShell scripts. A comma-separated list such as `$varx=valuex`, `$vary=valuey` Most commonly used for backward compatibility with earlier versions of the release service. It is recommended to use arguments instead of session variables.
+Used to set up the session variables for the PowerShell scripts. A comma-separated list such as `$varx=valuex`, `$vary=valuey` Most commonly used for backward compatibility with earlier versions of the release service. It is recommended to use arguments instead of session variables. 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
