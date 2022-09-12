@@ -102,7 +102,12 @@ Execute PowerShell scripts on remote machine(s). This version of the task uses P
 **`Machines`** - **Machines**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. <br>Eg: dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986 <br>Or provide build or release variables. Eg: $(variableName) <br>If you are using HTTPS, name/IP of machine should match the CN in the certificate.
+A comma-separated list of machine FQDNs or IP addresses, optionally including the port number. Can be:
+
+- The name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
+- A comma-delimited list of machine names. Example: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.34:5986`
+- An output variable from a previous task.
+If you do not specify a port, the default WinRM port is used. This depends on the protocol you have configured: for WinRM 2.0, the default HTTP port is 5985 and the default HTTPS port is 5986.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -113,7 +118,10 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`UserName`** - **Username**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Username for the target machines. The user should be a part of Administrators group or WinRM remote management users group. <br> Eg: Format: Domain\Admin User, Admin User@Domain, .\Admin User.
+The username of either a domain or a local administrative account on the target host(s).
+
+- Formats such as **username**, **domain\username**, **machine-name\username**, and **.\username** are supported.
+- UPN formats such as **username@domain.com** and built-in system accounts such as **NT Authority\System** are not supported.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -167,7 +175,7 @@ Type: string. Required when ScriptType = Inline.<br>
 **`ScriptArguments`** - **Script Arguments**<br>
 Type: string. Optional. Use when ScriptType = FilePath.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments for the PowerShell script. Can be ordinal parameters or named parameters like -testParam test.
+Arguments for the PowerShell script. Can be ordinal parameters or named parameters like -testParam test. Example: `-applicationPath $(applicationPath) -username $(vmusername) -password $(vmpassword)`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -178,7 +186,7 @@ Arguments for the PowerShell script. Can be ordinal parameters or named paramete
 **`InitializationScript`** - **Initialization script**<br>
 Type: string. Optional. Use when ScriptType = FilePath.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the data script for DSC on the target machines or on a UNC path like C:\BudgetIT\Web\Deploy\WebsiteConfiguration.ps1.
+Location of the data script for DSC on the target machines or on a UNC path like C:\BudgetIT\Web\Deploy\WebsiteConfiguration.ps1. It is recommended to use arguments instead of an initialization script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -189,7 +197,7 @@ Location of the data script for DSC on the target machines or on a UNC path like
 **`SessionVariables`** - **Session Variables**<br>
 Type: string. Optional. Use when ScriptType = FilePath.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set common session variables for both the scripts. Variable assignments should be valid PowerShell statements.
+Used to set up the session variables for the PowerShell scripts. A comma-separated list such as `$varx=valuex`, `$vary=valuey` Most commonly used for backward compatibility with earlier versions of the release service. It is recommended to use arguments instead of session variables.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
