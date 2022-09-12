@@ -60,7 +60,7 @@ Copy files to Azure Blob Storage or virtual machines.
 **`SourcePath`** - **Source**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path of the source folder, or file on the local machine, or a UNC share. Expression should return a single folder or a file. Wild card symbol (*) is supported anywhere in the file path or file name.
+The source of the files to copy. YAML Pipelines and Classic Release support [predefined system variables](/azure/devops/pipelines/build/variables?tabs=yaml) like *Build.Repository.LocalPath* as well. [Release variables](/azure/devops/pipelines/release/variables?tabs=batch) are supported only in classic releases. Wild card symbol (*) is supported anywhere in the file path or file name.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -71,7 +71,7 @@ Absolute path of the source folder, or file on the local machine, or a UNC share
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Resource Manager subscription to target for copying the files.
+The name of an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) configured for the subscription where the target Azure service, virtual machine, or storage account is located. See [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview) for more details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -82,7 +82,7 @@ Azure Resource Manager subscription to target for copying the files.
 **`Destination`** - **Destination Type**<br>
 Type: string. Required. Allowed values: 'AzureBlob', 'AzureVMs'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the destination, either Azure Blob or Azure VMs.
+Select the destination, either **Azure Blob** or **Azure VMs**.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -148,7 +148,13 @@ Optionally, select a subset of VMs in resource group either by providing VMs hos
 **`MachineNames`** - **Filter Criteria**<br>
 Type: string. Optional. Use when Destination = AzureVMs.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a list of VMs host name like ffweb, ffdb, or tags like Role:DB, Web; OS:Win8.1. Note the delimiters used for tags are &#44;(comma), &#58;(colon) and &#59;(semicolon). If multiple tags are provided, then the task will run in all the VMs with the specified tags. The default is to run the task in all the VMs.
+A list of machine names or tag names that identifies the machines that the task will target. The filter criteria can be:
+
+- The name of an [Azure Resource Group](/azure-resource-manager/management/overview).
+- An output variable from a previous task.
+- A comma-delimited list of tag names or machine names.
+Format when using machine names is a comma-separated list of the machine FQDNs or IP addresses.
+Specify tag names for a filter as {TagName}:{Value} Example: `Role:DB;OS:Win8.1`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -159,7 +165,10 @@ Provide a list of VMs host name like ffweb, ffdb, or tags like Role:DB, Web; OS:
 **`vmsAdminUserName`** - **Admin Login**<br>
 Type: string. Required when Destination = AzureVMs.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator Username of the VMs.
+The user name of an account that has administrative permissions for all the target VMs.
+
+- Formats such as **username**, **domain\username**, **machine-name\username**, and **.\username** are supported.
+- UPN formats such as **username@domain.com** and built-in system accounts such as **NT Authority\System** are not supported.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -170,7 +179,7 @@ Administrator Username of the VMs.
 **`vmsAdminPassword`** - **Password**<br>
 Type: string. Required when Destination = AzureVMs.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The administrator password of the VMs. <br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark variable as 'secret' to secure it.
+The password for the account specified as the **Admin Login** parameter. Use the padlock icon for a variable defined in the **Variables** tab to protect the value, and insert the variable name here.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -181,7 +190,7 @@ The administrator password of the VMs. <br>It can accept variable defined in bui
 **`TargetPath`** - **Destination Folder**<br>
 Type: string. Required when Destination = AzureVMs.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Local path on the target machines for copying the files from the source. Environment variable can be used like $env:windir\BudgetIT\Web.
+The folder in the Azure VMs to which the files will be copied. Environment variables such as `$env:windir` and `$env:systemroot` are supported. Examples: `$env:windir\FabrikamFiber\Web` and `c:\FabrikamFiber`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -192,7 +201,7 @@ Local path on the target machines for copying the files from the source. Environ
 **`AdditionalArgumentsForBlobCopy`** - **Optional Arguments (for uploading files to blob)**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional AzCopy.exe arguments that will be applied when uploading to blob like, --check-length=true. If no optional arguments are specified here, the following optional arguments will be added by default.<br> --log-level=INFO (if the pipeline is running in debug mode set --log-level=DEBUG),<br> --recursive (only if container name is not $root),<br> --blob-type=PageBlob (only if specified storage account is a premium account).
+Any arguments you want to pass to the **AzCopy.exe** program for use when uploading to the blob and downloading to the VMs. See [Transfer data with the AzCopy Command-Line Utility](/azure/storage/common/storage-use-azcopy-v10) for more details. If you are using a Premium storage account, which supports only Azure page blobs, then pass '--blob-type=PageBlob' as an additional argument. The default arguments are --log-level=INFO (default) and --recursive (only if container name is not $root).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -203,7 +212,7 @@ Optional AzCopy.exe arguments that will be applied when uploading to blob like, 
 **`AdditionalArgumentsForVMCopy`** - **Optional Arguments (for downloading files to VM)**<br>
 Type: string. Optional. Use when Destination = AzureVMs.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional AzCopy.exe arguments that will be applied when downloading to VM like,  --check-length=true. If no optional arguments are specified here, the following optional arguments will be added by default.<br> --log-level=INFO (if the pipeline is running in debug mode set --log-level=DEBUG),<br> --recursive.
+Optional AzCopy.exe arguments that will be applied when downloading to VM like,  `--check-length=true`. If no optional arguments are specified here, the following optional arguments will be added by default.<br> `--log-level=INFO` (if the pipeline is running in debug mode set `--log-level=DEBUG`),<br> `--recursive`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -225,7 +234,10 @@ Provide the time in minutes after which SAS token for the container will expire.
 **`enableCopyPrerequisites`** - **Enable Copy Prerequisites**<br>
 Type: boolean. Optional. Use when Destination = AzureVMs. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing copy operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986). Applicable only for ARM VMs.
+Setting this option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing copy operation on Azure virtual machines.
+
+- If the target virtual machines are accessed through a load balancer, ensure an inbound NAT rule is configured to allow access on port 5986.
+- If the target virtual machines are associated with a Network Security Group (NSG), configure an inbound security rule to allow access on port 5986.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -258,7 +270,7 @@ Setting it to true will clean-up the destination folder before copying the files
 **`skipCACheck`** - **Test Certificate**<br>
 Type: boolean. Optional. Use when Destination = AzureVMs. Default value: true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this option is selected, client skips the validation that the server certificate is signed by a trusted certificate authority (CA) when connecting over Hypertext Transfer Protocol over Secure Socket Layer (HTTPS).
+WinRM requires a certificate for the HTTPS transfer when copying files from the intermediate storage blob into the Azure VMs. If you set use a self-signed certificate, set this option to prevent the process from validating the certificate with a trusted certificate authority (CA).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
