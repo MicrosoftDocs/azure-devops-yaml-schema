@@ -101,7 +101,10 @@ Run shell commands or a script on a remote machine using SSH.
 **`sshEndpoint`** - **SSH service connection**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SSH service connection with connection details for the remote machine.
+The name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+
+- The private key and the passphrase must be specified for authentication.
+- A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -111,7 +114,10 @@ SSH service connection with connection details for the remote machine.
 **`sshEndpoint`** - **SSH endpoint**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SSH service connection with connection details for the remote machine.
+The name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+
+- The private key and the passphrase must be specified for authentication.
+- A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -133,7 +139,9 @@ Choose to either run shell commands or a shell script on the remote machine.
 **`commands`** - **Commands**<br>
 Type: string. Required when runOptions = commands.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the shell commands to run on the remote machine. Enter each command along with its arguments on a new line. To run multiple commands together, enter them on the same line separated by semi-colons (e.g. cd /home/user/myFolder;build).
+The shell commands to run on the remote machine. This parameter is available only when **Commands** is selected for the **Run** option. Enter each command together with its arguments on a new line of the multi-line textbox. To run multiple commands together, enter them on the same line separated by semicolons. Example: `cd /home/user/myFolder;build`.
+
+**NOTE:** Each command runs in a separate process. If you want to run a series of commands that are interdependent (for example, changing the current folder before executing a command) use the **Inline Script** option instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -144,7 +152,7 @@ Specify the shell commands to run on the remote machine. Enter each command alon
 **`scriptPath`** - **Shell script path**<br>
 Type: string. Required when runOptions = script.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the shell script file to run on the remote machine.
+Path to the shell script file to run on the remote machine. This parameter is available only when **Shell script** is selected for the **Run** option.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -177,7 +185,7 @@ Path to the command interpreter used to execute the script. Adds a shebang line 
 **`args`** - **Arguments**<br>
 Type: string. Optional. Use when runOptions = script.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments to pass to the shell script.
+Arguments to pass to the shell script. This parameter is available only when **Shell script** is selected for the **Run** option.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
