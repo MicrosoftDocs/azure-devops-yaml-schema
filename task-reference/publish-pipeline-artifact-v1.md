@@ -65,7 +65,7 @@ Publish (upload) a file or directory as a named artifact for the current run.
 **`targetPath`** - **File or directory path**<br>
 Input alias: `path`. Type: string. Required. Default value: '$(Pipeline.Workspace)'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported.
+The path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -76,7 +76,7 @@ The path of the file or directory to publish. Can be absolute or relative to the
 **`artifact`** - **Artifact name**<br>
 Input alias: `artifactName`. Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the artifact to publish. If not set, defaults to a unique ID scoped to the job.
+Name of the artifact to publish. If not set, defaults to a unique ID scoped to the job. It can be whatever you want. For example: drop
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -87,7 +87,7 @@ Name of the artifact to publish. If not set, defaults to a unique ID scoped to t
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `artifactType`. Type: string. Required. Allowed values: 'pipeline', 'filepath'. Default value: 'pipeline'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose whether to store the artifact in Azure Pipelines, or to copy it to a file share that must be accessible from the pipeline agent.
+Choose whether to store the artifact in Azure Pipelines, or to copy it to a file share that must be accessible from the pipeline agent. Options: pipeline, filepath. Default value: pipeline
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -98,7 +98,7 @@ Choose whether to store the artifact in Azure Pipelines, or to copy it to a file
 **`fileSharePath`** - **File share path**<br>
 Type: string. Required when artifactType = filepath.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file share to which the artifact files will be copied. This can include variables. Example: \\\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber). Publishing artifacts from a Linux or macOS agent to a file share is not supported.
+The file share to which the artifact files will be copied. This can include variables. Example: \\\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber). Publishing artifacts from a Linux or macOS agent to a file share is not supported. For example: \server\folderName
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -109,7 +109,7 @@ The file share to which the artifact files will be copied. This can include vari
 **`parallel`** - **Parallel copy**<br>
 Type: boolean. Optional. Use when artifactType = filepath. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, one thread will be used.
+Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, one thread will be used. 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

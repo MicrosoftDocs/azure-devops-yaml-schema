@@ -117,7 +117,14 @@ Build with MSBuild.
 **`solution`** - **Project**<br>
 Type: string. Required. Default value: '**/*.sln'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the project(s) or solution(s) to run.  Wildcards can be used.  For example, `**/*.csproj` for all csproj files in all sub folders.
+If you want to build multiple projects, specify search criteria. You can use a single-folder wildcard (*) and recursive wildcards (**). For example, `**.*proj` searches for all MSBuild project (.*proj) files in all subdirectories.
+
+Make sure the projects you specify are downloaded by this build pipeline. On the Repository tab:
+
+- If you use TFVC, make sure that the project is a child of one of the mappings on the Repository tab.
+- If you use Git, make sure that the project or project is in your Git repo, in a branch that you're building.
+
+Tip: If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -148,7 +155,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildVersion`** - **MSBuild Version**<br>
 Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'latest', '16.0', '15.0', '14.0', '12.0', '4.0'. Default value: 'latest'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
+If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0. 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -191,6 +198,10 @@ Optionally supply the path to MSBuild.
 **`platform`** - **Platform**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Tips:
+
+- If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
+- Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -201,6 +212,7 @@ Type: string.<br>
 **`configuration`** - **Configuration**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as $`(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -222,7 +234,9 @@ Additional arguments passed to MSBuild (on Windows) and xbuild (on macOS).
 **`clean`** - **Clean**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run a clean build (/t:clean) prior to the build.
+ Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
+Set to True if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
+See, [repo options](/azure/devops/pipelines/repos/pipeline-options-for-git)
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
