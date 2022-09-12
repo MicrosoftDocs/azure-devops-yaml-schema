@@ -294,7 +294,7 @@ Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by usi
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. Type: string. Required when connectionType = Azure Resource Manager.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription, which has your Azure Container Registry.
+Name of the Azure service connection. Select an Azure subscription, which has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -305,7 +305,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 **`azureResourceGroup`** - **Resource group**<br>
 Type: string. Required when connectionType = Azure Resource Manager.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Group.
+Name of the resource group within the subscription. Select an Azure Resource Group.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -316,7 +316,7 @@ Select an Azure Resource Group.
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 Type: string. Required when connectionType = Azure Resource Manager.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Managed Cluster.
+Name of the AKS cluster. Select an Azure Managed Cluster.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -349,7 +349,7 @@ Select a Kubernetes service connection.
 **`namespace`** - **Namespace**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify K8 namespace to use. Use Tiller namespace can be specified in the advanced section of the task or by passing the --tiller-namespace option as argument.
+The namespace on which the kubectl commands are run. If not specified, the default namespace is used. Specify K8 namespace to use. Use Tiller namespace can be specified in the advanced section of the task or by passing the --tiller-namespace option as argument.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -424,7 +424,7 @@ Select a helm command.
 **`chartType`** - **Chart Type**<br>
 Type: string. Required when command == install || command == upgrade. Allowed values: 'Name', 'FilePath'. Default value: 'Name'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select how you want to enter chart info. You can either provide name of the chart or folder/file path to the chart.
+Select how you want to enter chart information. You can either provide name of the chart or folder/file path to the chart.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -446,7 +446,7 @@ Chart reference to install, this can be a url or a chart name. For example, if c
 **`chartPath`** - **Chart Path**<br>
 Type: string. Required when chartType == FilePath || command == package.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if './redis' is specified the task will run 'helm install ./redis'.
+Path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if './redis' is specified the task will run 'helm install ./redis'. If you're consuming a chart that's published as an artifact, then the path will be $(System.DefaultWorkingDirectory)/ARTIFACT-NAME/Charts/CHART-NAME
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -478,7 +478,7 @@ Specify the exact chart version to install. If this is not specified, the latest
 **`releaseName`** - **Release Name**<br>
 Type: string. Optional. Use when command == install || command == upgrade.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Release name. If unspecified, it will autogenerate one for you.
+Release name. If unspecified, it will autogenerate one for you. releaseName input is only valid for 'install' and 'upgrade' commands
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -489,7 +489,10 @@ Release name. If unspecified, it will autogenerate one for you.
 **`overrideValues`** - **Set Values**<br>
 Type: string. Optional. Use when command == install || command == upgrade.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2). The task will construct the helm command by using these set values. For example, helm install --set key1=val1 ./redis.
+Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2). You can also specify multiple values by delimiting them with newline as so:
+<li>key1=val1
+<li>key2=val2<br><br>
+Please note that if you have a value which itself contains newlines, use the valueFile option, else the task will treat the newline as a delimiter. The task will construct the helm command by using these set values. For example, helm install --set key1=val1 ./redis
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

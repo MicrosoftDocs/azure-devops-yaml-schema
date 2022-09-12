@@ -250,7 +250,7 @@ Build with Apache Maven.
 **`mavenPOMFile`** - **Maven POM file**<br>
 Type: string. Required. Default value: 'pom.xml'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root to the Maven POM file.
+Relative path from the repository root to the Maven POM file. See [Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -261,6 +261,7 @@ Relative path from the repository root to the Maven POM file.
 **`goals`** - **Goal(s)**<br>
 Type: string. Default value: 'package'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+(Optional) In most cases, set this to package to compile your code and package it into a .war file. If you leave this argument blank, the build will fail. See [Introduction to the Maven build lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -271,6 +272,7 @@ Type: string. Default value: 'package'.<br>
 **`options`** - **Options**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+(Optional) Specify any Maven command-line options you want to use.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -335,7 +337,7 @@ Set false to fail build when task finds broken symbolic link during publishing t
 **`codeCoverageToolOption`** - **Code coverage tool**<br>
 Input alias: `codeCoverageTool`. Type: string. Allowed values: 'None', 'Cobertura', 'JaCoCo'. Default value: 'None'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the code coverage tool.
+Select the code coverage tool. Enabling code coverage inserts the clean goal into the Maven goals list when Maven runs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -401,7 +403,7 @@ Code coverage modifies pom.xml to produce results. Use this option if you need t
 **`javaHomeOption`** - **Set JAVA_HOME by**<br>
 Input alias: `javaHomeSelection`. Type: string. Required. Allowed values: 'JDKVersion', 'Path'. Default value: 'JDKVersion'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Sets JAVA_HOME either by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
+Sets JAVA_HOME either by selecting a JDK version that will be discovered during builds or by manually entering a JDK path. Please note that if you already have java installed on agent machine - you can specify it by setting up 'javaHomeOption' as 'path', and 'jdkDirectory' - as a path to jdk installed directory.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -412,7 +414,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. Type: string. Optional. Use when javaHomeSelection = JDKVersion. Allowed values: 'default', '1.17', '1.11', '1.10', '1.9', '1.8', '1.7', '1.6'. Default value: 'default'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly. Note: If running on an agent not hosted by Microsoft, and the requested Java version is not the one indicated by the JAVA_HOME variable set on the agent machine, the task will rely on the variable JAVA_HOME_{version}_{arch} (e.g. JAVA_HOME_8_X64), to locate the necessary JDK. Ensure this variable is set on self-hosted agents for any version and architecture of the JDK that may be requested by this parameter and/or by jdkArchitecture.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -554,7 +556,7 @@ The SonarQube Maven plugin version to use. You can use latest version, or rely o
 **`checkStyleRunAnalysis`** - **Run Checkstyle**<br>
 Input alias: `checkstyleAnalysisEnabled`. Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the Checkstyle tool with the default Sun checks. Results are uploaded as build artifacts.
+Run the Checkstyle tool with the default Sun checks. If no checkstyle configuration is specified in the pom.xml file, default Sun checks will be used. Results are uploaded as build artifacts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
