@@ -93,7 +93,7 @@ Relative path from repo root of the shell script file to run.
 **`args`** - **Arguments**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the shell script.
+Arguments that you want to pass to the script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
