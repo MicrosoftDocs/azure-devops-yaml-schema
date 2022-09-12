@@ -414,7 +414,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. Type: string. Optional. Use when javaHomeSelection = JDKVersion. Allowed values: 'default', '1.17', '1.11', '1.10', '1.9', '1.8', '1.7', '1.6'. Default value: 'default'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly. Note: If running on an agent not hosted by Microsoft, and the requested Java version is not the one indicated by the JAVA_HOME variable set on the agent machine, the task will rely on the variable JAVA_HOME_<version>_<arch> (e.g. JAVA_HOME_8_X64), to locate the necessary JDK. Ensure this variable is set on self-hosted agents for any version and architecture of the JDK that may be requested by this parameter and/or by jdkArchitecture.
+Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly. Note: If running on an agent not hosted by Microsoft, and the requested Java version is not the one indicated by the JAVA_HOME variable set on the agent machine, the task will rely on the variable JAVA_HOME_{version}_{arch} (e.g. JAVA_HOME_8_X64), to locate the necessary JDK. Ensure this variable is set on self-hosted agents for any version and architecture of the JDK that may be requested by this parameter and/or by jdkArchitecture.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
