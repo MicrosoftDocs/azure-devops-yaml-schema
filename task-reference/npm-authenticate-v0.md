@@ -95,7 +95,7 @@ Path to the .npmrc file that specifies the registries you want to work with. Sel
 **`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the project's .npmrc. For registries in this organization/collection, leave this blank; the build’s credentials are used automatically.
+Comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization/collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization/collection, leave this blank. The build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -105,7 +105,7 @@ Credentials to use for external registries located in the project's .npmrc. For 
 **`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the project's .npmrc. For registries in this account/collection, leave this blank; the build’s credentials are used automatically.
+Comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization/collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization/collection, leave this blank. The build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
