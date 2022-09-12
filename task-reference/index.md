@@ -7,7 +7,18 @@ monikerRange: "<=azure-pipelines"
 
 # Azure Pipelines task index
 
-This article provides an index of built-in tasks. To learn more about tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/process/tasks).
+This article provides an index of built-in tasks. To learn more about tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks).
+
+> [!IMPORTANT]  
+> :::row:::
+>    :::column span="1":::
+>       :::image type="content" source="media/version-selector.png" alt-text="Screenshot of how to select a version from Azure DevOps Content Version selector.":::
+>    :::column-end:::
+>    :::column span="2":::
+>       To view the task reference for tasks available for your platform, make sure that you select the correct Azure DevOps version from the version selector which is located above the table of contents. Feature support differs depending on whether you are working from Azure DevOps Services or an on-premises version of Azure DevOps Server.  
+>       To learn which on-premises version you are using, see [What platform/version am I using?](/azure/devops/user-guide/provide-feedback?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json#what-platformversion-am-i-using)
+>    :::column-end:::
+> :::row-end:::
 
 <!-- :::taskIndex::: -->
 :::moniker range="=azure-pipelines"
