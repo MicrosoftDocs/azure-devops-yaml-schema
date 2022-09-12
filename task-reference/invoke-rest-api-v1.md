@@ -61,7 +61,7 @@ Invoke a REST API as a part of your pipeline.
 **`connectionType`** - **Connection type**<br>
 Input alias: `connectedServiceNameSelector`. Type: string. Required. Allowed values: 'connectedServiceName', 'connectedServiceNameARM'. Default value: 'connectedServiceName'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection type to use to invoke the REST API.
+Select the service connection type to use to invoke the REST API. Select Azure Resource Manager to invoke an Azure management API or Generic for all other APIs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -72,7 +72,8 @@ Select the service connection type to use to invoke the REST API.
 **`serviceConnection`** - **Generic service connection**<br>
 Input alias: `connectedServiceName | genericService`. Type: string. Required when connectedServiceNameSelector = connectedServiceName.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a generic service connection that should be used to pick the URL and construct authorization header for the http request.
+Generic service connection that provides the baseUrl for the call and the authorization to use.
+Select a generic service connection that should be used to pick the URL and construct authorization header for the http request. 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -82,6 +83,7 @@ Select a generic service connection that should be used to pick the URL and cons
 **`serviceConnection`** - **Generic service connection**<br>
 Input alias: `connectedServiceName`. Type: string. Required when connectedServiceNameSelector = connectedServiceName.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Generic service connection that provides the baseUrl for the call and the authorization to use.
 Select a generic service connection that should be used to pick the URL and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
 
@@ -103,6 +105,7 @@ Select a generic endpoint that should be used to pick the url and construct auth
 **`azureServiceConnection`** - **Azure subscription**<br>
 Input alias: `connectedServiceNameARM | azureSubscription`. Type: string. Required when connectedServiceNameSelector = connectedServiceNameARM.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
 Select an Azure Resource Manager subscription that should be used to pick the url and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
 
@@ -113,6 +116,7 @@ Select an Azure Resource Manager subscription that should be used to pick the ur
 **`azureServiceConnection`** - **Azure subscription**<br>
 Input alias: `connectedServiceNameARM`. Type: string. Required when connectedServiceNameSelector = connectedServiceNameARM.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
 Select an Azure Resource Manager subscription that should be used to pick the url and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
 
@@ -124,6 +128,7 @@ Select an Azure Resource Manager subscription that should be used to pick the ur
 **`method`** - **Method**<br>
 Type: string. Required. Allowed values: 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'PATCH'. Default value: 'POST'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The HTTP method with which the API will be invoked; for example, GET, PUT, or UPDATE.
 Select the HTTP method with which the API should be invoked.
 <!-- :::editable-content-end::: -->
 
@@ -135,7 +140,7 @@ Select the HTTP method with which the API should be invoked.
 **`headers`** - **Headers**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Define header in JSON format. The header shall be attached with request to be sent.
+Define header in JSON format. The header shall be attached with request to be sent. The header in JSON format to be attached to the request sent to the API.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -146,6 +151,7 @@ Define header in JSON format. The header shall be attached with request to be se
 **`body`** - **Body**<br>
 Type: string. Optional. Use when method != GET && method != HEAD.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The request body for the function call in JSON format.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -156,6 +162,7 @@ Type: string. Optional. Use when method != GET && method != HEAD.<br>
 **`urlSuffix`** - **URL suffix and parameters**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The string to append to the baseUrl from the Generic service connection while making the HTTP call.
 Given string append to the URL. Example: If the service connection URL is https:...TestProj/_apis/Release/releases and the URL suffix is /2/environments/1, the service connection URL becomes https:.../TestProj/_apis/Release/releases/2/environments/1. If the URL suffix is ?definitionId=1&releaseCount=1 then the service connection URL becomes https//...TestProj/_apis/Release/releases?definitionId=1&releaseCount=1.
 <!-- :::editable-content-end::: -->
 
@@ -166,6 +173,7 @@ Given string append to the URL. Example: If the service connection URL is https:
 **`urlSuffix`** - **Url suffix and parameters**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The string to append to the baseUrl from the Generic service connection while making the HTTP call.
 Given string append to the URL. Example: If the service connection URL is https:...TestProj/_apis/Release/releases and the URL suffix is /2/environments/1, the service connection URL becomes https:.../TestProj/_apis/Release/releases/2/environments/1. If the URL suffix is ?definitionId=1&releaseCount=1 then the service connection URL becomes https//...TestProj/_apis/Release/releases?definitionId=1&releaseCount=1.
 <!-- :::editable-content-end::: -->
 
@@ -178,6 +186,7 @@ Given string append to the URL. Example: If the service connection URL is https:
 Type: string. Required. Allowed values: 'true', 'false'. Default value: 'false'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call where the REST API calls back to update the timeline record​.
+How the task reports completion. Can be API response (the default) - completion is when the function returns success within 20 seconds and the success criteria evaluates to true, or Callback - the external service makes a callback to update the timeline record.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -189,6 +198,7 @@ Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call 
 Type: string. Optional. Use when waitForCompletion = false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Criteria which defines when to pass the task. No criteria means response content does not influence the result. Example:- For response {"status" : "successful"}, the expression can be eq(root['status'], 'successful'). [More information](https://go.microsoft.com/fwlink/?linkid=842996)​.
+How to parse the response body for success. By default, the task passes when 200 OK is returned from the call. Additionally, the success criteria - if specified - is evaluated.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

@@ -119,7 +119,7 @@ Specify path from where global.json files should be searched when using `Use glo
 **`version`** - **Version**<br>
 Type: string. Optional. Use when useGlobalJson = false || packageType = runtime.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify version of .NET Core SDK or runtime to install.<br/>Versions can be given in the following formats<li>2.x   => Install latest in major version.</li><li>2.2.x => Install latest in major and minor version</li><li>2.2.104 => Install exact version</li><br/>Find the value of `version` for installing SDK/Runtime, from the releases.json. The link to releases.json of that major.minor version can be found in [**releases-index file.**](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json). Like link to releases.json for 2.2 version is https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/2.2/releases.json.
+Specify version of .NET Core SDK or runtime to install.<br/>Versions can be given in the following formats<li>2.x   => Install latest in major version.</li><li>2.2.x => Install latest in major and minor version</li><li>2.2.104 => Install exact version</li><li>3.1.x => Install latest in major and minor version</li><li>3.1.402 => Install exact version</li><br/>Find the value of `version` for installing SDK/Runtime, from the releases.json. The link to releases.json of that major.minor version can be found in [**releases-index file.**](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json). Like link to releases.json for 2.2 version is https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/2.2/releases.json. Like link to releases.json for 3.1 version is https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -151,7 +151,7 @@ Specify version of compatible visual studio for which .NET core sdk to install. 
 **`includePreviewVersions`** - **Include Preview Versions**<br>
 Type: boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want preview versions to be included while searching for latest versions, such as while searching 2.2.x. This setting is ignored if you specify an exact version, such as: 3.0.100-preview3-010431.
+Select if you want preview versions to be included while searching for latest versions, such as while searching 2.2.x or 3.1.x. This setting is ignored if you specify an exact version, such as: 3.0.100-preview3-010431.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
