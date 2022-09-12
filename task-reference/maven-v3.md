@@ -283,7 +283,7 @@ Type: string.<br>
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 Type: boolean. Required. Default value: true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Maven build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines. Each test results file matching Test Results Files will be published as a test run in Azure Pipelines.
+Select this option to publish JUnit test results produced by the Maven build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
