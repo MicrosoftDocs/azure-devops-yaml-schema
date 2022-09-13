@@ -254,7 +254,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
 **`actions`** - **Actions**<br>
 Type: string. Required. Default value: 'build'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a space-delimited list of actions. Some valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example,`clean build` will run a clean build.
+Enter a space-delimited list of actions. Some valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example,`clean build` will run a clean build. See [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -265,7 +265,7 @@ Enter a space-delimited list of actions. Some valid options are `build`, `clean`
 **`configuration`** - **Configuration**<br>
 Type: string. Default value: '$(Configuration)'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the **Variables** tab.
+Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the [Variables](/azure/devops/pipelines/build/variables) tab.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -276,7 +276,7 @@ Enter the Xcode project or workspace configuration to be built. The default valu
 **`sdk`** - **SDK**<br>
 Type: string. Default value: '$(SDK)'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify an SDK to use when building the Xcode project or workspace. From the macOS Terminal application, run `xcodebuild -showsdks` to display the valid list of SDKs. The default value of this field is the variable `$(SDK)`. When using a variable, make sure to specify a value (for example, `iphonesimulator`) on the **Variables** tab.
+Specify an SDK to use when building the Xcode project or workspace. From the macOS Terminal application, run `xcodebuild -showsdks` to display the valid list of SDKs. The default value of this field is the variable `$(SDK)`. When using a variable, make sure to specify a value (for example, `iphonesimulator`) on the [Variables](/azure/devops/pipelines/build/variables) tab.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -505,7 +505,7 @@ Select the destination device's platform to be used for UI testing when the gene
 **`destinationPlatform`** - **Custom destination platform**<br>
 Type: string. Optional. Use when destinationPlatformOption == custom.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a destination device's platform to be used for UI testing when the generic build device isn't valid.
+Enter a destination device's platform to be used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in this list. When `Default` is selected, no simulators nor devices will be targeted.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -548,7 +548,7 @@ Enter an Xcode simulator name to be used for UI testing. For example, enter `iPh
 **`destinationDevices`** - **Device**<br>
 Type: string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the name of the device to be used for UI testing, such as `Raisa's iPad`.
+Enter the name of the device to be used for UI testing, such as `Raisa's iPad`. Only one device is currently supported. Note that Apple does not allow apostrophes (`'`) in device names. Instead, right single quotation marks (`'`) can be used.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -559,7 +559,7 @@ Enter the name of the device to be used for UI testing, such as `Raisa's iPad`.
 **`args`** - **Arguments**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter additional command line arguments with which to build. This is useful for specifying `-target` or `-project` arguments instead of specifying a workspace/project and scheme.
+(Optional) Enter additional command line arguments with which to build. This is useful for specifying `-target` or `-project` arguments instead of specifying a workspace/project and scheme. See [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -592,7 +592,7 @@ Specify whether to use xcpretty to format xcodebuild output. Enabling this requi
 **`xcprettyArgs`** - **Xcpretty arguments**<br>
 Type: string. Optional. Use when useXcpretty == true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments to pass to xcpretty.
+ If xcpretty is enabled above, specify arguments for xcpretty. See [xcpretty](https://github.com/xcpretty/xcpretty) on GitHub for a list of xcpretty arguments.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -624,7 +624,7 @@ Specify whether to publish JUnit test results to Azure Pipelines/TFS. This requi
 **`testRunTitle`** - **Test run title**<br>
 Type: string. Optional. Use when publishJUnitResults == true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Title of the test run when publishing JUnit test results to Azure Pipelines.
+If xcpretty and publishJUnitResults are enabled above, you can specify test run title.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
