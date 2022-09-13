@@ -166,7 +166,7 @@ Relative path from the repo root to the symbols folder.
 **`appxsymPath`** - **Symbols path (*.appxsym)**<br>
 Type: string. Optional. Use when symbolsType = UWP.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to APPXSYM symbols file.
+Relative path from the repo root to APPXSYM symbols file. Path may contain wildcards.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
