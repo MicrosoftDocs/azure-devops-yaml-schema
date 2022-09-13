@@ -82,7 +82,7 @@ Run a windows cmd or bat script and optionally allow it to change the environmen
 **`filename`** - **Path**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory.
+Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory (please note that working directory could differ from 'workingFolder' which could be specified for this task).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

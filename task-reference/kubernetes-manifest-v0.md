@@ -221,7 +221,7 @@ In this case, the stable variant receives 80% of the traffic, while the baseline
 **`manifests`** - **Manifests**<br>
 Type: string. Required when action = deploy || action = promote || action = reject.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the manifest files to be used for deployment. Each line represents a single path. A [file-matching pattern](/azure/devops/pipelines/tasks/file-matching-patterns) is an acceptable value for each line. You can use [to merge multiple YAML files into one](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/). This can be useful when using this task in classic release pipelines.
+The path to the manifest files to be used for deployment. Each line represents a single path. A [file-matching pattern](/azure/devops/pipelines/tasks/file-matching-patterns) is an acceptable value for each line.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -232,13 +232,7 @@ The path to the manifest files to be used for deployment. Each line represents a
 **`containers`** - **Containers**<br>
 Type: string. Optional. Use when action = deploy || action = promote || action = bake.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The fully qualified URL of the image to be used for substitutions on the manifest files. This input accepts the specification of multiple artifact substitutions in newline-separated form. Here's an example:
-
-`containers:`|
-  `contosodemo.azurecr.io/foo:test1`
-  ``contosodemo.azurecr.io/bar:test2`
-
-In this example, all references to `contosodemo.azurecr.io/foo` and `contosodemo.azurecr.io/bar` are searched for in the image field of the input manifest files. For each match found, the tag `test1` or `test2` replaces the matched reference.
+The fully qualified resource URL of the image to be used for substitutions on the manifest files. The URL contosodemo.azurecr.io/helloworld:test is an example.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -409,6 +403,8 @@ Indicates one of the following patch methods:
 
 - A manifest file identifies the objects to be patched.
 - An individual object is identified by kind and name as the patch target.
+
+Acceptable values are **file** and **name**. 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

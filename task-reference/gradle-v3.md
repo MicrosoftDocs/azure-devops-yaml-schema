@@ -71,9 +71,8 @@ Build using a Gradle wrapper script.
 **`gradleWrapperFile`** - **Gradle wrapper**<br>
 Input alias: `wrapperScript`. Type: string. Required. Default value: 'gradlew'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For agents on Windows (including Microsoft-hosted agents), you must use the gradlew.bat wrapper. Agents on Linux or macOS can use the `gradlew` shell script.See The [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+For agents on Windows (including Microsoft-hosted agents), you must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script.See The [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
 
-Argument aliases: `gradleWrapperFile`
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
