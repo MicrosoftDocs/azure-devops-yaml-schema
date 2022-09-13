@@ -93,6 +93,8 @@ Enter or Select an existing Slot. If no slot is selected, changes will be made t
 **`appSettings`** - **App settings**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Application settings to be entered using JSON syntax. Values containing spaces should be enclosed in double quotes.
+
 Add/Update App Service App Settings using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key1", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueabcd",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": false <br/> &nbsp;&nbsp; },<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key2", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueefgh",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": true <br/> &nbsp;&nbsp; }<br/>].
 <!-- :::editable-content-end::: -->
 
@@ -104,6 +106,8 @@ Add/Update App Service App Settings using the json syntax as follows:<br/> [<br/
 **`generalSettings`** - **General settings**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+General settings to be entered using JSON syntax. Values containing spaces should be enclosed in double quotes. See the [App Service SiteConfig object documentation](/azure/templates/microsoft.web/sites) for the available properties.
+
 Add/Update App Service General Settings using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"alwaysOn": true, <br/>&nbsp;&nbsp;&nbsp;&nbsp;"webSocketsEnabled": false<br/> &nbsp;&nbsp; }<br/>].
 <!-- :::editable-content-end::: -->
 
@@ -115,6 +119,8 @@ Add/Update App Service General Settings using the json syntax as follows:<br/> [
 **`connectionStrings`** - **Connection Strings**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Connection strings to be entered using JSON syntax. Values containing spaces should be enclosed in double quotes.
+
 Add/Update App Service Connection strings using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key1", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueabcd",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "MySql", <br/> &nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": false <br/> &nbsp;&nbsp; },<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key2", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueefgh",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "Custom", <br/> &nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": true <br/> &nbsp;&nbsp; }<br/>].
 <!-- :::editable-content-end::: -->
 
