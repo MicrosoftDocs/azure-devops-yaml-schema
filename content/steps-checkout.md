@@ -2050,11 +2050,14 @@ steps:
 
 To configure the setting in the pipeline UI, edit your YAML pipeline, and choose **More actions**, **Triggers**, **YAML**, **Get sources**, and check or uncheck the **Sync tags** checkbox.
 
-For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is true. For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is false.
+
+#### Default behavior
+
+* For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is `true`.
+* For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is `false`.
 
 > [!IMPORTANT]
-> The Sync tags setting in the UI takes precedence over the YAML setting.
-
+> A **Sync tags** setting of true in the UI takes precedence over a `fetchTags: false` statement in the YAML. If **Sync tags** is set to true in the UI, tags are synced even if `fetchTags` is set to false in the YAML.
 
 
 ::: moniker-end
