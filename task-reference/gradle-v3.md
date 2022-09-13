@@ -71,7 +71,8 @@ Build using a Gradle wrapper script.
 **`gradleWrapperFile`** - **Gradle wrapper**<br>
 Input alias: `wrapperScript`. Type: string. Required. Default value: 'gradlew'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root to the Gradle Wrapper script.
+For agents on Windows (including Microsoft-hosted agents), you must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script.See The [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -93,6 +94,7 @@ Working directory in which to run the Gradle build. If not specified, the reposi
 **`options`** - **Options**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+See [Gradle Command Line](https://docs.gradle.org/current/userguide/command_line_interface.html).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -103,6 +105,9 @@ Type: string.<br>
 **`tasks`** - **Tasks**<br>
 Type: string. Required. Default value: 'build'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+A list of task names should be separated by spaces and can be taken from `gradlew tasks` issued from a command prompt.
+
+See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -202,6 +207,7 @@ Set this to 'true' if gradle version is >= 5.x.'True' by default.
 Input alias: `javaHomeSelection`. Type: string. Required. Allowed values: 'JDKVersion', 'Path'. Default value: 'JDKVersion'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME either by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -213,6 +219,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 Input alias: `jdkVersion`. Type: string. Optional. Use when javaHomeSelection = JDKVersion. Allowed values: 'default', '1.11', '1.10', '1.9', '1.8', '1.7', '1.6'. Default value: 'default'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -224,6 +231,7 @@ Will attempt to discover the path to the selected JDK version and set JAVA_HOME 
 Input alias: `jdkUserInputPath`. Type: string. Required when javaHomeSelection = Path.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME to the given path.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -235,6 +243,7 @@ Sets JAVA_HOME to the given path.
 Input alias: `jdkArchitecture`. Type: string. Optional. Use when jdkVersion != default. Allowed values: 'x86', 'x64'. Default value: 'x64'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of the JDK.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -246,6 +255,7 @@ Optionally supply the architecture (x86, x64) of the JDK.
 Input alias: `gradleOpts`. Type: string. Default value: '-Xmx1024m'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the GRADLE_OPTS environment variable, which is used to send command-line arguments to start the JVM. The xmx flag specifies the maximum memory available to the JVM.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -322,7 +332,8 @@ Use the PMD Java static analysis tool to look for bugs in the code. Results are 
 **`spotBugsAnalysis`** - **Run SpotBugs**<br>
 Input alias: `spotBugsAnalysisEnabled`. Type: boolean. Required. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enable this option to run spotBugs. This plugin works with Gradle v5.6 or later. [More info](https://spotbugs.readthedocs.io/en/stable/gradle.html#use-spotbugs-gradle-plugin).
+Enable this option to run spotBugs. This plugin works with Gradle v5.6 or later. [More info](https://spotbugs.readthedocs.io/en/stable/gradle.html#use-spotbugs-gradle-plugin). Please make sure that you are using Gradle 5.6 or later. If you are using an earlier version of Gradle, the plugin may work in an unexpected way or may not work at all.
+Default value: false
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
