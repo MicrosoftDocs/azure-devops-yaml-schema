@@ -120,7 +120,7 @@ None.
 
 | Requirement | Description |
 |-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
+k| Pipeline types | YAML, Classic build, Classic release |
 | Runs on | Agent, DeploymentGroup |
 | [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |

@@ -78,7 +78,7 @@ Sign and align Android APK files.
 **`apkFiles`** - **APK files**<br>
 Input alias: `files`. Type: string. Required. Default value: '**/*.apk'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**\bin\*.apk` for all .APK files in the 'bin' subfolder and `outputs\apk*.apk` to sign all .APK files in the outputs\apk\ subfolder
+Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**\bin\*.apk` to sign all .APK files in all 'bin' subfolder and `outputs\apk*.apk` to sign all .APK files in the outputs\apk\ subfolder
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
