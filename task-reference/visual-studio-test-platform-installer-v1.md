@@ -89,7 +89,9 @@ Type: string. Required. Allowed values: 'nugetOrg', 'customFeed', 'netShare'. De
 Specify the feed from which the Visual Studio Test Platform nuget packge should be fetched.
 
 **Official NuGet** - Use this option to acquire the [test platform package from NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/). This option requires internet connectivity on the agent machine.
+
 **Custom feed** - Use this option to acquire the test platform package from a custom feed or a package management feed in Azure DevOps or TFS.
+
 **Network path** - Use this option to install the test platform from a network share. The desired version of Microsoft.TestPlatform.nupkg file must be downloaded from NuGet and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
 
