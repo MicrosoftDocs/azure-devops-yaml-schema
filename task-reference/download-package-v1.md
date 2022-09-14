@@ -60,7 +60,7 @@ Type: string. Required. Allowed values: 'maven', 'npm', 'nuget', 'pypi', 'upack'
 **`feed`** - **Feed**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the package source.
+ For project-scoped feeds, the format is projectID/feedID. See our [FAQ](/azure/devops/pipelines/tasks/utility/download-package) below for information on how to get a feed or project ID, or information on using project and feed name instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
