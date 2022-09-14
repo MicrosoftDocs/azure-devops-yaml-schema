@@ -100,7 +100,7 @@ Select this option to sign the APK with a provided keystore file. Unsigned APKs 
 **`apksignerKeystoreFile`** - **Keystore file**<br>
 Input alias: `keystoreFile`. Type: string. Required when apksign = true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or enter the file name of the Android Keystore file that should be used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files?view=azure-devops&branch=users%2Fsdanie%2Ftask-input-import) library where it is securely stored with encryption. The Android Keystore file will be used to sign the APK, but will be removed from the agent machine when the pipeline completes.
+Select or enter the file name of the Android Keystore file that should be used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. The Android Keystore file will be used to sign the APK, but will be removed from the agent machine when the pipeline completes.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
