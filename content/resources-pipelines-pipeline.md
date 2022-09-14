@@ -973,6 +973,9 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 
 ### Pipeline resource trigger syntax
 
+> [!NOTE]
+> Only the trigger section defined in the pipeline YAML file on your default branch will be used to determine when this pipeline is triggered.
+
 :::moniker-end
 
 :::moniker range=">= azure-pipelines-2020"
