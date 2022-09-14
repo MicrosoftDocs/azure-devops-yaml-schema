@@ -116,13 +116,11 @@ None.
 
 :::moniker-end
 
-## Requirements
-
 :::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|
-k| Pipeline types | YAML, Classic build, Classic release |
+| Pipeline types | YAML, Classic build, Classic release |
 | Runs on | Agent, DeploymentGroup |
 | [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
