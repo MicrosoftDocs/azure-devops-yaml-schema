@@ -78,7 +78,7 @@ Sign and align Android APK files.
 **`apkFiles`** - **APK files**<br>
 Input alias: `files`. Type: string. Required. Default value: '**/*.apk'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**/bin/*.apk` for all .APK files in the 'bin' subfolder.
+Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**\bin\*.apk` to sign all .APK files in all 'bin' subfolder and `outputs\apk*.apk` to sign all .APK files in the outputs\apk\ subfolder
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -100,7 +100,7 @@ Select this option to sign the APK with a provided keystore file. Unsigned APKs 
 **`apksignerKeystoreFile`** - **Keystore file**<br>
 Input alias: `keystoreFile`. Type: string. Required when apksign = true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the keystore file that was uploaded to `Secure Files` to be used to sign the APK.
+Select or enter the file name of the Android Keystore file that should be used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. The Android Keystore file will be used to sign the APK, but will be removed from the agent machine when the pipeline completes.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -111,7 +111,9 @@ Select the keystore file that was uploaded to `Secure Files` to be used to sign 
 **`apksignerKeystorePassword`** - **Keystore password**<br>
 Input alias: `keystorePass`. Type: string. Optional. Use when apksign = true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the password for the provided keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
+Enter the password for the provided keystore file.
+> [!IMPORTANT]
+> Use a new variable with its lock enabled on the Variables pane to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -133,7 +135,10 @@ Enter the alias that identifies the public/private key pair to be used in the ke
 **`apksignerKeyPassword`** - **Key password**<br>
 Input alias: `keyPass`. Type: string. Optional. Use when apksign = true.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the key password for the alias and keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
+Enter the key password for the alias and keystore file.
+
+> [!IMPORTANT]
+> Use a new variable with its lock enabled on the Variables pane to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables). 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -155,7 +160,7 @@ Enter Android SDK build-tools version to look apksigner executable from.
 **`apksignerArguments`** - **apksigner arguments**<br>
 Type: string. Optional. Use when apksign = true. Default value: '--verbose'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide any options to pass to the apksigner command line. Default is: --verbose.
+Provide any options to pass to the apksigner command line. Default is: --verbose. See the [apksigner documentation](https://developer.android.com/studio/command-line/apksigner).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
