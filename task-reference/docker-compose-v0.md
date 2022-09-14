@@ -172,6 +172,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
 **`containerregistrytype`** - **Container Registry Type**<br>
 Type: string. Required. Allowed values: 'Azure Container Registry', 'Container Registry'. Default value: 'Azure Container Registry'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Azure Container Registry if using ACR or Container Registry if using any other container registry.
 Select a Container Registry Type.
 <!-- :::editable-content-end::: -->
 
@@ -204,7 +205,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. Type: string. Optional. Use when containerregistrytype = Azure Container Registry.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription.
+Select an Azure subscription. Name of the Azure Service Connection. See [Azure Resource Manager service connection](azure/devops/pipelines/library/connect-to-azure?view=azure-devops&branch=users%2Fsdanie%2Ftask-input-import) to manually set up the connection.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -248,7 +249,7 @@ Additional Docker Compose files to be combined with the primary Docker Compose f
 **`dockerComposeFileArgs`** - **Environment Variables**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Environment variables to be set during the command. Specify each name=value pair on a new line.
+Environment variables to be set during the command. Specify each name=value pair on a new line. You need to use the | operator in YAML to indicate that newlines should be preserved.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -292,7 +293,7 @@ Select a Docker Compose action.
 **`additionalImageTags`** - **Additional Image Tags**<br>
 Type: string. Optional. Use when action = Build services || action = Push services.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional tags for the Docker images being built or pushed.
+Additional tags for the Docker images being built or pushed.  Specify multiple tags with a line feed `\n`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

@@ -227,7 +227,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 **`connectionType`** - **Service connection type**<br>
 Type: string. Required. Allowed values: 'Azure Resource Manager', 'Kubernetes Service Connection', 'None'. Default value: 'Kubernetes Service Connection'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a service connection type.
+Select a service connection type. Azure Resource Manager when using Azure Kubernetes Service, or Kubernetes Service Connection for any other cluster.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -237,7 +237,7 @@ Select a service connection type.
 **`connectionType`** - **Service connection type**<br>
 Type: string. Required. Allowed values: 'Azure Resource Manager', 'Kubernetes Service Connection', 'None'. Default value: 'Azure Resource Manager'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a service connection type.
+Select a service connection type. Azure Resource Manager when using Azure Kubernetes Service, or Kubernetes Service Connection for any other cluster.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
