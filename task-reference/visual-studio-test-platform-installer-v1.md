@@ -87,6 +87,10 @@ Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘v
 Type: string. Required. Allowed values: 'nugetOrg', 'customFeed', 'netShare'. Default value: 'nugetOrg'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the feed from which the Visual Studio Test Platform nuget packge should be fetched.
+
+**Official NuGet** - Use this option to acquire the [test platform package from NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/). This option requires internet connectivity on the agent machine.
+**Custom feed** - Use this option to acquire the test platform package from a custom feed or a package management feed in Azure DevOps or TFS.
+**Network path** - Use this option to install the test platform from a network share. The desired version of Microsoft.TestPlatform.nupkg file must be downloaded from NuGet and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -98,6 +102,8 @@ Specify the feed from which the Visual Studio Test Platform nuget packge should 
 Type: string. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Allowed values: 'latestPreRelease', 'latestStable', 'specificVersion'. Default value: 'latestPreRelease'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick whether to install the latest version or a specific version of the Visual Studio Test Platform.
+If you use the test platform installer to run Coded UI tests, ensure that the version you choose matches the major version of Visual Studio with which the test binaries were built.
+For e.g., if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use test platform version 15.x.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -108,6 +114,8 @@ Pick whether to install the latest version or a specific version of the Visual S
 Type: string. Required. Allowed values: 'latestPreRelease', 'specificVersion'. Default value: 'latestPreRelease'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick whether to install the latest version or a specific version of the Visual Studio Test Platform.
+If you use the test platform installer to run Coded UI tests, ensure that the version you choose matches the major version of Visual Studio with which the test binaries were built.
+For e.g., if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use test platform version 15.x.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -129,7 +137,7 @@ Specify the version of Visual Studio Test Platform to install on the agent. Avai
 **`customFeed`** - **Package Source**<br>
 Type: string. Required when packageFeedSelector = customFeed.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fetch the testplatform package from the specified package feed. Can be a public or a private feed.
+Specify the URL of a custom feed or a package management feed in Azure DevOps or TFS that contains the test platform package. Public as well as private feeds can be specified.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -140,7 +148,7 @@ Fetch the testplatform package from the specified package feed. Can be a public 
 **`username`** - **User Name**<br>
 Type: string. Optional. Use when packageFeedSelector = customFeed.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-User name for authenticating against the specified feed. If providing a PAT token as password, username is optional.
+Specify the user name to authenticate with the feed specified in the **Package Source** argument. If using a personal access token (PAT) in the password argument, this input is not required.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -162,7 +170,7 @@ Password or personal access token for authenticating against the specified feed.
 **`netShare`** - **UNC Path**<br>
 Type: string. Required when packageFeedSelector = netShare.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the full UNC path to the microsoft.testplatform nupkg file.
+Specify the full UNC path to the microsoft.testplatform nupkg file. The desired version of Microsoft.TestPlatform.nupkg must be downloaded from [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/) and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
