@@ -43,7 +43,7 @@ Provides credentials for Azure Artifacts feeds and external maven repositories.
 **`artifactsFeeds`** - **Feeds**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select one or multiple feeds to authenticate.
+Comma-separated list of Azure Artifacts feed names to authenticate with Maven. If you only need authentication for external maven repositories, leave this field blank.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -54,7 +54,7 @@ Select one or multiple feeds to authenticate.
 **`mavenServiceConnections`** - **Credentials for repositories outside this organization/collection**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external repositories located in the project's pom.xml.
+Comma-separated list of [Maven service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with Maven. If you only needs authentication for Azure Artifacts feeds, leave this field blank.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
