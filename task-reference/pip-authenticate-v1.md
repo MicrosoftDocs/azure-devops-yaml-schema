@@ -56,7 +56,7 @@ Select feeds to authenticate present in this organization.
 **`pythonDownloadServiceConnections`** - **Feeds from external organizations**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select endpoints to authenticate outside this organization.
+Comma-separated list of [pip service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with pip.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
