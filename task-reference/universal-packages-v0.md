@@ -141,7 +141,7 @@ Download or publish Universal Packages.
 **`command`** - **Command**<br>
 Type: string. Required. Allowed values: 'download', 'publish'. Default value: 'download'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Universal Package command to run.
+The NuGet command to run.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -174,7 +174,7 @@ You can either select a feed from this collection or any other collection in Azu
 **`externalFeedCredentials`** - **organization/collection connection**<br>
 Input alias: `externalEndpoint`. Type: string. Optional. Use when internalOrExternalDownload = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external feeds.
+Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization (collection), leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -184,7 +184,7 @@ Credentials to use for external feeds.
 **`externalFeedCredentials`** - **Account/collection connection**<br>
 Input alias: `externalEndpoint`. Type: string. Optional. Use when internalOrExternalDownload = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external feeds.
+Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization (collection), leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -195,6 +195,7 @@ Credentials to use for external feeds.
 **`vstsFeed`** - **Feed**<br>
 Input alias: `feedListDownload`. Type: string. Required when internalOrExternalDownload = internal.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Include the selected feed. You must have Azure Artifacts installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -205,6 +206,7 @@ Input alias: `feedListDownload`. Type: string. Required when internalOrExternalD
 **`vstsFeedPackage`** - **Package name**<br>
 Input alias: `packageListDownload`. Type: string. Required when internalOrExternalDownload = internal.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Name of package to download.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -215,7 +217,7 @@ Input alias: `packageListDownload`. Type: string. Required when internalOrExtern
 **`vstsPackageVersion`** - **Version**<br>
 Input alias: `versionListDownload`. Type: string. Required when internalOrExternalDownload = internal.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the package version or use a variable containing the version to download.
+Select the package version or use a variable containing the version to download. This entry can also be a wildcard expression such as `*` to get the highest version, `1.*` to get the highest version with major version 1, or `1.2.*` to get the highest patch release with major version 1 and minor version 2.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -226,7 +228,7 @@ Select the package version or use a variable containing the version to download.
 **`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 Type: string. Required when internalOrExternalDownload = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Feed name.
+Specifies the name of an external feed from which to download.
 
 If the feed was created in a project, this should be Project/Feed where Project is project's name or ID and Feed is the feed's name. If not created in a project, this should be only the feed name.
 <!-- :::editable-content-end::: -->
@@ -238,7 +240,7 @@ If the feed was created in a project, this should be Project/Feed where Project 
 **`feedDownloadExternal`** - **Feed**<br>
 Type: string. Required when internalOrExternalDownload = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Feed name.
+Specifies the name of an external feed from which to download.
 
 If the feed was created in a project, this should be Project/Feed where Project is project's name or ID and Feed is the feed's name. If not created in a project, this should be only the feed name.
 <!-- :::editable-content-end::: -->
@@ -251,7 +253,7 @@ If the feed was created in a project, this should be Project/Feed where Project 
 **`packageDownloadExternal`** - **Package name**<br>
 Type: string. Required when internalOrExternalDownload = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Package name.
+Specifies the package name to download.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -262,7 +264,7 @@ Package name.
 **`versionDownloadExternal`** - **Version**<br>
 Type: string. Required when internalOrExternalDownload = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Package version to download.
+Select the package version or use a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version, `1.*` to get the highest version with major version 1, or `1.2.*` to get the highest patch release with major version 1 and minor version 2. Wildcard patterns are not supported with pre-release packages.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -316,6 +318,7 @@ Credentials to use for external feeds.
 **`vstsFeedPublish`** - **Destination Feed**<br>
 Input alias: `feedListPublish`. Type: string. Required when internalOrExternalPublish = internal.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the project and feed's name/GUID to publish to.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -348,7 +351,7 @@ Select a package ID to publish or type a new package ID if you've never publishe
 **`feedPublishExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 Type: string. Required when internalOrExternalPublish = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Feed name.
+External feed name to publish to.
 
 If the feed was created in a project, this should be Project/Feed where Project is project's name or ID and Feed is the feed's name. If not created in a project, this should be only the feed name.
 <!-- :::editable-content-end::: -->
@@ -360,7 +363,7 @@ If the feed was created in a project, this should be Project/Feed where Project 
 **`feedPublishExternal`** - **Feed**<br>
 Type: string. Required when internalOrExternalPublish = external.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Feed name.
+External feed name to publish to.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
