@@ -116,7 +116,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 **`Contents`** - **Contents**<br>
 Type: string. Required. Default value: 'myFileShare'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Supports multiple lines of minimatch patterns; each one is processed before moving onto the next line. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
+File/folder paths to delete. Supports multiple lines of minimatch patterns; each one is processed before moving onto the next line. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
 For example:
 - `**/*` deletes all files and folders in the root folder.
 - `temp` deletes the *temp* folder in the root folder.
