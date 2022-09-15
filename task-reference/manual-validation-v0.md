@@ -44,7 +44,7 @@ Pause a YAML pipeline run to wait for manual interaction.
 **`notifyUsers`** - **Notify users**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation.
+Send a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send to a group using `[org name]\group name` syntax.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

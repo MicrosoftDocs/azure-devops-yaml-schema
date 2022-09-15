@@ -109,7 +109,7 @@ The Python script to run.
 **`arguments`** - **Arguments**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the script execution, available through `sys.argv`.
+Arguments passed to the script execution, available through `sys.argv`as if you passed them on the command line.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -142,7 +142,7 @@ The working directory where the script will run. If not specified, the value of 
 **`failOnStderr`** - **Fail on standard error**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any text is written to the stderr stream.
+If this is true, this task will fail if any text is written to the `stderr` stream.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
