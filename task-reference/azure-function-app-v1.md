@@ -329,7 +329,7 @@ Edit web app configuration settings following the syntax -key value. Value conta
 **`deploymentMethod`** - **Deployment method**<br>
 Type: string. Required. Allowed values: 'auto', 'zipDeploy', 'runFromPackage'. Default value: 'auto'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the deployment method for the app.
+Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

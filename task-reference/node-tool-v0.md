@@ -99,7 +99,7 @@ Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
 **`checkLatest`** - **Check for Latest Version**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always checks online for the latest available version that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
+Select if you want the agent to check for the latest available version that satisfies the version spec. For example, you select this option because you run this build on your [self-hosted agent](/azure/devops/pipelines/agents/agents) and you want to always use the latest `6.x` version.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
