@@ -104,7 +104,8 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 **`SourceFolder`** - **Source Folder**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The source folder that the deletion(s) will be run from.  Empty is the root of the repo.  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. Example: $(agent.builddirectory).
+If you leave it empty, the deletions are done from the root folder of the repository (same as if you had specified [$(Build.SourcesDirectory))](/azure/devops/pipelines/build/variables).
+If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to delete files from the build agent working directory.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -115,7 +116,14 @@ The source folder that the deletion(s) will be run from.  Empty is the root of t
 **`Contents`** - **Contents**<br>
 Type: string. Required. Default value: 'myFileShare'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File/folder paths to delete. Supports multiple lines of minimatch patterns. [More Information](https://go.microsoft.com/fwlink/?LinkID=722333).
+Supports multiple lines of minimatch patterns; each one is processed before moving onto the next line. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
+For example:
+- `**/*` deletes all files and folders in the root folder.
+- `temp` deletes the *temp* folder in the root folder.
+- `temp*` deletes any file or folder in the root folder with a name that begins with *temp*.
+- `**/temp/*` deletes all files and folders in any sub-folder named *temp*.
+- `**/temp*` deletes any file or folder with a name that begins with *temp*.
+- `!(*.vsix)` deletes all files in the root folder that do not have a *.vsix* extension.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -126,7 +134,7 @@ File/folder paths to delete. Supports multiple lines of minimatch patterns. [Mor
 **`RemoveSourceFolder`** - **Remove SourceFolder**<br>
 Type: boolean. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempt to remove the source folder as well.
+Attempt to remove the source folder after attempting to remove `Contents`. If you want to remove the whole folder, set this to `true` and set `Contents` to `*`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

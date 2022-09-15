@@ -109,7 +109,7 @@ The Python script to run.
 **`arguments`** - **Arguments**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the script execution, available through `sys.argv`.
+Arguments passed to the script execution, available through `sys.argv`as if you passed them on the command line..
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
