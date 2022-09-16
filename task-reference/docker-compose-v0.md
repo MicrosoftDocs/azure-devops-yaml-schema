@@ -205,7 +205,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. Type: string. Optional. Use when containerregistrytype = Azure Container Registry.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription. Name of the Azure Service Connection. See [Azure Resource Manager service connection](azure/devops/pipelines/library/connect-to-azure?view=azure-devops&branch=users%2Fsdanie%2Ftask-input-import) to manually set up the connection.
+Select an Azure subscription. Name of the Azure Service Connection. See [Azure Resource Manager service connection](azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -249,7 +249,7 @@ Additional Docker Compose files to be combined with the primary Docker Compose f
 **`dockerComposeFileArgs`** - **Environment Variables**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Environment variables to be set during the command. Specify each name=value pair on a new line. You need to use the | operator in YAML to indicate that newlines should be preserved.
+Environment variables to be set during the command. Specify each name=value pair on a new line. You need to use the `|` operator in YAML to indicate that newlines should be preserved.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
