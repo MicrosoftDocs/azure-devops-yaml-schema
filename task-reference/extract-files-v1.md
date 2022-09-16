@@ -99,7 +99,17 @@ Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, a
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 Type: string. Required. Default value: '**/*.zip'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269).
+File paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269).<br>
+Patterns to match the archives you want to extract. By default, patterns start in the root folder of the repo (same as if you had specified `$(Build.SourcesDirectory))`.<br>
+Specify pattern filters, one per line, that match the archives to extract. For example:
+<li>`test.zip` extracts the test.zip file in the root folder.
+<li>`test/*.zip` extracts all .zip files in the test folder.
+<li>`**/*.tar` extracts all .tar files in the root folder and sub-folders.
+<li>`**/bin/*.7z` extracts all ''.7z'' files in any sub-folder named bin.<br>
+The pattern is used to match only archive file paths, not folder paths, and not archive contents to be extracted. So you should specify patterns such as `**/bin/**` instead of `**/bin`.
+
+Default value: `**/*.zip`
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -120,7 +130,7 @@ File paths or patterns of the archive files to extract.  Supports multiple lines
 **`destinationFolder`** - **Destination folder**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Destination folder into which archive files should be extracted.  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. Example: $(agent.builddirectory).
+Destination folder into which archive files should be extracted.  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. Example: `$(agent.builddirectory)`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -142,7 +152,7 @@ Select this option to clean the destination directory before archive contents ar
 **`overwriteExistingFiles`** - **Overwrite existing files**<br>
 Type: boolean. Required. Default value: false.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to overwrite existing files in the destination directory.
+Select this option to overwrite existing files in the destination directory if they already exist. If the option is `false`, the script prompts on existing files, asking whether you want to overwrite them.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -153,7 +163,7 @@ Select this option to overwrite existing files in the destination directory.
 **`pathToSevenZipTool`** - **Path to 7z utility**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can specify custom path to 7z utility. For example, "C:\7z\7z.exe" on Windows and "/usr/local/bin/7z" on MacOS/Ubuntu.
+You can specify custom path to 7z utility. For example, "C:\7z\7z.exe" on Windows and "/usr/local/bin/7z" on MacOS/Ubuntu. If it's not specified on Windows - default 7zip version supplied with a task will be used.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
