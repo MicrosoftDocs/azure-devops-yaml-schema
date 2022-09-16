@@ -202,6 +202,7 @@ Target Azure Resource Manager subscription for deploying SQL files.
 **`AuthenticationType`** - **Authentication Type**<br>
 Type: string. Required. Allowed values: 'server', 'aadAuthenticationPassword', 'aadAuthenticationIntegrated', 'connectionString', 'servicePrincipal'. Default value: 'server'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Type of database authentication, can be SQL Server Authentication, Active Directory - Integrated, Active Directory - Password, Connection String, or Service Principal. Integrated authentication means that the agent will access the database using its current Active Directory account context.
 Specify the option to connect to the Azure SQL Server Database. The options are either to provide the Azure SQL Server Database details, or the SQL Server connection string, or AAD Authentication password or integrated or use a Service Principal. For SQL server authentication, use SQL server's user credentials and for AD authentication, use credentials of AD user configured to SQL server.
 <!-- :::editable-content-end::: -->
 
@@ -212,6 +213,7 @@ Specify the option to connect to the Azure SQL Server Database. The options are 
 **`AuthenticationType`** - **Authentication Type**<br>
 Type: string. Required. Allowed values: 'server', 'aadAuthenticationPassword', 'aadAuthenticationIntegrated', 'connectionString'. Default value: 'server'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Type of database authentication, can be SQL Server Authentication, Active Directory - Integrated, Active Directory - Password, Connection String, or Service Principal. Integrated authentication means that the agent will access the database using its current Active Directory account context.
 Specify the option to connect to the Azure SQL Server Database. The options are either to provide the Azure SQL Server Database details, or the SQL Server connection string, or AAD Authentication password or integrated. For SQL server authentication, use SQL server's user credentials and for AD authentication, use credentials of AD user configured to SQL server.
 <!-- :::editable-content-end::: -->
 
@@ -295,7 +297,7 @@ Specify the Azure SQL Server administrator login.
 **`SqlUsername`** - **Server Admin Login**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Azure SQL Server administrator login.
+Specify the Azure SQL Server administrator login or Active Directory user name.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -305,7 +307,7 @@ Specify the Azure SQL Server administrator login.
 **`SqlUsername`** - **Server Admin Login**<br>
 Type: string.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Azure SQL Server administrator login.
+Specify the Azure SQL Server administrator login or Active Directory user name.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -475,7 +477,7 @@ Enter the SQL script to execute on the Database selected above.
 **`PublishProfile`** - **Publish Profile**<br>
 Type: string. Optional. Use when TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent or on a UNC share. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
+Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent machine or on a UNC share. If the publish profile contains secrets like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Then use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs and delete it when the pipeline is complete. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -485,7 +487,7 @@ Publish profile provides fine-grained control over Azure SQL Database creation o
 **`PublishProfile`** - **Publish Profile**<br>
 Type: string. Optional. Use when TaskNameSelector = DacpacTask.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent or on a UNC share. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
+Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent or on a UNC share. If the publish profile contains secrets like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Then use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs and delete it when the pipeline is complete. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -496,7 +498,7 @@ Publish profile provides fine-grained control over Azure SQL Database creation o
 **`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
 Type: string. Optional. Use when TaskNameSelector = DacpacTask || DeploymentAction = Extract || DeploymentAction = Export || DeploymentAction = Import || DeploymentAction = Script || DeploymentAction = DeployReport || DeploymentAction = DriftReport.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, /p:IgnoreAnsiNulls=True /p:IgnoreComments=True. These arguments will override the settings in the Publish profile XML file (if provided).
+Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -506,7 +508,7 @@ Additional SqlPackage.exe arguments that will be applied when deploying the Azur
 **`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
 Type: string. Optional. Use when TaskNameSelector = DacpacTask.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, /p:IgnoreAnsiNulls=True /p:IgnoreComments=True. These arguments will override the settings in the Publish profile XML file (if provided).
+Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -517,7 +519,7 @@ Additional SqlPackage.exe arguments that will be applied when deploying the Azur
 **`SqlAdditionalArguments`** - **Additional Invoke-Sqlcmd Arguments**<br>
 Type: string. Optional. Use when TaskNameSelector = SqlTask.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, -ConnectionTimeout 100 -OutputSqlErrors.
+Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, `-ConnectionTimeout 100 -OutputSqlErrors`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -528,7 +530,7 @@ Additional Invoke-Sqlcmd arguments that will be applied when executing the given
 **`InlineAdditionalArguments`** - **Additional Invoke-Sqlcmd Arguments**<br>
 Type: string. Optional. Use when TaskNameSelector = InlineSqlTask.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, -ConnectionTimeout 100 -OutputSqlErrors.
+Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, `-ConnectionTimeout 100 -OutputSqlErrors`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

@@ -107,7 +107,8 @@ Download a secure file to a temporary location on the build or release agent.
 **`secureFile`** - **Secure File**<br>
 Type: string. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the secure file to download to a temporary location on the agent. The file will be cleaned up after the pipeline runs.
+The file name or unique identifier (GUID) of the secure file to download to the agent machine. The file will be deleted when the pipeline job completes. 
+Select the secure file to download to a temporary location on the agent. The file will be cleaned up after the pipeline runs. 
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
