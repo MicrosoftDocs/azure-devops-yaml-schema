@@ -205,7 +205,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. Type: string. Optional. Use when containerregistrytype = Azure Container Registry.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription. Name of the Azure Service Connection. See [Azure Resource Manager service connection](azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
+Select an Azure subscription. Name of the Azure Service Connection. See [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
