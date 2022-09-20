@@ -973,6 +973,9 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 
 ### Pipeline resource trigger syntax
 
+> [!NOTE]
+> Pipeline completion triggers use the [Default branch for manual and scheduled builds](/azure/devops/pipelines/process/pipeline-default-branch) setting to determine which branch's version of a YAML pipeline's branch filters to evaluate when determining whether to run a pipeline as the result of another pipeline completing. By default this setting points to the default branch of the repository. For more information, see [Pipeline completion triggers - branch considerations](/azure/devops/pipelines/process/pipeline-triggers#branch-considerations).
+
 :::moniker-end
 
 :::moniker range=">= azure-pipelines-2020"

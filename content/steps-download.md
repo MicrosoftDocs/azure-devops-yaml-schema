@@ -8,7 +8,7 @@ monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-
 # steps.download definition
 
 
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 
 :::moniker range="= azure-pipelines-2019"
