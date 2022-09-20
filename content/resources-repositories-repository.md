@@ -848,6 +848,9 @@ ___
 
 ## Remarks
 
+> [!IMPORTANT]
+> Repository resource does not allow pipeline variables in `name` and `ref`. Wildcards are supported in triggers.
+
 ::: moniker range=">= azure-pipelines-2020"
 
 > [!IMPORTANT]
