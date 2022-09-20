@@ -309,7 +309,7 @@ public static void PostEvent(String callbackUrl, String body, String authToken, 
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-* [Automate Azure Functions deployments with Azure Pipelines](/learn/modules/deploy-azure-functions/)
+* [Automate Azure Functions deployments with Azure Pipelines](/training/modules/deploy-azure-functions/)
 * [Agentless job](/azure/devops/pipelines/process/phases#server-jobs)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
