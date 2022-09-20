@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: resources.pipelines.pipeline definition reference.
-ms.date: 08/09/2022
+ms.date: 09/20/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -972,6 +972,9 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 :::moniker range=">= azure-pipelines-2020"
 
 ### Pipeline resource trigger syntax
+
+> [!NOTE]
+> Pipeline completion triggers use the [Default branch for manual and scheduled builds](/azure/devops/pipelines/process/pipeline-default-branch) setting to determine which branch's version of a YAML pipeline's branch filters to evaluate when determining whether to run a pipeline as the result of another pipeline completing. By default this setting points to the default branch of the repository. For more information, see [Pipeline completion triggers - branch considerations](/azure/devops/pipelines/process/pipeline-triggers#branch-considerations).
 
 :::moniker-end
 
