@@ -169,11 +169,39 @@ The location of the secure file that was downloaded.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task in a pipeline to download a [secure file](/azure/devops/pipelines/library/secure-files) to the agent machine. When specifying the name of the file (using the `secureFile` input) use the name you specified when uploading it rather than the actual filename.
+
+Once downloaded, use the `name` value that is set on the task (or "Reference name" in the classic editor) to reference the path to the secure file on the agent machine. For example, if the task is given the name `mySecureFile`, its path can be referenced in the pipeline as `$(mySecureFile.secureFilePath)`. Alternatively, downloaded secure files can be found in the directory given by `$(Agent.TempDirectory)`. See a full example [below](#examples).
+
+When the pipeline job completes, no matter whether it succeeds, fails, or is canceled, the secure file is deleted from its download location.
+
+It is unnecessary to use this task with the [Install Apple Certificate](install-apple-certificate-v2.md) or [Install Apple Provisioning Profile](install-apple-provisioning-profile-v1.md) tasks because they automatically download, install, and delete (at the end of the pipeline job) the secure file.
+
+This task currently supports only one file task per instance.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example downloads a secure certificate file and installs it to a trusted  certificate authority (CA) directory on Linux:
+
+```yaml
+- task: DownloadSecureFile@1
+  name: caCertificate
+  displayName: 'Download CA certificate'
+  inputs:
+    secureFile: 'myCACertificate.pem'
+
+- script: |
+    echo Installing $(caCertificate.secureFilePath) to the trusted CA directory...
+    sudo chown root:root $(caCertificate.secureFilePath)
+    sudo chmod a+r $(caCertificate.secureFilePath)
+    sudo ln -s -t /etc/ssl/certs/ $(caCertificate.secureFilePath)
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

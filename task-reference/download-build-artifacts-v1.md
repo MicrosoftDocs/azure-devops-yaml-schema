@@ -256,6 +256,12 @@ Stores the build number of the build artifact source.<br />Please note that in f
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+> [!NOTE]
+> The Azure Pipelines team recommends upgrading from **build artifacts** to **[Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts)** for faster performance.
+
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

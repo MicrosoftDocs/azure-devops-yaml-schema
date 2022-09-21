@@ -165,6 +165,10 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+By default, this task will invoke `python` from the system path.
+Run [Use Python Version](use-python-version-v0.md) to put the version you want in the system path.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

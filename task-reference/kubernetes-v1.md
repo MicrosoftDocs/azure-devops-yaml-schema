@@ -663,6 +663,208 @@ What's new in Version 1.0.
 
 * Added new service connection type input for easy selection of Azure AKS cluster.
 * Replaced output variable input with output variables section that we had added in all tasks.
+
+Use this task to deploy, configure, or update a Kubernetes cluster by running kubectl commands.
+
+### Service Connection
+
+The task works with two service connection types: **Azure Resource Manager** and **Kubernetes Service Connection**, described below.
+
+#### Azure Resource Manager
+
+Set `connectionType` to `Azure Resource Manager` and specify an `azureSubscriptionEndpoint` to use an Azure Resource Manager service connection.
+
+This YAML example shows how Azure Resource Manager is used to refer to the Kubernetes cluster. This is to be used with one of the kubectl [commands](#commands) and the appropriate values required by the command.
+
+```YAML
+variables:
+  azureSubscriptionEndpoint: Contoso
+  azureContainerRegistry: contoso.azurecr.io
+  azureResourceGroup: Contoso
+  kubernetesCluster: Contoso
+  useClusterAdmin: false
+
+steps:
+- task: Kubernetes@1
+  displayName: kubectl apply
+  inputs:
+    connectionType: Azure Resource Manager
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureResourceGroup: $(azureResourceGroup)
+    kubernetesCluster: $(kubernetesCluster)
+    useClusterAdmin: $(useClusterAdmin)
+```
+
+#### Kubernetes Service Connection
+
+Set `connectionType` to `Kubernetes Service Connection` and specify a `kubernetesServiceEndpoint` to use a Kubernetes service connection.
+
+This YAML example shows how a Kubernetes Service Connection is used to refer to the Kubernetes cluster. This is to be used with one of the kubectl [commands](#commands) and the appropriate values required by the command.
+
+```YAML
+- task: Kubernetes@1
+  displayName: kubectl apply
+  inputs:
+    connectionType: Kubernetes Service Connection
+    kubernetesServiceEndpoint: Contoso
+```
+
+### Commands
+
+The command input accepts one of the following [kubectl commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands):
+
+**apply**, **create**, **delete**, **exec**, **expose**, **get**, **login**, **logout**, **logs**, **run**, **set**, or **top**.
+
+#### apply
+
+This YAML example demonstrates the **apply** command:
+
+```YAML
+- task: Kubernetes@1
+  displayName: kubectl apply using arguments
+  inputs:
+    connectionType: Azure Resource Manager
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureResourceGroup: $(azureResourceGroup)
+    kubernetesCluster: $(kubernetesCluster)
+    command: apply
+    arguments: -f mhc-aks.yaml
+```
+This YAML example demonstrates the use of a configuration file with the **apply** command:
+
+```YAML
+- task: Kubernetes@1
+  displayName: kubectl apply using configFile
+  inputs:
+    connectionType: Azure Resource Manager
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureResourceGroup: $(azureResourceGroup)
+    kubernetesCluster: $(kubernetesCluster)
+    command: apply
+    useConfigurationFile: true
+    configuration: mhc-aks.yaml
+```
+
+### Secrets
+
+Kubernetes objects of type **secret** are intended to hold sensitive information such as passwords,
+OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than
+putting it verbatim in a pod definition or in a Docker image. Azure Pipelines simplifies the
+addition of **ImagePullSecrets** to a service account, or setting up of any generic secret, as described below.
+
+#### ImagePullSecret
+
+This YAML example demonstrates the setting up of ImagePullSecrets:
+
+```YAML
+    - task: Kubernetes@1
+      displayName: kubectl apply for secretType dockerRegistry
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+        azureResourceGroup: $(azureResourceGroup)
+        kubernetesCluster: $(kubernetesCluster)
+        command: apply
+        arguments: -f mhc-aks.yaml
+        secretType: dockerRegistry
+        containerRegistryType: Azure Container Registry
+        azureSubscriptionEndpointForSecrets: $(azureSubscriptionEndpoint)
+        azureContainerRegistry: $(azureContainerRegistry)
+        secretName: mysecretkey2
+        forceUpdate: true
+```
+
+#### Generic Secrets
+
+This YAML example creates generic secrets from literal values specified for the **secretArguments** input:
+
+```YAML
+    - task: Kubernetes@1
+      displayName: secretType generic with literal values
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+        azureResourceGroup: $(azureResourceGroup)
+        kubernetesCluster: $(kubernetesCluster)
+        command: apply
+        arguments: -f mhc-aks.yaml
+        secretType: generic
+        secretArguments: --from-literal=contoso=5678
+        secretName: mysecretkey
+```
+
+Pipeline variables can be used to pass arguments for specifying literal values, as shown here: 
+
+```YAML
+    - task: Kubernetes@1
+      displayName: secretType generic with pipeline variables
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+        azureResourceGroup: $(azureResourceGroup)
+        kubernetesCluster: $(kubernetesCluster)
+        command: apply
+        arguments: -f mhc-aks.yaml
+        secretType: generic
+        secretArguments: --from-literal=contoso=$(contosovalue)
+        secretName: mysecretkey
+```
+
+### ConfigMap
+
+ConfigMaps allow you to decouple configuration artifacts from image content to maintain portability for containerized applications.
+
+This YAML example creates a ConfigMap by pointing to a ConfigMap file:
+
+```YAML
+    - task: Kubernetes@1
+      displayName: kubectl apply
+      inputs:
+        configMapName: myconfig
+        useConfigMapFile: true
+        configMapFile: src/configmap
+```
+
+This YAML example creates a ConfigMap by specifying the literal values directly as the **configMapArguments** input,
+and setting **forceUpdate** to true:
+
+```YAML
+    - task: Kubernetes@1
+      displayName: configMap with literal values
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+        azureResourceGroup: $(azureResourceGroup)
+        kubernetesCluster: $(kubernetesCluster)
+        command: apply
+        arguments: -f mhc-aks.yaml
+        secretType: generic
+        secretArguments: --from-literal=contoso=$(contosovalue)
+        secretName: mysecretkey4
+        configMapName: myconfig
+        forceUpdateConfigMap: true
+        configMapArguments: --from-literal=myname=contoso
+```
+
+You can use pipeline variables to pass literal values when creating ConfigMap, as shown here:
+
+```YAML
+    - task: Kubernetes@1
+      displayName: configMap with pipeline variables
+      inputs:
+        azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+        azureResourceGroup: $(azureResourceGroup)
+        kubernetesCluster: $(kubernetesCluster)
+        command: apply
+        arguments: -f mhc-aks.yaml
+        secretType: generic
+        secretArguments: --from-literal=contoso=$(contosovalue)
+        secretName: mysecretkey4
+        configMapName: myconfig
+        forceUpdateConfigMap: true
+        configMapArguments: --from-literal=myname=$(contosovalue)
+```
+### Troubleshooting
+
+#### My Kubernetes cluster is behind a firewall and I am using hosted agents. How can I deploy to this cluster?
+
+You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

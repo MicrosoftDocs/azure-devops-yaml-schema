@@ -266,6 +266,10 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to create an archive file from a source folder.
+A range of standard archive formats are supported including .zip, .jar, .war, .ear, .tar, .7z, and more.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

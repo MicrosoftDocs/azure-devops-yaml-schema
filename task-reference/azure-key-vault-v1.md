@@ -185,6 +185,10 @@ None.
 ## Remarks
 
 Works with cross-platform agents (Linux, macOS, or Windows).
+
+There is a newer version of the Archive Files task available.
+
+* [Azure Key Vault v2](azure-key-vault-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -214,5 +218,8 @@ Works with cross-platform agents (Linux, macOS, or Windows).
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Azure Key Vault v2](azure-key-vault-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

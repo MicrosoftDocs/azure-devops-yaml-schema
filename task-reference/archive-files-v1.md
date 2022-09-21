@@ -136,6 +136,11 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+There is a newer version of the Archive Files task available.
+
+* [Archive Files v2](archive-files-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -165,5 +170,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Archive Files v2](archive-files-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

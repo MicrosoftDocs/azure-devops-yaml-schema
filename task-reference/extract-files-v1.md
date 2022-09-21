@@ -186,11 +186,43 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to extract files from archives to a target folder using match patterns. A range of standard archive formats is supported, including .zip, .jar, .war, .ear, .tar, .7z, and more.
+
+For more information about file matching patterns, see [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Extract all .zip files recursively
+
+This example will extract all .zip files recursively, including both root files and files from sub-folders
+
+```yaml
+steps:
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '**/*.zip'
+    cleanDestinationFolder: true
+    overwriteExistingFiles: false
+```
+
+### Extract all .zip files from subfolder
+
+This example will extract `test/one.zip`, `test/two.zip` but will leave `test/nested/three.zip`.
+
+```yaml
+steps:
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: 'test/*.zip'
+    cleanDestinationFolder: true
+    overwriteExistingFiles: false
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -230,5 +262,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

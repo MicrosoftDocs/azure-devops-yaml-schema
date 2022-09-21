@@ -168,11 +168,70 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to delete files or folders from the agent working directory.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Delete several patterns
+
+This example will delete `some/file`, all files beginning with `test`, and all files in all subdirectories called `bin`.
+
+```yaml
+steps:
+- task: DeleteFiles@1
+  displayName: 'Remove unneeded files'
+  inputs:
+    contents: |
+      some/file
+      test*
+      **/bin/*
+```
+
+### Delete all but one subdirectory
+
+This example will delete `some/one`, `some/three` and  `some/four` but will leave`some/two`.
+
+```yaml
+steps:
+- task: DeleteFiles@1
+  displayName: 'Remove unneeded files'
+  inputs:
+    contents: |
+      some/!(two)
+```
+
+### Delete using brace expansion
+
+This example will delete `some/one` and `some/four` but will leave `some/two` and `some/three`.
+
+```yaml
+steps:
+- task: DeleteFiles@1
+  displayName: 'Remove unneeded files'
+  inputs:
+    contents: |
+      some/{one,four}
+```
+
+### Delete files starting with a dot
+
+This example will delete all `.txt` files. Files starting with a dot will be deleted as well.
+
+```yaml
+steps:
+- task: DeleteFiles@1
+  displayName: 'Remove unneeded files'
+  inputs:
+    contents: |
+      /some/*.txt
+    removeDotFiles: true
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

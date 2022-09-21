@@ -600,11 +600,202 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to build, push or run multi-container Docker applications. This task can be used with a Docker registry or an Azure Container Registry.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+* [Azure Container Registry](#azure-container-registry)
+* [Other container registries](#other-container-registries)
+* [Build service images](#build-service-images)
+* [Push service images](#push-service-images)
+* [Run service images](#run-service-images)
+* [Run a specific service image](#run-a-specific-service-image)
+* [Lock service images](#lock-service-images)
+* [Write service image digests](#write-service-image-digests)
+* [Combine configuration](#combine-configuration)
+* [Run a Docker Compose command](#run-a-docker-compose-command)
+
+### Azure Container Registry
+
+This YAML example specifies the inputs for Azure Container Registry:
+
+```YAML
+variables:
+  azureContainerRegistry: Contoso.azurecr.io
+  azureSubscriptionEndpoint: Contoso
+steps:
+- task: DockerCompose@0
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: Azure Container Registry
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+```
+
+### Other container registries
+
+The **containerregistrytype** value is required when using any container registry other than ACR. Use `containerregistrytype: Container Registry` in this case.
+
+This YAML example specifies a container registry other than ACR where **Contoso**
+is the name of the Docker registry service connection for the container registry:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: Contoso
+```
+
+### Build service images
+
+This YAML example builds the image where the image name is qualified on the basis of the inputs related to Azure Container Registry:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Build services
+  inputs:
+    action: Build services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    additionalImageTags: $(Build.BuildId)
+    dockerComposeFileArgs: |
+      firstArg=$(firstArg)
+      secondArg=$(secondArg)
+
+```
+
+### Push service images
+
+This YAML example pushes an image to a container registry:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Push services
+  inputs:
+    action: Push services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    additionalImageTags: $(Build.BuildId)
+```
+
+### Run service images
+
+This YAML example runs services:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Run services
+  inputs:
+    action: Run services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.ci.build.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    buildImages: true
+    abortOnContainerExit: true
+    detached: false
+```
+
+### Run a specific service image
+
+This YAML example runs a specific service:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Run a specific service
+  inputs:
+    action: Run a specific service
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    serviceName: myhealth.web
+    ports: 80:80
+    detached: true
+```
+
+### Lock service images
+
+This YAML example locks services:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Lock services
+  inputs:
+    action: Lock services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    outputDockerComposeFile: $(Build.StagingDirectory)/docker-compose.yml
+```
+
+### Write service image digests
+
+This YAML example writes service image digests:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Write service image digests
+  inputs:
+    action: Write service image digests
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    imageDigestComposeFile: $(Build.StagingDirectory)/docker-compose.images.yml 
+```
+
+### Combine configuration
+
+This YAML example combines configurations:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Combine configuration
+  inputs:
+    action: Combine configuration
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    additionalDockerComposeFiles: docker-compose.override.yml
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    outputDockerComposeFile: $(Build.StagingDirectory)/docker-compose.yml
+```
+### Run a Docker Compose command
+
+This YAML example runs a docker Compose command:
+
+```YAML
+- task: DockerCompose@0
+  displayName: Run a Docker Compose command
+  inputs:
+    action: Run a Docker Compose command
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml 
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    dockerComposeCommand: rm
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

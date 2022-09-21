@@ -628,6 +628,12 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy to Azure SQL DB using a DACPAC or run scripts using SQLCMD.
+
+> [!IMPORTANT]
+> This task is supported only in a Windows environment. If you are trying to use Azure Active Directory (Azure AD) integrated authentication, you must create a private agent. Azure AD integrated authentication is not supported for hosted agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

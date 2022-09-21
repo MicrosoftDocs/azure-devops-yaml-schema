@@ -104,12 +104,80 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-More optimized task fields that allow users to enable any/all of the transformation (XML), variable substitution (JSON and XML) features in a single task instance.</br>Task fails when any of the configured transformation/substitution is NOT applied or when the task is no-op.
+What's new in File Transform version 2:
+
+* More optimized task fields that allow users to enable any/all of the transformation (XML), variable substitution (JSON and XML) features in a single task instance.
+* Task fails when any of the configured transformation/substitution is NOT applied or when the task is no-op.
+
+Use this task to apply file transformations and variable substitutions on configuration and parameters files. 
+For details of how translations are processed, see [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
+
+> [!IMPORTANT]
+> This task is intended for web packages and requires a web package file, and does not work on standalone json files.
+
+### File transformations
+
+* At present file transformations are supported for only XML files.
+* To apply XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-t ransform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
+* File transformations are useful in many scenarios, particularly when you are deploying to an App service and want to add,
+  remove or modify configurations for different environments (such as Dev, Test, or Prod) by following the standard
+  [Web.config Transformation Syntax](/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations).
+* You can also use this functionality to transform other files, including Console or Windows service application configuration files
+  (for example, FabrikamService.exe.config).
+* Config file transformations are run before variable substitutions. 
+
+### Variable substitution
+
+* At present only XML and JSON file formats are supported for variable substitution.
+* Tokens defined in the target configuration files are updated and then replaced with variable values. 
+* Variable substitutions are run after config file transformations.
+* Variable substitution is applied for only the JSON keys predefined in the object hierarchy. It does not create new keys. 
+
+> [!NOTE]
+> Only custom variables defined in build and release pipelines are used in substitution. Default and system pipeline variables are excluded.
+>
+> Here's a list of currently excluded prefixes: 
+> * 'agent.'
+> * 'azure_http_user_agent'
+> * 'build.'
+> * 'common.'
+> * 'release.'
+> * 'system.'
+> * 'tf_'
+> 
+> If the same variables are defined in both the release pipeline and in a stage, the stage-defined variables supersede the pipeline-defined variables.
+
+See also: [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+If you need XML transformation to run on all the configuration files named with pattern **.Production.config**,
+the transformation rule should be specified as:
+
+`-transform **\*.Production.config  -xml **\*.config`
+
+If you have a configuration file named based on the stage name in your pipeline, you can use:
+
+`-transform **\*.$(Release.EnvironmentName).config -xml **\*.config`
+
+To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions. 
+For example, to replace the value of **ConnectionString** in the sample below, you must define a variable
+as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or in a stage within the release pipeline). 
+
+```
+{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
+    }
+  }
+}
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -134,5 +202,8 @@ More optimized task fields that allow users to enable any/all of the transformat
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

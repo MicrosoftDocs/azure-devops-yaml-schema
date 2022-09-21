@@ -100,6 +100,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This version of the task is deprecated, use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -129,5 +132,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [NuGetAuthenticate@1](nuget-authenticate-v1.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
