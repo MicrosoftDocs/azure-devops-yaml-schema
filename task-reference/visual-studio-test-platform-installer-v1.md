@@ -195,6 +195,20 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/)
+from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the 'vstest'
+demand and a subsequent [Visual Studio Test task](vstest-v2.md)
+in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
+
+> [!NOTE]
+>
+> * The **Visual Studio Test Platform Installer** task must appear before the **Visual Studio Test** task in the build or release pipeline.
+> * The **Test platform version** option in the **Visual Studio Test** task must be set to **Installed by Tools Installer**.
+
+See [Run automated tests from test plans](/azure/devops/test/run-automated-tests-from-test-hub)
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

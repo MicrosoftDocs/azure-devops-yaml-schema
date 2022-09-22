@@ -715,8 +715,6 @@ The command input accepts one of the following [kubectl commands](https://kubern
 
 **apply**, **create**, **delete**, **exec**, **expose**, **get**, **login**, **logout**, **logs**, **run**, **set**, or **top**.
 
-#### apply
-
 This YAML example demonstrates the **apply** command:
 
 ```YAML

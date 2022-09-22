@@ -241,6 +241,45 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run shell commands or a script on a remote machine using SSH.
+This task enables you to connect to a remote machine using SSH and run commands or a script.
+
+### Prerequisites
+
+* The task supports use of an SSH key pair to connect to the remote machine(s).
+* The public key must be pre-installed or copied to the remote machine(s).
+
+### Supported algorithms
+
+#### Key pair algorithms
+
+* RSA
+* DSA
+
+#### Encryption algorithms
+
+* aes256-cbc
+* aes192-cbc
+* aes128-cbc
+* blowfish-cbc
+* 3des-cbc
+* arcfour256
+* arcfour128
+* cast128-cbc
+* arcfour
+
+For OpenSSL v1.0.1 and higher (on agent):
+* aes256-ctr
+* aes192-ctr
+* aes128-ctr
+
+For OpenSSL v1.0.1 and higher, NodeJS v0.11.12 and higher (on agent):
+* aes128-gcm
+* aes128-gcm@openssh.com
+* aes256-gcm
+* aes256-gcm@openssh.com
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -285,5 +324,10 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Install SSH Key task](install-ssh-key-v0.md)
+* [Copy Files Over SSH](copy-files-over-ssh-v0.md)
+* Blog post [SSH build task](https://devblogs.microsoft.com/devops/ssh-build-task/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

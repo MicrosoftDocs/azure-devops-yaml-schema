@@ -240,7 +240,17 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in Version 2.0.
+Use this task to copy application files and other artifacts such as PowerShell scripts and PowerShell-DSC modules that are required to install the application on Windows Machines. It uses RoboCopy, the command-line utility built for fast copying of data.
+
+### I get a system error 53 when using this task. Why?
+
+Typically this occurs when the specified path cannot be located.
+This may be due to a firewall blocking the necessary ports for file and printer sharing,
+or an invalid path specification. For more details, see
+[Error 53](/previous-versions/windows/it-pro/windows-2000-server/cc940100(v=technet.10)) on TechNet.
+
+### What's new in Version 2.0
+
 * Proxy support is being added.
 * Removed support of legacy DTL machines.
 <!-- :::editable-content-end::: -->

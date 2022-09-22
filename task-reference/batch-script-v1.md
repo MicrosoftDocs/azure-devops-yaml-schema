@@ -149,11 +149,48 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run a Windows .bat or .cmd script.
+Optionally, allow it to permanently modify environment variables.
+
+> [!NOTE]
+> This task is not compatible with Windows containers. If you need to run a batch script on a Windows container, use the [command line task](cmd-line-v2.md) instead.
+> 
+> For information on supporting multiple platforms, see [cross platform scripting](/azure/devops/pipelines/scripts/cross-platform-scripting).
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+## Example
+
+Create `test.bat` at the root of your repo:
+
+```bat
+@echo off
+echo Hello World from %AGENT_NAME%.
+echo My ID is %AGENT_ID%.
+echo AGENT_WORKFOLDER contents:
+@dir %AGENT_WORKFOLDER%
+echo AGENT_BUILDDIRECTORY contents:
+@dir %AGENT_BUILDDIRECTORY%
+echo BUILD_SOURCESDIRECTORY contents:
+@dir %BUILD_SOURCESDIRECTORY%
+echo Over and out.
+```
+
+To run this script, add the following task to your pipeline.
+
+```yml
+- task: BatchScript@1
+  inputs:
+    filename: 'test.bat'
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

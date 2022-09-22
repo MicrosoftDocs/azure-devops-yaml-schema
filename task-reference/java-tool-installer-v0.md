@@ -306,11 +306,66 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to acquire a specific version of Java from a user supplied Azure blob,
+from a location in the source or on the agent, or from the tools cache. The task also sets the JAVA_HOME environment variable.
+Use this task to change the version of Java used in Java tasks.
+
+> [!NOTE]
+>
+> To run **Java Tool Installer** task on macOS it is required for user under which agent is running to have permission to execute **sudo** command without a password. 
+> You can follow the next steps to enable this permission:
+> 1) Run *sudo visudo* command, it will open sudoers file for editing.
+> 2) Go to the bottom of the file and add the following line: *user ALL=NOPASSWD: /usr/sbin/installer* (Replace 'user' by the actual user alias)
+> 3) Save and close the file.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+Here's an example of getting the archive file from a local directory on Linux.
+The file should be an archive (.zip, .gz) of the `JAVA_HOME` directory so that it includes the `bin`, `lib`, `include`, `jre`, etc. directories.
+
+```yaml
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: "11"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "/builds/openjdk-11.0.2_linux-x64_bin.tar.gz"
+      jdkDestinationDirectory: "/builds/binaries/externals"
+      cleanDestinationDirectory: true
+```
+
+Here's an example of downloading the archive file from Azure Storage.
+The file should be an archive (.zip, .gz) of the `JAVA_HOME` directory so that it includes the `bin`, `lib`, `include`, `jre`, etc. directories.
+
+```yaml
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '6'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: AzureStorage
+    azureResourceManagerEndpoint: myARMServiceConnection
+    azureStorageAccountName: myAzureStorageAccountName
+    azureContainerName: myAzureStorageContainerName
+    azureCommonVirtualFile: 'jdk1.6.0_45.zip'
+    jdkDestinationDirectory: '$(agent.toolsDirectory)/jdk6'
+    cleanDestinationDirectory: false
+```
+
+Here's an example of using "pre-installed" feature. This feature allows you to use Java versions that are pre-installed on the Microsoft-hosted agent. You can find available pre-installed versions of Java in [the included software column in the hosted agents table](/azure/devops/pipelines/agents/hosted#software).
+
+```yaml
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x86'
+    jdkSourceOption: 'PreInstalled'
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -365,5 +420,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+For an explanation of tool installers and examples, see [Tool installers](/azure/devops/pipelines/process/tasks#tool-installers).
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

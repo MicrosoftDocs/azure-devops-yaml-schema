@@ -649,12 +649,21 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+Use this task to build, test, or archive an Xcode workspace on macOS, and optionally package an app.
+
 This version of the task is compatible with Xcode 8 - 11. Features that were solely to maintain compatibility with Xcode 7 have been removed. This task has better options for using Microsoft-hosted macOS agents.
+
+### Using multiple provisioning profiles
+
+Currently there's no support of multiple provisioning profiles for Xcode task (for example for iOS App Extension).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+[Build your Xcode app](/azure/devops/pipelines/ecosystems/xcode)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

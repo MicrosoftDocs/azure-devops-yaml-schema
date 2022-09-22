@@ -310,7 +310,20 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in this task version.
+Use this task to execute PowerShell scripts on remote machine(s).
+
+This task can run both PowerShell scripts and PowerShell-DSC scripts:
+
+* For PowerShell scripts, the computers must have PowerShell 2.0 or higher installed.
+* For PowerShell-DSC scripts, the computers must have 
+  [the latest version of the Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)
+  installed. This is installed by default on Windows 8.1, Windows Server 2012 R2, and later.
+
+### Prerequisites
+
+[!INCLUDE[deploy-winrm-setup](includes/deploy-winrm-setup.md)]
+
+### What's new in this task version
 
 * Uses PSSession and invoke-command to perform remoting on target machines.
 * Added support for inline script execution.

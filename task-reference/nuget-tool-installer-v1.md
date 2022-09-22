@@ -64,6 +64,9 @@ Type: boolean. Default value: false.<br>
 Always check for and download the latest available version of NuGet.exe which satisfies the version spec.
 
 Enabling this option could cause unexpected build breaks when a new version of NuGet is released.
+
+> [!TIP]
+> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to false. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -86,6 +89,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to find, download, and cache a specified version of [NuGet](https://nuget.org/) and add it to the PATH. For information on the tools cache, see the [azure-pipelines-tool-lib](https://github.com/microsoft/azure-pipelines-tool-lib/blob/master/docs/overview.md#tool-cache) repo.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -115,5 +121,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+For an explanation of tool installers and examples, see [Tool installers](/azure/devops/pipelines/process/tasks#tool-installers).
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

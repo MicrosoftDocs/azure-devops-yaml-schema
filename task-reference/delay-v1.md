@@ -95,6 +95,12 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to pause execution of the pipeline for a fixed delay time.
+
+> [!NOTE]
+> Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

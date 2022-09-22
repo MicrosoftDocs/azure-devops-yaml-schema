@@ -334,12 +334,65 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Added support for forwarding Android mapping to App Center Diagnostics. Added missing descriptions.
+Use this task to distribute app builds to testers and users through App Center.
+- [Sign up with App Center](https://appcenter.ms/signup?utm_source=DevOps&utm_medium=Azure&utm_campaign=docs) first.
+- For details about using this task, see the App Center documentation article [Deploy Azure DevOps Builds with App Center](/appcenter/distribution/vsts-deploy).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example pipeline builds an Android app, runs tests, and publishes the app using App Center Distribute.
+
+```yaml
+# Android
+# Build your Android project with Gradle.
+# Add steps that test, sign, and distribute the APK, save build artifacts, and more:
+# https://learn.microsoft.com/azure/devops/pipelines/ecosystems/android
+
+pool:
+  vmImage: 'macOS-latest'
+steps:
+
+- script: sudo npm install -g appcenter-cli
+- script: appcenter login --token {YOUR_TOKEN}
+
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: build
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.apk'
+    targetFolder: '$(build.artifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(build.artifactStagingDirectory)'
+    artifactName: 'outputs'
+    artifactType: 'container'
+
+# Run tests using the App Center CLI
+- script: appcenter test run espresso --app "{APP_CENTER_SLUG}" --devices "{DEVICE}" --app-path {APP_FILE} --test-series "master" --locale "en_US" --build-dir {PAT_ESPRESSO} --debug
+
+# Distribute the app
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'AppCenter'
+    appSlug: '$(APP_CENTER_SLUG)'
+    appFile: '$(APP_FILE)' # Relative path from the repo root to the APK or IPA file you want to publish
+    symbolsOption: 'Android'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Here are the release notes for this version.'
+    destinationType: 'groups'
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

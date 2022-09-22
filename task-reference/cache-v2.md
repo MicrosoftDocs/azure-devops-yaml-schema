@@ -101,6 +101,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Improve build performance by caching files, like dependencies, between pipeline runs.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -130,5 +133,9 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Pipeline Caching](/azure/devops/pipelines/release/caching)
+* [Cache NuGet packages](/azure/devops/pipelines/artifacts/caching-nuget)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

@@ -566,6 +566,185 @@ The location of the manifest bundles created by bake action
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use a Kubernetes manifest task in a build or release pipeline to bake and deploy manifests to Kubernetes clusters.
+
+This task supports the following:
+
+- **Artifact substitution**: The deployment action takes as input a list of container images that you can specify along with their tags and digests. The same input is substituted into the nontemplatized manifest files before application to the cluster. This substitution ensures that the cluster nodes pull the right version of the image.
+
+- **Manifest stability**: The rollout status of the deployed Kubernetes objects is checked. The stability checks are incorporated to determine whether the task status is a success or a failure.
+
+- **Traceability annotations**: Annotations are added to the deployed Kubernetes objects to superimpose traceability information. The following annotations are supported:
+
+  - azure-pipelines/org
+  - azure-pipelines/project
+  - azure-pipelines/pipeline
+  - azure-pipelines/pipelineId
+  - azure-pipelines/execution
+  - azure-pipelines/executionuri
+  - azure-pipelines/jobName
+
+- **Secret handling**: The **createSecret** action lets Docker registry secrets be created using Docker registry service connections. It also lets generic secrets be created using either plain-text variables or secret variables. Before deployment to the cluster, you can use the **secrets** input along with the **deploy** action to augment the input manifest files with the appropriate **imagePullSecrets** value.
+
+- **Bake manifest**: The **bake** action of the task allows for baking templates into Kubernetes manifest files. The action uses tools such as Helm, Compose, and kustomize. With baking, these Kubernetes manifest files are usable for deployments to the cluster.
+
+- **Deployment strategy**: Choosing the **canary** strategy with the **deploy** action leads to creation of workloads having names suffixed with "-baseline" and "-canary". The task supports two methods of traffic splitting:
+
+  - **Service Mesh Interface**: [Service Mesh Interface](https://smi-spec.io/) (SMI) abstraction allows configuration with service mesh providers like Linkerd and Istio. The Kubernetes Manifest task maps SMI TrafficSplit objects to the stable, baseline, and canary services during the life cycle of the deployment strategy.
+
+    Canary deployments that are based on a service mesh and use this task are more accurate. This accuracy comes because service mesh providers enable the granular percentage-based split of traffic. The service mesh uses the service registry and sidecar containers that are injected into pods. This injection occurs alongside application containers to achieve the granular traffic split.
+  
+  - **Kubernetes with no service mesh**: In the absence of a service mesh, you might not get the exact percentage split you want at the request level. But you can possibly do canary deployments by using baseline and canary variants next to the stable variant.
+
+    The service sends requests to pods of all three workload variants as the selector-label constraints are met. Kubernetes Manifest honors these requests when creating baseline and canary variants. This routing behavior achieves the intended effect of routing only a portion of total requests to the canary.
+
+  Compare the baseline and canary workloads by using either a [Manual Intervention task](manual-intervention-v8.md) in release pipelines or a [Delay task](delay-v1.md) in YAML pipelines. Do the comparison before using the promote or reject action of the task.
+
+### Deploy action
+
+The following YAML code is an example of deploying to a Kubernetes namespace by using manifest files:
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  displayName: Deploy
+  inputs:
+    kubernetesServiceConnection: someK8sSC1
+    namespace: default
+    manifests: |
+      manifests/deployment.yml
+      manifests/service.yml
+    containers: |
+      foo/demo:$(tagVariable1)
+      bar/demo:$(tagVariable2)
+    imagePullSecrets: |
+      some-secret
+      some-other-secret
+```
+
+In the above example, the task tries to find matches for the images <code>foo/demo</code> and <code>bar/demo</code> in the image fields of manifest files. For each match found, the value of either <code>tagVariable1</code> or <code>tagVariable2</code> is appended as a tag to the image name. You can also specify digests in the containers input for artifact substitution.
+
+> [!NOTE]
+> While you can author deploy, promote, and reject actions with YAML input related to deployment strategy, support for a Manual Intervention task is currently unavailable for build pipelines.
+>
+> For release pipelines, we advise you to use actions and input related to deployment strategy in the following sequence:
+> 1. A deploy action specified with <code>strategy: canary</code> and <code>percentage: $(<i>someValue</i>)</code>.
+> 1. A Manual Intervention task so that you can pause the pipeline and compare the baseline variant with the canary variant.
+> 1. A promote action that runs if a Manual Intervention task is resumed and a reject action that runs if a Manual Intervention task is rejected.
+
+### Create secret action
+
+The following YAML code shows a sample creation of Docker registry secrets by using [Docker Registry service connection](/azure/devops/pipelines/library/service-endpoints#docker-registry-service-connection):
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  displayName: Create secret
+  inputs: 
+    action: createSecret
+    secretType: dockerRegistry
+    secretName: foobar
+    dockerRegistryEndpoint: demoACR
+    kubernetesServiceConnection: someK8sSC
+    namespace: default
+```
+
+This YAML code shows a sample creation of generic secrets:
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  displayName: Create secret
+  inputs: 
+    action: createSecret
+    secretType: generic
+    secretName: some-secret
+    secretArguments: --from-literal=key1=value1
+    kubernetesServiceConnection: someK8sSC
+    namespace: default
+```
+
+### Bake action
+
+The following YAML code is an example of baking manifest files from Helm charts. Note the usage of name input in the first task. This name is later referenced from the deploy step for specifying the path to the manifests that were produced by the bake step.
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  name: bake
+  displayName: Bake K8s manifests from Helm chart
+  inputs:
+    action: bake
+    helmChart: charts/sample
+    overrides: 'image.repository:nginx'
+
+- task: KubernetesManifest@0
+  displayName: Deploy K8s manifests
+  inputs:
+    kubernetesServiceConnection: someK8sSC
+    namespace: default
+    manifests: $(bake.manifestsBundle)
+    containers: |
+      nginx: 1.7.9
+```
+
+### Scale action
+
+The following YAML code shows an example of scaling objects:
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  displayName: Scale
+  inputs: 
+    action: scale
+    kind: deployment
+    name: bootcamp-demo
+    replicas: 5
+    kubernetesServiceConnection: someK8sSC
+    namespace: default
+```
+
+### Patch action
+
+The following YAML code shows an example of object patching:
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  displayName: Patch
+  inputs: 
+    action: patch
+    kind: pod
+    name: demo-5fbc4d6cd9-pgxn4
+    mergeStrategy: strategic
+    patch: '{"spec":{"containers":[{"name":"demo","image":"foobar/demo:2239"}]}}'
+    kubernetesServiceConnection: someK8sSC
+    namespace: default
+```
+
+### Delete action
+
+This YAML code shows a sample object deletion:
+
+```YAML
+steps:
+- task: KubernetesManifest@0
+  displayName: Delete
+  inputs:
+    action: delete
+    arguments: deployment expressapp
+    kubernetesServiceConnection: someK8sSC
+    namespace: default
+```
+
+### Troubleshooting
+
+#### My Kubernetes cluster is behind a firewall and I am using hosted agents. How can I deploy to this cluster?
+
+You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

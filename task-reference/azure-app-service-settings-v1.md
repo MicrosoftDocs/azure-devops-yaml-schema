@@ -144,11 +144,75 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to configure App settings, connection strings and other general settings in bulk using JSON syntax on your web app or any of its deployment slots. 
+The task works on cross platform Azure Pipelines agents running Windows, Linux or Mac.
+The task works for ASP.NET, ASP.NET Core, PHP, Java, Python, Go and Node.js based web applications.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following example YAML snippet deploys a web application to an Azure Web App service running on windows.
+
+```YAML
+
+variables:
+  azureSubscription: Contoso
+  WebApp_Name: sampleWebApp
+  # To ignore SSL error uncomment the below variable
+  # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
+
+steps:
+
+- task: AzureWebApp@1
+  displayName: Azure Web App Deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: $(WebApp_Name)
+    package: $(System.DefaultWorkingDirectory)/**/*.zip
+
+- task: AzureAppServiceSettings@1
+  displayName: Azure App Service Settings
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: $(WebApp_Name)
+   # To deploy the settings on a slot, provide slot name as below. By default, the settings would be applied to the actual Web App (Production slot)
+   # slotName: staging
+    appSettings: |
+      [
+        {
+          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+          "value": "$(Key)",
+          "slotSetting": false
+        },
+        {
+          "name": "MYSQL_DATABASE_NAME",
+          "value": "$(DB_Name)", 
+          "slotSetting": false
+        }
+      ]
+    generalSettings: |
+      [
+        {
+          "alwaysOn": true,
+          "webSocketsEnabled": false
+        }
+      ]
+    connectionStrings: |
+      [
+        {
+          "name": "MysqlCredentials",
+          "value": "$(MySQl_ConnectionString)",
+          "type": "MySql",
+          "slotSetting": false
+        }
+      ]
+
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

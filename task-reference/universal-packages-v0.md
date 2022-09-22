@@ -452,11 +452,95 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to download, or package and publish Universal Packages.
+
+### My Pipeline needs to access a feed in a different project
+
+If the pipeline is running in a different project than the project hosting the feed, you must set up the other project to grant read/write access to the build service. See [Package permissions in Azure Pipelines](/azure/devops/artifacts/feeds/feed-permissions#pipelines-permissions) for more details.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The simplest way to get started with the Universal Package task is to use the Pipelines task editor to generate the YAML. You can then copy the generated code into your project's `azure-pipelines.yml` file. In this example, the sample demonstrates how to quickly generate the YAML using a pipeline that builds a GatsbyJS progressive web app (PWA).  
+
+Universal Packages are a useful way to both encapsulate and version a web app.  Packaging a web app into a Universal Package enables quick rollbacks to a specific version of your site and eliminates the need to build the site in the deployment pipeline.
+
+This example pipeline demonstrates how to fetch a tool from a feed within your project. The Universal Package task is used to download the tool, run a build, and again uses the Universal Package task to publish the entire compiled GatsbyJS PWA to a feed as a versioned Universal Package.
+
+:::image type="content" source="media/sample-npm-project-with-universal.png" alt-text="Screenshot of sample project.":::
+
+### Download a package with the Universal Package task
+
+The second task in the sample project uses the Universal Package task to fetch a tool, imagemagick, from a feed that is within a different project in the same organization. The tool, imagemagick, is required by the subsequent build step to resize images.
+
+1. Add the Universal Package task by clicking the plus icon, typing "universal" in the search box, and clicking the "Add" button to add the task to your pipeline.
+
+    :::image type="content" source="media/add-universal-task.png" alt-text="Screenshot of adding the Universal Package task.":::
+
+2. Click the newly added **Universal Package** task and the **Command** to `Download`. 
+3. Choose the **Destination directory** to use for the tool download. 
+4. Select a source **Feed** that contains the tool, set the **Package name**, and choose **Version** of the imagemagick tool from the source *Feed**.
+
+    :::image type="content" source="media/universal-package-download.png" alt-text="Screenshot of configuring the Universal Package task to download.":::
+
+5. After completing the fields, click **View YAML** to see the generated YAML.  
+
+    :::image type="content" source="media/copy-yaml-to-clipboard.png" alt-text="Screenshot of viewing the YAML.":::
+
+6. The **Universal Package** task builder generates simplified YAML that contains non-default values. Copy the generated YAML into your `azure-pipelines.yml` file at the root of your project's git repo as defined [here](/azure/devops/pipelines/customize-pipeline#understand-the-azure-pipelinesyml-file).
+
+    ```YAML
+    # Download Universal Package
+    steps:
+    - task: UniversalPackages@0
+      displayName: 'Universal download'
+      inputs:
+        downloadDirectory: Application
+        vstsFeed: '00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000001'
+        vstsFeedPackage: imagemagick
+        vstsPackageVersion: 1.0.0
+    ```
+
+### Publish a package with the Universal Package task
+
+The last step in this sample pipeline uses the Universal Package task to upload the production-ready Gatsby PWA that was produced by the `Run gatsby build` step to a feed as a versioned Universal Package.  Once in a feed, you have a permanent copy of your complete site that can be deployed to hosting provider and started with `gatsby serve`.  
+
+1. Add another Universal Package task to the end of the pipeline by clicking the plus icon, typing "universal" in the search box, and clicking the "Add" button to add the task to your pipeline.  This task gathers all of the production-ready assets produced by the `Run gatsby build` step, produce a versioned Universal Package, and publish the package to a feed.  
+
+    :::image type="content" source="media/universal-package-upload.png" alt-text="Screenshot of setting a Universal Package task to publish.":::
+
+2. Set the **Command** to `Publish`.  
+3. Set **Path to file(s) to publish** to the directory containing your GatsbyJS project's `package.json`.  
+4. Choose a destination feed, a package name, and set your versioning strategy.
+
+    :::image type="content" source="media/universal-package-publish.png" alt-text="Screenshot of configuring the Universal Package task to publish.":::
+
+5. After completing the required fields, click **View YAML**.
+6. Copy the resulting YAML into your `azure-pipelines.yml` file as before. The YAML for this sample project displays below.
+
+    ```YAML
+    # Publish Universal Package
+    steps:
+    - task: UniversalPackages@0
+      displayName: 'Universal publish'
+      inputs:
+        command: publish
+        publishDirectory: Application
+        vstsFeedPublish: '00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000002' # You can also use '<projectName>/<feedName>' instead of the GUIDs
+        vstsFeedPackagePublish: mygatsbysite
+        packagePublishDescription: 'A test package'
+      ```
+
+This example demonstrated how to use the Pipelines task builder to quickly generate the YAML for the Universal Package task, which can then be placed into your `azure-pipelines.yml` file. The Universal Package task builder supports all of the advanced configurations that can be created with **Universal Package** task's arguments.
+
+> [!NOTE]
+> Publishing a package directly to a view is not supported in Azure Artifacts. You must publish the package to your feed first, then promote it to a view.
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
