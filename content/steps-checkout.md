@@ -50,9 +50,8 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository ref.
-
-Defaults to 'self' for jobs.job.step.checkout and 'none' for jobs.deployment.steps.checkout.
+<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br>
+Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`.
 <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -313,7 +312,7 @@ ___
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none, repository name, repository ref)
+- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none, repository name, repository ref).
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
@@ -347,8 +346,8 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br/>
-Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`
+<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br>
+Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -629,7 +628,7 @@ ___
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
+- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none, repository name, repository ref).
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
@@ -664,7 +663,8 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias of the repository resource to check out or 'none'. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br>
+Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -965,7 +965,7 @@ ___
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
+- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none, repository name, repository ref).
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
@@ -1000,7 +1000,8 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias of the repository resource to check out or 'none'. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br>
+Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1301,7 +1302,7 @@ ___
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
+- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none, repository name, repository ref).
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
@@ -1337,7 +1338,8 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias of the repository resource to check out or 'none'. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br>
+Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -1658,7 +1660,7 @@ ___
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
+- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.  (self, none, repository name, repository ref).
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
@@ -1694,7 +1696,8 @@ Properties that use this definition: [steps](steps.md)
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias of the repository resource to check out or 'none'. 
+<!-- :::api-desc type="property"::: -->Required as first parameter. Whether or not to check out the repository containing this pipeline definition. Acceptable values: self, none, repository name, repository reference.<br>
+Defaults to 'self' for `jobs.job.step.checkout` and 'none' for `jobs.deployment.steps.checkout`.
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
