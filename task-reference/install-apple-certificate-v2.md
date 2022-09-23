@@ -223,7 +223,8 @@ The path for the keychain file with the certificate.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Fixes codesign hangs on a self hosted agent. Keychain password is now required to use `Default Keychain` or `Custom Keychain`. Microsoft hosted builds should use `Temporary Keychain`.
+Use this task to install an Apple certificate that is required to build on a macOS agent.
+You can use this task to install an Apple certificate that is stored as a [secure file](/azure/devops/pipelines/library/secure-files) on the server.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

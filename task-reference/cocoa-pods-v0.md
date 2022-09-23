@@ -123,6 +123,11 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run CocoaPods [pod install](https://guides.cocoapods.org/using/pod-install-vs-update.html).
+
+[CocoaPods](https://cocoapods.org/) is the dependency manager for Swift and Objective-C Cocoa projects. This task optionally runs `pod repo update` and then runs `pod install`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

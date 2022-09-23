@@ -151,12 +151,54 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Adds support to download Maven, Python, Universal and Npm packages.
+Use this task to download a package from a package management feed in Azure Artifacts or TFS.
+
+> [!NOTE]
+> Requires the [Package Management extension](https://marketplace.visualstudio.com/items?itemName=ms.feed).
+
+### How do I find the ID of the feed (or project) I want to download my artifact from
+
+The get feed api can be used to retrieve the feed and project ID for your feed. The api is documented [here](/rest/api/azure/devops/artifacts/feed-management/get-feed).
+
+### Can I use the project or feed name instead of IDs
+
+Yes, you can use the project or feed name in your definition, however if your project or feed is renamed in the future, your task will also have to be updated or it might fail.
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Download a NuGet package from an organization-scoped feed and extract to destination directory
+
+```YAML
+# Download an artifact with id 'cfe01b64-ded4-47b7-a569-2ac17cbcedbd' to $(System.ArtifactsDirectory)
+- task: DownloadPackage@1
+  inputs:
+    packageType: 'nuget'
+    feed: '6a60ef3b-e29f-41b6-9885-7874278baac7'
+    definition: 'cfe01b64-ded4-47b7-a569-2ac17cbcedbd' # Can also be package name
+    version: '1.0.0'
+    extract: true
+    downloadPath: '$(System.ArtifactsDirectory)'
+```
+
+### Download a maven package from a project-scoped feed and download only pom files
+
+```YAML
+# Download an artifact with name 'com.test:testpackage' to $(System.ArtifactsDirectory)
+- task: DownloadPackage@1
+  inputs:
+    packageType: 'maven'
+    feed: '132f5c2c-2aa0-475a-8b47-02c79617954b/c85e5de9-7b12-4cfd-9293-1b33cdff540e' # <projectId>/<feedId>
+    definition: 'com.test:testpackage' 
+    version: '1.0.0-snapshot' # Should be normalized version
+    files: '*.pom'
+    downloadPath: '$(System.ArtifactsDirectory)'
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

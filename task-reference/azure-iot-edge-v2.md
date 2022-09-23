@@ -373,11 +373,95 @@ This is the path of generated deployment file.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to build, test, and deploy applications quickly and efficiently to Azure IoT Edge.
+
+This task supports custom variables. If you're not familiar with how to use variables in pipelines, see [Define variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Build module images
+
+The following YAML example builds module images:
+
+```YAML
+- task: AzureIoTEdge@2
+  displayName: AzureIoTEdge - Build module images
+  inputs:
+    action: Build module images
+    templateFilePath: deployment.template.json
+    defaultPlatform: amd64  
+```
+
+### Push module images
+
+The following YAML example pushes module images:
+
+```YAML
+variables:
+  azureSubscriptionEndpoint: Contoso
+  azureContainerRegistry: contoso.azurecr.io
+
+steps:    
+- task: AzureIoTEdge@2
+  displayName: AzureIoTEdge - Push module images
+  inputs:
+    action: Push module images
+    containerregistrytype: Azure Container Registry
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: {"loginServer":"$(azureContainerRegistry)"}
+    templateFilePath: deployment.template.json
+    defaultPlatform: amd64
+    fillRegistryCredential: true
+```
+
+### Generate deployment manifest
+
+The following YAML example creates a deployment manifest based on the template file:
+
+```YAML
+steps:    
+- task: AzureIoTEdge@2
+  displayName: AzureIoTEdge - Generate deployment manifest
+  inputs:
+    action: Generate deployment manifest
+    templateFilePath: deployment.template.json
+    defaultPlatform: amd64
+    deploymentManifestOutputPath: $(System.DefaultWorkingDirectory)/config/deployment.json
+    validateGeneratedDeploymentManifest: false
+```
+
+### Deploy to IoT Edge devices
+
+The following YAML example deploys module images:
+
+```YAML
+steps:
+- task: AzureIoTEdge@2
+  displayName: 'Azure IoT Edge - Deploy to IoT Edge devices'
+  inputs:
+    action: 'Deploy to IoT Edge devices'
+    deploymentFilePath: $(System.DefaultWorkingDirectory)/config/deployment.json
+    azureSubscription: $(azureSubscriptionEndpoint)
+    iothubname: iothubname
+    deploymentid: '$(System.TeamProject)-devops-deployment'
+    priority: '0'
+    deviceOption: 'Single Device'
+    deviceId: deviceId
+```
+
+### More examples
+
+For step-by-step examples of how to use these actions in Azure Pipelines, see the following articles:
+
+* [Continuous integration and continuous deployment to Azure IoT Edge devices (YAML)](/azure/iot-edge/how-to-continuous-integration-continuous-deployment)
+* [Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor)](/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic)
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

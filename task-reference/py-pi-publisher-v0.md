@@ -153,6 +153,17 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+> [!IMPORTANT]
+> The PyPI Publisher task has been deprecated. You can now [publish PyPI packages using twine authentication and custom scripts](/azure/devops/pipelines/artifacts/pypi).
+
+Use this task to create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+
+This task builds an sdist package by running `python setup.py sdist` using the Python instance in `PATH`.
+It can optionally build a universal wheel in addition to the sdist.
+Then, it will upload the package to a PyPI index using `twine`.
+The task will install the `wheel` and `twine` packages with `python -m pip install --user`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

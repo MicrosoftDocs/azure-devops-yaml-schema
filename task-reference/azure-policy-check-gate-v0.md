@@ -89,6 +89,16 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+[Azure Policy](/azure/governance/policy/) allows you to assess and enforce resource compliance against defined IT policies.
+Use this task in a gate to identify, analyze and evaluate the security risks,
+and determine the mitigation measures required to reduce the risks.
+
+> [!NOTE]
+> Can be used only as a [gate](/azure/devops/pipelines/release/approvals/gates). This task is not supported in a build or release pipeline.
+>
+> :::image type="content" source="media/gates.png" alt-text="Screenshot that shows using the task as a gate in a release pipeline.":::
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

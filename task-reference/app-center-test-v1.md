@@ -574,11 +574,34 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task lets you run test suites against an application binary (`.apk` or `.ipa` file) using App Center Test.
+
+* [Sign up with App Center](https://appcenter.ms/signup?utm_source=DevOps&utm_medium=Azure&utm_campaign=docs) first.
+* For details about using this task, see the App Center documentation article [Using Azure DevOps for UI Testing](/appcenter/test-cloud/vsts-plugin).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example runs Espresso tests on an Android app using the App Center Test task.
+
+```yaml
+steps:
+- task: AppCenterTest@1
+  displayName: 'Espresso Test - Synchronous'
+  inputs:
+    appFile: 'Espresso/espresso-app.apk'
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    frameworkOption: espresso
+    espressoBuildDirectory: Espresso
+    serverEndpoint: 'myAppCenterServiceConnection'
+    appSlug: 'xplatbg1/EspressoTests'
+    devices: a84c93af
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

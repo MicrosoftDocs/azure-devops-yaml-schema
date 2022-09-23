@@ -169,6 +169,9 @@ Although Azure PowerShell isn't listed in the demands for `AzureLoadTest@1`, the
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+For an example using this task, see the Azure Load Testing documentation article [Continuous regression testing with Azure Pipelines](/azure/load-testing/tutorial-cicd-azure-pipelines).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

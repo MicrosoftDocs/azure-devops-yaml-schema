@@ -157,6 +157,15 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run a PowerShell script within the context of an Azure Service Fabric cluster connection.
+Runs any PowerShell command or script in a PowerShell session that has a Service Fabric cluster connection initialized.
+
+### Service Fabric
+
+* This task uses a Service Fabric installation to connect and deploy to a Service Fabric cluster.
+* [Azure Service Fabric Core SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) on the build agent.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

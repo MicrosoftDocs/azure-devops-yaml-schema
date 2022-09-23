@@ -164,8 +164,14 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in Version 1.0:
-   Added support for query unified Azure monitor alerts.
+Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to observe the configured Azure monitor rules for active alerts.
+
+> [!NOTE]
+> Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+
+The task succeeds if none of the alert rules are activated at the time of sampling.
+
+For more information about using this task, see [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -264,11 +264,17 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run Grunt tasks using the JavaScript Task Runner.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+See [Sample Gruntfile](https://gruntjs.com/sample-gruntfile).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

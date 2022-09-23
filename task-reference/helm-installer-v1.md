@@ -65,11 +65,39 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task can be used for installing a specific version of helm binary on agents.
+
+### Troubleshooting
+
+#### HelmInstaller task running on a private agent behind a proxy fails to download helm package
+
+The HelmInstaller task does not use the proxy settings to download the file `https://get.helm.sh/helm-v3.1.0-linux-amd64.zip`. You can work around this by pre-installing Helm on your private agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following YAML example showcases the installation of latest version of helm binary on the agent - 
+
+```YAML
+- task: HelmInstaller@1
+  displayName: Helm installer
+  inputs: 
+    helmVersionToInstall: latest
+```
+
+The following YAML example demonstrates the use of an explicit version string rather than installing the latest version available at the time of task execution - 
+
+```YAML
+- task: HelmInstaller@1
+  displayName: Helm installer
+  inputs: 
+    helmVersionToInstall: 2.14.1
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

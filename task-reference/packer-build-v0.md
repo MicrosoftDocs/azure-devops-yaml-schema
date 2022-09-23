@@ -312,10 +312,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in this task version.
+Use this task to build a machine image using Packer. This image can be used for Azure Virtual machine scale set deployment.
 
-- Works with cross-platform agents (Linux, macOS, or Windows)
-- Supports building images for both Windows and Linux. These images can be used to deploy Azure Virtual machine scale set.
+> [!NOTE]
+> If you want to enable detailed logs, navigate to **Pipelines** > **Edit** > **Variables**, and then add a new variable *PACKER_LOG* and set its value to 1.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

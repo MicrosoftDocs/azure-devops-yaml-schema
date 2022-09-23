@@ -113,6 +113,10 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to find or download a specific version of the Go tool into the
+tools cache and add it to the PATH. Use the task to change the version of Go Lang used in subsequent tasks.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

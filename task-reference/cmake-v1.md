@@ -113,6 +113,27 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to build with the CMake cross-platform build system.
+
+### How do I enable CMake for Microsoft-hosted agents?
+
+The [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted) have CMake installed already so you don't need to do anything. You do not need to add a demand for CMake in your `azure-pipelines.yml` file.
+
+
+### How do I enable CMake for my on-premises agent?
+
+1. [Deploy an agent](/azure/devops/pipelines/agents/agents#install).
+
+1. [Install CMake](https://cmake.org/install/) and make sure to add it to the path of the user that the agent is running as on your agent machine.
+
+1. In your web browser, go to Agent pools and [add a capability](/azure/devops/pipelines/process/demands#manually-entered-demands) named `cmake` and set its value to `yes`.
+
+### How does CMake work? What arguments can I use?
+
+* [About CMake](https://cmake.org/overview/)
+* [CMake Documentation](https://cmake.org/documentation/)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

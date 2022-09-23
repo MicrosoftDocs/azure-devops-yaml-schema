@@ -143,7 +143,7 @@ The source folder to upload files from.
 **`filePatterns`** - **File patterns**<br>
 Type: string. Required. Default value: '**'.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths or patterns of the files to upload.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269).
+File paths or patterns of the files to upload.  Supports multiple lines of minimatch patterns.  [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -243,6 +243,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to upload files to a remote machine using the File Transfer Protocol (FTP), or securely with FTPS.
+
+### Where can I learn more about file matching patterns?
+
+* [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -287,5 +294,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

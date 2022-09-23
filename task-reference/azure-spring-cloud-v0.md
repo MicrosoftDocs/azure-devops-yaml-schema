@@ -215,11 +215,102 @@ After the 'Deploy' action only. Contains private URL for accessing the updated d
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy applications to [Azure Spring Cloud](/azure/spring-cloud/) and to manage Azure Spring Cloud [deployments](/azure/spring-cloud/concept-understand-app-and-deployment).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following examples demonstrate common usage scenarios. For more information, see [Automate application deployments to Azure Spring Cloud](/azure/spring-cloud/how-to-cicd?pivots=programming-language-java).
+
+### Deleting a staging deployment
+
+The "Delete Staging Deployment" action allows you to delete the deployment not receiving production traffic. This frees up resources used by that deployment and makes room for a new staging deployment:
+
+```yml
+variables:
+  azureSubscription: Contoso
+
+steps:
+- task: AzureSpringCloud@0
+  continueOnError: true # Don't fail the pipeline if a staging deployment doesn't already exist.
+  inputs:
+    continueOnError: true
+    inputs:
+    azureSubscription: $(azureSubscription)
+    Action: 'Delete Staging Deployment'
+    AppName: customer-api
+    AzureSpringCloud: contoso-dev-az-spr-cld
+```
+
+### Deploying
+
+#### To production
+
+The following example deploys to the default production deployment in Azure Spring Cloud. This is the only possible deployment scenario when using the Basic SKU:
+
+> [!NOTE]
+> The package search pattern should only return exactly one package. If the build task produces multiple JAR packages such as *sources.jar* and *javadoc.jar*, you need to refine the search pattern so that it only matches the application binary artifact.
+
+```yml
+variables:
+  azureSubscription: Contoso
+
+steps:
+- task: AzureSpringCloud@0
+    inputs:
+    azureSubscription: $(azureSubscription)
+    Action: 'Deploy'
+    AzureSpringCloud: contoso-dev-az-spr-cld
+    AppName: customer-api
+    UseStagingDeployment: false
+    DeploymentName: default
+    Package: '$(System.DefaultWorkingDirectory)/**/*customer-api*.jar'
+```
+
+#### Blue-green
+
+The following example deploys to a pre-existing staging deployment. This deployment will not receive production traffic until it is set as a production deployment.
+
+```yml
+variables:
+  azureSubscription: Contoso
+
+steps:
+- task: AzureSpringCloud@0
+    inputs:
+    azureSubscription: $(azureSubscription)
+    Action: 'Deploy'
+    AzureSpringCloud: contoso-dev-az-spr-cld
+    AppName: customer-api
+    UseStagingDeployment: true
+    Package: '$(System.DefaultWorkingDirectory)/**/*customer-api*.jar'
+```
+
+For more on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](/azure/spring-cloud/concepts-blue-green-deployment-strategies).
+
+### Setting production deployment
+
+The following example will set the current staging deployment as production, effectively swapping which deployment will receive production traffic.
+
+```yml
+variables:
+  azureSubscription: Contoso
+
+steps:
+- task: AzureSpringCloud@0
+    inputs:
+    azureSubscription: $(azureSubscription)
+    Action: 'Set Production'
+    AzureSpringCloud: contoso-dev-az-spr-cld
+    AppName: customer-api
+    UseStagingDeployment: true
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

@@ -581,6 +581,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy a Service Fabric application to a cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the publish profile.
+
+### Service Fabric
+
+This task uses a Service Fabric installation to connect and deploy to a Service Fabric cluster. [Download and install Service Fabric](https://aka.ms/servicefabric) on the build agent.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

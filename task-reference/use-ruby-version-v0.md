@@ -104,6 +104,25 @@ The resolved folder of the Ruby distribution.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to select a version of Ruby to run on an agent, and optionally add it to PATH.
+
+### Prerequisites
+
+* A [Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted#software) with side-by-side versions of Ruby installed, or a self-hosted agent with Agent.ToolsDirectory configured (see [FAQ](#how-can-i-configure-a-self-hosted-agent-to-use-this-task)).
+
+This task will fail if no Ruby versions are found in Agent.ToolsDirectory. Available Ruby versions on Microsoft-hosted agents can be found [here](/azure/devops/pipelines/agents/hosted#software).
+
+### Where can I learn more about tool installers?
+
+For an explanation of tool installers and examples, see [Tool installers](/azure/devops/pipelines/process/tasks#tool-installers).
+
+### How can I configure a self-hosted agent to use this task?
+
+You can run this task on a self-hosted agent with your own Ruby versions.
+To run this task on a self-hosted agent, set up Agent.ToolsDirectory by following the instructions [here](https://github.com/Microsoft/vsts-task-tool-lib/blob/master/docs/overview.md#tool-cache).
+The tool name to use is "Ruby."
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -148,5 +167,8 @@ The resolved folder of the Ruby distribution.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Tool installers](/azure/devops/pipelines/process/tasks#tool-installers)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

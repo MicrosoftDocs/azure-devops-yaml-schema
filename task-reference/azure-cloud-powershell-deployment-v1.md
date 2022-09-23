@@ -372,6 +372,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy an Azure Cloud Service.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

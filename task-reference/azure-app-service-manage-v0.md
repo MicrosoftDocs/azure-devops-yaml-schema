@@ -431,6 +431,17 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to start, stop, restart, slot swap, Swap with Preview, install site extensions, or enable continuous monitoring for an Azure App Service.
+
+### What happens during a swap
+
+When you swap two slots (usually from a staging slot into the production slot), make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
+
+Also at any point of the swap (or swap with preview) operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails.
+
+For more information, see [Set up staging environments in Azure App Service](/azure/app-service/deploy-staging-slots#AboutConfiguration).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

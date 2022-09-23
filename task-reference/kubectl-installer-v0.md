@@ -65,11 +65,33 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task can be used for installing a specific version of kubectl binary on agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following YAML example showcases the installation of latest version of kubectl binary on the agent - 
+
+```YAML
+- task: KubectlInstaller@0
+  displayName: Kubectl installer
+  inputs: 
+    kubectlVersion: latest
+```
+
+The following YAML example demonstrates the use of an explicit version string rather than installing the latest version available at the time of task execution - 
+
+```YAML
+- task: KubectlInstaller@0
+  displayName: Kubectl installer
+  inputs: 
+    kubectlVersion: 1.15.0
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

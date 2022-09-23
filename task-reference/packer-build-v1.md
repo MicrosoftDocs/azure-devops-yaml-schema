@@ -375,7 +375,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-This task now supports managed disk images.
+Use this task to build a machine image using Packer. This image can be used for Azure Virtual machine scale set deployment.
+
+> [!NOTE]
+> If you want to enable detailed logs, navigate to **Pipelines** > **Edit** > **Variables**, and then add a new variable *PACKER_LOG* and set its value to 1.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

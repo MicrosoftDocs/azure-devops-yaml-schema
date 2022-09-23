@@ -275,6 +275,19 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy a Docker-compose application to a Service Fabric cluster.
+This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the compose file.
+
+> [!NOTE]
+> This task is currently in preview and requires a preview version of Service Fabric that supports compose deploy.
+See [Docker Compose deployment support in Azure Service Fabric](/azure/service-fabric/service-fabric-docker-compose).
+
+### Service Fabric
+
+* This task uses a Service Fabric installation to connect and deploy to a Service Fabric cluster.
+* Download and install [Azure Service Fabric Core SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) on the build agent.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

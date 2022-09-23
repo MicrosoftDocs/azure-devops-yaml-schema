@@ -123,6 +123,12 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy to Chef environments by editing environment attributes.
+
+> [!NOTE]
+> This task is deprecated.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

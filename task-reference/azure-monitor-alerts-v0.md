@@ -200,6 +200,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to configure alerts on available metrics for an Azure resource.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -284,11 +284,35 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run gulp tasks using the Node.js streaming task-based build system.
+
+> [!NOTE]
+> Gulp is not preinstalled on all hosted agents. See [installed software on virtual machine images](/azure/devops/pipelines/agents/hosted#software).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Run gulp.js
+
+```yml
+- task: Npm@1
+  inputs:
+    command: 'install'
+
+- task: gulp@0
+  inputs:
+    gulpFile: 'gulpfile.js'
+    gulpjs: 'node_modules/gulp/bin/gulp.js'
+```
+
+### Build a Node.js app
+
+* [Build your Node.js app with gulp](/azure/devops/pipelines/ecosystems/javascript)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

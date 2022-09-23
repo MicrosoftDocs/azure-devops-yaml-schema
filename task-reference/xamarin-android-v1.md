@@ -291,11 +291,17 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to build an Android app with Xamarin.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+* [Build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

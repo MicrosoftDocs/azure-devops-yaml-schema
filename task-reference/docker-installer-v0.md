@@ -77,11 +77,26 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to install a specific version of
+the Docker CLI on the agent machine.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This YAML example installs the Docker CLI on the agent machine:
+
+```YAML
+- task: DockerInstaller@0
+  displayName: Docker Installer
+  inputs:
+    dockerVersion: 17.09.0-ce
+    releaseType: stable
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

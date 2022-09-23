@@ -138,6 +138,14 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to generate an .ipa file from Xcode build output.
+
+> [!IMPORTANT]
+> The Xcode Package iOS task has been deprecated.
+It is relevant only if you are using Xcode 6.4.
+Otherwise, use the [latest version of the Xcode task](xcode-v5.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

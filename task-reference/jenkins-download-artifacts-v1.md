@@ -306,6 +306,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to download artifacts produced by a Jenkins job.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -125,6 +125,12 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run scripts with Knife commands on your Chef workstation.
+
+> [!NOTE]
+> This task is deprecated.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

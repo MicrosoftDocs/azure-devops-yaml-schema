@@ -189,7 +189,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in this task version.
+Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
+
+### What's new in this task version
 
 * iOS signing set up has been removed from the task. Use `Secure Files` with supporting tasks `Install Apple Certificate` and `Install Apple Provisioning Profile` to setup signing. Updated options to work better with `Visual Studio for Mac`.
 <!-- :::editable-content-end::: -->
@@ -197,6 +199,9 @@ What's new in this task version.
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+* [Build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

@@ -322,6 +322,34 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to index your source code and publish your symbols to a file share or Azure Artifacts symbol server.
+
+Indexing your source code allows you to use your symbol files to debug your application on a machine other than the one you used to build your application. For example, you can debug an application built by a build agent from a dev machine that does not have the source code.
+
+Symbol servers enables your debugger to automatically retrieve the correct symbol files without knowing product names, build numbers, or package names.
+
+> [!IMPORTANT]
+> To delete symbols that were published using the *Index Sources & Publish Symbols* task, you must first delete the build that generated those symbols. This can be accomplished by using [retention policies](/azure/devops/pipelines/build/ci-build-git#use-retention-policies-to-clean-up-your-completed-builds) or by manually [deleting the run](/azure/devops/pipelines/policies/retention#delete-a-run).
+
+### How does indexing work?
+
+By choosing to index the sources, an extra section will be injected into the PDB files. PDB files normally contain references to the local source file paths only E.g: *C:\BuildAgent\_work\1\src\MyApp\Program.cs*. The extra section injected into the PDB file contains mapping instructions for debuggers. The mapping information indicates how to retrieve the server item corresponding to each local path.
+
+ The Visual Studio debugger will use the mapping information to retrieve the source file from the server. An actual command to retrieve the source file is included in the mapping information. Example:
+
+```command
+tf.exe git view /collection:http://SERVER:8080/tfs/DefaultCollection /teamproject:"93fc2e4d-0f0f-4e40-9825-01326191395d" /repository:"647ed0e6-43d2-4e3d-b8bf-2885476e9c44" /commitId:3a9910862e22f442cd56ff280b43dd544d1ee8c9 /path:"/MyApp/Program.cs" /output:"C:\Users\username\AppData\Local\SOURCE~1\TFS_COMMIT\3a991086\MyApp\Program.cs" /applyfilters
+```
+
+### Can I use source indexing on a portable PDB created from a .NET Core assembly?
+
+No, but you can use [Source Link](/dotnet/standard/library-guidance/sourcelink) instead.
+
+### How long are Symbols retained?
+
+Symbols are associated with the build that published to Azure Pipelines they are associated with a build. When the build is deleted either manually or using retention policies, the symbols are also deleted. If you want to retain the symbols indefinitely, mark the build as **Retain Indefinitely**.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -366,5 +394,10 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Publish symbols for debugging](/azure/devops/pipelines/artifacts/symbols)
+* [Debug with Visual Studio](/azure/devops/artifacts/symbols/debug-with-symbols-visual-studio)
+* [Debug with WinDbg](/azure/devops/artifacts/symbols/debug-with-symbols-windbg)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

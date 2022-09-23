@@ -136,6 +136,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's address pool.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

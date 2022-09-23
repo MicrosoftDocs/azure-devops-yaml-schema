@@ -123,6 +123,16 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to ensure the number of matching items returned by a work item query is within the configured thresholds.
+
+> [!NOTE]
+> Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+
+This task succeeds if _minimum-threshold_ **&lt;=** _#-matching-workitems_ **&lt;=** _maximum-threshold_.
+
+For more information about using this task, see [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

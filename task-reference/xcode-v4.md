@@ -415,11 +415,17 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to build an Xcode workspace on macOS.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+* [Build, test, and deploy Xcode apps](/azure/devops/pipelines/ecosystems/xcode)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

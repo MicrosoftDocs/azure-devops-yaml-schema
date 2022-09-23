@@ -253,11 +253,105 @@ Application URL of the selected App Service.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy web applications to Azure App Service.
+
+### Deployment methods
+
+Several deployment methods are available in this task. `Auto` is the default option. 
+
+To change the deployment option in designer task, expand Additional Deployment Options and enable **Select deployment method** to choose from additional package-based deployment options.
+
+Based on the type of Azure App Service and Azure Pipelines agent, the task chooses a suitable deployment technology. The different deployment technologies used by the task are:
+
+* Kudu REST APIs
+* Zip Deploy
+* RunFromPackage
+
+By default the task tries to select the appropriate deployment technology given the input package, app service type and agent OS.
+
+* When the App Service type is Web App on Linux App, use Zip Deploy 
+* If War file is provided, use War Deploy 
+* If Jar file is provided, use Run From package 
+* For all others, use Run From Zip (via Zip Deploy) 
+
+On non-Windows agent (for any App service type), the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the Web App.
+
+### Kudu REST APIs
+
+* [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API)
+Works on Windows as well as Linux automation agent when the target is Web App on Windows or Web App on Linux (built-in source) or Function App. The task uses Kudu to copy files to the Azure App service.
+
+### Zip Deploy
+
+Creates a .zip deployment package of the chosen Package or folder and deploys the file contents to the wwwroot folder of the App Service name function app in Azure. This option overwrites all existing contents in the wwwroot folder. For more information, see [Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push).
+
+### RunFromPackage
+
+Creates the same deployment package as Zip Deploy. However, instead of deploying files to the wwwroot folder, the entire package is mounted by the Functions runtime. With this option, files in the wwwroot folder become read-only. For more information, see [Run your Azure Functions from a package file](/azure/azure-functions/run-functions-from-deployment-package).
+
+[!INCLUDE [rm-app-service-troubleshoot-shared](includes/rm-app-service-troubleshoot-shared.md)]
+
+[!INCLUDE [rm-webapp-functionapp-troubleshoot-shared.md](includes/rm-webapp-functionapp-troubleshoot-shared.md)]
+
+### Web app deployment on Windows is successful but the app is not working
+
+This may be because web.config is not present in your app. You can either add a web.config file to your source or auto-generate one using the Application and Configuration Settings of the task.
+
+* Click on the task and go to Generate web.config parameters for Python, Node.js, Go and Java apps.
+
+    :::image type="content" source="media/azure-rm-web-app-01.png" alt-text="Screenshpt of Generate web.config parameters dialog.":::
+
+* Click on the more button Generate web.config parameters for Python, Node.js, Go and Java apps to edit the parameters.
+
+    :::image type="content" source="media/azure-rm-web-app-deployment-02.png" alt-text="Screenshot of drop dow dialog.":::
+
+
+* Select your application type from the drop down.
+* Click on OK. This will populate web.config parameters required to generate web.config.
+
+### Web app deployment on App Service Environment (ASE) is not working
+
+* Ensure that the Azure DevOps build agent is on the same VNET (subnet can be different) as the Internal Load Balancer (ILB) of  ASE. This will enable the agent to pull code from Azure DevOps and deploy to ASE. 
+* If you are using Azure DevOps, the agent neednt be accessible from internet but needs only outbound access to connect to Azure DevOps Service. 
+* If you are using TFS/Azure DevOps Server deployed in a Virtual Network, the agent can be completely isolated.
+* Build agent must be configured with the DNS configuration of the Web App it needs to deploy to. Since the private resources in the Virtual Network don't have entries in Azure DNS, this needs to be added to the hosts file on the agent machine.
+* If a self-signed certificate is used for the ASE configuration, "-allowUntrusted" option needs to be set in the deploy task for MSDeploy.It is also recommended to set the variable VSTS_ARM_REST_IGNORE_SSL_ERRORS to true. If a certificate from a certificate authority is used for ASE configuration, this should not be necessary.
+
+[!INCLUDE [rm-app-service-FAQs-shared](includes/rm-app-service-faqs-shared.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+Following is an example YAML snippet to deploy web application to the Azure Web App service running on Windows.
+
+## Examples
+
+Following is an example YAML snippet to deploy web application to the Azure Web App service running on Windows.
+
+```YAML
+variables:
+  azureSubscription: Contoso
+  # To ignore SSL error uncomment the below variable
+  # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
+
+steps:
+
+- task: AzureWebApp@1
+  displayName: Azure Web App Deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: samplewebapp
+    package: $(System.DefaultWorkingDirectory)/**/*.zip
+```
+
+To deploy Web App on Linux, add the appType parameter and set it to `appType: webAppLinux`.
+
+To specify the deployment method as Zip Deploy, add the parameter `deploymentMethod: zipDeploy`. Other supported value for this parameter is `runFromPackage`.
+
+If not specified, `auto` is taken as the default value.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

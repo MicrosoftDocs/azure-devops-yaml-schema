@@ -228,6 +228,16 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to use [cURL](https://curl.haxx.se/) to upload files with supported protocols
+such as FTP, FTPS, SFTP, HTTP, and more.
+
+[!INCLUDE [include](includes/qa-minimatch.md)]
+
+### Where can I learn FTP commands?
+
+* [List of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -194,6 +194,27 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to send a message to an Azure Service Bus using a service connection and without using an agent.
+
+> [!NOTE]
+> Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+
+### Where should a task signal completion?
+
+To signal completion, the external service should POST completion data to the following pipelines REST endpoint.
+
+```
+{planUri}/{projectId}/_apis/distributedtask/hubs/{hubName}/plans/{planId}/events?api-version=2.0-preview.1
+
+**Request Body**
+ { "name": "TaskCompleted", "taskId": "taskInstanceId", "jobId": "jobId", "result": "succeeded" }
+```
+
+See [this simple cmdline application](https://github.com/Microsoft/azure-pipelines-extensions/tree/master/ServerTaskHelper/HttpRequestSampleWithoutHandler) for specifics.
+
+In addition, a C# helper library is available to enable live logging and managing task status for agentless tasks. [Learn more](/archive/blogs/aseemb/async-http-agentless-task).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

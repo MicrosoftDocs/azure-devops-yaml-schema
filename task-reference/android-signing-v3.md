@@ -229,6 +229,8 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+Use this task in a pipeline to sign and align Android APK files.
+
 This version of the task uses apksigner instead of jarsigner to sign APKs.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->

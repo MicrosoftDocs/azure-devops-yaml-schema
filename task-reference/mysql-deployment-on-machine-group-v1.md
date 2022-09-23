@@ -149,11 +149,40 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy, either using a script file or writing the script in our inline editor. Note that this is an early preview version. Since this task is server based, it appears on Deployment group jobs.
+
+### Prerequisites
+
+- MySQL Client in agent box
+
+The task expects MySQL client must be in agent box.
+
+- **Windows Agent**: Use this [script file](https://aka.ms/window-mysqlcli-installer) to install MySQL client
+- **Linux Agent**: Run command 'apt-get install mysql-client' to install MySQL client
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example creates a sample db in MySQL.
+
+```YAML
+steps:
+- task: MysqlDeploymentOnMachineGroup@1
+  displayName: 'Deploy Using : InlineSqlTask'
+  inputs:
+    TaskNameSelector: InlineSqlTask
+    SqlInline: |
+      CREATE DATABASE IF NOT EXISTS alm;
+      use alm;
+    ServerName: localhost
+    SqlUsername: root
+    SqlPassword: P2ssw0rd
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

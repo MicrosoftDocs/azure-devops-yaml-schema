@@ -197,11 +197,38 @@ Application URL of the selected App Service.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy an Azure Function on Linux using a [custom image](/azure/azure-functions/functions-create-function-linux-custom-image).
+
+[!INCLUDE [rm-app-service-troubleshoot-shared](includes/rm-app-service-troubleshoot-shared.md)]
+
+[!INCLUDE [rm-app-service-FAQs-shared](includes/rm-app-service-faqs-shared.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example deploys Azure Functions on Linux using containers:
+
+```YAML
+
+variables:
+  imageName: contoso.azurecr.io/azurefunctions-containers:$(build.buildId)
+  azureSubscription: Contoso
+  # To ignore SSL error uncomment the following variable
+  # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
+
+steps:
+- task: AzureFunctionAppContainer@1
+  displayName: Azure Function App on Container deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: functionappcontainers
+    imageName: $(imageName)
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
