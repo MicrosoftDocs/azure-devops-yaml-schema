@@ -1,7 +1,7 @@
 ---
 title: Xcode@3 - Xcode Build v3 task
 description: Build an Xcode workspace on macOS.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,24 +27,24 @@ Build an Xcode workspace on macOS.
 # Build an Xcode workspace on macOS.
 - task: Xcode@3
   inputs:
-    actions: 'build' # string. Required. Actions. Default: 'build'.
-    #configuration: '$(Configuration)' # string. Configuration. Default: '$(Configuration)'.
-    #sdk: '$(SDK)' # string. SDK. Default: '$(SDK)'.
-    #xcWorkspacePath: '**/*.xcodeproj/*.xcworkspace' # string. Workspace/Project Path. Default: '**/*.xcodeproj/*.xcworkspace'.
+    actions: 'build' # string. Required. Actions. Default: build.
+    #configuration: '$(Configuration)' # string. Configuration. Default: $(Configuration).
+    #sdk: '$(SDK)' # string. SDK. Default: $(SDK).
+    #xcWorkspacePath: '**/*.xcodeproj/*.xcworkspace' # string. Workspace/Project Path. Default: **/*.xcodeproj/*.xcworkspace.
     #scheme: # string. Scheme. 
     packageApp: true # boolean. Required. Create App Package. Default: true.
   # Package Options
     #archivePath: # string. Archive Path. 
-    #exportPath: 'output/$(SDK)/$(Configuration)' # string. Export Path. Default: 'output/$(SDK)/$(Configuration)'.
-    #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Export Options. Default: 'auto'.
-    #exportMethod: 'development' # string. Required when exportOptions == specify. Export Method. Default: 'development'.
+    #exportPath: 'output/$(SDK)/$(Configuration)' # string. Export Path. Default: output/$(SDK)/$(Configuration).
+    #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Export Options. Default: auto.
+    #exportMethod: 'development' # string. Required when exportOptions == specify. Export Method. Default: development.
     #exportTeamId: # string. Optional. Use when exportOptions == specify. Team ID. 
     #exportOptionsPlist: # string. Required when exportOptions == plist. Export Options Plist. 
     #exportArgs: # string. Export Arguments. 
   # Signing & Provisioning
     #xcode8AutomaticSigning: false # boolean. Automatic Signing. Default: false.
     #teamId: # string. Optional. Use when xcode8AutomaticSigning = true. Team ID. 
-    #signMethod: 'file' # 'file' | 'id'. Override Using. Default: 'file'.
+    #signMethod: 'file' # 'file' | 'id'. Override Using. Default: file.
     #iosSigningIdentity: # string. Optional. Use when signMethod = id. Signing Identity. 
     #unlockDefaultKeychain: false # boolean. Required when signMethod = id. Unlock Default Keychain. Default: false.
     #defaultKeychainPassword: # string. Optional. Use when signMethod = id. Default Keychain Password. 
@@ -56,7 +56,7 @@ Build an Xcode workspace on macOS.
   # Advanced
     #args: # string. Arguments. 
     #cwd: # string. Working Directory. 
-    outputPattern: 'output/$(SDK)/$(Configuration)' # string. Required. Output Directory. Default: 'output/$(SDK)/$(Configuration)'.
+    outputPattern: 'output/$(SDK)/$(Configuration)' # string. Required. Output Directory. Default: output/$(SDK)/$(Configuration).
     #xcodeDeveloperDir: # string. Xcode Developer Path. 
     #useXcpretty: false # boolean. Use xcpretty. Default: false.
     #publishJUnitResults: false # boolean. Publish to VSTS/TFS. Default: false.
@@ -82,10 +82,11 @@ Build an Xcode workspace on macOS.
 :::moniker range="<=azure-pipelines"
 
 **`actions`** - **Actions**<br>
-Type: string. Required. Default value: 'build'.<br>
+`string`. Required. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Space delimited list of actions.  Valid options are build, clean, test, analyze, and archive.  For example: `build clean` would do a clean build.  See [xcodebuild man page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -93,10 +94,11 @@ Space delimited list of actions.  Valid options are build, clean, test, analyze,
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
-Type: string. Default value: '$(Configuration)'.<br>
+`string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the **Variables** tab.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -104,10 +106,11 @@ Enter the Xcode project or workspace configuration to be built. The default valu
 :::moniker range="<=azure-pipelines"
 
 **`sdk`** - **SDK**<br>
-Type: string. Default value: '$(SDK)'.<br>
+`string`. Default value: `$(SDK)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Build an Xcode project or workspace against the specified SDK.  Run *xcodebuild -showsdks* to see the valid list of SDKs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -115,10 +118,11 @@ Build an Xcode project or workspace against the specified SDK.  Run *xcodebuild 
 :::moniker range="<=azure-pipelines"
 
 **`xcWorkspacePath`** - **Workspace/Project Path**<br>
-Type: string. Default value: '**/*.xcodeproj/*.xcworkspace'.<br>
+`string`. Default value: `**/*.xcodeproj/*.xcworkspace`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional relative path from repo root to the Xcode workspace or project. For example: `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcworkspace/MyApp.xcodeproj`. Leave blank if you intend to use the -target flag under Advanced Arguments.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,10 +130,11 @@ Optional relative path from repo root to the Xcode workspace or project. For exa
 :::moniker range="<=azure-pipelines"
 
 **`scheme`** - **Scheme**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional scheme name in Xcode. *Must be a shared scheme* (shared checkbox under managed schemes in Xcode). **Required if Workspace is specified.**.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,10 +142,11 @@ Optional scheme name in Xcode. *Must be a shared scheme* (shared checkbox under 
 :::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create App Package**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Indicates whether an IPA should be generated as a part of the build. For exporting archives with Xcode 7 and Xcode 8, review additional inputs in the `Package Options` section.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,10 +154,11 @@ Indicates whether an IPA should be generated as a part of the build. For exporti
 :::moniker range="<=azure-pipelines"
 
 **`archivePath`** - **Archive Path**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify a directory where created archives should be placed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -159,10 +166,11 @@ Optionally specify a directory where created archives should be placed.
 :::moniker range="<=azure-pipelines"
 
 **`exportPath`** - **Export Path**<br>
-Type: string. Default value: 'output/$(SDK)/$(Configuration)'.<br>
+`string`. Default value: `output/$(SDK)/$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify the destination for the product exported from the archive.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -170,10 +178,11 @@ Optionally specify the destination for the product exported from the archive.
 :::moniker range="<=azure-pipelines"
 
 **`exportOptions`** - **Export Options**<br>
-Type: string. Allowed values: 'auto', 'plist', 'specify'. Default value: 'auto'.<br>
+`string`. Allowed values: `auto`, `plist`, `specify`. Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick a way to pass in Export Options when exporting the archive.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -181,10 +190,11 @@ Pick a way to pass in Export Options when exporting the archive.
 :::moniker range="<=azure-pipelines"
 
 **`exportMethod`** - **Export Method**<br>
-Type: string. Required when exportOptions == specify. Default value: 'development'.<br>
+`string`. Required when `exportOptions == specify`. Default value: `development`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Method for how Xcode should export the archive. E.g. app-store, package, ad-hoc, enterprise, development.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -192,10 +202,11 @@ Method for how Xcode should export the archive. E.g. app-store, package, ad-hoc,
 :::moniker range="<=azure-pipelines"
 
 **`exportTeamId`** - **Team ID**<br>
-Type: string. Optional. Use when exportOptions == specify.<br>
+`string`. Optional. Use when `exportOptions == specify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The 10 digit Team ID from the Apple Developer Portal to use for this export.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -203,10 +214,11 @@ The 10 digit Team ID from the Apple Developer Portal to use for this export.
 :::moniker range="<=azure-pipelines"
 
 **`exportOptionsPlist`** - **Export Options Plist**<br>
-Type: string. Required when exportOptions == plist.<br>
+`string`. Required when `exportOptions == plist`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to a plist file that configures archive exporting.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -214,10 +226,11 @@ Path to a plist file that configures archive exporting.
 :::moniker range="<=azure-pipelines"
 
 **`exportArgs`** - **Export Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional command line arguments that should be used to export.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -225,10 +238,11 @@ Additional command line arguments that should be used to export.
 :::moniker range="<=azure-pipelines"
 
 **`xcode8AutomaticSigning`** - **Automatic Signing**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this if you have an Xcode 8 or Xcode 9 project configured for Automatic Signing.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -236,10 +250,11 @@ Select this if you have an Xcode 8 or Xcode 9 project configured for Automatic S
 :::moniker range="<=azure-pipelines"
 
 **`teamId`** - **Team ID**<br>
-Type: string. Optional. Use when xcode8AutomaticSigning = true.<br>
+`string`. Optional. Use when `xcode8AutomaticSigning = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the 10 digit developer Team ID. This is required if you are a member of multiple development teams.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -247,10 +262,11 @@ Specify the 10 digit developer Team ID. This is required if you are a member of 
 :::moniker range="<=azure-pipelines"
 
 **`signMethod`** - **Override Using**<br>
-Type: string. Allowed values: 'file', 'id'. Default value: 'file'.<br>
+`string`. Allowed values: `file` (File Contents), `id` (Identifiers). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the build should use a signing or provisioning method that is different than the default, choose that method here. Choose 'File Contents' to use a P12 certificate and provisioning profile. Choose 'Identifiers' to retrieve signing settings from the default Keychain and pre-installed profiles. Leave the corresponding fields blank if you do not wish to override default build settings.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -258,10 +274,11 @@ If the build should use a signing or provisioning method that is different than 
 :::moniker range="<=azure-pipelines"
 
 **`iosSigningIdentity`** - **Signing Identity**<br>
-Type: string. Optional. Use when signMethod = id.<br>
+`string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional signing identity override that should be used to sign the build. Defaults to Xcode Project setting. You may need to select Unlock Default Keychain if you use this option.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -269,10 +286,11 @@ Optional signing identity override that should be used to sign the build. Defaul
 :::moniker range="<=azure-pipelines"
 
 **`unlockDefaultKeychain`** - **Unlock Default Keychain**<br>
-Type: boolean. Required when signMethod = id. Default value: false.<br>
+`boolean`. Required when `signMethod = id`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Resolve "User interaction is not allowed" errors by unlocking the default keychain.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -280,10 +298,11 @@ Resolve "User interaction is not allowed" errors by unlocking the default keycha
 :::moniker range="<=azure-pipelines"
 
 **`defaultKeychainPassword`** - **Default Keychain Password**<br>
-Type: string. Optional. Use when signMethod = id.<br>
+`string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password to unlock the default keychain when this option is set.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -291,10 +310,11 @@ Password to unlock the default keychain when this option is set.
 :::moniker range="<=azure-pipelines"
 
 **`provProfileUuid`** - **Provisioning Profile UUID**<br>
-Type: string. Optional. Use when signMethod = id.<br>
+`string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional UUID of an installed provisioning profile to be used for this build. Use separate build tasks with different Schemes or Targets to specify separate provisioning profiles by target in a single workspace (iOS, WatchKit, tvOS).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -302,10 +322,11 @@ Optional UUID of an installed provisioning profile to be used for this build. Us
 :::moniker range="<=azure-pipelines"
 
 **`p12`** - **P12 Certificate File**<br>
-Type: string. Optional. Use when signMethod = file.<br>
+`string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional relative path to a PKCS12 formatted p12 certificate file containing a signing certificate to be used for this build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -313,10 +334,11 @@ Optional relative path to a PKCS12 formatted p12 certificate file containing a s
 :::moniker range="<=azure-pipelines"
 
 **`p12pwd`** - **P12 Password**<br>
-Type: string. Optional. Use when signMethod = file.<br>
+`string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password to P12 Certificate File if specified. Use a Build Variable to encrypt.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -324,10 +346,11 @@ Password to P12 Certificate File if specified. Use a Build Variable to encrypt.
 :::moniker range="<=azure-pipelines"
 
 **`provProfile`** - **Provisioning Profile File**<br>
-Type: string. Optional. Use when signMethod = file.<br>
+`string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional relative path to file containing provisioning profile override to be used for this build. Use separate build tasks with different Schemes or Targets to specify separate provisioning profiles by target in a single workspace (iOS, WatchKit, tvOS).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -335,10 +358,11 @@ Optional relative path to file containing provisioning profile override to be us
 :::moniker range="<=azure-pipelines"
 
 **`removeProfile`** - **Remove Profile After Build**<br>
-Type: boolean. Optional. Use when signMethod = file. Default value: false.<br>
+`boolean`. Optional. Use when `signMethod = file`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies that the contents of the Provisioning Profile File should be removed from the build agent after the build is complete. **Only check if you are running one agent per user.**.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -346,10 +370,11 @@ Specifies that the contents of the Provisioning Profile File should be removed f
 :::moniker range="<=azure-pipelines"
 
 **`args`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional command line arguments that should be used to build. Useful if you want to use -target or -project instead of specifying a Workspace and Scheme.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -357,10 +382,11 @@ Additional command line arguments that should be used to build. Useful if you wa
 :::moniker range="<=azure-pipelines"
 
 **`cwd`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory for build runs. Defaults to the root of the repository.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -368,10 +394,11 @@ Working directory for build runs. Defaults to the root of the repository.
 :::moniker range="<=azure-pipelines"
 
 **`outputPattern`** - **Output Directory**<br>
-Type: string. Required. Default value: 'output/$(SDK)/$(Configuration)'.<br>
+`string`. Required. Default value: `output/$(SDK)/$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path where build output (binaries) will be placed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -379,10 +406,11 @@ Relative path where build output (binaries) will be placed.
 :::moniker range="<=azure-pipelines"
 
 **`xcodeDeveloperDir`** - **Xcode Developer Path**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional path to Xcode Developer folder if not the system default. For use when multiple versions of Xcode are installed on a system. Ex: /Applications/Xcode 7.app/Contents/Developer.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -390,10 +418,11 @@ Optional path to Xcode Developer folder if not the system default. For use when 
 :::moniker range="<=azure-pipelines"
 
 **`useXcpretty`** - **Use xcpretty**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use xcpretty to format xcodebuild output and generate JUnit test results report. Requires xcpretty be installed on agent hosts. See [xcpretty](https://github.com/supermarin/xcpretty) for details.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -401,10 +430,11 @@ Use xcpretty to format xcodebuild output and generate JUnit test results report.
 :::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to VSTS/TFS**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit Test results to VSTS/TFS.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

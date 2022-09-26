@@ -1,7 +1,7 @@
 ---
 title: ChefKnife@1 - Chef Knife v1 task
 description: Run scripts with Knife commands on your Chef workstation.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -78,10 +78,11 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Chef Subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chef subscription to configure before running knife commands.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +90,11 @@ Chef subscription to configure before running knife commands.
 :::moniker range="<=azure-pipelines"
 
 **`ScriptPath`** - **Script Path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script. Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +102,11 @@ Path of the script. Should be fully qualified path or relative to the default wo
 :::moniker range="<=azure-pipelines"
 
 **`ScriptArguments`** - **Script Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional parameters to pass to Script.  Can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

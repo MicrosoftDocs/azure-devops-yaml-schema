@@ -1,7 +1,7 @@
 ---
 title: XamarinComponentRestore@0 - Xamarin Component Restore v0 task
 description: This task is deprecated. Use 'NuGet' instead.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ This task is deprecated. Use 'NuGet' instead.
 # This task is deprecated. Use 'NuGet' instead.
 - task: XamarinComponentRestore@0
   inputs:
-    solutionFile: '**/*.sln' # string. Required. Path to solution. Default: '**/*.sln'.
+    solutionFile: '**/*.sln' # string. Required. Path to solution. Default: **/*.sln.
     email: # string. Required. Email. 
     password: # string. Required. Password.
 ```
@@ -62,10 +62,11 @@ This task is deprecated. Use 'NuGet' instead.
 :::moniker range="<=azure-pipelines"
 
 **`solutionFile`** - **Path to solution**<br>
-Input alias: `solution`. Type: string. Required. Default value: '**/*.sln'.<br>
+Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the Visual Studio Solution file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -73,10 +74,11 @@ The path to the Visual Studio Solution file.
 :::moniker range="<=azure-pipelines"
 
 **`email`** - **Email**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Xamarin account email address.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -84,10 +86,11 @@ Xamarin account email address.
 :::moniker range="<=azure-pipelines"
 
 **`password`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Xamarin account password. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

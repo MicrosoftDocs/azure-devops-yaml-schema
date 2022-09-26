@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Publish Cobertura or JaCoCo code coverage results from a build.
 # Publish Cobertura or JaCoCo code coverage results from a build.
 - task: PublishCodeCoverageResults@1
   inputs:
-    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: 'JaCoCo'.
+    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
     summaryFileLocation: # string. Required. Summary file. 
     #pathToSources: # string. Path to Source files. 
     #reportDirectory: # string. Report directory. 
@@ -44,7 +44,7 @@ Publish Cobertura or JaCoCo code coverage results from a build.
 # Publish Cobertura or JaCoCo code coverage results from a build.
 - task: PublishCodeCoverageResults@1
   inputs:
-    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: 'JaCoCo'.
+    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
     summaryFileLocation: # string. Required. Summary file. 
     #reportDirectory: # string. Report directory. 
     #additionalCodeCoverageFiles: # string. Additional files. 
@@ -71,10 +71,11 @@ Publish Cobertura or JaCoCo code coverage results from a build.
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageTool`** - **Code coverage tool**<br>
-Type: string. Required. Allowed values: 'Cobertura', 'JaCoCo'. Default value: 'JaCoCo'.<br>
+`string`. Required. Allowed values: `Cobertura`, `JaCoCo`. Default value: `JaCoCo`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The tool with which code coverage results are generated.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -82,10 +83,11 @@ The tool with which code coverage results are generated.
 :::moniker range="<=azure-pipelines"
 
 **`summaryFileLocation`** - **Summary file**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the summary file containing code coverage statistics, such as line, method, and class coverage. Multiple summary files will be merged into a single report. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -93,10 +95,11 @@ Path of the summary file containing code coverage statistics, such as line, meth
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`pathToSources`** - **Path to Source files**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to source files is required when coverage XML reports do not contain absolute path to source files. For e.g., JaCoCo reports do not use absolute paths and when publishing JaCoCo coverage for Java apps, the pattern would be similar to `$(System.DefaultWorkingDirectory)/MyApp/src/main/java/`.<br />This input is also needed if tests are run in a docker container. This input should point to absolute path to source files on the host. For e.g., `$(System.DefaultWorkingDirectory)/MyApp/`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -104,10 +107,11 @@ Path to source files is required when coverage XML reports do not contain absolu
 :::moniker range="<=azure-pipelines"
 
 **`reportDirectory`** - **Report directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the code coverage HTML report directory. The report directory is published for later viewing as an artifact of the build. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -115,10 +119,11 @@ Path of the code coverage HTML report directory. The report directory is publish
 :::moniker range="<=azure-pipelines"
 
 **`additionalCodeCoverageFiles`** - **Additional files**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File path pattern specifying any additional code coverage files to be published as artifacts of the build. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/**/*.exec`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,10 +131,11 @@ File path pattern specifying any additional code coverage files to be published 
 :::moniker range="<=azure-pipelines"
 
 **`failIfCoverageEmpty`** - **Fail when code coverage results are missing**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fail the task if code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

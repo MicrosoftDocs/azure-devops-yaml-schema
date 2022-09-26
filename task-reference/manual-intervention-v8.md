@@ -1,7 +1,7 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ Pause deployment and wait for intervention.
   inputs:
     #instructions: # string. Instructions. 
     #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: 'reject'.
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
 
 :::moniker-end
@@ -51,7 +51,7 @@ Pause deployment and wait for intervention.
   inputs:
     #instructions: # string. Instructions. 
     #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: 'reject'.
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
 
 :::moniker-end
@@ -74,10 +74,11 @@ Pause deployment and wait for intervention.
 :::moniker range="<=azure-pipelines"
 
 **`instructions`** - **Instructions**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 These instructions will be shown to the user for resuming or rejecting the manual intervention. Based on these instructions the user will take an informed decision about this manual intervention.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +86,11 @@ These instructions will be shown to the user for resuming or rejecting the manua
 :::moniker range="<=azure-pipelines"
 
 **`emailRecipients`** - **Notify users**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Send a manual intervention pending email to specific users (or groups). Only users with manage deployment permission can act on a manual intervention.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +98,11 @@ Send a manual intervention pending email to specific users (or groups). Only use
 :::moniker range="<=azure-pipelines"
 
 **`onTimeout`** - **On timeout**<br>
-Type: string. Allowed values: 'reject', 'resume'. Default value: 'reject'.<br>
+`string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Reject or resume this manual intervention automatically after it is pending for the specified timeout or 60 days, whichever is earlier.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,8 +157,6 @@ After carrying out the manual steps, the administrator or user can choose to res
 Users with **Manage deployment** permission on the stage can resume or reject the manual intervention.
 
 For more information about using this task, see [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

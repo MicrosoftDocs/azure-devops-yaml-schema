@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@0 - Azure CLI Preview v0 task
 description: Run a Shell or Batch script with Azure CLI commands against an azure subscription.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,10 +27,10 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 # Run a Shell or Batch script with Azure CLI commands against an azure subscription.
 - task: AzureCLI@0
   inputs:
-    connectedServiceNameSelector: 'connectedServiceNameARM' # 'connectedServiceName' | 'connectedServiceNameARM'. Required. Azure Connection Type. Default: 'connectedServiceNameARM'.
+    connectedServiceNameSelector: 'connectedServiceNameARM' # 'connectedServiceName' | 'connectedServiceNameARM'. Required. Azure Connection Type. Default: connectedServiceNameARM.
     connectedServiceNameARM: # string. Required when connectedServiceNameSelector = connectedServiceNameARM. AzureRM Subscription. 
     #connectedServiceName: # string. Required when connectedServiceNameSelector = connectedServiceName. Azure Classic Subscription. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: 'scriptPath'.
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
     #args: # string. Arguments. 
@@ -59,10 +59,11 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 :::moniker range="<=azure-pipelines"
 
 **`connectedServiceNameSelector`** - **Azure Connection Type**<br>
-Type: string. Required. Allowed values: 'connectedServiceName', 'connectedServiceNameARM'. Default value: 'connectedServiceNameARM'.<br>
+`string`. Required. Allowed values: `connectedServiceName` (Azure Classic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure connection type for the Deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -70,10 +71,11 @@ Select the Azure connection type for the Deployment.
 :::moniker range="<=azure-pipelines"
 
 **`connectedServiceNameARM`** - **AzureRM Subscription**<br>
-Type: string. Required when connectedServiceNameSelector = connectedServiceNameARM.<br>
+`string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -81,10 +83,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`connectedServiceName`** - **Azure Classic Subscription**<br>
-Type: string. Required when connectedServiceNameSelector = connectedServiceName.<br>
+`string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Classic subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -92,10 +95,11 @@ Select the Azure Classic subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`scriptLocation`** - **Script Location**<br>
-Type: string. Required. Allowed values: 'inlineScript', 'scriptPath'. Default value: 'scriptPath'.<br>
+`string`. Required. Allowed values: `inlineScript` (Inline Script), `scriptPath` (Script Path). Default value: `scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of script: File path or Inline script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -103,10 +107,11 @@ Type of script: File path or Inline script.
 :::moniker range="<=azure-pipelines"
 
 **`scriptPath`** - **Script Path**<br>
-Type: string. Required when scriptLocation = scriptPath.<br>
+`string`. Required when `scriptLocation = scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fully qualified path of the script or a path relative to the the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -114,7 +119,7 @@ Fully qualified path of the script or a path relative to the the default working
 :::moniker range="<=azure-pipelines"
 
 **`inlineScript`** - **Inline Script**<br>
-Type: string. Required when scriptLocation = inlineScript.<br>
+`string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can write your scripts inline here. For batch files use the prefix "call" before every azure command. You can also pass predefined and custom variables to this script using arguments 
 
@@ -122,6 +127,7 @@ You can write your scripts inline here. For batch files use the prefix "call" be
 
  example for batch: call  azure --version || call azure account show.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +135,11 @@ You can write your scripts inline here. For batch files use the prefix "call" be
 :::moniker range="<=azure-pipelines"
 
 **`args`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +147,11 @@ Arguments passed to the script.
 :::moniker range="<=azure-pipelines"
 
 **`cwd`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -151,10 +159,11 @@ Current working directory where the script is run.  Empty is the root of the rep
 :::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail when any errors are written to the StandardError stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

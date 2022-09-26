@@ -1,7 +1,7 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -112,10 +112,11 @@ Install an SSH key prior to a build or release.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`knownHostsEntry`** - **Known Hosts Entry**<br>
-Input alias: `hostName`. Type: string. Required.<br>
+Input alias: `hostName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The entry for this SSH key for the known_hosts file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -123,20 +124,22 @@ The entry for this SSH key for the known_hosts file.
 :::moniker range=">=azure-pipelines-2020"
 
 **`sshPublicKey`** - **SSH Public Key**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The contents of the public SSH key.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`sshPublicKey`** - **SSH Public Key**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The contents of the public SSH key.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -144,10 +147,11 @@ The contents of the public SSH key.
 :::moniker range="<=azure-pipelines"
 
 **`sshPassphrase`** - **SSH Passphrase**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The passphrase for the SSH key, if any.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -155,10 +159,11 @@ The passphrase for the SSH key, if any.
 :::moniker range="<=azure-pipelines"
 
 **`sshKeySecureFile`** - **SSH Key**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the SSH key that was uploaded to `Secure Files` to install on the agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -166,10 +171,11 @@ Select the SSH key that was uploaded to `Secure Files` to install on the agent.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`addEntryToConfig`** - **Add entry to SSH config**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add entry related to the key installed to the SSH config file. The key file will be available for all subsequent tasks.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -177,10 +183,11 @@ Add entry related to the key installed to the SSH config file. The key file will
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`configHostAlias`** - **Alias**<br>
-Type: string. Required when addEntryToConfig = true.<br>
+`string`. Required when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of SSH config entry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -188,10 +195,11 @@ Name of SSH config entry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`configHostname`** - **Host name**<br>
-Type: string. Required when addEntryToConfig = true.<br>
+`string`. Required when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Host name property of SSH config entry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -199,10 +207,11 @@ Host name property of SSH config entry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`configUser`** - **User**<br>
-Type: string. Optional. Use when addEntryToConfig = true.<br>
+`string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Username property of SSH config entry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -210,10 +219,11 @@ Username property of SSH config entry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`configPort`** - **Port**<br>
-Type: string. Optional. Use when addEntryToConfig = true.<br>
+`string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Port of SSH config entry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -221,10 +231,11 @@ Port of SSH config entry.
 :::moniker range="<=azure-pipelines-2019"
 
 **`hostName`** - **Known Hosts Entry**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The entry for this SSH key for the known_hosts file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -316,7 +327,6 @@ steps:
 ```
 
 [Related GitHub docs](https://docs.github.com/en/developers/overview/managing-deploy-keys#using-multiple-repositories-on-one-server).
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -403,8 +413,6 @@ Here are the steps to complete to use an SSH key to authenticate access to GitHu
      ```
   
 Now, the SSH keys are installed and you can proceed with the script to connect by using SSH, and not the default HTTPS.
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

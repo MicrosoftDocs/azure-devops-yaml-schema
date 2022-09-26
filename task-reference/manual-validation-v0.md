@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
 description: Pause a YAML pipeline run to wait for manual interaction (Preview).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -29,7 +29,7 @@ Pause a YAML pipeline run to wait for manual interaction.
   inputs:
     notifyUsers: # string. Required. Notify users. 
     #instructions: # string. Instructions. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: 'reject'.
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
 
 :::moniker-end
@@ -42,10 +42,11 @@ Pause a YAML pipeline run to wait for manual interaction.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`notifyUsers`** - **Notify users**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Send a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send to a group using `[org name]\group name` syntax.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -53,10 +54,11 @@ Send a manual validation pending email to specific users (or groups). Only users
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`instructions`** - **Instructions**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 These instructions will be shown to the user for resuming or rejecting the manual validation. Based on these instructions the user will take an informed decision about this manual validation.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -64,10 +66,11 @@ These instructions will be shown to the user for resuming or rejecting the manua
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`onTimeout`** - **On timeout**<br>
-Type: string. Allowed values: 'reject', 'resume'. Default value: 'reject'.<br>
+`string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Reject or resume this manual validation automatically after it is pending for the specified timeout or 30 days, whichever is earlier.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

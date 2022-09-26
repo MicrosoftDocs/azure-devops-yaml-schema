@@ -1,7 +1,7 @@
 ---
 title: NuGetToolInstaller@0 - NuGet tool installer v0 task
 description: Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks (task version 0).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -40,7 +40,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 # Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
 - task: NuGetToolInstaller@0
   inputs:
-    versionSpec: '4.3.0' # string. Required. Version of NuGet.exe to install. Default: '4.3.0'.
+    versionSpec: '4.3.0' # string. Required. Version of NuGet.exe to install. Default: 4.3.0.
     #checkLatest: false # boolean. Always download the latest matching version. Default: false.
 ```
 
@@ -53,7 +53,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 # Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
 - task: NuGetToolInstaller@0
   inputs:
-    versionSpec: '4.3.0' # string. Required. Version of NuGet.exe to install. Default: '4.3.0'.
+    versionSpec: '4.3.0' # string. Required. Version of NuGet.exe to install. Default: 4.3.0.
     #checkLatest: false # boolean. Always download the latest matching version. Default: false.
 ```
 
@@ -77,7 +77,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 :::moniker range=">=azure-pipelines-2020"
 
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
@@ -85,13 +85,14 @@ If you want to match a pre-release version, the specification must contain a maj
 
 Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
-Type: string. Required. Default value: '4.3.0'.<br>
+`string`. Required. Default value: `4.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
@@ -99,6 +100,7 @@ If you want to match a pre-release version, the specification must contain a maj
 
 Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -106,12 +108,13 @@ Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
 :::moniker range="<=azure-pipelines"
 
 **`checkLatest`** - **Always download the latest matching version**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Always check for and download the latest available version of NuGet.exe which satisfies the version spec. This option will also always incur download time, even if the selected version of NuGet is already cached.
 
 Enabling this option could cause unexpected build breaks when a new version of NuGet is released.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

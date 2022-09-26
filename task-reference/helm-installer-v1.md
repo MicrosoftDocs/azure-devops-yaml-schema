@@ -1,7 +1,7 @@
 ---
 title: HelmInstaller@1 - Helm tool installer v1 task
 description: Install Helm on an agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,7 +27,7 @@ Install Helm on an agent machine.
 # Install Helm on an agent machine.
 - task: HelmInstaller@1
   inputs:
-    #helmVersionToInstall: 'latest' # string. Helm Version Spec. Default: 'latest'.
+    #helmVersionToInstall: 'latest' # string. Helm Version Spec. Default: latest.
 ```
 
 :::moniker-end
@@ -40,10 +40,11 @@ Install Helm on an agent machine.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`helmVersionToInstall`** - **Helm Version Spec**<br>
-Type: string. Default value: 'latest'.<br>
+`string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the version of Helm to install.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

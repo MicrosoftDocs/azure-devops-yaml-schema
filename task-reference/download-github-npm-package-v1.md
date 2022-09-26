@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -43,10 +43,11 @@ Install npm packages from GitHub.
 :::moniker range=">=azure-pipelines-2020"
 
 **`packageName`** - **Package Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the package to download from github.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -54,10 +55,11 @@ Name of the package to download from github.
 :::moniker range=">=azure-pipelines-2020"
 
 **`version`** - **Package Version**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version of the package to download from github.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -65,10 +67,11 @@ Version of the package to download from github.
 :::moniker range=">=azure-pipelines-2020"
 
 **`externalRegistryCredentials`** - **Credentials for registry from GitHub**<br>
-Input alias: `externalEndpoints`. Type: string. Required.<br>
+Input alias: `externalEndpoints`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Credentials to use for external registry from GitHub.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +79,11 @@ Credentials to use for external registry from GitHub.
 :::moniker range=">=azure-pipelines-2020"
 
 **`installDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. Type: string.<br>
+Input alias: `packagesDirectory`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder in which packages are installed. If no folder is specified, packages are restored into the default system working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: CmdLine@1 - Command Line v1 task
 description: Run a command line with arguments.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -54,12 +54,13 @@ Run a command line with arguments.
 :::moniker range="<=azure-pipelines"
 
 **`filename`** - **Tool**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Tool name to run. Tool should be found in your path.  Optionally, a fully qualified path can be supplied but that relies on that being present on the agent.
 
 Note: You can use **$(Build.SourcesDirectory)**\\ if you want the path relative to repo.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +68,11 @@ Note: You can use **$(Build.SourcesDirectory)**\\ if you want the path relative 
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the tool. Use double quotes to escape spaces.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +80,11 @@ Arguments passed to the tool. Use double quotes to escape spaces.
 :::moniker range="<=azure-pipelines"
 
 **`workingFolder`** - **Working folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +92,11 @@ Specify the working directory in which you want to run the command. If you leave
 :::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the StandardError stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

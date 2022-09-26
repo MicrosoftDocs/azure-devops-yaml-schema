@@ -1,7 +1,7 @@
 ---
 title: Npm@0 - npm v0 task
 description: Run an npm command. Use NpmAuthenticate@0 task for latest capabilities.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,7 @@ Run an npm command.
 - task: Npm@0
   inputs:
     #cwd: # string. working folder. 
-    command: 'install' # string. Required. npm command. Default: 'install'.
+    command: 'install' # string. Required. npm command. Default: install.
     #arguments: # string. arguments.
 ```
 
@@ -50,7 +50,7 @@ Run an npm command.
 - task: Npm@0
   inputs:
     #cwd: # string. working folder. 
-    command: 'install' # string. Required. npm command. Default: 'install'.
+    command: 'install' # string. Required. npm command. Default: install.
     #arguments: # string. arguments.
 ```
 
@@ -74,10 +74,11 @@ Run an npm command.
 :::moniker range="<=azure-pipelines"
 
 **`cwd`** - **working folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory where the npm command is run. Defaults to the root of the repo.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,12 +86,13 @@ Working directory where the npm command is run. Defaults to the root of the repo
 :::moniker range="<=azure-pipelines"
 
 **`command`** - **npm command**<br>
-Type: string. Required. Default value: 'install'.<br>
+`string`. Required. Default value: `install`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The command and arguments which will be passed to npm for execution.
 
 If your arguments contain double quotes ("), escape them with a slash (\\), and surround the escaped string with double quotes (").
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +100,11 @@ If your arguments contain double quotes ("), escape them with a slash (\\), and 
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to npm.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

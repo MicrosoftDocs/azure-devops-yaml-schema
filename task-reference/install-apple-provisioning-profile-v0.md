@@ -1,7 +1,7 @@
 ---
 title: InstallAppleProvisioningProfile@0 - Install Apple Provisioning Profile v0 task
 description: Install an Apple provisioning profile required to build on a macOS agent.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -51,10 +51,11 @@ Install an Apple provisioning profile required to build on a macOS agent.
 :::moniker range="<=azure-pipelines"
 
 **`provProfileSecureFile`** - **Provisioning Profile**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -62,10 +63,11 @@ Select the provisioning profile that was uploaded to `Secure Files` to install o
 :::moniker range="<=azure-pipelines"
 
 **`removeProfile`** - **Remove Profile After Build**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select to specify that the provisioning profile should be removed from the agent after the build or release is complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

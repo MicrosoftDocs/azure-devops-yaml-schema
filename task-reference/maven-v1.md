@@ -1,7 +1,7 @@
 ---
 title: Maven@1 - Maven v1 task
 description: Build with Apache Maven (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,28 +27,28 @@ Build with Apache Maven.
 # Build with Apache Maven.
 - task: Maven@1
   inputs:
-    mavenPOMFile: 'pom.xml' # string. Required. Maven POM file. Default: 'pom.xml'.
-    #goals: 'package' # string. Goal(s). Default: 'package'.
+    mavenPOMFile: 'pom.xml' # string. Required. Maven POM file. Default: pom.xml.
+    #goals: 'package' # string. Goal(s). Default: package.
     #options: # string. Options. 
   # JUnit Test Results
     publishJUnitResults: true # boolean. Required. Publish to TFS/Team Services. Default: true.
-    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: '**/TEST-*.xml'.
+    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
-    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code Coverage Tool. Default: 'None'.
+    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code Coverage Tool. Default: None.
     #codeCoverageClassFilter: # string. Optional. Use when codeCoverageTool != None. Class Inclusion/Exclusion Filters. 
     #codeCoverageClassFilesDirectories: # string. Optional. Use when codeCoverageTool = JaCoCo. Class Files Directories. 
     #codeCoverageSourceDirectories: # string. Optional. Use when codeCoverageTool = JaCoCo. Source Files Directories. 
     #codeCoverageFailIfEmpty: false # boolean. Optional. Use when codeCoverageTool != None. Fail When Code Coverage Results Are Missing. Default: false.
   # Advanced
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: 'JDKVersion'.
-    #jdkVersionOption: 'default' # 'default' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK Version. Default: 'default'.
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK Version. Default: default.
     #jdkDirectory: # string. Required when javaHomeSelection = Path. JDK Path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK Architecture. Default: 'x64'.
-    mavenVersionOption: 'Default' # 'Default' | 'Path'. Required. Maven Version. Default: 'Default'.
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
+    mavenVersionOption: 'Default' # 'Default' | 'Path'. Required. Maven Version. Default: Default.
     #mavenDirectory: # string. Required when mavenVersionSelection = Path. Maven Path. 
     #mavenSetM2Home: false # boolean. Required when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
-    #mavenOptions: '-Xmx1024m' # string. Set MAVEN_OPTS to. Default: '-Xmx1024m'.
+    #mavenOptions: '-Xmx1024m' # string. Set MAVEN_OPTS to. Default: -Xmx1024m.
     mavenAuthenticateFeed: true # boolean. Required. Authenticate built-in Maven feeds. Default: true.
   # Code Analysis
     sonarQubeRunAnalysis: false # boolean. Required. Run SonarQube Analysis. Default: false.
@@ -87,10 +87,11 @@ Build with Apache Maven.
 :::moniker range="<=azure-pipelines"
 
 **`mavenPOMFile`** - **Maven POM file**<br>
-Type: string. Required. Default value: 'pom.xml'.<br>
+`string`. Required. Default value: `pom.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repository root to the Maven POM file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,9 +99,10 @@ Relative path from the repository root to the Maven POM file.
 :::moniker range="<=azure-pipelines"
 
 **`goals`** - **Goal(s)**<br>
-Type: string. Default value: 'package'.<br>
+`string`. Default value: `package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -108,9 +110,10 @@ Type: string. Default value: 'package'.<br>
 :::moniker range="<=azure-pipelines"
 
 **`options`** - **Options**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +121,11 @@ Type: string.<br>
 :::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Maven build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +133,11 @@ Select this option to publish JUnit test results produced by the Maven build to 
 :::moniker range="<=azure-pipelines"
 
 **`testResultsFiles`** - **Test Results Files**<br>
-Type: string. Required when publishJUnitResults = true. Default value: '**/TEST-*.xml'.<br>
+`string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path and pattern of test results files to publish. For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`. If no root path is specified, files are matched beneath the default working directory, the value of which is available in the variable: $(System.DefaultWorkingDirectory).  For example, a value of '**/TEST-*.xml' will actually result in matching files from '$(System.DefaultWorkingDirectory)/**/TEST-*.xml'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +145,11 @@ Specify the path and pattern of test results files to publish. For example, `**/
 :::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test Run Title**<br>
-Type: string. Optional. Use when publishJUnitResults = true.<br>
+`string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -151,10 +157,11 @@ Provide a name for the test run.
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageToolOption`** - **Code Coverage Tool**<br>
-Input alias: `codeCoverageTool`. Type: string. Allowed values: 'None', 'Cobertura', 'JaCoCo'. Default value: 'None'.<br>
+Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the code coverage tool.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -162,10 +169,11 @@ Select the code coverage tool.
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageClassFilter`** - **Class Inclusion/Exclusion Filters**<br>
-Input alias: `classFilter`. Type: string. Optional. Use when codeCoverageTool != None.<br>
+Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of filters to include or exclude classes from collecting code coverage. For example: +:com.*,+:org.*,-:my.app*.*.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -173,10 +181,11 @@ Comma-separated list of filters to include or exclude classes from collecting co
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageClassFilesDirectories`** - **Class Files Directories**<br>
-Input alias: `classFilesDirectories`. Type: string. Optional. Use when codeCoverageTool = JaCoCo.<br>
+Input alias: `classFilesDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This field is required for a multi-module project. Specify a comma-separated list of relative paths from the Maven POM file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example: target/classes,target/testClasses.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -184,10 +193,11 @@ This field is required for a multi-module project. Specify a comma-separated lis
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageSourceDirectories`** - **Source Files Directories**<br>
-Input alias: `srcDirectories`. Type: string. Optional. Use when codeCoverageTool = JaCoCo.<br>
+Input alias: `srcDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This field is required for a multi-module project. Specify a comma-separated list of relative paths from the Maven POM file to source code directories. Code coverage reports will use these to highlight source code. For example: src/java,src/Test.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -195,10 +205,11 @@ This field is required for a multi-module project. Specify a comma-separated lis
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageFailIfEmpty`** - **Fail When Code Coverage Results Are Missing**<br>
-Input alias: `failIfCoverageEmpty`. Type: boolean. Optional. Use when codeCoverageTool != None. Default value: false.<br>
+Input alias: `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fail the build if code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -206,10 +217,11 @@ Fail the build if code coverage did not produce any results to publish.
 :::moniker range="<=azure-pipelines"
 
 **`javaHomeOption`** - **Set JAVA_HOME by**<br>
-Input alias: `javaHomeSelection`. Type: string. Required. Allowed values: 'JDKVersion', 'Path'. Default value: 'JDKVersion'.<br>
+Input alias: `javaHomeSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME either by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -217,10 +229,11 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 :::moniker range="<=azure-pipelines"
 
 **`jdkVersionOption`** - **JDK Version**<br>
-Input alias: `jdkVersion`. Type: string. Optional. Use when javaHomeSelection = JDKVersion. Allowed values: 'default', '1.9', '1.8', '1.7', '1.6'. Default value: 'default'.<br>
+Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -228,10 +241,11 @@ Will attempt to discover the path to the selected JDK version and set JAVA_HOME 
 :::moniker range="<=azure-pipelines"
 
 **`jdkDirectory`** - **JDK Path**<br>
-Input alias: `jdkUserInputPath`. Type: string. Required when javaHomeSelection = Path.<br>
+Input alias: `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME to the given path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -239,10 +253,11 @@ Sets JAVA_HOME to the given path.
 :::moniker range="<=azure-pipelines"
 
 **`jdkArchitectureOption`** - **JDK Architecture**<br>
-Input alias: `jdkArchitecture`. Type: string. Optional. Use when jdkVersion != default. Allowed values: 'x86', 'x64'. Default value: 'x64'.<br>
+Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of the JDK.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -250,10 +265,11 @@ Optionally supply the architecture (x86, x64) of the JDK.
 :::moniker range="<=azure-pipelines"
 
 **`mavenVersionOption`** - **Maven Version**<br>
-Input alias: `mavenVersionSelection`. Type: string. Required. Allowed values: 'Default', 'Path'. Default value: 'Default'.<br>
+Input alias: `mavenVersionSelection`. `string`. Required. Allowed values: `Default`, `Path` (Custom Path). Default value: `Default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Uses either the default Maven version or the version in the specified custom path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -261,10 +277,11 @@ Uses either the default Maven version or the version in the specified custom pat
 :::moniker range="<=azure-pipelines"
 
 **`mavenDirectory`** - **Maven Path**<br>
-Input alias: `mavenPath`. Type: string. Required when mavenVersionSelection = Path.<br>
+Input alias: `mavenPath`. `string`. Required when `mavenVersionSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supply the custom path to the Maven installation (e.g., /usr/share/maven).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -272,10 +289,11 @@ Supply the custom path to the Maven installation (e.g., /usr/share/maven).
 :::moniker range="<=azure-pipelines"
 
 **`mavenSetM2Home`** - **Set M2_HOME variable**<br>
-Type: boolean. Required when mavenVersionSelection = Path. Default value: false.<br>
+`boolean`. Required when `mavenVersionSelection = Path`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the M2_HOME variable to a custom Maven installation path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -283,10 +301,11 @@ Sets the M2_HOME variable to a custom Maven installation path.
 :::moniker range="<=azure-pipelines"
 
 **`mavenOptions`** - **Set MAVEN_OPTS to**<br>
-Input alias: `mavenOpts`. Type: string. Default value: '-Xmx1024m'.<br>
+Input alias: `mavenOpts`. `string`. Default value: `-Xmx1024m`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the MAVEN_OPTS environment variable, which is used to send command-line arguments to start the JVM. The -Xmx flag specifies the maximum memory available to the JVM.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -294,10 +313,11 @@ Sets the MAVEN_OPTS environment variable, which is used to send command-line arg
 :::moniker range="<=azure-pipelines"
 
 **`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
-Input alias: `mavenFeedAuthenticate`. Type: boolean. Required. Default value: true.<br>
+Input alias: `mavenFeedAuthenticate`. `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically authenticate built-in Maven feeds from the TFS/VSTS [Package Management](https://marketplace.visualstudio.com/items?itemName=ms.feed) extension. If built-in Maven feeds are not in use, deselect this option for faster builds.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -305,10 +325,11 @@ Automatically authenticate built-in Maven feeds from the TFS/VSTS [Package Manag
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube Analysis**<br>
-Input alias: `sqAnalysisEnabled`. Type: boolean. Required. Default value: false.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run a [SonarQube analysis](https://go.microsoft.com/fwlink/?LinkID=708598) after executing the current goals. 'install' or 'package' goals should be executed first.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -316,10 +337,11 @@ Run a [SonarQube analysis](https://go.microsoft.com/fwlink/?LinkID=708598) after
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeServiceEndpoint`** - **SonarQube Endpoint**<br>
-Input alias: `sqConnectedServiceName`. Type: string. Required when sqAnalysisEnabled = true.<br>
+Input alias: `sqConnectedServiceName`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube server generic endpoint.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -327,10 +349,11 @@ The SonarQube server generic endpoint.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeProjectName`** - **SonarQube Project Name**<br>
-Input alias: `sqProjectName`. Type: string. Optional. Use when sqAnalysisEnabled = true.<br>
+Input alias: `sqProjectName`. `string`. Optional. Use when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project name, i.e. sonar.projectName.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -338,10 +361,11 @@ The SonarQube project name, i.e. sonar.projectName.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeProjectKey`** - **SonarQube Project Key**<br>
-Input alias: `sqProjectKey`. Type: string. Optional. Use when sqAnalysisEnabled = true.<br>
+Input alias: `sqProjectKey`. `string`. Optional. Use when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project unique key, i.e. sonar.projectKey.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -349,10 +373,11 @@ The SonarQube project unique key, i.e. sonar.projectKey.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeProjectVersion`** - **SonarQube Project Version**<br>
-Input alias: `sqProjectVersion`. Type: string. Optional. Use when sqAnalysisEnabled = true.<br>
+Input alias: `sqProjectVersion`. `string`. Optional. Use when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project version, i.e. sonar.projectVersion.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -360,10 +385,11 @@ The SonarQube project version, i.e. sonar.projectVersion.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeSpecifyDB`** - **The SonarQube server version is lower than 5.2**<br>
-Input alias: `sqDbDetailsRequired`. Type: boolean. Required when sqAnalysisEnabled = true. Default value: false.<br>
+Input alias: `sqDbDetailsRequired`. `boolean`. Required when `sqAnalysisEnabled = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If using a SonarQube server 5.1 or lower, you must specify the database connection details.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -371,10 +397,11 @@ If using a SonarQube server 5.1 or lower, you must specify the database connecti
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeDBUrl`** - **Db Connection String**<br>
-Input alias: `sqDbUrl`. Type: string. Optional. Use when sqDbDetailsRequired = true.<br>
+Input alias: `sqDbUrl`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 SonarQube server 5.1 and lower only. Enter the database connection setting (i.e. sonar.jdbc.url). For example: jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -382,10 +409,11 @@ SonarQube server 5.1 and lower only. Enter the database connection setting (i.e.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeDBUsername`** - **Db Username**<br>
-Input alias: `sqDbUsername`. Type: string. Optional. Use when sqDbDetailsRequired = true.<br>
+Input alias: `sqDbUsername`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 SonarQube server 5.1 and lower only. Enter the username for the database user (i.e. sonar.jdbc.username).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -393,10 +421,11 @@ SonarQube server 5.1 and lower only. Enter the username for the database user (i
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeDBPassword`** - **Db User Password**<br>
-Input alias: `sqDbPassword`. Type: string. Optional. Use when sqDbDetailsRequired = true.<br>
+Input alias: `sqDbPassword`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 SonarQube server 5.1 and lower only. Enter the password for the database user i.e. sonar.jdbc.password.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -404,10 +433,11 @@ SonarQube server 5.1 and lower only. Enter the password for the database user i.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeIncludeFullReport`** - **Include full analysis report in the build summary (SQ 5.3+)**<br>
-Input alias: `sqAnalysisIncludeFullReport`. Type: boolean. Optional. Use when sqAnalysisEnabled = true. Default value: true.<br>
+Input alias: `sqAnalysisIncludeFullReport`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option will delay the build until the SonarQube analysis is completed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -415,10 +445,11 @@ This option will delay the build until the SonarQube analysis is completed.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeFailWhenQualityGateFails`** - **Fail the build on quality gate failure (SQ 5.3+)**<br>
-Input alias: `sqAnalysisBreakBuildIfQualityGateFailed`. Type: boolean. Optional. Use when sqAnalysisEnabled = true.<br>
+Input alias: `sqAnalysisBreakBuildIfQualityGateFailed`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option is only available when using a SonarQube server 5.3 or above. It will introduce delays as the build must wait for SonarQube to complete the analysis. [More information](https://go.microsoft.com/fwlink/?LinkId=722407).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -426,10 +457,11 @@ This option is only available when using a SonarQube server 5.3 or above. It wil
 :::moniker range="<=azure-pipelines"
 
 **`checkStyleRunAnalysis`** - **Run Checkstyle**<br>
-Input alias: `checkstyleAnalysisEnabled`. Type: boolean. Default value: false.<br>
+Input alias: `checkstyleAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run the Checkstyle tool with the default Sun checks. Results are uploaded as build artifacts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -437,10 +469,11 @@ Run the Checkstyle tool with the default Sun checks. Results are uploaded as bui
 :::moniker range="<=azure-pipelines"
 
 **`pmdRunAnalysis`** - **Run PMD**<br>
-Input alias: `pmdAnalysisEnabled`. Type: boolean. Default value: false.<br>
+Input alias: `pmdAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use the PMD static analysis tool to look for bugs in the code. Results are uploaded as build artifacts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -448,10 +481,11 @@ Use the PMD static analysis tool to look for bugs in the code. Results are uploa
 :::moniker range="<=azure-pipelines"
 
 **`findBugsRunAnalysis`** - **Run FindBugs**<br>
-Input alias: `findbugsAnalysisEnabled`. Type: boolean. Default value: false.<br>
+Input alias: `findbugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use the FindBugs static analysis tool to look for bugs in the code. Results are uploaded as build artifacts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

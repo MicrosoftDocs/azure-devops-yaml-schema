@@ -1,7 +1,7 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,23 +27,23 @@ Build an Android app with Xamarin.
 # Build an Android app with Xamarin.
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*.csproj' # string. Required. Project. Default: '**/*.csproj'.
+    projectFile: '**/*.csproj' # string. Required. Project. Default: **/*.csproj.
     #target: # string. Target. 
     #outputDirectory: # string. Output directory. 
     #configuration: # string. Configuration. 
     #createAppPackage: true # boolean. Create app package. Default: true.
     #clean: false # boolean. Clean. Default: false.
   # MSBuild Options
-    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: 'version'.
-    #msbuildVersionOption: '15.0' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: '15.0'.
+    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: version.
+    #msbuildVersionOption: '15.0' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
     #msbuildFile: # string. Required when msbuildLocationMethod = location. MSBuild location. 
-    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: 'x86'.
+    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
     #msbuildArguments: # string. Additional arguments. 
   # JDK Options
-    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: 'JDKVersion'.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: 'default'.
+    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
     #jdkDirectory: # string. Required when jdkSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: 'x64'.
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -55,23 +55,23 @@ Build an Android app with Xamarin.
 # Build an Android app with Xamarin.
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*.csproj' # string. Required. Project. Default: '**/*.csproj'.
+    projectFile: '**/*.csproj' # string. Required. Project. Default: **/*.csproj.
     #target: # string. Target. 
     #outputDirectory: # string. Output directory. 
     #configuration: # string. Configuration. 
     #createAppPackage: true # boolean. Create app package. Default: true.
     #clean: false # boolean. Clean. Default: false.
   # MSBuild Options
-    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: 'version'.
-    #msbuildVersionOption: '15.0' # 'latest' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: '15.0'.
+    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: version.
+    #msbuildVersionOption: '15.0' # 'latest' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
     #msbuildFile: # string. Required when msbuildLocationMethod = location. MSBuild location. 
-    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: 'x86'.
+    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
     #msbuildArguments: # string. Additional arguments. 
   # JDK Options
-    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: 'JDKVersion'.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: 'default'.
+    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
     #jdkDirectory: # string. Required when jdkSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: 'x64'.
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -94,10 +94,11 @@ Build an Android app with Xamarin.
 :::moniker range="<=azure-pipelines"
 
 **`projectFile`** - **Project**<br>
-Input alias: `project`. Type: string. Required. Default value: '**/*.csproj'.<br>
+Input alias: `project`. `string`. Required. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).  For example, `**/*.csproj` for all csproj files in all subfolders.  The project must have a PackageForAndroid target if `Create App Package` is selected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -105,10 +106,11 @@ Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards 
 :::moniker range="<=azure-pipelines"
 
 **`target`** - **Target**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Build these targets in this project. Use a semicolon to separate multiple targets.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -116,10 +118,11 @@ Build these targets in this project. Use a semicolon to separate multiple target
 :::moniker range="<=azure-pipelines"
 
 **`outputDirectory`** - **Output directory**<br>
-Input alias: `outputDir`. Type: string.<br>
+Input alias: `outputDir`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally provide the output directory for the build. Example: $(build.binariesDirectory)/bin/Release.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -127,9 +130,10 @@ Optionally provide the output directory for the build. Example: $(build.binaries
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,10 +141,11 @@ Type: string.<br>
 :::moniker range="<=azure-pipelines"
 
 **`createAppPackage`** - **Create app package**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Passes the target (/t:PackageForAndroid) during build to generate an APK.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,10 +153,11 @@ Passes the target (/t:PackageForAndroid) during build to generate an APK.
 :::moniker range="<=azure-pipelines"
 
 **`clean`** - **Clean**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Passes the clean target (/t:clean) during build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -159,9 +165,10 @@ Passes the clean target (/t:clean) during build.
 :::moniker range="<=azure-pipelines"
 
 **`msbuildLocationOption`** - **MSBuild**<br>
-Input alias: `msbuildLocationMethod`. Type: string. Allowed values: 'version', 'location'. Default value: 'version'.<br>
+Input alias: `msbuildLocationMethod`. `string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -169,20 +176,22 @@ Input alias: `msbuildLocationMethod`. Type: string. Allowed values: 'version', '
 :::moniker range=">=azure-pipelines-2022"
 
 **`msbuildVersionOption`** - **MSBuild version**<br>
-Input alias: `msbuildVersion`. Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'latest', '17.0', '16.0', '15.0', '14.0', '12.0', '4.0'. Default value: '15.0'.<br>
+Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the preferred version cannot be found, the latest version found will be used instead. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`msbuildVersionOption`** - **MSBuild version**<br>
-Input alias: `msbuildVersion`. Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'latest', '15.0', '14.0', '12.0', '4.0'. Default value: '15.0'.<br>
+Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the preferred version cannot be found, the latest version found will be used instead. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -190,10 +199,11 @@ If the preferred version cannot be found, the latest version found will be used 
 :::moniker range="<=azure-pipelines"
 
 **`msbuildFile`** - **MSBuild location**<br>
-Input alias: `msbuildLocation`. Type: string. Required when msbuildLocationMethod = location.<br>
+Input alias: `msbuildLocation`. `string`. Required when `msbuildLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to MSBuild (on Windows) or xbuild (on macOS).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -201,10 +211,11 @@ Optionally supply the path to MSBuild (on Windows) or xbuild (on macOS).
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArchitectureOption`** - **MSBuild architecture**<br>
-Input alias: `msbuildArchitecture`. Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'x86', 'x64'. Default value: 'x86'.<br>
+Input alias: `msbuildArchitecture`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of MSBuild to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -212,10 +223,11 @@ Optionally supply the architecture (x86, x64) of MSBuild to run.
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArguments`** - **Additional arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to MSBuild (on Windows) or xbuild (on macOS).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -223,10 +235,11 @@ Additional arguments passed to MSBuild (on Windows) or xbuild (on macOS).
 :::moniker range="<=azure-pipelines"
 
 **`jdkOption`** - **Select JDK to use for the build**<br>
-Input alias: `jdkSelection`. Type: string. Required. Allowed values: 'JDKVersion', 'Path'. Default value: 'JDKVersion'.<br>
+Input alias: `jdkSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick the JDK to be used during the build by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -234,20 +247,22 @@ Pick the JDK to be used during the build by selecting a JDK version that will be
 :::moniker range=">=azure-pipelines-2019"
 
 **`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. Type: string. Optional. Use when jdkSelection = JDKVersion. Allowed values: 'default', '1.11', '1.10', '1.9', '1.8', '1.7', '1.6'. Default value: 'default'.<br>
+Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use the selected JDK version during build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. Type: string. Optional. Use when jdkSelection = JDKVersion. Allowed values: 'default', '1.9', '1.8', '1.7', '1.6'. Default value: 'default'.<br>
+Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use the selected JDK version during build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -255,10 +270,11 @@ Use the selected JDK version during build.
 :::moniker range="<=azure-pipelines"
 
 **`jdkDirectory`** - **JDK path**<br>
-Input alias: `jdkUserInputPath`. Type: string. Required when jdkSelection = Path.<br>
+Input alias: `jdkUserInputPath`. `string`. Required when `jdkSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use the JDK version at specified path during build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -266,10 +282,11 @@ Use the JDK version at specified path during build.
 :::moniker range="<=azure-pipelines"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
-Input alias: `jdkArchitecture`. Type: string. Optional. Use when jdkVersion != default. Allowed values: 'x86', 'x64'. Default value: 'x64'.<br>
+Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of JDK.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

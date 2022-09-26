@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ Download Azure Key Vault Secrets.
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # string. Required. Secrets filter. Default: '*'.
+    SecretsFilter: '*' # string. Required. Secrets filter. Default: *.
     RunAsPreJob: false # boolean. Required. Make secrets available to whole job. Default: false.
 ```
 
@@ -52,7 +52,7 @@ Download Azure Key Vault Secrets.
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: '*'.
+    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
     RunAsPreJob: false # 'EditableOptions'. Required. Make secrets available to whole job. Default: false.
 ```
 
@@ -67,7 +67,7 @@ Download Azure Key Vault Secrets.
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: '*'.
+    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
 ```
 
 :::moniker-end
@@ -81,7 +81,7 @@ Download Azure Key Vault Secrets.
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: '*'.
+    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
 ```
 
 :::moniker-end
@@ -104,10 +104,11 @@ Download Azure Key Vault Secrets.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure subscription for the key vault.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -115,10 +116,11 @@ Select the Azure subscription for the key vault.
 :::moniker range="<=azure-pipelines"
 
 **`KeyVaultName`** - **Key vault**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of an existing key vault.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,20 +128,22 @@ Provide the name of an existing key vault.
 :::moniker range=">=azure-pipelines-2022"
 
 **`SecretsFilter`** - **Secrets filter**<br>
-Type: string. Required. Default value: '*'.<br>
+`string`. Required. Default value: `*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma separated list of secret names or leave * to download all secrets from the selected key vault.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`SecretsFilter`** - **Secrets filter**<br>
-Type: string. Required. Allowed values: 'EditableOptions'. Default value: '*'.<br>
+`string`. Required. Allowed values: `EditableOptions` (True). Default value: `*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma separated list of secret names or leave * to download all secrets from the selected key vault.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -147,20 +151,22 @@ Comma separated list of secret names or leave * to download all secrets from the
 :::moniker range=">=azure-pipelines-2022"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run the task before job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
-Type: boolean. Required. Allowed values: 'EditableOptions'. Default value: false.<br>
+`boolean`. Required. Allowed values: `EditableOptions` (True). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run the task before job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,19 +27,19 @@ Download build and pipeline artifacts.
 # Download build and pipeline artifacts.
 - task: DownloadPipelineArtifact@2
   inputs:
-    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: 'current'.
+    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when source == specific. Project. 
     #definition: # string. Required when source == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
-    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when source == specific. Build version to download. Default: 'latest'.
-    #branchName: 'refs/heads/master' # string. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: 'refs/heads/master'.
+    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when source == specific. Build version to download. Default: latest.
+    #branchName: 'refs/heads/master' # string. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/master.
     #pipelineId: # string. Required when source == specific && runVersion == specific. Build. 
     #tags: # string. Optional. Use when source == specific && runVersion != specific. Build Tags. 
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from partially succeeded builds. Default: false.
     #allowFailedBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from failed builds. Default: false.
     #artifactName: # string. Artifact name. 
-    #itemPattern: '**' # string. Matching patterns. Default: '**'.
-    targetPath: '$(Pipeline.Workspace)' # string. Required. Destination directory. Default: '$(Pipeline.Workspace)'.
+    #itemPattern: '**' # string. Matching patterns. Default: **.
+    targetPath: '$(Pipeline.Workspace)' # string. Required. Destination directory. Default: $(Pipeline.Workspace).
 ```
 
 :::moniker-end
@@ -52,10 +52,11 @@ Download build and pipeline artifacts.
 :::moniker range=">=azure-pipelines-2020"
 
 **`buildType`** - **Download artifacts produced by**<br>
-Input alias: `source`. Type: string. Required. Allowed values: 'current', 'specific'. Default value: 'current'.<br>
+Input alias: `source`. `string`. Required. Allowed values: `current` (Current run), `specific` (Specific run). Default value: `current`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Download artifacts produced by the current pipeline run, or from a specific pipeline run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -63,10 +64,11 @@ Download artifacts produced by the current pipeline run, or from a specific pipe
 :::moniker range=">=azure-pipelines-2020"
 
 **`project`** - **Project**<br>
-Type: string. Required when source == specific.<br>
+`string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The project from which to download the pipeline artifacts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -74,10 +76,11 @@ The project from which to download the pipeline artifacts.
 :::moniker range=">=azure-pipelines-2020"
 
 **`definition`** - **Build pipeline**<br>
-Input alias: `pipeline`. Type: string. Required when source == specific.<br>
+Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the build pipeline name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +88,11 @@ Select the build pipeline name.
 :::moniker range=">=azure-pipelines-2020"
 
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
-Input alias: `preferTriggeringPipeline`. Type: boolean. Optional. Use when source == specific. Default value: false.<br>
+Input alias: `preferTriggeringPipeline`. `boolean`. Optional. Use when `source == specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If checked, this build task will try to download artifacts from the triggering build. If there is no triggering build from the specified pipeline, it will download artifacts from the build specified in the options below.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +100,11 @@ If checked, this build task will try to download artifacts from the triggering b
 :::moniker range=">=azure-pipelines-2020"
 
 **`buildVersionToDownload`** - **Build version to download**<br>
-Input alias: `runVersion`. Type: string. Required when source == specific. Allowed values: 'latest', 'latestFromBranch', 'specific'. Default value: 'latest'.<br>
+Input alias: `runVersion`. `string`. Required when `source == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies which build version to download.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,10 +112,11 @@ Specifies which build version to download.
 :::moniker range=">=azure-pipelines-2020"
 
 **`branchName`** - **Branch name**<br>
-Input alias: `runBranch`. Type: string. Required when source == specific && runVersion == latestFromBranch. Default value: 'refs/heads/master'.<br>
+Input alias: `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +124,11 @@ Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
 :::moniker range=">=azure-pipelines-2020"
 
 **`pipelineId`** - **Build**<br>
-Input alias: `runId | buildId`. Type: string. Required when source == specific && runVersion == specific.<br>
+Input alias: `runId | buildId`. `string`. Required when `source == specific && runVersion == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The build from which to download the artifacts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +136,11 @@ The build from which to download the artifacts.
 :::moniker range=">=azure-pipelines-2020"
 
 **`tags`** - **Build Tags**<br>
-Type: string. Optional. Use when source == specific && runVersion != specific.<br>
+`string`. Optional. Use when `source == specific && runVersion != specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A comma-delimited list of tags. Only builds with these tags will be returned.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +148,11 @@ A comma-delimited list of tags. Only builds with these tags will be returned.
 :::moniker range=">=azure-pipelines-2020"
 
 **`allowPartiallySucceededBuilds`** - **Download artifacts from partially succeeded builds.**<br>
-Type: boolean. Optional. Use when source == specific && runVersion != specific. Default value: false.<br>
+`boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If checked, this build task will try to download artifacts whether the build is succeeded or partially succeeded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -151,10 +160,11 @@ If checked, this build task will try to download artifacts whether the build is 
 :::moniker range=">=azure-pipelines-2020"
 
 **`allowFailedBuilds`** - **Download artifacts from failed builds.**<br>
-Type: boolean. Optional. Use when source == specific && runVersion != specific. Default value: false.<br>
+`boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If checked, this build task will try to download artifacts whether the build is succeeded or failed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -162,10 +172,11 @@ If checked, this build task will try to download artifacts whether the build is 
 :::moniker range=">=azure-pipelines-2020"
 
 **`artifactName`** - **Artifact name**<br>
-Input alias: `artifact`. Type: string.<br>
+Input alias: `artifact`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the artifact to download. If left empty, it will download all artifacts associated to the pipeline run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -173,10 +184,11 @@ The name of the artifact to download. If left empty, it will download all artifa
 :::moniker range=">=azure-pipelines-2020"
 
 **`itemPattern`** - **Matching patterns**<br>
-Input alias: `patterns`. Type: string. Default value: '**'.<br>
+Input alias: `patterns`. `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 One or more file matching patterns (new line delimited) that limit which files get downloaded. [More Information on file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -184,10 +196,11 @@ One or more file matching patterns (new line delimited) that limit which files g
 :::moniker range=">=azure-pipelines-2020"
 
 **`targetPath`** - **Destination directory**<br>
-Input alias: `path | downloadPath`. Type: string. Required. Default value: '$(Pipeline.Workspace)'.<br>
+Input alias: `path | downloadPath`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path on the agent machine where the artifacts will be downloaded. Can be relative to the pipeline workspace directory or absolute. If multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

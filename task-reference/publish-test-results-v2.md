@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -43,9 +43,9 @@ Publish Test Results to VSTS/TFS.
 # Publish test results to Azure Pipelines.
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Required. Test result format. Default: 'JUnit'.
-    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: '**/TEST-*.xml'.
-    #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: '$(System.DefaultWorkingDirectory)'.
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Required. Test result format. Default: JUnit.
+    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
+    #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
     #mergeTestResults: false # boolean. Merge test results. Default: false.
     #failTaskOnFailedTests: false # boolean. Fail if there are test failures. Default: false.
     #testRunTitle: # string. Test run title. 
@@ -64,9 +64,9 @@ Publish Test Results to VSTS/TFS.
 # Publish Test Results to Azure Pipelines/TFS.
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Required. Test result format. Default: 'JUnit'.
-    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: '**/TEST-*.xml'.
-    #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: '$(System.DefaultWorkingDirectory)'.
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Required. Test result format. Default: JUnit.
+    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
+    #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
     #mergeTestResults: false # boolean. Merge test results. Default: false.
     #testRunTitle: # string. Test run title. 
   # Advanced
@@ -95,20 +95,22 @@ Publish Test Results to VSTS/TFS.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`testResultsFormat`** - **Test result format**<br>
-Input alias: `testRunner`. Type: string. Required. Allowed values: 'JUnit', 'NUnit', 'VSTest', 'XUnit', 'CTest'. Default value: 'JUnit'.<br>
+Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`, `CTest`. Default value: `JUnit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`testResultsFormat`** - **Test result format**<br>
-Input alias: `testRunner`. Type: string. Required. Allowed values: 'JUnit', 'NUnit', 'VSTest', 'XUnit'. Default value: 'JUnit'.<br>
+Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`. Default value: `JUnit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -116,7 +118,7 @@ Format of the results files you want to publish. The following formats are suppo
 :::moniker range=">=azure-pipelines-2019"
 
 **`testResultsFiles`** - **Test results files**<br>
-Type: string. Required. Default value: '**/TEST-*.xml'.<br>
+`string`. Required. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this to specify one or more test results files.
 
@@ -126,13 +128,14 @@ Use this to specify one or more test results files.
 
 For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or `TEST3.xml`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`testResultsFiles`** - **Test results files**<br>
-Type: string. Required. Default value: '**\TEST-*.xml'.<br>
+`string`. Required. Default value: `**\TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this to specify one or more test results files.
 
@@ -142,6 +145,7 @@ Use this to specify one or more test results files.
 
 For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or `TEST3.xml`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -149,10 +153,11 @@ For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or 
 :::moniker range="<=azure-pipelines"
 
 **`searchFolder`** - **Search folder**<br>
-Type: string. Default value: '$(System.DefaultWorkingDirectory)'.<br>
+`string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Folder to search for the test result files. Defaults to `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -160,12 +165,13 @@ Folder to search for the test result files. Defaults to `$(System.DefaultWorking
 :::moniker range="<=azure-pipelines"
 
 **`mergeTestResults`** - **Merge test results**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When this option is true, test results from all the files will be reported against a single [test run](/azure/devops/pipelines/test/test-glossary). If this option is not selected, a separate test run will be created for each test result file.
 
 Use the merge test results setting to combine files from the same test framework to ensure results mapping and duration are calculated correctly.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -173,10 +179,11 @@ Use the merge test results setting to combine files from the same test framework
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`failTaskOnFailedTests`** - **Fail if there are test failures**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When true, the task will fail if any of the tests in the results file is marked as failed. The default is false, which will simply publish the results from the results file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -184,10 +191,11 @@ When true, the task will fail if any of the tests in the results file is marked 
 :::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test run title**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to provide a name for the test run against which the results will be reported. Variable names declared in the build or release pipeline can be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -195,10 +203,11 @@ Use this option to provide a name for the test run against which the results wil
 :::moniker range=">=azure-pipelines-2019"
 
 **`buildPlatform`** - **Build Platform**<br>
-Input alias: `platform`. Type: string.<br>
+Input alias: `platform`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Platform for which the tests were run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -206,10 +215,11 @@ Platform for which the tests were run.
 :::moniker range=">=azure-pipelines-2019"
 
 **`buildConfiguration`** - **Build Configuration**<br>
-Input alias: `configuration`. Type: string.<br>
+Input alias: `configuration`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configuration for which the tests were run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -217,10 +227,11 @@ Configuration for which the tests were run.
 :::moniker range="<=azure-pipelines"
 
 **`publishRunAttachments`** - **Upload test results files**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When true, the task will upload all the test result files as attachments to the test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -228,10 +239,11 @@ When true, the task will upload all the test result files as attachments to the 
 :::moniker range="=azure-pipelines-2018"
 
 **`testRunner`** - **Test result format**<br>
-Type: string. Required. Allowed values: 'JUnit', 'NUnit', 'VSTest', 'XUnit'. Default value: 'JUnit'.<br>
+`string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`. Default value: `JUnit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Format of test result files generated by your choice of test runner e.g. JUnit, VSTest, XUnit V2 and NUnit.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -239,10 +251,11 @@ Format of test result files generated by your choice of test runner e.g. JUnit, 
 :::moniker range="=azure-pipelines-2018"
 
 **`platform`** - **Platform**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Platform for which the tests were run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -250,10 +263,11 @@ Platform for which the tests were run.
 :::moniker range="=azure-pipelines-2018"
 
 **`configuration`** - **Configuration**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configuration for which the tests were run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

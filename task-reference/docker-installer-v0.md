@@ -1,7 +1,7 @@
 ---
 title: DockerInstaller@0 - Docker CLI installer v0 task
 description: Install Docker CLI on agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,8 +27,8 @@ Install Docker CLI on agent machine.
 # Install Docker CLI on agent machine.
 - task: DockerInstaller@0
   inputs:
-    dockerVersion: '17.09.0-ce' # string. Required. Docker Version. Default: '17.09.0-ce'.
-    #releaseType: 'stable' # 'stable' | 'edge' | 'test' | 'nightly'. Release type. Default: 'stable'.
+    dockerVersion: '17.09.0-ce' # string. Required. Docker Version. Default: 17.09.0-ce.
+    #releaseType: 'stable' # 'stable' | 'edge' | 'test' | 'nightly'. Release type. Default: stable.
 ```
 
 :::moniker-end
@@ -41,10 +41,11 @@ Install Docker CLI on agent machine.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`dockerVersion`** - **Docker Version**<br>
-Type: string. Required. Default value: '17.09.0-ce'.<br>
+`string`. Required. Default value: `17.09.0-ce`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the version of Docker CLI to install.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -52,10 +53,11 @@ Specify the version of Docker CLI to install.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`releaseType`** - **Release type**<br>
-Type: string. Allowed values: 'stable', 'edge', 'test', 'nightly'. Default value: 'stable'.<br>
+`string`. Allowed values: `stable`, `edge`, `test`, `nightly`. Default value: `stable`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick the release type to install. Nightly is not supported on Windows.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

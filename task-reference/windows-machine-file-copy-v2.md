@@ -1,7 +1,7 @@
 ---
 title: WindowsMachineFileCopy@2 - Windows machine file copy v2 task
 description: Copy files to remote Windows machines.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -106,10 +106,11 @@ Copy files to remote machine(s).
 :::moniker range="<=azure-pipelines"
 
 **`SourcePath`** - **Source**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Absolute path of the source folder or file on the local machine, or a UNC Share like c:\fabrikamfiber or \\\\fabrikamshare\fabrikamfiber.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,20 +118,22 @@ Absolute path of the source folder or file on the local machine, or a UNC Share 
 :::moniker range=">=azure-pipelines-2022"
 
 **`MachineNames`** - **Machines**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`MachineNames`** - **Machines**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,20 +141,22 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 :::moniker range=">=azure-pipelines-2022"
 
 **`AdminUserName`** - **Admin Login**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Administrator login for the target machines.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`AdminUserName`** - **Admin Login**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Administrator login for the target machines.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -159,20 +164,22 @@ Administrator login for the target machines.
 :::moniker range=">=azure-pipelines-2022"
 
 **`AdminPassword`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`AdminPassword`** - **Password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -180,10 +187,11 @@ Password for administrator login for the target machines. <br>It can accept a va
 :::moniker range="<=azure-pipelines"
 
 **`TargetPath`** - **Destination Folder**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Local Path on the target machines or an accessible UNC path for copying the files from the source like d:\fabrikam or \\\\fabrikam\Web.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -191,10 +199,11 @@ Local Path on the target machines or an accessible UNC path for copying the file
 :::moniker range="<=azure-pipelines"
 
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selecting it will clean the destination folder before copying the files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -202,10 +211,11 @@ Selecting it will clean the destination folder before copying the files.
 :::moniker range="<=azure-pipelines"
 
 **`CopyFilesInParallel`** - **Copy Files in Parallel**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selecting it will copy files in parallel to the machines.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +223,11 @@ Selecting it will copy files in parallel to the machines.
 :::moniker range="<=azure-pipelines"
 
 **`AdditionalArguments`** - **Additional Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional robocopy arguments that will be applied when copying files like, /min:33553332 /l.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

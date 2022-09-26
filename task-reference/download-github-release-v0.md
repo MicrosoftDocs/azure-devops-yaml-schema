@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubRelease@0 - Download GitHub Release v0 task
 description: Downloads a GitHub Release from a repository.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -29,10 +29,10 @@ Downloads a GitHub Release from a repository.
   inputs:
     connection: # string. Required. GitHub Connection. 
     userRepository: # string. Required. Repository. 
-    defaultVersionType: 'latest' # 'latest' | 'specificVersion' | 'specificTag'. Required. Default version. Default: 'latest'.
+    defaultVersionType: 'latest' # 'latest' | 'specificVersion' | 'specificTag'. Required. Default version. Default: latest.
     version: # string. Required when defaultVersionType != latest. Release. 
-    #itemPattern: '**' # string. Item Pattern. Default: '**'.
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: '$(System.ArtifactsDirectory)'.
+    #itemPattern: '**' # string. Item Pattern. Default: **.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
 ```
 
 :::moniker-end
@@ -45,10 +45,11 @@ Downloads a GitHub Release from a repository.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`connection`** - **GitHub Connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 GitHub service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -56,10 +57,11 @@ GitHub service connection.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`userRepository`** - **Repository**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 GitHub repository full name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +69,11 @@ GitHub repository full name.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`defaultVersionType`** - **Default version**<br>
-Type: string. Required. Allowed values: 'latest', 'specificVersion', 'specificTag'. Default value: 'latest'.<br>
+`string`. Required. Allowed values: `latest` (Latest Release), `specificVersion` (Specific Version), `specificTag` (Specific Tag). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Download assets from latest release or specific release version/tag.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +81,11 @@ Download assets from latest release or specific release version/tag.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`version`** - **Release**<br>
-Type: string. Required when defaultVersionType != latest.<br>
+`string`. Required when `defaultVersionType != latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Release version/tag to download.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +93,11 @@ Release version/tag to download.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`itemPattern`** - **Item Pattern**<br>
-Type: string. Default value: '**'.<br>
+`string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Minimatch pattern to filter files to be downloaded. To download all files within release use **.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +105,11 @@ Minimatch pattern to filter files to be downloaded. To download all files within
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`downloadPath`** - **Destination directory**<br>
-Type: string. Required. Default value: '$(System.ArtifactsDirectory)'.<br>
+`string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path on the agent machine where the release assets will be downloaded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

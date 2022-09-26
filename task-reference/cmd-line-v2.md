@@ -1,7 +1,7 @@
 ---
 title: CmdLine@2 - Command line v2 task
 description: Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -50,25 +50,39 @@ Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
 ## Inputs
 
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020"
 
 **`script`** - **Script**<br>
-Type: string. Required.<br>
+`string`. Required. Default value: `echo Write your commands here\n\necho Hello world`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the script you want to run.
 Default value: `echo Write your commands here\n\necho Hello world\n"`.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+
+**`script`** - **Script**<br>
+`string`. Required. Default value: `echo Write your commands here\n\necho Use the environment variables input below to pass secret variables to this script`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Contents of the script you want to run.
+Default value: `echo Write your commands here\n\necho Hello world\n"`.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`script`** - **Script**<br>
-Type: string. Required. Default value: 'echo Write your commands here'.<br>
+`string`. Required. Default value: `echo Write your commands here`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the script you want to run.
 Default value: `echo Write your commands here\n\necho Hello world\n"`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +90,11 @@ Default value: `echo Write your commands here\n\necho Hello world\n"`.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +102,11 @@ Specify the working directory in which you want to run the command. If you leave
 :::moniker range="<=azure-pipelines"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the stderr.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

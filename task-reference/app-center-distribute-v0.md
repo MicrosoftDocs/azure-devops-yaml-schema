@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@0 - App Center Distribute v0 task
 description: Distribute app builds to testers and users via App Center (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,14 +30,14 @@ Distribute app builds to testers and users via App Center.
     serverEndpoint: # string. Required. App Center connection. 
     appSlug: # string. Required. App slug. 
     appFile: # string. Required. Binary file path. 
-    releaseNotesOption: 'input' # 'input' | 'file'. Required. Create release notes. Default: 'input'.
+    releaseNotesOption: 'input' # 'input' | 'file'. Required. Create release notes. Default: input.
     releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
     #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
     #distributionGroupId: # string. Distribution group ID. 
   # Symbols
-    #symbolsOption: 'Apple' # 'Apple'. Symbols type. Default: 'Apple'.
+    #symbolsOption: 'Apple' # 'Apple'. Symbols type. Default: Apple.
     #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
-    #symbolsPdbFiles: '**/*.pdb' # string. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: '**/*.pdb'.
+    #symbolsPdbFiles: '**/*.pdb' # string. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
     #symbolsDsymFiles: # string. Optional. Use when symbolsType = Apple. dSYM path. 
     #symbolsMappingTxtFile: # string. Optional. Use when symbolsType = AndroidJava. Mapping file. 
     #symbolsIncludeParentDirectory: # boolean. Include all items in parent folder.
@@ -63,10 +63,11 @@ Distribute app builds to testers and users via App Center.
 :::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **App Center connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service endpoint for your Visual Studio App Center connection. To create one, click the Manage link and create a new service endpoint.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -74,10 +75,11 @@ Select the service endpoint for your Visual Studio App Center connection. To cre
 :::moniker range="<=azure-pipelines"
 
 **`appSlug`** - **App slug**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The app slug is in the format of **{username}/{app_identifier}**.  To locate **{username}** and **{app_identifier}** for an app, click on its name from https://appcenter.ms/apps, and the resulting URL is in the format of [https://appcenter.ms/users/<b>{username}</b>/apps/<b>{app_identifier}</b>](https://appcenter.ms/users/{username}/apps/{app_identifier}). If you are using orgs, the app slug is of the format **{orgname}/{app_identifier}**.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +87,11 @@ The app slug is in the format of **{username}/{app_identifier}**.  To locate **{
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **Binary file path**<br>
-Input alias: `app`. Type: string. Required.<br>
+Input alias: `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to the APK or IPA file you want to publish.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +99,11 @@ Relative path from the repo root to the APK or IPA file you want to publish.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsOption`** - **Symbols type**<br>
-Input alias: `symbolsType`. Type: string. Allowed values: 'Apple'. Default value: 'Apple'.<br>
+Input alias: `symbolsType`. `string`. Allowed values: `Apple`. Default value: `Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include symbol files to receive symbolicated stack traces in App Center Diagnostics.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,10 +111,11 @@ Include symbol files to receive symbolicated stack traces in App Center Diagnost
 :::moniker range="<=azure-pipelines"
 
 **`symbolsPath`** - **Symbols path**<br>
-Type: string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows.<br>
+`string`. Optional. Use when `symbolsType == AndroidNative || symbolsType = Windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to the symbols folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +123,11 @@ Relative path from the repo root to the symbols folder.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsPdbFiles`** - **Symbols path (*.pdb)**<br>
-Input alias: `pdbPath`. Type: string. Optional. Use when symbolsType = UWP. Default value: '**/*.pdb'.<br>
+Input alias: `pdbPath`. `string`. Optional. Use when `symbolsType = UWP`. Default value: `**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to PDB symbols files. Path may contain wildcards.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +135,11 @@ Relative path from the repo root to PDB symbols files. Path may contain wildcard
 :::moniker range="<=azure-pipelines"
 
 **`symbolsDsymFiles`** - **dSYM path**<br>
-Input alias: `dsymPath`. Type: string. Optional. Use when symbolsType = Apple.<br>
+Input alias: `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to dSYM folder. Path may contain wildcards.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +147,11 @@ Relative path from the repo root to dSYM folder. Path may contain wildcards.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
-Input alias: `mappingTxtPath`. Type: string. Optional. Use when symbolsType = AndroidJava.<br>
+Input alias: `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to Android's mapping.txt file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -151,10 +159,11 @@ Relative path from the repo root to Android's mapping.txt file.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsIncludeParentDirectory`** - **Include all items in parent folder**<br>
-Input alias: `packParentFolder`. Type: boolean.<br>
+Input alias: `packParentFolder`. `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Upload the selected symbols file or folder and all other items inside the same parent folder. This is required for React Native apps.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -162,10 +171,11 @@ Upload the selected symbols file or folder and all other items inside the same p
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesOption`** - **Create release notes**<br>
-Input alias: `releaseNotesSelection`. Type: string. Required. Allowed values: 'input', 'file'. Default value: 'input'.<br>
+Input alias: `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Release notes will be attached to the release and shown to testers on the installation page.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -173,10 +183,11 @@ Release notes will be attached to the release and shown to testers on the instal
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesInput`** - **Release notes**<br>
-Type: string. Required when releaseNotesSelection = input.<br>
+`string`. Required when `releaseNotesSelection = input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Release notes for this version.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -184,10 +195,11 @@ Release notes for this version.
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesFile`** - **Release notes file**<br>
-Type: string. Required when releaseNotesSelection = file.<br>
+`string`. Required when `releaseNotesSelection = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a UTF-8 encoded text file which contains the Release Notes for this version.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -195,10 +207,11 @@ Select a UTF-8 encoded text file which contains the Release Notes for this versi
 :::moniker range="<=azure-pipelines"
 
 **`distributionGroupId`** - **Distribution group ID**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 ID of the distribution group the app will deploy to. Leave it empty to use the default group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@2 - Azure Key Vault v2 task
 description: Download Azure Key Vault secrets.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -29,7 +29,7 @@ Download Azure Key Vault secrets.
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # string. Required. Secrets filter. Default: '*'.
+    SecretsFilter: '*' # string. Required. Secrets filter. Default: *.
     RunAsPreJob: false # boolean. Required. Make secrets available to whole job. Default: false.
 ```
 
@@ -43,10 +43,11 @@ Download Azure Key Vault secrets.
 :::moniker range=">=azure-pipelines-2022"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service connection for the Azure subscription containing the Azure Key Vault instance, or create a new connection. [Learn more](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -54,10 +55,11 @@ Select the service connection for the Azure subscription containing the Azure Ke
 :::moniker range=">=azure-pipelines-2022"
 
 **`KeyVaultName`** - **Key vault**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the name of the Azure Key Vault from which the secrets will be downloaded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -65,10 +67,11 @@ Select the name of the Azure Key Vault from which the secrets will be downloaded
 :::moniker range=">=azure-pipelines-2022"
 
 **`SecretsFilter`** - **Secrets filter**<br>
-Type: string. Required. Default value: '*'.<br>
+`string`. Required. Default value: `*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma separated list of secret names or leave * to download all secrets from the selected key vault.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +79,11 @@ Comma separated list of secret names or leave * to download all secrets from the
 :::moniker range=">=azure-pipelines-2022"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run the task before job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

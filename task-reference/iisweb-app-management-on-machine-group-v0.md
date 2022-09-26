@@ -1,7 +1,7 @@
 ---
 title: IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
 description: Create or update websites, web apps, virtual directories, or application pools.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,13 +36,13 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
 - task: IISWebAppManagementOnMachineGroup@0
   inputs:
     #EnableIIS: false # boolean. Enable IIS. Default: false.
-    IISDeploymentType: 'IISWebsite' # 'IISWebsite' | 'IISWebApplication' | 'IISVirtualDirectory' | 'IISApplicationPool'. Required. Configuration type. Default: 'IISWebsite'.
-    ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: 'CreateOrUpdateWebsite'.
-    #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: 'CreateOrUpdateAppPool'.
+    IISDeploymentType: 'IISWebsite' # 'IISWebsite' | 'IISWebApplication' | 'IISVirtualDirectory' | 'IISApplicationPool'. Required. Configuration type. Default: IISWebsite.
+    ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: CreateOrUpdateWebsite.
+    #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: CreateOrUpdateAppPool.
     #StartStopWebsiteName: # string. Required when ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite. Website name. 
-    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: 'http'.
-    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: 'All Unassigned'.
-    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: '80'.
+    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: http.
+    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: All Unassigned.
+    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: 80.
     #ServerNameIndication: false # boolean. Optional. Use when IISDeploymentType = randomDeployment. Server Name Indication required. Default: false.
     #HostNameWithOutSNI: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
     #HostNameWithHttp: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
@@ -51,8 +51,8 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
     #StartStopRecycleAppPoolName: # string. Required when ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool. Application pool name. 
   # IIS Website
     WebsiteName: # string. Required. Website name. 
-    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: '%SystemDrive%\inetpub\wwwroot'.
-    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough' # 'WebsiteUserPassThrough' | 'WebsiteWindowsAuth'. Required. Physical path authentication. Default: 'WebsiteUserPassThrough'.
+    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
+    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough' # 'WebsiteUserPassThrough' | 'WebsiteWindowsAuth'. Required. Physical path authentication. Default: WebsiteUserPassThrough.
     #WebsiteAuthUserName: # string. Required when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Username. 
     #WebsiteAuthUserPassword: # string. Optional. Use when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Password. 
     #AddBinding: false # boolean. Add binding. Default: false.
@@ -62,9 +62,9 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
     Bindings: # string. Required. Add bindings. 
   # IIS Application pool
     AppPoolNameForWebsite: # string. Required. Name. 
-    DotNetVersionForWebsite: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: 'v4.0'.
-    PipeLineModeForWebsite: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: 'Integrated'.
-    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: 'ApplicationPoolIdentity'.
+    DotNetVersionForWebsite: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
+    PipeLineModeForWebsite: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
+    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
     #AppPoolUsernameForWebsite: # string. Required when AppPoolIdentityForWebsite = SpecificUser. Username. 
     #AppPoolPasswordForWebsite: # string. Optional. Use when AppPoolIdentityForWebsite = SpecificUser. Password. 
   # IIS Authentication
@@ -74,30 +74,30 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
   # IIS Virtual directory
     ParentWebsiteNameForVD: # string. Required. Parent website name. 
     VirtualPathForVD: # string. Required. Virtual path. 
-    PhysicalPathForVD: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: '%SystemDrive%\inetpub\wwwroot'.
-    #VDPhysicalPathAuth: 'VDUserPassThrough' # 'VDUserPassThrough' | 'VDWindowsAuth'. Physical path authentication. Default: 'VDUserPassThrough'.
+    PhysicalPathForVD: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
+    #VDPhysicalPathAuth: 'VDUserPassThrough' # 'VDUserPassThrough' | 'VDWindowsAuth'. Physical path authentication. Default: VDUserPassThrough.
     #VDAuthUserName: # string. Required when VDPhysicalPathAuth = VDWindowsAuth. Username. 
     #VDAuthUserPassword: # string. Optional. Use when VDPhysicalPathAuth = VDWindowsAuth. Password. 
   # IIS Application
     ParentWebsiteNameForApplication: # string. Required. Parent website name. 
     VirtualPathForApplication: # string. Required. Virtual path. 
-    PhysicalPathForApplication: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: '%SystemDrive%\inetpub\wwwroot'.
-    #ApplicationPhysicalPathAuth: 'ApplicationUserPassThrough' # 'ApplicationUserPassThrough' | 'ApplicationWindowsAuth'. Physical path authentication. Default: 'ApplicationUserPassThrough'.
+    PhysicalPathForApplication: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
+    #ApplicationPhysicalPathAuth: 'ApplicationUserPassThrough' # 'ApplicationUserPassThrough' | 'ApplicationWindowsAuth'. Physical path authentication. Default: ApplicationUserPassThrough.
     #ApplicationAuthUserName: # string. Required when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Username. 
     #ApplicationAuthUserPassword: # string. Optional. Use when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Password. 
     #CreateOrUpdateAppPoolForApplication: false # boolean. Create or update app pool. Default: false.
   # IIS Application pool
     AppPoolNameForApplication: # string. Required. Name. 
-    DotNetVersionForApplication: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: 'v4.0'.
-    PipeLineModeForApplication: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: 'Integrated'.
-    AppPoolIdentityForApplication: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: 'ApplicationPoolIdentity'.
+    DotNetVersionForApplication: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
+    PipeLineModeForApplication: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
+    AppPoolIdentityForApplication: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
     #AppPoolUsernameForApplication: # string. Required when AppPoolIdentityForApplication = SpecificUser. Username. 
     #AppPoolPasswordForApplication: # string. Optional. Use when AppPoolIdentityForApplication = SpecificUser. Password. 
   # IIS Application pool
     AppPoolName: # string. Required. Name. 
-    DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: 'v4.0'.
-    PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: 'Integrated'.
-    AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: 'ApplicationPoolIdentity'.
+    DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
+    PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
+    AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
     #AppPoolUsername: # string. Required when AppPoolIdentity = SpecificUser. Username. 
     #AppPoolPassword: # string. Optional. Use when AppPoolIdentity = SpecificUser. Password. 
   # Advanced
@@ -114,13 +114,13 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
 - task: IISWebAppManagementOnMachineGroup@0
   inputs:
     #EnableIIS: false # boolean. Enable IIS. Default: false.
-    IISDeploymentType: 'IISWebsite' # 'IISWebsite' | 'IISWebApplication' | 'IISVirtualDirectory' | 'IISApplicationPool'. Required. Configuration type. Default: 'IISWebsite'.
-    ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: 'CreateOrUpdateWebsite'.
-    #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: 'CreateOrUpdateAppPool'.
+    IISDeploymentType: 'IISWebsite' # 'IISWebsite' | 'IISWebApplication' | 'IISVirtualDirectory' | 'IISApplicationPool'. Required. Configuration type. Default: IISWebsite.
+    ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: CreateOrUpdateWebsite.
+    #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: CreateOrUpdateAppPool.
     #StartStopWebsiteName: # string. Required when ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite. Website name. 
-    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: 'http'.
-    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: 'All Unassigned'.
-    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: '80'.
+    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: http.
+    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: All Unassigned.
+    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: 80.
     #ServerNameIndication: false # boolean. Optional. Use when IISDeploymentType = randomDeployment. Server Name Indication required. Default: false.
     #HostNameWithOutSNI: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
     #HostNameWithHttp: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
@@ -129,8 +129,8 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
     #StartStopRecycleAppPoolName: # string. Required when ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool. Application pool name. 
   # IIS Website
     WebsiteName: # string. Required. Website name. 
-    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: '%SystemDrive%\inetpub\wwwroot'.
-    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough' # 'WebsiteUserPassThrough' | 'WebsiteWindowsAuth'. Required. Physical path authentication. Default: 'WebsiteUserPassThrough'.
+    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
+    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough' # 'WebsiteUserPassThrough' | 'WebsiteWindowsAuth'. Required. Physical path authentication. Default: WebsiteUserPassThrough.
     #WebsiteAuthUserName: # string. Required when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Username. 
     #WebsiteAuthUserPassword: # string. Optional. Use when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Password. 
     #AddBinding: false # boolean. Add binding. Default: false.
@@ -140,9 +140,9 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
     Bindings: # string. Required. Add bindings. 
   # IIS Application pool
     AppPoolNameForWebsite: # string. Required. Name. 
-    DotNetVersionForWebsite: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: 'v4.0'.
-    PipeLineModeForWebsite: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: 'Integrated'.
-    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: 'ApplicationPoolIdentity'.
+    DotNetVersionForWebsite: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
+    PipeLineModeForWebsite: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
+    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
     #AppPoolUsernameForWebsite: # string. Required when AppPoolIdentityForWebsite = SpecificUser. Username. 
     #AppPoolPasswordForWebsite: # string. Optional. Use when AppPoolIdentityForWebsite = SpecificUser. Password. 
   # IIS Authentication
@@ -152,30 +152,30 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
   # IIS Virtual directory
     ParentWebsiteNameForVD: # string. Required. Parent website name. 
     VirtualPathForVD: # string. Required. Virtual path. 
-    PhysicalPathForVD: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: '%SystemDrive%\inetpub\wwwroot'.
-    #VDPhysicalPathAuth: 'VDUserPassThrough' # 'VDUserPassThrough' | 'VDWindowsAuth'. Physical path authentication. Default: 'VDUserPassThrough'.
+    PhysicalPathForVD: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
+    #VDPhysicalPathAuth: 'VDUserPassThrough' # 'VDUserPassThrough' | 'VDWindowsAuth'. Physical path authentication. Default: VDUserPassThrough.
     #VDAuthUserName: # string. Required when VDPhysicalPathAuth = VDWindowsAuth. Username. 
     #VDAuthUserPassword: # string. Optional. Use when VDPhysicalPathAuth = VDWindowsAuth. Password. 
   # IIS Application
     ParentWebsiteNameForApplication: # string. Required. Parent website name. 
     VirtualPathForApplication: # string. Required. Virtual path. 
-    PhysicalPathForApplication: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: '%SystemDrive%\inetpub\wwwroot'.
-    #ApplicationPhysicalPathAuth: 'ApplicationUserPassThrough' # 'ApplicationUserPassThrough' | 'ApplicationWindowsAuth'. Physical path authentication. Default: 'ApplicationUserPassThrough'.
+    PhysicalPathForApplication: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
+    #ApplicationPhysicalPathAuth: 'ApplicationUserPassThrough' # 'ApplicationUserPassThrough' | 'ApplicationWindowsAuth'. Physical path authentication. Default: ApplicationUserPassThrough.
     #ApplicationAuthUserName: # string. Required when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Username. 
     #ApplicationAuthUserPassword: # string. Optional. Use when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Password. 
     #CreateOrUpdateAppPoolForApplication: false # boolean. Create or update app pool. Default: false.
   # IIS Application pool
     AppPoolNameForApplication: # string. Required. Name. 
-    DotNetVersionForApplication: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: 'v4.0'.
-    PipeLineModeForApplication: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: 'Integrated'.
-    AppPoolIdentityForApplication: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: 'ApplicationPoolIdentity'.
+    DotNetVersionForApplication: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
+    PipeLineModeForApplication: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
+    AppPoolIdentityForApplication: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
     #AppPoolUsernameForApplication: # string. Required when AppPoolIdentityForApplication = SpecificUser. Username. 
     #AppPoolPasswordForApplication: # string. Optional. Use when AppPoolIdentityForApplication = SpecificUser. Password. 
   # IIS Application pool
     AppPoolName: # string. Required. Name. 
-    DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: 'v4.0'.
-    PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: 'Integrated'.
-    AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: 'ApplicationPoolIdentity'.
+    DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
+    PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
+    AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
     #AppPoolUsername: # string. Required when AppPoolIdentity = SpecificUser. Username. 
     #AppPoolPassword: # string. Optional. Use when AppPoolIdentity = SpecificUser. Password. 
   # Advanced
@@ -202,10 +202,11 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
 :::moniker range="<=azure-pipelines"
 
 **`EnableIIS`** - **Enable IIS**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Check this if you want to install IIS on the machine.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +214,11 @@ Check this if you want to install IIS on the machine.
 :::moniker range="<=azure-pipelines"
 
 **`IISDeploymentType`** - **Configuration type**<br>
-Type: string. Required. Allowed values: 'IISWebsite', 'IISWebApplication', 'IISVirtualDirectory', 'IISApplicationPool'. Default value: 'IISWebsite'.<br>
+`string`. Required. Allowed values: `IISWebsite` (IIS Website), `IISWebApplication` (IIS Web Application), `IISVirtualDirectory` (IIS Virtual Directory), `IISApplicationPool` (IIS Application Pool). Default value: `IISWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can create or update sites, applications, virtual directories, and application pools.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -224,7 +226,7 @@ You can create or update sites, applications, virtual directories, and applicati
 :::moniker range="<=azure-pipelines"
 
 **`ActionIISWebsite`** - **Action**<br>
-Type: string. Required when IISDeploymentType = IISWebsite. Allowed values: 'CreateOrUpdateWebsite', 'StartWebsite', 'StopWebsite'. Default value: 'CreateOrUpdateWebsite'.<br>
+`string`. Required when `IISDeploymentType = IISWebsite`. Allowed values: `CreateOrUpdateWebsite` (Create Or Update), `StartWebsite` (Start), `StopWebsite` (Stop). Default value: `CreateOrUpdateWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the appropriate action that you want to perform on an IIS website. 
 
@@ -232,6 +234,7 @@ Select the appropriate action that you want to perform on an IIS website.
 
  Start, Stop will start or stop the website respectively.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -239,7 +242,7 @@ Select the appropriate action that you want to perform on an IIS website.
 :::moniker range="<=azure-pipelines"
 
 **`ActionIISApplicationPool`** - **Action**<br>
-Type: string. Required when IISDeploymentType = IISApplicationPool. Allowed values: 'CreateOrUpdateAppPool', 'StartAppPool', 'StopAppPool', 'RecycleAppPool'. Default value: 'CreateOrUpdateAppPool'.<br>
+`string`. Required when `IISDeploymentType = IISApplicationPool`. Allowed values: `CreateOrUpdateAppPool` (Create Or Update), `StartAppPool` (Start), `StopAppPool` (Stop), `RecycleAppPool` (Recycle). Default value: `CreateOrUpdateAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the appropriate action that you want to perform on an IIS Application Pool. 
 
@@ -247,6 +250,7 @@ Select the appropriate action that you want to perform on an IIS Application Poo
 
 Start, Stop, Recycle will start, stop or recycle the application pool respectively.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -254,10 +258,11 @@ Start, Stop, Recycle will start, stop or recycle the application pool respective
 :::moniker range="<=azure-pipelines"
 
 **`StartStopWebsiteName`** - **Website name**<br>
-Type: string. Required when ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite.<br>
+`string`. Required when `ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the IIS website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -265,10 +270,11 @@ Provide the name of the IIS website.
 :::moniker range="<=azure-pipelines"
 
 **`WebsiteName`** - **Website name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the IIS website to create or update.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -276,10 +282,11 @@ Provide the name of the IIS website to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`WebsitePhysicalPath`** - **Physical path**<br>
-Type: string. Required. Default value: '%SystemDrive%\inetpub\wwwroot'.<br>
+`string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the physical path where the website content will be stored. The content can reside on the local Computer, or in a remote directory, or on a network share, like C:\Fabrikam or \\\\ContentShare\Fabrikam.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -287,10 +294,11 @@ Provide the physical path where the website content will be stored. The content 
 :::moniker range="<=azure-pipelines"
 
 **`WebsitePhysicalPathAuth`** - **Physical path authentication**<br>
-Type: string. Required. Allowed values: 'WebsiteUserPassThrough', 'WebsiteWindowsAuth'. Default value: 'WebsiteUserPassThrough'.<br>
+`string`. Required. Allowed values: `WebsiteUserPassThrough` (Application User (Pass-through)), `WebsiteWindowsAuth` (Windows Authentication). Default value: `WebsiteUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the authentication mechanism that will be used to access the physical path of the website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -298,10 +306,11 @@ Select the authentication mechanism that will be used to access the physical pat
 :::moniker range="<=azure-pipelines"
 
 **`WebsiteAuthUserName`** - **Username**<br>
-Type: string. Required when WebsitePhysicalPathAuth = WebsiteWindowsAuth.<br>
+`string`. Required when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the user name that will be used to access the website's physical path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -309,10 +318,11 @@ Provide the user name that will be used to access the website's physical path.
 :::moniker range="<=azure-pipelines"
 
 **`WebsiteAuthUserPassword`** - **Password**<br>
-Type: string. Optional. Use when WebsitePhysicalPathAuth = WebsiteWindowsAuth.<br>
+`string`. Optional. Use when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the user's password that will be used to access the website's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -320,10 +330,11 @@ Provide the user's password that will be used to access the website's physical p
 :::moniker range="<=azure-pipelines"
 
 **`AddBinding`** - **Add binding**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to add port binding for the website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -331,10 +342,11 @@ Select the option to add port binding for the website.
 :::moniker range="<=azure-pipelines"
 
 **`Protocol`** - **Protocol**<br>
-Type: string. Required when IISDeploymentType = randomDeployment. Allowed values: 'https', 'http'. Default value: 'http'.<br>
+`string`. Required when `IISDeploymentType = randomDeployment`. Allowed values: `https`, `http`. Default value: `http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select HTTP for the website to have an HTTP binding, or select HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -342,10 +354,11 @@ Select HTTP for the website to have an HTTP binding, or select HTTPS for the web
 :::moniker range="<=azure-pipelines"
 
 **`IPAddress`** - **IP address**<br>
-Type: string. Required when IISDeploymentType = randomDeployment. Default value: 'All Unassigned'.<br>
+`string`. Required when `IISDeploymentType = randomDeployment`. Default value: `All Unassigned`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide an IP address that end-users can use to access this website. <br>If 'All Unassigned' is selected, then the website will respond to requests for all IP addresses on the port and for the host name, unless another website on the server has a binding on the same port but with a specific IP address.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -353,10 +366,11 @@ Provide an IP address that end-users can use to access this website. <br>If 'All
 :::moniker range="<=azure-pipelines"
 
 **`Port`** - **Port**<br>
-Type: string. Required when IISDeploymentType = randomDeployment. Default value: '80'.<br>
+`string`. Required when `IISDeploymentType = randomDeployment`. Default value: `80`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the port, where the Hypertext Transfer Protocol Stack (HTTP.sys) will listen to the website requests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -364,10 +378,11 @@ Provide the port, where the Hypertext Transfer Protocol Stack (HTTP.sys) will li
 :::moniker range="<=azure-pipelines"
 
 **`ServerNameIndication`** - **Server Name Indication required**<br>
-Type: boolean. Optional. Use when IISDeploymentType = randomDeployment. Default value: false.<br>
+`boolean`. Optional. Use when `IISDeploymentType = randomDeployment`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to set the Server Name Indication (SNI) for the website. <br>SNI extends the SSL and TLS protocols to indicate the host name that the clients are attempting to connect to. It allows, multiple secure websites with different certificates, to use the same IP address.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -375,10 +390,11 @@ Select the option to set the Server Name Indication (SNI) for the website. <br>S
 :::moniker range="<=azure-pipelines"
 
 **`HostNameWithOutSNI`** - **Host name**<br>
-Type: string. Optional. Use when IISDeploymentType = randomDeployment.<br>
+`string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -386,10 +402,11 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 :::moniker range="<=azure-pipelines"
 
 **`HostNameWithHttp`** - **Host name**<br>
-Type: string. Optional. Use when IISDeploymentType = randomDeployment.<br>
+`string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -397,10 +414,11 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 :::moniker range="<=azure-pipelines"
 
 **`HostNameWithSNI`** - **Host name**<br>
-Type: string. Required when IISDeploymentType = randomDeployment.<br>
+`string`. Required when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -408,10 +426,11 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 :::moniker range="<=azure-pipelines"
 
 **`SSLCertThumbPrint`** - **SSL certificate thumbprint**<br>
-Type: string. Required when IISDeploymentType = randomDeployment.<br>
+`string`. Required when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the thumb-print of the Secure Socket Layer certificate that the website is going to use for the HTTPS communication as a 40 character long hexadecimal string. The SSL certificate should be already installed on the Computer, at Local Computer, Personal store.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -419,10 +438,11 @@ Provide the thumb-print of the Secure Socket Layer certificate that the website 
 :::moniker range="<=azure-pipelines"
 
 **`Bindings`** - **Add bindings**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Click on the extension [...] button to add bindings for the website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -430,10 +450,11 @@ Click on the extension [...] button to add bindings for the website.
 :::moniker range="<=azure-pipelines"
 
 **`CreateOrUpdateAppPoolForWebsite`** - **Create or update app pool**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to create or update an application pool. If checked, the website will be created in the specified app pool.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -441,10 +462,11 @@ Select the option to create or update an application pool. If checked, the websi
 :::moniker range="<=azure-pipelines"
 
 **`ConfigureAuthenticationForWebsite`** - **Configure authentication**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to configure authentication for website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -452,10 +474,11 @@ Select the option to configure authentication for website.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolNameForWebsite`** - **Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -463,10 +486,11 @@ Provide the name of the IIS application pool to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`DotNetVersionForWebsite`** - **.NET version**<br>
-Type: string. Required. Allowed values: 'v4.0', 'v2.0', 'No Managed Code'. Default value: 'v4.0'.<br>
+`string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -474,10 +498,11 @@ Select the version of the .NET Framework that is loaded by the application pool.
 :::moniker range="<=azure-pipelines"
 
 **`PipeLineModeForWebsite`** - **Managed pipeline mode**<br>
-Type: string. Required. Allowed values: 'Integrated', 'Classic'. Default value: 'Integrated'.<br>
+`string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the managed pipeline mode that specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -485,10 +510,11 @@ Select the managed pipeline mode that specifies how IIS processes requests for m
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolIdentityForWebsite`** - **Identity**<br>
-Type: string. Required. Allowed values: 'ApplicationPoolIdentity', 'LocalService', 'LocalSystem', 'NetworkService', 'SpecificUser'. Default value: 'ApplicationPoolIdentity'.<br>
+`string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -496,10 +522,11 @@ Configure the account under which an application pool's worker process runs. Sel
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolUsernameForWebsite`** - **Username**<br>
-Type: string. Required when AppPoolIdentityForWebsite = SpecificUser.<br>
+`string`. Required when `AppPoolIdentityForWebsite = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -507,10 +534,11 @@ Provide the username of the custom account that you want to use.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolPasswordForWebsite`** - **Password**<br>
-Type: string. Optional. Use when AppPoolIdentityForWebsite = SpecificUser.<br>
+`string`. Optional. Use when `AppPoolIdentityForWebsite = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -518,10 +546,11 @@ Provide the password for custom account. <br/>The best practice is to create a v
 :::moniker range="<=azure-pipelines"
 
 **`AnonymousAuthenticationForWebsite`** - **Anonymous authentication**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to enable anonymous authentication for website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -529,10 +558,11 @@ Select the option to enable anonymous authentication for website.
 :::moniker range="<=azure-pipelines"
 
 **`BasicAuthenticationForWebsite`** - **Basic authentication**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to enable basic authentication for website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -540,10 +570,11 @@ Select the option to enable basic authentication for website.
 :::moniker range="<=azure-pipelines"
 
 **`WindowsAuthenticationForWebsite`** - **Windows authentication**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to enable windows authentication for website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -551,10 +582,11 @@ Select the option to enable windows authentication for website.
 :::moniker range="<=azure-pipelines"
 
 **`ParentWebsiteNameForVD`** - **Parent website name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the parent Website of the virtual directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -562,12 +594,13 @@ Provide the name of the parent Website of the virtual directory.
 :::moniker range="<=azure-pipelines"
 
 **`VirtualPathForVD`** - **Virtual path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the virtual path of the virtual directory. 
 
 Example: To create a virtual directory Site/Application/VDir enter /Application/Vdir. The parent website and application should be already existing.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -575,10 +608,11 @@ Example: To create a virtual directory Site/Application/VDir enter /Application/
 :::moniker range="<=azure-pipelines"
 
 **`PhysicalPathForVD`** - **Physical path**<br>
-Type: string. Required. Default value: '%SystemDrive%\inetpub\wwwroot'.<br>
+`string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the physical path where the virtual directory's content will be stored. The content can reside on the local Computer, or in a remote directory, or on a network share, like C:\Fabrikam or \\\\ContentShare\Fabrikam.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -586,10 +620,11 @@ Provide the physical path where the virtual directory's content will be stored. 
 :::moniker range="<=azure-pipelines"
 
 **`VDPhysicalPathAuth`** - **Physical path authentication**<br>
-Type: string. Allowed values: 'VDUserPassThrough', 'VDWindowsAuth'. Default value: 'VDUserPassThrough'.<br>
+`string`. Allowed values: `VDUserPassThrough` (Application User (Pass-through)), `VDWindowsAuth` (Windows Authentication). Default value: `VDUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the authentication mechanism that will be used to access the physical path of the virtual directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -597,10 +632,11 @@ Select the authentication mechanism that will be used to access the physical pat
 :::moniker range="<=azure-pipelines"
 
 **`VDAuthUserName`** - **Username**<br>
-Type: string. Required when VDPhysicalPathAuth = VDWindowsAuth.<br>
+`string`. Required when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the user name that will be used to access the virtual directory's physical path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -608,10 +644,11 @@ Provide the user name that will be used to access the virtual directory's physic
 :::moniker range="<=azure-pipelines"
 
 **`VDAuthUserPassword`** - **Password**<br>
-Type: string. Optional. Use when VDPhysicalPathAuth = VDWindowsAuth.<br>
+`string`. Optional. Use when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the user's password that will be used to access the virtual directory's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -619,10 +656,11 @@ Provide the user's password that will be used to access the virtual directory's 
 :::moniker range="<=azure-pipelines"
 
 **`ParentWebsiteNameForApplication`** - **Parent website name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the parent Website under which the application will be created or updated.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -630,12 +668,13 @@ Provide the name of the parent Website under which the application will be creat
 :::moniker range="<=azure-pipelines"
 
 **`VirtualPathForApplication`** - **Virtual path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the virtual path of the application. 
 
 Example: To create an application Site/Application enter /Application. The parent website should be already existing.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -643,10 +682,11 @@ Example: To create an application Site/Application enter /Application. The paren
 :::moniker range="<=azure-pipelines"
 
 **`PhysicalPathForApplication`** - **Physical path**<br>
-Type: string. Required. Default value: '%SystemDrive%\inetpub\wwwroot'.<br>
+`string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the physical path where the application's content will be stored. The content can reside on the local Computer, or in a remote directory, or on a network share, like C:\Fabrikam or \\\\ContentShare\Fabrikam.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -654,10 +694,11 @@ Provide the physical path where the application's content will be stored. The co
 :::moniker range="<=azure-pipelines"
 
 **`ApplicationPhysicalPathAuth`** - **Physical path authentication**<br>
-Type: string. Allowed values: 'ApplicationUserPassThrough', 'ApplicationWindowsAuth'. Default value: 'ApplicationUserPassThrough'.<br>
+`string`. Allowed values: `ApplicationUserPassThrough` (Application User (Pass-through)), `ApplicationWindowsAuth` (Windows Authentication). Default value: `ApplicationUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the authentication mechanism that will be used to access the physical path of the application.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -665,10 +706,11 @@ Select the authentication mechanism that will be used to access the physical pat
 :::moniker range="<=azure-pipelines"
 
 **`ApplicationAuthUserName`** - **Username**<br>
-Type: string. Required when ApplicationPhysicalPathAuth = ApplicationWindowsAuth.<br>
+`string`. Required when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the user name that will be used to access the application's physical path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -676,10 +718,11 @@ Provide the user name that will be used to access the application's physical pat
 :::moniker range="<=azure-pipelines"
 
 **`ApplicationAuthUserPassword`** - **Password**<br>
-Type: string. Optional. Use when ApplicationPhysicalPathAuth = ApplicationWindowsAuth.<br>
+`string`. Optional. Use when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the user's password that will be used to access the application's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -687,10 +730,11 @@ Provide the user's password that will be used to access the application's physic
 :::moniker range="<=azure-pipelines"
 
 **`CreateOrUpdateAppPoolForApplication`** - **Create or update app pool**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to create or update an application pool. If checked, the application will be created in the specified app pool.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -698,10 +742,11 @@ Select the option to create or update an application pool. If checked, the appli
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolNameForApplication`** - **Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -709,10 +754,11 @@ Provide the name of the IIS application pool to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`DotNetVersionForApplication`** - **.NET version**<br>
-Type: string. Required. Allowed values: 'v4.0', 'v2.0', 'No Managed Code'. Default value: 'v4.0'.<br>
+`string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -720,10 +766,11 @@ Select the version of the .NET Framework that is loaded by the application pool.
 :::moniker range="<=azure-pipelines"
 
 **`PipeLineModeForApplication`** - **Managed pipeline mode**<br>
-Type: string. Required. Allowed values: 'Integrated', 'Classic'. Default value: 'Integrated'.<br>
+`string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the managed pipeline mode that specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -731,10 +778,11 @@ Select the managed pipeline mode that specifies how IIS processes requests for m
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolIdentityForApplication`** - **Identity**<br>
-Type: string. Required. Allowed values: 'ApplicationPoolIdentity', 'LocalService', 'LocalSystem', 'NetworkService', 'SpecificUser'. Default value: 'ApplicationPoolIdentity'.<br>
+`string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -742,10 +790,11 @@ Configure the account under which an application pool's worker process runs. Sel
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolUsernameForApplication`** - **Username**<br>
-Type: string. Required when AppPoolIdentityForApplication = SpecificUser.<br>
+`string`. Required when `AppPoolIdentityForApplication = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -753,10 +802,11 @@ Provide the username of the custom account that you want to use.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolPasswordForApplication`** - **Password**<br>
-Type: string. Optional. Use when AppPoolIdentityForApplication = SpecificUser.<br>
+`string`. Optional. Use when `AppPoolIdentityForApplication = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -764,10 +814,11 @@ Provide the password for custom account. <br/>The best practice is to create a v
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolName`** - **Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -775,10 +826,11 @@ Provide the name of the IIS application pool to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`DotNetVersion`** - **.NET version**<br>
-Type: string. Required. Allowed values: 'v4.0', 'v2.0', 'No Managed Code'. Default value: 'v4.0'.<br>
+`string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -786,10 +838,11 @@ Select the version of the .NET Framework that is loaded by the application pool.
 :::moniker range="<=azure-pipelines"
 
 **`PipeLineMode`** - **Managed pipeline mode**<br>
-Type: string. Required. Allowed values: 'Integrated', 'Classic'. Default value: 'Integrated'.<br>
+`string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the managed pipeline mode that specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -797,10 +850,11 @@ Select the managed pipeline mode that specifies how IIS processes requests for m
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolIdentity`** - **Identity**<br>
-Type: string. Required. Allowed values: 'ApplicationPoolIdentity', 'LocalService', 'LocalSystem', 'NetworkService', 'SpecificUser'. Default value: 'ApplicationPoolIdentity'.<br>
+`string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -808,10 +862,11 @@ Configure the account under which an application pool's worker process runs. Sel
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolUsername`** - **Username**<br>
-Type: string. Required when AppPoolIdentity = SpecificUser.<br>
+`string`. Required when `AppPoolIdentity = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -819,10 +874,11 @@ Provide the username of the custom account that you want to use.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolPassword`** - **Password**<br>
-Type: string. Optional. Use when AppPoolIdentity = SpecificUser.<br>
+`string`. Optional. Use when `AppPoolIdentity = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -830,10 +886,11 @@ Provide the password for custom account. <br/>The best practice is to create a v
 :::moniker range="<=azure-pipelines"
 
 **`StartStopRecycleAppPoolName`** - **Application pool name**<br>
-Type: string. Required when ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool.<br>
+`string`. Required when `ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the IIS application pool.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -841,10 +898,11 @@ Provide the name of the IIS application pool.
 :::moniker range="<=azure-pipelines"
 
 **`AppCmdCommands`** - **Additional appcmd.exe commands**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter additional AppCmd.exe commands. For more than one command use a line separator, like <br/> list apppools <br/> list sites<br/> recycle apppool /apppool.name:ExampleAppPoolName.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -869,8 +927,6 @@ None.
 ## Remarks
 
 Use this task to create or update a Website, Web App, Virtual Directory, or Application Pool.
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

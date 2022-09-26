@@ -1,7 +1,7 @@
 ---
 title: queryWorkItems@0 - Query work items v0 task
 description: Execute a work item query and check the number of items returned.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,9 +36,9 @@ Executes a work item query and checks for the number of items returned.
 - task: queryWorkItems@0
   inputs:
     queryId: # string. Required. Query. 
-    maxThreshold: '0' # string. Required. Upper threshold. Default: '0'.
+    maxThreshold: '0' # string. Required. Upper threshold. Default: 0.
   # Advanced
-    minThreshold: '0' # string. Required. Lower threshold. Default: '0'.
+    minThreshold: '0' # string. Required. Lower threshold. Default: 0.
 ```
 
 :::moniker-end
@@ -51,9 +51,9 @@ Executes a work item query and checks for the number of items returned.
 - task: queryWorkItems@0
   inputs:
     queryId: # string. Required. Query. 
-    maxThreshold: '0' # string. Required. Upper threshold. Default: '0'.
+    maxThreshold: '0' # string. Required. Upper threshold. Default: 0.
   # Advanced
-    minThreshold: '0' # string. Required. Lower threshold. Default: '0'.
+    minThreshold: '0' # string. Required. Lower threshold. Default: 0.
 ```
 
 :::moniker-end
@@ -76,10 +76,11 @@ Executes a work item query and checks for the number of items returned.
 :::moniker range="<=azure-pipelines"
 
 **`queryId`** - **Query**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a saved work item query to execute.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +88,11 @@ Select a saved work item query to execute.
 :::moniker range="<=azure-pipelines"
 
 **`maxThreshold`** - **Upper threshold**<br>
-Type: string. Required. Default value: '0'.<br>
+`string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The maximum number of matching workitems from the query.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +100,11 @@ The maximum number of matching workitems from the query.
 :::moniker range="<=azure-pipelines"
 
 **`minThreshold`** - **Lower threshold**<br>
-Type: string. Required. Default value: '0'.<br>
+`string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The minimum number of matching workitems from the query.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

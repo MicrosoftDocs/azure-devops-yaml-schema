@@ -1,7 +1,7 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -72,20 +72,22 @@ Don't use this task if you're also using the npm task. Provides npm credentials 
 :::moniker range=">=azure-pipelines-2020"
 
 **`workingFile`** - **.npmrc file to authenticate**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the .npmrc file that specifies the registries you want to work with. Select the file, not the folder e.g. "/packages/mypackage.npmrc".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`workingFile`** - **.npmrc file to authenticate**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the .npmrc file that specifies the registries you want to work with. Select the file, not the folder e.g. "/packages/mypackage.npmrc".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -93,20 +95,22 @@ Path to the .npmrc file that specifies the registries you want to work with. Sel
 :::moniker range=">=azure-pipelines-2020"
 
 **`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization/collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization/collection, leave this blank. The build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization/collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization/collection, leave this blank. The build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

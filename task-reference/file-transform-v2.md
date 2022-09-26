@@ -1,7 +1,7 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,8 +27,8 @@ Replace tokens with variable values in XML or JSON configuration files.
 # Replace tokens with variable values in XML or JSON configuration files.
 - task: FileTransform@2
   inputs:
-    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
-    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. XML Transformation rules. Default: '-transform **\*.Release.config -xml **\*.config'.
+    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. XML Transformation rules. Default: -transform **\*.Release.config -xml **\*.config.
   # Variable Substitution
     #jsonTargetFiles: # string. JSON target files. 
     #xmlTargetFiles: # string. XML target files.
@@ -44,10 +44,11 @@ Replace tokens with variable values in XML or JSON configuration files.
 :::moniker range=">=azure-pipelines-2020"
 
 **`folderPath`** - **Package or folder**<br>
-Type: string. Required. Default value: '$(System.DefaultWorkingDirectory)/**/*.zip'.<br>
+`string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip. For zipped folders, the contents are extracted to the TEMP location, transformations executed, and the results zipped in original artifact location.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -55,10 +56,11 @@ File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pip
 :::moniker range=">=azure-pipelines-2020"
 
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
-Type: string. Default value: '-transform **\*.Release.config -xml **\*.config'.<br>
+`string`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional and, if not specified, the source configuration file will be replaced with the transformed result file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -66,10 +68,11 @@ Provide new line separated list of transformation file rules using the syntax: <
 :::moniker range=">=azure-pipelines-2020"
 
 **`jsonTargetFiles`** - **JSON target files**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide new line separated list of files to substitute the variable values. Files names are to be provided relative to the root folder. <br/> <br/> For example, to replace the value of ‘ConnectionString’ in the sample below, you need to define a variable as ‘Data.DefaultConnection.ConnectionString’ in the build or release pipeline (or release pipeline's environment). <br/> {<br/>&nbsp;&nbsp;"Data": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"DefaultConnection": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/> } <br/> Variable Substitution is run after configuration transforms. </br> </br> Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. <br/>Note: If same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +80,11 @@ Provide new line separated list of files to substitute the variable values. File
 :::moniker range=">=azure-pipelines-2020"
 
 **`xmlTargetFiles`** - **XML target files**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide new line separated list of files to substitute the variable values. Files names are to be provided relative to the root folder. <br/>For XML, Variables defined in the build or release pipelines will be matched against the 'key' or 'name' entries in the appSettings, applicationSettings, and connectionStrings sections of any config file and parameters.xml. <br/> Variable Substitution is run after configuration transforms. </br> Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. <br/>Note: If same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,7 +152,6 @@ For details of how translations are processed, see [File transforms and variable
 > If the same variables are defined in both the release pipeline and in a stage, the stage-defined variables supersede the pipeline-defined variables.
 
 See also: [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: KubectlInstaller@0 - Kubectl tool installer v0 task
 description: Install Kubectl on agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,7 +27,7 @@ Install Kubectl on agent machine.
 # Install Kubectl on agent machine.
 - task: KubectlInstaller@0
   inputs:
-    #kubectlVersion: 'latest' # string. Kubectl Version Spec. Default: 'latest'.
+    #kubectlVersion: 'latest' # string. Kubectl Version Spec. Default: latest.
 ```
 
 :::moniker-end
@@ -40,10 +40,11 @@ Install Kubectl on agent machine.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`kubectlVersion`** - **Kubectl Version Spec**<br>
-Type: string. Default value: 'latest'.<br>
+`string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the version of Kubectl to install.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

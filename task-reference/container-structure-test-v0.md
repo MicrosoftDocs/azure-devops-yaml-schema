@@ -1,7 +1,7 @@
 ---
 title: ContainerStructureTest@0 - Container Structure Test v0 task
 description: Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,7 +30,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
   # Container Repository
     dockerRegistryServiceConnection: # string. Required. Docker registry service connection. 
     repository: # string. Required. Container repository. 
-    #tag: '$(Build.BuildId)' # string. Tag. Default: '$(Build.BuildId)'.
+    #tag: '$(Build.BuildId)' # string. Tag. Default: $(Build.BuildId).
     configFile: # string. Required. Config file path. 
     #testRunTitle: # string. Test run title. 
     #failTaskOnFailedTests: false # boolean. Fail task if there are test failures. Default: false.
@@ -46,10 +46,11 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 :::moniker range=">=azure-pipelines-2020"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -57,10 +58,11 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker range=">=azure-pipelines-2020"
 
 **`repository`** - **Container repository**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the repository.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -68,10 +70,11 @@ Name of the repository.
 :::moniker range=">=azure-pipelines-2020"
 
 **`tag`** - **Tag**<br>
-Type: string. Default value: '$(Build.BuildId)'.<br>
+`string`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The tag is used in pulling the image from docker registry service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -79,10 +82,11 @@ The tag is used in pulling the image from docker registry service connection.
 :::moniker range=">=azure-pipelines-2020"
 
 **`configFile`** - **Config file path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Config files path, that contains container structure tests. Either .yaml or .json files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -90,10 +94,11 @@ Config files path, that contains container structure tests. Either .yaml or .jso
 :::moniker range=">=azure-pipelines-2020"
 
 **`testRunTitle`** - **Test run title**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the Test Run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -101,10 +106,11 @@ Provide a name for the Test Run.
 :::moniker range=">=azure-pipelines-2020"
 
 **`failTaskOnFailedTests`** - **Fail task if there are test failures**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fail the task if there are any test failures. Check this option to fail the task if test failures are detected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

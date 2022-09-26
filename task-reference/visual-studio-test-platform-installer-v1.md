@@ -1,7 +1,7 @@
 ---
 title: VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 description: Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,8 +36,8 @@ Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘v
 - task: VisualStudioTestPlatformInstaller@1
   inputs:
   # Package settings
-    packageFeedSelector: 'nugetOrg' # 'nugetOrg' | 'customFeed' | 'netShare'. Required. Package Feed. Default: 'nugetOrg'.
-    #versionSelector: 'latestPreRelease' # 'latestPreRelease' | 'latestStable' | 'specificVersion'. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Version. Default: 'latestPreRelease'.
+    packageFeedSelector: 'nugetOrg' # 'nugetOrg' | 'customFeed' | 'netShare'. Required. Package Feed. Default: nugetOrg.
+    #versionSelector: 'latestPreRelease' # 'latestPreRelease' | 'latestStable' | 'specificVersion'. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Version. Default: latestPreRelease.
     #testPlatformVersion: # string. Required when versionSelector = specificVersion. Test Platform Version. 
     #customFeed: # string. Required when packageFeedSelector = customFeed. Package Source. 
     #username: # string. Optional. Use when packageFeedSelector = customFeed. User Name. 
@@ -55,8 +55,8 @@ Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘v
 - task: VisualStudioTestPlatformInstaller@1
   inputs:
   # Package settings
-    packageFeedSelector: 'nugetOrg' # 'nugetOrg' | 'customFeed' | 'netShare'. Required. Package Feed. Default: 'nugetOrg'.
-    #versionSelector: 'latestPreRelease' # 'latestPreRelease' | 'latestStable' | 'specificVersion'. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Version. Default: 'latestPreRelease'.
+    packageFeedSelector: 'nugetOrg' # 'nugetOrg' | 'customFeed' | 'netShare'. Required. Package Feed. Default: nugetOrg.
+    #versionSelector: 'latestPreRelease' # 'latestPreRelease' | 'latestStable' | 'specificVersion'. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Version. Default: latestPreRelease.
     #testPlatformVersion: # string. Required when versionSelector = specificVersion. Test Platform Version. 
     #customFeed: # string. Required when packageFeedSelector = customFeed. Package Source. 
     #username: # string. Optional. Use when packageFeedSelector = customFeed. User Name. 
@@ -84,7 +84,7 @@ Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘v
 :::moniker range=">=azure-pipelines-2019"
 
 **`packageFeedSelector`** - **Package Feed**<br>
-Type: string. Required. Allowed values: 'nugetOrg', 'customFeed', 'netShare'. Default value: 'nugetOrg'.<br>
+`string`. Required. Allowed values: `nugetOrg` (Official Nuget), `customFeed` (Custom Feed), `netShare` (Network path). Default value: `nugetOrg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the feed from which the Visual Studio Test Platform nuget packge should be fetched.
 
@@ -94,6 +94,7 @@ Specify the feed from which the Visual Studio Test Platform nuget packge should 
 
 **Network path** - Use this option to install the test platform from a network share. The desired version of Microsoft.TestPlatform.nupkg file must be downloaded from NuGet and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -101,24 +102,26 @@ Specify the feed from which the Visual Studio Test Platform nuget packge should 
 :::moniker range=">=azure-pipelines-2019"
 
 **`versionSelector`** - **Version**<br>
-Type: string. Required when packageFeedSelector = nugetOrg || packageFeedSelector = customFeed. Allowed values: 'latestPreRelease', 'latestStable', 'specificVersion'. Default value: 'latestPreRelease'.<br>
+`string`. Required when `packageFeedSelector = nugetOrg || packageFeedSelector = customFeed`. Allowed values: `latestPreRelease` (Latest (Includes Pre-Release)), `latestStable` (Latest Stable), `specificVersion` (Specific Version). Default value: `latestPreRelease`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick whether to install the latest version or a specific version of the Visual Studio Test Platform.
 If you use the test platform installer to run Coded UI tests, ensure that the version you choose matches the major version of Visual Studio with which the test binaries were built.
 For e.g., if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use test platform version 15.x.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`versionSelector`** - **Version**<br>
-Type: string. Required. Allowed values: 'latestPreRelease', 'specificVersion'. Default value: 'latestPreRelease'.<br>
+`string`. Required. Allowed values: `latestPreRelease` (Latest Pre-Release), `specificVersion` (Specific Version). Default value: `latestPreRelease`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pick whether to install the latest version or a specific version of the Visual Studio Test Platform.
 If you use the test platform installer to run Coded UI tests, ensure that the version you choose matches the major version of Visual Studio with which the test binaries were built.
 For e.g., if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use test platform version 15.x.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,10 +129,11 @@ For e.g., if the Coded UI test project was built using Visual Studio 2017 (versi
 :::moniker range="<=azure-pipelines"
 
 **`testPlatformVersion`** - **Test Platform Version**<br>
-Type: string. Required when versionSelector = specificVersion.<br>
+`string`. Required when `versionSelector = specificVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the version of Visual Studio Test Platform to install on the agent. Available versions can be viewed on <a href="https://www.nuget.org/packages/Microsoft.TestPlatform/">nuget</a>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,10 +141,11 @@ Specify the version of Visual Studio Test Platform to install on the agent. Avai
 :::moniker range=">=azure-pipelines-2019"
 
 **`customFeed`** - **Package Source**<br>
-Type: string. Required when packageFeedSelector = customFeed.<br>
+`string`. Required when `packageFeedSelector = customFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL of a custom feed or a package management feed in Azure DevOps or TFS that contains the test platform package. Public as well as private feeds can be specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,10 +153,11 @@ Specify the URL of a custom feed or a package management feed in Azure DevOps or
 :::moniker range=">=azure-pipelines-2019"
 
 **`username`** - **User Name**<br>
-Type: string. Optional. Use when packageFeedSelector = customFeed.<br>
+`string`. Optional. Use when `packageFeedSelector = customFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the user name to authenticate with the feed specified in the **Package Source** argument. If using a personal access token (PAT) in the password argument, this input is not required.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -159,10 +165,11 @@ Specify the user name to authenticate with the feed specified in the **Package S
 :::moniker range=">=azure-pipelines-2019"
 
 **`password`** - **Password**<br>
-Type: string. Optional. Use when packageFeedSelector = customFeed.<br>
+`string`. Optional. Use when `packageFeedSelector = customFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password or personal access token for authenticating against the specified feed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -170,10 +177,11 @@ Password or personal access token for authenticating against the specified feed.
 :::moniker range=">=azure-pipelines-2019"
 
 **`netShare`** - **UNC Path**<br>
-Type: string. Required when packageFeedSelector = netShare.<br>
+`string`. Required when `packageFeedSelector = netShare`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the full UNC path to the microsoft.testplatform nupkg file. The desired version of Microsoft.TestPlatform.nupkg must be downloaded from [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/) and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -208,7 +216,6 @@ in a build or release pipeline can run without needing a full Visual Studio inst
 > * The **Test platform version** option in the **Visual Studio Test** task must be set to **Installed by Tools Installer**.
 
 See [Run automated tests from test plans](/azure/devops/test/run-automated-tests-from-test-hub)
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

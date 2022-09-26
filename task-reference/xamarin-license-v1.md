@@ -1,7 +1,7 @@
 ---
 title: XamarinLicense@1 - Xamarin License v1 task
 description: XamarinLicense@1 is deprecated.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,12 +29,12 @@ This task is deprecated.
 # [Deprecated] Upgrade to free version of Xamarin: https://store.xamarin.com.
 - task: XamarinLicense@1
   inputs:
-    action: 'Activate' # 'Activate' | 'Deactivate'. Required. Action. Default: 'Activate'.
+    action: 'Activate' # 'Activate' | 'Deactivate'. Required. Action. Default: Activate.
     email: # string. Required. Email. 
     password: # string. Required. Password. 
-    product: 'MA' # 'MA' | 'MT' | 'MM'. Required. Xamarin Product. Default: 'MA'.
+    product: 'MA' # 'MA' | 'MT' | 'MM'. Required. Xamarin Product. Default: MA.
   # Advanced
-    #timeout: '30' # string. Timeout in Seconds. Default: '30'.
+    #timeout: '30' # string. Timeout in Seconds. Default: 30.
 ```
 
 :::moniker-end
@@ -57,9 +57,10 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
-Type: string. Required. Allowed values: 'Activate', 'Deactivate'. Default value: 'Activate'.<br>
+`string`. Required. Allowed values: `Activate`, `Deactivate`. Default value: `Activate`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +68,11 @@ Type: string. Required. Allowed values: 'Activate', 'Deactivate'. Default value:
 :::moniker range="<=azure-pipelines"
 
 **`email`** - **Email**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Xamarin account email address.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +80,11 @@ Xamarin account email address.
 :::moniker range="<=azure-pipelines"
 
 **`password`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Xamarin account password. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +92,11 @@ Xamarin account password. Use a new build variable with its lock enabled on the 
 :::moniker range="<=azure-pipelines"
 
 **`product`** - **Xamarin Product**<br>
-Type: string. Required. Allowed values: 'MA', 'MT', 'MM'. Default value: 'MA'.<br>
+`string`. Required. Allowed values: `MA` (Xamarin.Android), `MT` (Xamarin.iOS), `MM` (Xamarin.Mac). Default value: `MA`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Xamarin product name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,9 +104,10 @@ Xamarin product name.
 :::moniker range="<=azure-pipelines"
 
 **`timeout`** - **Timeout in Seconds**<br>
-Type: string. Default value: '30'.<br>
+`string`. Default value: `30`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

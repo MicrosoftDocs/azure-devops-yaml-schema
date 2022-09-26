@@ -1,7 +1,7 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Build with the CMake cross-platform build system.
 # Build with the CMake cross-platform build system.
 - task: CMake@1
   inputs:
-    #workingDirectory: 'build' # string. Working Directory. Default: 'build'.
+    #workingDirectory: 'build' # string. Working Directory. Default: build.
     #cmakeArgs: # string. Arguments. 
   # Advanced
     #runInsideShell: false # boolean. Run cmake command inside shell. Default: false.
@@ -42,7 +42,7 @@ Build with the CMake cross-platform build system.
 # Build with the CMake cross-platform build system.
 - task: CMake@1
   inputs:
-    #workingDirectory: 'build' # string. Working Directory. Default: 'build'.
+    #workingDirectory: 'build' # string. Working Directory. Default: build.
     #cmakeArgs: # string. Arguments.
 ```
 
@@ -66,10 +66,11 @@ Build with the CMake cross-platform build system.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. Type: string. Default value: 'build'.<br>
+Input alias: `cwd`. `string`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory when cmake is run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +78,11 @@ Current working directory when cmake is run.
 :::moniker range="<=azure-pipelines"
 
 **`cmakeArgs`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to cmake.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -88,10 +90,11 @@ Arguments passed to cmake.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`runInsideShell`** - **Run cmake command inside shell**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 CMake arguments will be handled like they would be inside of an OS specific shell. It can be used to handle environment variables inside of argument strings.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

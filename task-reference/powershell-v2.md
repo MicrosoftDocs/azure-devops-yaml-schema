@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -43,16 +43,16 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 # Run a PowerShell script on Linux, macOS, or Windows.
 - task: PowerShell@2
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
   # Preference Variables
-    #errorActionPreference: 'stop' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
-    #warningPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. WarningPreference. Default: 'default'.
-    #informationPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. InformationPreference. Default: 'default'.
-    #verbosePreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. VerbosePreference. Default: 'default'.
-    #debugPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. DebugPreference. Default: 'default'.
+    #errorActionPreference: 'stop' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
+    #warningPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. WarningPreference. Default: default.
+    #informationPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. InformationPreference. Default: default.
+    #verbosePreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. VerbosePreference. Default: default.
+    #debugPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. DebugPreference. Default: default.
   # Advanced
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
@@ -71,11 +71,11 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 # Run a PowerShell script on Linux, macOS, or Windows.
 - task: PowerShell@2
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
   # Advanced
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
@@ -93,11 +93,11 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 # Run a PowerShell script on Linux, macOS, or Windows.
 - task: PowerShell@2
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
   # Advanced
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
@@ -114,11 +114,11 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 # Run a PowerShell script on Windows, macOS, or Linux.
 - task: PowerShell@2
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
   # Advanced
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
@@ -146,10 +146,11 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 :::moniker range="<=azure-pipelines"
 
 **`targetType`** - **Type**<br>
-Type: string. Allowed values: 'filePath', 'inline'. Default value: 'filePath'.<br>
+`string`. Allowed values: `filePath` (File Path), `inline`. Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target script type: File Path or Inline.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -157,10 +158,11 @@ Target script type: File Path or Inline.
 :::moniker range="<=azure-pipelines"
 
 **`filePath`** - **Script Path**<br>
-Type: string. Required when targetType = filePath.<br>
+`string`. Required when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -168,23 +170,47 @@ Path of the script to execute. Must be a fully qualified path or relative to $(S
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when targetType = filePath.<br>
+`string`. Optional. Use when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the PowerShell script. Either ordinal parameters or named parameters. For example, `-Name someName -Path -Value "Some long string value"`.
 
 `arguments` is not used when `targetType` is `inline`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="script"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2020"
 
 **`script`** - **Script**<br>
-Type: string. Required when targetType = inline.<br>
+`string`. Required when `targetType = inline`. Default value: `# Write your PowerShell commands here.\n\nWrite-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+
+**`script`** - **Script**<br>
+`string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"\n\n# Use the environment variables input below to pass secret variables to this script.`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`script`** - **Script**<br>
+`string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -192,20 +218,22 @@ Contents of the script. The maximum supported inline script length is 32766 char
 :::moniker range=">=azure-pipelines-2022"
 
 **`errorActionPreference`** - **ErrorActionPreference**<br>
-Type: string. Allowed values: 'default', 'stop', 'continue', 'silentlyContinue'. Default value: 'stop'.<br>
+`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`errorActionPreference`** - **ErrorActionPreference**<br>
-Type: string. Allowed values: 'stop', 'continue', 'silentlyContinue'. Default value: 'stop'.<br>
+`string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +241,11 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 :::moniker range=">=azure-pipelines-2022"
 
 **`warningPreference`** - **WarningPreference**<br>
-Type: string. Allowed values: 'default', 'stop', 'continue', 'silentlyContinue'. Default value: 'default'.<br>
+`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When not `Default`, prepends the line `$WarningPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -224,10 +253,11 @@ When not `Default`, prepends the line `$WarningPreference = 'VALUE'` at the top 
 :::moniker range=">=azure-pipelines-2022"
 
 **`informationPreference`** - **InformationPreference**<br>
-Type: string. Allowed values: 'default', 'stop', 'continue', 'silentlyContinue'. Default value: 'default'.<br>
+`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When not `Default`, prepends the line `$InformationPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -235,10 +265,11 @@ When not `Default`, prepends the line `$InformationPreference = 'VALUE'` at the 
 :::moniker range=">=azure-pipelines-2022"
 
 **`verbosePreference`** - **VerbosePreference**<br>
-Type: string. Allowed values: 'default', 'stop', 'continue', 'silentlyContinue'. Default value: 'default'.<br>
+`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When not `Default`, prepends the line `$VerbosePreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -246,10 +277,11 @@ When not `Default`, prepends the line `$VerbosePreference = 'VALUE'` at the top 
 :::moniker range=">=azure-pipelines-2022"
 
 **`debugPreference`** - **DebugPreference**<br>
-Type: string. Allowed values: 'default', 'stop', 'continue', 'silentlyContinue'. Default value: 'default'.<br>
+`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When not `Default`, prepends the line `$DebugPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -257,10 +289,11 @@ When not `Default`, prepends the line `$DebugPreference = 'VALUE'` at the top of
 :::moniker range="<=azure-pipelines"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -268,10 +301,11 @@ If this is true, this task will fail if any errors are written to the error pipe
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`showWarnings`** - **Show warnings as Azure DevOps warnings**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, and your script writes a warnings - they are shown as warnings also in pipeline logs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -279,10 +313,11 @@ If this is true, and your script writes a warnings - they are shown as warnings 
 :::moniker range="<=azure-pipelines"
 
 **`ignoreLASTEXITCODE`** - **Ignore $LASTEXITCODE**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will cause the last exit code from an external command to be propagated as the exit code of powershell. Otherwise the line is not appended to the end of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -290,10 +325,11 @@ If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE))
 :::moniker range=">=azure-pipelines-2019"
 
 **`pwsh`** - **Use PowerShell Core**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, then on Windows the task will use pwsh.exe from your PATH instead of powershell.exe.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -301,10 +337,11 @@ If this is true, then on Windows the task will use pwsh.exe from your PATH inste
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory where the script is run. If not specified, the working directory is $(Build.SourcesDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -312,10 +349,11 @@ Working directory where the script is run. If not specified, the working directo
 :::moniker range=">=azure-pipelines-2022"
 
 **`runScriptInSeparateScope`** - **Run script in the separate scope**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This input allows executing PowerShell scripts using '&' operator instead of the default '.'. If this input set to the true script will be executed in separate scope and globally scoped PowerShell variables won't be updated.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

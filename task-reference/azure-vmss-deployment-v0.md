@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ Deploy Virtual Machine scale set image.
   inputs:
   # Azure Details
     azureSubscription: # string. Required. Azure subscription. 
-    action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: 'Update image'.
+    action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
   # Image Details
@@ -62,7 +62,7 @@ Deploy Virtual Machine scale set image.
   inputs:
   # Azure Details
     azureSubscription: # string. Required. Azure subscription. 
-    action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: 'Update image'.
+    action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
   # Image Details
@@ -96,10 +96,11 @@ Deploy Virtual Machine scale set image.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the scale set.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,10 +108,11 @@ Select the Azure Resource Manager subscription for the scale set.
 :::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
-Type: string. Required. Allowed values: 'Update image', 'Configure application startup'. Default value: 'Update image'.<br>
+`string`. Required. Allowed values: `Update image` (Update VM Scale set by using an image), `Configure application startup` (Run Custom Script VM extension on VM scale set). Default value: `Update image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose between updating a VM scale set by using a VHD image and/or by running deployment/install scripts using Custom Script VM extension.<br/>The VHD image approach is better for scaling quickly and doing rollback. The extension approach is useful for post deployment configuration, software installation, or any other configuration / management task.<br/>You can use a VHD image to update a VM scale set only when it was created by using a custom image, the update will fail if the VM Scale set was created by using a platform/gallery image available in Azure.<br/>The Custom script VM extension approach can be used for VM scale set created by using either custom image or platform/gallery image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +120,11 @@ Choose between updating a VM scale set by using a VHD image and/or by running de
 :::moniker range="<=azure-pipelines"
 
 **`vmssName`** - **Virtual Machine scale set name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of VM scale set which you want to update by using either a VHD image or by using Custom script VM extension.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +132,11 @@ Name of VM scale set which you want to update by using either a VHD image or by 
 :::moniker range="<=azure-pipelines"
 
 **`vmssOsType`** - **OS type**<br>
-Type: string. Required. Allowed values: 'Windows', 'Linux'.<br>
+`string`. Required. Allowed values: `Windows`, `Linux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the operating system type of VM scale set.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,20 +144,22 @@ Select the operating system type of VM scale set.
 :::moniker range=">=azure-pipelines-2019"
 
 **`imageUrl`** - **Image URL**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL of VHD image. If it is an Azure storage blob URL, the storage account location should be same as scale set location.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`imageUrl`** - **Image url**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL of VHD image. If it is an Azure storage blob URL, the storage account location should be same as scale set location.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -161,10 +167,11 @@ Specify the URL of VHD image. If it is an Azure storage blob URL, the storage ac
 :::moniker range="<=azure-pipelines"
 
 **`customScriptsDirectory`** - **Custom script directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to directory containing custom script(s) that will be run by using Custom Script VM extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example: the script can set a machine level environment variable which the application uses, like database connection string.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -172,10 +179,11 @@ Path to directory containing custom script(s) that will be run by using Custom S
 :::moniker range="<=azure-pipelines"
 
 **`customScript`** - **Command**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The script that will be run by using Custom Script VM extension. This script can invoke other scripts in the directory. The script will be invoked with arguments passed below.<br/>This script in conjugation with such arguments can be used to execute commands. For example:<br/>1. Update-DatabaseConnectionStrings.ps1 -clusterType dev -user $(dbUser) -password $(dbUserPwd) will update connection string in web.config of web application.<br/>2. install-secrets.sh --key-vault-type prod -key serviceprincipalkey will create an encrypted file containing service principal key.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -183,10 +191,11 @@ The script that will be run by using Custom Script VM extension. This script can
 :::moniker range="<=azure-pipelines"
 
 **`customScriptArguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The custom script will be invoked with arguments passed. Build/Release variables can be used which makes it easy to use secrets.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -194,10 +203,11 @@ The custom script will be invoked with arguments passed. Build/Release variables
 :::moniker range="<=azure-pipelines"
 
 **`customScriptsStorageAccount`** - **Azure storage account where custom scripts will be uploaded**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Custom Script Extension downloads and executes scripts provided by you on each virtual machines in the VM scale set. These scripts will be stored in the storage account specified here. Specify a pre-existing ARM storage account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -205,10 +215,11 @@ The Custom Script Extension downloads and executes scripts provided by you on ea
 :::moniker range="<=azure-pipelines"
 
 **`skipArchivingCustomScripts`** - **Skip Archiving custom scripts**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default, this task creates a compressed archive of directory containing custom scripts. This improves performance and reliability while uploading to azure storage. If not selected, archiving will not be done and all files will be inidividually uploaded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -251,7 +262,6 @@ Next, try adding a command line task before the virtual machine scale set task:
       inputs:
         script: 'chmod 777 $(System.DefaultWorkingDirectory)/test.sh' 
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

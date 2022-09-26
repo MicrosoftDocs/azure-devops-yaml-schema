@@ -1,7 +1,7 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,11 +35,11 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
 # Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
 - task: SqlAzureDacpacDeployment@1
   inputs:
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Service Connection Type. Default: 'ConnectedServiceNameARM'.
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Service Connection Type. Default: ConnectedServiceNameARM.
     #azureClassicSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
     azureSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
   # SQL Database
-    AuthenticationType: 'server' # 'server' | 'aadAuthenticationPassword' | 'aadAuthenticationIntegrated' | 'connectionString' | 'servicePrincipal'. Required. Authentication Type. Default: 'server'.
+    AuthenticationType: 'server' # 'server' | 'aadAuthenticationPassword' | 'aadAuthenticationIntegrated' | 'connectionString' | 'servicePrincipal'. Required. Authentication Type. Default: server.
     #ServerName: # string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal. Azure SQL Server. 
     #DatabaseName: # string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal. Database. 
     SqlUsername: # string. Required when AuthenticationType = server. Login. 
@@ -48,8 +48,8 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
     #aadSqlPassword: # string. Required when AuthenticationType = aadAuthenticationPassword. Password. 
     #ConnectionString: # string. Required when AuthenticationType = connectionString. Connection String. 
   # Deployment Package
-    deployType: 'DacpacTask' # 'DacpacTask' | 'SqlTask' | 'InlineSqlTask'. Required. Deploy type. Default: 'DacpacTask'.
-    DeploymentAction: 'Publish' # 'Publish' | 'Extract' | 'Export' | 'Import' | 'Script' | 'DriftReport' | 'DeployReport'. Required when TaskNameSelector = DacpacTask. Action. Default: 'Publish'.
+    deployType: 'DacpacTask' # 'DacpacTask' | 'SqlTask' | 'InlineSqlTask'. Required. Deploy type. Default: DacpacTask.
+    DeploymentAction: 'Publish' # 'Publish' | 'Extract' | 'Export' | 'Import' | 'Script' | 'DriftReport' | 'DeployReport'. Required when TaskNameSelector = DacpacTask. Action. Default: Publish.
     #DacpacFile: # string. Required when DeploymentAction = Publish || DeploymentAction = Script || DeploymentAction = DeployReport. DACPAC File. 
     #BacpacFile: # string. Required when DeploymentAction = Import. BACPAC File. 
     #SqlFile: # string. Required when TaskNameSelector = SqlTask. SQL Script. 
@@ -59,7 +59,7 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
     #SqlAdditionalArguments: # string. Optional. Use when TaskNameSelector = SqlTask. Additional Invoke-Sqlcmd Arguments. 
     #InlineAdditionalArguments: # string. Optional. Use when TaskNameSelector = InlineSqlTask. Additional Invoke-Sqlcmd Arguments. 
   # Firewall
-    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: 'AutoDetect'.
+    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: AutoDetect.
     #StartIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. Start IP Address. 
     #EndIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. End IP Address. 
     #DeleteFirewallRule: true # boolean. Delete Rule After Task Ends. Default: true.
@@ -74,11 +74,11 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
 # Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
 - task: SqlAzureDacpacDeployment@1
   inputs:
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Service Connection Type. Default: 'ConnectedServiceNameARM'.
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Service Connection Type. Default: ConnectedServiceNameARM.
     #azureClassicSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
     azureSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
   # SQL Database
-    AuthenticationType: 'server' # 'server' | 'aadAuthenticationPassword' | 'aadAuthenticationIntegrated' | 'connectionString'. Required. Authentication Type. Default: 'server'.
+    AuthenticationType: 'server' # 'server' | 'aadAuthenticationPassword' | 'aadAuthenticationIntegrated' | 'connectionString'. Required. Authentication Type. Default: server.
     #ServerName: # string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated. Azure SQL Server. 
     #DatabaseName: # string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated. Database. 
     SqlUsername: # string. Required when AuthenticationType = server. Login. 
@@ -87,8 +87,8 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
     #aadSqlPassword: # string. Required when AuthenticationType = aadAuthenticationPassword. Password. 
     #ConnectionString: # string. Required when AuthenticationType = connectionString. Connection String. 
   # Deployment Package
-    deployType: 'DacpacTask' # 'DacpacTask' | 'SqlTask' | 'InlineSqlTask'. Required. Deploy type. Default: 'DacpacTask'.
-    DeploymentAction: 'Publish' # 'Publish' | 'Extract' | 'Export' | 'Import' | 'Script' | 'DriftReport' | 'DeployReport'. Required when TaskNameSelector = DacpacTask. Action. Default: 'Publish'.
+    deployType: 'DacpacTask' # 'DacpacTask' | 'SqlTask' | 'InlineSqlTask'. Required. Deploy type. Default: DacpacTask.
+    DeploymentAction: 'Publish' # 'Publish' | 'Extract' | 'Export' | 'Import' | 'Script' | 'DriftReport' | 'DeployReport'. Required when TaskNameSelector = DacpacTask. Action. Default: Publish.
     #DacpacFile: # string. Required when DeploymentAction = Publish || DeploymentAction = Script || DeploymentAction = DeployReport. DACPAC File. 
     #BacpacFile: # string. Required when DeploymentAction = Import. BACPAC File. 
     #SqlFile: # string. Required when TaskNameSelector = SqlTask. SQL Script. 
@@ -98,7 +98,7 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
     #SqlAdditionalArguments: # string. Optional. Use when TaskNameSelector = SqlTask. Additional Invoke-Sqlcmd Arguments. 
     #InlineAdditionalArguments: # string. Optional. Use when TaskNameSelector = InlineSqlTask. Additional Invoke-Sqlcmd Arguments. 
   # Firewall
-    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: 'AutoDetect'.
+    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: AutoDetect.
     #StartIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. Start IP Address. 
     #EndIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. End IP Address. 
     #DeleteFirewallRule: true # boolean. Delete Rule After Task Ends. Default: true.
@@ -113,7 +113,7 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
 # Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
 - task: SqlAzureDacpacDeployment@1
   inputs:
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Service Connection Type. Default: 'ConnectedServiceNameARM'.
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Service Connection Type. Default: ConnectedServiceNameARM.
     #azureClassicSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
     azureSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
   # SQL DB Details
@@ -122,8 +122,8 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
     SqlUsername: # string. Required. Server Admin Login. 
     SqlPassword: # string. Required. Password. 
   # Deployment Package
-    DeploymentAction: 'Publish' # 'Publish' | 'Extract' | 'Export' | 'Import' | 'Script' | 'DriftReport' | 'DeployReport'. Required. Action. Default: 'Publish'.
-    #TaskNameSelector: 'DacpacTask' # 'DacpacTask' | 'SqlTask' | 'InlineSqlTask'. Optional. Use when DeploymentAction = Publish. Type. Default: 'DacpacTask'.
+    DeploymentAction: 'Publish' # 'Publish' | 'Extract' | 'Export' | 'Import' | 'Script' | 'DriftReport' | 'DeployReport'. Required. Action. Default: Publish.
+    #TaskNameSelector: 'DacpacTask' # 'DacpacTask' | 'SqlTask' | 'InlineSqlTask'. Optional. Use when DeploymentAction = Publish. Type. Default: DacpacTask.
     #DacpacFile: # string. Required when TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport. DACPAC File. 
     #BacpacFile: # string. Required when DeploymentAction = Import. BACPAC File. 
     #SqlFile: # string. Required when TaskNameSelector = SqlTask. SQL Script. 
@@ -133,7 +133,7 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
     #SqlAdditionalArguments: # string. Optional. Use when TaskNameSelector = SqlTask. Additional Invoke-Sqlcmd Arguments. 
     #InlineAdditionalArguments: # string. Optional. Use when TaskNameSelector = InlineSqlTask. Additional Invoke-Sqlcmd Arguments. 
   # Firewall
-    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: 'AutoDetect'.
+    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: AutoDetect.
     #StartIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. Start IP Address. 
     #EndIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. End IP Address. 
     #DeleteFirewallRule: true # boolean. Delete Rule After Task Ends. Default: true.
@@ -159,18 +159,20 @@ Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureConnectionType`** - **Azure Service Connection Type**<br>
-Input alias: `ConnectedServiceNameSelector`. Type: string. Allowed values: 'ConnectedServiceName', 'ConnectedServiceNameARM'. Default value: 'ConnectedServiceNameARM'.<br>
+Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`azureConnectionType`** - **Azure Connection Type**<br>
-Input alias: `ConnectedServiceNameSelector`. Type: string. Allowed values: 'ConnectedServiceName', 'ConnectedServiceNameARM'. Default value: 'ConnectedServiceNameARM'.<br>
+Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -178,10 +180,11 @@ Input alias: `ConnectedServiceNameSelector`. Type: string. Allowed values: 'Conn
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceName.<br>
+Input alias: `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target Azure Classic subscription for deploying SQL files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -189,10 +192,11 @@ Target Azure Classic subscription for deploying SQL files.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM.<br>
+Input alias: `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target Azure Resource Manager subscription for deploying SQL files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -200,22 +204,24 @@ Target Azure Resource Manager subscription for deploying SQL files.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`AuthenticationType`** - **Authentication Type**<br>
-Type: string. Required. Allowed values: 'server', 'aadAuthenticationPassword', 'aadAuthenticationIntegrated', 'connectionString', 'servicePrincipal'. Default value: 'server'.<br>
+`string`. Required. Allowed values: `server` (SQL Server Authentication), `aadAuthenticationPassword` (Active Directory - Password), `aadAuthenticationIntegrated` (Active Directory - Integrated), `connectionString` (Connection String), `servicePrincipal` (Service Principal). Default value: `server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of database authentication, can be SQL Server Authentication, Active Directory - Integrated, Active Directory - Password, Connection String, or Service Principal. Integrated authentication means that the agent will access the database using its current Active Directory account context.
 Specify the option to connect to the Azure SQL Server Database. The options are either to provide the Azure SQL Server Database details, or the SQL Server connection string, or AAD Authentication password or integrated or use a Service Principal. For SQL server authentication, use SQL server's user credentials and for AD authentication, use credentials of AD user configured to SQL server.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 **`AuthenticationType`** - **Authentication Type**<br>
-Type: string. Required. Allowed values: 'server', 'aadAuthenticationPassword', 'aadAuthenticationIntegrated', 'connectionString'. Default value: 'server'.<br>
+`string`. Required. Allowed values: `server` (SQL Server Authentication), `aadAuthenticationPassword` (Active Directory - Password), `aadAuthenticationIntegrated` (Active Directory - Integrated), `connectionString` (Connection String). Default value: `server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of database authentication, can be SQL Server Authentication, Active Directory - Integrated, Active Directory - Password, Connection String, or Service Principal. Integrated authentication means that the agent will access the database using its current Active Directory account context.
 Specify the option to connect to the Azure SQL Server Database. The options are either to provide the Azure SQL Server Database details, or the SQL Server connection string, or AAD Authentication password or integrated. For SQL server authentication, use SQL server's user credentials and for AD authentication, use credentials of AD user configured to SQL server.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -223,30 +229,33 @@ Specify the option to connect to the Azure SQL Server Database. The options are 
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`ServerName`** - **Azure SQL Server**<br>
-Type: string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal.<br>
+`string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 **`ServerName`** - **Azure SQL Server**<br>
-Type: string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated.<br>
+`string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019"
 
 **`ServerName`** - **Azure SQL Server Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -254,30 +263,33 @@ Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.datab
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`DatabaseName`** - **Database**<br>
-Type: string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal.<br>
+`string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Azure SQL Database, where the files will be deployed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 **`DatabaseName`** - **Database**<br>
-Type: string. Required when AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated.<br>
+`string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Azure SQL Database, where the files will be deployed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019"
 
 **`DatabaseName`** - **Database Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Azure SQL Database, where the files will be deployed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -285,30 +297,33 @@ Name of the Azure SQL Database, where the files will be deployed.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlUsername`** - **Login**<br>
-Type: string. Required when AuthenticationType = server.<br>
+`string`. Required when `AuthenticationType = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Azure SQL Server administrator login.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`SqlUsername`** - **Server Admin Login**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Azure SQL Server administrator login or Active Directory user name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`SqlUsername`** - **Server Admin Login**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Azure SQL Server administrator login or Active Directory user name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -316,30 +331,33 @@ Specify the Azure SQL Server administrator login or Active Directory user name.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlPassword`** - **Password**<br>
-Type: string. Required when AuthenticationType = server.<br>
+`string`. Required when `AuthenticationType = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the Azure SQL Server administrator.<br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`SqlPassword`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the Azure SQL Server administrator.<br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`SqlPassword`** - **Password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the Azure SQL Server administrator.<br>It can accept variable defined in Build/Release Definitions as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -347,10 +365,11 @@ Password for the Azure SQL Server administrator.<br>It can accept variable defin
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`aadSqlUsername`** - **Login**<br>
-Type: string. Required when AuthenticationType = aadAuthenticationPassword.<br>
+`string`. Required when `AuthenticationType = aadAuthenticationPassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Active directory username.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -358,10 +377,11 @@ Specify the Active directory username.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`aadSqlPassword`** - **Password**<br>
-Type: string. Required when AuthenticationType = aadAuthenticationPassword.<br>
+`string`. Required when `AuthenticationType = aadAuthenticationPassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the Active directory user.<br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -369,10 +389,11 @@ Password for the Active directory user.<br>It can accept variable defined in bui
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ConnectionString`** - **Connection String**<br>
-Type: string. Required when AuthenticationType = connectionString.<br>
+`string`. Required when `AuthenticationType = connectionString`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Azure SQL Server connection string like "Server=testServer.database.windows.net;Database=testdb;User ID=AccountPlaceholder;Password=$(securePassword);".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -380,9 +401,10 @@ Specify the Azure SQL Server connection string like "Server=testServer.database.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deployType`** - **Deploy type**<br>
-Input alias: `TaskNameSelector`. Type: string. Required. Allowed values: 'DacpacTask', 'SqlTask', 'InlineSqlTask'. Default value: 'DacpacTask'.<br>
+Input alias: `TaskNameSelector`. `string`. Required. Allowed values: `DacpacTask` (SQL DACPAC File), `SqlTask` (SQL Script File), `InlineSqlTask` (Inline SQL Script). Default value: `DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -390,20 +412,22 @@ Input alias: `TaskNameSelector`. Type: string. Required. Allowed values: 'Dacpac
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`DeploymentAction`** - **Action**<br>
-Type: string. Required when TaskNameSelector = DacpacTask. Allowed values: 'Publish', 'Extract', 'Export', 'Import', 'Script', 'DriftReport', 'DeployReport'. Default value: 'Publish'.<br>
+`string`. Required when `TaskNameSelector = DacpacTask`. Allowed values: `Publish`, `Extract`, `Export`, `Import`, `Script`, `DriftReport` (Drift Report), `DeployReport` (Deploy Report). Default value: `Publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose one of the SQL Actions from the list. For more details refer <a href="https://go.microsoft.com/fwlink/?linkid=875177">link</a>.​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`DeploymentAction`** - **Action**<br>
-Type: string. Required. Allowed values: 'Publish', 'Extract', 'Export', 'Import', 'Script', 'DriftReport', 'DeployReport'. Default value: 'Publish'.<br>
+`string`. Required. Allowed values: `Publish`, `Extract`, `Export`, `Import`, `Script`, `DriftReport` (Drift Report), `DeployReport` (Deploy Report). Default value: `Publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose one of the SQL Actions from the list. For more details refer <a href="https://go.microsoft.com/fwlink/?linkid=875177">link</a>.​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -411,30 +435,33 @@ Choose one of the SQL Actions from the list. For more details refer <a href="htt
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`DacpacFile`** - **DACPAC File**<br>
-Type: string. Required when DeploymentAction = Publish || DeploymentAction = Script || DeploymentAction = DeployReport.<br>
+`string`. Required when `DeploymentAction = Publish || DeploymentAction = Script || DeploymentAction = DeployReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location of the DACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`DacpacFile`** - **DACPAC File**<br>
-Type: string. Required when TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport.<br>
+`string`. Required when `TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location of the DACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`DacpacFile`** - **DACPAC File**<br>
-Type: string. Required when TaskNameSelector = DacpacTask.<br>
+`string`. Required when `TaskNameSelector = DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location of the DACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -442,10 +469,11 @@ Location of the DACPAC file on the automation agent or on a UNC path accessible 
 :::moniker range=">=azure-pipelines-2019"
 
 **`BacpacFile`** - **BACPAC File**<br>
-Type: string. Required when DeploymentAction = Import.<br>
+`string`. Required when `DeploymentAction = Import`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location of the BACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.bacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -453,10 +481,11 @@ Location of the BACPAC file on the automation agent or on a UNC path accessible 
 :::moniker range="<=azure-pipelines"
 
 **`SqlFile`** - **SQL Script**<br>
-Type: string. Required when TaskNameSelector = SqlTask.<br>
+`string`. Required when `TaskNameSelector = SqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location of the SQL script file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.sql. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -464,10 +493,11 @@ Location of the SQL script file on the automation agent or on a UNC path accessi
 :::moniker range="<=azure-pipelines"
 
 **`SqlInline`** - **Inline SQL Script**<br>
-Type: string. Required when TaskNameSelector = InlineSqlTask.<br>
+`string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the SQL script to execute on the Database selected above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -475,20 +505,22 @@ Enter the SQL script to execute on the Database selected above.
 :::moniker range=">=azure-pipelines-2019"
 
 **`PublishProfile`** - **Publish Profile**<br>
-Type: string. Optional. Use when TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport.<br>
+`string`. Optional. Use when `TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent machine or on a UNC share. If the publish profile contains secrets like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Then use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs and delete it when the pipeline is complete. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`PublishProfile`** - **Publish Profile**<br>
-Type: string. Optional. Use when TaskNameSelector = DacpacTask.<br>
+`string`. Optional. Use when `TaskNameSelector = DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent or on a UNC share. If the publish profile contains secrets like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Then use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs and delete it when the pipeline is complete. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -496,20 +528,22 @@ Publish profile provides fine-grained control over Azure SQL Database creation o
 :::moniker range=">=azure-pipelines-2019"
 
 **`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
-Type: string. Optional. Use when TaskNameSelector = DacpacTask || DeploymentAction = Extract || DeploymentAction = Export || DeploymentAction = Import || DeploymentAction = Script || DeploymentAction = DeployReport || DeploymentAction = DriftReport.<br>
+`string`. Optional. Use when `TaskNameSelector = DacpacTask || DeploymentAction = Extract || DeploymentAction = Export || DeploymentAction = Import || DeploymentAction = Script || DeploymentAction = DeployReport || DeploymentAction = DriftReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
-Type: string. Optional. Use when TaskNameSelector = DacpacTask.<br>
+`string`. Optional. Use when `TaskNameSelector = DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -517,10 +551,11 @@ Additional SqlPackage.exe arguments that will be applied when deploying the Azur
 :::moniker range="<=azure-pipelines"
 
 **`SqlAdditionalArguments`** - **Additional Invoke-Sqlcmd Arguments**<br>
-Type: string. Optional. Use when TaskNameSelector = SqlTask.<br>
+`string`. Optional. Use when `TaskNameSelector = SqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, `-ConnectionTimeout 100 -OutputSqlErrors`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -528,10 +563,11 @@ Additional Invoke-Sqlcmd arguments that will be applied when executing the given
 :::moniker range="<=azure-pipelines"
 
 **`InlineAdditionalArguments`** - **Additional Invoke-Sqlcmd Arguments**<br>
-Type: string. Optional. Use when TaskNameSelector = InlineSqlTask.<br>
+`string`. Optional. Use when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, `-ConnectionTimeout 100 -OutputSqlErrors`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -539,10 +575,11 @@ Additional Invoke-Sqlcmd arguments that will be applied when executing the given
 :::moniker range="<=azure-pipelines"
 
 **`IpDetectionMethod`** - **Specify Firewall Rules Using**<br>
-Type: string. Required. Allowed values: 'AutoDetect', 'IPAddressRange'. Default value: 'AutoDetect'.<br>
+`string`. Required. Allowed values: `AutoDetect`, `IPAddressRange`. Default value: `AutoDetect`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 For the task to run, the IP Address of the automation agent has to be added to the 'Allowed IP Addresses' in the Azure SQL Server's Firewall. Select auto-detect to automatically add firewall exception for range of possible IP Address of automation agent or specify the range explicitly.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -550,10 +587,11 @@ For the task to run, the IP Address of the automation agent has to be added to t
 :::moniker range="<=azure-pipelines"
 
 **`StartIpAddress`** - **Start IP Address**<br>
-Type: string. Required when IpDetectionMethod = IPAddressRange.<br>
+`string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The starting IP Address of the automation agent machine pool like 196.21.30.50.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -561,10 +599,11 @@ The starting IP Address of the automation agent machine pool like 196.21.30.50.
 :::moniker range="<=azure-pipelines"
 
 **`EndIpAddress`** - **End IP Address**<br>
-Type: string. Required when IpDetectionMethod = IPAddressRange.<br>
+`string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The ending IP Address of the automation agent machine pool like 196.21.30.65.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -572,10 +611,11 @@ The ending IP Address of the automation agent machine pool like 196.21.30.65.
 :::moniker range="<=azure-pipelines"
 
 **`DeleteFirewallRule`** - **Delete Rule After Task Ends**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, then after the task ends, the IP Addresses specified here are deleted from the 'Allowed IP Addresses' list of the Azure SQL Server's Firewall.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -583,18 +623,20 @@ If selected, then after the task ends, the IP Addresses specified here are delet
 :::moniker range="=azure-pipelines-2019"
 
 **`TaskNameSelector`** - **Type**<br>
-Type: string. Optional. Use when DeploymentAction = Publish. Allowed values: 'DacpacTask', 'SqlTask', 'InlineSqlTask'. Default value: 'DacpacTask'.<br>
+`string`. Optional. Use when `DeploymentAction = Publish`. Allowed values: `DacpacTask` (SQL DACPAC File), `SqlTask` (SQL Script File), `InlineSqlTask` (Inline SQL Script). Default value: `DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`TaskNameSelector`** - **Type**<br>
-Type: string. Allowed values: 'DacpacTask', 'SqlTask', 'InlineSqlTask'. Default value: 'DacpacTask'.<br>
+`string`. Allowed values: `DacpacTask` (SQL DACPAC File), `SqlTask` (SQL Script File), `InlineSqlTask` (Inline SQL Script). Default value: `DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

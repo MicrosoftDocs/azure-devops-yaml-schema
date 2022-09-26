@@ -1,7 +1,7 @@
 ---
 title: Delay@1 - Delay v1 task
 description: Delay further execution of a workflow by a fixed time.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Delay further execution of the workflow by a fixed time.
 # Delay further execution of a workflow by a fixed time.
 - task: Delay@1
   inputs:
-    delayForMinutes: '0' # string. Required. Delay Time (minutes). Default: '0'.
+    delayForMinutes: '0' # string. Required. Delay Time (minutes). Default: 0.
 ```
 
 :::moniker-end
@@ -47,7 +47,7 @@ Delay further execution of the workflow by a fixed time.
 # Delay further execution of the workflow by a fixed time.
 - task: Delay@1
   inputs:
-    delayForMinutes: '0' # string. Required. Delay Time (minutes). Default: '0'.
+    delayForMinutes: '0' # string. Required. Delay Time (minutes). Default: 0.
 ```
 
 :::moniker-end
@@ -70,10 +70,11 @@ Delay further execution of the workflow by a fixed time.
 :::moniker range="<=azure-pipelines"
 
 **`delayForMinutes`** - **Delay Time (minutes)**<br>
-Type: string. Required. Default value: '0'.<br>
+`string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Delay the execution of the workflow by specified time in minutes. 0 value means that workflow execution will start without delay.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

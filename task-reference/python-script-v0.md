@@ -1,7 +1,7 @@
 ---
 title: PythonScript@0 - Python script v0 task
 description: Run a Python file or inline script.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -35,7 +35,7 @@ Run a Python script.
 # Run a Python file or inline script.
 - task: PythonScript@0
   inputs:
-    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: 'filePath'.
+    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: filePath.
     scriptPath: # string. Required when scriptSource = filePath. Script path. 
     #script: # string. Required when scriptSource = inline. Script. 
     #arguments: # string. Arguments. 
@@ -54,7 +54,7 @@ Run a Python script.
 # Run a Python script.
 - task: PythonScript@0
   inputs:
-    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: 'filePath'.
+    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: filePath.
     scriptPath: # string. Required when scriptSource = filePath. Script path. 
     #script: # string. Required when scriptSource = inline. Script. 
     #arguments: # string. Arguments. 
@@ -74,10 +74,11 @@ Run a Python script.
 :::moniker range=">=azure-pipelines-2019"
 
 **`scriptSource`** - **Script source**<br>
-Type: string. Required. Allowed values: 'filePath', 'inline'. Default value: 'filePath'.<br>
+`string`. Required. Allowed values: `filePath` (File path), `inline`. Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Whether the script is a file in the source tree or is written inline in this task.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +86,11 @@ Whether the script is a file in the source tree or is written inline in this tas
 :::moniker range=">=azure-pipelines-2019"
 
 **`scriptPath`** - **Script path**<br>
-Type: string. Required when scriptSource = filePath.<br>
+`string`. Required when `scriptSource = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +98,11 @@ Path of the script to execute. Must be a fully qualified path or relative to $(S
 :::moniker range=">=azure-pipelines-2019"
 
 **`script`** - **Script**<br>
-Type: string. Required when scriptSource = inline.<br>
+`string`. Required when `scriptSource = inline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Python script to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,10 +110,11 @@ The Python script to run.
 :::moniker range=">=azure-pipelines-2019"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script execution, available through `sys.argv`as if you passed them on the command line.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +122,11 @@ Arguments passed to the script execution, available through `sys.argv`as if you 
 :::moniker range=">=azure-pipelines-2019"
 
 **`pythonInterpreter`** - **Python interpreter**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Absolute path to the Python interpreter to use. If not specified, the task will use the interpreter in PATH.<br /> Run the [Use Python Version](https://go.microsoft.com/fwlink/?linkid=871498) task to add a version of Python to PATH.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +134,11 @@ Absolute path to the Python interpreter to use. If not specified, the task will 
 :::moniker range=">=azure-pipelines-2019"
 
 **`workingDirectory`** - **Working directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The working directory where the script will run. If not specified, the value of `System.DefaultWorkingDirectory` will be used. For builds, this variable defaults to the root of the repository. For releases, it defaults to the root of the artifacts directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +146,11 @@ The working directory where the script will run. If not specified, the value of 
 :::moniker range=">=azure-pipelines-2019"
 
 **`failOnStderr`** - **Fail on standard error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any text is written to the `stderr` stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

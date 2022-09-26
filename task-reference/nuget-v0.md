@@ -1,7 +1,7 @@
 ---
 title: NuGet@0 - NuGet command v0 task
 description: NuGet@0 is deprecated. Use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -66,12 +66,13 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet command to run.
 
 Examples: restore, pack.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -79,10 +80,11 @@ Examples: restore, pack.
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments for the provided command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

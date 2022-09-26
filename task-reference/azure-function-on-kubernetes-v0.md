@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
 description: Deploy Azure function to Kubernetes cluster.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -50,10 +50,11 @@ Deploy Azure function to Kubernetes cluster.
 :::moniker range=">=azure-pipelines-2020"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -61,10 +62,11 @@ Select a Docker registry service connection.
 :::moniker range=">=azure-pipelines-2020"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -72,10 +74,11 @@ Select a Kubernetes service connection.
 :::moniker range=">=azure-pipelines-2020"
 
 **`namespace`** - **Kubernetes namespace**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Kubernetes namespace.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -83,10 +86,11 @@ Kubernetes namespace.
 :::moniker range=">=azure-pipelines-2020"
 
 **`secretName`** - **Secret Name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: `Azure storage connection string`).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -94,10 +98,11 @@ Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: 
 :::moniker range=">=azure-pipelines-2020"
 
 **`dockerHubNamespace`** - **Docker Hub namespace**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Docker Hub namespace. Required for private Docker Hub repository.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -105,10 +110,11 @@ Docker Hub namespace. Required for private Docker Hub repository.
 :::moniker range=">=azure-pipelines-2020"
 
 **`appName`** - **Application Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Application Name. The Kubernetes objects created use this name. This should follow Kubernetes naming conventions for resource names.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -116,10 +122,11 @@ Application Name. The Kubernetes objects created use this name. This should foll
 :::moniker range=">=azure-pipelines-2020"
 
 **`functionRootDirectory`** - **Function root directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Function root directory. Should contain host.json. Docker build and push is performed from this directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -127,10 +134,11 @@ Function root directory. Should contain host.json. Docker build and push is perf
 :::moniker range=">=azure-pipelines-2020"
 
 **`waitForStability`** - **Wait for stability**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Wait for the Kubernetes objects to reach the desired state.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,10 +146,11 @@ Wait for the Kubernetes objects to reach the desired state.
 :::moniker range=">=azure-pipelines-2020"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pass arguments to command. Ex:<br>--no-docker --service-type NodePort.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

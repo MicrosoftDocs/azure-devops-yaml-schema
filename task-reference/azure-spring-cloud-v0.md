@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Cloud v0 task
 description: Deploy applications to Azure Spring Cloud and manage deployments.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -28,17 +28,17 @@ Deploy applications to Azure Spring Cloud and manage deployments.
 - task: AzureSpringCloud@0
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
-    Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: 'Deploy'.
+    Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
     AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
     AppName: # string. Required. App. 
     #UseStagingDeployment: true # boolean. Required when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
     #CreateNewDeployment: false # boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Create a new staging deployment if one does not exist. Default: false.
     #DeploymentName: # string. Optional. Use when UseStagingDeployment = false && Action != Delete Staging Deployment. Deployment. 
-    #Package: '$(System.DefaultWorkingDirectory)/**/*.jar' # string. Optional. Use when Action = Deploy. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.jar'.
+    #Package: '$(System.DefaultWorkingDirectory)/**/*.jar' # string. Optional. Use when Action = Deploy. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.jar.
   # Application and Configuration Settings
     #EnvironmentVariables: # string. Optional. Use when Action = Deploy. Environment Variables. 
     #JvmOptions: # string. Optional. Use when Action = Deploy. JVM Options. 
-    #RuntimeVersion: 'Java_11' # 'Java_8' | 'Java_11' | 'NetCore_31'. Optional. Use when Action = Deploy. Runtime Version. Default: 'Java_11'.
+    #RuntimeVersion: 'Java_11' # 'Java_8' | 'Java_11' | 'NetCore_31'. Optional. Use when Action = Deploy. Runtime Version. Default: Java_11.
     #DotNetCoreMainEntryPath: # string. Optional. Use when RuntimeVersion = NetCore_31. Main Entry Path. 
     #Version: # string. Optional. Use when Action = Deploy. Version.
 ```
@@ -53,10 +53,11 @@ Deploy applications to Azure Spring Cloud and manage deployments.
 :::moniker range=">=azure-pipelines-2022"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -64,10 +65,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range=">=azure-pipelines-2022"
 
 **`Action`** - **Action**<br>
-Type: string. Required. Allowed values: 'Deploy', 'Set Production', 'Delete Staging Deployment'. Default value: 'Deploy'.<br>
+`string`. Required. Allowed values: `Deploy`, `Set Production` (Set Production Deployment), `Delete Staging Deployment`. Default value: `Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Action to be performed on Azure Spring Cloud.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -75,10 +77,11 @@ Action to be performed on Azure Spring Cloud.
 :::moniker range=">=azure-pipelines-2022"
 
 **`AzureSpringCloud`** - **Azure Spring Cloud Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Spring Cloud service to which to deploy.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -86,10 +89,11 @@ Select the Azure Spring Cloud service to which to deploy.
 :::moniker range=">=azure-pipelines-2022"
 
 **`AppName`** - **App**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Spring Cloud app to deploy.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -97,10 +101,11 @@ Select the Azure Spring Cloud app to deploy.
 :::moniker range=">=azure-pipelines-2022"
 
 **`UseStagingDeployment`** - **Use Staging Deployment**<br>
-Type: boolean. Required when Action = Deploy || Action = Set Production. Default value: true.<br>
+`boolean`. Required when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically select the deployment that's set as Staging at the time the task runs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -108,10 +113,11 @@ Automatically select the deployment that's set as Staging at the time the task r
 :::moniker range=">=azure-pipelines-2022"
 
 **`CreateNewDeployment`** - **Create a new staging deployment if one does not exist.**<br>
-Type: boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Default value: false.<br>
+`boolean`. Optional. Use when `Action = Deploy && UseStagingDeployment = false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Whether to target the deployment that's set as Staging at the time of execution. If unchecked, the 'Deployment Name' setting must be set.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -119,10 +125,11 @@ Whether to target the deployment that's set as Staging at the time of execution.
 :::moniker range=">=azure-pipelines-2022"
 
 **`DeploymentName`** - **Deployment**<br>
-Type: string. Optional. Use when UseStagingDeployment = false && Action != Delete Staging Deployment.<br>
+`string`. Optional. Use when `UseStagingDeployment = false && Action != Delete Staging Deployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The deployment to which this task will apply. Lowercase letters and numbers only; must start with a letter.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -130,10 +137,11 @@ The deployment to which this task will apply. Lowercase letters and numbers only
 :::moniker range=">=azure-pipelines-2022"
 
 **`Package`** - **Package or folder**<br>
-Type: string. Optional. Use when Action = Deploy. Default value: '$(System.DefaultWorkingDirectory)/**/*.jar'.<br>
+`string`. Optional. Use when `Action = Deploy`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File path to the package or a folder containing the Spring Cloud app contents.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.jar.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -141,10 +149,11 @@ File path to the package or a folder containing the Spring Cloud app contents.<b
 :::moniker range=">=azure-pipelines-2022"
 
 **`EnvironmentVariables`** - **Environment Variables**<br>
-Type: string. Optional. Use when Action = Deploy.<br>
+`string`. Optional. Use when `Action = Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edit the app's environment variables.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -152,10 +161,11 @@ Edit the app's environment variables.
 :::moniker range=">=azure-pipelines-2022"
 
 **`JvmOptions`** - **JVM Options**<br>
-Type: string. Optional. Use when Action = Deploy.<br>
+`string`. Optional. Use when `Action = Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edit the app's JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -163,10 +173,11 @@ Edit the app's JVM options. A String containing JVM Options. Example: `-Xms1024m
 :::moniker range=">=azure-pipelines-2022"
 
 **`RuntimeVersion`** - **Runtime Version**<br>
-Type: string. Optional. Use when Action = Deploy. Allowed values: 'Java_8', 'Java_11', 'NetCore_31'. Default value: 'Java_11'.<br>
+`string`. Optional. Use when `Action = Deploy`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The runtime on which the app will run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -174,10 +185,11 @@ The runtime on which the app will run.
 :::moniker range=">=azure-pipelines-2022"
 
 **`DotNetCoreMainEntryPath`** - **Main Entry Path**<br>
-Type: string. Optional. Use when RuntimeVersion = NetCore_31.<br>
+`string`. Optional. Use when `RuntimeVersion = NetCore_31`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the .NET executable relative to zip root.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -185,9 +197,10 @@ The path to the .NET executable relative to zip root.
 :::moniker range=">=azure-pipelines-2022"
 
 **`Version`** - **Version**<br>
-Type: string. Optional. Use when Action = Deploy.<br>
+`string`. Optional. Use when `Action = Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -310,7 +323,6 @@ steps:
     AppName: customer-api
     UseStagingDeployment: true
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

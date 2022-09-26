@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,16 +28,16 @@ Run shell commands or a script on a remote machine using SSH.
 - task: SSH@0
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
-    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: 'commands'.
+    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
     commands: # string. Required when runOptions = commands. Commands. 
     #scriptPath: # string. Required when runOptions = script. Shell script path. 
     #inline: # string. Required when runOptions = inline. Inline Script. 
-    #interpreterCommand: '/bin/bash' # string. Optional. Use when runOptions = inline. Interpreter command. Default: '/bin/bash'.
+    #interpreterCommand: '/bin/bash' # string. Optional. Use when runOptions = inline. Interpreter command. Default: /bin/bash.
     #args: # string. Optional. Use when runOptions = script. Arguments. 
   # Advanced
     #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
     #interactiveSession: false # boolean. Enable interactive session. Default: false.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: '20000'.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
 ```
 
 :::moniker-end
@@ -50,14 +50,14 @@ Run shell commands or a script on a remote machine using SSH.
 - task: SSH@0
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
-    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: 'commands'.
+    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
     commands: # string. Required when runOptions = commands. Commands. 
     #scriptPath: # string. Required when runOptions = script. Shell script path. 
     #inline: # string. Required when runOptions = inline. Inline Script. 
     #args: # string. Optional. Use when runOptions = script. Arguments. 
   # Advanced
     #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: '20000'.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
 ```
 
 :::moniker-end
@@ -70,7 +70,7 @@ Run shell commands or a script on a remote machine using SSH.
 - task: SSH@0
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
-    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: 'commands'.
+    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
     commands: # string. Required when runOptions = commands. Commands. 
     #scriptPath: # string. Required when runOptions = script. Shell script path. 
     #inline: # string. Required when runOptions = inline. Inline Script. 
@@ -99,26 +99,28 @@ Run shell commands or a script on a remote machine using SSH.
 :::moniker range=">=azure-pipelines-2019"
 
 **`sshEndpoint`** - **SSH service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
 
 - The private key and the passphrase must be specified for authentication.
 - A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`sshEndpoint`** - **SSH endpoint**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
 
 - The private key and the passphrase must be specified for authentication.
 - A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,10 +128,11 @@ The name of an SSH service connection containing connection details for the remo
 :::moniker range="<=azure-pipelines"
 
 **`runOptions`** - **Run**<br>
-Type: string. Required. Allowed values: 'commands', 'script', 'inline'. Default value: 'commands'.<br>
+`string`. Required. Allowed values: `commands`, `script` (Script File), `inline` (Inline Script). Default value: `commands`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose to either run shell commands or a shell script on the remote machine.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,12 +140,13 @@ Choose to either run shell commands or a shell script on the remote machine.
 :::moniker range="<=azure-pipelines"
 
 **`commands`** - **Commands**<br>
-Type: string. Required when runOptions = commands.<br>
+`string`. Required when `runOptions = commands`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The shell commands to run on the remote machine. This parameter is available only when **Commands** is selected for the **Run** option. Enter each command together with its arguments on a new line of the multi-line textbox. To run multiple commands together, enter them on the same line separated by semicolons. Example: `cd /home/user/myFolder;build`.
 
 **NOTE:** Each command runs in a separate process. If you want to run a series of commands that are interdependent (for example, changing the current folder before executing a command) use the **Inline Script** option instead.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -150,10 +154,11 @@ The shell commands to run on the remote machine. This parameter is available onl
 :::moniker range="<=azure-pipelines"
 
 **`scriptPath`** - **Shell script path**<br>
-Type: string. Required when runOptions = script.<br>
+`string`. Required when `runOptions = script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the shell script file to run on the remote machine. This parameter is available only when **Shell script** is selected for the **Run** option.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -161,10 +166,11 @@ Path to the shell script file to run on the remote machine. This parameter is av
 :::moniker range="<=azure-pipelines"
 
 **`inline`** - **Inline Script**<br>
-Type: string. Required when runOptions = inline.<br>
+`string`. Required when `runOptions = inline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Write the shell script to run on the remote machine.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -172,10 +178,11 @@ Write the shell script to run on the remote machine.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`interpreterCommand`** - **Interpreter command**<br>
-Type: string. Optional. Use when runOptions = inline. Default value: '/bin/bash'.<br>
+`string`. Optional. Use when `runOptions = inline`. Default value: `/bin/bash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the command interpreter used to execute the script. Adds a shebang line to the beginning of the script. Relevant only for UNIX-like operating systems. Please use empty string for Windows-based remote hosts. [See more about shebang (#!)](https://homepages.cwi.nl/~aeb/std/shebang/unix-faq.txt).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -183,10 +190,11 @@ Path to the command interpreter used to execute the script. Adds a shebang line 
 :::moniker range="<=azure-pipelines"
 
 **`args`** - **Arguments**<br>
-Type: string. Optional. Use when runOptions = script.<br>
+`string`. Optional. Use when `runOptions = script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments to pass to the shell script. This parameter is available only when **Shell script** is selected for the **Run** option.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -194,10 +202,11 @@ Arguments to pass to the shell script. This parameter is available only when **S
 :::moniker range="<=azure-pipelines"
 
 **`failOnStdErr`** - **Fail on STDERR**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this option is selected, the build will fail when the remote commands or script write to STDERR.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -205,10 +214,11 @@ If this option is selected, the build will fail when the remote commands or scri
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`interactiveSession`** - **Enable interactive session**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this option is selected, interactive session will be started - if there's a password request, it will be filled by user's password. It could be useful to run commands like 'sudo'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -216,10 +226,11 @@ If this option is selected, interactive session will be started - if there's a p
 :::moniker range=">=azure-pipelines-2020"
 
 **`readyTimeout`** - **SSH handshake timeout**<br>
-Type: string. Required. Default value: '20000'.<br>
+`string`. Required. Default value: `20000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 How long (in milliseconds) to wait for the SSH handshake to complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

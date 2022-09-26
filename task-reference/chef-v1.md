@@ -1,7 +1,7 @@
 ---
 title: Chef@1 - Chef v1 task
 description: Deploy to Chef environments by editing environment attributes.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -32,7 +32,7 @@ This task is deprecated.
     connectedServiceName: # string. Required. Chef Service Connection. 
     Environment: # string. Required. Environment. 
     Attributes: # string. Required. Environment Attributes. 
-    chefWaitTime: '30' # string. Required. Wait Time. Default: '30'.
+    chefWaitTime: '30' # string. Required. Wait Time. Default: 30.
 ```
 
 :::moniker-end
@@ -55,20 +55,22 @@ This task is deprecated.
 :::moniker range=">=azure-pipelines-2019"
 
 **`connectedServiceName`** - **Chef Service Connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Chef subscription service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`connectedServiceName`** - **Chef Connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Chef subscription service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +78,11 @@ Name of the Chef subscription service connection.
 :::moniker range="<=azure-pipelines"
 
 **`Environment`** - **Environment**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Chef Environment to be used for Deployment. The attributes of that environment will be edited.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +90,11 @@ Name of the Chef Environment to be used for Deployment. The attributes of that e
 :::moniker range="<=azure-pipelines"
 
 **`Attributes`** - **Environment Attributes**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the value of the leaf node attribute(s) to be updated. Example. { "default_attributes.connectionString" : "$(connectionString)", "override_attributes.buildLocation" : "https://sample.blob.core.windows.net/build" }. Task fails if the leaf node does not exist.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +102,11 @@ Specify the value of the leaf node attribute(s) to be updated. Example. { "defau
 :::moniker range="<=azure-pipelines"
 
 **`chefWaitTime`** - **Wait Time**<br>
-Type: string. Required. Default value: '30'.<br>
+`string`. Required. Default value: `30`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The amount of time (in minutes) to wait for this task to complete. Default value: 30 minutes.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

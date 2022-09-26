@@ -1,7 +1,7 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -35,13 +35,13 @@ Retrieves the specified version of Python from the tool cache. Optionally add it
 # Use the specified version of Python from the tool cache, optionally adding it to the PATH.
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.x' # string. Required. Version spec. Default: '3.x'.
+    versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
     #disableDownloadFromRegistry: false # boolean. Disable downloading releases from the GitHub registry. Default: false.
     #allowUnstable: false # boolean. Optional. Use when disableDownloadFromRegistry = false. Allow downloading unstable releases. Default: false.
     #githubToken: # string. Optional. Use when disableDownloadFromRegistry = false. GitHub token for GitHub Actions python registry. 
     addToPath: true # boolean. Required. Add to PATH. Default: true.
   # Advanced
-    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: 'x64'.
+    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -53,10 +53,10 @@ Retrieves the specified version of Python from the tool cache. Optionally add it
 # Use the specified version of Python from the tool cache, optionally adding it to the PATH.
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.x' # string. Required. Version spec. Default: '3.x'.
+    versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
     addToPath: true # boolean. Required. Add to PATH. Default: true.
   # Advanced
-    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: 'x64'.
+    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -68,10 +68,10 @@ Retrieves the specified version of Python from the tool cache. Optionally add it
 # Retrieves the specified version of Python from the tool cache. Optionally add it to PATH.
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.x' # string. Required. Version spec. Default: '3.x'.
+    versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
     addToPath: true # boolean. Required. Add to PATH. Default: true.
   # Advanced
-    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: 'x64'.
+    architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -84,10 +84,11 @@ Retrieves the specified version of Python from the tool cache. Optionally add it
 :::moniker range=">=azure-pipelines-2019"
 
 **`versionSpec`** - **Version spec**<br>
-Type: string. Required. Default value: '3.x'.<br>
+`string`. Required. Default value: `3.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version range or exact version of a Python version to use, using semver's version range syntax. [More information](https://go.microsoft.com/fwlink/?LinkID=2006180).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -95,10 +96,11 @@ Version range or exact version of a Python version to use, using semver's versio
 :::moniker range="=azure-pipelines"
 
 **`disableDownloadFromRegistry`** - **Disable downloading releases from the GitHub registry**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Whether to disable downloading missing python version from the [Github Actions registry](https://github.com/actions/python-versions). Check this if you only want to use local pre-installed python.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -106,10 +108,11 @@ Whether to disable downloading missing python version from the [Github Actions r
 :::moniker range="=azure-pipelines"
 
 **`allowUnstable`** - **Allow downloading unstable releases**<br>
-Type: boolean. Optional. Use when disableDownloadFromRegistry = false. Default value: false.<br>
+`boolean`. Optional. Use when `disableDownloadFromRegistry = false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Allow downloading unstable python versions from [Github Actions python versions registry](https://github.com/actions/python-versions).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,10 +120,11 @@ Allow downloading unstable python versions from [Github Actions python versions 
 :::moniker range="=azure-pipelines"
 
 **`githubToken`** - **GitHub token for GitHub Actions python registry**<br>
-Type: string. Optional. Use when disableDownloadFromRegistry = false.<br>
+`string`. Optional. Use when `disableDownloadFromRegistry = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 GitHub token is needed to prevent anonymous requests limit to the [Github Actions python versions registry](https://github.com/actions/python-versions). Leaving this empty may cause download failures. Not needed if you only use locally installed python.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -128,10 +132,11 @@ GitHub token is needed to prevent anonymous requests limit to the [Github Action
 :::moniker range=">=azure-pipelines-2019"
 
 **`addToPath`** - **Add to PATH**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Whether to prepend the retrieved Python version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -139,10 +144,11 @@ Whether to prepend the retrieved Python version to the PATH environment variable
 :::moniker range=">=azure-pipelines-2019"
 
 **`architecture`** - **Architecture**<br>
-Type: string. Required. Allowed values: 'x86', 'x64'. Default value: 'x64'.<br>
+`string`. Required. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The target architecture (x86, x64) of the Python interpreter.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

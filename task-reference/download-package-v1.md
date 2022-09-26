@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,14 +27,14 @@ Download a package from a package management feed in Azure Artifacts.
 # Download a package from a package management feed in Azure Artifacts.
 - task: DownloadPackage@1
   inputs:
-    packageType: 'nuget' # 'maven' | 'npm' | 'nuget' | 'pypi' | 'upack'. Required. Package Type. Default: 'nuget'.
+    packageType: 'nuget' # 'maven' | 'npm' | 'nuget' | 'pypi' | 'upack'. Required. Package Type. Default: nuget.
     feed: # string. Required. Feed. 
     #view: # string. View. 
     definition: # string. Required. Package. 
     version: # string. Required. Version. 
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: '$(System.ArtifactsDirectory)'.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
   # Advanced
-    #files: '**' # string. Optional. Use when packageType = maven || packageType = pypi || packageType = upack. Files. Default: '**'.
+    #files: '**' # string. Optional. Use when packageType = maven || packageType = pypi || packageType = upack. Files. Default: **.
     #extract: true # boolean. Optional. Use when packageType = nuget || packageType = npm. Extract package contents. Default: true.
 ```
 
@@ -48,9 +48,10 @@ Download a package from a package management feed in Azure Artifacts.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`packageType`** - **Package Type**<br>
-Type: string. Required. Allowed values: 'maven', 'npm', 'nuget', 'pypi', 'upack'. Default value: 'nuget'.<br>
+`string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal). Default value: `nuget`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -58,10 +59,11 @@ Type: string. Required. Allowed values: 'maven', 'npm', 'nuget', 'pypi', 'upack'
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`feed`** - **Feed**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
- For project-scoped feeds, the format is projectID/feedID. See our [FAQ](/azure/devops/pipelines/tasks/utility/download-package) below for information on how to get a feed or project ID, or information on using project and feed name instead.
+For project-scoped feeds, the format is projectID/feedID. See our [FAQ](/azure/devops/pipelines/tasks/utility/download-package) below for information on how to get a feed or project ID, or information on using project and feed name instead.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -69,10 +71,11 @@ Type: string. Required.<br>
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`view`** - **View**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a view to use only versions promoted to that view.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -80,10 +83,11 @@ Select a view to use only versions promoted to that view.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`definition`** - **Package**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If you don't find the package in the list, you can provide the package ID, which you can find using the instructions [here](https://go.microsoft.com/fwlink/?linkid=2086778).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +95,11 @@ If you don't find the package in the list, you can provide the package ID, which
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`version`** - **Version**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version of the package. Use `latest` to download the latest version of the package at runtime.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +107,11 @@ Version of the package. Use `latest` to download the latest version of the packa
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`files`** - **Files**<br>
-Type: string. Optional. Use when packageType = maven || packageType = pypi || packageType = upack. Default value: '**'.<br>
+`string`. Optional. Use when `packageType = maven || packageType = pypi || packageType = upack`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify which files to download using [file matching patterns](https://go.microsoft.com/fwlink/?linkid=2086953).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +119,11 @@ Specify which files to download using [file matching patterns](https://go.micros
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`extract`** - **Extract package contents**<br>
-Type: boolean. Optional. Use when packageType = nuget || packageType = npm. Default value: true.<br>
+`boolean`. Optional. Use when `packageType = nuget || packageType = npm`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Instead of extracting the package contents and removing the archive, the artifact folder will contain the package archive.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +131,11 @@ Instead of extracting the package contents and removing the archive, the artifac
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`downloadPath`** - **Destination directory**<br>
-Type: string. Required. Default value: '$(System.ArtifactsDirectory)'.<br>
+`string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path on the agent machine where the package will be downloaded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -163,7 +171,6 @@ The get feed api can be used to retrieve the feed and project ID for your feed. 
 ### Can I use the project or feed name instead of IDs
 
 Yes, you can use the project or feed name in your definition, however if your project or feed is renamed in the future, your task will also have to be updated or it might fail.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -198,7 +205,6 @@ Yes, you can use the project or feed name in your definition, however if your pr
     files: '*.pom'
     downloadPath: '$(System.ArtifactsDirectory)'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

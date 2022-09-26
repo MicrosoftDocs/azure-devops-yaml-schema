@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 * Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -45,19 +45,19 @@ Deploy, start, stop, delete Azure Resource Groups.
   inputs:
   # Azure Details
     azureSubscription: # string. Required. Azure subscription. 
-    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: 'Create Or Update Resource Group'.
+    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: Create Or Update Resource Group.
     resourceGroupName: # string. Required. Resource group. 
     #location: # string. Required when action = Create Or Update Resource Group. Location. 
   # Template
-    templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required. Template location. Default: 'Linked artifact'.
+    templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required. Template location. Default: Linked artifact.
     #csmFileLink: # string. Required when templateLocation = URL of the file. Template link. 
     #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file. Template parameters link. 
     #csmFile: # string. Required when templateLocation = Linked artifact. Template. 
     #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact. Template parameters. 
     #overrideParameters: # string. Override template parameters. 
-    deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required. Deployment mode. Default: 'Incremental'.
+    deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required. Deployment mode. Default: Incremental.
   # Advanced deployment options for virtual machines
-    #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Enable prerequisites. Default: 'None'.
+    #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Enable prerequisites. Default: None.
     #teamServicesConnection: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Azure Pipelines service connection. 
     #teamProject: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Team project. 
     #deploymentGroupName: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Deployment Group. 
@@ -83,19 +83,19 @@ Deploy, start, stop, delete Azure Resource Groups.
   inputs:
   # Azure Details
     azureSubscription: # string. Required. Azure subscription. 
-    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: 'Create Or Update Resource Group'.
+    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: Create Or Update Resource Group.
     resourceGroupName: # string. Required. Resource group. 
     #location: # string. Required when action = Create Or Update Resource Group. Location. 
   # Template
-    templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required. Template location. Default: 'Linked artifact'.
+    templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required. Template location. Default: Linked artifact.
     #csmFileLink: # string. Required when templateLocation = URL of the file. Template link. 
     #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file. Template parameters link. 
     #csmFile: # string. Required when templateLocation = Linked artifact. Template. 
     #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact. Template parameters. 
     #overrideParameters: # string. Override template parameters. 
-    deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required. Deployment mode. Default: 'Incremental'.
+    deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required. Deployment mode. Default: Incremental.
   # Advanced deployment options for virtual machines
-    #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Enable prerequisites. Default: 'None'.
+    #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Enable prerequisites. Default: None.
     #teamServicesConnection: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Azure Pipelines/TFS service connection. 
     #teamProject: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Team project. 
     #deploymentGroupName: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Deployment Group. 
@@ -128,10 +128,11 @@ Deploy, start, stop, delete Azure Resource Groups.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -139,10 +140,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
-Type: string. Required. Allowed values: 'Create Or Update Resource Group', 'Select Resource Group', 'Start', 'Stop', 'StopWithDeallocate', 'Restart', 'Delete', 'DeleteRG'. Default value: 'Create Or Update Resource Group'.<br>
+`string`. Required. Allowed values: `Create Or Update Resource Group`, `Select Resource Group` (Configure virtual machine deployment options), `Start` (Start virtual machines), `Stop` (Stop virtual machines), `StopWithDeallocate` (Stop and deallocate virtual machines), `Restart` (Restart virtual machines), `Delete` (Delete virtual machines), `DeleteRG` (Delete resource group). Default value: `Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Action to be performed on the Azure resources or resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -150,10 +152,11 @@ Action to be performed on the Azure resources or resource group.
 :::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of a resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -161,10 +164,11 @@ Provide the name of a resource group.
 :::moniker range="<=azure-pipelines"
 
 **`location`** - **Location**<br>
-Type: string. Required when action = Create Or Update Resource Group.<br>
+`string`. Required when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location for deploying the resource group. If the resource group already exists in the subscription, then this value will be ignored.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -172,10 +176,11 @@ Location for deploying the resource group. If the resource group already exists 
 :::moniker range="<=azure-pipelines"
 
 **`templateLocation`** - **Template location**<br>
-Type: string. Required. Allowed values: 'Linked artifact', 'URL of the file'. Default value: 'Linked artifact'.<br>
+`string`. Required. Allowed values: `Linked artifact`, `URL of the file`. Default value: `Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select either **Linked artifact** or **URL of the file**.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -183,7 +188,7 @@ Select either **Linked artifact** or **URL of the file**.
 :::moniker range="<=azure-pipelines"
 
 **`csmFileLink`** - **Template link**<br>
-Type: string. Required when templateLocation = URL of the file.<br>
+`string`. Required when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL of the template file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) 
 
@@ -191,6 +196,7 @@ To deploy a template stored in a private storage account, retrieve and include t
 
 To  view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -198,7 +204,7 @@ To  view the template parameters in a grid, click on “…” next to Override 
 :::moniker range="<=azure-pipelines"
 
 **`csmParametersFileLink`** - **Template parameters link**<br>
-Type: string. Optional. Use when templateLocation = URL of the file.<br>
+`string`. Optional. Use when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL of the parameters file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json) 
 
@@ -206,6 +212,7 @@ To use a file stored in a private storage account, retrieve and include the shar
 
 To  view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +220,11 @@ To  view the template parameters in a grid, click on “…” next to Override 
 :::moniker range="<=azure-pipelines"
 
 **`csmFile`** - **Template**<br>
-Type: string. Required when templateLocation = Linked artifact.<br>
+`string`. Required when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path or a pattern pointing to the Azure Resource Manager template. For more information about the templates see https://aka.ms/azuretemplates. To get started immediately use template https://aka.ms/sampletemplate.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -224,10 +232,11 @@ Specify the path or a pattern pointing to the Azure Resource Manager template. F
 :::moniker range="<=azure-pipelines"
 
 **`csmParametersFile`** - **Template parameters**<br>
-Type: string. Optional. Use when templateLocation = Linked artifact.<br>
+`string`. Optional. Use when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -235,10 +244,11 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 :::moniker range="<=azure-pipelines"
 
 **`overrideParameters`** - **Override template parameters**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 To view the template parameters in a grid, click on “…” next to Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS. Or type the template parameters to override in the textbox. Example, <br>–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre).<br>If the parameter value you're using has multiple words, enclose them in quotes, even if you're passing them using variables. For example, -name "parameter value" -name2 "$(var)".<br>To override object type parameters use stringified JSON objects. For example, -options ["option1"] -map {"key1": "value1" }.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -246,7 +256,7 @@ To view the template parameters in a grid, click on “…” next to Override P
 :::moniker range="<=azure-pipelines"
 
 **`deploymentMode`** - **Deployment mode**<br>
-Type: string. Required. Allowed values: 'Incremental', 'Complete', 'Validation'. Default value: 'Incremental'.<br>
+`string`. Required. Allowed values: `Incremental`, `Complete`, `Validation` (Validation only). Default value: `Incremental`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details. 
 
@@ -259,6 +269,7 @@ Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details
 
  By default, Incremental mode is used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -266,10 +277,11 @@ Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details
 :::moniker range="<=azure-pipelines"
 
 **`enableDeploymentPrerequisites`** - **Enable prerequisites**<br>
-Type: string. Allowed values: 'None', 'ConfigureVMwithWinRM', 'ConfigureVMWithDGAgent'. Default value: 'None'.<br>
+`string`. Allowed values: `None`, `ConfigureVMwithWinRM` (Configure with WinRM agent), `ConfigureVMWithDGAgent` (Configure with Deployment Group agent). Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 These options would be applicable only when the Resource group contains virtual machines. <br><br>Choosing Deployment Group option would configure Deployment Group agent on each of the virtual machines. <br><br>Selecting WinRM option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -277,30 +289,33 @@ These options would be applicable only when the Resource group contains virtual 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`teamServicesConnection`** - **Azure Pipelines service connection**<br>
-Input alias: `deploymentGroupEndpoint`. Type: string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent.<br>
+Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the service connection to connect to an Azure DevOps organization or collection for agent registration.<br><br>You can create a service connection using "+New", and select "Token-based authentication". You need a [personal access token(PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to setup a service connection. <br><br>​Click "Manage" to update the service connection details.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`teamServicesConnection`** - **Azure Pipelines/TFS service connection**<br>
-Input alias: `deploymentGroupEndpoint`. Type: string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent.<br>
+Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the service connection to connect to an Azure DevOps organization or TFS collection for agent registration.<br><br>You can create a service connection using "+New", and select "Token-based authentication". You need a [personal access token(PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to setup a service connection. <br><br>​Click "Manage" to update the service connection details.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`teamServicesConnection`** - **TFS/VSTS endpoint**<br>
-Input alias: `deploymentGroupEndpoint`. Type: string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent.<br>
+Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Agent registration with Deployment group requires access to your Visual Studio project.​ <br><br>Click "Add" to create an endpoint using personal access token (PAT) with scope restricted to "Deployment Group" and a default expiration time of 90 days. <br><br>​Click "Manage" to update endpoint details.​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -308,10 +323,11 @@ Agent registration with Deployment group requires access to your Visual Studio p
 :::moniker range="<=azure-pipelines"
 
 **`teamProject`** - **Team project**<br>
-Input alias: `project`. Type: string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent.<br>
+Input alias: `project`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Team Project which has the Deployment Group defined in it​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -319,10 +335,11 @@ Specify the Team Project which has the Deployment Group defined in it​.
 :::moniker range="<=azure-pipelines"
 
 **`deploymentGroupName`** - **Deployment Group**<br>
-Type: string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent.<br>
+`string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Deployment Group against which the agent(s) will be registered. For more guidance, refer to [Deployment Groups](https://aka.ms/832442).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -330,10 +347,11 @@ Specify the Deployment Group against which the agent(s) will be registered. For 
 :::moniker range="<=azure-pipelines"
 
 **`copyAzureVMTags`** - **Copy Azure VM tags to agents**<br>
-Type: boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Default value: true.<br>
+`boolean`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose if the tags configured on the Azure VM need to be copied to the corresponding Deployment Group agent. <br><br>​By default all Azure tags will be copied following the format “Key: Value”. Example: An Azure Tag “Role : Web” would be copied  as-is to the Agent machine. <br><br>For more information on how tag Azure resources refer to [link](/azure/azure-resource-manager/resource-group-using-tags​).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -341,10 +359,11 @@ Choose if the tags configured on the Azure VM need to be copied to the correspon
 :::moniker range=">=azure-pipelines-2019"
 
 **`runAgentServiceAsUser`** - **Run agent service as a user**<br>
-Type: boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Default value: false.<br>
+`boolean`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Decide whether to run the agent service as a user other than the default. <br>The default user is "NT AUTHORITY\SYSTEM" in Windows and "root" in Linux.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -352,10 +371,11 @@ Decide whether to run the agent service as a user other than the default. <br>Th
 :::moniker range=">=azure-pipelines-2019"
 
 **`userName`** - **User name**<br>
-Type: string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true.<br>
+`string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The username to run the agent service on the virtual machines. <br>For domain users, please enter values as "domain\username" or "username@domain.com". For local users, please enter just the user name. <br>It is assumed that the same domain user\a local user with the same name, respectively, is present on all the virtual machines in the resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -363,10 +383,11 @@ The username to run the agent service on the virtual machines. <br>For domain us
 :::moniker range=">=azure-pipelines-2019"
 
 **`password`** - **Password**<br>
-Type: string. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true.<br>
+`string`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The password for the user to run the agent service on the Windows VMs. <br>It is assumed that the password is the same for the specified user on all the VMs. <br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'. You may mark variable as 'secret' to secure it. <br>For linux VMs, a password is not required and will be ignored.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -374,10 +395,11 @@ The password for the user to run the agent service on the Windows VMs. <br>It is
 :::moniker range="<=azure-pipelines"
 
 **`outputVariable`** - **VM details for WinRM**<br>
-Type: string. Optional. Use when enableDeploymentPrerequisites = ConfigureVMwithWinRM || enableDeploymentPrerequisites = None.<br>
+`string`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMwithWinRM || enableDeploymentPrerequisites = None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the variable for the resource group. The variable can be used as $(variableName) to refer to the resource group in subsequent tasks like in the PowerShell on Target Machines task for deploying applications. <br>Valid only when the selected action is Create, Update or Select, and required when an existing resource group is selected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -385,10 +407,11 @@ Provide a name for the variable for the resource group. The variable can be used
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentName`** - **Deployment name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the resource group deployment to create.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -396,10 +419,11 @@ Specifies the name of the resource group deployment to create.
 :::moniker range="<=azure-pipelines"
 
 **`deploymentOutputs`** - **Deployment outputs**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the variable for the output variable which will contain the outputs section of the current deployment object in string format. You can use the “ConvertFrom-Json” PowerShell cmdlet to parse the JSON object and access the individual output values.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -407,10 +431,11 @@ Provide a name for the variable for the output variable which will contain the o
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`addSpnToEnvironment`** - **Access service principal details in override parameters**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds service principal id and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: `$servicePrincipalId` and `$servicePrincipalKey` in your override parameters like `-key $servicePrincipalKey`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

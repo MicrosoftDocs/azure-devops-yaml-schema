@@ -1,7 +1,7 @@
 ---
 title: MavenAuthenticate@0 - Maven Authenticate v0 task
 description: Provides credentials for Azure Artifacts feeds and external maven repositories.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -41,10 +41,11 @@ Provides credentials for Azure Artifacts feeds and external maven repositories.
 :::moniker range=">=azure-pipelines-2020"
 
 **`artifactsFeeds`** - **Feeds**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of Azure Artifacts feed names to authenticate with Maven. If you only need authentication for external maven repositories, leave this field blank.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -52,10 +53,11 @@ Comma-separated list of Azure Artifacts feed names to authenticate with Maven. I
 :::moniker range=">=azure-pipelines-2020"
 
 **`mavenServiceConnections`** - **Credentials for repositories outside this organization/collection**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of [Maven service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with Maven. If you only needs authentication for Azure Artifacts feeds, leave this field blank.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

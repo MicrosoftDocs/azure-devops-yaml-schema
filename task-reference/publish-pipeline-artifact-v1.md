@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,12 +27,12 @@ Publish (upload) a file or directory as a named artifact for the current run.
 # Publish (upload) a file or directory as a named artifact for the current run.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: '$(Pipeline.Workspace)'.
+    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: $(Pipeline.Workspace).
     #artifact: # string. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: 'pipeline'.
+    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: pipeline.
     #fileSharePath: # string. Required when artifactType = filepath. File share path. 
     #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
-    #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: '8'.
+    #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
     #properties: # string. Custom properties.
 ```
 
@@ -45,12 +45,12 @@ Publish (upload) a file or directory as a named artifact for the current run.
 # Publish (upload) a file or directory as a named artifact for the current run.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: '$(Pipeline.Workspace)'.
+    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: $(Pipeline.Workspace).
     #artifact: # string. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: 'pipeline'.
+    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: pipeline.
     #fileSharePath: # string. Required when artifactType = filepath. File share path. 
     #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
-    #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: '8'.
+    #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
 ```
 
 :::moniker-end
@@ -63,10 +63,11 @@ Publish (upload) a file or directory as a named artifact for the current run.
 :::moniker range=">=azure-pipelines-2020"
 
 **`targetPath`** - **File or directory path**<br>
-Input alias: `path`. Type: string. Required. Default value: '$(Pipeline.Workspace)'.<br>
+Input alias: `path`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -74,10 +75,11 @@ The path of the file or directory to publish. Can be absolute or relative to the
 :::moniker range=">=azure-pipelines-2020"
 
 **`artifact`** - **Artifact name**<br>
-Input alias: `artifactName`. Type: string.<br>
+Input alias: `artifactName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the artifact to publish. If not set, defaults to a unique ID scoped to the job. It can be whatever you want. For example: drop
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +87,11 @@ Name of the artifact to publish. If not set, defaults to a unique ID scoped to t
 :::moniker range=">=azure-pipelines-2020"
 
 **`publishLocation`** - **Artifact publish location**<br>
-Input alias: `artifactType`. Type: string. Required. Allowed values: 'pipeline', 'filepath'. Default value: 'pipeline'.<br>
+Input alias: `artifactType`. `string`. Required. Allowed values: `pipeline` (Azure Pipelines), `filepath` (A file share). Default value: `pipeline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose whether to store the artifact in Azure Pipelines, or to copy it to a file share that must be accessible from the pipeline agent. Options: pipeline, filepath. Default value: pipeline
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +99,11 @@ Choose whether to store the artifact in Azure Pipelines, or to copy it to a file
 :::moniker range=">=azure-pipelines-2020"
 
 **`fileSharePath`** - **File share path**<br>
-Type: string. Required when artifactType = filepath.<br>
+`string`. Required when `artifactType = filepath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file share to which the artifact files will be copied. This can include variables. Example: \\\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber). Publishing artifacts from a Linux or macOS agent to a file share is not supported. For example: \server\folderName
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,10 +111,11 @@ The file share to which the artifact files will be copied. This can include vari
 :::moniker range=">=azure-pipelines-2020"
 
 **`parallel`** - **Parallel copy**<br>
-Type: boolean. Optional. Use when artifactType = filepath. Default value: false.<br>
+`boolean`. Optional. Use when `artifactType = filepath`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, one thread will be used. 
+Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, one thread will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +123,11 @@ Select whether to copy files in parallel using multiple threads for greater pote
 :::moniker range=">=azure-pipelines-2020"
 
 **`parallelCount`** - **Parallel count**<br>
-Type: string. Optional. Use when artifactType = filepath && parallel = true. Default value: '8'.<br>
+`string`. Optional. Use when `artifactType = filepath && parallel = true`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the degree of parallelism, or number of threads used, to perform the copy. The value must be at least 1 and not greater than 128.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +135,11 @@ Enter the degree of parallelism, or number of threads used, to perform the copy.
 :::moniker range=">=azure-pipelines-2022"
 
 **`properties`** - **Custom properties**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter custom properties to associate with the artifact. Valid JSON string expected with all keys having the prefix 'user-'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

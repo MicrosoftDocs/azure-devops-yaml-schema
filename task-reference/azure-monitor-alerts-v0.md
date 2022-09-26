@@ -1,7 +1,7 @@
 ---
 title: AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 description: Configure alerts on available metrics for an Azure resource (Deprecated).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ Configure alerts on available metrics for an Azure resource.
   inputs:
     azureSubscription: # string. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: 'Microsoft.Insights/components'.
+    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
     AlertRules: # string. Required. Alert rules. 
   # Notify via email
@@ -56,7 +56,7 @@ Configure alerts on available metrics for an Azure resource.
   inputs:
     azureSubscription: # string. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: 'Microsoft.Insights/components'.
+    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
     AlertRules: # string. Required. Alert rules. 
   # Notify via email
@@ -75,7 +75,7 @@ Configure alerts on available metrics for an Azure resource.
   inputs:
     azureSubscription: # string. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: 'Microsoft.Insights/components'.
+    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
     AlertRules: # string. Required. Alert rules. 
   # Notify via email
@@ -103,7 +103,7 @@ Configure alerts on available metrics for an Azure resource.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription. 
 
@@ -111,6 +111,7 @@ Note: To configure new service connection, select the Azure subscription from th
 
 If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +119,11 @@ If your subscription is not listed or if you want to use an existing Service Pri
 :::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource Group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Group that contains the Azure resource where you want to configure an alert.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +131,11 @@ Select the Azure Resource Group that contains the Azure resource where you want 
 :::moniker range="<=azure-pipelines"
 
 **`ResourceType`** - **Resource Type**<br>
-Type: string. Required. Allowed values: 'Microsoft.Insights/components', 'Microsoft.Web/sites', 'Microsoft.Storage/storageAccounts', 'Microsoft.Compute/virtualMachines'. Default value: 'Microsoft.Insights/components'.<br>
+`string`. Required. Allowed values: `Microsoft.Insights/components` (Application Insights), `Microsoft.Web/sites` (App Services), `Microsoft.Storage/storageAccounts` (Storage Account), `Microsoft.Compute/virtualMachines` (Virtual Machines). Default value: `Microsoft.Insights/components`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure resource type.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +143,11 @@ Select the Azure resource type.
 :::moniker range="<=azure-pipelines"
 
 **`ResourceName`** - **Resource name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select name of Azure resource where you want to configure an alert.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -151,12 +155,13 @@ Select name of Azure resource where you want to configure an alert.
 :::moniker range="<=azure-pipelines"
 
 **`AlertRules`** - **Alert rules**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 List of Azure monitor alerts configured on selected Azure resource. 
 
 To add or modify alerts, click on […] button.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -164,10 +169,11 @@ To add or modify alerts, click on […] button.
 :::moniker range="<=azure-pipelines"
 
 **`NotifyServiceOwners`** - **Subscription owners, contributors and readers**<br>
-Type: boolean.<br>
+`boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Send email notification to everyone who has access to this resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -175,10 +181,11 @@ Send email notification to everyone who has access to this resource group.
 :::moniker range="<=azure-pipelines"
 
 **`NotifyEmails`** - **Additional administrator emails**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add additional email addresses separated by semicolons(;) if you want to send email notification to additional people (whether or not you checked the "subscription owners..." box).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -45,10 +45,11 @@ Automate performance regression testing with Azure Load Testing.
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM`. Type: string. Required.<br>
+Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Manager subscription to run the load test.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -56,10 +57,11 @@ Select an Azure Resource Manager subscription to run the load test.
 :::moniker range="=azure-pipelines"
 
 **`loadTestConfigFile`** - **Load Test File**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the YAML file. Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +69,11 @@ Path of the YAML file. Should be fully qualified path or relative to the default
 :::moniker range="=azure-pipelines"
 
 **`resourceGroup`** - **Load Test Resource Group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the Azure Resource Group that contains the Load test resource.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +81,11 @@ Enter or Select the Azure Resource Group that contains the Load test resource.
 :::moniker range="=azure-pipelines"
 
 **`loadTestResource`** - **Load Test Resource Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the name of an existing Azure Load Testing resource.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,7 +93,7 @@ Enter or Select the name of an existing Azure Load Testing resource.
 :::moniker range="=azure-pipelines"
 
 **`secrets`** - **Secrets**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add/Update secret parameters using the json syntax as shown in the following example.
 
@@ -106,6 +110,7 @@ Add/Update secret parameters using the json syntax as shown in the following exa
 ]
 ```
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,7 +118,7 @@ Add/Update secret parameters using the json syntax as shown in the following exa
 :::moniker range="=azure-pipelines"
 
 **`env`** - **env**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add/Update environment variables using the json syntax as shown in the following example.
 
@@ -130,6 +135,7 @@ Add/Update environment variables using the json syntax as shown in the following
 ]
 ```
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

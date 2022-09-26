@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@2 - Android Signing v2 task
 description: Sign and align Android APK files (task version 2).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,14 +27,14 @@ Sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@2
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: '**/*.apk'.
+    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
   # Signing Options
     #jarsign: true # boolean. Sign the APK. Default: true.
     jarsignerKeystoreFile: # string. Required when jarsign = true. Keystore file. 
     #jarsignerKeystorePassword: # string. Optional. Use when jarsign = true. Keystore password. 
     #jarsignerKeystoreAlias: # string. Optional. Use when jarsign = true. Alias. 
     #jarsignerKeyPassword: # string. Optional. Use when jarsign = true. Key password. 
-    #jarsignerArguments: '-verbose -sigalg MD5withRSA -digestalg SHA1' # string. Optional. Use when jarsign = true. Jarsigner arguments. Default: '-verbose -sigalg MD5withRSA -digestalg SHA1'.
+    #jarsignerArguments: '-verbose -sigalg MD5withRSA -digestalg SHA1' # string. Optional. Use when jarsign = true. Jarsigner arguments. Default: -verbose -sigalg MD5withRSA -digestalg SHA1.
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
     #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
@@ -60,10 +60,11 @@ Sign and align Android APK files.
 :::moniker range="<=azure-pipelines"
 
 **`apkFiles`** - **APK files**<br>
-Input alias: `files`. Type: string. Required. Default value: '**/*.apk'.<br>
+Input alias: `files`. `string`. Required. Default value: `**/*.apk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**/bin/*.apk` for all .APK files in the 'bin' subfolder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -71,10 +72,11 @@ Relative path from the repo root to the APK(s) you want to sign. You can use wil
 :::moniker range="<=azure-pipelines"
 
 **`jarsign`** - **Sign the APK**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to sign the APK with a provided keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -82,10 +84,11 @@ Select this option to sign the APK with a provided keystore file. Unsigned APKs 
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeystoreFile`** - **Keystore file**<br>
-Input alias: `keystoreFile`. Type: string. Required when jarsign = true.<br>
+Input alias: `keystoreFile`. `string`. Required when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the keystore file that was uploaded to `Secure Files` to be used to sign the APK.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -93,10 +96,11 @@ Select the keystore file that was uploaded to `Secure Files` to be used to sign 
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeystorePassword`** - **Keystore password**<br>
-Input alias: `keystorePass`. Type: string. Optional. Use when jarsign = true.<br>
+Input alias: `keystorePass`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the password for the provided keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -104,10 +108,11 @@ Enter the password for the provided keystore file. Use a new variable with its l
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeystoreAlias`** - **Alias**<br>
-Input alias: `keystoreAlias`. Type: string. Optional. Use when jarsign = true.<br>
+Input alias: `keystoreAlias`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the alias that identifies the public/private key pair to be used in the keystore file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -115,10 +120,11 @@ Enter the alias that identifies the public/private key pair to be used in the ke
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerKeyPassword`** - **Key password**<br>
-Input alias: `keyPass`. Type: string. Optional. Use when jarsign = true.<br>
+Input alias: `keyPass`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the key password for the alias and keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,10 +132,11 @@ Enter the key password for the alias and keystore file. Use a new variable with 
 :::moniker range="<=azure-pipelines"
 
 **`jarsignerArguments`** - **Jarsigner arguments**<br>
-Type: string. Optional. Use when jarsign = true. Default value: '-verbose -sigalg MD5withRSA -digestalg SHA1'.<br>
+`string`. Optional. Use when `jarsign = true`. Default value: `-verbose -sigalg MD5withRSA -digestalg SHA1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide any options to pass to the jarsigner command line. Default is: -verbose -sigalg MD5withRSA -digestalg SHA1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,10 +144,11 @@ Provide any options to pass to the jarsigner command line. Default is: -verbose 
 :::moniker range="<=azure-pipelines"
 
 **`zipalign`** - **Zipalign**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select if you want to zipalign your package. This reduces the amount of RAM consumed by an app.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,10 +156,11 @@ Select if you want to zipalign your package. This reduces the amount of RAM cons
 :::moniker range="<=azure-pipelines"
 
 **`zipalignFile`** - **Zipalign location**<br>
-Input alias: `zipalignLocation`. Type: string. Optional. Use when zipalign = true.<br>
+Input alias: `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

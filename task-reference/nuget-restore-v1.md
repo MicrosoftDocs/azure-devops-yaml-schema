@@ -1,7 +1,7 @@
 ---
 title: NuGetRestore@1 - NuGet Restore v1 task
 description: Restores NuGet packages in preparation for a Visual Studio Build step.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,15 +27,15 @@ Restores NuGet packages in preparation for a Visual Studio Build step.
 # Restores NuGet packages in preparation for a Visual Studio Build step.
 - task: NuGetRestore@1
   inputs:
-    solution: '**/*.sln' # string. Required. Path to solution, packages.config, or project.json. Default: '**/*.sln'.
-    selectOrConfig: 'select' # 'select' | 'config'. Required. Feeds to use. Default: 'select'.
+    solution: '**/*.sln' # string. Required. Path to solution, packages.config, or project.json. Default: **/*.sln.
+    selectOrConfig: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
     #feed: # string. Optional. Use when selectOrConfig = select. Use packages from this VSTS feed. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
   # Advanced
     #noCache: false # boolean. Disable local cache. Default: false.
     #packagesDirectory: # string. Destination directory. 
-    #verbosity: 'Detailed' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: 'Detailed'.
+    #verbosity: 'Detailed' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
 ```
 
 :::moniker-end
@@ -58,10 +58,11 @@ Restores NuGet packages in preparation for a Visual Studio Build step.
 :::moniker range="<=azure-pipelines"
 
 **`solution`** - **Path to solution, packages.config, or project.json**<br>
-Type: string. Required. Default value: '**/*.sln'.<br>
+`string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to solution, packages.config, or project.json file that references the packages to be restored.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -69,10 +70,11 @@ The path to solution, packages.config, or project.json file that references the 
 :::moniker range="<=azure-pipelines"
 
 **`selectOrConfig`** - **Feeds to use**<br>
-Type: string. Required. Allowed values: 'select', 'config'. Default value: 'select'.<br>
+`string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 To select one feed from VSTS and/or NuGet.org select them here. For multiple feeds, commit a nuget.config file to your source code repository and set its path here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -80,10 +82,11 @@ To select one feed from VSTS and/or NuGet.org select them here. For multiple fee
 :::moniker range="<=azure-pipelines"
 
 **`feed`** - **Use packages from this VSTS feed**<br>
-Type: string. Optional. Use when selectOrConfig = select.<br>
+`string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include the selected feed in the generated NuGet.config.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +94,11 @@ Include the selected feed in the generated NuGet.config.
 :::moniker range="<=azure-pipelines"
 
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
-Type: boolean. Optional. Use when selectOrConfig = select. Default value: true.<br>
+`boolean`. Optional. Use when `selectOrConfig = select`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include NuGet.org in the generated NuGet.config.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +106,11 @@ Include NuGet.org in the generated NuGet.config.
 :::moniker range="<=azure-pipelines"
 
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
-Type: string. Optional. Use when selectOrConfig = config.<br>
+`string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet.config in your repository that specifies the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +118,11 @@ The NuGet.config in your repository that specifies the feeds from which to resto
 :::moniker range="<=azure-pipelines"
 
 **`noCache`** - **Disable local cache**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Equivalent to the -NoCache NuGet.exe command line argument.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +130,11 @@ Equivalent to the -NoCache NuGet.exe command line argument.
 :::moniker range="<=azure-pipelines"
 
 **`packagesDirectory`** - **Destination directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Equivalent to the -PackagesDirectory NuGet.exe command line argument.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -135,10 +142,11 @@ Equivalent to the -PackagesDirectory NuGet.exe command line argument.
 :::moniker range="<=azure-pipelines"
 
 **`verbosity`** - **Verbosity**<br>
-Type: string. Allowed values: '-', 'Quiet', 'Normal', 'Detailed'. Default value: 'Detailed'.<br>
+`string`. Allowed values: `-`, `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 NuGet's verbosity level.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

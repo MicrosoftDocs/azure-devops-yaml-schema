@@ -1,7 +1,7 @@
 ---
 title: ContainerBuild@0 - Container Build v0 task
 description: Container Build Task.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -29,9 +29,9 @@ Container Build Task.
   inputs:
     #dockerRegistryServiceConnection: # string. Docker registry service connection. 
     #repository: # string. Container repository. 
-    Dockerfile: 'Dockerfile' # string. Required. Dockerfile. Default: 'Dockerfile'.
-    #buildContext: '.' # string. Build context. Default: '.'.
-    #tags: '$(Build.BuildId)' # string. Tags. Default: '$(Build.BuildId)'.
+    Dockerfile: 'Dockerfile' # string. Required. Dockerfile. Default: Dockerfile.
+    #buildContext: '.' # string. Build context. Default: ..
+    #tags: '$(Build.BuildId)' # string. Tags. Default: $(Build.BuildId).
 ```
 
 :::moniker-end
@@ -44,10 +44,11 @@ Container Build Task.
 :::moniker range=">=azure-pipelines-2020"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -55,10 +56,11 @@ Select a Docker registry service connection.
 :::moniker range=">=azure-pipelines-2020"
 
 **`repository`** - **Container repository**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the repository within the container registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -66,10 +68,11 @@ Name of the repository within the container registry.
 :::moniker range=">=azure-pipelines-2020"
 
 **`Dockerfile`** - **Dockerfile**<br>
-Type: string. Required. Default value: 'Dockerfile'.<br>
+`string`. Required. Default value: `Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to Dockerfile.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +80,11 @@ Path to Dockerfile.
 :::moniker range=">=azure-pipelines-2020"
 
 **`buildContext`** - **Build context**<br>
-Type: string. Default value: '.'.<br>
+`string`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to Build context.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -88,10 +92,11 @@ Path to Build context.
 :::moniker range=">=azure-pipelines-2020"
 
 **`tags`** - **Tags**<br>
-Type: string. Default value: '$(Build.BuildId)'.<br>
+`string`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A list of tags in separate lines. Tags are used while building and pushing the image to container registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x' # string. Required. Version Spec. Default: '6.x'.
+    versionSpec: '6.x' # string. Required. Version Spec. Default: 6.x.
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
     #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
 ```
@@ -49,7 +49,7 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x' # string. Required. Version Spec. Default: '6.x'.
+    versionSpec: '6.x' # string. Required. Version Spec. Default: 6.x.
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
 ```
 
@@ -62,7 +62,7 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 # Finds or Downloads and caches specified version spec of Node and adds it to the PATH.
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x' # string. Required. Version Spec. Default: '6.x'.
+    versionSpec: '6.x' # string. Required. Version Spec. Default: 6.x.
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
 ```
 
@@ -86,10 +86,11 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 :::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **Version Spec**<br>
-Type: string. Required. Default value: '6.x'.<br>
+`string`. Required. Default value: `6.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -97,13 +98,14 @@ Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
 :::moniker range="<=azure-pipelines"
 
 **`checkLatest`** - **Check for Latest Version**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select if you want the agent to check for the latest available version that satisfies the version spec. For example, you select this option because you run this build on your [self-hosted agent](/azure/devops/pipelines/agents/agents) and you want to always use the latest `6.x` version.
 
 > [!TIP]
 > If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to false. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +113,11 @@ Select if you want the agent to check for the latest available version that sati
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs the x86 version of Node regardless of the CPU architecture of the agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

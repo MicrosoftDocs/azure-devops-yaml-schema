@@ -1,7 +1,7 @@
 ---
 title: BatchScript@1 - Batch script v1 task
 description: Run a Windows command or batch script and optionally allow it to change the environment.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -80,10 +80,11 @@ Run a windows cmd or bat script and optionally allow it to change the environmen
 :::moniker range="<=azure-pipelines"
 
 **`filename`** - **Path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory (please note that working directory could differ from 'workingFolder' which could be specified for this task).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +92,11 @@ Path of the cmd or bat script to execute. Should be fully qualified path or rela
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the cmd or bat script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +104,11 @@ Arguments passed to the cmd or bat script.
 :::moniker range="<=azure-pipelines"
 
 **`modifyEnvironment`** - **Modify Environment**<br>
-Type: boolean. Default value: False.<br>
+`boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Determines whether environment variable modifications will affect subsequent tasks.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +116,11 @@ Determines whether environment variable modifications will affect subsequent tas
 :::moniker range="<=azure-pipelines"
 
 **`workingFolder`** - **Working folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory when script is run.  Defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +128,11 @@ Current working directory when script is run.  Defaults to the folder where the 
 :::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the StandardError stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -158,7 +163,6 @@ Optionally, allow it to permanently modify environment variables.
 > This task is not compatible with Windows containers. If you need to run a batch script on a Windows container, use the [command line task](cmd-line-v2.md) instead.
 > 
 > For information on supporting multiple platforms, see [cross platform scripting](/azure/devops/pipelines/scripts/cross-platform-scripting).
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -190,7 +194,6 @@ To run this script, add the following task to your pipeline.
   inputs:
     filename: 'test.bat'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

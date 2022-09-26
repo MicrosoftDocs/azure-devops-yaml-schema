@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -42,10 +42,11 @@ Security and compliance assessment for Azure Policy.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription to enforce the policies.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -53,10 +54,11 @@ Select the Azure Resource Manager subscription to enforce the policies.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ResourceGroupName`** - **Resource group**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide name of a resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -64,10 +66,11 @@ Provide name of a resource group.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`Resources`** - **Resource name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select name of Azure resources for which you want to check the policy compliance.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

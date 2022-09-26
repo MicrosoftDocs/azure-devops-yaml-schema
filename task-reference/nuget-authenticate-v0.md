@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@0 - NuGet authenticate v0 task
 description: This version of the task is deprecated, use NuGetAuthenticateV1 instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -64,10 +64,11 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 :::moniker range=">=azure-pipelines-2020"
 
 **`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of NuGet service connection names for feeds outside this organization/collection. For feeds in this organization/collection, leave this blank; the build’s credentials are used automatically.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -75,10 +76,11 @@ Comma-separated list of NuGet service connection names for feeds outside this or
 :::moniker range=">=azure-pipelines-2020"
 
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the credential provider is already installed in the user profile, determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

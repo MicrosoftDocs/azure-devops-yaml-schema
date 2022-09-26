@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -43,10 +43,11 @@ Authentication task for the pip client used for installing Python distributions.
 :::moniker range=">=azure-pipelines-2020"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select feeds to authenticate present in this organization.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -54,10 +55,11 @@ Select feeds to authenticate present in this organization.
 :::moniker range=">=azure-pipelines-2020"
 
 **`pythonDownloadServiceConnections`** - **Feeds from external organizations**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Comma-separated list of [pip service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with pip.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -65,10 +67,11 @@ Comma-separated list of [pip service connection](/azure/devops/pipelines/library
 :::moniker range=">=azure-pipelines-2020"
 
 **`onlyAddExtraIndex`** - **Don't set primary index URL**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set to true, no feed will be set as the primary index URL. All of the configured feeds/endpoints will be set as extra index URLs. Defaults to false.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -112,7 +115,6 @@ To do so, you can either:
 ### My Pipeline needs to access a feed in a different project
 
 If the pipeline is running in a different project than the project hosting the feed, you must set up the other project to grant read/write access to the build service. See [Package permissions in Azure Pipelines](/azure/devops/artifacts/feeds/feed-permissions#pipelines-permissions) for more details.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

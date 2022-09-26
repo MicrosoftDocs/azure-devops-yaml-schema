@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,21 +35,21 @@ The JavaScript Task Runner.
 # Run the Grunt JavaScript task runner.
 - task: Grunt@0
   inputs:
-    gruntFile: 'gruntfile.js' # string. Required. Grunt File Path. Default: 'gruntfile.js'.
+    gruntFile: 'gruntfile.js' # string. Required. Grunt File Path. Default: gruntfile.js.
     #targets: # string. Grunt Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
     #workingDirectory: # string. Working Directory. 
-    gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: 'node_modules/grunt-cli/bin/grunt'.
+    gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: node_modules/grunt-cli/bin/grunt.
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines. Default: false.
-    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: '**/TEST-*.xml'.
+    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
     #enableCodeCoverage: false # boolean. Enable Code Coverage. Default: false.
-    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: 'Mocha'.
+    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
     #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
-    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: 'test/*.js'.
+    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
 ```
 
 :::moniker-end
@@ -61,21 +61,21 @@ The JavaScript Task Runner.
 # The JavaScript Task Runner.
 - task: Grunt@0
   inputs:
-    gruntFile: 'gruntfile.js' # string. Required. Grunt File Path. Default: 'gruntfile.js'.
+    gruntFile: 'gruntfile.js' # string. Required. Grunt File Path. Default: gruntfile.js.
     #targets: # string. Grunt Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
     #workingDirectory: # string. Working Directory. 
-    gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: 'node_modules/grunt-cli/bin/grunt'.
+    gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: node_modules/grunt-cli/bin/grunt.
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.
-    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: '**/TEST-*.xml'.
+    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
     #enableCodeCoverage: false # boolean. Enable Code Coverage. Default: false.
-    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: 'Mocha'.
+    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
     #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
-    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: 'test/*.js'.
+    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
 ```
 
 :::moniker-end
@@ -98,10 +98,11 @@ The JavaScript Task Runner.
 :::moniker range="<=azure-pipelines"
 
 **`gruntFile`** - **Grunt File Path**<br>
-Type: string. Required. Default value: 'gruntfile.js'.<br>
+`string`. Required. Default value: `gruntfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from repo root of the grunt file script file to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,10 +110,11 @@ Relative path from repo root of the grunt file script file to run.
 :::moniker range="<=azure-pipelines"
 
 **`targets`** - **Grunt Task(s)**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional.  Space delimited list of tasks to run.  If not specified, the default task will run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -120,10 +122,11 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to grunt.  --gruntfile is not needed since already added via gruntFile input above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -131,10 +134,11 @@ Additional arguments passed to grunt.  --gruntfile is not needed since already a
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. Type: string.<br>
+Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory when script is run.  Defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -142,10 +146,11 @@ Current working directory when script is run.  Defaults to the folder where the 
 :::moniker range="<=azure-pipelines"
 
 **`gruntCli`** - **grunt-cli location**<br>
-Type: string. Required. Default value: 'node_modules/grunt-cli/bin/grunt'.<br>
+`string`. Required. Default value: `node_modules/grunt-cli/bin/grunt`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 grunt-cli to run when agent can't find global installed grunt-cli  Defaults to the grunt-cli under node_modules folder of the working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -153,30 +158,33 @@ grunt-cli to run when agent can't find global installed grunt-cli  Defaults to t
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Grunt build to TFS/Team Services.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -184,10 +192,11 @@ Select this option to publish JUnit test results produced by the Grunt build to 
 :::moniker range="<=azure-pipelines"
 
 **`testResultsFiles`** - **Test Results Files**<br>
-Type: string. Required when publishJUnitResults = true. Default value: '**/TEST-*.xml'.<br>
+`string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -195,10 +204,11 @@ Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for
 :::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test Run Title**<br>
-Type: string. Optional. Use when publishJUnitResults = true.<br>
+`string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -206,10 +216,11 @@ Provide a name for the test run.
 :::moniker range="<=azure-pipelines"
 
 **`enableCodeCoverage`** - **Enable Code Coverage**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to enable Code Coverage using Istanbul.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -217,10 +228,11 @@ Select this option to enable Code Coverage using Istanbul.
 :::moniker range="<=azure-pipelines"
 
 **`testFramework`** - **Test Framework**<br>
-Type: string. Optional. Use when enableCodeCoverage = true. Allowed values: 'Mocha', 'Jasmine'. Default value: 'Mocha'.<br>
+`string`. Optional. Use when `enableCodeCoverage = true`. Allowed values: `Mocha`, `Jasmine`. Default value: `Mocha`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select your test framework.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -228,10 +240,11 @@ Select your test framework.
 :::moniker range="<=azure-pipelines"
 
 **`srcFiles`** - **Source Files**<br>
-Type: string. Optional. Use when enableCodeCoverage = true.<br>
+`string`. Optional. Use when `enableCodeCoverage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the path to your source files which you want to hookRequire().
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -239,10 +252,11 @@ Provide the path to your source files which you want to hookRequire().
 :::moniker range="<=azure-pipelines"
 
 **`testFiles`** - **Test Script Files**<br>
-Type: string. Required when enableCodeCoverage = true. Default value: 'test/*.js'.<br>
+`string`. Required when `enableCodeCoverage = true`. Default value: `test/*.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the path to your test script files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

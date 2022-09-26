@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 # Build, test, package, or publish a dotnet application, or run a custom dotnet command.
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: 'build'.
+    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
     #publishWebProjects: true # boolean. Required when command = publish. Publish web projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
     #custom: # string. Required when command = custom. Custom command. 
@@ -45,18 +45,18 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #testRunTitle: # string. Optional. Use when command = test. Test run title. 
     #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip published projects. Default: true.
     #modifyOutputPath: true # boolean. Optional. Use when command = publish. Add project's folder name to publish path. Default: true.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: '$(Build.ArtifactStagingDirectory)/*.nupkg'.
-    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: 'internal'.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/*.nupkg.
+    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
     #publishVstsFeed: # string. Required when command = push && nuGetFeedType = internal. Target feed. 
     #publishFeedCredentials: # string. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: '**/*.csproj'.
-    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to Package. Default: '$(BuildConfiguration)'.
-    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package Folder. Default: '$(Build.ArtifactStagingDirectory)'.
+    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to Package. Default: $(BuildConfiguration).
+    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package Folder. Default: $(Build.ArtifactStagingDirectory).
     #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
     #includesymbols: false # boolean. Optional. Use when command = pack. Include Symbols. Default: false.
     #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: 'select'.
+    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
     #vstsFeed: # string. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts feed. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
@@ -64,18 +64,18 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
   # Advanced
     #noCache: false # boolean. Disable local cache. Default: false.
     #restoreDirectory: # string. Destination directory. 
-    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: 'Detailed'.
+    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: Detailed.
   # Advanced
     #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
-    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: 'off'.
+    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: '1'.
-    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: '0'.
-    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: '0'.
+    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
+    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
+    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
   # Advanced
     #buildProperties: # string. Additional build properties. 
-    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: 'Detailed'.
+    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: Detailed.
   # Advanced
     #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
@@ -89,7 +89,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 # Build, test, package, or publish a dotnet application, or run a custom dotnet command.
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: 'build'.
+    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
     #publishWebProjects: true # boolean. Required when command = publish. Publish Web Projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
     #custom: # string. Required when command = custom. Custom command. 
@@ -98,18 +98,18 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #testRunTitle: # string. Optional. Use when command = test. Test run title. 
     #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip Published Projects. Default: true.
     #modifyOutputPath: true # boolean. Optional. Use when command = publish. Add project name to publish path. Default: true.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: '$(Build.ArtifactStagingDirectory)/*.nupkg'.
-    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: 'internal'.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/*.nupkg.
+    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
     #publishVstsFeed: # string. Required when command = push && nuGetFeedType = internal. Target feed. 
     #publishFeedCredentials: # string. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: '**/*.csproj'.
-    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to Package. Default: '$(BuildConfiguration)'.
-    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package Folder. Default: '$(Build.ArtifactStagingDirectory)'.
+    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to Package. Default: $(BuildConfiguration).
+    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package Folder. Default: $(Build.ArtifactStagingDirectory).
     #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
     #includesymbols: false # boolean. Optional. Use when command = pack. Include Symbols. Default: false.
     #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: 'select'.
+    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
     #vstsFeed: # string. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts feed. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
@@ -117,18 +117,18 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
   # Advanced
     #noCache: false # boolean. Disable local cache. Default: false.
     #restoreDirectory: # string. Destination directory. 
-    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: 'Detailed'.
+    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: Detailed.
   # Advanced
     #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
-    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: 'off'.
+    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: '1'.
-    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: '0'.
-    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: '0'.
+    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
+    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
+    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
   # Advanced
     #buildProperties: # string. Additional build properties. 
-    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: 'Detailed'.
+    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: Detailed.
   # Advanced
     #workingDirectory: # string. Working Directory.
 ```
@@ -142,7 +142,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 # Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: 'build'.
+    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
     #publishWebProjects: true # boolean. Required when command = publish. Publish Web Projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
     #custom: # string. Required when command = custom. Custom command. 
@@ -150,16 +150,16 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #publishTestResults: true # boolean. Optional. Use when command = test. Publish test results and code coverage. Default: true.
     #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip Published Projects. Default: true.
     #modifyOutputPath: true # boolean. Optional. Use when command = publish. Add project name to publish path. Default: true.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: '$(Build.ArtifactStagingDirectory)/*.nupkg'.
-    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: 'internal'.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/*.nupkg.
+    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
     #publishVstsFeed: # string. Required when command = push && nuGetFeedType = internal. Target feed. 
     #publishFeedCredentials: # string. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: '**/*.csproj'.
-    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to Package. Default: '$(BuildConfiguration)'.
-    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package Folder. Default: '$(Build.ArtifactStagingDirectory)'.
+    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to Package. Default: $(BuildConfiguration).
+    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package Folder. Default: $(Build.ArtifactStagingDirectory).
     #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: 'select'.
+    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
     #vstsFeed: # string. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
@@ -167,16 +167,16 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
   # Advanced
     #noCache: false # boolean. Disable local cache. Default: false.
     #restoreDirectory: # string. Destination directory. 
-    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: 'Detailed'.
+    #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: Detailed.
   # Pack options
-    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: 'off'.
+    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: '1'.
-    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: '0'.
-    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: '0'.
+    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
+    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
+    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
   # Advanced
     #buildProperties: # string. Additional build properties. 
-    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: 'Detailed'.
+    #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Verbosity. Default: Detailed.
   # Advanced
     #workingDirectory: # string. Working Directory.
 ```
@@ -201,10 +201,11 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 :::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'build', 'push', 'pack', 'publish', 'restore', 'run', 'test', 'custom'. Default value: 'build'.<br>
+`string`. Required. Allowed values: `build`, `push` (nuget push), `pack`, `publish`, `restore`, `run`, `test`, `custom`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The dotnet command to run. Select `custom` to add arguments or use a command not listed here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -212,20 +213,22 @@ The dotnet command to run. Select `custom` to add arguments or use a command not
 :::moniker range=">=azure-pipelines-2020"
 
 **`publishWebProjects`** - **Publish web projects**<br>
-Type: boolean. Required when command = publish. Default value: true.<br>
+`boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by presence of either a web.config file or wwwroot folder in the directory. In the absence of a web.config file or wwwroot folder, projects that use a web SDK, like Microsoft.NET.Sdk.Web, are selected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`publishWebProjects`** - **Publish Web Projects**<br>
-Type: boolean. Required when command = publish. Default value: true.<br>
+`boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by presence of either a web.config file or wwwroot folder in the directory. In the absence of a web.config file or wwwroot folder, projects that use a web SDK, like Microsoft.NET.Sdk.Web, are selected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -233,10 +236,11 @@ If true, the `projects` property value is skipped and the task tries to find the
 :::moniker range="<=azure-pipelines"
 
 **`projects`** - **Path to project(s)**<br>
-Type: string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false.<br>
+`string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the csproj file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all .csproj files in all subfolders). For more information, see [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -244,10 +248,11 @@ The path to the csproj file(s) to use. You can use wildcards (e.g. `**/*.csproj`
 :::moniker range="<=azure-pipelines"
 
 **`custom`** - **Custom command**<br>
-Type: string. Required when command = custom.<br>
+`string`. Required when `command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The command to pass to dotnet.exe for execution. For a full list of available commands, see the [dotnet CLI documentation](/dotnet/core/tools/#cli-commands).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -255,12 +260,13 @@ The command to pass to dotnet.exe for execution. For a full list of available co
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom.<br>
+`string`. Optional. Use when `command = build || command = publish || command = run || command = test || command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments to the selected command. For example, build configuration, output folder, runtime. The arguments depend on the command selected.
 
 This input only currently accepts arguments for `build`, `publish`, `run`, `test`, `custom`. If you would like to add arguments for a command not listed, use `custom`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -268,10 +274,11 @@ This input only currently accepts arguments for `build`, `publish`, `run`, `test
 :::moniker range=">=azure-pipelines-2020"
 
 **`restoreArguments`** - **Arguments**<br>
-Type: string. Optional. Use when command = restore.<br>
+`string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Write the additional arguments to be passed to the `restore` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -279,20 +286,22 @@ Write the additional arguments to be passed to the `restore` command.
 :::moniker range=">=azure-pipelines-2019"
 
 **`publishTestResults`** - **Publish test results and code coverage**<br>
-Type: boolean. Optional. Use when command = test. Default value: true.<br>
+`boolean`. Optional. Use when `command = test`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enabling this option will generate a test results TRX file in `$(Agent.TempDirectory)` and results will be published to the server. <br>This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments. <br><br>Code coverage can be collected by adding `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`publishTestResults`** - **Publish test results**<br>
-Type: boolean. Optional. Use when command = test. Default value: true.<br>
+`boolean`. Optional. Use when `command = test`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enabling this option will generate a test results TRX file in `$(Agent.TempDirectory)` and results will be published to the server. <br>This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments. <br><br>Code coverage can be collected by adding `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -300,10 +309,11 @@ Enabling this option will generate a test results TRX file in `$(Agent.TempDirec
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`testRunTitle`** - **Test run title**<br>
-Type: string. Optional. Use when command = test.<br>
+`string`. Optional. Use when `command = test`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -311,20 +321,22 @@ Provide a name for the test run.
 :::moniker range=">=azure-pipelines-2020"
 
 **`zipAfterPublish`** - **Zip published projects**<br>
-Type: boolean. Optional. Use when command = publish. Default value: true.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true, folder created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`zipAfterPublish`** - **Zip Published Projects**<br>
-Type: boolean. Optional. Use when command = publish. Default value: true.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true, folder created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -332,20 +344,22 @@ If true, folder created by the publish command will be zipped and deleted.
 :::moniker range=">=azure-pipelines-2020"
 
 **`modifyOutputPath`** - **Add project's folder name to publish path**<br>
-Type: boolean. Optional. Use when command = publish. Default value: true.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true, folders created by the publish command will have project file name prefixed to their folder names when output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`modifyOutputPath`** - **Add project name to publish path**<br>
-Type: boolean. Optional. Use when command = publish. Default value: true.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true, folders created by the publish command will have project file name prefixed to their folder names when output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -353,10 +367,11 @@ If true, folders created by the publish command will have project file name pref
 :::moniker range="<=azure-pipelines"
 
 **`feedsToUse`** - **Feeds to use**<br>
-Input alias: `selectOrConfig`. Type: string. Required. Allowed values: 'select', 'config'. Default value: 'select'.<br>
+Input alias: `selectOrConfig`. `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can either select a feed from Azure Artifacts and/or NuGet.org here, or commit a nuget.config file to your source code repository and set  its path using the `nugetConfigPath` input.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -364,30 +379,33 @@ You can either select a feed from Azure Artifacts and/or NuGet.org here, or comm
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed**<br>
-Input alias: `feedRestore`. Type: string. Optional. Use when selectOrConfig = select.<br>
+Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here. projectName/feedName for project-scoped feed. FeedName only for organization-scoped feed. Note that this is not supported for the test command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
-Input alias: `feedRestore`. Type: string. Optional. Use when selectOrConfig = select.<br>
+Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here. projectName/feedName for project-scoped feed. FeedName only for organization-scoped feed. Note that this is not supported for the test command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`vstsFeed`** - **Use packages from this VSTS/TFS feed**<br>
-Input alias: `feedRestore`. Type: string. Optional. Use when selectOrConfig = select.<br>
+Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -395,10 +413,11 @@ Include the selected feed in the generated NuGet.config. You must have Package M
 :::moniker range="<=azure-pipelines"
 
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
-Type: boolean. Optional. Use when selectOrConfig = select. Default value: true.<br>
+`boolean`. Optional. Use when `selectOrConfig = select`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include NuGet.org in the generated NuGet.config.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -406,10 +425,11 @@ Include NuGet.org in the generated NuGet.config.
 :::moniker range="<=azure-pipelines"
 
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
-Type: string. Optional. Use when selectOrConfig = config.<br>
+`string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet.config in your repository that specifies the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -417,20 +437,22 @@ The NuGet.config in your repository that specifies the feeds from which to resto
 :::moniker range=">=azure-pipelines-2019"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
-Input alias: `externalEndpoints`. Type: string. Optional. Use when selectOrConfig = config.<br>
+Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization/collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
-Input alias: `externalEndpoints`. Type: string. Optional. Use when selectOrConfig = config.<br>
+Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization/collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -438,10 +460,11 @@ Credentials to use for external registries located in the selected NuGet.config.
 :::moniker range="<=azure-pipelines"
 
 **`noCache`** - **Disable local cache**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prevents NuGet from using packages from local machine caches.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -449,10 +472,11 @@ Prevents NuGet from using packages from local machine caches.
 :::moniker range="<=azure-pipelines"
 
 **`restoreDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. Type: string.<br>
+Input alias: `packagesDirectory`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder in which packages are installed. If no folder is specified, packages are restored into the default NuGet package cache.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -460,10 +484,11 @@ Specifies the folder in which packages are installed. If no folder is specified,
 :::moniker range="<=azure-pipelines"
 
 **`verbosityRestore`** - **Verbosity**<br>
-Type: string. Allowed values: '-', 'Quiet', 'Minimal', 'Normal', 'Detailed', 'Diagnostic'. Default value: 'Detailed'.<br>
+`string`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the amount of detail displayed in the output for the `restore` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -471,21 +496,34 @@ Specifies the amount of detail displayed in the output for the `restore` command
 :::moniker range="<=azure-pipelines"
 
 **`packagesToPush`** - **Path to NuGet package(s) to publish**<br>
-Input alias: `searchPatternPush`. Type: string. Required when command = push. Default value: '$(Build.ArtifactStagingDirectory)/*.nupkg'.<br>
+Input alias: `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/*.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The pattern to match or path to nupkg files to be uploaded. Multiple patterns can be separated by a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**/*.nupkg;!**/*.Tests.nupkg`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="nuGetFeedType"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`nuGetFeedType`** - **Target feed location**<br>
-Type: string. Required when command = push. Allowed values: 'internal', 'external'. Default value: 'internal'.<br>
+`string`. Required when `command = push`. Allowed values: `internal` (This organization/collection), `external` (External NuGet server (including other organizations/collections)). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether the target feed is internal or external.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`nuGetFeedType`** - **Target feed location**<br>
+`string`. Required when `command = push`. Allowed values: `internal` (This account/collection), `external` (External NuGet server (including other accounts/collections)). Default value: `internal`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies whether the target feed is internal or external.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -493,10 +531,11 @@ Specifies whether the target feed is internal or external.
 :::moniker range="<=azure-pipelines"
 
 **`publishVstsFeed`** - **Target feed**<br>
-Input alias: `feedPublish`. Type: string. Required when command = push && nuGetFeedType = internal.<br>
+Input alias: `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a feed hosted in this organization. You must have Package Management installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -504,10 +543,11 @@ Select a feed hosted in this organization. You must have Package Management inst
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-Type: boolean. Optional. Use when command = push && nuGetFeedType = internal. Default value: true.<br>
+`boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Associate this build/release pipeline's metadata (run #, source code information) with the package.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -515,10 +555,11 @@ Associate this build/release pipeline's metadata (run #, source code information
 :::moniker range="<=azure-pipelines"
 
 **`publishFeedCredentials`** - **NuGet server**<br>
-Input alias: `externalEndpoint`. Type: string. Required when command = push && nuGetFeedType = external.<br>
+Input alias: `externalEndpoint`. `string`. Required when `command = push && nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet [service connection](/azure/devops/pipelines/library/service-endpoints) that contains the external NuGet server's credentials.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -526,12 +567,13 @@ The NuGet [service connection](/azure/devops/pipelines/library/service-endpoints
 :::moniker range="<=azure-pipelines"
 
 **`packagesToPack`** - **Path to csproj or nuspec file(s) to pack**<br>
-Input alias: `searchPatternPack`. Type: string. Required when command = pack. Default value: '**/*.csproj'.<br>
+Input alias: `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pattern to search for csproj or nuspec files to pack.
 
 You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with '!'. Example: `**/*.csproj;!**/*.Tests.csproj`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -539,10 +581,11 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration to Package**<br>
-Input alias: `configurationToPack`. Type: string. Optional. Use when command = pack. Default value: '$(BuildConfiguration)'.<br>
+Input alias: `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When using a csproj file this specifies the configuration to package.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -550,10 +593,11 @@ When using a csproj file this specifies the configuration to package.
 :::moniker range="<=azure-pipelines"
 
 **`packDirectory`** - **Package Folder**<br>
-Input alias: `outputDir`. Type: string. Optional. Use when command = pack. Default value: '$(Build.ArtifactStagingDirectory)'.<br>
+Input alias: `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Folder where packages will be created. If empty, packages will be created alongside the csproj file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -561,10 +605,11 @@ Folder where packages will be created. If empty, packages will be created alongs
 :::moniker range="<=azure-pipelines"
 
 **`nobuild`** - **Do not build**<br>
-Type: boolean. Optional. Use when command = pack. Default value: false.<br>
+`boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Don't build the project before packing. Corresponds to the `--no-build` parameter of the `build` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -572,10 +617,11 @@ Don't build the project before packing. Corresponds to the `--no-build` paramete
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`includesymbols`** - **Include Symbols**<br>
-Type: boolean. Optional. Use when command = pack. Default value: false.<br>
+`boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additionally creates symbol NuGet packages. Corresponds to the `--include-symbols` command line parameter.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -583,10 +629,11 @@ Additionally creates symbol NuGet packages. Corresponds to the `--include-symbol
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`includesource`** - **Include Source**<br>
-Type: boolean. Optional. Use when command = pack. Default value: false.<br>
+`boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes source code in the package. Corresponds to the `--include-source` command line parameter.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -594,7 +641,7 @@ Includes source code in the package. Corresponds to the `--include-source` comma
 :::moniker range="<=azure-pipelines"
 
 **`versioningScheme`** - **Automatic package versioning**<br>
-Type: string. Required. Allowed values: 'off', 'byPrereleaseNumber', 'byEnvVar', 'byBuildNumber'. Default value: 'off'.<br>
+`string`. Required. Allowed values: `off`, `byPrereleaseNumber` (Use the date and time), `byEnvVar` (Use an environment variable), `byBuildNumber` (Use the build number). Default value: `off`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Cannot be used with include referenced projects. If you choose 'Use the date and time', this will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime` where you choose X, Y, and Z.
 
@@ -602,6 +649,7 @@ If you choose 'Use an environment variable', you must select an environment vari
 
 If you choose 'Use the build number', this will use the build number to version your package. **Note:** Under Options set the build number format to be '[$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)](https://go.microsoft.com/fwlink/?LinkID=627416)'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -609,10 +657,11 @@ If you choose 'Use the build number', this will use the build number to version 
 :::moniker range="<=azure-pipelines"
 
 **`versionEnvVar`** - **Environment variable**<br>
-Type: string. Required when versioningScheme = byEnvVar.<br>
+`string`. Required when `versioningScheme = byEnvVar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the variable name without `$`, `$env`, or `%`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -620,10 +669,11 @@ Enter the variable name without `$`, `$env`, or `%`.
 :::moniker range="<=azure-pipelines"
 
 **`majorVersion`** - **Major**<br>
-Input alias: `requestedMajorVersion`. Type: string. Required when versioningScheme = byPrereleaseNumber. Default value: '1'.<br>
+Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -631,10 +681,11 @@ The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`minorVersion`** - **Minor**<br>
-Input alias: `requestedMinorVersion`. Type: string. Required when versioningScheme = byPrereleaseNumber. Default value: '0'.<br>
+Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -642,10 +693,11 @@ The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`patchVersion`** - **Patch**<br>
-Input alias: `requestedPatchVersion`. Type: string. Required when versioningScheme = byPrereleaseNumber. Default value: '0'.<br>
+Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -653,10 +705,11 @@ The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`buildProperties`** - **Additional build properties**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a list of `token = value` pairs, separated by semicolons, where each occurrence of `$token$` in the `.nuspec` file will be replaced with the given value. Values can be strings in quotation marks.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -664,10 +717,11 @@ Specifies a list of `token = value` pairs, separated by semicolons, where each o
 :::moniker range="<=azure-pipelines"
 
 **`verbosityPack`** - **Verbosity**<br>
-Type: string. Allowed values: '-', 'Quiet', 'Minimal', 'Normal', 'Detailed', 'Diagnostic'. Default value: 'Detailed'.<br>
+`string`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the amount of detail displayed in the output for the `pack` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -675,20 +729,22 @@ Specifies the amount of detail displayed in the output for the `pack` command.
 :::moniker range=">=azure-pipelines-2020"
 
 **`workingDirectory`** - **Working directory**<br>
-Type: string. Optional. Use when command != restore && command != push && command != pack.<br>
+`string`. Optional. Use when `command != restore && command != push && command != pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`workingDirectory`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

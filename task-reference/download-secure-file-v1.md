@@ -1,7 +1,7 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -44,7 +44,7 @@ Download a secure file to a temporary location on the build or release agent.
 - task: DownloadSecureFile@1
   inputs:
     secureFile: # string. Required. Secure File. 
-    #retryCount: '8' # string. Retry Count. Default: '8'.
+    #retryCount: '8' # string. Retry Count. Default: 8.
     #socketTimeout: # string. Socket Timeout.
 ```
 
@@ -58,7 +58,7 @@ Download a secure file to a temporary location on the build or release agent.
 - task: DownloadSecureFile@1
   inputs:
     secureFile: # string. Required. Secure File. 
-    #retryCount: '5' # string. Retry Count. Default: '5'.
+    #retryCount: '5' # string. Retry Count. Default: 5.
 ```
 
 :::moniker-end
@@ -105,11 +105,12 @@ Download a secure file to a temporary location on the build or release agent.
 :::moniker range="<=azure-pipelines"
 
 **`secureFile`** - **Secure File**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file name or unique identifier (GUID) of the secure file to download to the agent machine. The file will be deleted when the pipeline job completes. 
-Select the secure file to download to a temporary location on the agent. The file will be cleaned up after the pipeline runs. 
+Select the secure file to download to a temporary location on the agent. The file will be cleaned up after the pipeline runs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,20 +118,22 @@ Select the secure file to download to a temporary location on the agent. The fil
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`retryCount`** - **Retry Count**<br>
-Type: string. Default value: '8'.<br>
+`string`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional number of times to retry downloading a secure file if the download fails.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2020"
 
 **`retryCount`** - **Retry Count**<br>
-Type: string. Default value: '5'.<br>
+`string`. Default value: `5`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional number of times to retry downloading a secure file if the download fails.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,10 +141,11 @@ Optional number of times to retry downloading a secure file if the download fail
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`socketTimeout`** - **Socket Timeout**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional timeout for a socket associated with downloading secure file request in ms.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -44,13 +44,13 @@ This task is deprecated.
     teamApiKey: # string. Required. Team API key. 
     email: # string. Required. User email. 
     devices: # string. Required. Devices. 
-    series: 'master' # string. Required. Series. Default: 'master'.
+    series: 'master' # string. Required. Series. Default: master.
     testAssemblyDirectory: # string. Required. Test assembly directory. 
   # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: 'none'.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: 'en_US'.
+    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: none.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: '**/packages/**/tools/test-cloud.exe'.
+    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
     #optionalArgs: # string. Optional arguments. 
     #publishNUnitResults: true # boolean. Publish results to Azure Pipelines. Default: true.
 ```
@@ -69,13 +69,13 @@ This task is deprecated.
     teamApiKey: # string. Required. Team API key. 
     email: # string. Required. User email. 
     devices: # string. Required. Devices. 
-    series: 'master' # string. Required. Series. Default: 'master'.
+    series: 'master' # string. Required. Series. Default: master.
     testAssemblyDirectory: # string. Required. Test assembly directory. 
   # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: 'none'.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: 'en_US'.
+    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: none.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: '**/packages/**/tools/test-cloud.exe'.
+    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
     #optionalArgs: # string. Optional arguments. 
     #publishNUnitResults: true # boolean. Publish results to Azure Pipelines/TFS. Default: true.
 ```
@@ -100,10 +100,11 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **App file**<br>
-Input alias: `app`. Type: string. Required.<br>
+Input alias: `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from repo root of the app(s) to test.  Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).  For example, `**/*.apk` for all APK files in all subfolders.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +112,11 @@ Relative path from repo root of the app(s) to test.  Wildcards can be used ([mor
 :::moniker range="<=azure-pipelines"
 
 **`dsymFile`** - **dSYM file (iOS only)**<br>
-Input alias: `dsym`. Type: string.<br>
+Input alias: `dsym`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 To make crash logs easier to read, you can upload a dSYM file that is associated with your app. This field only applies to iOS apps. Provide path relative to the .ipa file. Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example: *.dSYM.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -122,10 +124,11 @@ To make crash logs easier to read, you can upload a dSYM file that is associated
 :::moniker range="<=azure-pipelines"
 
 **`teamApiKey`** - **Team API key**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Your Xamarin Test Cloud Team API key can be found under "Teams & Apps" at https://testcloud.xamarin.com/account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -133,10 +136,11 @@ Your Xamarin Test Cloud Team API key can be found under "Teams & Apps" at https:
 :::moniker range="<=azure-pipelines"
 
 **`email`** - **User email**<br>
-Input alias: `user`. Type: string. Required.<br>
+Input alias: `user`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 User name this test will run under.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -144,10 +148,11 @@ User name this test will run under.
 :::moniker range="<=azure-pipelines"
 
 **`devices`** - **Devices**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The devices string is generated by Xamarin Test Cloud. It can be found as the value of the --devices command line argument of a Test Cloud test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -155,10 +160,11 @@ The devices string is generated by Xamarin Test Cloud. It can be found as the va
 :::moniker range="<=azure-pipelines"
 
 **`series`** - **Series**<br>
-Type: string. Required. Default value: 'master'.<br>
+`string`. Required. Default value: `master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The series name for organizing test runs (e.g. master, production, beta).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -166,10 +172,11 @@ The series name for organizing test runs (e.g. master, production, beta).
 :::moniker range="<=azure-pipelines"
 
 **`testAssemblyDirectory`** - **Test assembly directory**<br>
-Input alias: `testDir`. Type: string. Required.<br>
+Input alias: `testDir`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path to the folder containing the test assemblies, such as: SolutionName/TestsProjectName/bin/Release.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -177,9 +184,10 @@ Relative path to the folder containing the test assemblies, such as: SolutionNam
 :::moniker range="<=azure-pipelines"
 
 **`parallelizationOption`** - **Parallelization**<br>
-Input alias: `parallelization`. Type: string. Required. Allowed values: 'none', '--fixture-chunk', '--test-chunk'. Default value: 'none'.<br>
+Input alias: `parallelization`. `string`. Required. Allowed values: `none`, `--fixture-chunk` (By test fixture), `--test-chunk` (By test method). Default value: `none`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -187,10 +195,11 @@ Input alias: `parallelization`. Type: string. Required. Allowed values: 'none', 
 :::moniker range="<=azure-pipelines"
 
 **`localeOption`** - **System language**<br>
-Input alias: `locale`. Type: string. Required. Allowed values: 'da_DK', 'nl_NL', 'en_GB', 'en_US', 'fr_FR', 'de_DE', 'ja_JP', 'ru_RU', 'es_MX', 'es_ES', 'user'. Default value: 'en_US'.<br>
+Input alias: `locale`. `string`. Required. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If your language isn't displayed, select 'Other' and enter its locale below, such as en_US.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -198,10 +207,11 @@ If your language isn't displayed, select 'Other' and enter its locale below, suc
 :::moniker range="<=azure-pipelines"
 
 **`userDefinedLocale`** - **Other locale**<br>
-Type: string. Optional. Use when locale = user.<br>
+`string`. Optional. Use when `locale = user`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format [language]_[country], such as en_US.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -209,10 +219,11 @@ Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 co
 :::moniker range="<=azure-pipelines"
 
 **`testCloudFile`** - **test-cloud.exe location**<br>
-Input alias: `testCloudLocation`. Type: string. Required. Default value: '**/packages/**/tools/test-cloud.exe'.<br>
+Input alias: `testCloudLocation`. `string`. Required. Default value: `**/packages/**/tools/test-cloud.exe`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to test-cloud.exe.  Wildcards can be used, in which case the first occurrence of test-cloud.exe is used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -220,10 +231,11 @@ The path to test-cloud.exe.  Wildcards can be used, in which case the first occu
 :::moniker range="<=azure-pipelines"
 
 **`optionalArgs`** - **Optional arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to test-cloud.exe.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -231,30 +243,33 @@ Additional arguments passed to test-cloud.exe.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishNUnitResults`** - **Publish results to Azure Pipelines**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When selected, --nunit-xml option will be passed to test-cloud.exe. Results from the NUnit xml file will be published to Azure Pipelines.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`publishNUnitResults`** - **Publish results to Azure Pipelines/TFS**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When selected, --nunit-xml option will be passed to test-cloud.exe. Results from the NUnit xml file will be published to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`publishNUnitResults`** - **Publish results to TFS/Team Services**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When selected, --nunit-xml option will be passed to test-cloud.exe. Results from the NUnit xml file will be published to TFS/Team Services.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

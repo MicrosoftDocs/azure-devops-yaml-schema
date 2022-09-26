@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,8 +36,8 @@ Deploy an Azure Cloud Service.
     ServiceLocation: # string. Required. Service location. 
     CsPkg: # string. Required. CsPkg. 
     CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Required. Environment (Slot). Default: 'Production'.
-    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: '$(Build.BuildNumber)'.
+    slotName: 'Production' # string. Required. Environment (Slot). Default: Production.
+    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
     AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
     #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
@@ -65,8 +65,8 @@ Deploy an Azure Cloud Service.
     ServiceLocation: # string. Required. Service location. 
     CsPkg: # string. Required. CsPkg. 
     CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Required. Environment (Slot). Default: 'Production'.
-    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: '$(Build.BuildNumber)'.
+    slotName: 'Production' # string. Required. Environment (Slot). Default: Production.
+    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
     AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
     #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
@@ -94,8 +94,8 @@ Deploy an Azure Cloud Service.
     ServiceLocation: # string. Required. Service location. 
     CsPkg: # string. Required. CsPkg. 
     CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Required. Environment (Slot). Default: 'Production'.
-    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: '$(Build.BuildNumber)'.
+    slotName: 'Production' # string. Required. Environment (Slot). Default: Production.
+    #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
     AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
     #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
@@ -128,10 +128,11 @@ Deploy an Azure Cloud Service.
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure subscription (Classic)**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Classic subscription to target for deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -139,10 +140,11 @@ Azure Classic subscription to target for deployment.
 :::moniker range=">=azure-pipelines-2020"
 
 **`EnableAdvancedStorageOptions`** - **Enable ARM storage support**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select to enable ARM storage support for this task.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -150,20 +152,22 @@ Select to enable ARM storage support for this task.
 :::moniker range=">=azure-pipelines-2020"
 
 **`StorageAccount`** - **Storage account (Classic)**<br>
-Type: string. Required when EnableAdvancedStorageOptions = false.<br>
+`string`. Required when `EnableAdvancedStorageOptions = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Storage account must exist prior to deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`StorageAccount`** - **Storage account**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Storage account must exist prior to deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -171,10 +175,11 @@ Storage account must exist prior to deployment.
 :::moniker range=">=azure-pipelines-2020"
 
 **`ARMConnectedServiceName`** - **Azure subscription (ARM)**<br>
-Type: string. Required when EnableAdvancedStorageOptions = true.<br>
+`string`. Required when `EnableAdvancedStorageOptions = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -182,10 +187,11 @@ Azure Resource Manager subscription.
 :::moniker range=">=azure-pipelines-2020"
 
 **`ARMStorageAccount`** - **Storage account (ARM)**<br>
-Type: string. Required when EnableAdvancedStorageOptions = true.<br>
+`string`. Required when `EnableAdvancedStorageOptions = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose a pre-existing ARM storage account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -193,10 +199,11 @@ Choose a pre-existing ARM storage account.
 :::moniker range="<=azure-pipelines"
 
 **`ServiceName`** - **Service name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select or enter an existing cloud service name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -204,10 +211,11 @@ Select or enter an existing cloud service name.
 :::moniker range="<=azure-pipelines"
 
 **`ServiceLocation`** - **Service location**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a region for new service deployment.Possible options are **East US**, **East US 2**, **Central US**, **South Central US**, **West US**, **North Europe**, **West Europe** and others.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -215,10 +223,11 @@ Select a region for new service deployment.Possible options are **East US**, **E
 :::moniker range="<=azure-pipelines"
 
 **`CsPkg`** - **CsPkg**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of CsPkg under the default artifact directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -226,10 +235,11 @@ Path of CsPkg under the default artifact directory.
 :::moniker range="<=azure-pipelines"
 
 **`CsCfg`** - **CsCfg**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of CsCfg under the default artifact directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -237,10 +247,11 @@ Path of CsCfg under the default artifact directory.
 :::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Environment (Slot)**<br>
-Input alias: `Slot`. Type: string. Required. Default value: 'Production'.<br>
+Input alias: `Slot`. `string`. Required. Default value: `Production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 **Production** or **Staging**.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -248,10 +259,11 @@ Input alias: `Slot`. Type: string. Required. Default value: 'Production'.<br>
 :::moniker range="<=azure-pipelines"
 
 **`DeploymentLabel`** - **Deployment label**<br>
-Type: string. Default value: '$(Build.BuildNumber)'.<br>
+`string`. Default value: `$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the label name for the new deployment. If not specified, a Globally Unique Identifier (GUID) is used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -259,10 +271,11 @@ Specifies the label name for the new deployment. If not specified, a Globally Un
 :::moniker range="<=azure-pipelines"
 
 **`AppendDateTimeToLabel`** - **Append current date and time**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Appends current date and time to deployment label.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -270,10 +283,11 @@ Appends current date and time to deployment label.
 :::moniker range="<=azure-pipelines"
 
 **`AllowUpgrade`** - **Allow upgrade**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When selected allows an upgrade to the Microsoft Azure deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -281,10 +295,11 @@ When selected allows an upgrade to the Microsoft Azure deployment.
 :::moniker range=">=azure-pipelines-2019"
 
 **`SimultaneousUpgrade`** - **Simultaneous upgrade**<br>
-Type: boolean. Optional. Use when AllowUpgrade == true. Default value: false.<br>
+`boolean`. Optional. Use when `AllowUpgrade == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Updates all instances at once. Your cloud service will be unavailable during update.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -292,10 +307,11 @@ Updates all instances at once. Your cloud service will be unavailable during upd
 :::moniker range="<=azure-pipelines"
 
 **`ForceUpgrade`** - **Force upgrade**<br>
-Type: boolean. Optional. Use when AllowUpgrade == true. Default value: false.<br>
+`boolean`. Optional. Use when `AllowUpgrade == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When selected sets the upgrade to a forced upgrade, which could potentially cause loss of local data.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -303,10 +319,11 @@ When selected sets the upgrade to a forced upgrade, which could potentially caus
 :::moniker range=">=azure-pipelines-2019"
 
 **`VerifyRoleInstanceStatus`** - **Verify role instance status**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When selected then the task will wait until role instances are in ready state.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -314,10 +331,11 @@ When selected then the task will wait until role instances are in ready state.
 :::moniker range="<=azure-pipelines"
 
 **`DiagnosticStorageAccountKeys`** - **Diagnostic storage account keys**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide storage keys for diagnostics storage account in Role:Storagekey format. The diagnostics storage account name for each role will be obtained from diagnostics config file (.wadcfgx). If the .wadcfgx file for a role is not found, diagnostics extensions won’t be set for the role. If the storage account name is missing in the .wadcfgx file, the default storage account will be used for storing diagnostics results and the storage key parameters from deployment task will be ignored. It’s recommended to save <storage_account_key> as a secret variable unless there is no sensitive information in the diagnostics result for your environment. <br/><br/>For example,<br/> WebRole: &lt;WebRole_storage_account_key&gt;<br/>WorkerRole: &lt;WorkerRole_stoarge_account_key&gt;.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -325,10 +343,11 @@ Provide storage keys for diagnostics storage account in Role:Storagekey format. 
 :::moniker range=">=azure-pipelines-2019"
 
 **`NewServiceCustomCertificates`** - **Custom certificates to import**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide custom certificates in CertificatePfxBase64:CertificatePassword format. It’s recommended to save <certificate_password> as a secret variable. <br/><br/>For example,<br/> Certificate1: &lt;Certificate1_password&gt;<br/>Certificate2: &lt;Certificate2_password&gt;.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -336,10 +355,11 @@ Provide custom certificates in CertificatePfxBase64:CertificatePassword format. 
 :::moniker range="<=azure-pipelines"
 
 **`NewServiceAdditionalArguments`** - **Additional arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pass in additional arguments while creating a brand new service. These will be passed on to `New-AzureService` cmdlet. Eg: `-Label 'MyTestService'`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -347,10 +367,11 @@ Pass in additional arguments while creating a brand new service. These will be p
 :::moniker range="<=azure-pipelines"
 
 **`NewServiceAffinityGroup`** - **Affinity group**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 While creating new service, this affinity group will be considered instead of using service location.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

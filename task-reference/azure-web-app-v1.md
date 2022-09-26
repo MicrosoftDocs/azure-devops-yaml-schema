@@ -1,7 +1,7 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -32,8 +32,8 @@ Deploy an Azure Web App for Linux or Windows.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #customDeployFolder: # string. Optional. Use when package EndsWith .war. Custom Deploy Folder. 
     #runtimeStack: # string. Optional. Use when appType = webAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = webAppLinux. Startup command. 
@@ -42,7 +42,7 @@ Deploy an Azure Web App for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -59,8 +59,8 @@ Deploy an Azure Web App for Linux or Windows.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # string. Optional. Use when appType = webAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = webAppLinux. Startup command. 
   # Application and Configuration Settings
@@ -68,7 +68,7 @@ Deploy an Azure Web App for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -81,10 +81,11 @@ Deploy an Azure Web App for Linux or Windows.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -92,9 +93,10 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appType`** - **App type**<br>
-Type: string. Required. Allowed values: 'webApp', 'webAppLinux'.<br>
+`string`. Required. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +104,11 @@ Type: string. Required. Allowed values: 'webApp', 'webAppLinux'.<br>
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appName`** - **App name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +116,11 @@ Enter or Select the name of an existing Azure App Service. App services based on
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
-Type: boolean. Optional. Use when appType != "". Default value: false.<br>
+`boolean`. Optional. Use when `appType != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +128,11 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`resourceGroupName`** - **Resource group**<br>
-Type: string. Required when deployToSlotOrASE = true.<br>
+`string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -135,10 +140,11 @@ The Resource group name is required when the deployment target is either a deplo
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`slotName`** - **Slot**<br>
-Type: string. Required when deployToSlotOrASE = true. Default value: 'production'.<br>
+`string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select an existing Slot other than the Production slot.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -146,10 +152,11 @@ Enter or Select an existing Slot other than the Production slot.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`package`** - **Package or folder**<br>
-Type: string. Required. Default value: '$(System.DefaultWorkingDirectory)/**/*.zip'.<br>
+`string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip or $(System.DefaultWorkingDirectory)/\*\*/\*.war.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -157,10 +164,11 @@ File path to the package or a folder containing app service contents generated b
 :::moniker range=">=azure-pipelines-2020"
 
 **`customDeployFolder`** - **Custom Deploy Folder**<br>
-Type: string. Optional. Use when package EndsWith .war.<br>
+`string`. Optional. Use when `package EndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify custom folder name you want to deploy to. <br/>If the field is empty, package is deployed to `<appname>.azurewebsites.net/<warpackagename>`<br/> If ROOT is entered, package is deployed to `<appname>.azurewebsited.net` <br/>else it is deployed to `<appname>.azurewebsited.net/<customWarName>`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -168,9 +176,10 @@ Specify custom folder name you want to deploy to. <br/>If the field is empty, pa
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`runtimeStack`** - **Runtime stack**<br>
-Type: string. Optional. Use when appType = webAppLinux.<br>
+`string`. Optional. Use when `appType = webAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -178,10 +187,11 @@ Type: string. Optional. Use when appType = webAppLinux.<br>
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`startUpCommand`** - **Startup command**<br>
-Type: string. Optional. Use when appType = webAppLinux.<br>
+`string`. Optional. Use when `appType = webAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -189,10 +199,11 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`customWebConfig`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
-Type: string. Optional. Use when appType != webAppLinux && package NotEndsWith .war.<br>
+`string`. Optional. Use when `appType != webAppLinux && package NotEndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config can be edited and vary based on the application framework. For example for node.js application, web.config will have startup file and iis_node module values. This edit feature is only for the generated web.config. [Learn more](https://go.microsoft.com/fwlink/?linkid=843469).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -200,10 +211,11 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appSettings`** - **App settings**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -211,10 +223,11 @@ Edit web app application settings following the syntax -key value . Value contai
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`configurationStrings`** - **Configuration settings**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -222,10 +235,11 @@ Edit web app configuration settings following the syntax -key value. Value conta
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentMethod`** - **Deployment method**<br>
-Type: string. Required. Allowed values: 'auto', 'zipDeploy', 'runFromPackage'. Default value: 'auto'.<br>
+`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose the deployment method for the app.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

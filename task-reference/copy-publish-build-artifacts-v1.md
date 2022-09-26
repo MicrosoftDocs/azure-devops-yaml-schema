@@ -1,7 +1,7 @@
 ---
 title: CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 description: CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -33,7 +33,7 @@ This task is deprecated.
     Contents: # string. Required. Contents. 
     ArtifactName: # string. Required. Artifact Name. 
     ArtifactType: # 'Container' | 'FilePath'. Required. Artifact Type. 
-    #TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)' # string. Optional. Use when ArtifactType = FilePath. Path. Default: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'.
+    #TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)' # string. Optional. Use when ArtifactType = FilePath. Path. Default: \\my\share\$(Build.DefinitionName)\$(Build.BuildNumber).
 ```
 
 :::moniker-end
@@ -56,10 +56,11 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`CopyRoot`** - **Copy Root**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Root folder to which file matching patterns should apply. If no value is provided, the repo root is used. Use variables to specify a folder outside of the repo, such as: $(Agent.BuildDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +68,11 @@ Root folder to which file matching patterns should apply. If no value is provide
 :::moniker range="<=azure-pipelines"
 
 **`Contents`** - **Contents**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File or folder paths to include as part of the artifact. Supports multiple lines of minimatch patterns. [More Information](https://go.microsoft.com/fwlink/?LinkID=613725).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +80,11 @@ File or folder paths to include as part of the artifact. Supports multiple lines
 :::moniker range="<=azure-pipelines"
 
 **`ArtifactName`** - **Artifact Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the artifact to create.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +92,11 @@ The name of the artifact to create.
 :::moniker range="<=azure-pipelines"
 
 **`ArtifactType`** - **Artifact Type**<br>
-Type: string. Required. Allowed values: 'Container', 'FilePath'.<br>
+`string`. Required. Allowed values: `Container` (Server), `FilePath` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose whether to store the artifact on TFS/Team Services, or to copy it to a file share that must be accessible from the build agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +104,11 @@ Choose whether to store the artifact on TFS/Team Services, or to copy it to a fi
 :::moniker range="<=azure-pipelines"
 
 **`TargetPath`** - **Path**<br>
-Type: string. Optional. Use when ArtifactType = FilePath. Default value: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'.<br>
+`string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The UNC file path location to copy the artifact. It must be accessible from the build agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -76,10 +76,11 @@ CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. Type: string.<br>
+Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the working directory in which to execute this task. If left empty, the repository directory will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +88,11 @@ Specify the working directory in which to execute this task. If left empty, the 
 :::moniker range="<=azure-pipelines"
 
 **`forceRepoUpdate`** - **Force repo update**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selecting this option will force running 'pod repo update' before install.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +100,11 @@ Selecting this option will force running 'pod repo update' before install.
 :::moniker range="<=azure-pipelines"
 
 **`projectDirectory`** - **Project directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify the path to the root of the project directory. If left empty, the project specified in the Podfile will be used. If no project is specified, then a search for an Xcode project will be made. If more than one Xcode project is found, an error will occur.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

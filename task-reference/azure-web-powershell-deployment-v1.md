@@ -1,7 +1,7 @@
 ---
 title: AzureWebPowerShellDeployment@1 - Azure App Service Classic (Deprecated) v1 task
 description: Create or update Azure App Service using Azure PowerShell.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -58,10 +58,11 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Azure Subscription (Classic)**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Classic subscription to target for deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -69,10 +70,11 @@ Azure Classic subscription to target for deployment.
 :::moniker range="<=azure-pipelines"
 
 **`WebSiteLocation`** - **Web App Location**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a location for website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -80,10 +82,11 @@ Select a location for website.
 :::moniker range="<=azure-pipelines"
 
 **`WebSiteName`** - **Web App Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the website name or Select from the list.<br>Note: Only the websites associated with Default App Service plan for the selected region are listed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +94,11 @@ Enter the website name or Select from the list.<br>Note: Only the websites assoc
 :::moniker range="<=azure-pipelines"
 
 **`Slot`** - **Slot**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Slot.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +106,11 @@ Slot.
 :::moniker range="<=azure-pipelines"
 
 **`Package`** - **Web Deploy Package**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the Visual Studio Web Deploy package under the default artifact directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +118,11 @@ Path to the Visual Studio Web Deploy package under the default artifact director
 :::moniker range="<=azure-pipelines"
 
 **`doNotDelete`** - **Set DoNotDelete flag**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By enabling this, additional files in web deployment package are preserved while publishing website.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,9 +130,10 @@ By enabling this, additional files in web deployment package are preserved while
 :::moniker range="<=azure-pipelines"
 
 **`AdditionalArguments`** - **Additional Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

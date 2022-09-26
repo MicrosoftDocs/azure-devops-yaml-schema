@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateAppVersions@1 - Update Service Fabric App Versions v1 task
 description: Automatically updates the versions of a packaged Service Fabric application.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,12 +28,12 @@ Automatically updates the versions of a packaged Service Fabric application.
 - task: ServiceFabricUpdateAppVersions@1
   inputs:
     applicationPackagePath: # string. Required. Application Package. 
-    versionSuffix: '.$(Build.BuildNumber)' # string. Required. Version Value. Default: '.$(Build.BuildNumber)'.
-    #versionBehavior: 'Append' # 'Append' | 'Replace'. Version Behavior. Default: 'Append'.
+    versionSuffix: '.$(Build.BuildNumber)' # string. Required. Version Value. Default: .$(Build.BuildNumber).
+    #versionBehavior: 'Append' # 'Append' | 'Replace'. Version Behavior. Default: Append.
     updateOnlyChanged: false # boolean. Required. Update only if changed. Default: false.
     #pkgArtifactName: # string. Optional. Use when updateOnlyChanged = true. Package Artifact Name. 
     #logAllChanges: true # boolean. Optional. Use when updateOnlyChanged = true. Log all changes. Default: true.
-    #compareType: 'LastSuccessful' # 'LastSuccessful' | 'Specific'. Optional. Use when updateOnlyChanged = true. Compare against. Default: 'LastSuccessful'.
+    #compareType: 'LastSuccessful' # 'LastSuccessful' | 'Specific'. Optional. Use when updateOnlyChanged = true. Compare against. Default: LastSuccessful.
     #buildNumber: # string. Optional. Use when compareType = Specific. Build Number.
 ```
 
@@ -57,10 +57,11 @@ Automatically updates the versions of a packaged Service Fabric application.
 :::moniker range="<=azure-pipelines"
 
 **`applicationPackagePath`** - **Application Package**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the application package. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -68,10 +69,11 @@ Path to the application package. [Variables](https://go.microsoft.com/fwlink/?Li
 :::moniker range="<=azure-pipelines"
 
 **`versionSuffix`** - **Version Value**<br>
-Type: string. Required. Default value: '.$(Build.BuildNumber)'.<br>
+`string`. Required. Default value: `.$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The value used to specify the version in the manifest files. Default is .$(Build.BuildNumber).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -79,10 +81,11 @@ The value used to specify the version in the manifest files. Default is .$(Build
 :::moniker range="<=azure-pipelines"
 
 **`versionBehavior`** - **Version Behavior**<br>
-Type: string. Allowed values: 'Append', 'Replace'. Default value: 'Append'.<br>
+`string`. Allowed values: `Append`, `Replace`. Default value: `Append`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify whether to append the version value to existing values in the manifest files or replace them.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -90,10 +93,11 @@ Specify whether to append the version value to existing values in the manifest f
 :::moniker range="<=azure-pipelines"
 
 **`updateOnlyChanged`** - **Update only if changed**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Incrementally update only the packages that have changed. Use the [deterministic compiler flag](https://go.microsoft.com/fwlink/?LinkId=808668) to ensure builds with the same inputs produce the same outputs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -101,10 +105,11 @@ Incrementally update only the packages that have changed. Use the [deterministic
 :::moniker range="<=azure-pipelines"
 
 **`pkgArtifactName`** - **Package Artifact Name**<br>
-Type: string. Optional. Use when updateOnlyChanged = true.<br>
+`string`. Optional. Use when `updateOnlyChanged = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the artifact containing the application package for comparison.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -112,10 +117,11 @@ The name of the artifact containing the application package for comparison.
 :::moniker range="<=azure-pipelines"
 
 **`logAllChanges`** - **Log all changes**<br>
-Type: boolean. Optional. Use when updateOnlyChanged = true. Default value: true.<br>
+`boolean`. Optional. Use when `updateOnlyChanged = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Compare all files in every package and log if the file was added, removed, or if its content changed. Otherwise, compare files in a package only until the first change is found for faster performance.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -123,10 +129,11 @@ Compare all files in every package and log if the file was added, removed, or if
 :::moniker range="<=azure-pipelines"
 
 **`compareType`** - **Compare against**<br>
-Type: string. Optional. Use when updateOnlyChanged = true. Allowed values: 'LastSuccessful', 'Specific'. Default value: 'LastSuccessful'.<br>
+`string`. Optional. Use when `updateOnlyChanged = true`. Allowed values: `LastSuccessful` (Last Successful Build), `Specific` (Specific Build). Default value: `LastSuccessful`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The build for comparison.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -134,10 +141,11 @@ The build for comparison.
 :::moniker range="<=azure-pipelines"
 
 **`buildNumber`** - **Build Number**<br>
-Type: string. Optional. Use when compareType = Specific.<br>
+`string`. Optional. Use when `compareType = Specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The build number for comparison.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

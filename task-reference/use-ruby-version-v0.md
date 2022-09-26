@@ -1,7 +1,7 @@
 ---
 title: UseRubyVersion@0 - Use Ruby version v0 task
 description: Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -35,7 +35,7 @@ Retrieves the specified version of Ruby from the tool cache. Optionally add it t
 # Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.4' # string. Required. Version spec. Default: '>= 2.4'.
+    versionSpec: '>= 2.4' # string. Required. Version spec. Default: >= 2.4.
     #addToPath: true # boolean. Add to PATH. Default: true.
 ```
 
@@ -48,7 +48,7 @@ Retrieves the specified version of Ruby from the tool cache. Optionally add it t
 # Retrieves the specified version of Ruby from the tool cache. Optionally add it to PATH.
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.4' # string. Required. Version spec. Default: '>= 2.4'.
+    versionSpec: '>= 2.4' # string. Required. Version spec. Default: >= 2.4.
     #addToPath: true # boolean. Add to PATH. Default: true.
 ```
 
@@ -62,10 +62,11 @@ Retrieves the specified version of Ruby from the tool cache. Optionally add it t
 :::moniker range=">=azure-pipelines-2019"
 
 **`versionSpec`** - **Version spec**<br>
-Type: string. Required. Default value: '>= 2.4'.<br>
+`string`. Required. Default value: `>= 2.4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version range or exact version of a Ruby version to use.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -73,10 +74,11 @@ Version range or exact version of a Ruby version to use.
 :::moniker range=">=azure-pipelines-2019"
 
 **`addToPath`** - **Add to PATH**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepend the retrieved Ruby version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

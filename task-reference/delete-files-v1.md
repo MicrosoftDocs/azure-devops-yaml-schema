@@ -1,7 +1,7 @@
 ---
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 - task: DeleteFiles@1
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: 'myFileShare'.
+    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
     #RemoveSourceFolder: false # boolean. Remove SourceFolder. Default: false.
   # Advanced
     #RemoveDotFiles: false # boolean. Remove files starting with a dot. Default: false.
@@ -52,7 +52,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 - task: DeleteFiles@1
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: 'myFileShare'.
+    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
     #RemoveSourceFolder: false # boolean. Remove SourceFolder. Default: false.
 ```
 
@@ -66,7 +66,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 - task: DeleteFiles@1
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: 'myFileShare'.
+    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
 ```
 
 :::moniker-end
@@ -79,7 +79,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 - task: DeleteFiles@1
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: 'myFileShare'.
+    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
 ```
 
 :::moniker-end
@@ -102,11 +102,12 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 :::moniker range="<=azure-pipelines"
 
 **`SourceFolder`** - **Source Folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If you leave it empty, the deletions are done from the root folder of the repository (same as if you had specified [$(Build.SourcesDirectory))](/azure/devops/pipelines/build/variables).
 If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to delete files from the build agent working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -114,7 +115,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 :::moniker range="<=azure-pipelines"
 
 **`Contents`** - **Contents**<br>
-Type: string. Required. Default value: 'myFileShare'.<br>
+`string`. Required. Default value: `myFileShare`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File/folder paths to delete. Supports multiple lines of minimatch patterns; each one is processed before moving onto the next line. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
 For example:
@@ -125,6 +126,7 @@ For example:
 - `**/temp*` deletes any file or folder with a name that begins with *temp*.
 - `!(*.vsix)` deletes all files in the root folder that do not have a *.vsix* extension.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -132,10 +134,11 @@ For example:
 :::moniker range=">=azure-pipelines-2020"
 
 **`RemoveSourceFolder`** - **Remove SourceFolder**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Attempt to remove the source folder after attempting to remove `Contents`. If you want to remove the whole folder, set this to `true` and set `Contents` to `*`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,10 +146,11 @@ Attempt to remove the source folder after attempting to remove `Contents`. If yo
 :::moniker range=">=azure-pipelines-2022"
 
 **`RemoveDotFiles`** - **Remove files starting with a dot**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Delete files starting with a dot (.git, .dockerfile). Omits these files if it's not specified explicitly (for example, '/.*'). Please see this [link](https://github.com/isaacs/minimatch#dot) for more info.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

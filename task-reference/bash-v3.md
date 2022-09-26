@@ -1,7 +1,7 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Run a Bash script on macOS, Linux, or Windows.
 # Run a Bash script on macOS, Linux, or Windows.
 - task: Bash@3
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
@@ -46,7 +46,7 @@ Run a Bash script on macOS, Linux, or Windows.
 # Run a Bash script on macOS, Linux, or Windows.
 - task: Bash@3
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
@@ -66,7 +66,7 @@ Run a Bash script on macOS, Linux, or Windows.
 # Run a Bash script on macOS, Linux, or Windows.
 - task: Bash@3
   inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: 'filePath'.
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
     filePath: # string. Required when targetType = filePath. Script Path. 
     #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
     #script: # string. Required when targetType = inline. Script. 
@@ -95,10 +95,11 @@ Run a Bash script on macOS, Linux, or Windows.
 :::moniker range="<=azure-pipelines"
 
 **`targetType`** - **Type**<br>
-Type: string. Allowed values: 'filePath', 'inline'. Default value: 'filePath'.<br>
+`string`. Allowed values: `filePath` (File Path), `inline`. Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target script type: File Path or Inline.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -106,10 +107,11 @@ Target script type: File Path or Inline.
 :::moniker range="<=azure-pipelines"
 
 **`filePath`** - **Script Path**<br>
-Type: string. Required when targetType = filePath.<br>
+`string`. Required when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,31 +119,45 @@ Path of the script to execute. Must be a fully qualified path or relative to $(S
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when targetType = filePath.<br>
+`string`. Optional. Use when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the shell script. Either ordinal parameters or named parameters.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020"
 
 **`script`** - **Script**<br>
-Type: string. Required when targetType = inline.<br>
+`string`. Required when `targetType = inline`. Default value: `# Write your commands here\n\necho 'Hello world'`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the script.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+
+**`script`** - **Script**<br>
+`string`. Required when `targetType = inline`. Default value: `# Write your commands here\n\n# Use the environment variables input below to pass secret variables to this script`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Contents of the script.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`script`** - **Script**<br>
-Type: string. Required when targetType = inline. Default value: '# Write your commands here'.<br>
+`string`. Required when `targetType = inline`. Default value: `# Write your commands here`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -149,10 +165,11 @@ Contents of the script.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -160,10 +177,11 @@ Specify the working directory in which you want to run the command. If you leave
 :::moniker range="<=azure-pipelines"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the StandardError stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -171,10 +189,11 @@ If this is true, this task will fail if any errors are written to the StandardEr
 :::moniker range=">=azure-pipelines-2022"
 
 **`bashEnvValue`** - **Set value for BASH_ENV environment variable**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If input is specified, it's value is expanded and used as the path of a startup file to execute before running the script. If the environment variable `BASH_ENV` has already been defined, the task will override this variable only for the current task. You can find more details by [link](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -182,10 +201,11 @@ If input is specified, it's value is expanded and used as the path of a startup 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
 
 **`noProfile`** - **Don't load the profile startup/initialization files**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Don't load the system-wide startup file `/etc/profile' or any of the personal initialization files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -193,9 +213,10 @@ Don't load the system-wide startup file `/etc/profile' or any of the personal in
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
 
 **`noRc`** - **Don't read the `~/.bashrc' initialization file**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

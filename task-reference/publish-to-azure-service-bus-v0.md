@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to azure service bus using a service connection (no agent required).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,7 +28,7 @@ Sends a message to azure service bus using a service connection (no agent requir
 - task: PublishToAzureServiceBus@0
   inputs:
     azureSubscription: # string. Required. Azure service bus connection. 
-    messageBody: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Required. Message body. Default: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}'.
+    messageBody: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Required. Message body. Default: {"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}.
     waitForCompletion: false # boolean. Required. Wait for task completion. Default: false.
 ```
 
@@ -52,10 +52,11 @@ Sends a message to azure service bus using a service connection (no agent requir
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure service bus connection**<br>
-Input alias: `connectedServiceName`. Type: string. Required.<br>
+Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Azure Service Bus connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -63,10 +64,11 @@ Select a Azure Service Bus connection.
 :::moniker range="<=azure-pipelines"
 
 **`messageBody`** - **Message body**<br>
-Type: string. Required. Default value: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}'.<br>
+`string`. Required. Default value: `{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the json messageBody.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -74,10 +76,11 @@ Enter the json messageBody.
 :::moniker range="<=azure-pipelines"
 
 **`waitForCompletion`** - **Wait for task completion**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will wait for TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
