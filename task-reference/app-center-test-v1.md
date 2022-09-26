@@ -166,6 +166,7 @@ Where to place the artifacts produced by the prepare step and used by the run st
 **`prepareTests`** - **Prepare tests**<br>
 Input alias: `enablePrepare`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify whether to prepare tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -248,7 +249,7 @@ Path to Cucumber configuration file, usually cucumber.yml.
 **`calabashProfile`** - **Profile to run**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Profile to run.  This value must exists in the Cucumber configuration file.
+Profile to run.  This value must exist in the Cucumber configuration file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,6 +285,7 @@ Path to directory with built test assemblies.
 **`uitestStorePath`** - **Store file**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Path to the store file used to sign the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -295,6 +297,7 @@ Path to directory with built test assemblies.
 **`uiTestStorePassword`** - **Store password**<br>
 Input alias: `uitestStorePass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Password of the store file used to sign the app. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -306,6 +309,7 @@ Input alias: `uitestStorePass`. `string`. Optional. Use when `enablePrepare = tr
 **`uitestKeyAlias`** - **Key alias**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Enter the alias that identifies the public/private key pair used in the store file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -317,6 +321,7 @@ Input alias: `uitestStorePass`. `string`. Optional. Use when `enablePrepare = tr
 **`uiTestKeyPassword`** - **Key password**<br>
 Input alias: `uitestKeyPass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Enter the key password for the alias and store file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -340,7 +345,7 @@ Path to directory with Xamarin UI test tools that contains test-cloud.exe.
 **`signInfo`** - **Signing information**<br>
 `string`. Optional. Use when `framework = calabash || framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use Signing Infor for signing the test server.
+Use Signing Info for signing the test server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -352,7 +357,7 @@ Use Signing Infor for signing the test server.
 **`xcUITestBuildDirectory`** - **Build directory**<br>
 Input alias: `xcuitestBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the build output directory (usually $(ProjectDir)/Build/Products/Debug-iphoneos).
+Path to the build output directory (usually `$(ProjectDir)/Build/Products/Debug-iphoneos`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -388,6 +393,7 @@ Additional arguments passed to the App Center test prepare step.
 **`runTests`** - **Run tests**<br>
 Input alias: `enableRun`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify whether to run the tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -457,7 +463,7 @@ Visit https://appcenter.ms/settings/profile to get your username.
 **`password`** - **App Center password**<br>
 `string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visit https://appcenter.ms/settings/profile to set your password. It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. You may mark variable type as 'secret' to secure it.
+Visit the [Visual Studio App Center](https://appcenter.ms/settings/profile) to set your password. It can accept a variable defined in build or release pipelines as `$(passwordVariable)`. You may mark variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -469,7 +475,7 @@ Visit https://appcenter.ms/settings/profile to set your password. It can accept 
 **`appSlug`** - **App slug**<br>
 `string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The app slug is in the format of {username}/{app_identifier}.  To locate {username} and {app_identifier} for an app, click on its name from https://appcenter.ms/apps, and the resulting URL is in the format of https://appcenter.ms/users/{username}/apps/{app_identifier}.
+The app slug is in the format of `{username}/{app_identifier}`.  To locate `{username}` and `{app_identifier}` for an app, click its name from [Visual Studio App Center](https://appcenter.ms/apps), and the resulting URL is in the format `https://appcenter.ms/users/{username}/apps/{app_identifier}`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -481,7 +487,7 @@ The app slug is in the format of {username}/{app_identifier}.  To locate {userna
 **`devices`** - **Devices**<br>
 `string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-String to identify what devices this test will run against.  Copy and paste this string when you define a new test run from App Center Test beacon.
+String to identify what devices this test will run against.  Copy and paste this string when you define a new test run from Visual Studio App Center Test beacon.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -517,7 +523,7 @@ Path to iOS symbol files.
 **`localeOption`** - **System language**<br>
 Input alias: `locale`. `string`. Required when `enableRun = true`. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If your language isn't displayed, select 'Other' and enter its locale below, such as en_US.
+If your language isn't displayed, select `Other` and enter its locale below, such as `en_US`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -529,7 +535,7 @@ If your language isn't displayed, select 'Other' and enter its locale below, suc
 **`userDefinedLocale`** - **Other locale**<br>
 `string`. Optional. Use when `enableRun = true && locale = user`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format [language]_[country], such as en_US.
+Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format `[language]_[country]`, such as `en_US`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -541,7 +547,7 @@ Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 co
 **`loginOptions`** - **Additional options for login**<br>
 Input alias: `loginOpts`. `string`. Optional. Use when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to the App Center login step.
+Additional arguments passed to the Visual Studio App Center login step.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -553,7 +559,7 @@ Additional arguments passed to the App Center login step.
 **`runOptions`** - **Additional options for run**<br>
 Input alias: `runOpts`. `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to the App Center test run.
+Additional arguments passed to the Visual Studio App Center test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -577,7 +583,7 @@ Execute command asynchronously, exit when tests are uploaded, without waiting fo
 **`cliFile`** - **App Center CLI location**<br>
 Input alias: `cliLocationOverride`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the App Center CLI on the build or release agent.
+Path to the Visual Studio App Center CLI on the build or release agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -589,7 +595,7 @@ Path to the App Center CLI on the build or release agent.
 **`showDebugOutput`** - **Enable debug output**<br>
 Input alias: `debug`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add --debug to the App Center CLI.
+Add --debug to the Visual Studio App Center CLI.
 <!-- :::editable-content-end::: -->
 <br>
 
