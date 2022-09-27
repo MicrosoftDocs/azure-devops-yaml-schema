@@ -210,7 +210,7 @@ Specify job parameters, one per line, in the form <b>`<parameterName>=<parameter
 **`failOnUnstableResult`** - **Fail on unstable result**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies strictness of a success definition: whether to consider unstable as a failure or not. False for non-strict, and true for strict version.
+Specifies strictness of a success definition: whether to consider unstable as a failure or not. False for a non-strict version and true for a strict version.
 <!-- :::editable-content-end::: -->
 <br>
 

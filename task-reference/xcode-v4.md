@@ -96,7 +96,7 @@ Enter a space-delimited list of actions. Valid options are `build`, `clean`, `te
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the **Variables** tab.
+Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the [**Variables**](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables) tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Specify an SDK to use when building the Xcode project or workspace. From the mac
 **`xcWorkspacePath`** - **Workspace or project path**<br>
 `string`. Default value: `**/*.xcodeproj/project.xcworkspace`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a relative path from the root of the repository to the Xcode workspace or project. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`.
+(Optional) Enter a relative path from the root of the repository to the Xcode workspace or project. If you specify a value, you must also specify the Scheme. Do not specify a value if you are specifying the -target flag in Advanced, Arguments. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -312,7 +312,7 @@ Choose the method of signing the build. Select `Do not code sign` to disable sig
 **`destinationPlatformOption`** - **Destination platform**<br>
 `string`. Allowed values: `default`, `iOS` (iOS and watchOS), `tvOS`, `macOS`, `custom`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the destination device's platform to be used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in this list. When `Default` is selected, no simulators nor devices will be targeted.
+Select the destination device's platform to be used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in this list. When `Default` is selected, no simulators or devices will be targeted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -372,7 +372,7 @@ Enter the name of the device to be used for UI testing, such as `Raisa's iPad`.
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter additional command line arguments with which to build. This is useful for specifying `-target` or `-project` arguments instead of specifying a workspace/project and scheme. See the [xcodebuild man page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html).
+(Optional) Enter additional command line arguments with which to build. This is useful for specifying `-target` or `-project` arguments instead of specifying a workspace/project and scheme. See the [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -396,7 +396,7 @@ Input alias: `cwd`. `string`.<br>
 **`outputPattern`** - **Output directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a path relative to the working directory where build output (binaries) will be placed. Examples: `output/$(SDK)/$(Configuration)` or `output/$(TestSDK)/$(TestConfiguration)`. Archive and export paths are configured separately.
+(Optional) Enter a path relative to the working directory where build output (binaries) will be placed. Examples: `output/$(SDK)/$(Configuration)` or `output/$(TestSDK)/$(TestConfiguration)`. Archive and export paths are configured separately. Make sure to specify values on the [variables tab](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
 <br>
 

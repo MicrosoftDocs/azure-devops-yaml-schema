@@ -120,7 +120,7 @@ Enter the json messageBody.
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Session id with which message is published. For session based queues, publishing fails if value not specified. For Non Session Based Queues, it will not matter.
+Session id with which message is published. For session based queues, publishing fails if value not specified. For Non-Session Based Queues, it will not matter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +132,7 @@ Session id with which message is published. For session based queues, publishing
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set to true, message will be signed provided a private certificate.
+If this is set to true, the message will be provided a private certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +156,7 @@ Specify the secret variable that contains the certificate content.  This can als
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want signature to be in Message Properties. If left Empty, default is 'signature' in message properties.
+Key where you want the signature to be in Message Properties. If left Empty, the default is 'signature' in message properties.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +167,7 @@ Key where you want signature to be in Message Properties. If left Empty, default
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want signature to be in Message Properties. If left Empty, default is 'signature' in message properties.
+Key where you want the signature to be in Message Properties. If left Empty, the default is 'signature' in message properties.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +179,7 @@ Key where you want signature to be in Message Properties. If left Empty, default
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will wait for TaskCompleted event for the specified task timeout.
+If this is true, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->
 <br>
 
