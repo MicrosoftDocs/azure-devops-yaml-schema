@@ -272,7 +272,7 @@ Fail the build if code coverage did not produce any results to publish.
 **`antHomeDirectory`** - **Set ANT_HOME path**<br>
 Input alias: `antHomeUserInputPath`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) If set, overrides any existing ANT_HOME environment variable with the given path.
+If set, overrides any existing ANT_HOME environment variable with the given path.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -260,7 +260,7 @@ Provide the Password of the SQL login. The option is only available if SQL Serve
 **`ConnectionString`** - **Connection String**<br>
 `string`. Required when `TargetMethod = connectionString`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the SQL Server connection string like "Server=localhost;Database=Fabrikam;User ID=AccountPlaceholder;Password=PasswordPlaceholder;".
+Specify the SQL Server connection string like `"Server=localhost;Database=Fabrikam;User ID=AccountPlaceholder;Password=PasswordPlaceholder;"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +284,7 @@ Publish profile provide fine-grained control over SQL Server database deployment
 **`AdditionalArguments`** - **Additional Arguments**<br>
 `string`. Optional. Use when `TaskType = dacpac`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when deploying the SQL Server database like, /p:IgnoreAnsiNulls=True /p:IgnoreComments=True. These arguments will override the settings in the Publish profile XML file (if provided).
+Additional SqlPackage.exe arguments that will be applied when deploying the SQL Server database like, `/p:IgnoreAnsiNulls=True` `/p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 <br>
 
