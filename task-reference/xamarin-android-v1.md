@@ -96,7 +96,7 @@ Build an Android app with Xamarin.
 **`projectFile`** - **Project**<br>
 Input alias: `project`. `string`. Required. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).  For example, `**/*.csproj` for all csproj files in all subfolders.  The project must have a PackageForAndroid target if `Create App Package` is selected.
+Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards can be used, for more information see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).  For example, `**/*.csproj` for all csproj files in all subfolders.  The project must have a PackageForAndroid target if `Create App Package` is selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Build these targets in this project. Use a semicolon to separate multiple target
 **`outputDirectory`** - **Output directory**<br>
 Input alias: `outputDir`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally provide the output directory for the build. Example: $(build.binariesDirectory)/bin/Release.
+Optionally provide the output directory for the build. Example: **$(build.binariesDirectory)\/bin\/Release**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,6 +132,9 @@ Optionally provide the output directory for the build. Example: $(build.binaries
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify the configuration you want to build such as `debug` or `release`.
+
+Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +146,7 @@ Optionally provide the output directory for the build. Example: $(build.binaries
 **`createAppPackage`** - **Create app package**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the target (/t:PackageForAndroid) during build to generate an APK.
+Passes the target (\/t:PackageForAndroid) during build to generate an APK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,7 +158,7 @@ Passes the target (/t:PackageForAndroid) during build to generate an APK.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the clean target (/t:clean) during build.
+Passes the clean target (\/t:clean) during build.
 <!-- :::editable-content-end::: -->
 <br>
 

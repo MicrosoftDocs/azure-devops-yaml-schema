@@ -54,7 +54,7 @@ Build an iOS app with Xamarin on macOS.
 **`solutionFile`** - **Solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root of the Xamarin.iOS solution to build. May contain wildcards.
+Relative path from the repository root of the Xamarin.iOS solution or csproj project to build. May contain wildcards.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +78,7 @@ Standard configurations are Ad-Hoc, AppStore, Debug, Release.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run a clean build (/t:clean) prior to the build.
+Run a clean build (\/t:clean) prior to the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Optionally build for the iOS Simulator instead of physical iOS devices.
 **`runNugetRestore`** - **Run NuGet restore**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally run `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The 'nuget' tool in the PATH of the build agent machine will be used. To use a different version of NuGet or set additional arguments, use the [NuGet Tool Installer](https://go.microsoft.com/fwlink/?linkid=852538) task.
+Optionally run `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The NuGet tool in the PATH of the build agent machine will be used. To use a different version of NuGet or set additional arguments, use the [NuGet Tool Installer](/azure/devops/pipelines/tasks/tool/nuget) task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +162,7 @@ Optionally supply the full path to MSBuild (the Visual Studio for Mac build tool
 **`signingIdentity`** - **Signing identity**<br>
 Input alias: `iosSigningIdentity`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally override the signing identity that will be used to sign the build. If nothing is entered, the setting in the project will be used.
+Optionally override the signing identity that is used to sign the build. If nothing is entered, the setting in the project is used.
 <!-- :::editable-content-end::: -->
 <br>
 
