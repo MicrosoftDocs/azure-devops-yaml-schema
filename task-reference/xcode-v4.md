@@ -96,7 +96,7 @@ Enter a space-delimited list of actions. Valid options are `build`, `clean`, `te
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the [**Variables**](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables) tab.
+Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the [**Variables**](/azure/devops/pipelines/build/variables) tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -396,7 +396,7 @@ Input alias: `cwd`. `string`.<br>
 **`outputPattern`** - **Output directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a path relative to the working directory where build output (binaries) will be placed. Examples: `output/$(SDK)/$(Configuration)` or `output/$(TestSDK)/$(TestConfiguration)`. Archive and export paths are configured separately. Make sure to specify values on the [variables tab](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables).
+(Optional) Enter a path relative to the working directory where build output (binaries) will be placed. Examples: `output/$(SDK)/$(Configuration)` or `output/$(TestSDK)/$(TestConfiguration)`. Archive and export paths are configured separately. Make sure to specify values on the [variables tab](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
 <br>
 

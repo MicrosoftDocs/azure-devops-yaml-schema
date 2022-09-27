@@ -80,7 +80,7 @@ Update Function Apps with Docker containers.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the [Azure Resource Manager subscription](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure) for the deployment.
+Select the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
