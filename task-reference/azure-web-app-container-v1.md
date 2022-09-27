@@ -160,7 +160,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> **Example** : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> **Example** : `-phpVersion 5.6 -linuxFxVersion: node|6.11`
 <!-- :::editable-content-end::: -->
 <br>
 
