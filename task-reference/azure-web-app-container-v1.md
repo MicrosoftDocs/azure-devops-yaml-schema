@@ -136,7 +136,7 @@ Path of the Docker-Compose file. Should be a fully qualified path or relative to
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
+Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : `-Port 5000 -RequestTimeout 5000` <br /> `-WEBSITE_TIME_ZONE "Eastern Standard Time"`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> **Example** : -phpVersion 5.6 -linuxFxVersion: node|6.11.
 <!-- :::editable-content-end::: -->
 <br>
 
