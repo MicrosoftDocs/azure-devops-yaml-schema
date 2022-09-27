@@ -148,7 +148,7 @@ Deploy a Service Fabric application to a cluster.
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the application package that is to be deployed. [Variables](azure/devops/pipelines/build/variables) and wildcards can be used in the path.
+The path to the application package that is to be deployed. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +185,7 @@ Selects an Azure Service Fabric service connection to be used to connect to the 
 **`publishProfilePath`** - **Publish Profile**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the publish profile file that defines the settings to use. [Variables](azure/devops/pipelines/build/variables) and wildcards can be used in the path. Learn more about [how to create publish profiles in Visual Studio](azure/service-fabric/service-fabric-tutorial-deploy-app#publish-the-application-to-the-cluster).
+The path to the publish profile file that defines the settings to use. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Learn more about [how to create publish profiles in Visual Studio](/azure/service-fabric/service-fabric-tutorial-deploy-app#publish-the-application-to-the-cluster).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +197,7 @@ The path to the publish profile file that defines the settings to use. [Variable
 **`applicationParameterPath`** - **Application Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the application parameters file. [Variables](azure/devops/pipelines/build/variables) and wildcards can be used in the path. If specified, this will override the value in the publish profile. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
+The path to the application parameters file. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. If specified, this will override the value in the publish profile. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +219,7 @@ The variables defined in the build or release pipeline will be matched against t
 ```
  and you want to change the partition count to 2, you can define a release pipeline or an environment variable `SampleApp_PartitionCount` and its value as `2`. 
 
- **Note**: If same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
+ **Note**: If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,7 @@ The timeout in seconds for copying application package to image store. If specif
 **`registerPackageTimeoutSec`** - **RegisterPackageTimeoutSec**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The timeout in seconds for registering or un-registering application package.
+The timeout in seconds for registering or un-registering an application package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -550,7 +550,7 @@ Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerS
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects a Docker registry service connection. Required for commands that need to authenticate with a registry.
 
-**Note**: the task will try to encrypt the registry secret before transmitting it to service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
+**Note**: the task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -563,7 +563,7 @@ Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerS
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects a Docker registry service connection. Required for commands that need to authenticate with a registry.
 
-**Note**: the task will try to encrypt the registry secret before transmitting it to service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
+**Note**: the task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -577,7 +577,7 @@ Input alias: `azureSubscriptionEndpoint`. `string`. Required when `configureDock
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects an Azure subscription.
 
-**Note**: the task will try to encrypt the registry secret before transmitting it to service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
+**Note**: the task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
