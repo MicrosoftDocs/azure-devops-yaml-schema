@@ -47,7 +47,7 @@ Automate performance regression testing with Azure Load Testing.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Manager subscription to run the load test.
+Azure subscription or Azure Resource Manager service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -59,7 +59,8 @@ Select an Azure Resource Manager subscription to run the load test.
 **`loadTestConfigFile`** - **Load Test File**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the YAML file. Should be fully qualified path or relative to the default working directory.
+Path to the load test YAML configuration file, relative from the repo root.
+See (Test configuration YAML reference)[/azure/load-testing/reference-test-config-yaml]. Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +96,7 @@ Enter or Select the name of an existing Azure Load Testing resource.
 **`secrets`** - **Secrets**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add/Update secret parameters using the json syntax as shown in the following example.
+Array of JSON objects that consist of the name and value for each secret. The name should match the secret name used in the Apache JMeter test script. Add/Update secret parameters using the json syntax as shown in the following example.
 
 ```json
 [
@@ -120,7 +121,7 @@ Add/Update secret parameters using the json syntax as shown in the following exa
 **`env`** - **env**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add/Update environment variables using the json syntax as shown in the following example.
+Array of JSON objects that consist of the name and value for each environment variable. The name should match the variable name used in the Apache JMeter test script. Add/Update environment variables using the json syntax as shown in the following example.
 
 ```json
 [

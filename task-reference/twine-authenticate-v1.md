@@ -44,7 +44,7 @@ Authenticate for uploading Python distributions using twine. Add '-r FeedName/En
 **`artifactFeed`** - **My feed (select below)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a feed to authenticate present in this organization.
+ The Azure artifact's feed name to authenticate with twine. Select a feed to authenticate present in this organization. For project-scoped feeds, use this syntax: *projectName/feedNameSelect*.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Select a feed to authenticate present in this organization.
 **`pythonUploadServiceConnection`** - **Feed from external organizations**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an endpoint to authenticate outside this organization. Make sure the endpoint has package upload permissions.
+A (twine service connection)[/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection] name from external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions. Select an endpoint to authenticate outside this organization. Make sure the endpoint has package upload permissions.
 <!-- :::editable-content-end::: -->
 <br>
 

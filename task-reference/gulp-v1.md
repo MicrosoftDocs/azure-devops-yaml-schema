@@ -113,7 +113,7 @@ Relative path from repo root of the gulp file script file to run.
 **`targets`** - **gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional.  Space delimited list of tasks to run.  If not specified, the default task will run.
+Optional. Space-delimited list of tasks to run. If not specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,7 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`targets`** - **Gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional.  Space delimited list of tasks to run.  If not specified, the default task will run.
+Optional. Space-delimited list of tasks to run. If not specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to gulp.  --gulpfile is not needed since already added via gulpFile input above.
+Additional arguments passed to gulp. --gulpfile is not needed since already added via gulpFile input above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Additional arguments passed to gulp.  --gulpfile is not needed since already add
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when script is run.  Defaults to the folder where the script is located.
+Current working directory when script is run. Defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 

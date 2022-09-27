@@ -83,7 +83,7 @@ Deploy an Azure Web App for Linux or Windows.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Select the (Azure Resource Manager subscription connection)[/azure/devops/pipelines/library/connect-to-azure] for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,6 +95,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`appType`** - **App type**<br>
 `string`. Required. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Web App type
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +107,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`appName`** - **App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed.
+Enter or select the name of an existing Azure App Service. App services based on selected app type will only be listed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +131,7 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or select the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +143,7 @@ The Resource group name is required when the deployment target is either a deplo
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Enter or select an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,6 +179,7 @@ Specify custom folder name you want to deploy to. <br/>If the field is empty, pa
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = webAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Web App on Linux offers two different options to publish your application, one is custom image deployment (Web App for Containers) and the other is app deployment with a built-in platform image (Web App on Linux). You will see this parameter only when you select **Linux Web App** in the app type selection option in the task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -237,7 +239,7 @@ Edit web app configuration settings following the syntax -key value. Value conta
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the deployment method for the app.
+Choose the (deployment method)[/azure/devops/pipelines/tasks/deploy/azure-rm-web-app#deployment-methods] for the app. Acceptable values are **auto**, **zipDeploy**, **runFromPackage**.
 <!-- :::editable-content-end::: -->
 <br>
 
