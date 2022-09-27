@@ -84,7 +84,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
 **`actions`** - **Actions**<br>
 `string`. Required. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a space-delimited list of actions. Valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example,`clean build` will run a clean build. See the [xcodebuild man page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html).
+Enter a space-delimited list of actions. Valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example,`clean build` will run a clean build. See the [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 <br>
 
