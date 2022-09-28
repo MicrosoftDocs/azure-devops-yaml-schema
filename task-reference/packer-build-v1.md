@@ -149,7 +149,7 @@ Selects the Azure Resource Manager subscription for baking and storing the machi
 **`isManagedImage`** - **Managed VM disk image**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Checks if generated image should be a managed image.
+Checks if the generated image should be a managed image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,7 +268,7 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 **`packagePath`** - **Deployment Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path for a deployment package directory relative to `$(System.DefaultWorkingDirectory)`. Supports minimatch pattern. Example path: `FrontendWebApp/**/GalleryApp` Please note that this package will be copied to a temporary virtual machine which Packer creates. If the package contains a large number of files and/or the files are very large in size, the upload can take quite a long time (possibly running into few hours). To optimize the upload time, please see if the size of the package can be meaningfully reduced. Another alternative is to use an intermediary Azure storage account. Upload the package to a storage account prior to running this task. And for this task, use a package containing a script which will download the required package from the storage account.
+Specifies the path for a deployment package directory relative to `$(System.DefaultWorkingDirectory)`. Supports minimatch pattern. Example path: `FrontendWebApp/**/GalleryApp` Please note that this package will be copied to a temporary virtual machine which Packer creates. If the package contains a large number of files and/or the files are very large in size, the upload can take quite a long time (possibly running for a few hours). To optimize the upload time, please see if the size of the package can be meaningfully reduced. Another alternative is to use an intermediary Azure storage account. Upload the package to a storage account prior to running this task. And for this task, use a package containing a script which will download the required package from the storage account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -304,7 +304,7 @@ Specifies the arguments to be passed to the deployment script.
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Optional. Use when `templateType = builtin`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example setting `ssh_tty=true` in case you are using a CentOS base image and you need to have a tty to run sudo.
+In auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
 To view/edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
 <br>
@@ -316,8 +316,8 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example setting `ssh_tty=true` in case you are using a CentOS base image and you need to have a tty to run sudo.
-To view/edit the additional parameters in a grid, click on `…”` next to text box.
+In auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
+To view/edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -329,7 +329,7 @@ To view/edit the additional parameters in a grid, click on `…”` next to text
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Optional. Use when `templateType = builtin`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. Refer [here](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -340,7 +340,7 @@ During deprovisioning of VM, skips the clean-up of temporary files uploaded to V
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. Refer [here](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -364,7 +364,7 @@ Specifies the version of Packer to install. This will work only with custom temp
 **`imageUri`** - **Image URL or Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which will store the generated machine image VHD url for un-managed VM image or image name for managed VM image.
+Provides a name for the output variable which will store the generated machine image VHD URL for an un-managed VM image or the image name for a managed VM image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -376,7 +376,7 @@ Provides a name for the output variable which will store the generated machine i
 **`imageId`** - **Azure Resource Id**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which will store the azure resource id for the newly created image.  This is for managed images only.
+Provides a name for the output variable which will store the Azure Resource Id for the newly created image.  This is for managed images only.
 <!-- :::editable-content-end::: -->
 <br>
 

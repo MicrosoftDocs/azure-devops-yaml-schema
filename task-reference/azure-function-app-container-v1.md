@@ -168,7 +168,7 @@ Enters the startup command. For example: `dotnet run` `dotnet filename.dll.`
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edits web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.
+Edits web app application settings following the syntax `-key value`. Value containing spaces should be enclosed in double quotes.
 Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Standard Time`.
 <!-- :::editable-content-end::: -->
 <br>
@@ -181,7 +181,7 @@ Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Stand
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edits web app configuration settings following the syntax -key value. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
+Edits web app configuration settings following the syntax `-key` value. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 <!-- :::editable-content-end::: -->
 <br>
 

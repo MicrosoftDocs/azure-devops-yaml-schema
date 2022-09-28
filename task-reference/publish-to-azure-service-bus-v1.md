@@ -119,8 +119,7 @@ Enters the json messageBody.
 
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Session id with which message is published. For session based queues, publishing fails if value not specified. For Non-Session Based Queues, it will not matter.
+<!-- :::editable-content name="helpMarkDown"::: -->The Session Id with which the message is published. For session based queues, publishing fails if value not specified. For Non-Session Based Queues, it will not matter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +131,7 @@ Session id with which message is published. For session based queues, publishing
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set to true, the message will be provided a private certificate.
+If this value is set to true, the message will be provided a private certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +178,7 @@ Keys where you want the signature to be in Message Properties. If left Empty, th
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will wait for the TaskCompleted event for the specified task timeout.
+If this value is true, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->
 <br>
 

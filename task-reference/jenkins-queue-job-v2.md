@@ -216,7 +216,7 @@ To set a parameter to an empty value (useful for overriding a default value), le
 **`failOnUnstableResult`** - **Fail on unstable result**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies strictness of a success definition: whether to consider unstable as a failure or not. False for a non-strict version and true for a strict version.
+Specifies strictness of a success definition: whether to consider unstable as a failure or not. The `false` value is for a non-strict version, and the `true` is for a strict version.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -120,7 +120,7 @@ Specifies an SDK to use when building the Xcode project or workspace. From the m
 **`xcWorkspacePath`** - **Workspace or project path**<br>
 `string`. Default value: `**/*.xcodeproj/project.xcworkspace`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters a relative path from the root of the repository to the Xcode workspace or project. If you specify a value, you must also specify the Scheme. Do not specify a value if you are specifying the -target flag in Advanced, Arguments. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`.
+(Optional) Enters a relative path from the root of the repository to the Xcode workspace or project. If you specify a value, you must also specify the Scheme. Do not specify a value if you are specifying the `-target` flag in Advanced, Arguments. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -348,7 +348,7 @@ Chooses the destination type to be used for UI testing. Devices must be connecte
 **`destinationSimulators`** - **Simulator**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators`. Default value: `iPhone 7`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters an Xcode simulator name to be used for UI testing. For example, enter `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). A target OS version is optional and can be specified in the format 'OS=*versionNumber*', such as `iPhone X,OS=11.1`. A list of simulators installed on the **Hosted macOS Preview** agent can be [found here](/mobile-center/build/software).
+Enters an Xcode simulator name to be used for UI testing. For example, enter `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). A target OS version is optional and can be specified in the format `OS=versionNumber`, such as `iPhone X,OS=11.1`. Learn more about [installed simulators on the Hosted macOS Preview agent](/mobile-center/build/software).
 <!-- :::editable-content-end::: -->
 <br>
 
