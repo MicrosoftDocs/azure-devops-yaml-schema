@@ -149,7 +149,7 @@ Selects the Azure Resource Manager subscription.
 **`Action`** - **Action**<br>
 `string`. Allowed values: `Swap Slots`, `Start Azure App Service` (Start App Service), `Stop Azure App Service` (Stop App Service), `Restart Azure App Service` (Restart App Service), `Start Swap With Preview`, `Complete Swap` (Complete Swap With Preview), `Cancel Swap` (Cancel Swap With Preview), `Delete Slot`, `Install Extensions`, `Enable Continuous Monitoring`, `Start all continuous webjobs`, `Stop all continuous webjobs`. Default value: `Swap Slots`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The action to be performed on the App Service. You can start, stop, restart, slot swap, install site extensions or enable continuous monitoring for an Azure App Service.
+Optional. The action to be performed on the App Service. You can start, stop, restart, slot swap, start swap with a preview, complete swap with a preview, cancel swap with a preview, install site extensions, or enable continuous monitoring for an Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
