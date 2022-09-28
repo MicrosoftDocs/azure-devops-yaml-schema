@@ -47,7 +47,7 @@ Downloads a GitHub Release from a repository.
 **`connection`** - **GitHub Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the service connection name for your GitHub service connection. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops).
+Enters the service connection name for your GitHub service connection. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 <br>
 

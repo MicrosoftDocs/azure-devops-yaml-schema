@@ -209,7 +209,7 @@ The path to the application parameters file. [Variables](/azure/devops/pipelines
 **`overrideApplicationParameter`** - **Override Application Parameters**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The variables defined in the build or release pipeline will be matched against the 'Parameter Name' entries in the application manifest file. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
+The variables defined in the build or release pipeline will be matched against the `Parameter Name` entries in the application manifest file. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
  Example: If your application has a parameter defined:
 ```
  <Parameters> 
