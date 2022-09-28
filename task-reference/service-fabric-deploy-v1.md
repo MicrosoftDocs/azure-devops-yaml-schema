@@ -185,7 +185,7 @@ Selects an Azure Service Fabric service connection to be used to connect to the 
 **`publishProfilePath`** - **Publish Profile**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the publish profile file that defines the settings to use. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Learn more about [how to create publish profiles in Visual Studio](/azure/service-fabric/service-fabric-tutorial-deploy-app#publish-the-application-to-the-cluster).
+Optional. The path to the publish profile file that defines the settings to use. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Learn more about [how to create publish profiles in Visual Studio](/azure/service-fabric/service-fabric-tutorial-deploy-app#publish-the-application-to-the-cluster).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +197,7 @@ The path to the publish profile file that defines the settings to use. [Variable
 **`applicationParameterPath`** - **Application Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the application parameters file. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. If specified, this will override the value in the publish profile. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
+Optional. The path to the application parameters file. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. If specified, this will override the value in the publish profile. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +209,7 @@ The path to the application parameters file. [Variables](/azure/devops/pipelines
 **`overrideApplicationParameter`** - **Override Application Parameters**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The variables defined in the build or release pipeline will be matched against the `Parameter Name` entries in the application manifest file. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
+Optional. The variables defined in the build or release pipeline will be matched against the `Parameter Name` entries in the application manifest file. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
  Example: If your application has a parameter defined:
 ```
  <Parameters> 
@@ -231,7 +231,7 @@ The variables defined in the build or release pipeline will be matched against t
 **`compressPackage`** - **Compress Package**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether the application package should be compressed before copying to the image store. If enabled, this will override the value in the publish profile. Learn more about [compressing packages](/azure/service-fabric/service-fabric-package-apps#compress-a-package).
+Optional. Indicates whether the application package should be compressed before copying to the image store. If enabled, this will override the value in the publish profile. Learn more about [compressing packages](/azure/service-fabric/service-fabric-package-apps#compress-a-package).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -243,7 +243,7 @@ Indicates whether the application package should be compressed before copying to
 **`copyPackageTimeoutSec`** - **CopyPackageTimeoutSec**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The timeout in seconds for copying application package to image store. If specified, this will override the value in the publish profile.
+Optional. The timeout in seconds for copying application package to image store. If specified, this will override the value in the publish profile.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,7 @@ The timeout in seconds for copying application package to image store. If specif
 **`registerPackageTimeoutSec`** - **RegisterPackageTimeoutSec**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The timeout in seconds for registering or un-registering an application package.
+Optional. The timeout in seconds for registering or un-registering an application package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -285,7 +285,7 @@ Overwrites behavior if an application exists in the cluster with the same name a
 **`skipUpgradeSameTypeAndVersion`** - **Skip upgrade for same Type and Version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether an upgrade will be skipped if the same application type and version already exists in the cluster, otherwise the upgrade fails during validation. If enabled, re-deployments are idempotent.
+Optional. Indicates whether an upgrade will be skipped if the same application type and version already exists in the cluster, otherwise the upgrade fails during validation. If enabled, re-deployments are idempotent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -297,7 +297,7 @@ Indicates whether an upgrade will be skipped if the same application type and ve
 **`skipPackageValidation`** - **Skip package validation**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether the package should be validated or not before deployment. Learn more about [package validation](/azure/service-fabric/service-fabric-package-apps#test-the-package).
+Optional. Indicates whether the package should be validated or not before deployment. Learn more about [package validation](/azure/service-fabric/service-fabric-package-apps#test-the-package).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -309,7 +309,7 @@ Indicates whether the package should be validated or not before deployment. Lear
 **`useDiffPackage`** - **Use Diff Package**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Upgrades by using a diff package that contains only the updated application files, the updated application manifest, and the service manifest files.
+Optional. Upgrades by using a diff package that contains only the updated application files, the updated application manifest, and the service manifest files.
 
 A diff package is created by comparing the package specified in the application package input against the package that is currently registered in the target cluster. If a service version in the cluster's current package is the same as the new package, then this service package will be removed from the new application package. Learn more about [diff packages](/azure/service-fabric/service-fabric-application-upgrade-advanced#upgrade-with-a-diff-package).
 <!-- :::editable-content-end::: -->
@@ -323,7 +323,7 @@ A diff package is created by comparing the package specified in the application 
 **`overridePublishProfileSettings`** - **Override All Publish Profile Upgrade Settings**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Overrides all upgrade settings with either specified values or the default value (if not specified). Learn more about [upgrade settings](/azure/service-fabric/service-fabric-application-upgrade-parameters#visual-studio-and-powershell-parameters).
+Optional. Overrides all upgrade settings with either specified values or the default value (if not specified). Learn more about [upgrade settings](/azure/service-fabric/service-fabric-application-upgrade-parameters#visual-studio-and-powershell-parameters).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -347,7 +347,7 @@ Overwrites the application if the value is set to `false`.
 **`unregisterUnusedVersions`** - **Unregister Unused Versions**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether all unused versions of the application type will be removed after an upgrade.
+Optional. Indicates whether all unused versions of the application type will be removed after an upgrade.
 <!-- :::editable-content-end::: -->
 <br>
 

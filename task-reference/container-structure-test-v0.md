@@ -96,7 +96,7 @@ The config file path that contains container structure tests, either in .yaml or
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the Test Run.
+Optional. Provides a name for the Test Run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Provides a name for the Test Run.
 **`failTaskOnFailedTests`** - **Fail task if there are test failures**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fails the task if there are any test failures. Check this option to fail the task if test failures are detected.
+Optional. Fails the task if there are any test failures. Check this option to fail the task if test failures are detected.
 <!-- :::editable-content-end::: -->
 <br>
 

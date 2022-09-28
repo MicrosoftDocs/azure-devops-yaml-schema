@@ -95,7 +95,7 @@ Defines the GitHub release version/tag to download. This option appears if `spec
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Minimatch pattern to filter files to be downloaded. To download all files within a release, use `**`.
+Optional. Minimatch pattern to filter files to be downloaded. To download all files within a release, use `**`.
 <!-- :::editable-content-end::: -->
 <br>
 
