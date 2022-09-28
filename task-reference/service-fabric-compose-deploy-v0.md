@@ -100,7 +100,7 @@ Deploy a docker-compose application to a Service Fabric cluster.
 **`clusterConnection`** - **Cluster Service Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Fabric service connection to be used to connect to the cluster. Choose 'Manage' to register a new service connection.
+Selects an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +111,7 @@ Select an Azure Service Fabric service connection to be used to connect to the c
 **`clusterConnection`** - **Cluster Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Fabric service connection to be used to connect to the cluster. Choose 'Manage' to register a new service connection.
+Selects an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Select an Azure Service Fabric service connection to be used to connect to the c
 **`composeFilePath`** - **Compose File Path**<br>
 `string`. Required. Default value: `**/docker-compose.yml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the compose file that is to be deployed. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) and wildcards can be used in the path.
+The path to the compose file that is to be deployed. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Example: `$(System.DefaultWorkingDirectory)/**/drop/projectartifacts/**/docker-compose.yml`. **Note**: combining compose files is not supported as part of this task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +135,7 @@ Path to the compose file that is to be deployed. [Variables](https://go.microsof
 **`applicationName`** - **Application Name**<br>
 `string`. Required. Default value: `fabric:/Application1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the application being deployed.
+The Service Fabric application name of the deployed application. Use `fabric:/` as a prefix. Application names within a Service Fabric cluster must be unique.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +147,7 @@ Name of the application being deployed.
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager service connection), `ContainerRegistryEndpoint` (Container Registry service connection), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose if/how credentials for the docker registry will be provided.
+Specifies how credentials for the Docker container registry will be provided to the deployment task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ Choose if/how credentials for the docker registry will be provided.
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Endpoint), `ContainerRegistryEndpoint` (Container Registry Endpoint), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose if/how credentials for the docker registry will be provided.
+Specifies how credentials for the Docker container registry will be provided to the deployment task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +170,7 @@ Choose if/how credentials for the docker registry will be provided.
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
 Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise the password will not be encrypted.
+Selects a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +181,7 @@ Select a Docker registry service connection. If a certificate matching the Serve
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise the password will not be encrypted.
+Selects a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +193,7 @@ Select a Docker registry service connection. If a certificate matching the Serve
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription.
+Selects an Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,7 +205,7 @@ Select an Azure subscription.
 **`registryUserName`** - **Registry User Name**<br>
 `string`. Optional. Use when `registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Username for the Docker registry.
+The username for the Docker registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -217,7 +217,7 @@ Username for the Docker registry.
 **`registryPassword`** - **Registry Password**<br>
 `string`. Optional. Use when `registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the Docker registry. If the password is not encrypted, it is recommended that you use a custom release pipeline secret variable to store it.
+The password for the Docker registry. If the password is not encrypted, it is recommended that you use a custom release pipeline secret variable to store it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -229,7 +229,7 @@ Password for the Docker registry. If the password is not encrypted, it is recomm
 **`passwordEncrypted`** - **Password Encrypted**<br>
 `boolean`. Optional. Use when `registryCredentials = UsernamePassword`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise an error will occur.
+It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, an error will occur.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -241,7 +241,7 @@ It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptTex
 **`upgrade`** - **Upgrade**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Upgrade an existing deployment rather than removing it.
+Upgrades an existing deployment rather than removing it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -253,7 +253,7 @@ Upgrade an existing deployment rather than removing it.
 **`deployTimeoutSec`** - **Deploy Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Timeout in seconds for deploying the application.
+The timeout in seconds for deploying the application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -265,7 +265,7 @@ Timeout in seconds for deploying the application.
 **`removeTimeoutSec`** - **Remove Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Timeout in seconds for removing an existing application.
+The timeout in seconds for removing an existing application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -277,7 +277,7 @@ Timeout in seconds for removing an existing application.
 **`getStatusTimeoutSec`** - **Get Status Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Timeout in seconds for getting the status of an existing application.
+The timeout in seconds for getting the status of an existing application.
 <!-- :::editable-content-end::: -->
 <br>
 
