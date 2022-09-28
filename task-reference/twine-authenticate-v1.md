@@ -56,7 +56,7 @@ Authenticate for uploading Python distributions using twine. Add '-r FeedName/En
 **`pythonUploadServiceConnection`** - **Feed from external organizations**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A (twine service connection)[/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection] name from external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions. Select an endpoint to authenticate outside this organization. Make sure the endpoint has package upload permissions.
+A [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) name from external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions. Select an endpoint to authenticate outside this organization.
 <!-- :::editable-content-end::: -->
 <br>
 

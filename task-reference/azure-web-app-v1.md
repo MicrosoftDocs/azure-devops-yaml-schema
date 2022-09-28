@@ -83,7 +83,7 @@ Deploy an Azure Web App for Linux or Windows.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the (Azure Resource Manager subscription connection)[/azure/devops/pipelines/library/connect-to-azure] for the deployment.
+Select the [Azure Resource Manager subscription connection](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -239,7 +239,7 @@ Edit web app configuration settings following the syntax -key value. Value conta
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the (deployment method)[/azure/devops/pipelines/tasks/deploy/azure-rm-web-app#deployment-methods] for the app. Acceptable values are **auto**, **zipDeploy**, **runFromPackage**.
+Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app#deployment-methods) for the app. Acceptable values are **auto**, **zipDeploy**, **runFromPackage**.
 <!-- :::editable-content-end::: -->
 <br>
 

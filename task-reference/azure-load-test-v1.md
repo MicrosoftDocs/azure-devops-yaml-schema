@@ -47,7 +47,7 @@ Automate performance regression testing with Azure Load Testing.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure subscription or Azure Resource Manager service connection.
+Select an Azure Resource Manager subscription to run the load test.
 <!-- :::editable-content-end::: -->
 <br>
 

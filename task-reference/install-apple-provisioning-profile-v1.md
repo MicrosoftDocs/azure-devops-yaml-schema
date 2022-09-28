@@ -90,7 +90,7 @@ Select the location of the provisioning profile to install. The provisioning pro
 **`provProfileSecureFile`** - **Provisioning profile**<br>
 `string`. Required when `provisioningProfileLocation == secureFiles`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent. Or, select the provisioning profile from the source repository or specify the local path to a provisioning profile on the macOS agent.
+Select the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +102,7 @@ Select the provisioning profile that was uploaded to `Secure Files` to install o
 **`provProfileSourceRepository`** - **Provisioning profile**<br>
 `string`. Required when `provisioningProfileLocation == sourceRepository`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent. Or, select the provisioning profile from the source repository or specify the local path to a provisioning profile on the macOS agent.
+Select the provisioning profile from the source repository or specify the local path to a provisioning profile on the macOS agent.
 <!-- :::editable-content-end::: -->
 <br>
 
