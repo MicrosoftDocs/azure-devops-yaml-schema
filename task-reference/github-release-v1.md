@@ -98,7 +98,7 @@ Specify the type of release operation to perform. This task can create, edit, or
 **`target`** - **Target**<br>
 `string`. Required when `action = create || action = edit`. Default value: `$(Build.SourceVersion)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the commit SHA for which the GitHub release will be created (e.g. `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`). You can also use a variable here (e.g. `$(myCommitSHA)`).
+Specify the commit SHA for which the GitHub release will be created (for example: `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`). You can also use a variable here (for example: `$(myCommitSHA)`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +122,7 @@ Specify the tag to be used for release creation. The `Git tag` option automatica
 **`tagPattern`** - **Tag Pattern**<br>
 `string`. Optional. Use when `tagSource = gitTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the git tag pattern using regex (e.g. `release-v1.*`). GitHub release will be created only for commits that have matching git tag.
+Specify the git tag pattern using regex (for example: `release-v1.*`). GitHub release will be created only for commits that have matching git tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +134,7 @@ Specify the git tag pattern using regex (e.g. `release-v1.*`). GitHub release wi
 **`tag`** - **Tag**<br>
 `string`. Required when `action = edit || action = delete || tagSource = userSpecifiedTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the tag for which to create, edit, or delete a release. You can also use a variable here (e.g. `$(myTagName)`).
+Specify the tag for which to create, edit, or delete a release. You can also use a variable here (for example: `$(myTagName)`).
 <!-- :::editable-content-end::: -->
 <br>
 

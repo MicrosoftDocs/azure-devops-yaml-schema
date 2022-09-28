@@ -72,7 +72,7 @@ Download artifacts from a file share e.g \\share\drop.
 **`filesharePath`** - **File share path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path (e.g. \\server\folder)
+Fileshare path (for example: \\server\folder)
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +83,7 @@ Fileshare path (e.g. \\server\folder)
 **`filesharePath`** - **Fileshare path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path (e.g. \\server\folder)
+Fileshare path (for example: \\server\folder)
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Fileshare path (e.g. \\server\folder)
 **`artifactName`** - **Artifact name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download (e.g. drop).
+The name of the artifact to download (for example: drop).
 <!-- :::editable-content-end::: -->
 <br>
 
