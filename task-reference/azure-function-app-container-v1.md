@@ -106,7 +106,7 @@ Enters or selects the name of an existing Azure App Service. App services based 
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the option to deploy to an existing deployment slot or Azure App Service Environment.
 For both the targets, the task needs a Resource group name.
-In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.In case the deployment target is an Azure App Service environment, leave the slot name as `production` and just specify the Resource group name.
+In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided. In case the deployment target is an Azure App Service environment, leave the slot name as `production` and just specify the Resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,7 +119,7 @@ In case the deployment target is a slot, by default the deployment is done to th
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.
-Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+Enter or select the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +131,7 @@ Enter or Select the Azure Resource group that contains the Azure App Service spe
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing Slot other than the Production slot.
+Enters or selects an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 

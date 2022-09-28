@@ -161,7 +161,7 @@ Checks if the generated image should be a managed image.
 **`managedImageName`** - **Managed VM Disk Image Name**<br>
 `string`. Required when `isManagedImage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Managed disk image for Auto Generated Templates.
+The name of the Managed disk image for auto-generated templates.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,7 +268,9 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 **`packagePath`** - **Deployment Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path for a deployment package directory relative to `$(System.DefaultWorkingDirectory)`. Supports minimatch pattern. Example path: `FrontendWebApp/**/GalleryApp` Please note that this package will be copied to a temporary virtual machine which Packer creates. If the package contains a large number of files and/or the files are very large in size, the upload can take quite a long time (possibly running for a few hours). To optimize the upload time, please see if the size of the package can be meaningfully reduced. Another alternative is to use an intermediary Azure storage account. Upload the package to a storage account prior to running this task. And for this task, use a package containing a script which will download the required package from the storage account.
+Specifies the path for a deployment package directory relative to `$(System.DefaultWorkingDirectory)`. Supports minimatch pattern. Example path: `FrontendWebApp/**/GalleryApp`
+
+Please note that this package will be copied to a temporary virtual machine which Packer creates. If the package contains a large number of files and/or the files are very large in size, the upload can take quite a long time (possibly running for a few hours). To optimize the upload time, please see if the size of the package can be meaningfully reduced. Another alternative is to use an intermediary Azure storage account. Upload the package to a storage account prior to running this task. And for this task, use a package containing a script which will download the required package from the storage account.
 <!-- :::editable-content-end::: -->
 <br>
 

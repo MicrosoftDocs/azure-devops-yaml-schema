@@ -199,7 +199,9 @@ Select if the Jenkins job accepts parameters. This should be selected even if al
 `string`. Optional. Use when `parameterizedJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies job parameters, one per line, in the form `<parameterName>=<parameterValue>`
-To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify `<parameterName>=` Variables are supported. For example, to set a `commitId` parameter value to the Git commit ID of the build, use: `commitId=$(Build.SourceVersion)`. See the [documentation on variables](https://go.microsoft.com/fwlink/?linkid=875288) for more details. Supported Jenkins parameter types are: 
+To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify `<parameterName>=`
+
+Variables are supported. For example, to set a `commitId` parameter value to the Git commit ID of the build, use: `commitId=$(Build.SourceVersion)`. See the [documentation on variables](/azure/devops/pipelines/build/variables) for more details. Supported Jenkins parameter types are: 
 
  - `Boolean` 
  - `Choice`

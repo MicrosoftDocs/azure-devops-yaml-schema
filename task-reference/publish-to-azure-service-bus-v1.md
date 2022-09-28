@@ -131,7 +131,7 @@ Enters the json messageBody.
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this value is set to true, the message will be provided a private certificate.
+If this value is set to `true`, the message will be provided a private certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +178,7 @@ Keys where you want the signature to be in Message Properties. If left Empty, th
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this value is true, this task will wait for the TaskCompleted event for the specified task timeout.
+If this value is `true`, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->
 <br>
 

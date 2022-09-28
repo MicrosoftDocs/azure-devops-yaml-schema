@@ -120,7 +120,7 @@ Specifies an SDK to use when building the Xcode project or workspace. From the m
 **`xcWorkspacePath`** - **Workspace or project path**<br>
 `string`. Default value: `**/*.xcodeproj/project.xcworkspace`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters a relative path from the root of the repository to the Xcode workspace or project. If you specify a value, you must also specify the Scheme. Do not specify a value if you are specifying the `-target` flag in Advanced, Arguments. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`.
+(Optional) Enters a relative path from the root of the repository to the Xcode workspace or project. If you specify a value, you must also specify the scheme. Do not specify a value if you are specifying the `-target` flag in Advanced, Arguments. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +156,7 @@ Specifies the target version of Xcode. Select `Default` to use the default versi
 **`xcodeDeveloperDir`** - **Xcode developer path**<br>
 `string`. Optional. Use when `xcodeVersion == specifyPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters a path to a specific Xcode developer directory (e.g. `/Applications/Xcode_9.0.0.app/Contents/Developer`). This is useful when multiple versions of Xcode are installed on the agent machine.
+Enters a path to a specific Xcode developer directory (e.g. `/Applications/Xcode_9.0.0.app/Contents/Developer`). This is useful when multiple versions of Xcode are installed on the agent machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +180,7 @@ Indicates whether an IPA app package file should be generated as a part of the b
 **`archivePath`** - **Archive path**<br>
 `string`. Optional. Use when `packageApp == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Specifies a directory where created archives should be placed.
+Specifies a directory where created archives should be placed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +192,7 @@ Indicates whether an IPA app package file should be generated as a part of the b
 **`exportPath`** - **Export path**<br>
 `string`. Optional. Use when `packageApp == true`. Default value: `output/$(SDK)/$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Specifies the destination for the product exported from the archive.
+Specifies the destination for the product exported from the archive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +228,7 @@ Enters the method that Xcode should use to export the archive. For example: `app
 **`exportTeamId`** - **Team ID**<br>
 `string`. Optional. Use when `exportOptions == specify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters the 10-character team ID from the Apple Developer Portal to use during export.
+Enters the 10-character team ID from the Apple Developer Portal to use during export.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +252,7 @@ Enters the path to the plist file that contains options to use during export.
 **`exportArgs`** - **Export arguments**<br>
 `string`. Optional. Use when `packageApp == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters additional command line arguments to be used during export.
+Enters additional command line arguments to be used during export.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +276,7 @@ Chooses the method of signing the build. Select `Do not code sign` to disable si
 **`signingIdentity`** - **Signing identity**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters a signing identity override with which to sign the build. This may require unlocking the default keychain on the agent machine. If no value is entered, the Xcode project's setting will be used.
+Enters a signing identity override with which to sign the build. This may require unlocking the default keychain on the agent machine. If no value is entered, the Xcode project's setting will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -288,7 +288,7 @@ Chooses the method of signing the build. Select `Do not code sign` to disable si
 **`provisioningProfileUuid`** - **Provisioning profile UUID**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enters the UUID of an installed provisioning profile to be used for this build. Use separate build tasks with different schemes or targets to specify separate provisioning profiles by target in a single workspace (iOS, tvOS, watchOS).
+Enters the UUID of an installed provisioning profile to be used for this build. Use separate build tasks with different schemes or targets to specify separate provisioning profiles by target in a single workspace (iOS, tvOS, watchOS).
 <!-- :::editable-content-end::: -->
 <br>
 
