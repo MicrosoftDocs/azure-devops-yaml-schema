@@ -104,6 +104,9 @@ Select the Azure Spring Cloud app to deploy.
 `boolean`. Required when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically select the deployment that's set as Staging at the time the task runs.
+
+If set to `true`, apply the task to whichever deployment is set as the staging deployment at time of execution. If omitted, the `DeploymentName` parameter must be set.
+
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +118,7 @@ Automatically select the deployment that's set as Staging at the time the task r
 **`CreateNewDeployment`** - **Create a new staging deployment if one does not exist.**<br>
 `boolean`. Optional. Use when `Action = Deploy && UseStagingDeployment = false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Whether to target the deployment that's set as Staging at the time of execution. If unchecked, the 'Deployment Name' setting must be set.
+If set to `true` and the deployment specified by `DeploymentName` does not exist at execution time, it will be created. If unchecked, the `Deployment Name` setting must be set.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -127,7 +130,7 @@ Whether to target the deployment that's set as Staging at the time of execution.
 **`DeploymentName`** - **Deployment**<br>
 `string`. Optional. Use when `UseStagingDeployment = false && Action != Delete Staging Deployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The deployment to which this task will apply. Lowercase letters and numbers only; must start with a letter.
+The deployment to which this task will apply. If not using blue-green deployments, set this field to `default`. Lowercase letters and numbers only; must start with a letter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -139,7 +142,7 @@ The deployment to which this task will apply. Lowercase letters and numbers only
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder containing the Spring Cloud app contents.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.jar.
+File path to the package or a folder containing the Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported. <br/> For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.jar`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -151,7 +154,8 @@ File path to the package or a folder containing the Spring Cloud app contents.<b
 **`EnvironmentVariables`** - **Environment Variables**<br>
 `string`. Optional. Use when `Action = Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit the app's environment variables.
+Environment variables to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes.
+Example: `-CUSTOMER_NAME Contoso -WEBSITE_TIME_ZONE "Eastern Standard Time"`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -163,7 +167,7 @@ Edit the app's environment variables.
 **`JvmOptions`** - **JVM Options**<br>
 `string`. Optional. Use when `Action = Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit the app's JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`.
+Edit the app's JVM options. A string containing JVM Options, such as `-Xms1024m -Xmx2048m`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,6 +203,7 @@ The path to the .NET executable relative to zip root.
 **`Version`** - **Version**<br>
 `string`. Optional. Use when `Action = Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The deployment version. If not set, the version is left unchanged.
 <!-- :::editable-content-end::: -->
 <br>
 

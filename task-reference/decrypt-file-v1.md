@@ -106,7 +106,7 @@ Relative path of file to decrypt.
 **`passphrase`** - **Passphrase**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passphrase to use for decryption. **Use a Variable to encrypt the passphrase.**.
+Passphrase to use for decryption. **Use a variable to encrypt the passphrase.**
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ Passphrase to use for decryption. **Use a Variable to encrypt the passphrase.**.
 **`outFile`** - **Decrypted file path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional filename for decrypted file. Defaults to the Encrypted File with a ".out" extension.
+Optional filename for decrypted file. Defaults to the encrypted file with a ".out" extension.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +130,7 @@ Optional filename for decrypted file. Defaults to the Encrypted File with a ".ou
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory for decryption. Defaults to the root of the repository.
+Optional. Working directory for decryption. Defaults to the root of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 

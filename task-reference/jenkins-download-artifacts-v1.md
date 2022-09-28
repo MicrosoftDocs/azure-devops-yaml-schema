@@ -98,7 +98,7 @@ Download artifacts produced by a Jenkins job.
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance. To create one, click the Manage link and create a new Jenkins service connection.
+Select the service connection for your Jenkins instance. To create one, click the Manage link, and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ Select the service connection for your Jenkins instance. To create one, click th
 **`jenkinsServerConnection`** - **Jenkins service endpoint**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance. To create one, click the Manage link and create a new Jenkins service connection.
+Select the service connection for your Jenkins instance. To create one, click the Manage link, and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +157,7 @@ Jenkins artifacts will be downloaded and saved to this directory.  This director
 **`jenkinsBuild`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `LastSuccessfulBuild` (Last Successful Build), `BuildNumber` (Build Number). Default value: `LastSuccessfulBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download artifacts produced by the last successful build, or from a specific build instance.
+Download artifacts produced by the last successful build or from a specific build instance.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +181,7 @@ Download artifacts produced by this build.
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files across all artifacts produced by the Jenkins job. To download all files within artifact drop use drop/**.</p>.
+Specify files to be downloaded as multi line minimatch pattern. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns) <p>The default pattern (\*\*) will download all files across all artifacts produced by the Jenkins job. To download all files within artifact drop, use `drop/**`.</p>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -240,7 +240,7 @@ Optional file name suffix for commits and work item attachments. Attachments wil
 **`propagatedArtifacts`** - **Artifacts are propagated to Azure**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins artifacts to azure, refer to this [Jenkins plugin](https://wiki.jenkins.io/display/JENKINS/Windows+Azure+Storage+Plugin).
+Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins artifacts to Azure, refer to this [Jenkins plugin](https://wiki.jenkins.io/display/JENKINS/Windows+Azure+Storage+Plugin).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +252,7 @@ Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins arti
 **`artifactProvider`** - **Artifact Provider**<br>
 `string`. Required when `propagatedArtifacts == notValid`. Allowed values: `azureStorage` (Azure Storage). Default value: `azureStorage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the external storage provider used in Jenkins job to upload the artifacts.
+Choose the external storage provider used in Jenkins Job to upload the artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +276,7 @@ Choose the Azure Resource Manager subscription for the artifacts.
 **`storageAccountName`** - **Storage Account Name**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Classic and Resource Manager stoarge accounts are listed. Select the Storage account name in which the artifacts are propagated.
+Azure Classic and Resource Manager storage accounts are listed. Select the storage account name in which the artifacts are propagated.
 <!-- :::editable-content-end::: -->
 <br>
 
