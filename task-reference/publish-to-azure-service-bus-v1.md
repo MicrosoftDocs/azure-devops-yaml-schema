@@ -85,7 +85,7 @@ Sends a message to azure service bus using a service connection (no agent requir
 **`azureSubscription`** - **Azure Service Bus service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Bus service connection.
+Selects an Azure Service Bus service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Select an Azure Service Bus service connection.
 **`azureSubscription`** - **Azure service bus connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Bus service connection.
+Selects an Azure Service Bus service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Select an Azure Service Bus service connection.
 **`messageBody`** - **Message body**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the json messageBody.
+Enters the json messageBody.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ If this is set to true, the message will be provided a private certificate.
 **`certificateString`** - **Certificate Variable**<br>
 `string`. Required when `signPayload = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the secret variable that contains the certificate content.  This can also be a certificate stored in an Azure key vault that is [linked](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault-as-variables) to a Variable Group used by this release pipeline.
+Specifies the secret variable that contains the certificate content.  This can also be a certificate stored in an Azure key vault that is [linked](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault-as-variables) to a Variable Group used by this release pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +156,7 @@ Specify the secret variable that contains the certificate content.  This can als
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want the signature to be in Message Properties. If left Empty, the default is 'signature' in message properties.
+Keys where you want the signature to be in Message Properties. If left Empty, the default is `signature` in message properties.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +167,7 @@ Key where you want the signature to be in Message Properties. If left Empty, the
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want the signature to be in Message Properties. If left Empty, the default is 'signature' in message properties.
+Keys where you want the signature to be in Message Properties. If left Empty, the default is `signature` in message properties.
 <!-- :::editable-content-end::: -->
 <br>
 
