@@ -166,7 +166,7 @@ Specify the username for server authentication.
 **`password`** - **Password**<br>
 `string`. Optional. Use when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value. Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing ths value.
 <!-- :::editable-content-end::: -->
 <br>
 
