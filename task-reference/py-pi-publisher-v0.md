@@ -106,12 +106,12 @@ Select whether to create and publish a universal wheel package (platform indepen
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the generic service endpoint where PyPI server details are present.
 
-*Note:* To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
+[!NOTE] To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
 
-Connection Name – Use a friendly connection name of your choice.</br>
-Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/).</br>
-User Name – PyPI registered username.</br>
-Password – password for your PyPI account.
+- Connection Name – Use a friendly connection name of your choice.
+- Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/).
+- User Name – PyPI registered username.
+- Password – password for your PyPI account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Password – password for your PyPI account.
 **`wd`** - **Python package path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Python package directory to be published where setup.py is present.
+Python package directory to be published where `setup.py` is present.
 <!-- :::editable-content-end::: -->
 <br>
 

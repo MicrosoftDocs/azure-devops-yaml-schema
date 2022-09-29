@@ -252,7 +252,7 @@ Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins arti
 **`artifactProvider`** - **Artifact Provider**<br>
 `string`. Required when `propagatedArtifacts == notValid`. Allowed values: `azureStorage` (Azure Storage). Default value: `azureStorage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the external storage provider used in Jenkins Job to upload the artifacts.
+Choose the external storage provider used in Jenkins job to upload the artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 

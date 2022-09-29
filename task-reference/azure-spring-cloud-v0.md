@@ -142,7 +142,7 @@ The deployment to which this task will apply. If not using blue-green deployment
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder containing the Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported. <br/> For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.jar`
+File path to the package or a folder containing the Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported. <br/> For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 <!-- :::editable-content-end::: -->
 <br>
 
