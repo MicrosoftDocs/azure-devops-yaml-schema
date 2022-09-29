@@ -92,7 +92,7 @@ The Chef subscription to configure before running knife commands.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of the script. Should be fully qualified path or relative to the default working directory.
+The path of the script. This should be fully qualified path or a relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
