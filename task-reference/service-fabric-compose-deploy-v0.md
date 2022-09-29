@@ -147,7 +147,15 @@ The Service Fabric application name of the deployed application. Use `fabric:/` 
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager service connection), `ContainerRegistryEndpoint` (Container Registry service connection), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies how credentials for the Docker container registry will be provided to the deployment task.
+Specifies how credentials for the Docker container registry will be provided to the deployment task. The allowed values are:
+
+**`AzureResourceManagerEndpoint` - Azure Resource Manager service connection**: uses `azureSubscription` to obtain a service principal ID and key for an Azure Container Registry.
+
+**`ContainerRegistryEndpoint` - Container Registry service connection**: uses `dockerRegistryConnection` to select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
+
+**`UsernamePassword` - Username and Password**: uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the **Password Encrypted** option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
+
+**None**: No registry credentials are provided. This is used for accessing public container registries.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +166,15 @@ Specifies how credentials for the Docker container registry will be provided to 
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Endpoint), `ContainerRegistryEndpoint` (Container Registry Endpoint), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies how credentials for the Docker container registry will be provided to the deployment task.
+Specifies how credentials for the Docker container registry will be provided to the deployment task. The allowed values are:
+
+**`AzureResourceManagerEndpoint` - Azure Resource Manager service connection**: uses `azureSubscription` to obtain a service principal ID and key for an Azure Container Registry.
+
+**`ContainerRegistryEndpoint` - Container Registry service connection**: uses `dockerRegistryConnection` to select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
+
+**`UsernamePassword` - Username and Password**: uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the **Password Encrypted** option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
+
+**None**: No registry credentials are provided. This is used for accessing public container registries.
 <!-- :::editable-content-end::: -->
 <br>
 
