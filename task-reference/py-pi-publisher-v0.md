@@ -106,7 +106,7 @@ Select whether to create and publish a universal wheel package (platform indepen
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the generic service endpoint where PyPI server details are present.
 
-[!NOTE] To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
+*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
 
 - Connection Name – Use a friendly connection name of your choice.
 - Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/).
