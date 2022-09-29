@@ -94,7 +94,7 @@ Automatically updates portions of the application and service manifests within a
 **`updateType`** - **Update Type**<br>
 `string`. Required. Allowed values: `Manifest versions`, `Docker image settings`. Default value: `Manifest versions`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the type of update that should be made to the manifest files. In order to use both update types, add an instance of this task to the build pipeline for each type of update to be executed.
+Specifies the type of update that should be made to the manifest files. In order to use both update types, add an instance of this task to the build pipeline for each type of update to be executed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +106,7 @@ Specify the type of update that should be made to the manifest files. In order t
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the application package. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) and wildcards can be used in the path.
+The path to the application package. [Variables](http://azure/devops/pipelines/build/variables) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,14 @@ Path to the application package. [Variables](https://go.microsoft.com/fwlink/?Li
 **`versionSuffix`** - **Version Value**<br>
 `string`. Required when `updateType = Manifest versions`. Default value: `.$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The value used to specify the version in the manifest files. Default is .$(Build.BuildNumber).
+Specifies the version in the manifest files.
+
+**Tip**: You can modify the build number format directly or use a logging command to dynamically set a variable in an format. For example, you can use `$(VersionSuffix)` defined in a PowerShell task:
+
+```
+$versionSuffix = ".$([DateTimeOffset]::UtcNow.ToString('yyyyMMdd.HHmmss'))"
+Write-Host "##vso[task.setvariable variable=VersionSuffix;]$versionSuffix"
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +137,7 @@ The value used to specify the version in the manifest files. Default is .$(Build
 **`versionBehavior`** - **Version Behavior**<br>
 `string`. Optional. Use when `updateType = Manifest versions`. Allowed values: `Append`, `Replace`. Default value: `Append`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify whether to append the version value to existing values in the manifest files or replace them.
+Specifies whether to append the version value to existing values in the manifest files or replace them.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +149,9 @@ Specify whether to append the version value to existing values in the manifest f
 **`updateOnlyChanged`** - **Update only if changed**<br>
 `boolean`. Required when `updateType = Manifest versions`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Incrementally update only the packages that have changed. Use the [deterministic compiler flag](https://go.microsoft.com/fwlink/?LinkId=808668) to ensure builds with the same inputs produce the same outputs.
+Appends the new version suffix to only the packages that have changed from a previous build. If no changes are found, the version suffix from the previous build will be appended.
+
+**Note**: By default, the compiler will create different outputs even if no changes were made. Use the [deterministic compiler flag](https://devblogs.microsoft.com/dotnet/whats-new-for-c-and-vb-in-visual-studio/) to ensure builds with the same inputs produce the same outputs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +175,7 @@ The name of the artifact containing the application package for comparison.
 **`logAllChanges`** - **Log all changes**<br>
 `boolean`. Optional. Use when `updateType = Manifest versions && updateOnlyChanged = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Compare all files in every package and log if the file was added, removed, or if its content changed. Otherwise, compare files in a package only until the first change is found for faster performance.
+Compares all files in every package and log if the file was added, removed, or if its content changed. Otherwise, this boolean compares files in a package only until the first change is found for faster performance.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +187,7 @@ Compare all files in every package and log if the file was added, removed, or if
 **`compareType`** - **Compare against**<br>
 `string`. Optional. Use when `updateType = Manifest versions && updateOnlyChanged = true`. Allowed values: `LastSuccessful` (Last Successful Build), `Specific` (Specific Build). Default value: `LastSuccessful`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build for comparison.
+Specifies whether to compare against the last completed and successful build or against a specific build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -202,7 +211,7 @@ The build number for comparison.
 **`overwriteExistingPkgArtifact`** - **Overwrite Existing Package Artifact**<br>
 `boolean`. Optional. Use when `updateType = Manifest versions && updateOnlyChanged = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always download a new copy of the artifact. Otherwise use an existing copy, if present.
+Always downloads a new copy of the artifact. Otherwise, this boolean uses an existing copy, if present.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -214,7 +223,7 @@ Always download a new copy of the artifact. Otherwise use an existing copy, if p
 **`imageNamesPath`** - **Image Names Path**<br>
 `string`. Optional. Use when `updateType = Docker image settings`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a text file that contains the names of the Docker images associated with the Service Fabric application that should be updated with digests. Each image name must be on its own line and must be in the same order as the digests in Image Digests file. If the images are created by the Service Fabric project, this file is generated as part of the Package target and its output location is controlled by the property BuiltDockerImagesFilePath.
+The path to a text file that contains the names of the Docker images associated with the Service Fabric application that should be updated with digests. Each image name must be on its own line and must be in the same order as the digests in Image Digests file. If the images are created by the Service Fabric project, this file is generated as part of the Package target, and its output location is controlled by the property `BuiltDockerImagesFilePath`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +235,7 @@ Path to a text file that contains the names of the Docker images associated with
 **`imageDigestsPath`** - **Image Digests Path**<br>
 `string`. Required when `updateType = Docker image settings`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a text file that contains the digest values of the Docker images associated with the Service Fabric application. This file can be output by the [Docker task](https://go.microsoft.com/fwlink/?linkid=848006) when using the push action. The file should contain lines of text in the format of 'registry/image_name@digest_value'.
+The path to a text file that contains the digest values of the Docker images associated with the Service Fabric application. This file can be output by the [Docker task](/azure/devops/pipelines/tasks/build/docker) when using the push action. The file should contain lines of text in the format of `registry/image_name@digest_value`.
 <!-- :::editable-content-end::: -->
 <br>
 
