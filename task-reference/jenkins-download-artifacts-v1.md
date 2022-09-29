@@ -98,7 +98,7 @@ Download artifacts produced by a Jenkins job.
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance. To create one, click the Manage link, and create a new Jenkins service connection.
+Select the service connection for your Jenkins instance. To create one, click the Manage link and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ Select the service connection for your Jenkins instance. To create one, click th
 **`jenkinsServerConnection`** - **Jenkins service endpoint**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance. To create one, click the Manage link, and create a new Jenkins service connection.
+Select the service connection for your Jenkins instance. To create one, click the Manage link and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
