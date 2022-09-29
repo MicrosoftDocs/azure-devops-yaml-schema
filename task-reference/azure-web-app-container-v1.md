@@ -52,7 +52,7 @@ Deploy containers to Azure App Service.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Name of the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> **Example** : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> **Example** : `-phpVersion 5.6 -linuxFxVersion: node|6.11`
 <!-- :::editable-content-end::: -->
 <br>
 
