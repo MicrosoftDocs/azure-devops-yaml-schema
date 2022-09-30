@@ -110,7 +110,7 @@ Select the Azure Resource Manager subscription for the scale set.
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Update image` (Update VM Scale set by using an image), `Configure application startup` (Run Custom Script VM extension on VM scale set). Default value: `Update image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose between updating a VM scale set by using a VHD image and/or by running deployment/install scripts using Custom Script VM extension.<br/>The VHD image approach is better for scaling quickly and doing rollback. The extension approach is useful for post deployment configuration, software installation, or any other configuration / management task.<br/>You can use a VHD image to update a VM scale set only when it was created by using a custom image, the update will fail if the VM Scale set was created by using a platform/gallery image available in Azure.<br/>The Custom script VM extension approach can be used for VM scale set created by using either custom image or platform/gallery image.
+Choose between updating a VM scale set by using a VHD image and/or by running deployment/install scripts using Custom Script VM Extension.<br/>The VHD image approach is better for scaling quickly and doing rollback. The extension approach is useful for post deployment configuration, software installation, or any other configuration/management task.<br/>You can use a VHD image to update a VM scale set only when it was created by using a custom image. The update will fail if the VM scale set was created by using a platform/gallery image available in Azure.<br/>The Custom Script VM Extension approach can be used for VM scale set created by using either custom image or platform/gallery image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +122,7 @@ Choose between updating a VM scale set by using a VHD image and/or by running de
 **`vmssName`** - **Virtual Machine scale set name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of VM scale set which you want to update by using either a VHD image or by using Custom script VM extension.
+Name of the VM scale set which you want to update by using either a VHD image or by using a Custom Script VM Extension.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +134,7 @@ Name of VM scale set which you want to update by using either a VHD image or by 
 **`vmssOsType`** - **OS type**<br>
 `string`. Required. Allowed values: `Windows`, `Linux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the operating system type of VM scale set.
+Select the operating system type of the VM scale set.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +146,7 @@ Select the operating system type of VM scale set.
 **`imageUrl`** - **Image URL**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of VHD image. If it is an Azure storage blob URL, the storage account location should be same as scale set location.
+Specify the URL of the VHD image. If it is an Azure storage blob URL, the storage account location should be the same as the scale set location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +157,7 @@ Specify the URL of VHD image. If it is an Azure storage blob URL, the storage ac
 **`imageUrl`** - **Image url**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of VHD image. If it is an Azure storage blob URL, the storage account location should be same as scale set location.
+Specify the URL of the VHD image. If it is an Azure storage blob URL, the storage account location should be the same as the scale set location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,7 +169,7 @@ Specify the URL of VHD image. If it is an Azure storage blob URL, the storage ac
 **`customScriptsDirectory`** - **Custom script directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to directory containing custom script(s) that will be run by using Custom Script VM extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example: the script can set a machine level environment variable which the application uses, like database connection string.
+Optional. The path to the directory containing the custom script(s) that will be run by using the Custom Script VM Extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example, the script can set a machine level environment variable which the application uses, like database connection string.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +181,11 @@ Path to directory containing custom script(s) that will be run by using Custom S
 **`customScript`** - **Command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The script that will be run by using Custom Script VM extension. This script can invoke other scripts in the directory. The script will be invoked with arguments passed below.<br/>This script in conjugation with such arguments can be used to execute commands. For example:<br/>1. Update-DatabaseConnectionStrings.ps1 -clusterType dev -user $(dbUser) -password $(dbUserPwd) will update connection string in web.config of web application.<br/>2. install-secrets.sh --key-vault-type prod -key serviceprincipalkey will create an encrypted file containing service principal key.
+Optional. The script that will be run by using the Custom Script VM Extension. This script can invoke other scripts in the directory. The script will be invoked with arguments passed below.<br/>This script in conjugation with such arguments can be used to execute commands.
+
+For example:
+1. `Update-DatabaseConnectionStrings.ps1 -clusterType dev -user $(dbUser) -password $(dbUserPwd)` will update the connection string in `web.config` of the web application.
+2. `install-secrets.sh --key-vault-type prod -key serviceprincipalkey` will create an encrypted file containing a service principal key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +197,7 @@ The script that will be run by using Custom Script VM extension. This script can
 **`customScriptArguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The custom script will be invoked with arguments passed. Build/Release variables can be used which makes it easy to use secrets.
+Optional. The custom script will be invoked with arguments passed. Build/Release variables can be used, which makes it easy to use secrets.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,7 +209,7 @@ The custom script will be invoked with arguments passed. Build/Release variables
 **`customScriptsStorageAccount`** - **Azure storage account where custom scripts will be uploaded**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Custom Script Extension downloads and executes scripts provided by you on each virtual machines in the VM scale set. These scripts will be stored in the storage account specified here. Specify a pre-existing ARM storage account.
+Optional. The Custom Script Extension downloads and executes scripts provided by you on each virtual machine in the VM scale set. These scripts will be stored in the pre-existing ARM storage account specified here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -217,7 +221,7 @@ The Custom Script Extension downloads and executes scripts provided by you on ea
 **`skipArchivingCustomScripts`** - **Skip Archiving custom scripts**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default, this task creates a compressed archive of directory containing custom scripts. This improves performance and reliability while uploading to azure storage. If not selected, archiving will not be done and all files will be inidividually uploaded.
+Optional. By default, this task creates a compressed archive of the directory containing the custom scripts. This improves performance and reliability while uploading to Azure storage. If not selected, archiving will not be done and all files will be individually uploaded.
 <!-- :::editable-content-end::: -->
 <br>
 

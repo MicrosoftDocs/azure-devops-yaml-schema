@@ -100,7 +100,7 @@ The JavaScript Task Runner.
 **`gruntFile`** - **Grunt File Path**<br>
 `string`. Required. Default value: `gruntfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the grunt file script file to run.
+Relative path from the repo root to the Grunt script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,9 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to grunt.  --gruntfile is not needed since already added via gruntFile input above.
+Additional arguments passed to grunt. See [Using the CLI](http://gruntjs.com/using-the-cli).
+
+*Note:* `--gruntfile` is not needed because it was already added via gruntFile input above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +138,7 @@ Additional arguments passed to grunt.  --gruntfile is not needed since already a
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when script is run.  Defaults to the folder where the script is located.
+Optional. Current working directory when the script is run.  If not specified, working directory defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +150,7 @@ Current working directory when script is run.  Defaults to the folder where the 
 **`gruntCli`** - **grunt-cli location**<br>
 `string`. Required. Default value: `node_modules/grunt-cli/bin/grunt`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-grunt-cli to run when agent can't find global installed grunt-cli  Defaults to the grunt-cli under node_modules folder of the working directory.
+Grunt-cli to run when the agent can't find the globally installed grunt-cli. Defaults to the grunt-cli under the `node_modules` folder of the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +196,9 @@ Select this option to publish JUnit test results produced by the Grunt build to 
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+Test results files path. Wildcards can be used.
+
+For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +222,7 @@ Provide a name for the test run.
 **`enableCodeCoverage`** - **Enable Code Coverage**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to enable Code Coverage using Istanbul.
+Select this option to enable code coverage using Istanbul.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +246,7 @@ Select your test framework.
 **`srcFiles`** - **Source Files**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your source files which you want to hookRequire().
+Provide the path to your source files which you want to `hookRequire()`.
 <!-- :::editable-content-end::: -->
 <br>
 
