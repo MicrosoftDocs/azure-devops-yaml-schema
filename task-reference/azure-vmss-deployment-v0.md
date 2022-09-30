@@ -122,7 +122,7 @@ Choose between updating a VM scale set by using a VHD image and/or by running de
 **`vmssName`** - **Virtual Machine scale set name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the VM scale set which you want to update by using either a VHD image or by using a Custom Script VM Extension.
+The name of the VM scale setting that you want to update. Use either a VHD image or a custom script VM Extension.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +181,7 @@ Optional. The path to the directory containing the custom script(s) that will be
 **`customScript`** - **Command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The script that will be run by using the Custom Script VM Extension. This script can invoke other scripts in the directory. The script will be invoked with arguments passed below.<br/>This script in conjugation with such arguments can be used to execute commands.
+Optional. The script that will be run by using the Custom Script VM Extension. This script can invoke other scripts in the directory. The script will be invoked with arguments passed below.<br/>This script in conjunction with such arguments can be used to execute commands.
 
 For example:
 1. `Update-DatabaseConnectionStrings.ps1 -clusterType dev -user $(dbUser) -password $(dbUserPwd)` will update the connection string in `web.config` of the web application.

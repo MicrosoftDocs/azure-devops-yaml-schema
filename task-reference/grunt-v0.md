@@ -124,7 +124,7 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to grunt. See [Using the CLI](http://gruntjs.com/using-the-cli).
+Additional arguments passed to Grunt. See [Using the CLI](http://gruntjs.com/using-the-cli).
 
 *Note:* `--gruntfile` is not needed because it was already added via gruntFile input above.
 <!-- :::editable-content-end::: -->
