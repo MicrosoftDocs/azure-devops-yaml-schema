@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 09/29/2022
+ms.date: 09/30/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -2012,7 +2012,7 @@ ___
 ### Shallow fetch
 
 > [!IMPORTANT]
-> New pipelines created after September 2022 have **Shallow fetch** enabled by default and configured with a depth of 1.
+> New pipelines created after the [September 2022 Azure DevOps sprint 209 update](/azure/devops/release-notes/2022/sprint-209-update) have **Shallow fetch** enabled by default and configured with a depth of 1. Previously the default was not to shallow fetch.
 
 To disable shallow fetch, you can perform one of the following two options.
 
