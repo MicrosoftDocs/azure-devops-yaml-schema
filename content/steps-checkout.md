@@ -2012,7 +2012,7 @@ ___
 ### Shallow fetch
 
 > [!IMPORTANT]
-> New pipelines created after the [September 2022 Azure DevOps sprint 209 update](/azure/devops/release-notes/2022/sprint-209-update) have **Shallow fetch** enabled by default and configured with a depth of 1. Previously the default was not to shallow fetch.
+> New pipelines created after the [September 2022 Azure DevOps sprint 209 update](/azure/devops/release-notes/2022/sprint-209-update) have **Shallow fetch** enabled by default and configured with a depth of 1. Previously the default was not to shallow fetch. To check your pipeline, view the **Shallow fetch** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
 
 To disable shallow fetch, you can perform one of the following two options.
 
@@ -2020,6 +2020,9 @@ To disable shallow fetch, you can perform one of the following two options.
 * Explicitly set `fetchDepth: 0` in your `checkout` step.
 
 To configure the fetch depth for a pipeline, you can either set the `fetchDepth` property in the `checkout` step, or configure the **Shallow fetch** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
+
+> [!NOTE]
+> If you explicitly set `fetchDepth` in your `checkout` step, that setting takes priority over the setting configured in the pipeline settings UI. Setting `fetchDepth: 0` fetches all history and overrides the **Shallow fetch** setting.
 
 ### Clean property
 
