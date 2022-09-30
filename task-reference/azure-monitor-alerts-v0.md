@@ -183,7 +183,7 @@ Optional. Send an email notification to everyone who has access to this resource
 **`NotifyEmails`** - **Additional administrator emails**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Add email addresses separated by semicolons (;) if you want to include additional email notification recipients. Can be incorporated whether or not the  "subscription owners..." box is checked.
+Optional. Add email addresses separated by semicolons (;) if you want to include additional email notification recipients. Can be incorporated whether or not the "subscription owners..." box is checked.
 <!-- :::editable-content-end::: -->
 <br>
 
