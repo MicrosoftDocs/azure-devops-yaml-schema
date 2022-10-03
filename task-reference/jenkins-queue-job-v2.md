@@ -200,7 +200,7 @@ Select if the Jenkins job accepts parameters. This should be selected even if al
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies job parameters, one per line, in the form `<parameterName>=<parameterValue>`. Specify job parameters, one per line, in the form parameterName=parameterValue preceded by `|` on the first line. Example:
 
-```
+```yml
 jobParameters: |
 parameter1=value1
 parameter2=value2
