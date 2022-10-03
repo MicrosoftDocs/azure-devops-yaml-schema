@@ -168,7 +168,7 @@ The architecture (x86, x64) of the JDK.
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory), `PreInstalled` (Pre-installed).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Source for the compressed JDK.
+Specify the source for the compressed JDK, either Azure blob storage or a local directory on the agent or source repository or use the pre-installed version of Java (available for Microsoft-hosted agents). Please see example below about how to use pre-installed version of Java.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +179,7 @@ Source for the compressed JDK.
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Source for the compressed JDK.
+Specify the source for the compressed JDK, either Azure blob storage or a local directory on the agent or source repository or use the pre-installed version of Java (available for Microsoft-hosted agents). Please see example below about how to use pre-installed version of Java.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +191,7 @@ Source for the compressed JDK.
 **`jdkFile`** - **JDK file**<br>
 `string`. Required when `jdkSourceOption == LocalDirectory`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to where the compressed JDK is located. The path could be in your source repository or a local path on the agent.
+Specify the path to the jdk archive file that contains the compressed JDK. The path could be in your source repository or a local path on the agent. The file should be an archive (.zip, .tar.gz, .7z), containing bin folder either on the root level or inside a single directory. For macOS - there's support of .pkg and .dmg files containing only one .pkg file inside.
 <!-- :::editable-content-end::: -->
 <br>
 
