@@ -60,7 +60,7 @@ Select an Azure Resource Manager subscription to run the load test.
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the load test YAML configuration file, relative from the repo root.
-See (Test configuration YAML reference)[/azure/load-testing/reference-test-config-yaml]. Should be fully qualified path or relative to the default working directory.
+See [Test configuration YAML reference](/azure/load-testing/reference-test-config-yaml). Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
