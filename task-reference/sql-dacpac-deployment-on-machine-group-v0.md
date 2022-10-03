@@ -116,7 +116,7 @@ Specify the way in which you want to deploy DB, either by using Dacpac or by usi
 **`DacpacFile`** - **DACPAC File**<br>
 `string`. Required when `TaskType = dacpac`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the DACPAC file on the target machines or on a UNC path like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like $env:windir, $env:systemroot, $env:windir\FabrikamFibre\DB. Wildcards can be used. For example, `**/*.dacpac` for DACPAC file present in all sub folders.
+Location of the DACPAC file on the target machines or on a UNC path like, `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, `$env:windir\FabrikamFibre\DB`. Wildcards can be used. For example, `**/*.dacpac` for DACPAC file present in all sub folders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ Location of the DACPAC file on the target machines or on a UNC path like, \\\\Bu
 **`SqlFile`** - **Sql File**<br>
 `string`. Required when `TaskType = sqlQuery`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the SQL file on the target. Provide semi-colon separated list of SQL script files to execute multiple files. The SQL scripts will be executed in the order given. Location can also be a UNC path like, \\\\BudgetIT\Web\Deploy\FabrikamDB.sql. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like $env:windir, $env:systemroot, $env:windir\FabrikamFibre\DB. Wildcards can be used. For example, `**/*.sql` for SQL file present in all sub folders.
+Location of the SQL file on the target. Provide semi-colon separated list of SQL script files to execute multiple files. The SQL scripts will be executed in the order given. Location can also be a UNC path like, `\\BudgetIT\Web\Deploy\FabrikamDB.sql`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, `$env:windir\FabrikamFibre\DB`. Wildcards can be used. For example, `**/*.sql` for SQL file present in all sub folders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +200,7 @@ Specify the option to connect to the target SQL Server Database. The options are
 **`ServerName`** - **Server Name**<br>
 `string`. Required when `TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline`. Default value: `localhost`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the SQL Server name like, machinename\FabriakmSQL,1433 or localhost or .\SQL2012R2. Specifying localhost will connect to the Default SQL Server instance on the machine.
+Provide the SQL Server name like, `machinename\FabriakmSQL,1433` or `localhost` or `.\SQL2012R2`. Specifying localhost will connect to the Default SQL Server instance on the machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +296,7 @@ Additional SqlPackage.exe arguments that will be applied when deploying the SQL 
 **`AdditionalArgumentsSql`** - **Additional Arguments**<br>
 `string`. Optional. Use when `TaskType = sqlQuery || TaskType = sqlInline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Invoke-Sqlcmd arguments that will be applied when deploying the SQL Server Database.
+Additional `Invoke-Sqlcmd` arguments that will be applied when deploying the SQL Server Database.
 <!-- :::editable-content-end::: -->
 <br>
 

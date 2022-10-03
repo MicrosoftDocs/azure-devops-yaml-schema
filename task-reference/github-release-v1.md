@@ -110,7 +110,7 @@ Specify the commit SHA for which the GitHub release will be created (for example
 **`tagSource`** - **Tag source**<br>
 `string`. Required when `action = create`. Allowed values: `gitTag` (Git tag), `userSpecifiedTag` (User specified tag). Default value: `gitTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the tag to be used for release creation. The `Git tag` option automatically takes the tag which is associated with the Git commit. Use the `User specified tag` option to manually provide a tag.
+Specify the tag to be used for release creation. The `gitTag` option automatically takes the tag which is associated with the Git commit. Use the `User specified tag` option to manually provide a tag.
 <!-- :::editable-content-end::: -->
 <br>
 
