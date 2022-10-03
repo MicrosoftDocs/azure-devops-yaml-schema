@@ -42,7 +42,7 @@ Install Kubectl on agent machine.
 **`kubectlVersion`** - **Kubectl Version Spec**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the version of Kubectl to install. The acceptable values are `latest` or any semantic version string, e.g. `1.15.0`.
+Specifies the version of Kubectl to install. The acceptable values are `latest` or any semantic version string, e.g. `1.15.0`.
 <!-- :::editable-content-end::: -->
 <br>
 

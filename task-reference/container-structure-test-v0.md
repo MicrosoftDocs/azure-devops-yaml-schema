@@ -48,7 +48,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specify a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ The config file path that contains container structure tests, either in .yaml or
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Provides a name for the Test Run.
+Specify a name for the Test Run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Optional. Provides a name for the Test Run.
 **`failTaskOnFailedTests`** - **Fail task if there are test failures**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Fails the task if there are any test failures. Check this option to fail the task if test failures are detected.
+Fails the task if there are any test failures. Check this option to fail the task if test failures are detected.
 <!-- :::editable-content-end::: -->
 <br>
 
