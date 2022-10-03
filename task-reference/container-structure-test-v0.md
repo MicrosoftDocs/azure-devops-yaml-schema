@@ -48,7 +48,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Selects a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -60,7 +60,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`repository`** - **Container repository**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository.
+The name of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,7 @@ The tag is used in pulling the image from docker registry service connection.
 **`configFile`** - **Config file path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Config files path, that contains container structure tests. Either .yaml or .json files.
+The config file path that contains container structure tests, either in .yaml or .json file formats.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Config files path, that contains container structure tests. Either .yaml or .jso
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the Test Run.
+Optional. Provides a name for the Test Run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Provide a name for the Test Run.
 **`failTaskOnFailedTests`** - **Fail task if there are test failures**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail the task if there are any test failures. Check this option to fail the task if test failures are detected.
+Optional. Fails the task if there are any test failures. Check this option to fail the task if test failures are detected.
 <!-- :::editable-content-end::: -->
 <br>
 
