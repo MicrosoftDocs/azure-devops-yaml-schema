@@ -44,7 +44,7 @@ Security and compliance assessment for Azure Policy.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription to enforce the policies.
+Selects the Azure Resource Manager subscription to enforce the policies.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Select the Azure Resource Manager subscription to enforce the policies.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide name of a resource group.
+Provides the name of a resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ Provide name of a resource group.
 **`Resources`** - **Resource name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select name of Azure resources for which you want to check the policy compliance.
+Selects the name of Azure resources for which you want to check the policy compliance.
 <!-- :::editable-content-end::: -->
 <br>
 

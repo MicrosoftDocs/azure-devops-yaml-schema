@@ -68,7 +68,7 @@ Finds or downloads a specific version of Go in the tools cache and adds it to th
 **`version`** - **Version**<br>
 `string`. Required. Default value: `1.10`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Go version to download (if necessary) and use. Example: 1.9.3.
+The Go version to download (if necessary) and use. Example: `1.9.3`.
 <!-- :::editable-content-end::: -->
 <br>
 
