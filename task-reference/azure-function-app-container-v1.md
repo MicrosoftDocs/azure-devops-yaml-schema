@@ -92,7 +92,7 @@ Selects the [Azure Resource Manager subscription](/azure/devops/pipelines/librar
 **`appName`** - **App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure App Service. App services based on selected app type will only be listed.
+Name of the Function App for Containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,9 +104,7 @@ Enters or selects the name of an existing Azure App Service. App services based 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to deploy to an existing deployment slot or Azure App Service Environment.
-For both the targets, the task needs a Resource group name.
-In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided. In case the deployment target is an Azure App Service environment, leave the slot name as `production` and just specify the Resource group name.
+Set to true to deploy to an existing deployment slot or Azure App Service Environment. For both the targets, the task needs a Resource Group name. For the deployment slot option, the default is to deploy to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service environment, leave the slot name as **production** and just specify the Resource Group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,8 +116,7 @@ In case the deployment target is a slot, by default the deployment is done to th
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.
-Enter or select the Azure Resource group that contains the Azure App Service specified above.
+Name of the Resource Group containing the Function App for Containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +128,7 @@ Enter or select the Azure Resource group that contains the Azure App Service spe
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing slot other than the Production slot.
+Enters or selects an existing slot other than the **production** slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +153,7 @@ Note: A fully qualified image name will be of the format: `<registry or namespac
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the startup command. For example: `dotnet run` `dotnet filename.dll.`
+Startup command to be executed after deployment. For example: `dotnet run` `dotnet filename.dll.`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +165,7 @@ Enters the startup command. For example: `dotnet run` `dotnet filename.dll.`
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edits web app application settings following the syntax `-key value`. Value containing spaces should be enclosed in double quotes.
+Application settings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes.
 Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Standard Time`.
 <!-- :::editable-content-end::: -->
 <br>
@@ -181,7 +178,7 @@ Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Stand
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edits web app configuration settings following the syntax `-key` value. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
+Configuration strings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 <!-- :::editable-content-end::: -->
 <br>
 

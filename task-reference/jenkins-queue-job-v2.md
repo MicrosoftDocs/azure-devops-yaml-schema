@@ -198,15 +198,22 @@ Select if the Jenkins job accepts parameters. This should be selected even if al
 **`jobParameters`** - **Job parameters**<br>
 `string`. Optional. Use when `parameterizedJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies job parameters, one per line, in the form `<parameterName>=<parameterValue>`
-To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify `<parameterName>=`
+Specifies job parameters, one per line, in the form `<parameterName>=<parameterValue>`. Specify job parameters, one per line, in the form parameterName=parameterValue preceded by `|` on the first line. Example:
 
-Variables are supported. For example, to set a `commitId` parameter value to the Git commit ID of the build, use: `commitId=$(Build.SourceVersion)`. See the [documentation on variables](/azure/devops/pipelines/build/variables) for more details. Supported Jenkins parameter types are: 
+```
+jobParameters: |
+parameter1=value1
+parameter2=value2
+```
 
- - `Boolean` 
+To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify `parameterName=`
+
+Variables are supported. For example, to set a `commitId` parameter value to the Git commit ID of the build, use: `commitId=$(Build.SourceVersion)`. See the [documentation on variables](/azure/devops/pipelines/build/variables) for more details. Supported Jenkins parameter types are:
+
+ - `Boolean`
  - `Choice`
  - `Password`
- - `String`.
+ - `String`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +225,7 @@ Variables are supported. For example, to set a `commitId` parameter value to the
 **`failOnUnstableResult`** - **Fail on unstable result**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies strictness of a success definition: whether to consider unstable as a failure or not. The `false` value is for a non-strict version, and the `true` is for a strict version.
+Specifies strictness of a success definition: whether to consider unstable as a failure or not. The `false` value is for a non-strict version, and the `true` is for a strict version. If set to `true`, an unstable build result will be treated as a failure. Otherwise, unstable result will be treated as a success.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +237,7 @@ Specifies strictness of a success definition: whether to consider unstable as a 
 **`retryCount`** - **Number of retries for failed connection**<br>
 `string`. Default value: `3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies number of retries on errors or failures.
+Specifies the amount of connection retries when connection failure or error occurs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +249,7 @@ Specifies number of retries on errors or failures.
 **`delayBetweenRetries`** - **Time between retries**<br>
 `string`. Default value: `60`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies time between retries. This is specified in seconds.
+Specifies  the amount of time between connection retries when an error occurs. This is specified in seconds.
 <!-- :::editable-content-end::: -->
 <br>
 
