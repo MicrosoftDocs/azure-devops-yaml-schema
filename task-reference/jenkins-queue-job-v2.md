@@ -103,7 +103,7 @@ Queue a job on a Jenkins server.
 **`serverEndpoint`** - **Jenkins service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
+Selects the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Select the service connection for your Jenkins instance.  To create one, click t
 **`serverEndpoint`** - **Jenkins service endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
+Selects the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +138,7 @@ The name of the Jenkins job to queue.  This must exactly match the job name on t
 **`isMultibranchJob`** - **Job is of multibranch pipeline type**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This job is of multibranch pipeline type.  If selected, enter the appropriate branch name. Requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
+This job is of the multibranch pipeline type.  If selected, enter the appropriate branch name. Requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +150,7 @@ This job is of multibranch pipeline type.  If selected, enter the appropriate br
 **`multibranchPipelineBranch`** - **Multibranch pipeline branch**<br>
 `string`. Required when `isMultibranchJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Queue this multibranch pipeline job on the specified branch. This requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
+Queues this multibranch pipeline job on the specified branch. This requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -198,7 +198,22 @@ Select if the Jenkins job accepts parameters. This should be selected even if al
 **`jobParameters`** - **Job parameters**<br>
 `string`. Optional. Use when `parameterizedJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify job parameters, one per line, in the form <b>`<parameterName>=<parameterValue>`</b><p>To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify <b>`<parameterName>=`</b><p>Variables are supported. For example, to set a <b>`commitId`</b> parameter value to the Git commit ID of the build, use: <b>`commitId=$(Build.SourceVersion)`</b>. See the [documentation on variables](https://go.microsoft.com/fwlink/?linkid=875288) for more details.<p>Supported Jenkins parameter types are: <ul><li>`Boolean`</li><li>`Choice`</li><li>`Password`</li><li>`String`</li></ul>.
+Specifies job parameters, one per line, in the form `<parameterName>=<parameterValue>`. Specify job parameters, one per line, in the form parameterName=parameterValue preceded by `|` on the first line. Example:
+
+```yml
+jobParameters: |
+parameter1=value1
+parameter2=value2
+```
+
+To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify `parameterName=`
+
+Variables are supported. For example, to set a `commitId` parameter value to the Git commit ID of the build, use: `commitId=$(Build.SourceVersion)`. See the [documentation on variables](/azure/devops/pipelines/build/variables) for more details. Supported Jenkins parameter types are:
+
+ - `Boolean`
+ - `Choice`
+ - `Password`
+ - `String`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -210,7 +225,7 @@ Specify job parameters, one per line, in the form <b>`<parameterName>=<parameter
 **`failOnUnstableResult`** - **Fail on unstable result**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies strictness of a success definition: whether to consider unstable as a failure or not. False for non-strict, and true for strict version.
+Specifies strictness of a success definition: whether to consider unstable as a failure or not. The `false` value is for a non-strict version, and the `true` is for a strict version. If set to `true`, an unstable build result will be treated as a failure. Otherwise, unstable result will be treated as a success.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -222,7 +237,7 @@ Specifies strictness of a success definition: whether to consider unstable as a 
 **`retryCount`** - **Number of retries for failed connection**<br>
 `string`. Default value: `3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify number of retries on errors or failures.
+Specifies the amount of connection retries when connection failure or error occurs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -234,7 +249,7 @@ Specify number of retries on errors or failures.
 **`delayBetweenRetries`** - **Time between retries**<br>
 `string`. Default value: `60`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify time between retries. This is specified in seconds.
+Specifies  the amount of time between connection retries when an error occurs. This is specified in seconds.
 <!-- :::editable-content-end::: -->
 <br>
 

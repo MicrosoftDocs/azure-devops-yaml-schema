@@ -69,6 +69,12 @@ Build with the CMake cross-platform build system.
 Input alias: `cwd`. `string`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory when cmake is run.
+
+If you specify a relative path, then it is relative to your repo. For example, if you specify `build`, the result is the same as if you specified `$(Build.SourcesDirectory)\build`.
+
+You can also specify a full path outside the repo, and you can use [variables](/azure/devops/pipelines/build/variables). For example: `$(Build.ArtifactStagingDirectory)\build`
+
+If the path you specify does not exist, CMake creates it.
 <!-- :::editable-content-end::: -->
 <br>
 

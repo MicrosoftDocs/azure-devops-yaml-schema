@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 09/26/2022
+ms.date: 10/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -101,6 +101,8 @@ Build with Apache Ant.
 Input alias: `antBuildFile`. `string`. Required. Default value: `build.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repository root to the Ant build file.
+
+For more information about build files, see [Using Apache Ant](http://ant.apache.org/manual/using.html#buildfile).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,6 +115,8 @@ Relative path from the repository root to the Ant build file.
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide any options to pass to the Ant command line. You can provide your own properties (for example, ***-DmyProperty=myPropertyValue***) and also use built-in variables (for example, ***-DcollectionId=$(system.collectionId)***). Alternatively, the built-in variables are already set as environment variables during the build and can be passed directly (for example, ***-DcollectionIdAsEnvVar=%SYSTEM_COLLECTIONID%***).
+
+See [Running Apache Ant](http://ant.apache.org/manual/running.html#options).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,6 +129,8 @@ Provide any options to pass to the Ant command line. You can provide your own pr
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 An optional, space-separated list of targets to build. If not specified, the `default` target will be used. If no `default` target is defined, Ant 1.6.0 and later will build all top-level tasks.
+
+See [Using Apache Ant Targets](http://ant.apache.org/manual/targets.html#targets).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +176,7 @@ Select this option to publish JUnit test results produced by the Ant build to TF
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+Test results files path. Wildcards can be used ([more information](/azure/devops/pipelines/tasks/file-matching-patterns)). For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +200,13 @@ Provide a name for the test run.
 **`codeCoverageToolOptions`** - **Code coverage tool**<br>
 Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the code coverage tool. For on-premises agent support, refer to the `More Information` link below.
+Select the code coverage tool.</br>
+If you are using the [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), then the tools are set up for you. If you are using on-premises [Windows agent](/azure/devops/pipelines/agents/v2-windows), then if you select:
+
+- JaCoCo, make sure jacocoant.jar is available in lib folder of Ant installation. See [JaCoCo](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
+- Cobertura, set up an environment variable COBERTURA_HOME pointing to the Cobertura .jar files location. See [Cobertura](https://github.com/cobertura/cobertura/wiki/Ant-Task-Reference).
+
+After you select one of these tools, the following arguments appear.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +218,7 @@ Select the code coverage tool. For on-premises agent support, refer to the `More
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example: target/classes,target/testClasses.
+Comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. *For example*: target/classes,target/testClasses.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +230,7 @@ Comma-separated list of relative paths from the Ant build file to directories co
 **`codeCoverageClassFilter`** - **Class inclusion/exclusion filters**<br>
 Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of filters to include or exclude classes from collecting code coverage. For example: +:com.*,+:org.*,-:my.app*.*.
+Comma-separated list of filters to include or exclude classes from collecting code coverage. *For example*: +:com.*,+:org.*,-:my.app*.*.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +242,7 @@ Comma-separated list of filters to include or exclude classes from collecting co
 **`codeCoverageSourceDirectories`** - **Source files directories**<br>
 Input alias: `srcDirectories`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of relative paths from the Ant build file to source code directories. Code coverage reports will use these to highlight source code. For example: src/java,src/Test.
+Comma-separated list of relative paths from the Ant build file to source code directories. Code coverage reports will use these to highlight source code. *For example*: src/java,src/Test.
 <!-- :::editable-content-end::: -->
 <br>
 

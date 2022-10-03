@@ -62,7 +62,7 @@ Create, edit, or delete a GitHub release.
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. Learn more about service connections [here](https://aka.ms/AA3am5s).
+Specify the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints#sep-github).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -98,7 +98,7 @@ Specify the type of release operation to perform. This task can create, edit, or
 **`target`** - **Target**<br>
 `string`. Required when `action = create || action = edit`. Default value: `$(Build.SourceVersion)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the commit SHA for which the GitHub release will be created. E.g. `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`. You can also use a variable here. E.g. `$(myCommitSHA)`.
+Specify the commit SHA for which the GitHub release will be created (for example: `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`). You can also use a variable here (for example: `$(myCommitSHA)`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,7 +110,7 @@ Specify the commit SHA for which the GitHub release will be created. E.g. `48b11
 **`tagSource`** - **Tag source**<br>
 `string`. Required when `action = create`. Allowed values: `gitTag` (Git tag), `userSpecifiedTag` (User specified tag). Default value: `gitTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the tag to be used for release creation. The 'Git tag' option automatically takes the tag which is associated with the Git commit. Use the 'User specified tag' option to manually provide a tag.
+Specify the tag to be used for release creation. The `gitTag` option automatically takes the tag which is associated with the Git commit. Use the `User specified tag` option to manually provide a tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +122,7 @@ Specify the tag to be used for release creation. The 'Git tag' option automatica
 **`tagPattern`** - **Tag Pattern**<br>
 `string`. Optional. Use when `tagSource = gitTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the git tag pattern using regex(Eg. `release-v1.*`). GitHub release will be created only for commits that have matching git tag.
+Specify the git tag pattern using regex (for example: `release-v1.*`). GitHub release will be created only for commits that have matching git tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +134,7 @@ Specify the git tag pattern using regex(Eg. `release-v1.*`). GitHub release will
 **`tag`** - **Tag**<br>
 `string`. Required when `action = edit || action = delete || tagSource = userSpecifiedTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the tag for which to create, edit, or delete a release. You can also use a variable here. E.g. `$(myTagName)`.
+Specify the tag for which to create, edit, or delete a release. You can also use a variable here (for example: `$(myTagName)`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ Specify the title of the GitHub release. If left empty, the tag will be used as 
 **`releaseNotesSource`** - **Release notes source**<br>
 `string`. Optional. Use when `action = create || action = edit`. Allowed values: `filePath` (Release notes file), `inline` (Inline release notes). Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the description of the GitHub release. Use the 'Release notes file' option to use the contents of a file as release notes. Use the 'Inline release notes' option to manually enter release notes.
+Specify the description of the GitHub release. Use the `Release notes file` option to use the contents of a file as release notes. Use the `Inline release notes` option to manually enter release notes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +194,7 @@ Enter the release notes here. Markdown is supported.
 **`assets`** - **Assets**<br>
 `string`. Optional. Use when `action = create || action = edit`. Default value: `$(Build.ArtifactStagingDirectory)/*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the files to be uploaded as assets of the release. You can use wildcard characters to specify multiple files. E.g. For build pipelines, `$(Build.ArtifactStagingDirectory)/*.zip` or in case of release pipelines `$(System.DefaultWorkingDirectory)/*.zip`. You can also specify multiple patterns - one per line. By default, all files in the $(Build.ArtifactStagingDirectory) directory will be uploaded. To know more about the list of pre-defined variables available, see [build variables](https://aka.ms/AA4449z) and [release variables](https://aka.ms/AA43wws).
+Specify the files to be uploaded as assets of the release. You can use wildcard characters to specify multiple files. E.g. For build pipelines, `$(Build.ArtifactStagingDirectory)/*.zip` or in case of release pipelines `$(System.DefaultWorkingDirectory)/*.zip`. You can also specify multiple patterns - one per line. By default, all files in the `$(Build.ArtifactStagingDirectory)` directory will be uploaded. To know more about the list of pre-defined variables available, see [build variables](/azure/devops/pipelines/build/variables) and [release variables](/azure/devops/pipelines/release/variables#system-variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +206,7 @@ Specify the files to be uploaded as assets of the release. You can use wildcard 
 **`assetUploadMode`** - **Asset upload mode**<br>
 `string`. Optional. Use when `action = edit`. Allowed values: `delete` (Delete exisiting assets), `replace` (Replace existing assets). Default value: `delete`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the 'Delete existing assets' option to first delete any existing assets in the release and then upload all assets. Use the 'Replace existing assets' option to replace any assets that have the same name.
+Use the `Delete existing assets` option to first delete any existing assets in the release and then upload all assets. Use the `Replace existing assets` option to replace any assets that have the same name.
 <!-- :::editable-content-end::: -->
 <br>
 

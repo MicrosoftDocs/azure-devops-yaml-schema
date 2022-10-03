@@ -166,7 +166,7 @@ Specify the username for server authentication.
 **`password`** - **Password**<br>
 `string`. Optional. Use when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value. Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing ths value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +225,7 @@ Additional arguments that will be passed to cURL.
 **`redirectStderr`** - **Redirect Standard Error to Standard Out**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds '--stderr -' as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
+Adds `--stderr -` as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
 <!-- :::editable-content-end::: -->
 <br>
 

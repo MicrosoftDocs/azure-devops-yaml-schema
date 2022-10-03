@@ -135,7 +135,7 @@ Select the keychain in which to install the Apple certificate. For Microsoft hos
 **`keychainPassword`** - **Keychain password**<br>
 `string`. Required when `keychain = custom || keychain = default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value.
+Password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value. A password is generated for the temporary keychain if not specified.
 <!-- :::editable-content-end::: -->
 <br>
 
