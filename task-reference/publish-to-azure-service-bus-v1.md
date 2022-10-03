@@ -85,7 +85,7 @@ Sends a message to azure service bus using a service connection (no agent requir
 **`azureSubscription`** - **Azure Service Bus service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Bus service connection.
+Selects an Azure Service Bus service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Select an Azure Service Bus service connection.
 **`azureSubscription`** - **Azure service bus connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Bus service connection.
+Selects an Azure Service Bus service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Select an Azure Service Bus service connection.
 **`messageBody`** - **Message body**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the json messageBody.
+Enters the json messageBody.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,8 +119,7 @@ Enter the json messageBody.
 
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Session id with which message is published. For session based queues, publishing fails if value not specified. For Non Session Based Queues, it will not matter.
+<!-- :::editable-content name="helpMarkDown"::: -->The Session Id with which the message is published. For session based queues, publishing fails if value not specified. For Non-Session Based Queues, it will not matter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +131,7 @@ Session id with which message is published. For session based queues, publishing
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set to true, message will be signed provided a private certificate.
+If this value is set to `true`, the message will be provided a private certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +143,7 @@ If this is set to true, message will be signed provided a private certificate.
 **`certificateString`** - **Certificate Variable**<br>
 `string`. Required when `signPayload = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the secret variable that contains the certificate content.  This can also be a certificate stored in an Azure key vault that is [linked](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault-as-variables) to a Variable Group used by this release pipeline.
+Specifies the secret variable that contains the certificate content.  This can also be a certificate stored in an Azure key vault that is [linked](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault-as-variables) to a Variable Group used by this release pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +155,7 @@ Specify the secret variable that contains the certificate content.  This can als
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want signature to be in Message Properties. If left Empty, default is 'signature' in message properties.
+Keys where you want the signature to be in Message Properties. If left Empty, the default is `signature` in message properties.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +166,7 @@ Key where you want signature to be in Message Properties. If left Empty, default
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want signature to be in Message Properties. If left Empty, default is 'signature' in message properties.
+Keys where you want the signature to be in Message Properties. If left Empty, the default is `signature` in message properties.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +178,7 @@ Key where you want signature to be in Message Properties. If left Empty, default
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will wait for TaskCompleted event for the specified task timeout.
+If this value is `true`, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->
 <br>
 
