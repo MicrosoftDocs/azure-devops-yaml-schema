@@ -47,7 +47,7 @@ Downloads a GitHub Release from a repository.
 **`connection`** - **GitHub Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the service connection name for your GitHub service connection. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints).
+Specify the service connection name for your GitHub service connection. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -59,7 +59,7 @@ Enters the service connection name for your GitHub service connection. Learn mor
 **`userRepository`** - **Repository**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the name of the GitHub repository that GitHub releases will be downloaded from.
+Specify the name of the GitHub repository that GitHub releases will be downloaded from.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Defines the GitHub release version/tag to download. This option appears if `spec
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Minimatch pattern to filter files to be downloaded. To download all files within a release, use `**`.
+Minimatch pattern to filter files to be downloaded. To download all files within a release, use `**`.
 <!-- :::editable-content-end::: -->
 <br>
 

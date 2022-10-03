@@ -82,7 +82,7 @@ The optional arguments to the selected command. For example, build-time argument
 **`workingDirectory`** - **Working directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Required. The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of `$(System.DefaultWorkingDirectory)`.
+The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
