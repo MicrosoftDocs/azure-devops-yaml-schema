@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 09/26/2022
+ms.date: 10/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -128,21 +128,10 @@ Acquires a specific version of Java from a user supplied Azure blob or the tools
 ## Inputs
 
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **JDK version**<br>
 `string`. Required. Default value: `8`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-A number that specifies the JDK version to make available on the path. Use a whole number version, such as 10.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2018"
-
-**`versionSpec`** - **JDK version**<br>
-`string`. Required. Default value: `1.8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A number that specifies the JDK version to make available on the path. Use a whole number version, such as 10.
 <!-- :::editable-content-end::: -->

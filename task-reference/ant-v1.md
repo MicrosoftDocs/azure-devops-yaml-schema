@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 09/26/2022
+ms.date: 10/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -136,9 +136,6 @@ See [Using Apache Ant Targets](http://ant.apache.org/manual/targets.html#targets
 
 :::moniker-end
 <!-- :::item-end::: -->
-
-## JUnit test results options
-
 <!-- :::item name="publishJUnitResults"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
 
@@ -199,8 +196,6 @@ Provide a name for the test run.
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageToolOptions"::: -->
 :::moniker range="<=azure-pipelines"
-
-## Code coverage options
 
 **`codeCoverageToolOptions`** - **Code coverage tool**<br>
 Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
@@ -265,7 +260,6 @@ Fail the build if code coverage did not produce any results to publish.
 
 :::moniker-end
 <!-- :::item-end::: -->
-## Advanced options
 <!-- :::item name="antHomeDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
