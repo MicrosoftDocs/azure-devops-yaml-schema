@@ -125,7 +125,10 @@ Copy files or build artifacts to a remote machine over SSH.
 **`sshEndpoint`** - **SSH service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SSH service connection with connection details for the remote machine.
+The name of an SSH service connection containing connection details for the remote machine.
+
+- The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+- The private key and the passphrase must be specified for authentication.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +139,10 @@ SSH service connection with connection details for the remote machine.
 **`sshEndpoint`** - **SSH endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SSH service connection with connection details for the remote machine.
+The name of an SSH service connection containing connection details for the remote machine.
+
+- The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+- The private key and the passphrase must be specified for authentication.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +154,7 @@ SSH service connection with connection details for the remote machine.
 **`sourceFolder`** - **Source folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The source folder of the files to copy to the remote machine.  When empty, the root of the repository (build) or artifacts directory (release) is used, which is $(System.DefaultWorkingDirectory).  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repository. Example: $(Agent.BuildDirectory).
+The source folder of the files to copy to the remote machine.  When empty, the root of the repository (build) or artifacts directory (release) is used, which is `$(System.DefaultWorkingDirectory)`.  Use [variables](/azure/devops/pipelines/build/variables) if files are not in the repository. Example: `$(Agent.BuildDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +166,10 @@ The source folder of the files to copy to the remote machine.  When empty, the r
 **`contents`** - **Contents**<br>
 `string`. Required. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths to include as part of the copy. Supports multiple lines of minimatch patterns. [More Information](https://go.microsoft.com/fwlink/?LinkId=821894).
+The file paths to include as part of the copy. Supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns). The default value is `**`, which includes all files (including sub-folders) under the source folder.
+
+- Example: `**/*.jar \n **/*.war` includes all .jar and .war files (including sub-folders) under the source folder.
+- Example: `** \n !**/*.xml` includes all files (including sub-folders) under the source folder, but excludes xml files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -172,7 +181,7 @@ File paths to include as part of the copy. Supports multiple lines of minimatch 
 **`targetFolder`** - **Target folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target folder on the remote machine to where files will be copied. Example: /home/user/MySite.
+The target folder on the remote machine, where files will be copied. Example: `/home/user/MySite`. Preface with a tilde `(~)` to specify the user's home directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -184,7 +193,7 @@ Target folder on the remote machine to where files will be copied. Example: /hom
 **`isWindowsOnTarget`** - **Target machine running Windows**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target machine running Windows.
+Checks if the target machine is running Windows.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +205,7 @@ Target machine running Windows.
 **`cleanTargetFolder`** - **Clean target folder**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delete all existing files and subfolders in the target folder before copying.
+Deletes all existing files and sub-folders in the target folder before copying.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +217,7 @@ Delete all existing files and subfolders in the target folder before copying.
 **`cleanHiddenFilesInTarget`** - **Remove hidden files in target folder**<br>
 `boolean`. Optional. Use when `cleanTargetFolder = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When true, removes hidden files in the target folder.
+When set to `true`, removes hidden files in the target folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +241,7 @@ How long (in milliseconds) to wait for the SSH handshake to complete.
 **`overwrite`** - **Overwrite**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Replace existing files in and beneath the target folder.
+Replaces existing files in and beneath the target folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,7 +253,7 @@ Replace existing files in and beneath the target folder.
 **`failOnEmptySource`** - **Fail if no files found to copy**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail if no matching files to be copied are found under the source folder.
+Fails if no matching files to be copied are found under the source folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -256,7 +265,7 @@ Fail if no matching files to be copied are found under the source folder.
 **`flattenFolders`** - **Flatten folders**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Flatten the folder structure and copy all files into the specified target folder on the remote machine.
+Flattens the folder structure and copies all files into the specified target folder on the remote machine.
 <!-- :::editable-content-end::: -->
 <br>
 
