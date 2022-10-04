@@ -80,7 +80,7 @@ A generic service connection for connecting to the package index.
 **`packageDirectory`** - **Python package directory**<br>
 Input alias: `wd`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory of the Python package to be created and published, where setup.py is present.
+The directory of the Python package to be created and published where setup.py is present.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,14 +104,14 @@ Select whether to create and publish a universal wheel package (platform indepen
 **`serviceEndpoint`** - **PyPI connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the generic service endpoint where PyPI server details are present. 
+Select the generic service endpoint where PyPI server details are present.
 
-Note: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic. 
+*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
 
-Connection Name – Use a friendly connection name of your choice. 
-Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/). 
-User Name – PyPI registered username. 
-Password – password for your PyPI account.
+- Connection Name – Use a friendly connection name of your choice.
+- Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/).
+- User Name – PyPI registered username.
+- Password – password for your PyPI account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Password – password for your PyPI account.
 **`wd`** - **Python package path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Python package directory to be published, where setup.py is present.
+Python package directory to be published where `setup.py` is present.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +135,7 @@ Python package directory to be published, where setup.py is present.
 **`wheel`** - **Upload wheel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, then task will additionally build and publish universal wheel (platform independent) of this package. For more information regarding universal wheel [see here](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+If checked, then task will additionally build and publish universal wheel (platform independent) of this package. [More information regarding universal wheel](https://packaging.python.org/tutorials/distributing-packages/#wheels).
 <!-- :::editable-content-end::: -->
 <br>
 
