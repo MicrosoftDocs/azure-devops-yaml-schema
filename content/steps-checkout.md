@@ -2088,9 +2088,6 @@ To configure the setting in the pipeline UI, edit your YAML pipeline, and choose
 * For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is `true`.
 * For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is `false`.
 
-> [!NOTE]
-> If you explicitly set `fetchTags` in your `checkout` step, that setting takes priority over the setting configured in the pipeline settings UI.
-
 :::moniker-end
 
 
