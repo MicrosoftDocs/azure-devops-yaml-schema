@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 09/30/2022
+ms.date: 10/04/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -2073,11 +2073,10 @@ To configure the setting in the pipeline UI, edit your YAML pipeline, and choose
 * For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is `true`.
 * For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is `false`.
 
-> [!IMPORTANT]
-> A **Sync tags** setting of true in the UI takes precedence over a `fetchTags: false` statement in the YAML. If **Sync tags** is set to true in the UI, tags are synced even if `fetchTags` is set to false in the YAML.
+> [!NOTE]
+> If you explicitly set `fetchTags` in your `checkout` step, that setting takes priority over the setting configured in the pipeline settings UI.
 
-
-::: moniker-end
+:::moniker-end
 
 
 ## Examples
