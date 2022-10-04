@@ -181,7 +181,7 @@ Download artifacts produced by this build.
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns) <p>The default pattern (\*\*) will download all files across all artifacts produced by the Jenkins job. To download all files within artifact drop, use `drop/**`.</p>
+Specify files to be downloaded as multi line minimatch pattern. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns) <p>The default pattern (`**`) will download all files across all artifacts produced by the Jenkins job. To download all files within artifact drop, use `drop/**`.</p>
 <!-- :::editable-content-end::: -->
 <br>
 

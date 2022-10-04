@@ -55,7 +55,7 @@ Deploy applications to Azure Spring Cloud and manage deployments.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Select the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -79,7 +79,7 @@ Action to be performed on Azure Spring Cloud.
 **`AzureSpringCloud`** - **Azure Spring Cloud Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Spring Cloud service to which to deploy.
+The name or resource ID of the Azure Spring Cloud instance to deploy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +91,7 @@ Select the Azure Spring Cloud service to which to deploy.
 **`AppName`** - **App**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Spring Cloud app to deploy.
+The name of the Azure Spring Cloud app to deploy. The app must exist prior to task execution.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -105,7 +105,7 @@ Select the Azure Spring Cloud app to deploy.
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically select the deployment that's set as Staging at the time the task runs.
 
-If set to `true`, apply the task to whichever deployment is set as the staging deployment at time of execution. If omitted, the `DeploymentName` parameter must be set.
+If set to `true`, apply the task to whichever [deployment](/azure/spring-apps/concept-understand-app-and-deployment) is set as the staging deployment at time of execution. If omitted, the `DeploymentName` parameter must be set.
 
 <!-- :::editable-content-end::: -->
 <br>
@@ -130,7 +130,7 @@ If set to `true` and the deployment specified by `DeploymentName` does not exist
 **`DeploymentName`** - **Deployment**<br>
 `string`. Optional. Use when `UseStagingDeployment = false && Action != Delete Staging Deployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The deployment to which this task will apply. If not using blue-green deployments, set this field to `default`. Lowercase letters and numbers only; must start with a letter.
+The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to which this task will apply. If not using blue-green deployments, set this field to `default`. Lowercase letters and numbers only; must start with a letter.
 <!-- :::editable-content-end::: -->
 <br>
 
