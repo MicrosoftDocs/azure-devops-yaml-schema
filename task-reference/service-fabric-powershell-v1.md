@@ -80,7 +80,7 @@ Run a PowerShell script within the context of an Azure Service Fabric cluster co
 **`clusterConnection`** - **Cluster Service Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Service Fabric cluster which will have an established service connection when executing the specified PowerShell script.
+The Azure Service Fabric cluster, which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +91,7 @@ Azure Service Fabric cluster which will have an established service connection w
 **`clusterConnection`** - **Cluster Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Service Fabric cluster which will have an established service connection when executing the specified PowerShell script.
+The Azure Service Fabric cluster, which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +103,7 @@ Azure Service Fabric cluster which will have an established service connection w
 **`ScriptType`** - **Script Type**<br>
 `string`. Required. Allowed values: `FilePath` (Script File Path), `InlineScript` (Inline Script). Default value: `FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of the script: File Path or Inline Script.
+Specifies whether the script is provided as a file or inline in the task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,7 @@ Type of the script: File Path or Inline Script.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script. Should be fully qualified path or relative to the default working directory.
+The path to the PowerShell script to run. Can include wildcards and variables. Example: `$(system.defaultworkingdirectory)/**/drop/projectartifacts/**/docker-compose.yml`. **Note**: combining compose files is not supported as part of this task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -127,7 +127,7 @@ Path of the script. Should be fully qualified path or relative to the default wo
 **`Inline`** - **Inline Script**<br>
 `string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your PowerShell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the script to execute.
+The PowerShell commands to run on the build agent. Learn more about [PowerShell tasks](/azure/devops/pipelines/tasks/utility/powershell).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -139,7 +139,7 @@ Enter the script to execute.
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional parameters to pass to PowerShell.  Can be either ordinal or named parameters.
+The additional parameters to pass to PowerShell. Can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
 <br>
 
