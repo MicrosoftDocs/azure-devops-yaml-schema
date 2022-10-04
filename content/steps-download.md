@@ -1,14 +1,14 @@
 ---
 title: steps.download definition
 description: steps.download definition reference.
-ms.date: 09/01/2022
+ms.date: 09/20/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
 # steps.download definition
 
 
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 
 :::moniker range="= azure-pipelines-2019"

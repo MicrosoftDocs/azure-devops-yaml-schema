@@ -1,7 +1,7 @@
 ---
 title: Go@0 - Go v0 task
 description: Get, build, or test a Go application, or run a custom Go command.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -27,7 +27,7 @@ Get, build, or test a Go application, or run a custom Go command.
 # Get, build, or test a Go application, or run a custom Go command.
 - task: Go@0
   inputs:
-    command: 'get' # 'get' | 'build' | 'test' | 'custom'. Required. Command. Default: 'get'.
+    command: 'get' # 'get' | 'build' | 'test' | 'custom'. Required. Command. Default: get.
     #customCommand: # string. Required when command == custom. Custom command. 
     #arguments: # string. Arguments. 
   # Advanced
@@ -44,10 +44,11 @@ Get, build, or test a Go application, or run a custom Go command.
 :::moniker range=">=azure-pipelines-2019"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'get', 'build', 'test', 'custom'. Default value: 'get'.<br>
+`string`. Required. Allowed values: `get`, `build`, `test`, `custom`. Default value: `get`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Go command to run. Select 'Custom' to use a command not listed here.
+Selects a Go command to run. Select `Custom` to use a command not listed here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -55,10 +56,11 @@ Select a Go command to run. Select 'Custom' to use a command not listed here.
 :::moniker range=">=azure-pipelines-2019"
 
 **`customCommand`** - **Custom command**<br>
-Type: string. Required when command == custom.<br>
+`string`. Required when `command == custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A custom Go command to execute. For example, to execute 'go version', enter 'version'.
+A custom Go command to execute. For example, to execute `go version`, enter `version`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -66,10 +68,11 @@ A custom Go command to execute. For example, to execute 'go version', enter 'ver
 :::moniker range=">=azure-pipelines-2019"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional arguments to the selected command. For example, build-time arguments for the 'go build' command.
+The optional arguments to the selected command. For example, build-time arguments for the `go build` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +80,11 @@ Optional arguments to the selected command. For example, build-time arguments fo
 :::moniker range=">=azure-pipelines-2019"
 
 **`workingDirectory`** - **Working directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of '$(System.DefaultWorkingDirectory)'.
+The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,11 +106,48 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to get, build, or test a go application, or run a custom go command.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+```yml
+variables:
+  GOBIN:  '$(GOPATH)/bin' # Go binaries path
+  GOROOT: '/usr/local/go1.11' # Go installation path
+  GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
+  modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
+
+steps:
+- task: GoTool@0
+  displayName: 'Use Go 1.10'
+
+- task: Go@0
+  displayName: 'go get'
+  inputs:
+    arguments: '-d'
+
+- task: Go@0
+  displayName: 'go build'
+  inputs:
+    command: build
+    arguments: '-o "$(System.TeamProject).exe"'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(Build.Repository.LocalPath)'
+    includeRootFolder: False
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifact'
+  condition: succeededOrFailed()
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

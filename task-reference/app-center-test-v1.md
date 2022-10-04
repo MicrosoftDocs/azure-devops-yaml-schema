@@ -1,7 +1,7 @@
 ---
 title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,10 +28,10 @@ Test app packages with Visual Studio App Center.
 - task: AppCenterTest@1
   inputs:
     appFile: # string. Required. Binary application file path. 
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Required. Artifacts directory. Default: '$(Build.ArtifactStagingDirectory)/AppCenterTest'.
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
   # Prepare Tests
     #prepareTests: true # boolean. Prepare tests. Default: true.
-    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Required when enablePrepare = true. Test framework. Default: 'appium'.
+    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Required when enablePrepare = true. Test framework. Default: appium.
     #appiumBuildDirectory: # string. Required when enablePrepare = true && framework = appium. Build directory. 
     #espressoBuildDirectory: # string. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
     #espressoTestApkFile: # string. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
@@ -51,15 +51,15 @@ Test app packages with Visual Studio App Center.
     #prepareOptions: # string. Optional. Use when enablePrepare = true. Additional options. 
   # Run Tests
     #runTests: true # boolean. Run tests. Default: true.
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required when enableRun = true. Authentication method. Default: 'serviceEndpoint'.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
     #serverEndpoint: # string. Required when enableRun = true && credsType = serviceEndpoint. App Center service connection. 
     #username: # string. Required when enableRun = true && credsType = inputs. App Center username. 
     #password: # string. Required when enableRun = true && credsType = inputs. App Center password. 
     appSlug: # string. Required when enableRun = true. App slug. 
     devices: # string. Required when enableRun = true. Devices. 
-    #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: 'master'.
+    #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: master.
     #dsymDirectory: # string. Optional. Use when enableRun = true. dSYM directory. 
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required when enableRun = true. System language. Default: 'en_US'.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required when enableRun = true. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when enableRun = true && locale = user. Other locale. 
     #loginOptions: # string. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
     #runOptions: # string. Optional. Use when enableRun = true. Additional options for run. 
@@ -79,10 +79,10 @@ Test app packages with Visual Studio App Center.
 - task: AppCenterTest@1
   inputs:
     appFile: # string. Required. Binary application file path. 
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Required. Artifacts directory. Default: '$(Build.ArtifactStagingDirectory)/AppCenterTest'.
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
   # Prepare Tests
     #prepareTests: true # boolean. Prepare tests. Default: true.
-    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Required when enablePrepare = true. Test framework. Default: 'appium'.
+    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Required when enablePrepare = true. Test framework. Default: appium.
     #appiumBuildDirectory: # string. Required when enablePrepare = true && framework = appium. Build directory. 
     #espressoBuildDirectory: # string. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
     #espressoTestApkFile: # string. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
@@ -102,15 +102,15 @@ Test app packages with Visual Studio App Center.
     #prepareOptions: # string. Optional. Use when enablePrepare = true. Additional options. 
   # Run Tests
     #runTests: true # boolean. Run tests. Default: true.
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required when enableRun = true. Authentication method. Default: 'serviceEndpoint'.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
     #serverEndpoint: # string. Required when enableRun = true && credsType = serviceEndpoint. App Center service connection. 
     #username: # string. Required when enableRun = true && credsType = inputs. App Center username. 
     #password: # string. Required when enableRun = true && credsType = inputs. App Center password. 
     appSlug: # string. Required when enableRun = true. App slug. 
     devices: # string. Required when enableRun = true. Devices. 
-    #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: 'master'.
+    #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: master.
     #dsymDirectory: # string. Optional. Use when enableRun = true. dSYM directory. 
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required when enableRun = true. System language. Default: 'en_US'.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required when enableRun = true. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when enableRun = true && locale = user. Other locale. 
     #loginOptions: # string. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
     #runOptions: # string. Optional. Use when enableRun = true. Additional options for run. 
@@ -140,10 +140,11 @@ Test app packages with Visual Studio App Center.
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **Binary application file path**<br>
-Input alias: `app`. Type: string. Required.<br>
+Input alias: `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from the repo root to the APK or IPA file you want to test.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -151,10 +152,11 @@ Relative path from the repo root to the APK or IPA file you want to test.
 :::moniker range="<=azure-pipelines"
 
 **`artifactsDirectory`** - **Artifacts directory**<br>
-Input alias: `artifactsDir`. Type: string. Required. Default value: '$(Build.ArtifactStagingDirectory)/AppCenterTest'.<br>
+Input alias: `artifactsDir`. `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/AppCenterTest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Where to place the artifacts produced by the prepare step and used by the run step. This directory will be created if it does not exist.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -162,9 +164,11 @@ Where to place the artifacts produced by the prepare step and used by the run st
 :::moniker range="<=azure-pipelines"
 
 **`prepareTests`** - **Prepare tests**<br>
-Input alias: `enablePrepare`. Type: boolean. Default value: true.<br>
+Input alias: `enablePrepare`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify whether to prepare tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -172,9 +176,10 @@ Input alias: `enablePrepare`. Type: boolean. Default value: true.<br>
 :::moniker range="<=azure-pipelines"
 
 **`frameworkOption`** - **Test framework**<br>
-Input alias: `framework`. Type: string. Required when enablePrepare = true. Allowed values: 'appium', 'espresso', 'calabash', 'uitest', 'xcuitest'. Default value: 'appium'.<br>
+Input alias: `framework`. `string`. Required when `enablePrepare = true`. Allowed values: `appium`, `espresso`, `calabash`, `uitest` (Xamarin UI Test), `xcuitest`. Default value: `appium`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -182,10 +187,11 @@ Input alias: `framework`. Type: string. Required when enablePrepare = true. Allo
 :::moniker range="<=azure-pipelines"
 
 **`appiumBuildDirectory`** - **Build directory**<br>
-Input alias: `appiumBuildDir`. Type: string. Required when enablePrepare = true && framework = appium.<br>
+Input alias: `appiumBuildDir`. `string`. Required when `enablePrepare = true && framework = appium`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to directory with Appium tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -193,10 +199,11 @@ Path to directory with Appium tests.
 :::moniker range="<=azure-pipelines"
 
 **`espressoBuildDirectory`** - **Build directory**<br>
-Input alias: `espressoBuildDir`. Type: string. Optional. Use when enablePrepare = true && framework = espresso.<br>
+Input alias: `espressoBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to Espresso output directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -204,10 +211,11 @@ Path to Espresso output directory.
 :::moniker range="<=azure-pipelines"
 
 **`espressoTestApkFile`** - **Test APK path**<br>
-Input alias: `espressoTestApkPath`. Type: string. Optional. Use when enablePrepare = true && framework = espresso.<br>
+Input alias: `espressoTestApkPath`. `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to APK file with Espresso tests. If not set, build-dir is used to discover it. Wildcard is allowed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -215,10 +223,11 @@ Path to APK file with Espresso tests. If not set, build-dir is used to discover 
 :::moniker range="<=azure-pipelines"
 
 **`calabashProjectDirectory`** - **Project directory**<br>
-Input alias: `calabashProjectDir`. Type: string. Required when enablePrepare = true && framework = calabash.<br>
+Input alias: `calabashProjectDir`. `string`. Required when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to Calabash workspace directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -226,10 +235,11 @@ Path to Calabash workspace directory.
 :::moniker range="<=azure-pipelines"
 
 **`calabashConfigFile`** - **Cucumber config file**<br>
-Type: string. Optional. Use when enablePrepare = true && framework = calabash.<br>
+`string`. Optional. Use when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to Cucumber configuration file, usually cucumber.yml.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -237,10 +247,11 @@ Path to Cucumber configuration file, usually cucumber.yml.
 :::moniker range="<=azure-pipelines"
 
 **`calabashProfile`** - **Profile to run**<br>
-Type: string. Optional. Use when enablePrepare = true && framework = calabash.<br>
+`string`. Optional. Use when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Profile to run.  This value must exists in the Cucumber configuration file.
+Profile to run.  This value must exist in the Cucumber configuration file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -248,10 +259,11 @@ Profile to run.  This value must exists in the Cucumber configuration file.
 :::moniker range="<=azure-pipelines"
 
 **`calabashSkipConfigCheck`** - **Skip Configuration Check**<br>
-Type: boolean. Optional. Use when enablePrepare = true && framework = calabash. Default value: false.<br>
+`boolean`. Optional. Use when `enablePrepare = true && framework = calabash`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Force running without Cucumber profile.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -259,10 +271,11 @@ Force running without Cucumber profile.
 :::moniker range="<=azure-pipelines"
 
 **`uiTestBuildDirectory`** - **Build directory**<br>
-Input alias: `uitestBuildDir`. Type: string. Required when enablePrepare = true && framework = uitest.<br>
+Input alias: `uitestBuildDir`. `string`. Required when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to directory with built test assemblies.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -270,9 +283,11 @@ Path to directory with built test assemblies.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`uitestStorePath`** - **Store file**<br>
-Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
+`string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Path to the store file used to sign the app.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -280,9 +295,11 @@ Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
 :::moniker range="<=azure-pipelines"
 
 **`uiTestStorePassword`** - **Store password**<br>
-Input alias: `uitestStorePass`. Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
+Input alias: `uitestStorePass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Password of the store file used to sign the app. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -290,9 +307,11 @@ Input alias: `uitestStorePass`. Type: string. Optional. Use when enablePrepare =
 :::moniker range="<=azure-pipelines"
 
 **`uitestKeyAlias`** - **Key alias**<br>
-Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
+`string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Enter the alias that identifies the public/private key pair used in the store file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -300,9 +319,11 @@ Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
 :::moniker range="<=azure-pipelines"
 
 **`uiTestKeyPassword`** - **Key password**<br>
-Input alias: `uitestKeyPass`. Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
+Input alias: `uitestKeyPass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Enter the key password for the alias and store file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -310,10 +331,11 @@ Input alias: `uitestKeyPass`. Type: string. Optional. Use when enablePrepare = t
 :::moniker range="<=azure-pipelines"
 
 **`uiTestToolsDirectory`** - **Test tools directory**<br>
-Input alias: `uitestToolsDir`. Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
+Input alias: `uitestToolsDir`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to directory with Xamarin UI test tools that contains test-cloud.exe.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -321,10 +343,11 @@ Path to directory with Xamarin UI test tools that contains test-cloud.exe.
 :::moniker range="<=azure-pipelines"
 
 **`signInfo`** - **Signing information**<br>
-Type: string. Optional. Use when framework = calabash || framework = uitest.<br>
+`string`. Optional. Use when `framework = calabash || framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use Signing Infor for signing the test server.
+Use Signing Info for signing the test server.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -332,10 +355,11 @@ Use Signing Infor for signing the test server.
 :::moniker range="<=azure-pipelines"
 
 **`xcUITestBuildDirectory`** - **Build directory**<br>
-Input alias: `xcuitestBuildDir`. Type: string. Optional. Use when enablePrepare = true && framework = xcuitest.<br>
+Input alias: `xcuitestBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the build output directory (usually $(ProjectDir)/Build/Products/Debug-iphoneos).
+Path to the build output directory (usually `$(ProjectDir)/Build/Products/Debug-iphoneos`).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -343,10 +367,11 @@ Path to the build output directory (usually $(ProjectDir)/Build/Products/Debug-i
 :::moniker range="<=azure-pipelines"
 
 **`xcUITestIpaFile`** - **Test IPA path**<br>
-Input alias: `xcuitestTestIpaPath`. Type: string. Optional. Use when enablePrepare = true && framework = xcuitest.<br>
+Input alias: `xcuitestTestIpaPath`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the *.ipa file with the XCUITest tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -354,10 +379,11 @@ Path to the *.ipa file with the XCUITest tests.
 :::moniker range="<=azure-pipelines"
 
 **`prepareOptions`** - **Additional options**<br>
-Input alias: `prepareOpts`. Type: string. Optional. Use when enablePrepare = true.<br>
+Input alias: `prepareOpts`. `string`. Optional. Use when `enablePrepare = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to the App Center test prepare step.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -365,20 +391,34 @@ Additional arguments passed to the App Center test prepare step.
 :::moniker range="<=azure-pipelines"
 
 **`runTests`** - **Run tests**<br>
-Input alias: `enableRun`. Type: boolean. Default value: true.<br>
+Input alias: `enableRun`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify whether to run the tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="credentialsOption"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`credentialsOption`** - **Authentication method**<br>
-Input alias: `credsType`. Type: string. Required when enableRun = true. Allowed values: 'serviceEndpoint', 'inputs'. Default value: 'serviceEndpoint'.<br>
+Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center service connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use App Center service connection or enter credentials to connect to Visual Studio App Center.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`credentialsOption`** - **Authentication method**<br>
+Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center Connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use App Center service connection or enter credentials to connect to Visual Studio App Center.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -386,20 +426,22 @@ Use App Center service connection or enter credentials to connect to Visual Stud
 :::moniker range=">=azure-pipelines-2019"
 
 **`serverEndpoint`** - **App Center service connection**<br>
-Type: string. Required when enableRun = true && credsType = serviceEndpoint.<br>
+`string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service connection for Visual Studio App Center. To create one, click the Manage link and create a new service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`serverEndpoint`** - **App Center connection**<br>
-Type: string. Required when enableRun = true && credsType = serviceEndpoint.<br>
+`string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service connection for Visual Studio App Center. To create one, click the Manage link and create a new service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -407,10 +449,11 @@ Select the service connection for Visual Studio App Center. To create one, click
 :::moniker range="<=azure-pipelines"
 
 **`username`** - **App Center username**<br>
-Type: string. Required when enableRun = true && credsType = inputs.<br>
+`string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Visit https://appcenter.ms/settings/profile to get your username.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -418,10 +461,11 @@ Visit https://appcenter.ms/settings/profile to get your username.
 :::moniker range="<=azure-pipelines"
 
 **`password`** - **App Center password**<br>
-Type: string. Required when enableRun = true && credsType = inputs.<br>
+`string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visit https://appcenter.ms/settings/profile to set your password. It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. You may mark variable type as 'secret' to secure it.
+Visit the [Visual Studio App Center](https://appcenter.ms/settings/profile) to set your password. It can accept a variable defined in build or release pipelines as `$(passwordVariable)`. You may mark variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -429,10 +473,11 @@ Visit https://appcenter.ms/settings/profile to set your password. It can accept 
 :::moniker range="<=azure-pipelines"
 
 **`appSlug`** - **App slug**<br>
-Type: string. Required when enableRun = true.<br>
+`string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The app slug is in the format of {username}/{app_identifier}.  To locate {username} and {app_identifier} for an app, click on its name from https://appcenter.ms/apps, and the resulting URL is in the format of https://appcenter.ms/users/{username}/apps/{app_identifier}.
+The app slug is in the format of `{username}/{app_identifier}`.  To locate `{username}` and `{app_identifier}` for an app, click its name from [Visual Studio App Center](https://appcenter.ms/apps), and the resulting URL is in the format `https://appcenter.ms/users/{username}/apps/{app_identifier}`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -440,10 +485,11 @@ The app slug is in the format of {username}/{app_identifier}.  To locate {userna
 :::moniker range="<=azure-pipelines"
 
 **`devices`** - **Devices**<br>
-Type: string. Required when enableRun = true.<br>
+`string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-String to identify what devices this test will run against.  Copy and paste this string when you define a new test run from App Center Test beacon.
+String to identify what devices this test will run against.  Copy and paste this string when you define a new test run from Visual Studio App Center Test beacon.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -451,10 +497,11 @@ String to identify what devices this test will run against.  Copy and paste this
 :::moniker range="<=azure-pipelines"
 
 **`series`** - **Test series**<br>
-Type: string. Optional. Use when enableRun = true. Default value: 'master'.<br>
+`string`. Optional. Use when `enableRun = true`. Default value: `master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The series name for organizing test runs (e.g. master, production, beta).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -462,10 +509,11 @@ The series name for organizing test runs (e.g. master, production, beta).
 :::moniker range="<=azure-pipelines"
 
 **`dsymDirectory`** - **dSYM directory**<br>
-Input alias: `dsymDir`. Type: string. Optional. Use when enableRun = true.<br>
+Input alias: `dsymDir`. `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to iOS symbol files.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -473,10 +521,11 @@ Path to iOS symbol files.
 :::moniker range="<=azure-pipelines"
 
 **`localeOption`** - **System language**<br>
-Input alias: `locale`. Type: string. Required when enableRun = true. Allowed values: 'da_DK', 'nl_NL', 'en_GB', 'en_US', 'fr_FR', 'de_DE', 'ja_JP', 'ru_RU', 'es_MX', 'es_ES', 'user'. Default value: 'en_US'.<br>
+Input alias: `locale`. `string`. Required when `enableRun = true`. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If your language isn't displayed, select 'Other' and enter its locale below, such as en_US.
+If your language isn't displayed, select `Other` and enter its locale below, such as `en_US`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -484,10 +533,11 @@ If your language isn't displayed, select 'Other' and enter its locale below, suc
 :::moniker range="<=azure-pipelines"
 
 **`userDefinedLocale`** - **Other locale**<br>
-Type: string. Optional. Use when enableRun = true && locale = user.<br>
+`string`. Optional. Use when `enableRun = true && locale = user`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format [language]_[country], such as en_US.
+Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format `[language]_[country]`, such as `en_US`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -495,10 +545,11 @@ Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 co
 :::moniker range="<=azure-pipelines"
 
 **`loginOptions`** - **Additional options for login**<br>
-Input alias: `loginOpts`. Type: string. Optional. Use when enableRun = true && credsType = inputs.<br>
+Input alias: `loginOpts`. `string`. Optional. Use when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to the App Center login step.
+Additional arguments passed to the Visual Studio App Center login step.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -506,10 +557,11 @@ Additional arguments passed to the App Center login step.
 :::moniker range="<=azure-pipelines"
 
 **`runOptions`** - **Additional options for run**<br>
-Input alias: `runOpts`. Type: string. Optional. Use when enableRun = true.<br>
+Input alias: `runOpts`. `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to the App Center test run.
+Additional arguments passed to the Visual Studio App Center test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -517,10 +569,11 @@ Additional arguments passed to the App Center test run.
 :::moniker range="<=azure-pipelines"
 
 **`skipWaitingForResults`** - **Do not wait for test result**<br>
-Input alias: `async`. Type: boolean. Optional. Use when enableRun = true. Default value: false.<br>
+Input alias: `async`. `boolean`. Optional. Use when `enableRun = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Execute command asynchronously, exit when tests are uploaded, without waiting for test results.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -528,10 +581,11 @@ Execute command asynchronously, exit when tests are uploaded, without waiting fo
 :::moniker range="<=azure-pipelines"
 
 **`cliFile`** - **App Center CLI location**<br>
-Input alias: `cliLocationOverride`. Type: string.<br>
+Input alias: `cliLocationOverride`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the App Center CLI on the build or release agent.
+Path to the Visual Studio App Center CLI on the build or release agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -539,10 +593,11 @@ Path to the App Center CLI on the build or release agent.
 :::moniker range="<=azure-pipelines"
 
 **`showDebugOutput`** - **Enable debug output**<br>
-Input alias: `debug`. Type: boolean. Default value: false.<br>
+Input alias: `debug`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add --debug to the App Center CLI.
+Add --debug to the Visual Studio App Center CLI.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -550,9 +605,10 @@ Add --debug to the App Center CLI.
 :::moniker range="<=azure-pipelines-2019"
 
 **`uitestStoreFile`** - **Store file**<br>
-Type: string. Optional. Use when enablePrepare = true && framework = uitest.<br>
+`string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -574,11 +630,34 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task lets you run test suites against an application binary (`.apk` or `.ipa` file) using App Center Test.
+
+* [Sign up with App Center](https://appcenter.ms/signup?utm_source=DevOps&utm_medium=Azure&utm_campaign=docs) first.
+* For details about using this task, see the App Center documentation article [Using Azure DevOps for UI Testing](/appcenter/test-cloud/vsts-plugin).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example runs Espresso tests on an Android app using the App Center Test task.
+
+```yaml
+steps:
+- task: AppCenterTest@1
+  displayName: 'Espresso Test - Synchronous'
+  inputs:
+    appFile: 'Espresso/espresso-app.apk'
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    frameworkOption: espresso
+    espressoBuildDirectory: Espresso
+    serverEndpoint: 'myAppCenterServiceConnection'
+    appSlug: 'xplatbg1/EspressoTests'
+    devices: a84c93af
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

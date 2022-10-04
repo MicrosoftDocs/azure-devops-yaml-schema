@@ -1,7 +1,7 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Run a PowerShell script.
 # Run a PowerShell script.
 - task: PowerShell@1
   inputs:
-    scriptType: 'filePath' # 'inlineScript' | 'filePath'. Required. Type. Default: 'filePath'.
+    scriptType: 'filePath' # 'inlineScript' | 'filePath'. Required. Type. Default: filePath.
     scriptName: # string. Required when scriptType = filePath. Script Path. 
     #arguments: # string. Arguments. 
     #inlineScript: # string. Required when scriptType = inlineScript. Inline Script. 
@@ -56,10 +56,11 @@ Run a PowerShell script.
 :::moniker range="<=azure-pipelines"
 
 **`scriptType`** - **Type**<br>
-Type: string. Required. Allowed values: 'inlineScript', 'filePath'. Default value: 'filePath'.<br>
+`string`. Required. Allowed values: `inlineScript` (Inline Script), `filePath` (File Path). Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of the script: File Path or Inline Script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +68,11 @@ Type of the script: File Path or Inline Script.
 :::moniker range="<=azure-pipelines"
 
 **`scriptName`** - **Script Path**<br>
-Type: string. Required when scriptType = filePath.<br>
+`string`. Required when `scriptType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script to execute. Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,12 +80,13 @@ Path of the script to execute. Should be fully qualified path or relative to the
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the PowerShell script. Either ordinal parameters or named parameters. For example, `-Name someName -Path -Value "Some long string value"`.
 
 `arguments` is not used when `targetType` is `inline`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +94,11 @@ Arguments passed to the PowerShell script. Either ordinal parameters or named pa
 :::moniker range="<=azure-pipelines"
 
 **`workingFolder`** - **Working folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory when script is run. Defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +106,11 @@ Current working directory when script is run. Defaults to the folder where the s
 :::moniker range="<=azure-pipelines"
 
 **`inlineScript`** - **Inline Script**<br>
-Type: string. Required when scriptType = inlineScript.<br>
+`string`. Required when `scriptType = inlineScript`. Default value: `# You can write your powershell scripts inline here. \n# You can also pass predefined and custom variables to this scripts using arguments\n\n Write-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +118,11 @@ Contents of the script. The maximum supported inline script length is 32766 char
 :::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely solely on $LASTEXITCODE and the exit code to determine failure.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

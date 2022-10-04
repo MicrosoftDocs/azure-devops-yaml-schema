@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,13 +29,13 @@ Copy files or build artifacts to a remote machine over SSH.
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
     #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: '**'.
+    contents: '**' # string. Required. Contents. Default: **.
     #targetFolder: # string. Target folder. 
   # Advanced
     #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
     #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
     #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: '20000'.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
     #overwrite: true # boolean. Overwrite. Default: true.
     #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
     #flattenFolders: false # boolean. Flatten folders. Default: false.
@@ -52,12 +52,12 @@ Copy files or build artifacts to a remote machine over SSH.
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
     #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: '**'.
+    contents: '**' # string. Required. Contents. Default: **.
     #targetFolder: # string. Target folder. 
   # Advanced
     #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
     #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: '20000'.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
     #overwrite: true # boolean. Overwrite. Default: true.
     #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
     #flattenFolders: false # boolean. Flatten folders. Default: false.
@@ -74,7 +74,7 @@ Copy files or build artifacts to a remote machine over SSH.
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
     #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: '**'.
+    contents: '**' # string. Required. Contents. Default: **.
     #targetFolder: # string. Target folder. 
   # Advanced
     #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
@@ -94,7 +94,7 @@ Copy files or build artifacts to a remote machine over SSH.
   inputs:
     sshEndpoint: # string. Required. SSH service connection. 
     #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: '**'.
+    contents: '**' # string. Required. Contents. Default: **.
     #targetFolder: # string. Target folder. 
   # Advanced
     #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
@@ -123,20 +123,22 @@ Copy files or build artifacts to a remote machine over SSH.
 :::moniker range=">=azure-pipelines-2019"
 
 **`sshEndpoint`** - **SSH service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 SSH service connection with connection details for the remote machine.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`sshEndpoint`** - **SSH endpoint**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 SSH service connection with connection details for the remote machine.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -144,10 +146,11 @@ SSH service connection with connection details for the remote machine.
 :::moniker range="<=azure-pipelines"
 
 **`sourceFolder`** - **Source folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The source folder of the files to copy to the remote machine.  When empty, the root of the repository (build) or artifacts directory (release) is used, which is $(System.DefaultWorkingDirectory).  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repository. Example: $(Agent.BuildDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -155,10 +158,11 @@ The source folder of the files to copy to the remote machine.  When empty, the r
 :::moniker range="<=azure-pipelines"
 
 **`contents`** - **Contents**<br>
-Type: string. Required. Default value: '**'.<br>
+`string`. Required. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File paths to include as part of the copy. Supports multiple lines of minimatch patterns. [More Information](https://go.microsoft.com/fwlink/?LinkId=821894).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -166,10 +170,11 @@ File paths to include as part of the copy. Supports multiple lines of minimatch 
 :::moniker range="<=azure-pipelines"
 
 **`targetFolder`** - **Target folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target folder on the remote machine to where files will be copied. Example: /home/user/MySite.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -177,10 +182,11 @@ Target folder on the remote machine to where files will be copied. Example: /hom
 :::moniker range=">=azure-pipelines-2020"
 
 **`isWindowsOnTarget`** - **Target machine running Windows**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target machine running Windows.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -188,10 +194,11 @@ Target machine running Windows.
 :::moniker range="<=azure-pipelines"
 
 **`cleanTargetFolder`** - **Clean target folder**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Delete all existing files and subfolders in the target folder before copying.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -199,10 +206,11 @@ Delete all existing files and subfolders in the target folder before copying.
 :::moniker range=">=azure-pipelines-2022"
 
 **`cleanHiddenFilesInTarget`** - **Remove hidden files in target folder**<br>
-Type: boolean. Optional. Use when cleanTargetFolder = true. Default value: false.<br>
+`boolean`. Optional. Use when `cleanTargetFolder = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When true, removes hidden files in the target folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -210,10 +218,11 @@ When true, removes hidden files in the target folder.
 :::moniker range=">=azure-pipelines-2020"
 
 **`readyTimeout`** - **SSH handshake timeout**<br>
-Type: string. Required. Default value: '20000'.<br>
+`string`. Required. Default value: `20000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 How long (in milliseconds) to wait for the SSH handshake to complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -221,10 +230,11 @@ How long (in milliseconds) to wait for the SSH handshake to complete.
 :::moniker range="<=azure-pipelines"
 
 **`overwrite`** - **Overwrite**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Replace existing files in and beneath the target folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -232,10 +242,11 @@ Replace existing files in and beneath the target folder.
 :::moniker range="<=azure-pipelines"
 
 **`failOnEmptySource`** - **Fail if no files found to copy**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fail if no matching files to be copied are found under the source folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -243,10 +254,11 @@ Fail if no matching files to be copied are found under the source folder.
 :::moniker range="<=azure-pipelines"
 
 **`flattenFolders`** - **Flatten folders**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Flatten the folder structure and copy all files into the specified target folder on the remote machine.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

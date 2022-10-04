@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@1 - Jenkins Queue Job v1 task
 description: Queue a job on a Jenkins server (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -58,10 +58,11 @@ Queue a job on a Jenkins server.
 :::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **Jenkins service endpoint**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service endpoint for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service endpoint.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -69,10 +70,11 @@ Select the service endpoint for your Jenkins instance.  To create one, click the
 :::moniker range="<=azure-pipelines"
 
 **`jobName`** - **Job name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Jenkins job to queue.  This must exactly match the job name on the Jenkins server.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -80,10 +82,11 @@ The name of the Jenkins job to queue.  This must exactly match the job name on t
 :::moniker range="<=azure-pipelines"
 
 **`isMultibranchJob`** - **Job is of Multibranch Pipeline type**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This job is of multibranch pipeline type.  If selected, enter the appropriate branch name. Requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +94,11 @@ This job is of multibranch pipeline type.  If selected, enter the appropriate br
 :::moniker range="<=azure-pipelines"
 
 **`multibranchPipelineBranch`** - **Multibranch Pipeline Branch**<br>
-Type: string. Required when isMultibranchJob = true.<br>
+`string`. Required when `isMultibranchJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Queue this Multibranch Pipeline job on the specified branch. Requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +106,11 @@ Queue this Multibranch Pipeline job on the specified branch. Requires Team Found
 :::moniker range="<=azure-pipelines"
 
 **`captureConsole`** - **Capture console output and wait for completion**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, this step will capture the Jenkins build console output, wait for the Jenkins build to complete, and succeed/fail based on the Jenkins build result.  Otherwise, once the Jenkins job is successfully queued, this step will successfully complete without waiting for the Jenkins build to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +118,11 @@ If selected, this step will capture the Jenkins build console output, wait for t
 :::moniker range="<=azure-pipelines"
 
 **`capturePipeline`** - **Capture pipeline output and wait for pipeline completion**<br>
-Type: boolean. Required when captureConsole = true. Default value: true.<br>
+`boolean`. Required when `captureConsole = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, this step will capture the full Jenkins build pipeline console output, wait for the full Jenkins build pipeline to complete, and succeed/fail based on the Jenkins build pipeline result.  Otherwise, once the first Jenkins job completes, this step will successfully complete without waiting for full Jenkins build pipeline to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +130,11 @@ If selected, this step will capture the full Jenkins build pipeline console outp
 :::moniker range="<=azure-pipelines"
 
 **`parameterizedJob`** - **Parameterized job**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select if the Jenkins job accepts parameters. This should be selected even if all default parameter values are used and no parameters are actually specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -135,10 +142,11 @@ Select if the Jenkins job accepts parameters. This should be selected even if al
 :::moniker range="<=azure-pipelines"
 
 **`jobParameters`** - **Job parameters**<br>
-Type: string. Optional. Use when parameterizedJob = true.<br>
+`string`. Optional. Use when `parameterizedJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify job parameters, one per line, in the form <b>`<parameterName>=<parameterValue>`</b><p>To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify <b>`<parameterName>=`</b><p>Variables are supported. For example, to set a <b>`commitId`</b> parameter value to the Git commit ID of the build, use: <b>`commitId=$(Build.SourceVersion)`</b>. See the [documentation on variables](https://www.visualstudio.com/docs/build/define/variables) for more details.<p>Supported Jenkins parameter types are: <ul><li>`Boolean`</li><li>`Choice`</li><li>`Password`</li><li>`String`</li></ul>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,16 +1,15 @@
 ---
-title: Catalog of the built-in tasks for Azure Pipelines & TFS
-description: Catalog of the built-in tasks for Azure Pipelines & TFS.
+title: Azure Pipelines task reference
+description: Reference for the built-in tasks for Azure Pipelines & TFS.
 ms.date: 08/31/2022
 monikerRange: "<=azure-pipelines"
 ---
 
-# Azure Pipelines task index
+# Azure Pipelines task reference
 
-Tasks are the building blocks for defining automation in a pipeline, and each task is a packaged script or procedure that has been abstracted with a set of inputs. This article provides an index to the reference for the the built-in tasks.
+A task performs an action in a pipeline. For example, a task can build an app, interact with Azure resources, install a tool, or run a test. Tasks are the building blocks for defining automation in a pipeline. The articles in this section describe the built-in tasks for Azure Pipelines.
 
-To learn more about authoring pipelines using tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks) and [Azure Pipelines documentation](/azure/devops/pipelines/).
-
+For how-tos and tutorials about authoring pipelines using tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks) and [Azure Pipelines documentation](/azure/devops/pipelines/).
 
 > [!NOTE]
 > This is a preview of the new task reference experience with the following improvements.
@@ -30,7 +29,7 @@ To learn more about authoring pipelines using tasks, including creating custom t
 >    :::column-end:::
 >    :::column span="2":::
 >       To view the task reference for tasks available for your platform, make sure that you select the correct Azure DevOps version from the version selector which is located above the table of contents. Feature support differs depending on whether you are working from Azure DevOps Services or an on-premises version of Azure DevOps Server.  
->       To learn which on-premises version you are using, see [What platform/version am I using?](/azure/devops/user-guide/provide-feedback?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json#what-platformversion-am-i-using)
+>       To learn which on-premises version you are using, see [Look up your Azure DevOps platform and version](/azure/devops/user-guide/lookup-platform-version).
 >    :::column-end:::
 > :::row-end:::
 <!-- :::taskIndex::: -->

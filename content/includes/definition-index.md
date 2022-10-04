@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 09/13/2022
+ms.date: 09/30/2022
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -193,7 +193,7 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -521,7 +521,7 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -1021,7 +1021,7 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -1591,7 +1591,7 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -2161,7 +2161,7 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 :::column-end:::
 :::row-end:::
@@ -2741,7 +2741,7 @@ ___
 [steps.download](../steps-download.md)
 :::column-end:::
 :::column span="3":::
-The `download` step downloads artifacts associated with the current run or from another Azure pipeline that is associated as a pipeline resource.
+The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
 
 :::column-end:::
 :::row-end:::

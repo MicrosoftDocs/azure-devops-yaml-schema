@@ -1,7 +1,7 @@
 ---
 title: WindowsMachineFileCopy@2 - Windows machine file copy v2 task
 description: Copy files to remote Windows machines.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -106,10 +106,11 @@ Copy files to remote machine(s).
 :::moniker range="<=azure-pipelines"
 
 **`SourcePath`** - **Source**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path of the source folder or file on the local machine, or a UNC Share like c:\fabrikamfiber or \\\\fabrikamshare\fabrikamfiber.
+The path to the files to copy. Absolute path of the source folder or file on the local machine, or a UNC Share like `c:\fabrikamfiber` or `\\fabrikamshare\fabrikamfiber`. You can use predefined system variables such as `$(Build.Repository.LocalPath)` (the working folder on the agent computer), which makes it easy to specify the location of the build artifacts on the computer that hosts the automation agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,20 +118,24 @@ Absolute path of the source folder or file on the local machine, or a UNC Share 
 :::moniker range=">=azure-pipelines-2022"
 
 **`MachineNames`** - **Machines**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Provide a comma separated list of machine IP addresses or FQDNs, optionally including the port number. <br>For example: `dbserver.fabrikam.com`, `dbserver_int.fabrikam.com:5986`, `192.168.12.34` <br>Or provide output variable of other tasks. For example: `$(variableName)`. <br/>
+Can also be the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`MachineNames`** - **Machines**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Provide a comma separated list of machine IP addresses or FQDNs, optionally including the port number. <br>For example: `dbserver.fabrikam.com`, `dbserver_int.fabrikam.com:5986`, `192.168.12.34` <br>Or provide output variable of other tasks. For example: `$(variableName)`. <br/>
+Can also be the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,20 +143,26 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 :::moniker range=">=azure-pipelines-2022"
 
 **`AdminUserName`** - **Admin Login**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+The username of either a domain or a local administrative account on the target host(s).
+- Formats such as **domain\username**, **username**, and **machine-name\username** are supported.
+- UPN formats such as [username@domain.com] and built-in system accounts such as NT Authority\System are not supported.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`AdminUserName`** - **Admin Login**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+The username of either a domain or a local administrative account on the target host(s).
+- Formats such as **domain\username**, **username**, and **machine-name\username** are supported.
+- UPN formats such as [username@domain.com] and built-in system accounts such as NT Authority\System are not supported.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -159,20 +170,22 @@ Administrator login for the target machines.
 :::moniker range=">=azure-pipelines-2022"
 
 **`AdminPassword`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
+Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines such as `$(passwordVariable)`. <br>You may mark the variable as `secret` to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`AdminPassword`** - **Password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
+Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines, such as `$(passwordVariable)`. <br>You may mark the variable as `secret` to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -180,10 +193,11 @@ Password for administrator login for the target machines. <br>It can accept a va
 :::moniker range="<=azure-pipelines"
 
 **`TargetPath`** - **Destination Folder**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Local Path on the target machines or an accessible UNC path for copying the files from the source like d:\fabrikam or \\\\fabrikam\Web.
+Local Path on the target machines or an accessible UNC path for copying the files from the source, like `d:\fabrikam` or `\\fabrikam\Web`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -191,10 +205,11 @@ Local Path on the target machines or an accessible UNC path for copying the file
 :::moniker range="<=azure-pipelines"
 
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will clean the destination folder before copying the files.
+Set this option to delete all the files in the target folder before copying the new files to it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -202,10 +217,11 @@ Selecting it will clean the destination folder before copying the files.
 :::moniker range="<=azure-pipelines"
 
 **`CopyFilesInParallel`** - **Copy Files in Parallel**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will copy files in parallel to the machines.
+Set this option to copy files to all the target machines in parallel, which can speed up the copying process.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +229,11 @@ Selecting it will copy files in parallel to the machines.
 :::moniker range="<=azure-pipelines"
 
 **`AdditionalArguments`** - **Additional Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional robocopy arguments that will be applied when copying files like, /min:33553332 /l.
+Additional robocopy arguments that will be applied when copying files, like `/min:33553332 /l`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -240,7 +257,17 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in Version 2.0.
+Use this task to copy application files and other artifacts such as PowerShell scripts and PowerShell-DSC modules that are required to install the application on Windows Machines. It uses RoboCopy, the command-line utility built for fast copying of data.
+
+### I get a system error 53 when using this task. Why?
+
+Typically this occurs when the specified path cannot be located.
+This may be due to a firewall blocking the necessary ports for file and printer sharing,
+or an invalid path specification. For more details, see
+[Error 53](/previous-versions/windows/it-pro/windows-2000-server/cc940100(v=technet.10)) on TechNet.
+
+### What's new in Version 2.0
+
 * Proxy support is being added.
 * Removed support of legacy DTL machines.
 <!-- :::editable-content-end::: -->

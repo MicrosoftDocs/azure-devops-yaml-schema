@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionAppContainer@1 - Azure Functions for container v1 task
 description: Update a function app with a Docker container.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -39,7 +39,7 @@ Update Function Apps with Docker containers.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     imageName: # string. Required. Image name. 
     #containerCommand: # string. Startup command. 
   # Application and Configuration Settings
@@ -60,7 +60,7 @@ Update Function Apps with Docker containers.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     imageName: # string. Required. Image name. 
     #containerCommand: # string. Startup command. 
   # Application and Configuration Settings
@@ -78,10 +78,11 @@ Update Function Apps with Docker containers.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Selects the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +90,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appName`** - **App name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed.
+Name of the Function App for Containers.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +102,11 @@ Enter or Select the name of an existing Azure App Service. App services based on
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
+Set to true to deploy to an existing deployment slot or Azure App Service Environment. For both the targets, the task needs a Resource Group name. For the deployment slot option, the default is to deploy to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service environment, leave the slot name as **production** and just specify the Resource Group name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +114,11 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`resourceGroupName`** - **Resource group**<br>
-Type: string. Required when deployToSlotOrASE = true.<br>
+`string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+Name of the Resource Group containing the Function App for Containers.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -122,10 +126,11 @@ The Resource group name is required when the deployment target is either a deplo
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`slotName`** - **Slot**<br>
-Type: string. Required when deployToSlotOrASE = true. Default value: 'production'.<br>
+`string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Enters or selects an existing slot other than the **production** slot.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -133,10 +138,12 @@ Enter or Select an existing Slot other than the Production slot.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`imageName`** - **Image name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry or namespace.<br/> Note: Fully qualified image name will be of the format: '<b>`<registry or namespace`></b>/`<repository`>:`<tag`>'. For example, '<b>myregistry.azurecr.io</b>/nginx:latest'.
+A globally unique top-level domain name for your specific registry or namespace.
+Note: A fully qualified image name will be of the format: `<registry or namespace>` `<repository>` `<tag>`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -144,10 +151,11 @@ A globally unique top-level domain name for your specific registry or namespace.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`containerCommand`** - **Startup command**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
+Startup command to be executed after deployment. For example: `dotnet run` `dotnet filename.dll.`
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -155,10 +163,12 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appSettings`** - **App settings**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Application settings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes.
+Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Standard Time`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -166,10 +176,11 @@ Edit web app application settings following the syntax -key value . Value contai
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`configurationStrings`** - **Configuration settings**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Configuration strings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -197,11 +208,38 @@ Application URL of the selected App Service.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy an Azure Function on Linux using a [custom image](/azure/azure-functions/functions-create-function-linux-custom-image).
+
+[!INCLUDE [rm-app-service-troubleshoot-shared](includes/rm-app-service-troubleshoot-shared.md)]
+
+[!INCLUDE [rm-app-service-FAQs-shared](includes/rm-app-service-faqs-shared.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example deploys Azure Functions on Linux using containers:
+
+```YAML
+
+variables:
+  imageName: contoso.azurecr.io/azurefunctions-containers:$(build.buildId)
+  azureSubscription: Contoso
+  # To ignore SSL error uncomment the following variable
+  # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
+
+steps:
+- task: AzureFunctionAppContainer@1
+  displayName: Azure Function App on Container deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: functionappcontainers
+    imageName: $(imageName)
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

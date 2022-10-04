@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -37,7 +37,7 @@ Publish Pipeline Artifact.
 # Publish a local directory or file as a named artifact for the current pipeline.
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: 'drop'.
+    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
     targetPath: # string. Required. Path to publish. 
     #properties: # string. Custom properties.
 ```
@@ -51,7 +51,7 @@ Publish Pipeline Artifact.
 # Publish a local directory or file as a named artifact for the current pipeline.
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: 'drop'.
+    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
     targetPath: # string. Required. Path to publish.
 ```
 
@@ -64,7 +64,7 @@ Publish Pipeline Artifact.
 # Publish Pipeline Artifact.
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: 'drop'.
+    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
     targetPath: # string. Required. Path to publish.
 ```
 
@@ -78,10 +78,11 @@ Publish Pipeline Artifact.
 :::moniker range=">=azure-pipelines-2019"
 
 **`artifactName`** - **The name of this artifact**<br>
-Type: string. Required. Default value: 'drop'.<br>
+`string`. Required. Default value: `drop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of this artifact.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +90,11 @@ The name of this artifact.
 :::moniker range=">=azure-pipelines-2019"
 
 **`targetPath`** - **Path to publish**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) are supported.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +102,11 @@ The folder or file path to publish. This can be a fully-qualified path or a path
 :::moniker range=">=azure-pipelines-2022"
 
 **`properties`** - **Custom properties**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter custom properties to associate with the artifact. Valid JSON string expected with all keys having the prefix 'user-'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,10 +27,10 @@ Build with MSBuild.
 # Build with MSBuild.
 - task: MSBuild@1
   inputs:
-    solution: '**/*.sln' # string. Required. Project. Default: '**/*.sln'.
-    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: 'version'.
-    #msbuildVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: 'latest'.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: 'x86'.
+    solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
+    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
+    #msbuildVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -41,7 +41,7 @@ Build with MSBuild.
     #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
     #logProjectEvents: false # boolean. Record Project Details. Default: false.
     #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: 'normal'.
+    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
 ```
 
 :::moniker-end
@@ -53,10 +53,10 @@ Build with MSBuild.
 # Build with MSBuild.
 - task: MSBuild@1
   inputs:
-    solution: '**/*.sln' # string. Required. Project. Default: '**/*.sln'.
-    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: 'version'.
-    #msbuildVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: 'latest'.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: 'x86'.
+    solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
+    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
+    #msbuildVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -67,7 +67,7 @@ Build with MSBuild.
     #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
     #logProjectEvents: false # boolean. Record Project Details. Default: false.
     #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: 'normal'.
+    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
 ```
 
 :::moniker-end
@@ -79,10 +79,10 @@ Build with MSBuild.
 # Build with MSBuild.
 - task: MSBuild@1
   inputs:
-    solution: '**/*.sln' # string. Required. Project. Default: '**/*.sln'.
-    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: 'version'.
-    #msbuildVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: 'latest'.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: 'x86'.
+    solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
+    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
+    #msbuildVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -115,7 +115,7 @@ Build with MSBuild.
 :::moniker range="<=azure-pipelines"
 
 **`solution`** - **Project**<br>
-Type: string. Required. Default value: '**/*.sln'.<br>
+`string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If you want to build multiple projects, specify search criteria. You can use a single-folder wildcard (*) and recursive wildcards (**). For example, `**.*proj` searches for all MSBuild project (.*proj) files in all subdirectories.
 
@@ -126,6 +126,7 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 
 Tip: If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -133,9 +134,10 @@ Tip: If you are building a solution, we recommend you use the [Visual Studio bui
 :::moniker range="<=azure-pipelines"
 
 **`msbuildLocationMethod`** - **MSBuild**<br>
-Type: string. Allowed values: 'version', 'location'. Default value: 'version'.<br>
+`string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,30 +145,33 @@ Type: string. Allowed values: 'version', 'location'. Default value: 'version'.<b
 :::moniker range=">=azure-pipelines-2022"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
-Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'latest', '17.0', '16.0', '15.0', '14.0', '12.0', '4.0'. Default value: 'latest'.<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
-Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'latest', '16.0', '15.0', '14.0', '12.0', '4.0'. Default value: 'latest'.<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0. 
+If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
-Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'latest', '15.0', '14.0', '12.0', '4.0'. Default value: 'latest'.<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -174,10 +179,11 @@ If the preferred version cannot be found, the latest version found will be used 
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
-Type: string. Optional. Use when msbuildLocationMethod = version. Allowed values: 'x86', 'x64'. Default value: 'x86'.<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of MSBuild to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -185,10 +191,11 @@ Optionally supply the architecture (x86, x64) of MSBuild to run.
 :::moniker range="<=azure-pipelines"
 
 **`msbuildLocation`** - **Path to MSBuild**<br>
-Type: string. Optional. Use when msbuildLocationMethod = location.<br>
+`string`. Optional. Use when `msbuildLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to MSBuild.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -196,13 +203,14 @@ Optionally supply the path to MSBuild.
 :::moniker range="<=azure-pipelines"
 
 **`platform`** - **Platform**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Tips:
 
 - If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
 - Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -210,10 +218,11 @@ Tips:
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as $`(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -221,10 +230,11 @@ Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab 
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArguments`** - **MSBuild Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to MSBuild (on Windows) and xbuild (on macOS).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -232,12 +242,13 @@ Additional arguments passed to MSBuild (on Windows) and xbuild (on macOS).
 :::moniker range="<=azure-pipelines"
 
 **`clean`** - **Clean**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
- Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
+Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
 Set to True if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
 See, [repo options](/azure/devops/pipelines/repos/pipeline-options-for-git)
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -245,10 +256,11 @@ See, [repo options](/azure/devops/pipelines/repos/pipeline-options-for-git)
 :::moniker range="<=azure-pipelines"
 
 **`maximumCpuCount`** - **Build in Parallel**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If your MSBuild target configuration is compatible with building in parallel, you can optionally check this input to pass the /m switch to MSBuild (Windows only). If your target configuration is not compatible with building in parallel, checking this option may cause your build to result in file-in-use errors, or intermittent or inconsistent build failures.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -256,10 +268,11 @@ If your MSBuild target configuration is compatible with building in parallel, yo
 :::moniker range="<=azure-pipelines"
 
 **`restoreNugetPackages`** - **Restore NuGet Packages**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option is deprecated. To restore NuGet packages, add a [NuGet](/azure/devops/pipelines/tasks/package/nuget) task before the build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -267,10 +280,11 @@ This option is deprecated. To restore NuGet packages, add a [NuGet](/azure/devop
 :::moniker range="<=azure-pipelines"
 
 **`logProjectEvents`** - **Record Project Details**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally record timeline details for each project (Windows only).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -278,10 +292,11 @@ Optionally record timeline details for each project (Windows only).
 :::moniker range="<=azure-pipelines"
 
 **`createLogFile`** - **Create Log File**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally create a log file (Windows only).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -289,10 +304,11 @@ Optionally create a log file (Windows only).
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`logFileVerbosity`** - **Log File Verbosity**<br>
-Type: string. Optional. Use when createLogFile = true. Allowed values: 'quiet', 'minimal', 'normal', 'detailed', 'diagnostic'. Default value: 'normal'.<br>
+`string`. Optional. Use when `createLogFile = true`. Allowed values: `quiet`, `minimal`, `normal`, `detailed`, `diagnostic`. Default value: `normal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional log file verbosity.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

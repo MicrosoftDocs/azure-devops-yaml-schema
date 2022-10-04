@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -43,12 +43,12 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
 # Publish build artifacts to Azure Pipelines or a Windows file share.
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: '$(Build.ArtifactStagingDirectory)'.
-    ArtifactName: 'drop' # string. Required. Artifact name. Default: 'drop'.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: 'Container'.
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+    ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
-    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: '8'.
+    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
   # Advanced
     #FileCopyOptions: # string. Optional. Use when ArtifactType = FilePath. File copy options. 
     #StoreAsTar: false # boolean. Tar the artifact before uploading. Default: false.
@@ -63,12 +63,12 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
 # Publish build artifacts to Azure Pipelines or a Windows file share.
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: '$(Build.ArtifactStagingDirectory)'.
-    ArtifactName: 'drop' # string. Required. Artifact name. Default: 'drop'.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: 'Container'.
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+    ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
-    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: '8'.
+    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
   # Advanced
     #FileCopyOptions: # string. Optional. Use when ArtifactType = FilePath. File copy options.
 ```
@@ -82,12 +82,12 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
 # Publish build artifacts to Azure Pipelines or a Windows file share.
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: '$(Build.ArtifactStagingDirectory)'.
-    ArtifactName: 'drop' # string. Required. Artifact name. Default: 'drop'.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: 'Container'.
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+    ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
-    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: '8'.
+    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
 ```
 
 :::moniker-end
@@ -99,12 +99,12 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
 # Publish build artifacts to Azure Pipelines/TFS or a file share.
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: '$(Build.ArtifactStagingDirectory)'.
-    ArtifactName: 'drop' # string. Required. Artifact name. Default: 'drop'.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: 'Container'.
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+    ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
-    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: '8'.
+    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
 ```
 
 :::moniker-end
@@ -127,20 +127,22 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
 :::moniker range=">=azure-pipelines-2019"
 
 **`PathtoPublish`** - **Path to publish**<br>
-Type: string. Required. Default value: '$(Build.ArtifactStagingDirectory)'.<br>
+`string`. Required. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`PathtoPublish`** - **Path to publish**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,41 +150,56 @@ The folder or file path to publish. This can be a fully-qualified path or a path
 :::moniker range=">=azure-pipelines-2019"
 
 **`ArtifactName`** - **Artifact name**<br>
-Type: string. Required. Default value: 'drop'.<br>
+`string`. Required. Default value: `drop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the artifact to create in the publish location.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`ArtifactName`** - **Artifact name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the artifact to create in the publish location.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishLocation"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019.1"
 
 **`publishLocation`** - **Artifact publish location**<br>
-Input alias: `ArtifactType`. Type: string. Required. Allowed values: 'Container', 'FilePath'. Default value: 'Container'.<br>
+Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines), `FilePath` (A file share). Default value: `Container`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+**`publishLocation`** - **Artifact publish location**<br>
+Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines/TFS), `FilePath` (A file share). Default value: `Container`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Choose whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`publishLocation`** - **Artifact publish location**<br>
-Input alias: `ArtifactType`. Type: string. Required. Allowed values: 'Container', 'FilePath'.<br>
+Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Visual Studio Team Services/TFS), `FilePath` (A file share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -190,20 +207,22 @@ Choose whether to store the artifact in Azure Pipelines (Container), or to copy 
 :::moniker range=">=azure-pipelines-2019"
 
 **`TargetPath`** - **File share path**<br>
-Type: string. Required when ArtifactType = FilePath.<br>
+`string`. Required when `ArtifactType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`TargetPath`** - **File share path**<br>
-Type: string. Optional. Use when ArtifactType = FilePath. Default value: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'.<br>
+`string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -211,10 +230,11 @@ Specify the path to the file share where you want to copy the files. The path mu
 :::moniker range="<=azure-pipelines"
 
 **`Parallel`** - **Parallel copy**<br>
-Type: boolean. Optional. Use when ArtifactType = FilePath. Default value: false.<br>
+`boolean`. Optional. Use when `ArtifactType = FilePath`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, a single thread will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -222,10 +242,11 @@ Select whether to copy files in parallel using multiple threads for greater pote
 :::moniker range="<=azure-pipelines"
 
 **`ParallelCount`** - **Parallel count**<br>
-Type: string. Optional. Use when ArtifactType = FilePath && Parallel = true. Default value: '8'.<br>
+`string`. Optional. Use when `ArtifactType = FilePath && Parallel = true`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the degree of parallelism (the number of threads) used to perform the copy. The value must be at least 1 and not greater than 128. Choose a value based on CPU capabilities of the build agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -233,10 +254,11 @@ Enter the degree of parallelism (the number of threads) used to perform the copy
 :::moniker range=">=azure-pipelines-2020"
 
 **`FileCopyOptions`** - **File copy options**<br>
-Type: string. Optional. Use when ArtifactType = FilePath.<br>
+`string`. Optional. Use when `ArtifactType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Pass additional options to the Robocopy command. For example, the recursive minimatch pattern `**/*`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -244,10 +266,11 @@ Pass additional options to the Robocopy command. For example, the recursive mini
 :::moniker range=">=azure-pipelines-2022"
 
 **`StoreAsTar`** - **Tar the artifact before uploading**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add all files from the publish path to a tar archive before uploading. This allows you to preserve the UNIX file permissions. Use `extractTars` option of the[DownloadBuildArtifacts](download-build-artifacts-v1.md) task to extract the downloaded items automatically. This setting is ignored on Windows agents.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

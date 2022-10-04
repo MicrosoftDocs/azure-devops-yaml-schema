@@ -1,7 +1,7 @@
 ---
 title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,15 +28,15 @@ Run tests with Visual Studio test runner.
 - task: VSTest@1
   inputs:
   # Execution Options
-    testAssembly: '**\*test*.dll;-:**\obj\**' # string. Required. Test Assembly. Default: '**\*test*.dll;-:**\obj\**'.
+    testAssembly: '**\*test*.dll;-:**\obj\**' # string. Required. Test Assembly. Default: **\*test*.dll;-:**\obj\**.
     #testFiltercriteria: # string. Test Filter criteria. 
     #runSettingsFile: # string. Run Settings File. 
     #overrideTestrunParameters: # string. Override TestRun Parameters. 
     #codeCoverageEnabled: False # boolean. Code Coverage Enabled. Default: False.
     #runInParallel: false # boolean. Run In Parallel. Default: false.
   # Advanced Execution Options
-    #vstestLocationMethod: 'version' # 'version' | 'location'. VSTest. Default: 'version'.
-    #vsTestVersion: '14.0' # 'latest' | '14.0' | '12.0'. Optional. Use when vstestLocationMethod = version. VSTest version. Default: '14.0'.
+    #vstestLocationMethod: 'version' # 'version' | 'location'. VSTest. Default: version.
+    #vsTestVersion: '14.0' # 'latest' | '14.0' | '12.0'. Optional. Use when vstestLocationMethod = version. VSTest version. Default: 14.0.
     #vstestLocation: # string. Optional. Use when vstestLocationMethod = location. Path to vstest.console.exe. 
     #pathtoCustomTestAdapters: # string. Path to Custom Test Adapters. 
     #otherConsoleOptions: # string. Other console options. 
@@ -67,10 +67,11 @@ Run tests with Visual Studio test runner.
 :::moniker range="<=azure-pipelines"
 
 **`testAssembly`** - **Test Assembly**<br>
-Type: string. Required. Default value: '**\*test*.dll;-:**\obj\**'.<br>
+`string`. Required. Default value: `**\*test*.dll;-:**\obj\**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Test binaries to run tests on.  Wildcards can be used.  For example, `**\*test*.dll;-:**\obj\**` for all dlls with test in name while excluding files in any sub-directory named obj.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +79,11 @@ Test binaries to run tests on.  Wildcards can be used.  For example, `**\*test*.
 :::moniker range="<=azure-pipelines"
 
 **`testFiltercriteria`** - **Test Filter criteria**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional criteria to filter tests from Test assemblies. For example: `Priority=1|Name=MyTestMethod`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +91,11 @@ Additional criteria to filter tests from Test assemblies. For example: `Priority
 :::moniker range="<=azure-pipelines"
 
 **`runSettingsFile`** - **Run Settings File**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to runsettings file to use with the tests. Use `$(Build.SourcesDirectory)` to access the Project folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +103,11 @@ Path to runsettings file to use with the tests. Use `$(Build.SourcesDirectory)` 
 :::moniker range="<=azure-pipelines"
 
 **`overrideTestrunParameters`** - **Override TestRun Parameters**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Override parameters defined in the TestRunParameters section of runsettings file. For example: `AppURL=$(DeployURL);Port=8080`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +115,11 @@ Override parameters defined in the TestRunParameters section of runsettings file
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageEnabled`** - **Code Coverage Enabled**<br>
-Type: boolean. Default value: False.<br>
+`boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Collect code coverage information from the Test run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -122,10 +127,11 @@ Collect code coverage information from the Test run.
 :::moniker range="<=azure-pipelines"
 
 **`runInParallel`** - **Run In Parallel**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enable parallel execution of your tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -133,9 +139,10 @@ Enable parallel execution of your tests.
 :::moniker range="<=azure-pipelines"
 
 **`vstestLocationMethod`** - **VSTest**<br>
-Type: string. Allowed values: 'version', 'location'. Default value: 'version'.<br>
+`string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,10 +150,11 @@ Type: string. Allowed values: 'version', 'location'. Default value: 'version'.<b
 :::moniker range="<=azure-pipelines"
 
 **`vsTestVersion`** - **VSTest version**<br>
-Type: string. Optional. Use when vstestLocationMethod = version. Allowed values: 'latest', '14.0', '12.0'. Default value: '14.0'.<br>
+`string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013). Default value: `14.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of VSTest to use.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,10 +162,11 @@ The version of VSTest to use.
 :::moniker range="<=azure-pipelines"
 
 **`vstestLocation`** - **Path to vstest.console.exe**<br>
-Type: string. Optional. Use when vstestLocationMethod = location.<br>
+`string`. Optional. Use when `vstestLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to VSTest.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -165,10 +174,11 @@ Optionally supply the path to VSTest.
 :::moniker range="<=azure-pipelines"
 
 **`pathtoCustomTestAdapters`** - **Path to Custom Test Adapters**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Directory path to custom test adapters. Nuget restored adapters are automatically searched for.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -176,10 +186,11 @@ Directory path to custom test adapters. Nuget restored adapters are automaticall
 :::moniker range="<=azure-pipelines"
 
 **`otherConsoleOptions`** - **Other console options**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Other Console options that can be passed to vstest.console.exe. Click on the help link below for more details.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -187,10 +198,11 @@ Other Console options that can be passed to vstest.console.exe. Click on the hel
 :::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test Run Title**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the Test Run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -198,10 +210,11 @@ Provide a name for the Test Run.
 :::moniker range="<=azure-pipelines"
 
 **`platform`** - **Platform**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Platform against which the tests should be reported. If you have defined a variable for platform in your build task, use that here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -209,10 +222,11 @@ Platform against which the tests should be reported. If you have defined a varia
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that here.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -220,10 +234,11 @@ Configuration against which the tests should be reported. If you have defined a 
 :::moniker range="<=azure-pipelines"
 
 **`publishRunAttachments`** - **Upload Test Attachments**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Opt in/out of publishing test run level attachments.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

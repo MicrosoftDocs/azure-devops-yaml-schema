@@ -1,7 +1,7 @@
 ---
 title: DeployVisualStudioTestAgent@1 - Visual Studio Test Agent Deployment v1 task
 description: Deploy and configure Test Agent to run tests on a set of machines.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -33,7 +33,7 @@ Deploy and configure Test Agent to run tests on a set of machines.
     #adminPassword: # string. Admin Password. 
     #winRmProtocol: # 'Http' | 'Https'. Protocol. 
     #testCertificate: true # boolean. Optional. Use when winRmProtocol = Https. Test Certificate. Default: true.
-    #resourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Select Machines By. Default: 'machineNames'.
+    #resourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Select Machines By. Default: machineNames.
     #testMachines: # string. Filter Criteria. 
   # Agent Configuration
     machineUserName: # string. Required. Username. 
@@ -65,10 +65,11 @@ Deploy and configure Test Agent to run tests on a set of machines.
 :::moniker range="<=azure-pipelines"
 
 **`testMachineGroup`** - **Machines**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. Eg: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986` Or provide output variable of other tasks. Eg: `$(variableName)` Or provide a Machine Group Name.` If you are using HTTPS, name/IP of machine should match the CN in the certificate.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +77,11 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 :::moniker range="<=azure-pipelines"
 
 **`adminUserName`** - **Admin Login**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Administrator login for the target machines.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +89,11 @@ Administrator login for the target machines.
 :::moniker range="<=azure-pipelines"
 
 **`adminPassword`** - **Admin Password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Administrator password for the target machines. <br>It can accept variable defined in Build/Release definitions as `$(passwordVariable)`. <br>You may mark variable type as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +101,11 @@ Administrator password for the target machines. <br>It can accept variable defin
 :::moniker range="<=azure-pipelines"
 
 **`winRmProtocol`** - **Protocol**<br>
-Type: string. Allowed values: 'Http', 'Https'.<br>
+`string`. Allowed values: `Http`, `Https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the protocol to use for the WinRM connection with the machine(s). Default is `HTTPS`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,10 +113,11 @@ Select the protocol to use for the WinRM connection with the machine(s). Default
 :::moniker range="<=azure-pipelines"
 
 **`testCertificate`** - **Test Certificate**<br>
-Type: boolean. Optional. Use when winRmProtocol = Https. Default value: true.<br>
+`boolean`. Optional. Use when `winRmProtocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -120,9 +125,10 @@ Select the option to skip validating the authenticity of the machine's certifica
 :::moniker range="<=azure-pipelines"
 
 **`resourceFilteringMethod`** - **Select Machines By**<br>
-Type: string. Allowed values: 'machineNames', 'tags'. Default value: 'machineNames'.<br>
+`string`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -130,10 +136,11 @@ Type: string. Allowed values: 'machineNames', 'tags'. Default value: 'machineNam
 :::moniker range="<=azure-pipelines"
 
 **`testMachines`** - **Filter Criteria**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.com, 192.168.12.34 or tags like Role:DB;OS:Win8.1`. Returns machines with either of the tags. For Azure Resource Group provide the VM Host Name for the machine name. The default is to deploy agent on all machines represented in the Machines field.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -141,10 +148,11 @@ Provide a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.co
 :::moniker range="<=azure-pipelines"
 
 **`machineUserName`** - **Username**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Username with which test agent needs to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -152,10 +160,11 @@ Username with which test agent needs to run.
 :::moniker range="<=azure-pipelines"
 
 **`machinePassword`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the username given above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -163,10 +172,11 @@ Password for the username given above.
 :::moniker range="<=azure-pipelines"
 
 **`runAsProcess`** - **Interactive Process**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Denotes if test agent needs to run as an interactive process, needed for Coded UI Tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -174,10 +184,11 @@ Denotes if test agent needs to run as an interactive process, needed for Coded U
 :::moniker range="<=azure-pipelines"
 
 **`agentLocation`** - **Test Agent Location**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to vstf_testagent.exe from network or local location. If no path is provided, it will be downloaded from `https://go.microsoft.com/fwlink/?LinkId=827840`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -185,10 +196,11 @@ Optionally supply the path to vstf_testagent.exe from network or local location.
 :::moniker range="<=azure-pipelines"
 
 **`updateTestAgent`** - **Update Test Agent**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify if test agent needs to be updated.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -196,10 +208,11 @@ Optionally specify if test agent needs to be updated.
 :::moniker range="<=azure-pipelines"
 
 **`isDataCollectionOnly`** - **Enable Data Collection Only**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify if test agent needs to be used only for datacollection and not for running tests. Typically done on application under test(AUT) machine group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

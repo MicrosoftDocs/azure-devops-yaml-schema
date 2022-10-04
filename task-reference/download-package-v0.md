@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -48,7 +48,7 @@ Download a package from a Package Management feed in VSTS or TFS.
     feed: # string. Required. Feed. 
     definition: # string. Required. Package. 
     version: # string. Required. Version. 
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: '$(System.ArtifactsDirectory)'.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
 ```
 
 :::moniker-end
@@ -64,7 +64,7 @@ Download a package from a Package Management feed in VSTS or TFS.
     feed: # string. Required. Feed. 
     definition: # string. Required. Package. 
     version: # string. Required. Version. 
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: '$(System.ArtifactsDirectory)'.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
 ```
 
 :::moniker-end
@@ -87,10 +87,11 @@ Download a package from a Package Management feed in VSTS or TFS.
 :::moniker range="<=azure-pipelines"
 
 **`feed`** - **Feed**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the package source.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +99,11 @@ Select the package source.
 :::moniker range="<=azure-pipelines"
 
 **`definition`** - **Package**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the package to download. Only NuGet packages are currently supported.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,10 +111,11 @@ Select the package to download. Only NuGet packages are currently supported.
 :::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version of the package.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -120,10 +123,11 @@ Version of the package.
 :::moniker range="<=azure-pipelines"
 
 **`downloadPath`** - **Destination directory**<br>
-Type: string. Required. Default value: '$(System.ArtifactsDirectory)'.<br>
+`string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path on the agent machine where the package will be downloaded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

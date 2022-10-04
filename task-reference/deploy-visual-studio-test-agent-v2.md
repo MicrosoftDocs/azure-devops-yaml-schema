@@ -1,7 +1,7 @@
 ---
 title: DeployVisualStudioTestAgent@2 - Visual Studio test agent deployment v2 task
 description: DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -33,7 +33,7 @@ This task is deprecated.
     testMachines: # string. Required. Machines. 
     adminUserName: # string. Required. Admin login. 
     adminPassword: # string. Required. Admin password. 
-    winRmProtocol: 'Http' # 'Http' | 'Https'. Required. Protocol. Default: 'Http'.
+    winRmProtocol: 'Http' # 'Http' | 'Https'. Required. Protocol. Default: Http.
     #testCertificate: true # boolean. Optional. Use when winRmProtocol = Https. Test Certificate. Default: true.
   # Agent Configuration
     machineUserName: # string. Required. Username. 
@@ -41,7 +41,7 @@ This task is deprecated.
     #runAsProcess: false # boolean. Run UI tests. Default: false.
     #isDataCollectionOnly: false # boolean. Enable data collection only. Default: false.
   # Advanced
-    #testPlatform: '14.0' # '15.0' | '14.0'. Test agent version. Default: '14.0'.
+    #testPlatform: '14.0' # '15.0' | '14.0'. Test agent version. Default: 14.0.
     #agentLocation: # string. Test agent location. 
     #updateTestAgent: false # boolean. Update test agent. Default: false.
 ```
@@ -59,7 +59,7 @@ This task is deprecated.
     testMachines: # string. Required. Machines. 
     adminUserName: # string. Required. Admin login. 
     adminPassword: # string. Required. Admin password. 
-    winRmProtocol: 'Http' # 'Http' | 'Https'. Required. Protocol. Default: 'Http'.
+    winRmProtocol: 'Http' # 'Http' | 'Https'. Required. Protocol. Default: Http.
     #testCertificate: true # boolean. Optional. Use when winRmProtocol = Https. Test Certificate. Default: true.
   # Agent Configuration
     machineUserName: # string. Required. Username. 
@@ -67,7 +67,7 @@ This task is deprecated.
     #runAsProcess: false # boolean. Run UI tests. Default: false.
     #isDataCollectionOnly: false # boolean. Enable data collection only. Default: false.
   # Advanced
-    #testPlatform: '14.0' # '15.0' | '14.0'. Test agent version. Default: '14.0'.
+    #testPlatform: '14.0' # '15.0' | '14.0'. Test agent version. Default: 14.0.
     #agentLocation: # string. Test agent location. 
     #updateTestAgent: false # boolean. Update test agent. Default: false.
 ```
@@ -92,10 +92,11 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`testMachines`** - **Machines**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. Eg: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986` Or provide output variable of other tasks. Eg: `$(variableName)`. If you are using HTTPS, name/IP of machine should match the CN in the certificate.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -103,10 +104,11 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 :::moniker range="<=azure-pipelines"
 
 **`adminUserName`** - **Admin login**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Administrator login for the target machines.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -114,10 +116,11 @@ Administrator login for the target machines.
 :::moniker range="<=azure-pipelines"
 
 **`adminPassword`** - **Admin password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Administrator password for the target machines. <br>It can accept variable defined in build or release pipelines as `$(passwordVariable)`. <br>You may mark a variable as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -125,10 +128,11 @@ Administrator password for the target machines. <br>It can accept variable defin
 :::moniker range="<=azure-pipelines"
 
 **`winRmProtocol`** - **Protocol**<br>
-Type: string. Required. Allowed values: 'Http', 'Https'. Default value: 'Http'.<br>
+`string`. Required. Allowed values: `Http`, `Https`. Default value: `Http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the protocol to use for the WinRM service connection with the machine(s). Default is `HTTP`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -136,10 +140,11 @@ Select the protocol to use for the WinRM service connection with the machine(s).
 :::moniker range="<=azure-pipelines"
 
 **`testCertificate`** - **Test Certificate**<br>
-Type: boolean. Optional. Use when winRmProtocol = Https. Default value: true.<br>
+`boolean`. Optional. Use when `winRmProtocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -147,10 +152,11 @@ Select the option to skip validating the authenticity of the machine's certifica
 :::moniker range="<=azure-pipelines"
 
 **`machineUserName`** - **Username**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Username with which test agent needs to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -158,10 +164,11 @@ Username with which test agent needs to run.
 :::moniker range="<=azure-pipelines"
 
 **`machinePassword`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the username given above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -169,10 +176,11 @@ Password for the username given above.
 :::moniker range="<=azure-pipelines"
 
 **`runAsProcess`** - **Run UI tests**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Denotes if test agent needs to run as an interactive process, needed for Coded UI Tests.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -180,10 +188,11 @@ Denotes if test agent needs to run as an interactive process, needed for Coded U
 :::moniker range="<=azure-pipelines"
 
 **`isDataCollectionOnly`** - **Enable data collection only**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally specify if test agent needs to be used only for data collection and not for running tests. Typically done on application under test(AUT) machine group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -191,10 +200,11 @@ Optionally specify if test agent needs to be used only for data collection and n
 :::moniker range="<=azure-pipelines"
 
 **`testPlatform`** - **Test agent version**<br>
-Type: string. Allowed values: '15.0', '14.0'. Default value: '14.0'.<br>
+`string`. Allowed values: `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015). Default value: `14.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of Visual Studio test agent to use. Pick an appropriate version to match the VS version using which test binaries were built.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -202,10 +212,11 @@ The version of Visual Studio test agent to use. Pick an appropriate version to m
 :::moniker range="<=azure-pipelines"
 
 **`agentLocation`** - **Test agent location**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to vstf_testagent.exe from network or local location. If no path is provided, it will be automatically downloaded from the Download Center. Installer for Test Agent 2015 Update 3 from `https://go.microsoft.com/fwlink/?LinkId=827840`. Installer for Test Agent 2017 from `https://aka.ms/vs/15/release/vs_TestAgent.exe`. Refer to `https://aka.ms/testagentlocation` for details on how to use offline installers.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +224,11 @@ Optionally supply the path to vstf_testagent.exe from network or local location.
 :::moniker range="<=azure-pipelines"
 
 **`updateTestAgent`** - **Update test agent**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If Test Agent is already deployed on a machine, this option checks to see if an update is available for that version of the Test Agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

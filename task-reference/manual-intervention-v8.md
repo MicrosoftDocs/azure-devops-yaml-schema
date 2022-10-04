@@ -1,7 +1,7 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Pause deployment in a classic release pieline and wait for manual intervention.
+Pause deployment in a classic release pipeline and wait for manual intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -37,7 +37,7 @@ Pause deployment and wait for intervention.
   inputs:
     #instructions: # string. Instructions. 
     #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: 'reject'.
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
 
 :::moniker-end
@@ -51,7 +51,7 @@ Pause deployment and wait for intervention.
   inputs:
     #instructions: # string. Instructions. 
     #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: 'reject'.
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
 
 :::moniker-end
@@ -74,10 +74,11 @@ Pause deployment and wait for intervention.
 :::moniker range="<=azure-pipelines"
 
 **`instructions`** - **Instructions**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 These instructions will be shown to the user for resuming or rejecting the manual intervention. Based on these instructions the user will take an informed decision about this manual intervention.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +86,11 @@ These instructions will be shown to the user for resuming or rejecting the manua
 :::moniker range="<=azure-pipelines"
 
 **`emailRecipients`** - **Notify users**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Send a manual intervention pending email to specific users (or groups). Only users with manage deployment permission can act on a manual intervention.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +98,11 @@ Send a manual intervention pending email to specific users (or groups). Only use
 :::moniker range="<=azure-pipelines"
 
 **`onTimeout`** - **On timeout**<br>
-Type: string. Allowed values: 'reject', 'resume'. Default value: 'reject'.<br>
+`string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Reject or resume this manual intervention automatically after it is pending for the specified timeout or 60 days, whichever is earlier.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,6 +124,39 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task in a release pipeline to pause an active deployment within a stage,
+typically to perform some manual steps or actions, and then continue the automated deployment tasks.
+
+> [!NOTE]
+> This task can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline. This article refers only to classic pipelines. For YAML usage, see [Manual Validation task](manual-validation-v0.md).
+
+:::image type="content" source="media/maninter-use-variables.png" alt-text="Screenshot of configuring a Manual Intervention task.":::
+
+The **Manual Intervention** task does not perform deployment actions directly.
+Instead, it allows you to pause an active deployment within a stage, typically to perform some
+manual steps or actions, and then continue the automated deployment tasks. For example, the user may
+need to edit the details of the current release before continuing; perhaps by entering the values for
+custom variables used by the tasks in the release.
+
+The **Manual Intervention** task configuration includes an **Instructions** parameter that
+can be used to provide related information, or to specify the manual steps
+the user should execute during the agentless job. You can configure the task to
+send email notifications to users and user groups when it is awaiting intervention,
+and specify the automatic response (reject or resume the deployment) after a configurable
+timeout occurs.
+
+> [!NOTE]
+> You can use built-in and custom variables to generate portions of your instructions.
+
+When the Manual Intervention task is activated during a deployment, it sets
+the deployment state to **IN PROGRESS** and displays
+a message bar containing  a link that opens the Manual Intervention dialog containing the instructions.
+After carrying out the manual steps, the administrator or user can choose to resume the deployment, or reject it.
+Users with **Manage deployment** permission on the stage can resume or reject the manual intervention.
+
+For more information about using this task, see [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: ShellScript@2 - Shell script v2 task
 description: Run a shell script using Bash.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -80,10 +80,11 @@ Run a shell script using bash.
 :::moniker range="<=azure-pipelines"
 
 **`scriptPath`** - **Script Path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Relative path from repo root of the shell script file to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +92,11 @@ Relative path from repo root of the shell script file to run.
 :::moniker range="<=azure-pipelines"
 
 **`args`** - **Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments that you want to pass to the script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +104,11 @@ Arguments that you want to pass to the script.
 :::moniker range="<=azure-pipelines"
 
 **`disableAutoCwd`** - **Specify Working Directory**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The default behavior is to set the working directory to the script location. This enables you to optionally specify a different working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +116,11 @@ The default behavior is to set the working directory to the script location. Thi
 :::moniker range="<=azure-pipelines"
 
 **`cwd`** - **Working Directory**<br>
-Type: string. Optional. Use when disableAutoCwd = true.<br>
+`string`. Optional. Use when `disableAutoCwd = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +128,11 @@ Current working directory where the script is run.  Empty is the root of the rep
 :::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the StandardError stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

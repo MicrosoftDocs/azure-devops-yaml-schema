@@ -1,7 +1,7 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -76,10 +76,11 @@ Connect/Disconnect an Azure virtual machine's network interface to a Load Balanc
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +88,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource Group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the resource group name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +100,11 @@ Select the resource group name.
 :::moniker range="<=azure-pipelines"
 
 **`LoadBalancer`** - **Load Balancer Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select or enter the load balancer.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,12 +112,13 @@ Select or enter the load balancer.
 :::moniker range="<=azure-pipelines"
 
 **`Action`** - **Action**<br>
-Type: string. Required. Allowed values: 'Disconnect', 'Connect'.<br>
+`string`. Required. Allowed values: `Disconnect` (Disconnect Primary Network Interface), `Connect` (Connect Primary Network Interface).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Disconnect:  Removes the virtual machine’s primary network interface from the load balancer’s backend pool. So that it stops receiving network traffic.
 
 Connect: Adds the virtual machine’s primary network interface to load balancer backend pool. So that it starts receiving network traffic based on the load balancing rules for the load balancer resource.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -136,6 +140,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's address pool.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

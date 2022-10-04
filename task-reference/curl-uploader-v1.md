@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@1 - cURL Upload Files v1 task
 description: Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -56,10 +56,11 @@ Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
 :::moniker range="<=azure-pipelines"
 
 **`files`** - **Files**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File(s) to be uploaded. Wildcards can be used. For example, `**\*.zip` for all ZIP files in all subfolders.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +68,11 @@ File(s) to be uploaded. Wildcards can be used. For example, `**\*.zip` for all Z
 :::moniker range="<=azure-pipelines"
 
 **`username`** - **Username**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the username for server authentication.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +80,11 @@ Specify the username for server authentication.
 :::moniker range="<=azure-pipelines"
 
 **`password`** - **Password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +92,11 @@ Specify the password for server authentication. Use a new build variable with it
 :::moniker range="<=azure-pipelines"
 
 **`url`** - **URL**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +104,11 @@ Specify the URL to where the file(s) will be uploaded. The directory should end 
 :::moniker range="<=azure-pipelines"
 
 **`options`** - **Optional Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments that will be passed to cURL.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +116,11 @@ Additional arguments that will be passed to cURL.
 :::moniker range="<=azure-pipelines"
 
 **`redirectStderr`** - **Redirect Standard Error to Standard Out**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds '--stderr -' as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

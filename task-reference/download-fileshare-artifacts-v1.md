@@ -1,7 +1,7 @@
 ---
 title: DownloadFileshareArtifacts@1 - Download artifacts from file share v1 task
 description: Download artifacts from a file share, like \\share\drop.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -37,10 +37,10 @@ Download artifacts from a file share e.g \\share\drop.
   inputs:
     filesharePath: # string. Required. File share path. 
     artifactName: # string. Required. Artifact name. 
-    #itemPattern: '**' # string. Matching pattern. Default: '**'.
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Download path. Default: '$(System.ArtifactsDirectory)'.
+    #itemPattern: '**' # string. Matching pattern. Default: **.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Download path. Default: $(System.ArtifactsDirectory).
   # Advanced
-    #parallelizationLimit: '8' # string. Parallelization limit. Default: '8'.
+    #parallelizationLimit: '8' # string. Parallelization limit. Default: 8.
 ```
 
 :::moniker-end
@@ -54,10 +54,10 @@ Download artifacts from a file share e.g \\share\drop.
   inputs:
     filesharePath: # string. Required. Fileshare path. 
     artifactName: # string. Required. Artifact name. 
-    #itemPattern: '**' # string. Matching pattern. Default: '**'.
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Download path. Default: '$(System.ArtifactsDirectory)'.
+    #itemPattern: '**' # string. Matching pattern. Default: **.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Download path. Default: $(System.ArtifactsDirectory).
   # Advanced
-    #parallelizationLimit: '8' # string. Parallelization limit. Default: '8'.
+    #parallelizationLimit: '8' # string. Parallelization limit. Default: 8.
 ```
 
 :::moniker-end
@@ -70,20 +70,22 @@ Download artifacts from a file share e.g \\share\drop.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`filesharePath`** - **File share path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path e.g \\server\folder.
+Fileshare path (for example: `\\server\folder`).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`filesharePath`** - **Fileshare path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path e.g \\server\folder.
+Fileshare path (`for example: \\server\folder`).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +93,11 @@ Fileshare path e.g \\server\folder.
 :::moniker range=">=azure-pipelines-2019"
 
 **`artifactName`** - **Artifact name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download e.g drop.
+The name of the artifact to download (for example: `drop`).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +105,11 @@ The name of the artifact to download e.g drop.
 :::moniker range=">=azure-pipelines-2019"
 
 **`itemPattern`** - **Matching pattern**<br>
-Type: string. Default value: '**'.<br>
+`string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files within the artifact.</p>.
+Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (`**`) will download all files within the artifact.</p>
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +117,11 @@ Specify files to be downloaded as multi line minimatch pattern. [More Informatio
 :::moniker range=">=azure-pipelines-2019"
 
 **`downloadPath`** - **Download path**<br>
-Type: string. Required. Default value: '$(System.ArtifactsDirectory)'.<br>
+`string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path on the agent machine where the artifacts will be downloaded.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +129,11 @@ Path on the agent machine where the artifacts will be downloaded.
 :::moniker range=">=azure-pipelines-2019"
 
 **`parallelizationLimit`** - **Parallelization limit**<br>
-Type: string. Default value: '8'.<br>
+`string`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Number of files to download simultaneously.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -149,6 +155,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to download fileshare artifacts.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

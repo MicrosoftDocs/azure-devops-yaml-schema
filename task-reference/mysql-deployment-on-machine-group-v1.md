@@ -1,7 +1,7 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,10 +27,10 @@ Run scripts and make changes to a MySQL Database.
 # Run scripts and make changes to a MySQL Database.
 - task: MysqlDeploymentOnMachineGroup@1
   inputs:
-    #TaskNameSelector: 'SqlTaskFile' # 'SqlTaskFile' | 'InlineSqlTask'. Deploy MySql Using. Default: 'SqlTaskFile'.
+    #TaskNameSelector: 'SqlTaskFile' # 'SqlTaskFile' | 'InlineSqlTask'. Deploy MySql Using. Default: SqlTaskFile.
     SqlFile: # string. Required when TaskNameSelector = SqlTaskFile. MySQL Script. 
     #SqlInline: # string. Required when TaskNameSelector = InlineSqlTask. Inline MySQL Script. 
-    ServerName: 'localhost' # string. Required. Host Name. Default: 'localhost'.
+    ServerName: 'localhost' # string. Required. Host Name. Default: localhost.
     #DatabaseName: # string. Database Name. 
     SqlUsername: # string. Required. Mysql User Name. 
     SqlPassword: # string. Required. Password. 
@@ -47,10 +47,11 @@ Run scripts and make changes to a MySQL Database.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`TaskNameSelector`** - **Deploy MySql Using**<br>
-Type: string. Allowed values: 'SqlTaskFile', 'InlineSqlTask'. Default value: 'SqlTaskFile'.<br>
+`string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select one of the options between Script File & Inline Script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -58,10 +59,11 @@ Select one of the options between Script File & Inline Script.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlFile`** - **MySQL Script**<br>
-Type: string. Required when TaskNameSelector = SqlTaskFile.<br>
+`string`. Required when `TaskNameSelector = SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Full path of the script file on the automation agent or on a UNC path accessible to the automation agent like,  \\\\BudgetIT\DeployBuilds\script.sql. Also, predefined system variables like, $(agent.releaseDirectory) can also be used here. A file containing SQL statements can be used here.​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -69,10 +71,11 @@ Full path of the script file on the automation agent or on a UNC path accessible
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlInline`** - **Inline MySQL Script**<br>
-Type: string. Required when TaskNameSelector = InlineSqlTask.<br>
+`string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the MySQL script to execute on the Database selected above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -80,10 +83,11 @@ Enter the MySQL script to execute on the Database selected above.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ServerName`** - **Host Name**<br>
-Type: string. Required. Default value: 'localhost'.<br>
+`string`. Required. Default value: `localhost`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Server name of 'Database for MySQL'.Example: localhost. When you connect using MySQL Workbench, this is the same value that is used for 'Hostname' in 'Parameters'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +95,11 @@ Server name of 'Database for MySQL'.Example: localhost. When you connect using M
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`DatabaseName`** - **Database Name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of database, if you already have one, on which the below script is needed to be run, else the script itself can be used to create the database.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +107,11 @@ The name of database, if you already have one, on which the below script is need
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlUsername`** - **Mysql User Name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When you connect using MySQL Workbench, this is the same value that is used for 'Username' in 'Parameters'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +119,11 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlPassword`** - **Password**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for MySQL Database.<br>It can be variable defined in the pipeline. Example : $(password).<br>Also, you may mark the variable type as 'secret' to secure it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +131,11 @@ Password for MySQL Database.<br>It can be variable defined in the pipeline. Exam
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`SqlAdditionalArguments`** - **Additional Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional options supported by MySQL simple SQL shell.  These options will be applied when executing the given file on the Database for MySQL.​<br>Example: You can change to default tab separated output format to HTML or even XML format. Or if you have problems due to insufficient memory for large result sets, use the --quick option.​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -149,11 +157,40 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy, either using a script file or writing the script in our inline editor. Note that this is an early preview version. Since this task is server based, it appears on Deployment group jobs.
+
+### Prerequisites
+
+- MySQL Client in agent box
+
+The task expects MySQL client must be in agent box.
+
+- **Windows Agent**: Use this [script file](https://aka.ms/window-mysqlcli-installer) to install MySQL client
+- **Linux Agent**: Run command 'apt-get install mysql-client' to install MySQL client
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example creates a sample db in MySQL.
+
+```YAML
+steps:
+- task: MysqlDeploymentOnMachineGroup@1
+  displayName: 'Deploy Using : InlineSqlTask'
+  inputs:
+    TaskNameSelector: InlineSqlTask
+    SqlInline: |
+      CREATE DATABASE IF NOT EXISTS alm;
+      use alm;
+    ServerName: localhost
+    SqlUsername: root
+    SqlPassword: P2ssw0rd
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

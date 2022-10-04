@@ -1,7 +1,7 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,8 +27,8 @@ Build with MSBuild and set the Visual Studio version property.
 # Build with MSBuild and set the Visual Studio version property.
 - task: VSBuild@1
   inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: '**\*.sln'.
-    #vsVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: 'latest'.
+    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
+    #vsVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
     #msbuildArgs: # string. MSBuild Arguments. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -36,10 +36,10 @@ Build with MSBuild and set the Visual Studio version property.
   # Advanced
     #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
     #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: 'x86'.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
     #logProjectEvents: true # boolean. Record Project Details. Default: true.
     #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: 'normal'.
+    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
     #enableDefaultLogger: true # boolean. Enable Default Logger. Default: true.
     #customVersion: # string. Custom Version.
 ```
@@ -53,8 +53,8 @@ Build with MSBuild and set the Visual Studio version property.
 # Build with MSBuild and set the Visual Studio version property.
 - task: VSBuild@1
   inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: '**\*.sln'.
-    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: 'latest'.
+    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
+    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
     #msbuildArgs: # string. MSBuild Arguments. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -62,10 +62,10 @@ Build with MSBuild and set the Visual Studio version property.
   # Advanced
     #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
     #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: 'x86'.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
     #logProjectEvents: true # boolean. Record Project Details. Default: true.
     #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: 'normal'.
+    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
 ```
 
 :::moniker-end
@@ -77,8 +77,8 @@ Build with MSBuild and set the Visual Studio version property.
 # Build with MSBuild and set the Visual Studio version property.
 - task: VSBuild@1
   inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: '**\*.sln'.
-    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: 'latest'.
+    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
+    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
     #msbuildArgs: # string. MSBuild Arguments. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -86,7 +86,7 @@ Build with MSBuild and set the Visual Studio version property.
   # Advanced
     #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
     #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: 'x86'.
+    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
     #logProjectEvents: true # boolean. Record Project Details. Default: true.
     #createLogFile: false # boolean. Create Log File. Default: false.
 ```
@@ -111,7 +111,7 @@ Build with MSBuild and set the Visual Studio version property.
 :::moniker range="<=azure-pipelines"
 
 **`solution`** - **Solution**<br>
-Type: string. Required. Default value: '**\*.sln'.<br>
+`string`. Required. Default value: `**\*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If you want to build a single solution, click the ... button and select the solution.
 
@@ -127,6 +127,7 @@ Tips:
 - You can also build MSBuild project (.*proj) files.
 - If you are building a customized MSBuild project file, we recommend you use the MSBuild task instead of the Visual Studio Build task.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -134,7 +135,7 @@ Tips:
 :::moniker range=">=azure-pipelines-2022"
 
 **`vsVersion`** - **Visual Studio Version**<br>
-Type: string. Allowed values: 'latest', '17.0', '16.0', '15.0', '14.0', '12.0', '11.0'. Default value: 'latest'.<br>
+`string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
 
@@ -142,13 +143,14 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 
 **Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
 
 **`vsVersion`** - **Visual Studio Version**<br>
-Type: string. Allowed values: 'latest', '16.0', '15.0', '14.0', '12.0', '11.0'. Default value: 'latest'.<br>
+`string`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
 
@@ -156,13 +158,14 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 
 **Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`vsVersion`** - **Visual Studio Version**<br>
-Type: string. Allowed values: 'latest', '15.0', '14.0', '12.0', '11.0'. Default value: 'latest'.<br>
+`string`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
 
@@ -170,6 +173,7 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 
 **Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -177,10 +181,11 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArgs`** - **MSBuild Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can pass additional arguments to MSBuild. For syntax, see [MSBuild Command-Line Reference](/visualstudio/msbuild/msbuild-command-line-reference).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -188,7 +193,7 @@ You can pass additional arguments to MSBuild. For syntax, see [MSBuild Command-L
 :::moniker range="<=azure-pipelines"
 
 **`platform`** - **Platform**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the platform you want to build such as `Win32`, `x86`, `x64`, or `any cpu`.
 
@@ -197,6 +202,7 @@ Tips:
 - If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
 - Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -204,12 +210,13 @@ Tips:
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the configuration you want to build such as `debug` or `release`.
 
 Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -217,12 +224,13 @@ Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab 
 :::moniker range="<=azure-pipelines"
 
 **`clean`** - **Clean**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
 
 Set to True if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -230,10 +238,11 @@ Set to True if you want to rebuild all the code in the code projects. This is eq
 :::moniker range="<=azure-pipelines"
 
 **`maximumCpuCount`** - **Build in Parallel**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If your MSBuild target configuration is compatible with building in parallel, you can optionally check this input to pass the /m switch to MSBuild (Windows only). If your target configuration is not compatible with building in parallel, checking this option may cause your build to result in file-in-use errors, or intermittent or inconsistent build failures.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -241,10 +250,11 @@ If your MSBuild target configuration is compatible with building in parallel, yo
 :::moniker range="<=azure-pipelines"
 
 **`restoreNugetPackages`** - **Restore NuGet Packages**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option is deprecated. To restore NuGet packages, add a [NuGet Tool Installer](nuget-installer-v0.md) task before the build.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -252,12 +262,13 @@ This option is deprecated. To restore NuGet packages, add a [NuGet Tool Installe
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
-Type: string. Allowed values: 'x86', 'x64'. Default value: 'x86'.<br>
+`string`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the architecture (x86, x64) of MSBuild to run.
 
 Tip: Because Visual Studio runs as a 32-bit application, you could experience problems when your build is processed by a build agent that is running the 64-bit version of Team Foundation Build Service. By selecting MSBuild x86, you might resolve these kinds of problems.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -265,10 +276,11 @@ Tip: Because Visual Studio runs as a 32-bit application, you could experience pr
 :::moniker range="<=azure-pipelines"
 
 **`logProjectEvents`** - **Record Project Details**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally record timeline details for each project.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -276,10 +288,11 @@ Optionally record timeline details for each project.
 :::moniker range="<=azure-pipelines"
 
 **`createLogFile`** - **Create Log File**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally create a log file (Windows only).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -287,10 +300,11 @@ Optionally create a log file (Windows only).
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`logFileVerbosity`** - **Log File Verbosity**<br>
-Type: string. Optional. Use when createLogFile = true. Allowed values: 'quiet', 'minimal', 'normal', 'detailed', 'diagnostic'. Default value: 'normal'.<br>
+`string`. Optional. Use when `createLogFile = true`. Allowed values: `quiet`, `minimal`, `normal`, `detailed`, `diagnostic`. Default value: `normal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional log file verbosity.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -298,10 +312,11 @@ Optional log file verbosity.
 :::moniker range=">=azure-pipelines-2022"
 
 **`enableDefaultLogger`** - **Enable Default Logger**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If true - enables default logger for msbuild.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -309,12 +324,13 @@ If true - enables default logger for msbuild.
 :::moniker range=">=azure-pipelines-2022"
 
 **`customVersion`** - **Custom Version**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Allows setting custom version of Visual Studio. Examples: 15.0, 16.0, 17.0. Make sure that the required version of Visual Studio is installed in the system.
 
 **Azure Pipelines**: If your team wants to use Visual Studio 2022 with the Microsoft-hosted agents, select windows-2022 as your default build pool. For more info see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

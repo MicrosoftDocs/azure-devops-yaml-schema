@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: pipeline definition reference.
-ms.date: 08/31/2022
+ms.date: 09/20/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -117,7 +117,7 @@ This hierarchy is reflected in the structure of a YAML file like:
     - ...
 
 Simple pipelines don't require all of these levels.
-For example, in a single-job build you can omit the containers for stages and jobs because there are only steps.
+For example, in a single-job build, you can omit the containers for stages and jobs because there are only steps.
 And because many options shown in this article aren't required and have good defaults, your YAML definitions are unlikely to include all of them.
 
 ::: moniker-end

@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@0 - Invoke REST API v0 task
 description: Invoke REST API as a part of your process (task version 0).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,12 +28,12 @@ Invoke REST API as a part of your process.
 - task: InvokeRESTAPI@0
   inputs:
     serviceConnection: # string. Required. Generic endpoint. 
-    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: 'POST'.
+    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
     #headers: # string. Headers. 
-    #body: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Optional. Use when method != GET && method != HEAD. Body. Default: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}'.
+    #body: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Optional. Use when method != GET && method != HEAD. Body. Default: {"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}.
     #urlSuffix: # string. Url suffix string. 
   # Completion Options
-    waitForCompletion: 'false' # 'true' | 'false'. Required. Complete based on. Default: 'false'.
+    waitForCompletion: 'false' # 'true' | 'false'. Required. Complete based on. Default: false.
     #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
 ```
 
@@ -57,10 +57,11 @@ Invoke REST API as a part of your process.
 :::moniker range="<=azure-pipelines"
 
 **`serviceConnection`** - **Generic endpoint**<br>
-Input alias: `connectedServiceName`. Type: string. Required.<br>
+Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a generic endpoint that should be used to pick the url and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -68,10 +69,11 @@ Select a generic endpoint that should be used to pick the url and construct auth
 :::moniker range="<=azure-pipelines"
 
 **`method`** - **Method**<br>
-Type: string. Required. Allowed values: 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'PATCH'. Default value: 'POST'.<br>
+`string`. Required. Allowed values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`. Default value: `POST`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the http method with which the API should be invoked with.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -79,10 +81,11 @@ Select the http method with which the API should be invoked with.
 :::moniker range="<=azure-pipelines"
 
 **`headers`** - **Headers**<br>
-Type: string.<br>
+`string`. Default value: `{\n"Content-Type":"application/json"\n}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Define header in JSON format. The header shall be attached with request to be sent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -90,9 +93,10 @@ Define header in JSON format. The header shall be attached with request to be se
 :::moniker range="<=azure-pipelines"
 
 **`body`** - **Body**<br>
-Type: string. Optional. Use when method != GET && method != HEAD. Default value: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}'.<br>
+`string`. Optional. Use when `method != GET && method != HEAD`. Default value: `{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +104,11 @@ Type: string. Optional. Use when method != GET && method != HEAD. Default value:
 :::moniker range="<=azure-pipelines"
 
 **`urlSuffix`** - **Url suffix string**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Given string append to the url. Example: If endpoint url is https:...TestProj/_apis/Release/releases and url suffix is /2/environments/1, endpoint url becomes https:.../TestProj/_apis/Release/releases/2/environments/1. If url suffix is ?definitionId=1&releaseCount=1 then endpoint url becomes https//...TestProj/_apis/Release/releases?definitionId=1&releaseCount=1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +116,11 @@ Given string append to the url. Example: If endpoint url is https:...TestProj/_a
 :::moniker range="<=azure-pipelines"
 
 **`waitForCompletion`** - **Complete based on**<br>
-Type: string. Required. Allowed values: 'true', 'false'. Default value: 'false'.<br>
+`string`. Required. Allowed values: `true` (Callback), `false` (ApiResponse). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call where the REST API calls back to update the timeline record​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -122,10 +128,11 @@ Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call 
 :::moniker range="<=azure-pipelines"
 
 **`successCriteria`** - **Success criteria**<br>
-Type: string. Optional. Use when waitForCompletion = false.<br>
+`string`. Optional. Use when `waitForCompletion = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Criteria which defines when to pass the task. No criteria means response content does not influence the result. Example:- For response {"status" : "successful"}, the expression can be eq(root['status'], 'successful'). [More Information](https://go.microsoft.com/fwlink/?linkid=842996)​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

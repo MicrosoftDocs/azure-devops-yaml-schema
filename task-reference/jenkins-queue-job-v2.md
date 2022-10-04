@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,8 +37,8 @@ Queue a job on a Jenkins server.
     isParameterizedJob: false # boolean. Required. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters. 
     #failOnUnstableResult: false # boolean. Fail on unstable result. Default: false.
-    #retryCount: '3' # string. Number of retries for failed connection. Default: '3'.
-    #delayBetweenRetries: '60' # string. Time between retries. Default: '60'.
+    #retryCount: '3' # string. Number of retries for failed connection. Default: 3.
+    #delayBetweenRetries: '60' # string. Time between retries. Default: 60.
 ```
 
 :::moniker-end
@@ -101,20 +101,22 @@ Queue a job on a Jenkins server.
 :::moniker range=">=azure-pipelines-2019"
 
 **`serverEndpoint`** - **Jenkins service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
+Selects the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`serverEndpoint`** - **Jenkins service endpoint**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
+Selects the service connection for your Jenkins instance.  To create one, click the Manage link and create a new Jenkins service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -122,10 +124,11 @@ Select the service connection for your Jenkins instance.  To create one, click t
 :::moniker range="<=azure-pipelines"
 
 **`jobName`** - **Job name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Jenkins job to queue.  This must exactly match the job name on the Jenkins server.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -133,10 +136,11 @@ The name of the Jenkins job to queue.  This must exactly match the job name on t
 :::moniker range="<=azure-pipelines"
 
 **`isMultibranchJob`** - **Job is of multibranch pipeline type**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This job is of multibranch pipeline type.  If selected, enter the appropriate branch name. Requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
+This job is of the multibranch pipeline type.  If selected, enter the appropriate branch name. Requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -144,10 +148,11 @@ This job is of multibranch pipeline type.  If selected, enter the appropriate br
 :::moniker range="<=azure-pipelines"
 
 **`multibranchPipelineBranch`** - **Multibranch pipeline branch**<br>
-Type: string. Required when isMultibranchJob = true.<br>
+`string`. Required when `isMultibranchJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Queue this multibranch pipeline job on the specified branch. This requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
+Queues this multibranch pipeline job on the specified branch. This requires Team Foundation Server Plugin for Jenkins v5.3.4 or later.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -155,10 +160,11 @@ Queue this multibranch pipeline job on the specified branch. This requires Team 
 :::moniker range="<=azure-pipelines"
 
 **`captureConsole`** - **Capture console output and wait for completion**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, this task will capture the Jenkins build console output, wait for the Jenkins build to complete, and succeed/fail based on the Jenkins build result.  Otherwise, once the Jenkins job is successfully queued, this task will successfully complete without waiting for the Jenkins build to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -166,10 +172,11 @@ If selected, this task will capture the Jenkins build console output, wait for t
 :::moniker range="<=azure-pipelines"
 
 **`capturePipeline`** - **Capture pipeline output and wait for pipeline completion**<br>
-Type: boolean. Required when captureConsole = true. Default value: true.<br>
+`boolean`. Required when `captureConsole = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, this task will capture the full Jenkins build pipeline console output, wait for the full Jenkins build pipeline to complete, and succeed/fail based on the Jenkins build pipeline result.  Otherwise, once the first Jenkins job completes, this task will successfully complete without waiting for full Jenkins build pipeline to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -177,10 +184,11 @@ If selected, this task will capture the full Jenkins build pipeline console outp
 :::moniker range="<=azure-pipelines"
 
 **`isParameterizedJob`** - **Parameterized job**<br>
-Input alias: `parameterizedJob`. Type: boolean. Required. Default value: false.<br>
+Input alias: `parameterizedJob`. `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select if the Jenkins job accepts parameters. This should be selected even if all default parameter values are used and no parameters are actually specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -188,10 +196,26 @@ Select if the Jenkins job accepts parameters. This should be selected even if al
 :::moniker range="<=azure-pipelines"
 
 **`jobParameters`** - **Job parameters**<br>
-Type: string. Optional. Use when parameterizedJob = true.<br>
+`string`. Optional. Use when `parameterizedJob = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify job parameters, one per line, in the form <b>`<parameterName>=<parameterValue>`</b><p>To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify <b>`<parameterName>=`</b><p>Variables are supported. For example, to set a <b>`commitId`</b> parameter value to the Git commit ID of the build, use: <b>`commitId=$(Build.SourceVersion)`</b>. See the [documentation on variables](https://go.microsoft.com/fwlink/?linkid=875288) for more details.<p>Supported Jenkins parameter types are: <ul><li>`Boolean`</li><li>`Choice`</li><li>`Password`</li><li>`String`</li></ul>.
+Specifies job parameters, one per line, in the form `<parameterName>=<parameterValue>`. Specify job parameters, one per line, in the form parameterName=parameterValue preceded by `|` on the first line. Example:
+
+```yml
+jobParameters: |
+parameter1=value1
+parameter2=value2
+```
+
+To set a parameter to an empty value (useful for overriding a default value), leave off the parameter value. For example, specify `parameterName=`
+
+Variables are supported. For example, to set a `commitId` parameter value to the Git commit ID of the build, use: `commitId=$(Build.SourceVersion)`. See the [documentation on variables](/azure/devops/pipelines/build/variables) for more details. Supported Jenkins parameter types are:
+
+ - `Boolean`
+ - `Choice`
+ - `Password`
+ - `String`
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -199,10 +223,11 @@ Specify job parameters, one per line, in the form <b>`<parameterName>=<parameter
 :::moniker range=">=azure-pipelines-2022"
 
 **`failOnUnstableResult`** - **Fail on unstable result**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies strictness of a success definition: whether to consider unstable as a failure or not. False for non-strict, and true for strict version.
+Specifies strictness of a success definition: whether to consider unstable as a failure or not. The `false` value is for a non-strict version, and the `true` is for a strict version. If set to `true`, an unstable build result will be treated as a failure. Otherwise, unstable result will be treated as a success.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -210,10 +235,11 @@ Specifies strictness of a success definition: whether to consider unstable as a 
 :::moniker range=">=azure-pipelines-2022"
 
 **`retryCount`** - **Number of retries for failed connection**<br>
-Type: string. Default value: '3'.<br>
+`string`. Default value: `3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify number of retries on errors or failures.
+Specifies the amount of connection retries when connection failure or error occurs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -221,10 +247,11 @@ Specify number of retries on errors or failures.
 :::moniker range=">=azure-pipelines-2022"
 
 **`delayBetweenRetries`** - **Time between retries**<br>
-Type: string. Default value: '60'.<br>
+`string`. Default value: `60`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify time between retries. This is specified in seconds.
+Specifies  the amount of time between connection retries when an error occurs. This is specified in seconds.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -252,6 +279,23 @@ The ID of the Jenkins job instance queued by this task. Use this variable in the
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to queue a job on a Jenkins server.
+
+### Team Foundation Server Plug-in
+
+You can use Team Foundation Server Plug-in (version 5.2.0 or newer) to automatically collect files from the Jenkins workspace and download them into the build.
+
+To set it up:
+
+1. Install the [Team Foundation Server Plug-in](https://www.jenkins.io/doc/pipeline/steps/tfs/) on the Jenkins server.
+
+2. On the Jenkins server, for each job you would like to collect results from, add the **Collect results for Azure Pipelines/TFS** post-build action and then configure it with one or more pairs of result type and include file pattern.
+
+3. On the Jenkins Queue Job, build task enable the **Capture console output and wait for completion** to collect results from the root level job, or the **Capture pipeline output and wait for pipeline completion** to collect results from all pipeline jobs. 
+
+Results will be downloaded to the **$(Build.StagingDirectory)/jenkinsResults/Job Name/team-results.zip** and extracted to this location. Each set of result types collected by the plug-in, will be under the team-results directory, **$(Build.StagingDirectory)/jenkinsResults/Job Name/team-results/ResultType/**. This is the directory where build results can be published by downstream tasks (for example, Publish Test Results, and Publish Code Coverage Results).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

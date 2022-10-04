@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@0 - Build machine image v0 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment (task version 0).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,24 +35,24 @@ Build machine image using Packer. This image can be used for Azure Virtual machi
 # Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
 - task: PackerBuild@0
   inputs:
-    templateType: 'builtin' # 'builtin' | 'custom'. Required. Packer template. Default: 'builtin'.
+    templateType: 'builtin' # 'builtin' | 'custom'. Required. Packer template. Default: builtin.
     #customTemplateLocation: # string. Required when templateType = custom. Packer template location. 
-    #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: '{}'.
+    #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: {}.
   # Azure Details
     ConnectedServiceName: # string. Required. Azure subscription. 
     location: # string. Required. Storage location. 
     storageAccountName: # string. Required. Storage account. 
     azureResourceGroup: # string. Required. Resource group. 
   # Deployment Inputs
-    baseImageSource: 'default' # 'default' | 'customVhd'. Required. Base image source. Default: 'default'.
-    baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' # 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows' | 'Canonical:UbuntuServer:14.04.4-LTS:linux' | 'Canonical:UbuntuServer:16.04-LTS:linux' | 'RedHat:RHEL:7.2:linux' | 'RedHat:RHEL:6.8:linux' | 'OpenLogic:CentOS:7.2:linux' | 'OpenLogic:CentOS:6.8:linux' | 'credativ:Debian:8:linux' | 'credativ:Debian:7:linux' | 'SUSE:openSUSE-Leap:42.2:linux' | 'SUSE:SLES:12-SP2:linux' | 'SUSE:SLES:11-SP4:linux'. Required when baseImageSource = default. Base image. Default: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows'.
+    baseImageSource: 'default' # 'default' | 'customVhd'. Required. Base image source. Default: default.
+    baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' # 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows' | 'Canonical:UbuntuServer:14.04.4-LTS:linux' | 'Canonical:UbuntuServer:16.04-LTS:linux' | 'RedHat:RHEL:7.2:linux' | 'RedHat:RHEL:6.8:linux' | 'OpenLogic:CentOS:7.2:linux' | 'OpenLogic:CentOS:6.8:linux' | 'credativ:Debian:8:linux' | 'credativ:Debian:7:linux' | 'SUSE:openSUSE-Leap:42.2:linux' | 'SUSE:SLES:12-SP2:linux' | 'SUSE:SLES:11-SP4:linux'. Required when baseImageSource = default. Base image. Default: MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows.
     #customImageUrl: # string. Required when baseImageSource = customVhd. Base image URL. 
-    #customImageOSType: 'windows' # 'windows' | 'linux'. Required when baseImageSource = customVhd. Base image OS. Default: 'windows'.
+    #customImageOSType: 'windows' # 'windows' | 'linux'. Required when baseImageSource = customVhd. Base image OS. Default: windows.
     packagePath: # string. Required. Deployment Package. 
     deployScriptPath: # string. Required. Deployment script. 
     #deployScriptArguments: # string. Deployment script arguments. 
   # Advanced
-    #additionalBuilderParameters: '{}' # string. Additional Builder parameters. Default: '{}'.
+    #additionalBuilderParameters: '{}' # string. Additional Builder parameters. Default: {}.
     #skipTempFileCleanupDuringVMDeprovision: true # boolean. Skip temporary file cleanup during deprovision. Default: true.
   # Output
     #imageUri: # string. Image URL.
@@ -67,24 +67,24 @@ Build machine image using Packer. This image can be used for Azure Virtual machi
 # Build machine image using Packer. This image can be used for Azure Virtual machine scale set deployment.
 - task: PackerBuild@0
   inputs:
-    templateType: 'builtin' # 'builtin' | 'custom'. Required. Packer template. Default: 'builtin'.
+    templateType: 'builtin' # 'builtin' | 'custom'. Required. Packer template. Default: builtin.
     #customTemplateLocation: # string. Required when templateType = custom. Packer template location. 
-    #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: '{}'.
+    #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: {}.
   # Azure Details
     ConnectedServiceName: # string. Required. Azure subscription. 
     location: # string. Required. Storage location. 
     storageAccountName: # string. Required. Storage account. 
     azureResourceGroup: # string. Required. Resource group. 
   # Deployment Inputs
-    baseImageSource: 'default' # 'default' | 'customVhd'. Required. Base image source. Default: 'default'.
-    baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' # 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows' | 'Canonical:UbuntuServer:14.04.4-LTS:linux' | 'Canonical:UbuntuServer:16.04-LTS:linux' | 'RedHat:RHEL:7.2:linux' | 'RedHat:RHEL:6.8:linux' | 'OpenLogic:CentOS:7.2:linux' | 'OpenLogic:CentOS:6.8:linux' | 'credativ:Debian:8:linux' | 'credativ:Debian:7:linux' | 'SUSE:openSUSE-Leap:42.2:linux' | 'SUSE:SLES:12-SP2:linux' | 'SUSE:SLES:11-SP4:linux'. Required when baseImageSource = default. Base image. Default: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows'.
+    baseImageSource: 'default' # 'default' | 'customVhd'. Required. Base image source. Default: default.
+    baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' # 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows' | 'Canonical:UbuntuServer:14.04.4-LTS:linux' | 'Canonical:UbuntuServer:16.04-LTS:linux' | 'RedHat:RHEL:7.2:linux' | 'RedHat:RHEL:6.8:linux' | 'OpenLogic:CentOS:7.2:linux' | 'OpenLogic:CentOS:6.8:linux' | 'credativ:Debian:8:linux' | 'credativ:Debian:7:linux' | 'SUSE:openSUSE-Leap:42.2:linux' | 'SUSE:SLES:12-SP2:linux' | 'SUSE:SLES:11-SP4:linux'. Required when baseImageSource = default. Base image. Default: MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows.
     #customImageUrl: # string. Required when baseImageSource = customVhd. Base image URL. 
-    #customImageOSType: 'windows' # 'windows' | 'linux'. Required when baseImageSource = customVhd. Base image OS. Default: 'windows'.
+    #customImageOSType: 'windows' # 'windows' | 'linux'. Required when baseImageSource = customVhd. Base image OS. Default: windows.
     packagePath: # string. Required. Deployment Package. 
     deployScriptPath: # string. Required. Deployment script. 
     #deployScriptArguments: # string. Deployment script arguments. 
   # Advanced
-    #additionalBuilderParameters: '{}' # string. Additional Builder parameters. Default: '{}'.
+    #additionalBuilderParameters: '{}' # string. Additional Builder parameters. Default: {}.
     #skipTempFileCleanupDuringVMDeprovision: true # boolean. Skip temporary file cleanup during deprovision. Default: true.
   # Output
     #imageUri: # string. Image URL.
@@ -110,10 +110,11 @@ Build machine image using Packer. This image can be used for Azure Virtual machi
 :::moniker range="<=azure-pipelines"
 
 **`templateType`** - **Packer template**<br>
-Type: string. Required. Allowed values: 'builtin', 'custom'. Default value: 'builtin'.<br>
+`string`. Required. Allowed values: `builtin` (Auto generated), `custom` (User provided). Default value: `builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select whether you want the task to auto generate Packer template or use custom template provided by you.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,10 +122,11 @@ Select whether you want the task to auto generate Packer template or use custom 
 :::moniker range="<=azure-pipelines"
 
 **`customTemplateLocation`** - **Packer template location**<br>
-Type: string. Required when templateType = custom.<br>
+`string`. Required when `templateType = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to a custom user-provided template.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -132,10 +134,11 @@ Path to a custom user-provided template.
 :::moniker range="<=azure-pipelines"
 
 **`customTemplateParameters`** - **Template parameters**<br>
-Type: string. Optional. Use when templateType = custom. Default value: '{}'.<br>
+`string`. Optional. Use when `templateType = custom`. Default value: `{}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify parameters which will be passed to Packer for building custom template. This should map to "variables" section in your custom template. E.g. if the template has a variable named "drop-location", then add a parameter here with name "drop-location" and a value which you want to use. You can link the value to a release variable as well. To view/edit the additional parameters in a grid, click on "…" next to text box.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,10 +146,11 @@ Specify parameters which will be passed to Packer for building custom template. 
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Azure subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for baking and storing the machine image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,10 +158,11 @@ Select the Azure Resource Manager subscription for baking and storing the machin
 :::moniker range="<=azure-pipelines"
 
 **`location`** - **Storage location**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location for storing the built machine image. This location will also be used to create a temporary VM for the purpose of building image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -165,10 +170,11 @@ Location for storing the built machine image. This location will also be used to
 :::moniker range="<=azure-pipelines"
 
 **`storageAccountName`** - **Storage account**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Storage account for storing the built machine image. This storage account must be pre-existing in the location selected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -176,10 +182,11 @@ Storage account for storing the built machine image. This storage account must b
 :::moniker range="<=azure-pipelines"
 
 **`azureResourceGroup`** - **Resource group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Resource group that contains the selected storage account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -187,10 +194,11 @@ Azure Resource group that contains the selected storage account.
 :::moniker range="<=azure-pipelines"
 
 **`baseImageSource`** - **Base image source**<br>
-Type: string. Required. Allowed values: 'default', 'customVhd'. Default value: 'default'.<br>
+`string`. Required. Allowed values: `default` (Gallery), `customVhd` (Custom). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the source of base image. You can either choose from a curated gallery of OS images or provide URL of your custom image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -198,10 +206,11 @@ Select the source of base image. You can either choose from a curated gallery of
 :::moniker range="<=azure-pipelines"
 
 **`baseImage`** - **Base image**<br>
-Type: string. Required when baseImageSource = default. Allowed values: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows', 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows', 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows', 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows', 'Canonical:UbuntuServer:14.04.4-LTS:linux', 'Canonical:UbuntuServer:16.04-LTS:linux', 'RedHat:RHEL:7.2:linux', 'RedHat:RHEL:6.8:linux', 'OpenLogic:CentOS:7.2:linux', 'OpenLogic:CentOS:6.8:linux', 'credativ:Debian:8:linux', 'credativ:Debian:7:linux', 'SUSE:openSUSE-Leap:42.2:linux', 'SUSE:SLES:12-SP2:linux', 'SUSE:SLES:11-SP4:linux'. Default value: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows'.<br>
+`string`. Required when `baseImageSource = default`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose from curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -209,10 +218,11 @@ Choose from curated list of OS images. This will be used for installing pre-requ
 :::moniker range="<=azure-pipelines"
 
 **`customImageUrl`** - **Base image URL**<br>
-Type: string. Required when baseImageSource = customVhd.<br>
+`string`. Required when `baseImageSource = customVhd`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify URL of base image. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -220,9 +230,10 @@ Specify URL of base image. This will be used for installing pre-requisite(s) and
 :::moniker range="<=azure-pipelines"
 
 **`customImageOSType`** - **Base image OS**<br>
-Type: string. Required when baseImageSource = customVhd. Allowed values: 'windows', 'linux'. Default value: 'windows'.<br>
+`string`. Required when `baseImageSource = customVhd`. Allowed values: `windows`, `linux`. Default value: `windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -230,10 +241,11 @@ Type: string. Required when baseImageSource = customVhd. Allowed values: 'window
 :::moniker range="<=azure-pipelines"
 
 **`packagePath`** - **Deployment Package**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path for deployment package directory relative to $(System.DefaultWorkingDirectory). Supports minimatch pattern. Example path: FrontendWebApp/**/GalleryApp.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -241,10 +253,11 @@ Specify the path for deployment package directory relative to $(System.DefaultWo
 :::moniker range="<=azure-pipelines"
 
 **`deployScriptPath`** - **Deployment script**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the relative path to powershell script(for Windows) or shell script(for Linux) which deploys the package. This script should be contained in the package path selected above. Supports minimatch pattern. Example path: deploy/**/scripts/windows/deploy.ps1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -252,10 +265,11 @@ Specify the relative path to powershell script(for Windows) or shell script(for 
 :::moniker range="<=azure-pipelines"
 
 **`deployScriptArguments`** - **Deployment script arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the arguments to be passed to deployment script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -263,10 +277,11 @@ Specify the arguments to be passed to deployment script.
 :::moniker range="<=azure-pipelines"
 
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
-Type: string. Default value: '{}'.<br>
+`string`. Default value: `{}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 In auto generated Packer template mode the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example setting ssh_tty=true in case you are using a CentOS base image and you need to have a tty to run sudo.<br/>To view/edit the additional parameters in a grid, click on “…” next to text box.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -274,10 +289,11 @@ In auto generated Packer template mode the task creates a Packer template with a
 :::moniker range="<=azure-pipelines"
 
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 During deprovisioning of VM, skip clean-up of temporary files uploaded to VM. Refer [here](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -285,10 +301,11 @@ During deprovisioning of VM, skip clean-up of temporary files uploaded to VM. Re
 :::moniker range="<=azure-pipelines"
 
 **`imageUri`** - **Image URL**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the output variable which will store generated machine image URL.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -312,10 +329,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in this task version.
+Use this task to build a machine image using Packer. This image can be used for Azure Virtual machine scale set deployment.
 
-- Works with cross-platform agents (Linux, macOS, or Windows)
-- Supports building images for both Windows and Linux. These images can be used to deploy Azure Virtual machine scale set.
+> [!NOTE]
+> If you want to enable detailed logs, navigate to **Pipelines** > **Edit** > **Variables**, and then add a new variable *PACKER_LOG* and set its value to 1.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

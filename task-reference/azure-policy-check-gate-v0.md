@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -42,10 +42,11 @@ Security and compliance assessment for Azure Policy.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. Type: string. Required.<br>
+Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription to enforce the policies.
+Selects the Azure Resource Manager subscription to enforce the policies.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -53,10 +54,11 @@ Select the Azure Resource Manager subscription to enforce the policies.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ResourceGroupName`** - **Resource group**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide name of a resource group.
+Provides the name of a resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -64,10 +66,11 @@ Provide name of a resource group.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`Resources`** - **Resource name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select name of Azure resources for which you want to check the policy compliance.
+Selects the name of Azure resources for which you want to check the policy compliance.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,6 +92,16 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+[Azure Policy](/azure/governance/policy/) allows you to assess and enforce resource compliance against defined IT policies.
+Use this task in a gate to identify, analyze and evaluate the security risks,
+and determine the mitigation measures required to reduce the risks.
+
+> [!NOTE]
+> Can be used only as a [gate](/azure/devops/pipelines/release/approvals/gates). This task is not supported in a build or release pipeline.
+>
+> :::image type="content" source="media/gates.png" alt-text="Screenshot that shows using the task as a gate in a release pipeline.":::
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

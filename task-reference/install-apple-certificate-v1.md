@@ -1,7 +1,7 @@
 ---
 title: InstallAppleCertificate@1 - Install Apple Certificate v1 task
 description: Install an Apple certificate required to build on a macOS agent (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ Install an Apple certificate required to build on a macOS agent.
     certSecureFile: # string. Required. Certificate (P12). 
     #certPwd: # string. Certificate (P12) password. 
   # Advanced
-    keychain: 'temp' # 'default' | 'temp' | 'custom'. Required. Keychain. Default: 'temp'.
+    keychain: 'temp' # 'default' | 'temp' | 'custom'. Required. Keychain. Default: temp.
     #keychainPassword: # string. Keychain password. 
     #customKeychainPath: # string. Required when keychain = custom. Custom keychain path. 
     #deleteCert: # boolean. Optional. Use when keychain = custom || keychain = default. Delete certificate from keychain. 
@@ -58,10 +58,11 @@ Install an Apple certificate required to build on a macOS agent.
 :::moniker range="<=azure-pipelines"
 
 **`certSecureFile`** - **Certificate (P12)**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the certificate (.p12) that was uploaded to `Secure Files` to install on the macOS agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -69,10 +70,11 @@ Select the certificate (.p12) that was uploaded to `Secure Files` to install on 
 :::moniker range="<=azure-pipelines"
 
 **`certPwd`** - **Certificate (P12) password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password to the Apple certificate (.p12). Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -80,10 +82,11 @@ Password to the Apple certificate (.p12). Use a new build variable with its lock
 :::moniker range="<=azure-pipelines"
 
 **`keychain`** - **Keychain**<br>
-Type: string. Required. Allowed values: 'default', 'temp', 'custom'. Default value: 'temp'.<br>
+`string`. Required. Allowed values: `default` (Default Keychain), `temp` (Temporary Keychain), `custom` (Custom Keychain). Default value: `temp`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the keychain in which to install the Apple certificate. A temporary keychain will always be deleted after the build or release is complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -91,10 +94,11 @@ Select the keychain in which to install the Apple certificate. A temporary keych
 :::moniker range="<=azure-pipelines"
 
 **`keychainPassword`** - **Keychain password**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value. A password is generated for the temporary keychain if not specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -102,10 +106,11 @@ Password to unlock the keychain. Use a new build variable with its lock enabled 
 :::moniker range="<=azure-pipelines"
 
 **`customKeychainPath`** - **Custom keychain path**<br>
-Type: string. Required when keychain = custom.<br>
+`string`. Required when `keychain = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Full path to a custom keychain file. The keychain will be created if it does not exist.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -113,10 +118,11 @@ Full path to a custom keychain file. The keychain will be created if it does not
 :::moniker range="<=azure-pipelines"
 
 **`deleteCert`** - **Delete certificate from keychain**<br>
-Type: boolean. Optional. Use when keychain = custom || keychain = default.<br>
+`boolean`. Optional. Use when `keychain = custom || keychain = default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select to delete the certificate from the keychain after the build or release is complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +130,11 @@ Select to delete the certificate from the keychain after the build or release is
 :::moniker range="<=azure-pipelines"
 
 **`deleteCustomKeychain`** - **Delete custom keychain**<br>
-Type: boolean. Optional. Use when keychain = custom.<br>
+`boolean`. Optional. Use when `keychain = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select to delete the custom keychain from the agent after the build or release is complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -135,10 +142,11 @@ Select to delete the custom keychain from the agent after the build or release i
 :::moniker range="<=azure-pipelines"
 
 **`signingIdentity`** - **Certificate signing identity**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Common Name of the subject in the signing certificate.  Will attempt to parse the Common Name if this is left empty.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

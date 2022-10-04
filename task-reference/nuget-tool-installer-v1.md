@@ -1,7 +1,7 @@
 ---
 title: NuGetToolInstaller@1 - NuGet tool installer v1 task
 description: Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -42,7 +42,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
@@ -52,6 +52,7 @@ Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0
 
 If unspecified, a version will be chosen automatically.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -59,12 +60,16 @@ If unspecified, a version will be chosen automatically.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`checkLatest`** - **Always check for new versions**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Always check for and download the latest available version of NuGet.exe which satisfies the version spec.
 
 Enabling this option could cause unexpected build breaks when a new version of NuGet is released.
+
+> [!TIP]
+> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to false. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -86,6 +91,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to find, download, and cache a specified version of [NuGet](https://nuget.org/) and add it to the PATH. For information on the tools cache, see the [azure-pipelines-tool-lib](https://github.com/microsoft/azure-pipelines-tool-lib/blob/master/docs/overview.md#tool-cache) repo.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -115,5 +123,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+For an explanation of tool installers and examples, see [Tool installers](/azure/devops/pipelines/process/tasks#tool-installers).
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

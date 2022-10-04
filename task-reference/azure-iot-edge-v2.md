@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,25 +27,25 @@ Build and deploy an Azure IoT Edge image.
 # Build and deploy an Azure IoT Edge image.
 - task: AzureIoTEdge@2
   inputs:
-    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: 'Build module images'.
-    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: '$(System.DefaultWorkingDirectory)/config/deployment.json'.
+    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
+    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
     #azureSubscription: # string. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
     #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
     #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
     #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
     #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
-    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: 'Azure Container Registry'.
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
     #dockerRegistryConnection: # string. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: 'deployment.template.json'.
-    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7' | 'arm64v8'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: 'amd64'.
-    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: 'true'.
-    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: '$(System.DefaultWorkingDirectory)/config/deployment.json'.
-    #validateGeneratedDeploymentManifest: 'false' # 'true' | 'false'. Required when action = Generate deployment manifest. Validate the schema of generated deployment manifest. Default: 'false'.
+    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.
+    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7' | 'arm64v8'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: amd64.
+    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: true.
+    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
+    #validateGeneratedDeploymentManifest: 'false' # 'true' | 'false'. Required when action = Generate deployment manifest. Validate the schema of generated deployment manifest. Default: false.
   # Advanced
-    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: '$(System.TeamProject)-devops-deployment'.
-    priority: '0' # string. Required. IoT Edge deployment priority. Default: '0'.
+    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
+    priority: '0' # string. Required. IoT Edge deployment priority. Default: 0.
   # Advanced
     #bypassModules: # string. Bypass module(s).
 ```
@@ -59,25 +59,25 @@ Build and deploy an Azure IoT Edge image.
 # Build and deploy an Azure IoT Edge image.
 - task: AzureIoTEdge@2
   inputs:
-    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: 'Build module images'.
-    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: '$(System.DefaultWorkingDirectory)/config/deployment.json'.
+    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
+    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
     #azureSubscription: # string. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
     #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
     #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
     #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
     #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
-    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: 'Azure Container Registry'.
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
     #dockerRegistryConnection: # string. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: 'deployment.template.json'.
-    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: 'amd64'.
-    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: 'true'.
-    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: '$(System.DefaultWorkingDirectory)/config/deployment.json'.
-    #validateGeneratedDeploymentManifest: 'false' # 'true' | 'false'. Required when action = Generate deployment manifest. Validate the schema of generated deployment manifest. Default: 'false'.
+    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.
+    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: amd64.
+    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: true.
+    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
+    #validateGeneratedDeploymentManifest: 'false' # 'true' | 'false'. Required when action = Generate deployment manifest. Validate the schema of generated deployment manifest. Default: false.
   # Advanced
-    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: '$(System.TeamProject)-devops-deployment'.
-    priority: '0' # string. Required. IoT Edge deployment priority. Default: '0'.
+    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
+    priority: '0' # string. Required. IoT Edge deployment priority. Default: 0.
   # Advanced
     #bypassModules: # string. Bypass module(s).
 ```
@@ -91,24 +91,24 @@ Build and deploy an Azure IoT Edge image.
 # Build and deploy an Azure IoT Edge image.
 - task: AzureIoTEdge@2
   inputs:
-    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: 'Build module images'.
-    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: '$(System.DefaultWorkingDirectory)/config/deployment.json'.
+    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
+    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
     #azureSubscription: # string. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
     #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
     #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
     #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
     #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
-    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: 'Azure Container Registry'.
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
     #dockerRegistryConnection: # string. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: 'deployment.template.json'.
-    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: 'amd64'.
-    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: 'true'.
-    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: '$(System.DefaultWorkingDirectory)/config/deployment.json'.
+    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.
+    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: amd64.
+    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: true.
+    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
   # Advanced
-    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: '$(System.TeamProject)-devops-deployment'.
-    priority: '0' # string. Required. IoT Edge deployment priority. Default: '0'.
+    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
+    priority: '0' # string. Required. IoT Edge deployment priority. Default: 0.
   # Advanced
     #bypassModules: # string. Bypass module(s).
 ```
@@ -123,13 +123,17 @@ Build and deploy an Azure IoT Edge image.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`action`** - **Action**<br>
-Type: string. Required. Allowed values: 'Build module images', 'Push module images', 'Generate deployment manifest', 'Deploy to IoT Edge devices'. Default value: 'Build module images'.<br>
+`string`. Required. Allowed values: `Build module images`, `Push module images`, `Generate deployment manifest`, `Deploy to IoT Edge devices`. Default value: `Build module images`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure IoT Edge action.
- **Build module images** will only build modules (You can use it to check compilation error).
- **Push module images** will push modules to container registry.
- **Deploy to IoT Edge devices** will deploy the generated deployment file to IoT Hub. (We recommend to put **Deploy** task in release pipeline).
+Selects an Azure IoT Edge action.
+
+`Build module images` only builds modules (you can use it to check compilation error).
+
+`Push module images` pushes modules to the container registry.
+
+`Deploy to IoT Edge devices` deploys the generated deployment file to IoT Hub. (We recommend putting the `Deploy` task in the release pipeline).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,12 +141,13 @@ Select an Azure IoT Edge action.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentFilePath`** - **Deployment file**<br>
-Type: string. Required when action == Deploy to IoT Edge devices. Default value: '$(System.DefaultWorkingDirectory)/config/deployment.json'.<br>
+`string`. Required when `action == Deploy to IoT Edge devices`. Default value: `$(System.DefaultWorkingDirectory)/config/deployment.json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the deployment json file.
- If this task is in **release pipeline**, you need to set the location of deployment file in artifact.(The default value works for most conditions).
- If this task is in **build pipeline**, you need to set it to the path of **Path of output deployment file**.
+Selects the deployment json file.
+ If this task is in `release pipeline`, you need to set the location of the deployment file in artifact. (The default value works for most conditions).
+ If this task is in a build pipeline, you must specify the deployment manifest output path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -150,10 +155,11 @@ Select the deployment json file.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure subscription contains IoT Hub**<br>
-Input alias: `connectedServiceNameARM`. Type: string. Required when action == Deploy to IoT Edge devices.<br>
+Input alias: `connectedServiceNameARM`. `string`. Required when `action == Deploy to IoT Edge devices`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an **Azure subscription** that contains IoT Hub.
+Selects an Azure subscription that contains IoT Hub.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -161,10 +167,11 @@ Select an **Azure subscription** that contains IoT Hub.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`iothubname`** - **IoT Hub name**<br>
-Type: string. Required when action == Deploy to IoT Edge devices.<br>
+`string`. Required when `action == Deploy to IoT Edge devices`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the **IoT Hub**.
+Selects the IoT Hub.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -172,12 +179,13 @@ Select the **IoT Hub**.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentid`** - **IoT Edge deployment ID**<br>
-Type: string. Required. Default value: '$(System.TeamProject)-devops-deployment'.<br>
+`string`. Required. Default value: `$(System.TeamProject)-devops-deployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Input the **IoT Edge Deployment ID**, if ID exists, it will be overridden.
- Up to 128 lowercase letters, numbers and the following characters are allowed [ -:+%_#*?!(),=@;' ].
- Check more information for [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
+Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridden.
+ This has up to 128 lowercase letters and numbers, and the following characters are allowed `-:+%_#*?!(),=@;'`.
+ For more information, see [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -185,11 +193,12 @@ Input the **IoT Edge Deployment ID**, if ID exists, it will be overridden.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`priority`** - **IoT Edge deployment priority**<br>
-Type: string. Required. Default value: '0'.<br>
+`string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set the **priority** to a positive integer to resolve deployment conflicts: when targeted by multiple deployments a device will use the one with highest priority or (in case of two deployments with the same priority) latest creation time.
- Check more information for [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
+Set the `priority` to a positive integer to resolve deployment conflicts: when targeted by multiple deployments, a device will use the one with the highest priority or, in the case of two deployments with the same priority, the latest creation time.
+ For more information, see [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -197,10 +206,11 @@ Set the **priority** to a positive integer to resolve deployment conflicts: when
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deviceOption`** - **Choose single/multiple device**<br>
-Type: string. Required when action == Deploy to IoT Edge devices. Allowed values: 'Single Device', 'Multiple Devices'.<br>
+`string`. Required when `action == Deploy to IoT Edge devices`. Allowed values: `Single Device`, `Multiple Devices`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose to deploy to single or multiple(by tags) devices.
+According to tags, chooses to deploy to single or multiple devices.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -208,10 +218,11 @@ Choose to deploy to single or multiple(by tags) devices.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deviceId`** - **IoT Edge device ID**<br>
-Type: string. Required when deviceOption == Single Device.<br>
+`string`. Required when `deviceOption == Single Device`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Input the IoT Edge **device ID**.
+Inputs the IoT Edge `device ID`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -219,11 +230,12 @@ Input the IoT Edge **device ID**.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`targetcondition`** - **IoT Edge device target condition**<br>
-Type: string. Required when deviceOption == Multiple Devices.<br>
+`string`. Required when `deviceOption == Multiple Devices`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Input the **target condition** of devices you would like to deploy. Do not use double quote. Example: **tags.building=9 and tags.environment='test'**.
- Check more information for [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
+Inputs the `target condition` of devices you would like to deploy. Do not use double quotes. Example: `tags.building=9` and `tags.environment='test'`.
+ For more information, see [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -231,11 +243,12 @@ Input the **target condition** of devices you would like to deploy. Do not use d
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`containerregistrytype`** - **Container registry type**<br>
-Type: string. Required when action = Push module images. Allowed values: 'Azure Container Registry', 'Generic Container Registry'. Default value: 'Azure Container Registry'.<br>
+`string`. Required when `action = Push module images`. Allowed values: `Azure Container Registry`, `Generic Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a **Container Registry Type**.
- **Azure Container Registry** for ACR and **Generic Container Registry** for generic registries including docker hub.
+Selects a `Container Registry Type`.
+ `Azure Container Registry` is for ACR, and `Generic Container Registry` is for generic registries including docker hub.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -243,10 +256,11 @@ Select a **Container Registry Type**.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpoint`. Type: string. Required when containerregistrytype = Generic Container Registry.<br>
+Input alias: `dockerRegistryEndpoint`. `string`. Required when `containerregistrytype = Generic Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a generic **Docker registry connection**. Required for **Build and Push**.
+Selects a generic Docker registry connection. This is required for Build and Push.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -254,10 +268,11 @@ Select a generic **Docker registry connection**. Required for **Build and Push**
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
-Type: string. Optional. Use when containerregistrytype = Azure Container Registry.<br>
+`string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription.
+Selects an Azure subscription.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -265,10 +280,11 @@ Select an Azure subscription.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
-Type: string. Required when containerregistrytype = Azure Container Registry.<br>
+`string`. Required when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an **Azure Container Registry**.
+Selects an Azure Container Registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -276,10 +292,11 @@ Select an **Azure Container Registry**.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`templateFilePath`** - **.template.json file**<br>
-Type: string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default value: 'deployment.template.json'.<br>
+`string`. Required when `action = Build module images || action = Push module images || action = Generate deployment manifest`. Default value: `deployment.template.json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of Azure IoT Edge solution **.template.json**. This file defines the modules and routes in Azure IoT Edge solution, file name must end with **.template.json**.
+The path of Azure IoT Edge solution `.template.json`. This file defines the modules and routes in Azure IoT Edge solution. The file name must end with `.template.json`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -287,20 +304,22 @@ The path of Azure IoT Edge solution **.template.json**. This file defines the mo
 :::moniker range=">=azure-pipelines-2022"
 
 **`defaultPlatform`** - **Default platform**<br>
-Type: string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Allowed values: 'amd64', 'windows-amd64', 'arm32v7', 'arm64v8'. Default value: 'amd64'.<br>
+`string`. Required when `action = Build module images || action = Push module images || action = Generate deployment manifest`. Allowed values: `amd64`, `windows-amd64`, `arm32v7`, `arm64v8`. Default value: `amd64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In your **.template.json**, you can leave the modules platform unspecified. For these modules, the **default platform** will be used.
+In your `.template.json`, you can leave the modules platform unspecified. For these modules, the default platform will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
 
 **`defaultPlatform`** - **Default platform**<br>
-Type: string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Allowed values: 'amd64', 'windows-amd64', 'arm32v7'. Default value: 'amd64'.<br>
+`string`. Required when `action = Build module images || action = Push module images || action = Generate deployment manifest`. Allowed values: `amd64`, `windows-amd64`, `arm32v7`. Default value: `amd64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In your **.template.json**, you can leave the modules platform unspecified. For these modules, the **default platform** will be used.
+In your `.template.json`, you can leave the modules platform unspecified. For these modules, the default platform will be used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -308,10 +327,11 @@ In your **.template.json**, you can leave the modules platform unspecified. For 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`fillRegistryCredential`** - **Add registry credential to deployment manifest**<br>
-Type: string. Required when action = Push module images. Allowed values: 'true', 'false'. Default value: 'true'.<br>
+`string`. Required when `action = Push module images`. Allowed values: `true`, `false`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add registry credential for pushing docker images to deployment manifest.
+Adds the registry credential for pushing docker images to the deployment manifest.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -319,10 +339,11 @@ Add registry credential for pushing docker images to deployment manifest.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentManifestOutputPath`** - **Output path**<br>
-Type: string. Required when action == Generate deployment manifest. Default value: '$(System.DefaultWorkingDirectory)/config/deployment.json'.<br>
+`string`. Required when `action == Generate deployment manifest`. Default value: `$(System.DefaultWorkingDirectory)/config/deployment.json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The output path of generated deployment manifest.
+The output path of the generated deployment manifest.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -330,10 +351,11 @@ The output path of generated deployment manifest.
 :::moniker range=">=azure-pipelines-2020"
 
 **`validateGeneratedDeploymentManifest`** - **Validate the schema of generated deployment manifest**<br>
-Type: string. Required when action = Generate deployment manifest. Allowed values: 'true', 'false'. Default value: 'false'.<br>
+`string`. Required when `action = Generate deployment manifest`. Allowed values: `true`, `false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail this step if the generated deployment manifest does not pass schema validation. You can search `Azure IoT Edge deployment` in [JSON Schema Store](http://schemastore.org/json/) to find latest schema.
+Fail this step if the generated deployment manifest does not pass schema validation. Search `Azure IoT Edge deployment` in [JSON Schema Store](http://schemastore.org/json/) to find latest schema.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -341,11 +363,12 @@ Fail this step if the generated deployment manifest does not pass schema validat
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`bypassModules`** - **Bypass module(s)**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the module(s) that you **DO NOT** need to build(or push) in the .template.json, specify module names and separate with comma.
- Example: if you have 2 modules **SampleModule1,SampleModule2** in your .template.json, you want to just build or push **SampleModule1**, then you set the bypass modules as **SampleModule2**. Leave empty if you would like to build all the modules in .template.json.
+Selects the module(s) that you do not need to build or push in `.template.json`, specifies the module names, and separates them with commas.
+ Example: if you have `SampleModule1` and `SampleModule2` in your `.template.json` and you want to only build or push `SampleModule1`, then you set the bypass modules as `SampleModule2`. Leave this empty if you would like to build all the modules in `.template.json`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -373,11 +396,94 @@ This is the path of generated deployment file.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to build, test, and deploy applications quickly and efficiently to Azure IoT Edge.
+
+This task supports custom variables. If you're not familiar with how to use variables in pipelines, see [Define variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+### Build module images
+
+The following YAML example builds module images:
+
+```YAML
+- task: AzureIoTEdge@2
+  displayName: AzureIoTEdge - Build module images
+  inputs:
+    action: Build module images
+    templateFilePath: deployment.template.json
+    defaultPlatform: amd64  
+```
+
+### Push module images
+
+The following YAML example pushes module images:
+
+```YAML
+variables:
+  azureSubscriptionEndpoint: Contoso
+  azureContainerRegistry: contoso.azurecr.io
+
+steps:    
+- task: AzureIoTEdge@2
+  displayName: AzureIoTEdge - Push module images
+  inputs:
+    action: Push module images
+    containerregistrytype: Azure Container Registry
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: {"loginServer":"$(azureContainerRegistry)"}
+    templateFilePath: deployment.template.json
+    defaultPlatform: amd64
+    fillRegistryCredential: true
+```
+
+### Generate deployment manifest
+
+The following YAML example creates a deployment manifest based on the template file:
+
+```YAML
+steps:    
+- task: AzureIoTEdge@2
+  displayName: AzureIoTEdge - Generate deployment manifest
+  inputs:
+    action: Generate deployment manifest
+    templateFilePath: deployment.template.json
+    defaultPlatform: amd64
+    deploymentManifestOutputPath: $(System.DefaultWorkingDirectory)/config/deployment.json
+    validateGeneratedDeploymentManifest: false
+```
+
+### Deploy to IoT Edge devices
+
+The following YAML example deploys module images:
+
+```YAML
+steps:
+- task: AzureIoTEdge@2
+  displayName: 'Azure IoT Edge - Deploy to IoT Edge devices'
+  inputs:
+    action: 'Deploy to IoT Edge devices'
+    deploymentFilePath: $(System.DefaultWorkingDirectory)/config/deployment.json
+    azureSubscription: $(azureSubscriptionEndpoint)
+    iothubname: iothubname
+    deploymentid: '$(System.TeamProject)-devops-deployment'
+    priority: '0'
+    deviceOption: 'Single Device'
+    deviceId: deviceId
+```
+
+### More examples
+
+For step-by-step examples of how to use these actions in Azure Pipelines, see the following articles:
+
+* [Continuous integration and continuous deployment to Azure IoT Edge devices (YAML)](/azure/iot-edge/how-to-continuous-integration-continuous-deployment)
+* [Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor)](/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

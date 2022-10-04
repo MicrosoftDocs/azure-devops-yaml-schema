@@ -1,7 +1,7 @@
 ---
 title: ContainerStructureTest@0 - Container Structure Test v0 task
 description: Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,7 +30,7 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
   # Container Repository
     dockerRegistryServiceConnection: # string. Required. Docker registry service connection. 
     repository: # string. Required. Container repository. 
-    #tag: '$(Build.BuildId)' # string. Tag. Default: '$(Build.BuildId)'.
+    #tag: '$(Build.BuildId)' # string. Tag. Default: $(Build.BuildId).
     configFile: # string. Required. Config file path. 
     #testRunTitle: # string. Test run title. 
     #failTaskOnFailedTests: false # boolean. Fail task if there are test failures. Default: false.
@@ -46,10 +46,11 @@ Uses container-structure-test (https://github.com/GoogleContainerTools/container
 :::moniker range=">=azure-pipelines-2020"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specify a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -57,10 +58,11 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker range=">=azure-pipelines-2020"
 
 **`repository`** - **Container repository**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository.
+The name of the repository.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -68,10 +70,11 @@ Name of the repository.
 :::moniker range=">=azure-pipelines-2020"
 
 **`tag`** - **Tag**<br>
-Type: string. Default value: '$(Build.BuildId)'.<br>
+`string`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The tag is used in pulling the image from docker registry service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -79,10 +82,11 @@ The tag is used in pulling the image from docker registry service connection.
 :::moniker range=">=azure-pipelines-2020"
 
 **`configFile`** - **Config file path**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Config files path, that contains container structure tests. Either .yaml or .json files.
+The config file path that contains container structure tests, either in .yaml or .json file formats.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -90,10 +94,11 @@ Config files path, that contains container structure tests. Either .yaml or .jso
 :::moniker range=">=azure-pipelines-2020"
 
 **`testRunTitle`** - **Test run title**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the Test Run.
+Specify a name for the Test Run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -101,10 +106,11 @@ Provide a name for the Test Run.
 :::moniker range=">=azure-pipelines-2020"
 
 **`failTaskOnFailedTests`** - **Fail task if there are test failures**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail the task if there are any test failures. Check this option to fail the task if test failures are detected.
+Fails the task if there are any test failures. Check this option to fail the task if test failures are detected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,6 +132,71 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task helps you run container structure tests and publish test results to Azure Pipelines and provides a comprehensive test reporting and analytics experience.
+
+> [!NOTE]
+> This is an early preview feature. More upcoming features will be rolled out in upcoming sprints.
+
+The Container Structure Tests provide a powerful framework to validate the structure of a container image. These tests can be used to check the output of commands in an image, as well as verify metadata and contents of the filesystem. Tests can be run either through a standalone binary, or through a Docker image. 
+
+Tests within this framework are specified through a YAML or JSON config file. Multiple config files may be specified in a single test run. The config file will be loaded in by the test runner, which will execute the tests in order. Within this config file, four types of tests can be written:
+
+* Command Tests (testing output/error of a specific command issued)
+* File Existence Tests (making sure a file is, or isn't, present in the file system of the image)
+* File Content Tests (making sure files in the file system of the image contain, or do not contain, specific contents)
+* Metadata Test, singular (making sure certain container metadata is correct)
+
+### Build, Test and Publish Test
+
+The container structure test task can be added in the classic pipeline as well as in unified pipeline (multi-stage) & YAML based pipelines.
+
+# [YAML](#tab/yaml)
+
+In the new YAML based unified pipeline, you can search for task in the window.
+
+> [!div class="mx-imgBorder"]
+> ![Container Test in Unified Pipeline](media/unified-pipeline-creation.png)
+
+Once the task is added, you need to set the config file path, docker registory service connection, container repository and tag, if required. Task input in the yaml based pipeline is created.
+
+> [!div class="mx-imgBorder"]
+> ![Container Test in YAML based Pipeline](media/yaml-based-pipeline.png)
+
+### YAML file
+
+> [!div class="mx-imgBorder"]
+> ![YAML file](media/yaml-file.png)
+
+```yml
+steps:
+- task: ContainerStructureTest@0
+  displayName: 'Container Structure Test '
+  inputs:
+    dockerRegistryServiceConnection: 'Container_dockerHub'
+    repository: adma/hellodocker
+    tag: v1
+    configFile: /home/user/cstfiles/fileexisttest.yaml
+```
+
+# [Classic](#tab/classic)
+
+In the classic pipeline, you can add this task from the designer view. 
+
+> [!div class="mx-imgBorder"]
+> ![Container Test in Classic Pipeline](media/classic-pipeline-creation.png)
+
+* * *
+
+### View test report
+
+Once the task is executed, you can directly go to test tab to view the full report. The published test results are displayed in the [Tests tab](/azure/devops/pipelines/test/review-continuous-test-results-after-build)
+in the pipeline summary and help you to measure pipeline quality, review traceability,
+troubleshoot failures, and drive failure ownership.
+
+> [!div class="mx-imgBorder"]
+> ![Test Reporting Page](media/results-page.png)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@1 - Archive Files v1 task
 description: Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,12 +27,12 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 # Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 - task: ArchiveFiles@1
   inputs:
-    rootFolder: '$(Build.BinariesDirectory)' # string. Required. Root folder (or file) to archive. Default: '$(Build.BinariesDirectory)'.
+    rootFolder: '$(Build.BinariesDirectory)' # string. Required. Root folder (or file) to archive. Default: $(Build.BinariesDirectory).
     includeRootFolder: true # boolean. Required. Prefix root folder name to archive paths. Default: true.
   # Archive
-    archiveType: 'default' # 'default' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: 'default'.
-    #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: 'gz'.
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'.
+    archiveType: 'default' # 'default' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: default.
+    #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
     replaceExistingArchive: true # boolean. Required. Replace existing archive. Default: true.
 ```
 
@@ -56,10 +56,11 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 :::moniker range="<=azure-pipelines"
 
 **`rootFolder`** - **Root folder (or file) to archive**<br>
-Type: string. Required. Default value: '$(Build.BinariesDirectory)'.<br>
+`string`. Required. Default value: `$(Build.BinariesDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The root folder to add to the archive.  Everything under this folder will be added to the resulting archive.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +68,11 @@ The root folder to add to the archive.  Everything under this folder will be add
 :::moniker range="<=azure-pipelines"
 
 **`includeRootFolder`** - **Prefix root folder name to archive paths**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, the root folder name will be prefixed to file paths within the archive.  Otherwise, all file paths will start one level lower.<p>For example, suppose the selected root folder is: <b>`/home/user/output/classes/`</b>, and contains: <b>`com/acme/Main.class`</b>. <ul><li>If selected, the resulting archive would contain: <b>`classes/com/acme/Main.class`</b>.</li><li>Otherwise, the resulting archive would contain: <b>`com/acme/Main.class`</b>.</li></ul>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -78,10 +80,11 @@ If selected, the root folder name will be prefixed to file paths within the arch
 :::moniker range="<=azure-pipelines"
 
 **`archiveType`** - **Archive type**<br>
-Type: string. Required. Allowed values: 'default', '7z', 'tar', 'wim'. Default value: 'default'.<br>
+`string`. Required. Allowed values: `default` (zip), `7z`, `tar`, `wim`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the compression scheme used.  To create <b>`foo.jar`</b>, for example, choose <b>`zip`</b> for the compression, and specify <b>`foo.jar`</b> as the archive file to create.  For all tar files (including compressed ones), choose <b>`tar`</b>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -89,10 +92,11 @@ Specify the compression scheme used.  To create <b>`foo.jar`</b>, for example, c
 :::moniker range="<=azure-pipelines"
 
 **`tarCompression`** - **Tar compression**<br>
-Type: string. Optional. Use when archiveType = tar. Allowed values: 'gz', 'bz2', 'xz', 'none'. Default value: 'gz'.<br>
+`string`. Optional. Use when `archiveType = tar`. Allowed values: `gz`, `bz2`, `xz`, `none`. Default value: `gz`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally choose a compression scheme, or choose <b>`None`</b> to create an uncompressed tar file.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -100,10 +104,11 @@ Optionally choose a compression scheme, or choose <b>`None`</b> to create an unc
 :::moniker range="<=azure-pipelines"
 
 **`archiveFile`** - **Archive file to create**<br>
-Type: string. Required. Default value: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'.<br>
+`string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the archive file to create.  For example, to create <b>`foo.tgz`</b>, select the <b>`tar`</b> archive type and <b>`gz`</b> for tar compression.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -111,10 +116,11 @@ Specify the name of the archive file to create.  For example, to create <b>`foo.
 :::moniker range="<=azure-pipelines"
 
 **`replaceExistingArchive`** - **Replace existing archive**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If an existing archive exists, specify whether to overwrite it.  Otherwise, files will be added to it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -136,6 +142,11 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+There is a newer version of the Archive Files task available.
+
+* [Archive Files v2](archive-files-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -165,5 +176,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Archive Files v2](archive-files-v2.md)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

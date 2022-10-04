@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 09/13/2022
+ms.date: 09/30/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -2029,6 +2029,23 @@ ___
 
 
 ## Remarks
+
+### Shallow fetch
+
+> [!IMPORTANT]
+> New pipelines created after the [September 2022 Azure DevOps sprint 209 update](/azure/devops/release-notes/2022/sprint-209-update) have **Shallow fetch** enabled by default and configured with a depth of 1. Previously the default was not to shallow fetch. To check your pipeline, view the **Shallow fetch** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
+
+To disable shallow fetch, you can perform one of the following two options.
+
+* Disable the **Shallow fetch** option in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
+* Explicitly set `fetchDepth: 0` in your `checkout` step.
+
+To configure the fetch depth for a pipeline, you can either set the `fetchDepth` property in the `checkout` step, or configure the **Shallow fetch** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
+
+> [!NOTE]
+> If you explicitly set `fetchDepth` in your `checkout` step, that setting takes priority over the setting configured in the pipeline settings UI. Setting `fetchDepth: 0` fetches all history and overrides the **Shallow fetch** setting.
+
+### Clean property
 
 The default value if the `clean` property is unset is configured by the **clean** setting in the UI settings for YAML pipelines, which is set to false by default. In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces and clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 

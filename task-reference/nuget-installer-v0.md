@@ -1,7 +1,7 @@
 ---
 title: NuGetInstaller@0 - NuGet Installer v0 task
 description: Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,14 +35,14 @@ Installs or restores missing NuGet packages.
 # Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
 - task: NuGetInstaller@0
   inputs:
-    solution: '**/*.sln' # string. Required. Path to solution or packages.config. Default: '**/*.sln'.
+    solution: '**/*.sln' # string. Required. Path to solution or packages.config. Default: **/*.sln.
     #nugetConfigPath: # string. Path to NuGet.config. 
-    restoreMode: 'restore' # 'restore' | 'install'. Required. Installation type. Default: 'restore'.
+    restoreMode: 'restore' # 'restore' | 'install'. Required. Installation type. Default: restore.
     #noCache: false # boolean. Disable local cache. Default: false.
     #nuGetRestoreArgs: # string. NuGet arguments. 
   # Advanced
-    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: '-'.
-    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: '3.3.0'.
+    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: -.
+    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: 3.3.0.
     #nuGetPath: # string. Path to NuGet.exe.
 ```
 
@@ -55,14 +55,14 @@ Installs or restores missing NuGet packages.
 # Installs or restores missing NuGet packages.
 - task: NuGetInstaller@0
   inputs:
-    solution: '**/*.sln' # string. Required. Path to solution or packages.config. Default: '**/*.sln'.
+    solution: '**/*.sln' # string. Required. Path to solution or packages.config. Default: **/*.sln.
     #nugetConfigPath: # string. Path to NuGet.config. 
-    restoreMode: 'restore' # 'restore' | 'install'. Required. Installation type. Default: 'restore'.
+    restoreMode: 'restore' # 'restore' | 'install'. Required. Installation type. Default: restore.
     #noCache: false # boolean. Disable local cache. Default: false.
     #nuGetRestoreArgs: # string. NuGet arguments. 
   # Advanced
-    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: '-'.
-    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: '3.3.0'.
+    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: -.
+    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: 3.3.0.
     #nuGetPath: # string. Path to NuGet.exe.
 ```
 
@@ -86,10 +86,11 @@ Installs or restores missing NuGet packages.
 :::moniker range="<=azure-pipelines"
 
 **`solution`** - **Path to solution or packages.config**<br>
-Type: string. Required. Default value: '**/*.sln'.<br>
+`string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the Visual Studio solution file or NuGet packages.config.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -97,10 +98,11 @@ The path to the Visual Studio solution file or NuGet packages.config.
 :::moniker range="<=azure-pipelines"
 
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Equivalent to the -ConfigFile NuGet.exe command line argument.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -108,12 +110,13 @@ Equivalent to the -ConfigFile NuGet.exe command line argument.
 :::moniker range="<=azure-pipelines"
 
 **`restoreMode`** - **Installation type**<br>
-Type: string. Required. Allowed values: 'restore', 'install'. Default value: 'restore'.<br>
+`string`. Required. Allowed values: `restore`, `install`. Default value: `restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Restore will restore the packages a solution depends upon, and is generally what you want.
 
 Install will install packages from a packages.config file. Use this option if you want to install a standalone tool package.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,10 +124,11 @@ Install will install packages from a packages.config file. Use this option if yo
 :::moniker range="<=azure-pipelines"
 
 **`noCache`** - **Disable local cache**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Equivalent to the -NoCache NuGet.exe command line argument.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -132,10 +136,11 @@ Equivalent to the -NoCache NuGet.exe command line argument.
 :::moniker range="<=azure-pipelines"
 
 **`nuGetRestoreArgs`** - **NuGet arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to NuGet.exe restore or install. [More Information](https://docs.nuget.org/consume/command-line-reference#user-content-restore-command).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,10 +148,11 @@ Additional arguments passed to NuGet.exe restore or install. [More Information](
 :::moniker range="<=azure-pipelines"
 
 **`verbosity`** - **Verbosity**<br>
-Type: string. Allowed values: '-', 'Quiet', 'Normal', 'Detailed'. Default value: '-'.<br>
+`string`. Allowed values: `-`, `Quiet`, `Normal`, `Detailed`. Default value: `-`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 NuGet's verbosity level.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,10 +160,11 @@ NuGet's verbosity level.
 :::moniker range="<=azure-pipelines"
 
 **`nuGetVersion`** - **NuGet Version**<br>
-Type: string. Required. Allowed values: '3.3.0', '3.5.0.1829', '4.0.0.2283', 'custom'. Default value: '3.3.0'.<br>
+`string`. Required. Allowed values: `3.3.0`, `3.5.0.1829` (3.5.0), `4.0.0.2283` (4.0.0), `custom`. Default value: `3.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of NuGet to use, or external version.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -165,10 +172,11 @@ The version of NuGet to use, or external version.
 :::moniker range="<=azure-pipelines"
 
 **`nuGetPath`** - **Path to NuGet.exe**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to NuGet.exe. Will override version selection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

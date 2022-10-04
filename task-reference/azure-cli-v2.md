@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -37,11 +37,11 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
   inputs:
     azureSubscription: # string. Required. Azure Resource Manager connection. 
     scriptType: # 'ps' | 'pscore' | 'batch' | 'bash'. Required. Script Type. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: 'scriptPath'.
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
     #arguments: # string. Script Arguments. 
-    #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: 'stop'.
+    #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: stop.
   # Advanced
     #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
     #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
@@ -61,11 +61,11 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
   inputs:
     azureSubscription: # string. Required. Azure Resource Manager connection. 
     scriptType: # 'ps' | 'pscore' | 'batch' | 'bash'. Required. Script Type. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: 'scriptPath'.
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
     #arguments: # string. Script Arguments. 
-    #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: 'stop'.
+    #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: stop.
   # Advanced
     #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
     #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
@@ -84,21 +84,34 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
 :::moniker range=">=azure-pipelines-2020"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `connectedServiceNameARM`. Type: string. Required.<br>
+Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Manager service connection for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scriptType"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`scriptType`** - **Script Type**<br>
-Type: string. Required. Allowed values: 'ps', 'pscore', 'batch', 'bash'.<br>
+`string`. Required. Allowed values: `ps` (PowerShell), `pscore` (PowerShell Core), `batch`, `bash` (Shell).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerShell Core script when running on Linux agent or Batch/PowerShell/PowerShell Core script when running on Windows agent. PowerShell Core script can run on cross-platform agents (Linux, macOS, or Windows).
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2020"
+
+**`scriptType`** - **Script Type**<br>
+`string`. Required. Allowed values: `ps` (Powershell), `pscore` (Powershell Core), `batch`, `bash` (Shell).<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerShell Core script when running on Linux agent or Batch/PowerShell/PowerShell Core script when running on Windows agent. PowerShell Core script can run on cross-platform agents (Linux, macOS, or Windows).
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -106,10 +119,11 @@ Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerS
 :::moniker range=">=azure-pipelines-2020"
 
 **`scriptLocation`** - **Script Location**<br>
-Type: string. Required. Allowed values: 'inlineScript', 'scriptPath'. Default value: 'scriptPath'.<br>
+`string`. Required. Allowed values: `inlineScript` (Inline script), `scriptPath` (Script path). Default value: `scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to script: File path or Inline script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,10 +131,11 @@ Path to script: File path or Inline script.
 :::moniker range=">=azure-pipelines-2020"
 
 **`scriptPath`** - **Script Path**<br>
-Type: string. Required when scriptLocation = scriptPath.<br>
+`string`. Required when `scriptLocation = scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows based agent else .ps1 or .sh when using linux based agent) or a path relative to the the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -128,7 +143,7 @@ Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows based
 :::moniker range=">=azure-pipelines-2020"
 
 **`inlineScript`** - **Inline Script**<br>
-Type: string. Required when scriptLocation = inlineScript.<br>
+`string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux based agents. For batch files use the prefix "call" before every azure command. You can also pass predefined and custom variables to this script using arguments 
 
@@ -140,6 +155,7 @@ az account show
 call  az --version 
 call az account show.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -147,10 +163,11 @@ call az account show.
 :::moniker range=">=azure-pipelines-2020"
 
 **`arguments`** - **Script Arguments**<br>
-Input alias: `scriptArguments`. Type: string.<br>
+Input alias: `scriptArguments`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -158,10 +175,11 @@ Arguments passed to the script.
 :::moniker range=">=azure-pipelines-2020"
 
 **`powerShellErrorActionPreference`** - **ErrorActionPreference**<br>
-Type: string. Optional. Use when scriptType = ps || scriptType = pscore. Allowed values: 'stop', 'continue', 'silentlyContinue'. Default value: 'stop'.<br>
+`string`. Optional. Use when `scriptType = ps || scriptType = pscore`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your powershell/powershell core script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -169,7 +187,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your powershe
 :::moniker range=">=azure-pipelines-2020"
 
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds service principal id, service principal key and tenant id of the Azure endpoint you chose to the script's execution environment. You can use variables: `servicePrincipalId`, `servicePrincipalKey` and `tenantId` in your script.
 
@@ -183,6 +201,7 @@ Batch script: %servicePrincipalId%
 
 Shell script: $servicePrincipalId.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -190,10 +209,11 @@ Shell script: $servicePrincipalId.
 :::moniker range=">=azure-pipelines-2020"
 
 **`useGlobalConfig`** - **Use global Azure CLI configuration**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is false, this task will use its own separate [Azure CLI configuration directory](/cli/azure/azure-cli-configuration#cli-configuration-file). This can be used to run Azure CLI tasks in *parallel* releases.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -201,10 +221,11 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 :::moniker range=">=azure-pipelines-2020"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. Type: string.<br>
+Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -212,10 +233,11 @@ Current working directory where the script is run.  Empty is the root of the rep
 :::moniker range=">=azure-pipelines-2020"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -223,10 +245,11 @@ If this is true, this task will fail when any errors are written to the Standard
 :::moniker range=">=azure-pipelines-2020"
 
 **`powerShellIgnoreLASTEXITCODE`** - **Ignore $LASTEXITCODE**<br>
-Type: boolean. Optional. Use when scriptType = ps || scriptType = pscore. Default value: false.<br>
+`boolean`. Optional. Use when `scriptType = ps || scriptType = pscore`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will cause the last exit code from an external command to be propagated as the exit code of powershell. Otherwise the line is not appended to the end of your script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,7 +27,7 @@ Set up a Node.js environment and add it to the PATH, additionally providing prox
 # Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
 - task: UseNode@1
   inputs:
-    #version: '10.x' # string. Version. Default: '10.x'.
+    #version: '10.x' # string. Version. Default: 10.x.
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
     #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
 ```
@@ -41,7 +41,7 @@ Set up a Node.js environment and add it to the PATH, additionally providing prox
 # Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
 - task: UseNode@1
   inputs:
-    #version: '10.x' # string. Version. Default: '10.x'.
+    #version: '10.x' # string. Version. Default: 10.x.
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
 ```
 
@@ -55,10 +55,11 @@ Set up a Node.js environment and add it to the PATH, additionally providing prox
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`version`** - **Version**<br>
-Type: string. Default value: '10.x'.<br>
+`string`. Default value: `10.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -66,10 +67,11 @@ Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`checkLatest`** - **Check for Latest Version**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Always checks online for the latest available version that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +79,11 @@ Always checks online for the latest available version that satisfies the version
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs the x86 version of Node regardless of the CPU architecture of the agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

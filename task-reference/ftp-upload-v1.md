@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@1 - FTP upload v1 task
 description: Upload files using FTP (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,14 +35,14 @@ FTP Upload.
 # Upload files using FTP.
 - task: FtpUpload@1
   inputs:
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required. Authentication Method. Default: 'serviceEndpoint'.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required. Authentication Method. Default: serviceEndpoint.
     serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
     #serverUrl: # string. Required when credsType = inputs. Server URL. 
     #username: # string. Required when credsType = inputs. Username. 
     #password: # string. Required when credsType = inputs. Password. 
     rootDirectory: # string. Required. Root folder. 
-    filePatterns: '**' # string. Required. File patterns. Default: '**'.
-    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Required. Remote directory. Default: '/upload/$(Build.BuildId)/'.
+    filePatterns: '**' # string. Required. File patterns. Default: **.
+    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
   # Advanced
     clean: false # boolean. Required. Delete remote directory. Default: false.
     cleanContents: false # boolean. Required when clean = false. Clear remote directory contents. Default: false.
@@ -60,14 +60,14 @@ FTP Upload.
 # FTP Upload.
 - task: FtpUpload@1
   inputs:
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required. Authentication Method. Default: 'serviceEndpoint'.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required. Authentication Method. Default: serviceEndpoint.
     serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
     #serverUrl: # string. Required when credsType = inputs. Server URL. 
     #username: # string. Required when credsType = inputs. Username. 
     #password: # string. Required when credsType = inputs. Password. 
     rootDirectory: # string. Required. Root folder. 
-    filePatterns: '**' # string. Required. File patterns. Default: '**'.
-    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Required. Remote directory. Default: '/upload/$(Build.BuildId)/'.
+    filePatterns: '**' # string. Required. File patterns. Default: **.
+    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
   # Advanced
     clean: false # boolean. Required. Delete remote directory. Default: false.
     cleanContents: false # boolean. Required when clean = false. Clear remote directory contents. Default: false.
@@ -93,13 +93,25 @@ FTP Upload.
 ## Inputs
 
 <!-- :::item name="credentialsOption"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`credentialsOption`** - **Authentication Method**<br>
-Input alias: `credsType`. Type: string. Required. Allowed values: 'serviceEndpoint', 'inputs'. Default value: 'serviceEndpoint'.<br>
+Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use FTP service connection or enter connection credentials.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`credentialsOption`** - **Authentication Method**<br>
+Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP Service Endpoint), `inputs` (Enter Credentials). Default value: `serviceEndpoint`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use FTP service connection or enter connection credentials.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,20 +119,22 @@ Use FTP service connection or enter connection credentials.
 :::moniker range=">=azure-pipelines-2019"
 
 **`serverEndpoint`** - **FTP Service Connection**<br>
-Type: string. Required when credsType = serviceEndpoint.<br>
+`string`. Required when `credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service connection for your FTP server.  To create one, click the Manage link and create a new Generic service connection, enter the FTP server URL for the server URL, e.g. <b>`ftp://server.example.com`</b>, and required credentials.<p>Secure connections will always be made regardless of the specified protocol (<b>`ftp://`</b> or <b>`ftps://`</b>) if the target server supports FTPS.  To allow only secure connections, use the <b>`ftps://`</b> protocol, e.g. <b>`ftps://server.example.com`</b>.  Connections to servers not supporting FTPS will fail if <b>`ftps://`</b> is specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`serverEndpoint`** - **FTP Service Endpoint**<br>
-Type: string. Required when credsType = serviceEndpoint.<br>
+`string`. Required when `credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service connection for your FTP server.  To create one, click the Manage link and create a new Generic service connection, enter the FTP server URL for the server URL, e.g. <b>`ftp://server.example.com`</b>, and required credentials.<p>Secure connections will always be made regardless of the specified protocol (<b>`ftp://`</b> or <b>`ftps://`</b>) if the target server supports FTPS.  To allow only secure connections, use the <b>`ftps://`</b> protocol, e.g. <b>`ftps://server.example.com`</b>.  Connections to servers not supporting FTPS will fail if <b>`ftps://`</b> is specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -128,9 +142,10 @@ Select the service connection for your FTP server.  To create one, click the Man
 :::moniker range="<=azure-pipelines"
 
 **`serverUrl`** - **Server URL**<br>
-Type: string. Required when credsType = inputs.<br>
+`string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,9 +153,10 @@ Type: string. Required when credsType = inputs.<br>
 :::moniker range="<=azure-pipelines"
 
 **`username`** - **Username**<br>
-Type: string. Required when credsType = inputs.<br>
+`string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -148,9 +164,10 @@ Type: string. Required when credsType = inputs.<br>
 :::moniker range="<=azure-pipelines"
 
 **`password`** - **Password**<br>
-Type: string. Required when credsType = inputs.<br>
+`string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -158,10 +175,11 @@ Type: string. Required when credsType = inputs.<br>
 :::moniker range="<=azure-pipelines"
 
 **`rootDirectory`** - **Root folder**<br>
-Input alias: `rootFolder`. Type: string. Required.<br>
+Input alias: `rootFolder`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The source folder to upload files from.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -169,10 +187,11 @@ The source folder to upload files from.
 :::moniker range="<=azure-pipelines"
 
 **`filePatterns`** - **File patterns**<br>
-Type: string. Required. Default value: '**'.<br>
+`string`. Required. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File paths or patterns of the files to upload.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -180,10 +199,11 @@ File paths or patterns of the files to upload.  Supports multiple lines of minim
 :::moniker range="<=azure-pipelines"
 
 **`remoteDirectory`** - **Remote directory**<br>
-Input alias: `remotePath`. Type: string. Required. Default value: '/upload/$(Build.BuildId)/'.<br>
+Input alias: `remotePath`. `string`. Required. Default value: `/upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Upload files to this directory on the remote FTP server.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -191,10 +211,11 @@ Upload files to this directory on the remote FTP server.
 :::moniker range="<=azure-pipelines"
 
 **`clean`** - **Delete remote directory**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Delete the remote directory including its contents before uploading.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -202,10 +223,11 @@ Delete the remote directory including its contents before uploading.
 :::moniker range="<=azure-pipelines"
 
 **`cleanContents`** - **Clear remote directory contents**<br>
-Type: boolean. Required when clean = false. Default value: false.<br>
+`boolean`. Required when `clean = false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Recursively delete all contents of the remote directory before uploading.  The existing directory will not be deleted.  For better performance, consider using `Delete remote directory` instead.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -213,10 +235,11 @@ Recursively delete all contents of the remote directory before uploading.  The e
 :::moniker range="<=azure-pipelines"
 
 **`overwrite`** - **Overwrite**<br>
-Type: boolean. Required. Default value: true.<br>
+`boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Overwrite existing files in the remote directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -224,10 +247,11 @@ Overwrite existing files in the remote directory.
 :::moniker range="<=azure-pipelines"
 
 **`preservePaths`** - **Preserve file paths**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, the relative local directory structure is recreated under the remote directory where files are uploaded.  Otherwise, files are uploaded directly to the remote directory without creating additional subdirectories.<p>For example, suppose your source folder is: <b>`/home/user/source/`</b> and contains the file: <b>`foo/bar/foobar.txt`</b>, and your remote directory is: <b>`/uploads/`</b>.<br>If selected, the file is uploaded to: <b>`/uploads/foo/bar/foobar.txt`</b>.  Otherwise, to: <b>`/uploads/foobar.txt`</b>.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -235,10 +259,11 @@ If selected, the relative local directory structure is recreated under the remot
 :::moniker range="<=azure-pipelines"
 
 **`trustSSL`** - **Trust server certificate**<br>
-Type: boolean. Required. Default value: false.<br>
+`boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selecting this option results in the FTP server's SSL certificate being trusted with ftps://, even if it is self-signed or cannot be validated by a Certificate Authority (CA).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

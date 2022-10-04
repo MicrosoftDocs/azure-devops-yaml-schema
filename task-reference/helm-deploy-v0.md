@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@0 - Package and deploy Helm charts v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,7 +36,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: 'Azure Resource Manager'.
+    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
     #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
@@ -48,15 +48,15 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     azureResourceGroupForACR: # string. Required. Resource group. 
     azureContainerRegistry: # string. Required. Azure Container Registry. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'save' | 'upgrade' | 'uninstall'. Required. Command. Default: 'ls'.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: 'Name'.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'save' | 'upgrade' | 'uninstall'. Required. Command. Default: ls.
+    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
     #chartVersion: # string. Optional. Use when command == package || command == install || command == upgrade. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: '$(Build.ArtifactStagingDirectory)'.
+    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
     #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
     #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
     #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
@@ -90,7 +90,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: 'Azure Resource Manager'.
+    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
     #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
@@ -102,15 +102,15 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     azureResourceGroupForACR: # string. Required. Resource group. 
     azureContainerRegistry: # string. Required. Azure Container Registry. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'save' | 'upgrade'. Required. Command. Default: 'ls'.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: 'Name'.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'save' | 'upgrade'. Required. Command. Default: ls.
+    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
     #chartVersion: # string. Optional. Use when command == package || command == install || command == upgrade. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: '$(Build.ArtifactStagingDirectory)'.
+    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
     #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
     #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
     #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
@@ -144,7 +144,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: 'Azure Resource Manager'.
+    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
     #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
@@ -152,15 +152,15 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: 'ls'.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: 'Name'.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
+    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
     #chartVersion: # string. Optional. Use when command == package. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: '$(Build.ArtifactStagingDirectory)'.
+    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
     #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
     #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
     #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
@@ -191,22 +191,22 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: 'Azure Resource Manager'.
+    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
     #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
     #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: 'ls'.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: 'Name'.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
+    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
     #chartVersion: # string. Optional. Use when command == package. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: '$(Build.ArtifactStagingDirectory)'.
+    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
     #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
     #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
     #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
@@ -236,22 +236,22 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: 'Azure Resource Manager'.
+    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
     #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
     #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: 'ls'.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: 'Name'.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
+    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
     #chartVersion: # string. Optional. Use when command == package. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: '$(Build.ArtifactStagingDirectory)'.
+    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
     #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
     #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
     #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
@@ -281,10 +281,11 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 :::moniker range=">=azure-pipelines-2019"
 
 **`connectionType`** - **Connection Type**<br>
-Type: string. Required. Allowed values: 'Azure Resource Manager', 'Kubernetes Service Connection', 'None'. Default value: 'Azure Resource Manager'.<br>
+`string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by using Azure Service Connection. Select 'Kubernetes Service Connection' to connect to any Kubernetes cluster by using kubeconfig or Service Account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -292,10 +293,11 @@ Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by usi
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. Type: string. Required when connectionType = Azure Resource Manager.<br>
+Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Azure service connection. Select an Azure subscription, which has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -303,10 +305,11 @@ Name of the Azure service connection. Select an Azure subscription, which has yo
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureResourceGroup`** - **Resource group**<br>
-Type: string. Required when connectionType = Azure Resource Manager.<br>
+`string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the resource group within the subscription. Select an Azure Resource Group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -314,10 +317,11 @@ Name of the resource group within the subscription. Select an Azure Resource Gro
 :::moniker range=">=azure-pipelines-2019"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
-Type: string. Required when connectionType = Azure Resource Manager.<br>
+`string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the AKS cluster. Select an Azure Managed Cluster.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -325,10 +329,11 @@ Name of the AKS cluster. Select an Azure Managed Cluster.
 :::moniker range=">=azure-pipelines-2020"
 
 **`useClusterAdmin`** - **Use cluster admin credentials**<br>
-Type: boolean. Optional. Use when connectionType = Azure Resource Manager. Default value: false.<br>
+`boolean`. Optional. Use when `connectionType = Azure Resource Manager`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use cluster administrator credentials instead of default cluster user credentials.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -336,10 +341,11 @@ Use cluster administrator credentials instead of default cluster user credential
 :::moniker range=">=azure-pipelines-2019"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
-Input alias: `kubernetesServiceEndpoint`. Type: string. Required when connectionType = Kubernetes Service Connection.<br>
+Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -347,10 +353,11 @@ Select a Kubernetes service connection.
 :::moniker range=">=azure-pipelines-2019"
 
 **`namespace`** - **Namespace**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The namespace on which the kubectl commands are run. If not specified, the default namespace is used. Specify K8 namespace to use. Use Tiller namespace can be specified in the advanced section of the task or by passing the --tiller-namespace option as argument.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -358,10 +365,11 @@ The namespace on which the kubectl commands are run. If not specified, the defau
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
-Input alias: `azureSubscriptionEndpointForACR`. Type: string. Required.<br>
+Input alias: `azureSubscriptionEndpointForACR`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription, which has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -369,10 +377,11 @@ Select an Azure subscription, which has your Azure Container Registry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureResourceGroupForACR`** - **Resource group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Group, which has your Container Registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -380,10 +389,11 @@ Select an Azure Resource Group, which has your Container Registry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Container Registry which will be used for pushing helm charts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -391,30 +401,33 @@ Select an Azure Container Registry which will be used for pushing helm charts.
 :::moniker range=">=azure-pipelines-2022"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'create', 'delete', 'expose', 'get', 'init', 'install', 'login', 'logout', 'ls', 'package', 'rollback', 'save', 'upgrade', 'uninstall'. Default value: 'ls'.<br>
+`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `save`, `upgrade`, `uninstall`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a helm command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2020.1"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'create', 'delete', 'expose', 'get', 'init', 'install', 'login', 'logout', 'ls', 'package', 'rollback', 'save', 'upgrade'. Default value: 'ls'.<br>
+`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `save`, `upgrade`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a helm command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'create', 'delete', 'expose', 'get', 'init', 'install', 'login', 'logout', 'ls', 'package', 'rollback', 'upgrade'. Default value: 'ls'.<br>
+`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `upgrade`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a helm command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -422,10 +435,11 @@ Select a helm command.
 :::moniker range=">=azure-pipelines-2019"
 
 **`chartType`** - **Chart Type**<br>
-Type: string. Required when command == install || command == upgrade. Allowed values: 'Name', 'FilePath'. Default value: 'Name'.<br>
+`string`. Required when `command == install || command == upgrade`. Allowed values: `Name`, `FilePath` (File Path). Default value: `Name`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select how you want to enter chart information. You can either provide name of the chart or folder/file path to the chart.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -433,10 +447,11 @@ Select how you want to enter chart information. You can either provide name of t
 :::moniker range=">=azure-pipelines-2019"
 
 **`chartName`** - **Chart Name**<br>
-Type: string. Required when chartType == Name.<br>
+`string`. Required when `chartType == Name`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chart reference to install, this can be a url or a chart name. For example, if chart name is 'stable/mysql', the task will run 'helm install stable/mysql'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -444,10 +459,11 @@ Chart reference to install, this can be a url or a chart name. For example, if c
 :::moniker range=">=azure-pipelines-2019"
 
 **`chartPath`** - **Chart Path**<br>
-Type: string. Required when chartType == FilePath || command == package.<br>
+`string`. Required when `chartType == FilePath || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if './redis' is specified the task will run 'helm install ./redis'. If you're consuming a chart that's published as an artifact, then the path will be $(System.DefaultWorkingDirectory)/ARTIFACT-NAME/Charts/CHART-NAME
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -455,20 +471,22 @@ Path to the chart to install. This can be a path to a packaged chart or a path t
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`chartVersion`** - **Version**<br>
-Input alias: `version`. Type: string. Optional. Use when command == package || command == install || command == upgrade.<br>
+Input alias: `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the exact chart version to install. If this is not specified, the latest version is installed. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
 
 **`chartVersion`** - **Version**<br>
-Input alias: `version`. Type: string. Optional. Use when command == package.<br>
+Input alias: `version`. `string`. Optional. Use when `command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the exact chart version to install. If this is not specified, the latest version is installed. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -476,10 +494,11 @@ Specify the exact chart version to install. If this is not specified, the latest
 :::moniker range=">=azure-pipelines-2019"
 
 **`releaseName`** - **Release Name**<br>
-Type: string. Optional. Use when command == install || command == upgrade.<br>
+`string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Release name. If unspecified, it will autogenerate one for you. releaseName input is only valid for 'install' and 'upgrade' commands
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -487,13 +506,14 @@ Release name. If unspecified, it will autogenerate one for you. releaseName inpu
 :::moniker range=">=azure-pipelines-2019"
 
 **`overrideValues`** - **Set Values**<br>
-Type: string. Optional. Use when command == install || command == upgrade.<br>
+`string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2). You can also specify multiple values by delimiting them with newline as so:
 <li>key1=val1
 <li>key2=val2<br><br>
 Please note that if you have a value which itself contains newlines, use the valueFile option, else the task will treat the newline as a delimiter. The task will construct the helm command by using these set values. For example, helm install --set key1=val1 ./redis
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -501,10 +521,11 @@ Please note that if you have a value which itself contains newlines, use the val
 :::moniker range=">=azure-pipelines-2019"
 
 **`valueFile`** - **Value File**<br>
-Type: string. Optional. Use when command == install || command == upgrade.<br>
+`string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify values in a YAML file or a URL. For example, specifying myvalues.yaml will result in 'helm install --values=myvals.yaml'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -512,10 +533,11 @@ Specify values in a YAML file or a URL. For example, specifying myvalues.yaml wi
 :::moniker range=">=azure-pipelines-2019"
 
 **`destination`** - **Destination**<br>
-Type: string. Optional. Use when command == package. Default value: '$(Build.ArtifactStagingDirectory)'.<br>
+`string`. Optional. Use when `command == package`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify values in a YAML file or a URL.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -523,10 +545,11 @@ Specify values in a YAML file or a URL.
 :::moniker range=">=azure-pipelines-2019"
 
 **`canaryimage`** - **Use canary image version.**<br>
-Type: boolean. Optional. Use when command == init. Default value: false.<br>
+`boolean`. Optional. Use when `command == init`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use the canary Tiller image, the latest pre-release version of Tiller.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -534,10 +557,11 @@ Use the canary Tiller image, the latest pre-release version of Tiller.
 :::moniker range=">=azure-pipelines-2019"
 
 **`upgradetiller`** - **Upgrade Tiller**<br>
-Type: boolean. Optional. Use when command == init. Default value: true.<br>
+`boolean`. Optional. Use when `command == init`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Upgrade if Tiller is already installed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -545,10 +569,11 @@ Upgrade if Tiller is already installed.
 :::moniker range=">=azure-pipelines-2019"
 
 **`updatedependency`** - **Update Dependency**<br>
-Type: boolean. Optional. Use when command == install || command == package. Default value: false.<br>
+`boolean`. Optional. Use when `command == install || command == package`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run helm dependency update before installing the chart. Update dependencies from 'requirements.yaml' to dir 'charts/' before packaging.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -556,10 +581,11 @@ Run helm dependency update before installing the chart. Update dependencies from
 :::moniker range=">=azure-pipelines-2019"
 
 **`save`** - **Save**<br>
-Type: boolean. Optional. Use when command == package. Default value: true.<br>
+`boolean`. Optional. Use when `command == package`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Save packaged chart to local chart repository (default true)​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -567,10 +593,11 @@ Save packaged chart to local chart repository (default true)​.
 :::moniker range=">=azure-pipelines-2019"
 
 **`install`** - **Install if release not present.**<br>
-Type: boolean. Optional. Use when command == upgrade. Default value: true.<br>
+`boolean`. Optional. Use when `command == upgrade`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If a release by this name doesn't already exist, run an install​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -578,10 +605,11 @@ If a release by this name doesn't already exist, run an install​.
 :::moniker range=">=azure-pipelines-2019"
 
 **`recreate`** - **Recreate Pods.**<br>
-Type: boolean. Optional. Use when command == upgrade. Default value: false.<br>
+`boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Performs pods restart for the resource if applicable.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -589,10 +617,11 @@ Performs pods restart for the resource if applicable.
 :::moniker range=">=azure-pipelines-2019"
 
 **`resetValues`** - **Reset Values.**<br>
-Type: boolean. Optional. Use when command == upgrade. Default value: false.<br>
+`boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Reset the values to the ones built into the chart.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -600,10 +629,11 @@ Reset the values to the ones built into the chart.
 :::moniker range=">=azure-pipelines-2019"
 
 **`force`** - **Force**<br>
-Type: boolean. Optional. Use when command == upgrade. Default value: false.<br>
+`boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Force resource update through delete/recreate if needed​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -611,10 +641,11 @@ Force resource update through delete/recreate if needed​.
 :::moniker range=">=azure-pipelines-2019"
 
 **`waitForExecution`** - **Wait**<br>
-Type: boolean. Optional. Use when command == init || command == install || command == upgrade. Default value: true.<br>
+`boolean`. Optional. Use when `command == init || command == install || command == upgrade`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Block till command execution completes.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -622,10 +653,11 @@ Block till command execution completes.
 :::moniker range=">=azure-pipelines-2019"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when command != login && command != logout.<br>
+`string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Helm command options.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -633,10 +665,11 @@ Helm command options.
 :::moniker range=">=azure-pipelines-2019"
 
 **`enableTls`** - **Enable TLS**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enables using SSL between Helm and Tiller.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -644,10 +677,11 @@ Enables using SSL between Helm and Tiller.
 :::moniker range=">=azure-pipelines-2019"
 
 **`caCert`** - **CA certificate**<br>
-Type: string. Required when enableTls == true.<br>
+`string`. Required when `enableTls == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 CA cert used to issue certificate for tiller and helm client.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -655,10 +689,11 @@ CA cert used to issue certificate for tiller and helm client.
 :::moniker range=">=azure-pipelines-2019"
 
 **`certificate`** - **Certificate**<br>
-Type: string. Required when enableTls == true.<br>
+`string`. Required when `enableTls == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify Tiller certificate or Helm client certificate.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -666,10 +701,11 @@ Specify Tiller certificate or Helm client certificate.
 :::moniker range=">=azure-pipelines-2019"
 
 **`privatekey`** - **Key**<br>
-Type: string. Required when enableTls == true.<br>
+`string`. Required when `enableTls == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify Tiller Key or Helm client key.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -677,10 +713,11 @@ Specify Tiller Key or Helm client key.
 :::moniker range=">=azure-pipelines-2019"
 
 **`tillernamespace`** - **Tiller namespace**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify K8 namespace of tiller.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -688,20 +725,22 @@ Specify K8 namespace of tiller.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2020"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -709,10 +748,11 @@ If this is true, this task will fail if any errors are written to the error pipe
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`publishPipelineMetadata`** - **Publish pipeline metadata**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, the task will collect and publish deployment metadata.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -720,10 +760,11 @@ If this is true, the task will collect and publish deployment metadata.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`chartNameForACR`** - **Chart Name For Azure Container Registry**<br>
-Type: string. Required when command == save.<br>
+`string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chart name with which the chart will be stored in Azure Container Registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -731,10 +772,11 @@ Chart name with which the chart will be stored in Azure Container Registry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`chartPathForACR`** - **Chart Path for Azure Container Registry**<br>
-Type: string. Required when command == save.<br>
+`string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the chart directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

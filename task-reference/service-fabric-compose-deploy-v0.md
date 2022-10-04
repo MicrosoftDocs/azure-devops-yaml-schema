@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,10 +36,10 @@ Deploy a docker-compose application to a Service Fabric cluster.
 - task: ServiceFabricComposeDeploy@0
   inputs:
     clusterConnection: # string. Required. Cluster Service Connection. 
-    composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: '**/docker-compose.yml'.
-    applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: 'fabric:/Application1'.
+    composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: **/docker-compose.yml.
+    applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: fabric:/Application1.
   # Registry Settings
-    registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: 'AzureResourceManagerEndpoint'.
+    registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
     #dockerRegistryConnection: # string. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
     azureSubscription: # string. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
     #registryUserName: # string. Optional. Use when registryCredentials = UsernamePassword. Registry User Name. 
@@ -62,10 +62,10 @@ Deploy a docker-compose application to a Service Fabric cluster.
 - task: ServiceFabricComposeDeploy@0
   inputs:
     clusterConnection: # string. Required. Cluster Service Connection. 
-    composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: '**/docker-compose.yml'.
-    applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: 'fabric:/Application1'.
+    composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: **/docker-compose.yml.
+    applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: fabric:/Application1.
   # Registry Settings
-    registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: 'AzureResourceManagerEndpoint'.
+    registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
     #dockerRegistryConnection: # string. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
     azureSubscription: # string. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
     #registryUserName: # string. Optional. Use when registryCredentials = UsernamePassword. Registry User Name. 
@@ -98,20 +98,22 @@ Deploy a docker-compose application to a Service Fabric cluster.
 :::moniker range=">=azure-pipelines-2019"
 
 **`clusterConnection`** - **Cluster Service Connection**<br>
-Input alias: `serviceConnectionName`. Type: string. Required.<br>
+Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Service Fabric service connection to be used to connect to the cluster. Choose 'Manage' to register a new service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`clusterConnection`** - **Cluster Connection**<br>
-Input alias: `serviceConnectionName`. Type: string. Required.<br>
+Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Service Fabric service connection to be used to connect to the cluster. Choose 'Manage' to register a new service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -119,10 +121,11 @@ Select an Azure Service Fabric service connection to be used to connect to the c
 :::moniker range="<=azure-pipelines"
 
 **`composeFilePath`** - **Compose File Path**<br>
-Type: string. Required. Default value: '**/docker-compose.yml'.<br>
+`string`. Required. Default value: `**/docker-compose.yml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the compose file that is to be deployed. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -130,21 +133,34 @@ Path to the compose file that is to be deployed. [Variables](https://go.microsof
 :::moniker range="<=azure-pipelines"
 
 **`applicationName`** - **Application Name**<br>
-Type: string. Required. Default value: 'fabric:/Application1'.<br>
+`string`. Required. Default value: `fabric:/Application1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the application being deployed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="registryCredentials"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`registryCredentials`** - **Registry Credentials Source**<br>
-Type: string. Required. Allowed values: 'AzureResourceManagerEndpoint', 'ContainerRegistryEndpoint', 'UsernamePassword', 'None'. Default value: 'AzureResourceManagerEndpoint'.<br>
+`string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager service connection), `ContainerRegistryEndpoint` (Container Registry service connection), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose if/how credentials for the docker registry will be provided.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`registryCredentials`** - **Registry Credentials Source**<br>
+`string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Endpoint), `ContainerRegistryEndpoint` (Container Registry Endpoint), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Choose if/how credentials for the docker registry will be provided.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -152,20 +168,22 @@ Choose if/how credentials for the docker registry will be provided.
 :::moniker range=">=azure-pipelines-2019"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpointName`. Type: string. Optional. Use when registryCredentials = ContainerRegistryEndpoint.<br>
+Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise the password will not be encrypted.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpointName`. Type: string. Optional. Use when registryCredentials = ContainerRegistryEndpoint.<br>
+Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise the password will not be encrypted.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -173,10 +191,11 @@ Select a Docker registry service connection. If a certificate matching the Serve
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. Type: string. Required when registryCredentials = AzureResourceManagerEndpoint.<br>
+Input alias: `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -184,10 +203,11 @@ Select an Azure subscription.
 :::moniker range="<=azure-pipelines"
 
 **`registryUserName`** - **Registry User Name**<br>
-Type: string. Optional. Use when registryCredentials = UsernamePassword.<br>
+`string`. Optional. Use when `registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Username for the Docker registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -195,10 +215,11 @@ Username for the Docker registry.
 :::moniker range="<=azure-pipelines"
 
 **`registryPassword`** - **Registry Password**<br>
-Type: string. Optional. Use when registryCredentials = UsernamePassword.<br>
+`string`. Optional. Use when `registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Password for the Docker registry. If the password is not encrypted, it is recommended that you use a custom release pipeline secret variable to store it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -206,10 +227,11 @@ Password for the Docker registry. If the password is not encrypted, it is recomm
 :::moniker range="<=azure-pipelines"
 
 **`passwordEncrypted`** - **Password Encrypted**<br>
-Type: boolean. Optional. Use when registryCredentials = UsernamePassword. Default value: true.<br>
+`boolean`. Optional. Use when `registryCredentials = UsernamePassword`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise an error will occur.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -217,10 +239,11 @@ It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptTex
 :::moniker range=">=azure-pipelines-2019"
 
 **`upgrade`** - **Upgrade**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Upgrade an existing deployment rather than removing it.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -228,10 +251,11 @@ Upgrade an existing deployment rather than removing it.
 :::moniker range="<=azure-pipelines"
 
 **`deployTimeoutSec`** - **Deploy Timeout (s)**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Timeout in seconds for deploying the application.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -239,10 +263,11 @@ Timeout in seconds for deploying the application.
 :::moniker range="<=azure-pipelines"
 
 **`removeTimeoutSec`** - **Remove Timeout (s)**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Timeout in seconds for removing an existing application.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -250,10 +275,11 @@ Timeout in seconds for removing an existing application.
 :::moniker range="<=azure-pipelines"
 
 **`getStatusTimeoutSec`** - **Get Status Timeout (s)**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Timeout in seconds for getting the status of an existing application.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -275,6 +301,19 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to deploy a Docker-compose application to a Service Fabric cluster.
+This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the compose file.
+
+> [!NOTE]
+> This task is currently in preview and requires a preview version of Service Fabric that supports compose deploy.
+See [Docker Compose deployment support in Azure Service Fabric](/azure/service-fabric/service-fabric-docker-compose).
+
+### Service Fabric
+
+* This task uses a Service Fabric installation to connect and deploy to a Service Fabric cluster.
+* Download and install [Azure Service Fabric Core SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) on the build agent.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

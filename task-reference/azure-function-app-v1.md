@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -40,8 +40,8 @@ Deploy an Azure Function for Linux or Windows.
     appName: # string. Required. Azure Functions App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'DOTNET|6.0' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'NODE|16' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8' | 'PYTHON|3.9'. Optional. Use when appType = functionAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
   # Application and Configuration Settings
@@ -49,7 +49,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -66,8 +66,8 @@ Deploy an Azure Function for Linux or Windows.
     appName: # string. Required. Azure Functions App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when appType = functionAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
   # Application and Configuration Settings
@@ -75,7 +75,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -92,8 +92,8 @@ Deploy an Azure Function for Linux or Windows.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when appType = functionAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
   # Application and Configuration Settings
@@ -101,7 +101,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -118,8 +118,8 @@ Deploy an Azure Function for Linux or Windows.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when appType = functionAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
   # Application and Configuration Settings
@@ -127,7 +127,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -144,8 +144,8 @@ Deploy an Azure Function for Linux or Windows.
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: 'production'.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #runtimeStack: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when appType = functionAppLinux. Runtime stack. 
     #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
   # Application and Configuration Settings
@@ -153,7 +153,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: 'auto'.
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -166,10 +166,11 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -177,9 +178,10 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appType`** - **App type**<br>
-Type: string. Required. Allowed values: 'functionApp', 'functionAppLinux'.<br>
+`string`. Required. Allowed values: `functionApp` (Function App on Windows), `functionAppLinux` (Function App on Linux).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -187,20 +189,22 @@ Type: string. Required. Allowed values: 'functionApp', 'functionAppLinux'.<br>
 :::moniker range=">=azure-pipelines-2022"
 
 **`appName`** - **Azure Functions App name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
 
 **`appName`** - **App name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -208,10 +212,11 @@ Enter or Select the name of an existing Azure Functions App. The Function Apps l
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
-Type: boolean. Optional. Use when appType != "". Default value: false.<br>
+`boolean`. Optional. Use when `appType != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -219,10 +224,11 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`resourceGroupName`** - **Resource group**<br>
-Type: string. Required when deployToSlotOrASE = true.<br>
+`string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -230,10 +236,11 @@ The Resource group name is required when the deployment target is either a deplo
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`slotName`** - **Slot**<br>
-Type: string. Required when deployToSlotOrASE = true. Default value: 'production'.<br>
+`string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select an existing Slot other than the Production slot.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -241,10 +248,11 @@ Enter or Select an existing Slot other than the Production slot.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`package`** - **Package or folder**<br>
-Type: string. Required. Default value: '$(System.DefaultWorkingDirectory)/**/*.zip'.<br>
+`string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip or $(System.DefaultWorkingDirectory)/\*\*/\*.war.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -252,30 +260,33 @@ File path to the package or a folder containing app service contents generated b
 :::moniker range="=azure-pipelines"
 
 **`runtimeStack`** - **Runtime stack**<br>
-Type: string. Optional. Use when appType = functionAppLinux. Allowed values: 'DOTNET|2.2', 'DOTNET|3.1', 'DOTNET|6.0', 'JAVA|8', 'JAVA|11', 'NODE|8', 'NODE|10', 'NODE|12', 'NODE|14', 'NODE|16', 'PYTHON|3.6', 'PYTHON|3.7', 'PYTHON|3.8', 'PYTHON|3.9'.<br>
+`string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `DOTNET|6.0` (DOTNET|6.0 (functionapp v4)), `JAVA|8` (JAVA|8 (functionapp v2/v3/v4)), `JAVA|11` (JAVA|11  (functionapp v3/v4)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3/v4)), `NODE|16` (NODE|16 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3/v4)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3/v4)), `PYTHON|3.9` (PYTHON|3.9 (functionapp v3/v4)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions.  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 **`runtimeStack`** - **Runtime stack**<br>
-Type: string. Optional. Use when appType = functionAppLinux. Allowed values: 'DOTNET|2.2', 'DOTNET|3.1', 'JAVA|8', 'JAVA|11', 'NODE|8', 'NODE|10', 'NODE|12', 'NODE|14', 'PYTHON|3.6', 'PYTHON|3.7', 'PYTHON|3.8'.<br>
+`string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions.  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 **`runtimeStack`** - **Runtime stack**<br>
-Type: string. Optional. Use when appType = functionAppLinux. Allowed values: 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0', 'DOCKER|microsoft/azure-functions-node8:2.0'.<br>
+`string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions.  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -283,10 +294,11 @@ Refer [this doc](/azure/azure-functions/functions-versions#languages) for suppor
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`startUpCommand`** - **Startup command**<br>
-Type: string. Optional. Use when appType = functionAppLinux.<br>
+`string`. Optional. Use when `appType = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -294,10 +306,11 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`customWebConfig`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
-Type: string. Optional. Use when appType != functionAppLinux && package NotEndsWith .war.<br>
+`string`. Optional. Use when `appType != functionAppLinux && package NotEndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config can be edited and vary based on the application framework. For example for node.js application, web.config will have startup file and iis_node module values. This edit feature is only for the generated web.config. [Learn more](https://go.microsoft.com/fwlink/?linkid=843469).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -305,10 +318,11 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`appSettings`** - **App settings**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -316,21 +330,34 @@ Edit web app application settings following the syntax -key value . Value contai
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`configurationStrings`** - **Configuration settings**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMethod"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2022"
 
 **`deploymentMethod`** - **Deployment method**<br>
-Type: string. Required. Allowed values: 'auto', 'zipDeploy', 'runFromPackage'. Default value: 'auto'.<br>
+`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the deployment method for the app.
+Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+
+**`deploymentMethod`** - **Deployment method**<br>
+`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -358,11 +385,103 @@ Application URL of the selected App Service.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use the Azure Function App task to deploy [functions](/azure/azure-functions/) to Azure.
+
+### Deployment methods
+
+Several deployment methods are available in this task. The default value is `auto`. 
+
+To change the deployment option in a designer task, expand **Additional Deployment Options** and enable **Select deployment method** to choose from other package-based deployment options.
+
+Based on the type of Azure App Service and Azure Pipelines agent, the task uses a suitable deployment technology. The deployment technologies used by tasks are as follows:
+
+* [Kudu REST API](#kudu-rest-api)
+* [Zip Deploy](#zip-deploy)
+* [Run From Package](#run-from-package)
+
+By default, the task attempts to select the appropriate deployment technology based on the input package, App Service type, and agent OS.
+
+* If a post-deployment script is provided, use Zip Deploy. 
+* If the App Service type is Web App on Linux, use Zip Deploy. 
+* If a .war file is provided, use War Deploy. 
+* If a .jar file is provided, use Run-From-Zip. 
+* For all other tasks, use Run From Package (via Zip Deploy). 
+
+On a non-Windows agent (for any App Service type), the task relies on the [Kudu REST API](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the web app.
+
+#### Kudu REST API
+
+The [Kudu REST API](https://github.com/projectkudu/kudu/wiki/REST-API) works on both Windows and Linux automation agents when the target is a Web App on Windows, a Web App on Linux (built-in source), or a function app. The task uses Kudu to copy files to the Azure App Service.
+
+#### Zip Deploy
+
+Zip Deploy creates a .zip deployment package from the chosen package or folder. It then deploys the file contents to the wwwroot folder of the App Service name function app in Azure. This option overwrites all existing content in the wwwroot folder. For more information, see [Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push).
+
+#### Run From Package
+
+Run From Package creates the same deployment package as Zip Deploy. Instead of deploying files to the wwwroot folder, the Functions runtime mounts the entire package. When you use this option, files in the wwwroot folder become read-only. For more information, see [Run your Azure Functions from a package file](/azure/azure-functions/run-functions-from-deployment-package).
+
+### Troubleshooting
+
+[!INCLUDE [rm-app-service-troubleshoot-shared](./includes/rm-app-service-troubleshoot-shared.md)]
+
+[!INCLUDE [rm-webapp-functionapp-troubleshoot-shared.md](./includes/rm-webapp-functionapp-troubleshoot-shared.md)]
+
+#### Function app deployment on Windows succeeds but the app doesn't work
+
+This problem could occur if a web.config file isn't present in your app. You can either add a web.config file to your source or automatically generate one by using the **Application and Configuration Settings** of the task.
+
+1. Select the task and go to **Generate web.config parameters for Python, Node.js, Go and Java apps**:
+
+   :::image type="content" source="media/azure-rm-function-app-01.png" alt-text="Screenshot that shows the Generate web.config parameters section.":::
+
+
+1. Select the More button (...) under **Generate web.config parameters for Python, Node.js, Go and Java apps** to edit the parameters:
+
+   :::image type="content" source="media/azure-rm-web-app-deployment-02.png" alt-text="Screenshot that shows the Generate web.config parameters.":::
+
+1. Select your application type in the **Application framework** list.
+1. Select **OK**. Doing so will populate the web.config parameters required to generate the web.config file.
+
+### FAQs
+
+[!INCLUDE [rm-app-service-FAQs-shared](./includes/rm-app-service-faqs-shared.md)]
+
+#### I can't deploy to an internal App Service environment by using an Azure Resource Manager service connection and a Microsoft-hosted agent
+
+By design, a Microsoft-hosted agent won't work with an App Service environment. Instead, you need to configure a private agent on a virtual machine that's in the same virtual network as the App Service environment. Also, set a private DNS zone to enable communication between the resources.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+Here's a sample YAML snippet that deploys Azure functions on Windows: 
+```YAML
+
+variables:
+  azureSubscription: Contoso
+  # To ignore SSL error, uncomment the below variable
+  # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
+
+steps:
+- task: AzureFunctionApp@1
+  displayName: Azure Function App Deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: samplefunctionapp
+    appType: functionApp
+    package: $(System.DefaultWorkingDirectory)/**/*.zip
+```
+To deploy a function on Linux, add the `appType` parameter and set it to <code>appType: functionAppLinux</code>. If you don't specify a value,  <code>functionApp</code> is the default.
+
+To explicitly specify the deployment method as Zip Deploy, add the parameter <code>deploymentMethod: zipDeploy</code>. Another supported value for this parameter is <code>runFromPackage</code>. 
+If you don't specify a value, <code>auto</code> is the default.
+
+For a walkthrough that shows how to create a CI/CD pipeline, see [Build and deploy Java to Azure Functions](/azure/azure-functions/functions-how-to-azure-devops).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@4 - Prepare Analysis Configuration v4 task
 description: Prepare SonarQube analysis configuration (task version 4).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -28,16 +28,16 @@ Prepare SonarQube analysis configuration.
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: # string. Required. SonarQube Server Endpoint. 
-    scannerMode: 'MSBuild' # 'MSBuild' | 'Other' | 'CLI'. Required. Choose the way to run the analysis. Default: 'MSBuild'.
-    #configMode: 'file' # 'file' | 'manual'. Required when scannerMode = CLI. Mode. Default: 'file'.
-    #configFile: 'sonar-project.properties' # string. Optional. Use when scannerMode = CLI && configMode = file. Settings File. Default: 'sonar-project.properties'.
+    scannerMode: 'MSBuild' # 'MSBuild' | 'Other' | 'CLI'. Required. Choose the way to run the analysis. Default: MSBuild.
+    #configMode: 'file' # 'file' | 'manual'. Required when scannerMode = CLI. Mode. Default: file.
+    #configFile: 'sonar-project.properties' # string. Optional. Use when scannerMode = CLI && configMode = file. Settings File. Default: sonar-project.properties.
     #cliProjectKey: # string. Required when scannerMode = CLI && configMode = manual. Project Key. 
     projectKey: # string. Required when scannerMode = MSBuild. Project Key. 
     #cliProjectName: # string. Optional. Use when scannerMode = CLI && configMode = manual. Project Name. 
     #projectName: # string. Optional. Use when scannerMode = MSBuild. Project Name. 
-    #cliProjectVersion: '1.0' # string. Optional. Use when scannerMode = CLI && configMode = manual. Project Version. Default: '1.0'.
-    #projectVersion: '1.0' # string. Optional. Use when scannerMode = MSBuild. Project Version. Default: '1.0'.
-    #cliSources: '.' # string. Required when scannerMode = CLI && configMode = manual. Sources directory root. Default: '.'.
+    #cliProjectVersion: '1.0' # string. Optional. Use when scannerMode = CLI && configMode = manual. Project Version. Default: 1.0.
+    #projectVersion: '1.0' # string. Optional. Use when scannerMode = MSBuild. Project Version. Default: 1.0.
+    #cliSources: '.' # string. Required when scannerMode = CLI && configMode = manual. Sources directory root. Default: ..
   # Advanced
     #extraProperties: # string. Additional Properties.
 ```
@@ -52,10 +52,11 @@ Prepare SonarQube analysis configuration.
 :::moniker range="=azure-pipelines"
 
 **`SonarQube`** - **SonarQube Server Endpoint**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the SonarQube server endpoint for your project. To create one, click the Manage link and create a new SonarQube Server Endpoint, enter your server url and token.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -63,7 +64,7 @@ Select the SonarQube server endpoint for your project. To create one, click the 
 :::moniker range="=azure-pipelines"
 
 **`scannerMode`** - **Choose the way to run the analysis**<br>
-Type: string. Required. Allowed values: 'MSBuild', 'Other', 'CLI'. Default value: 'MSBuild'.<br>
+`string`. Required. Allowed values: `MSBuild` (Integrate with MSBuild), `Other` (Integrate with Maven or Gradle), `CLI` (Use standalone scanner). Default value: `MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 ####MSBuild
 * Put this task before your MSBuild task
@@ -74,6 +75,7 @@ Type: string. Required. Allowed values: 'MSBuild', 'Other', 'CLI'. Default value
 ####Others
 For other cases you can use the standalone scanner (sonar-scanner) and set all configuration with this task, and then add the 'Run Code Analysis' task.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -81,10 +83,11 @@ For other cases you can use the standalone scanner (sonar-scanner) and set all c
 :::moniker range="=azure-pipelines"
 
 **`configMode`** - **Mode**<br>
-Type: string. Required when scannerMode = CLI. Allowed values: 'file', 'manual'. Default value: 'file'.<br>
+`string`. Required when `scannerMode = CLI`. Allowed values: `file` (Store configuration with my source code (sonar-project.properties)), `manual` (Manually provide configuration). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose your preferred configuration method.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -92,10 +95,11 @@ Choose your preferred configuration method.
 :::moniker range="=azure-pipelines"
 
 **`configFile`** - **Settings File**<br>
-Type: string. Optional. Use when scannerMode = CLI && configMode = file. Default value: 'sonar-project.properties'.<br>
+`string`. Optional. Use when `scannerMode = CLI && configMode = file`. Default value: `sonar-project.properties`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 More information is available [here](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -103,10 +107,11 @@ More information is available [here](http://redirect.sonarsource.com/doc/install
 :::moniker range="=azure-pipelines"
 
 **`cliProjectKey`** - **Project Key**<br>
-Type: string. Required when scannerMode = CLI && configMode = manual.<br>
+`string`. Required when `scannerMode = CLI && configMode = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project unique key, i.e. `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -114,10 +119,11 @@ The SonarQube project unique key, i.e. `sonar.projectKey`.
 :::moniker range="=azure-pipelines"
 
 **`projectKey`** - **Project Key**<br>
-Type: string. Required when scannerMode = MSBuild.<br>
+`string`. Required when `scannerMode = MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project unique key, i.e. `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -125,10 +131,11 @@ The SonarQube project unique key, i.e. `sonar.projectKey`.
 :::moniker range="=azure-pipelines"
 
 **`cliProjectName`** - **Project Name**<br>
-Type: string. Optional. Use when scannerMode = CLI && configMode = manual.<br>
+`string`. Optional. Use when `scannerMode = CLI && configMode = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project name, i.e. `sonar.projectName`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -136,10 +143,11 @@ The SonarQube project name, i.e. `sonar.projectName`.
 :::moniker range="=azure-pipelines"
 
 **`projectName`** - **Project Name**<br>
-Type: string. Optional. Use when scannerMode = MSBuild.<br>
+`string`. Optional. Use when `scannerMode = MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project name, i.e. `sonar.projectName`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -147,10 +155,11 @@ The SonarQube project name, i.e. `sonar.projectName`.
 :::moniker range="=azure-pipelines"
 
 **`cliProjectVersion`** - **Project Version**<br>
-Type: string. Optional. Use when scannerMode = CLI && configMode = manual. Default value: '1.0'.<br>
+`string`. Optional. Use when `scannerMode = CLI && configMode = manual`. Default value: `1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project version, i.e. `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -158,10 +167,11 @@ The SonarQube project version, i.e. `sonar.projectVersion`.
 :::moniker range="=azure-pipelines"
 
 **`projectVersion`** - **Project Version**<br>
-Type: string. Optional. Use when scannerMode = MSBuild. Default value: '1.0'.<br>
+`string`. Optional. Use when `scannerMode = MSBuild`. Default value: `1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The SonarQube project version, i.e. `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -169,10 +179,11 @@ The SonarQube project version, i.e. `sonar.projectVersion`.
 :::moniker range="=azure-pipelines"
 
 **`cliSources`** - **Sources directory root**<br>
-Type: string. Required when scannerMode = CLI && configMode = manual. Default value: '.'.<br>
+`string`. Required when `scannerMode = CLI && configMode = manual`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the root directory containing source files. This value is set to the `sonar.sources` SonarQube property.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -180,10 +191,11 @@ Path to the root directory containing source files. This value is set to the `so
 :::moniker range="=azure-pipelines"
 
 **`extraProperties`** - **Additional Properties**<br>
-Type: string.<br>
+`string`. Default value: `# Additional properties that will be passed to the scanner, \n# Put one key=value per line, example:\n# sonar.exclusions=**/*.bin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 [Additional properties](https://redirect.sonarsource.com/doc/analysis-parameters.html) to be passed to the scanner. Specify each key=value pair on a new line.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

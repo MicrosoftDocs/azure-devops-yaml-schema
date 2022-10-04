@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@2 - Azure App Service Deploy v2 task
 description: Update Azure App Service using Web Deploy / Kudu REST APIs (task version 2).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -33,7 +33,7 @@ Update Azure App Service using Web Deploy / Kudu REST APIs.
     #ResourceGroupName: # string. Required when DeployToSlotFlag = true. Resource group. 
     #SlotName: # string. Required when DeployToSlotFlag = true. Slot. 
     #VirtualApplication: # string. Virtual Application. 
-    Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or Folder. Default: '$(System.DefaultWorkingDirectory)/**/*.zip'.
+    Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or Folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
   # Output
     #WebAppUri: # string. App Service URL. 
   # Additional Deployment Options
@@ -65,10 +65,11 @@ Update Azure App Service using Web Deploy / Kudu REST APIs.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Azure Subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +77,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`WebAppName`** - **App Service name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the name of an existing Azure App Service.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +89,11 @@ Enter or Select the name of an existing Azure App Service.
 :::moniker range="<=azure-pipelines"
 
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to deploy to an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +101,11 @@ Select the option to deploy to an existing slot other than the Production slot.
 :::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
-Type: string. Required when DeployToSlotFlag = true.<br>
+`string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,10 +113,11 @@ Enter or Select the Azure Resource group that contains the Azure App Service spe
 :::moniker range="<=azure-pipelines"
 
 **`SlotName`** - **Slot**<br>
-Type: string. Required when DeployToSlotFlag = true.<br>
+`string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter or Select an existing Slot other than the Production slot.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -120,10 +125,11 @@ Enter or Select an existing Slot other than the Production slot.
 :::moniker range="<=azure-pipelines"
 
 **`VirtualApplication`** - **Virtual Application**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the Virtual Application that has been configured in the Azure portal. The option is not required for deployments to the App Service root.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -131,10 +137,11 @@ Specify the name of the Virtual Application that has been configured in the Azur
 :::moniker range="<=azure-pipelines"
 
 **`Package`** - **Package or Folder**<br>
-Type: string. Required. Default value: '$(System.DefaultWorkingDirectory)/**/*.zip'.<br>
+`string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Folder or file path to the App Service package or folder. Variables ( [Build](https://www.visualstudio.com/docs/build/define/variables) | [Release](https://www.visualstudio.com/docs/release/author-release-definition/understanding-tasks#predefvariables)), wild cards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -142,10 +149,11 @@ Folder or file path to the App Service package or folder. Variables ( [Build](ht
 :::moniker range="<=azure-pipelines"
 
 **`WebAppUri`** - **App Service URL**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a name for the output variable that is generated for the URL of the App Service. The variable can be consumed in subsequent tasks.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -153,10 +161,11 @@ Specify a name for the output variable that is generated for the URL of the App 
 :::moniker range="<=azure-pipelines"
 
 **`UseWebDeploy`** - **Publish using Web Deploy**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publish using web deploy options are supported only when using Windows agent. On other platforms, the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the App Service, and following options are not supported.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -164,10 +173,11 @@ Publish using web deploy options are supported only when using Windows agent. On
 :::moniker range="<=azure-pipelines"
 
 **`SetParametersFile`** - **SetParameters File**<br>
-Type: string. Optional. Use when UseWebDeploy == true.<br>
+`string`. Optional. Use when `UseWebDeploy == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional: location of the SetParameters.xml file to use.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -175,10 +185,11 @@ Optional: location of the SetParameters.xml file to use.
 :::moniker range="<=azure-pipelines"
 
 **`RemoveAdditionalFilesFlag`** - **Remove Additional Files at Destination**<br>
-Type: boolean. Optional. Use when UseWebDeploy == true. Default value: false.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -186,10 +197,11 @@ Select the option to delete files on the Azure App Service that have no matching
 :::moniker range="<=azure-pipelines"
 
 **`ExcludeFilesFromAppDataFlag`** - **Exclude Files from the App_Data Folder**<br>
-Type: boolean. Optional. Use when UseWebDeploy == true. Default value: false.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to prevent files in the App_Data folder from being deployed to the Azure App Service.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -197,10 +209,11 @@ Select the option to prevent files in the App_Data folder from being deployed to
 :::moniker range="<=azure-pipelines"
 
 **`AdditionalArguments`** - **Additional Arguments**<br>
-Type: string. Optional. Use when UseWebDeploy == true.<br>
+`string`. Optional. Use when `UseWebDeploy == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional Web Deploy arguments following the syntax -key:value.<br />These will be applied when deploying the Azure App Service. Example: -disableLink:AppPoolExtension -disableLink:ContentExtension.<br />For more examples of Web Deploy operation settings, refer to  [this](https://go.microsoft.com/fwlink/?linkid=838471).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -208,10 +221,11 @@ Additional Web Deploy arguments following the syntax -key:value.<br />These will
 :::moniker range="<=azure-pipelines"
 
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the option to take the Azure App Service offline by placing an app_offline.htm file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

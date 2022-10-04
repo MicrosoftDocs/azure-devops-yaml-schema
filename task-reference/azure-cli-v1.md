@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@1 - Azure CLI v1 task
 description: Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,7 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 - task: AzureCLI@1
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: 'scriptPath'.
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
     #arguments: # string. Arguments. 
@@ -57,7 +57,7 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 - task: AzureCLI@1
   inputs:
     azureSubscription: # string. Required. Azure subscription. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: 'scriptPath'.
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
     #arguments: # string. Arguments. 
@@ -86,10 +86,11 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM`. Type: string. Required.<br>
+Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure resource manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -97,10 +98,11 @@ Select an Azure resource manager subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`scriptLocation`** - **Script Location**<br>
-Type: string. Required. Allowed values: 'inlineScript', 'scriptPath'. Default value: 'scriptPath'.<br>
+`string`. Required. Allowed values: `inlineScript` (Inline script), `scriptPath` (Script path). Default value: `scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of script: File path or Inline script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -108,10 +110,11 @@ Type of script: File path or Inline script.
 :::moniker range="<=azure-pipelines"
 
 **`scriptPath`** - **Script Path**<br>
-Type: string. Required when scriptLocation = scriptPath.<br>
+`string`. Required when `scriptLocation = scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fully qualified path of the script or a path relative to the the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -119,7 +122,7 @@ Fully qualified path of the script or a path relative to the the default working
 :::moniker range="<=azure-pipelines"
 
 **`inlineScript`** - **Inline Script**<br>
-Type: string. Required when scriptLocation = inlineScript.<br>
+`string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 You can write your scripts inline here. When using Windows agent, use batch scripting whereas use shell scripting when using Linux based agents. For batch files use the prefix "call" before every azure command. You can also pass predefined and custom variables to this script using arguments 
 
@@ -127,6 +130,7 @@ You can write your scripts inline here. When using Windows agent, use batch scri
 
  example for batch: call  az --version || call az account show.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -134,10 +138,11 @@ You can write your scripts inline here. When using Windows agent, use batch scri
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Input alias: `args`. Type: string.<br>
+Input alias: `args`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -145,12 +150,13 @@ Arguments passed to the script.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds service principal id and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: `$servicePrincipalId` and `$servicePrincipalKey` in your script.
 
 This is honored only when the Azure endpoint has Service Principal authentication scheme.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -158,10 +164,11 @@ This is honored only when the Azure endpoint has Service Principal authenticatio
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`useGlobalConfig`** - **Use global Azure CLI configuration**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is false, this task will use its own separate [Azure CLI configuration directory](/cli/azure/azure-cli-configuration#cli-configuration-file). This can be used to run Azure CLI tasks in *parallel* releases.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -169,10 +176,11 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. Type: string.<br>
+Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -180,20 +188,22 @@ Current working directory where the script is run.  Empty is the root of the rep
 :::moniker range=">=azure-pipelines-2019"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

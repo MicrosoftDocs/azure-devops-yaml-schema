@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@1 - Azure PowerShell v1 task
 description: Run a PowerShell script within an Azure environment (task version 1).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,10 +27,10 @@ Run a PowerShell script within an Azure environment.
 # Run a PowerShell script within an Azure environment.
 - task: AzurePowerShell@1
   inputs:
-    #ConnectedServiceNameSelector: 'ConnectedServiceName' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Connection Type. Default: 'ConnectedServiceName'.
+    #ConnectedServiceNameSelector: 'ConnectedServiceName' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Connection Type. Default: ConnectedServiceName.
     ConnectedServiceName: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
     #ConnectedServiceNameARM: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
-    ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: 'FilePath'.
+    ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
     #ScriptArguments: # string. Script Arguments.
@@ -56,9 +56,10 @@ Run a PowerShell script within an Azure environment.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceNameSelector`** - **Azure Connection Type**<br>
-Type: string. Allowed values: 'ConnectedServiceName', 'ConnectedServiceNameARM'. Default value: 'ConnectedServiceName'.<br>
+`string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -66,10 +67,11 @@ Type: string. Allowed values: 'ConnectedServiceName', 'ConnectedServiceNameARM'.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Azure Classic Subscription**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceName.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Classic subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +79,11 @@ Azure Classic subscription to configure before running PowerShell.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceNameARM`** - **Azure Subscription**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Resource Manager subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -88,10 +91,11 @@ Azure Resource Manager subscription to configure before running PowerShell.
 :::moniker range="<=azure-pipelines"
 
 **`ScriptType`** - **Script Type**<br>
-Type: string. Required. Allowed values: 'FilePath', 'InlineScript'. Default value: 'FilePath'.<br>
+`string`. Required. Allowed values: `FilePath` (Script File Path), `InlineScript` (Inline Script). Default value: `FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of the script: File Path or Inline Script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -99,10 +103,11 @@ Type of the script: File Path or Inline Script.
 :::moniker range="<=azure-pipelines"
 
 **`ScriptPath`** - **Script Path**<br>
-Type: string. Optional. Use when ScriptType = FilePath.<br>
+`string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script. Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -110,10 +115,11 @@ Path of the script. Should be fully qualified path or relative to the default wo
 :::moniker range="<=azure-pipelines"
 
 **`Inline`** - **Inline Script**<br>
-Type: string. Optional. Use when ScriptType = InlineScript.<br>
+`string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the script to execute.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,10 +127,11 @@ Enter the script to execute.
 :::moniker range="<=azure-pipelines"
 
 **`ScriptArguments`** - **Script Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional parameters to pass to PowerShell.  Can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

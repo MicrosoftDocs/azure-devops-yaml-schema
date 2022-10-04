@@ -1,7 +1,7 @@
 ---
 title: NuGetPublisher@0 - NuGet publisher v0 task
 description: NuGetPublisher@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,14 +29,14 @@ This task is deprecated.
 # Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
 - task: NuGetPublisher@0
   inputs:
-    searchPattern: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg' # string. Required. Path/Pattern to nupkg. Default: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg'.
-    nuGetFeedType: 'external' # 'external' | 'internal'. Required. Feed type. Default: 'external'.
+    searchPattern: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg' # string. Required. Path/Pattern to nupkg. Default: **/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg.
+    nuGetFeedType: 'external' # 'external' | 'internal'. Required. Feed type. Default: external.
     connectedServiceName: # string. Required when nuGetFeedType = external. NuGet Service Connection. 
     #feedName: # string. Required when nuGetFeedType = internal. Internal Feed URL. 
   # Advanced
     #nuGetAdditionalArgs: # string. NuGet Arguments. 
-    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: '-'.
-    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: '3.3.0'.
+    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: -.
+    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: 3.3.0.
     #nuGetPath: # string. Path to NuGet.exe. 
     #continueOnEmptyNupkgMatch: false # boolean. Continue if no packages match the "Path/Pattern to nupkg". Default: false.
 ```
@@ -50,14 +50,14 @@ This task is deprecated.
 # Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
 - task: NuGetPublisher@0
   inputs:
-    searchPattern: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg' # string. Required. Path/Pattern to nupkg. Default: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg'.
-    nuGetFeedType: 'external' # 'external' | 'internal'. Required. Feed type. Default: 'external'.
+    searchPattern: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg' # string. Required. Path/Pattern to nupkg. Default: **/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg.
+    nuGetFeedType: 'external' # 'external' | 'internal'. Required. Feed type. Default: external.
     connectedServiceName: # string. Required when nuGetFeedType = external. NuGet Service Connection. 
     #feedName: # string. Required when nuGetFeedType = internal. Internal Feed URL. 
   # Advanced
     #nuGetAdditionalArgs: # string. NuGet Arguments. 
-    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: '-'.
-    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: '3.3.0'.
+    #verbosity: '-' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: -.
+    nuGetVersion: '3.3.0' # '3.3.0' | '3.5.0.1829' | '4.0.0.2283' | 'custom'. Required. NuGet Version. Default: 3.3.0.
     #nuGetPath: # string. Path to NuGet.exe. 
     #continueOnEmptyNupkgMatch: false # boolean. Continue if no packages match the "Path/Pattern to nupkg". Default: false.
 ```
@@ -82,10 +82,11 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`searchPattern`** - **Path/Pattern to nupkg**<br>
-Type: string. Required. Default value: '**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg'.<br>
+`string`. Required. Default value: `**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The pattern to match or path to nupkg files to be uploaded. Multiple patterns can be separated by a semicolon.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -93,9 +94,10 @@ The pattern to match or path to nupkg files to be uploaded. Multiple patterns ca
 :::moniker range="<=azure-pipelines"
 
 **`nuGetFeedType`** - **Feed type**<br>
-Type: string. Required. Allowed values: 'external', 'internal'. Default value: 'external'.<br>
+`string`. Required. Allowed values: `external` (External NuGet Feed), `internal` (Internal NuGet Feed). Default value: `external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -103,20 +105,22 @@ Type: string. Required. Allowed values: 'external', 'internal'. Default value: '
 :::moniker range=">=azure-pipelines-2019"
 
 **`connectedServiceName`** - **NuGet Service Connection**<br>
-Type: string. Required when nuGetFeedType = external.<br>
+`string`. Required when `nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet server generic service connection, set the key 'Password/Token Key' field to your NuGet API key.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`connectedServiceName`** - **NuGet Server Endpoint**<br>
-Type: string. Required when nuGetFeedType = external.<br>
+`string`. Required when `nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The NuGet server generic service connection, set the key 'Password/Token Key' field to your NuGet API key.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -124,10 +128,11 @@ The NuGet server generic service connection, set the key 'Password/Token Key' fi
 :::moniker range="<=azure-pipelines"
 
 **`feedName`** - **Internal Feed URL**<br>
-Type: string. Required when nuGetFeedType = internal.<br>
+`string`. Required when `nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The URL of a NuGet feed hosted in this account.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -135,10 +140,11 @@ The URL of a NuGet feed hosted in this account.
 :::moniker range="<=azure-pipelines"
 
 **`nuGetAdditionalArgs`** - **NuGet Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments passed to NuGet.exe push. [More Information](/nuget/tools/cli-ref-push).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -146,10 +152,11 @@ Additional arguments passed to NuGet.exe push. [More Information](/nuget/tools/c
 :::moniker range="<=azure-pipelines"
 
 **`verbosity`** - **Verbosity**<br>
-Type: string. Allowed values: '-', 'Quiet', 'Normal', 'Detailed'. Default value: '-'.<br>
+`string`. Allowed values: `-`, `Quiet`, `Normal`, `Detailed`. Default value: `-`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 NuGet's verbosity level.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -157,10 +164,11 @@ NuGet's verbosity level.
 :::moniker range="<=azure-pipelines"
 
 **`nuGetVersion`** - **NuGet Version**<br>
-Type: string. Required. Allowed values: '3.3.0', '3.5.0.1829', '4.0.0.2283', 'custom'. Default value: '3.3.0'.<br>
+`string`. Required. Allowed values: `3.3.0`, `3.5.0.1829` (3.5.0), `4.0.0.2283` (4.0.0), `custom`. Default value: `3.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of NuGet to use, or custom version.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -168,10 +176,11 @@ The version of NuGet to use, or custom version.
 :::moniker range="<=azure-pipelines"
 
 **`nuGetPath`** - **Path to NuGet.exe**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supply the path to NuGet.exe. Will override version selection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -179,10 +188,11 @@ Optionally supply the path to NuGet.exe. Will override version selection.
 :::moniker range="<=azure-pipelines"
 
 **`continueOnEmptyNupkgMatch`** - **Continue if no packages match the "Path/Pattern to nupkg"**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Continue instead of fail if no packages match the "Path/Pattern to nupkg".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

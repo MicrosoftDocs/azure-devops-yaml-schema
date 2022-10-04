@@ -1,7 +1,7 @@
 ---
 title: CondaEnvironment@1 - Conda environment v1 task
 description: This task is deprecated. Use `conda` directly in script to work with Anaconda environments.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -39,7 +39,7 @@ Create and activate a Conda environment.
   inputs:
     #createCustomEnvironment: false # boolean. Create a custom environment. Default: false.
     #environmentName: # string. Required when createCustomEnvironment == true. Environment name. 
-    #packageSpecs: 'python=3' # string. Package specs. Default: 'python=3'.
+    #packageSpecs: 'python=3' # string. Package specs. Default: python=3.
     #updateConda: true # boolean. Update to the latest Conda. Default: true.
     #installOptions: # string. Optional. Use when createCustomEnvironment == false. Other options for `conda install`. 
     #createOptions: # string. Optional. Use when createCustomEnvironment == true. Other options for `conda create`. 
@@ -57,7 +57,7 @@ Create and activate a Conda environment.
   inputs:
     #createCustomEnvironment: false # boolean. Create a custom environment. Default: false.
     #environmentName: # string. Required when createCustomEnvironment == true. Environment name. 
-    #packageSpecs: 'python=3' # string. Package specs. Default: 'python=3'.
+    #packageSpecs: 'python=3' # string. Package specs. Default: python=3.
     #updateConda: true # boolean. Update to the latest Conda. Default: true.
     #installOptions: # string. Optional. Use when createCustomEnvironment == false. Other options for `conda install`. 
     #createOptions: # string. Optional. Use when createCustomEnvironment == true. Other options for `conda create`. 
@@ -74,10 +74,11 @@ Create and activate a Conda environment.
 :::moniker range=">=azure-pipelines-2019"
 
 **`createCustomEnvironment`** - **Create a custom environment**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Create or reactivate a Conda environment instead of using the `base` environment (recommended for self-hosted agents).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -85,10 +86,11 @@ Create or reactivate a Conda environment instead of using the `base` environment
 :::moniker range=">=azure-pipelines-2019"
 
 **`environmentName`** - **Environment name**<br>
-Type: string. Required when createCustomEnvironment == true.<br>
+`string`. Required when `createCustomEnvironment == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Conda environment to create and activate, or reactivate if it already exists.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -96,10 +98,11 @@ Name of the Conda environment to create and activate, or reactivate if it alread
 :::moniker range=">=azure-pipelines-2019"
 
 **`packageSpecs`** - **Package specs**<br>
-Type: string. Default value: 'python=3'.<br>
+`string`. Default value: `python=3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Space-delimited list of packages to install in the environment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -107,10 +110,11 @@ Space-delimited list of packages to install in the environment.
 :::moniker range=">=azure-pipelines-2019"
 
 **`updateConda`** - **Update to the latest Conda**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Update Conda to the latest version. This applies to the Conda installation found in `PATH` or at the path specified by the `CONDA` environment variable.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,10 +122,11 @@ Update Conda to the latest version. This applies to the Conda installation found
 :::moniker range=">=azure-pipelines-2019"
 
 **`installOptions`** - **Other options for `conda install`**<br>
-Type: string. Optional. Use when createCustomEnvironment == false.<br>
+`string`. Optional. Use when `createCustomEnvironment == false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Space-delimited list of additional arguments to pass to the `conda install` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -129,10 +134,11 @@ Space-delimited list of additional arguments to pass to the `conda install` comm
 :::moniker range=">=azure-pipelines-2019"
 
 **`createOptions`** - **Other options for `conda create`**<br>
-Type: string. Optional. Use when createCustomEnvironment == true.<br>
+`string`. Optional. Use when `createCustomEnvironment == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Space-delimited list of additional arguments to pass to the `conda create` command.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -140,10 +146,11 @@ Space-delimited list of additional arguments to pass to the `conda create` comma
 :::moniker range=">=azure-pipelines-2019"
 
 **`cleanEnvironment`** - **Clean the environment**<br>
-Type: boolean. Optional. Use when createCustomEnvironment == true. Default value: false.<br>
+`boolean`. Optional. Use when `createCustomEnvironment == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Delete the environment and recreate it if it already exists. If not selected, the task will reactivate an existing environment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -165,6 +172,40 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to create and activate a Conda environment.
+
+> [!NOTE]
+> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+
+This task will create a Conda environment and activate it for subsequent build tasks.
+
+If the task finds an existing environment with the same name, the task will simply reactivate it. This is possible on self-hosted agents. To recreate the environment and reinstall any of its packages, set the "Clean the environment" option.
+
+Running with the "Update to the latest Conda" option will attempt to update Conda before creating or activating the environment.
+If you are running a self-hosted agent and have [configured a Conda installation to work with the task](#how-can-i-configure-a-self-hosted-agent-to-use-this-task), this may result in your Conda installation being updated.
+
+> [!NOTE]
+> Microsoft-hosted agents won't have Conda in their `PATH` by default. You will need to run this task in order to use Conda.
+
+After running this task, `PATH` will contain the binary directory for the activated environment, followed by the binary directories for the Conda installation itself.
+You can run scripts as subsequent build tasks that run Python, Conda, or the command-line utilities from other packages you install.
+For example, you can run tests with [pytest](https://docs.pytest.org/en/latest/) or upload a package to Anaconda Cloud with the [Anaconda client](https://github.com/Anaconda-Platform/anaconda-client).
+
+> [!TIP]
+> After running this task, the environment will be "activated," and packages you install by calling `conda install` will get installed to this environment.
+
+### Prerequisites
+
+* A Microsoft-hosted agent, or a self-hosted agent with Anaconda or Miniconda installed.
+* If using a self-hosted agent, you must either add the `conda` executable to `PATH` or set the `CONDA` environment variable to the root of the Conda installation.
+
+### How can I configure a self-hosted agent to use this task?
+
+You can use this task either with a full Anaconda installation or a Miniconda installation.
+If using a self-hosted agent, you must add the `conda` executable to `PATH`.
+Alternatively, you can set the `CONDA` environment variable to the root of the Conda installation -- that is, the directory you specify as the "prefix" when installing Conda.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

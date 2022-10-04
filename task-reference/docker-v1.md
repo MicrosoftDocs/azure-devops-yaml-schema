@@ -1,7 +1,7 @@
 ---
 title: Docker@1 - Docker v1 task
 description: Build, tag, push, or run Docker images, or run a Docker command.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,18 +36,18 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: 'Azure Container Registry'.
+    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
   # Commands
     #addBaseImageData: true # boolean. Add base image metadata to image(s). Default: true.
-    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: 'Build an image'.
-    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: '**/Dockerfile'.
+    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
+    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
     #pushMultipleImages: false # boolean. Optional. Use when command = Push an image || command = push. Push multiple images. Default: false.
     #tagMultipleImages: false # boolean. Optional. Use when command = Tag image || command = tag. Tag multiple images. Default: false.
-    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: '$(Build.Repository.Name):$(Build.BuildId)'.
+    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: $(Build.Repository.Name):$(Build.BuildId).
     #imageNamesPath: # string. Required when tagMultipleImages = true || pushMultipleImages = true. Image names path. 
     #qualifyImageName: true # boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run. Qualify image name. Default: true.
     #qualifySourceImageName: false # boolean. Optional. Use when command = Tag image || command = tag. Qualify source image name. Default: false.
@@ -65,7 +65,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
     #entrypointOverride: # string. Optional. Use when command = Run an image || command = run. Entry point override. 
     #containerCommand: # string. Optional. Use when command = Run an image || command = run. Container command. 
     #runInBackground: true # boolean. Optional. Use when command = Run an image || command = run. Run in background. Default: true.
-    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: 'no'.
+    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
     #dockerHostEndpoint: # string. Docker host service connection. 
@@ -83,17 +83,17 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: 'Azure Container Registry'.
+    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
   # Commands
-    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: 'Build an image'.
-    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: '**/Dockerfile'.
+    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
+    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
     #pushMultipleImages: false # boolean. Optional. Use when command = Push an image || command = push. Push multiple images. Default: false.
     #tagMultipleImages: false # boolean. Optional. Use when command = Tag image || command = tag. Tag multiple images. Default: false.
-    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: '$(Build.Repository.Name):$(Build.BuildId)'.
+    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: $(Build.Repository.Name):$(Build.BuildId).
     #imageNamesPath: # string. Required when tagMultipleImages = true || pushMultipleImages = true. Image names path. 
     #qualifyImageName: true # boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run. Qualify image name. Default: true.
     #qualifySourceImageName: false # boolean. Optional. Use when command = Tag image || command = tag. Qualify source image name. Default: false.
@@ -111,7 +111,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
     #entrypointOverride: # string. Optional. Use when command = Run an image || command = run. Entry point override. 
     #containerCommand: # string. Optional. Use when command = Run an image || command = run. Container command. 
     #runInBackground: true # boolean. Optional. Use when command = Run an image || command = run. Run in background. Default: true.
-    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: 'no'.
+    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
     #dockerHostEndpoint: # string. Docker host service connection. 
@@ -129,17 +129,17 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: 'Azure Container Registry'.
+    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
   # Commands
-    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: 'Build an image'.
-    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: '**/Dockerfile'.
+    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
+    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
     #pushMultipleImages: false # boolean. Optional. Use when command = Push an image || command = push. Push multiple images. Default: false.
     #tagMultipleImages: false # boolean. Optional. Use when command = Tag image || command = tag. Tag multiple images. Default: false.
-    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: '$(Build.Repository.Name):$(Build.BuildId)'.
+    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: $(Build.Repository.Name):$(Build.BuildId).
     #imageNamesPath: # string. Required when tagMultipleImages = true || pushMultipleImages = true. Image names path. 
     #qualifyImageName: true # boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run. Qualify image name. Default: true.
     #includeSourceTags: false # boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag  || command = Push an image || command = push. Include source tags. Default: false.
@@ -156,7 +156,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
     #entrypointOverride: # string. Optional. Use when command = Run an image || command = run. Entry point override. 
     #containerCommand: # string. Optional. Use when command = Run an image || command = run. Container command. 
     #runInBackground: true # boolean. Optional. Use when command = Run an image || command = run. Run in background. Default: true.
-    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: 'no'.
+    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
     #dockerHostEndpoint: # string. Docker host service connection. 
@@ -174,19 +174,19 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: 'Azure Container Registry'.
+    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
   # Commands
-    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: 'Build an image'.
-    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: '**/Dockerfile'.
+    command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
+    #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
     #arguments: # string. Optional. Use when command != Run an image && command != run && command != login && command != logout. Arguments. 
     #useDefaultContext: true # boolean. Optional. Use when command = Build an image || command = build. Use default build context. Default: true.
     #buildContext: # string. Optional. Use when useDefaultContext = false. Build context. 
     #pushMultipleImages: false # boolean. Optional. Use when command = Push an image || command = push. Push multiple images. Default: false.
     #tagMultipleImages: false # boolean. Optional. Use when command = Tag image || command = tag. Tag multiple images. Default: false.
-    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: '$(Build.Repository.Name):$(Build.BuildId)'.
+    #imageName: '$(Build.Repository.Name):$(Build.BuildId)' # string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Image name. Default: $(Build.Repository.Name):$(Build.BuildId).
     #imageNamesPath: # string. Required when tagMultipleImages = true || pushMultipleImages = true. Image names path. 
     #qualifyImageName: true # boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run. Qualify image name. Default: true.
     #includeSourceTags: false # boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag  || command = Push an image || command = push. Include source tags. Default: false.
@@ -201,7 +201,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
     #entrypointOverride: # string. Optional. Use when command = Run an image || command = run. Entry point override. 
     #containerCommand: # string. Optional. Use when command = Run an image || command = run. Command. 
     #runInBackground: true # boolean. Optional. Use when command = Run an image || command = run. Run in background. Default: true.
-    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: 'no'.
+    restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
     #dockerHostEndpoint: # string. Docker host service connection. 
@@ -219,10 +219,11 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
 :::moniker range=">=azure-pipelines-2019"
 
 **`containerregistrytype`** - **Container registry type**<br>
-Type: string. Required. Allowed values: 'Azure Container Registry', 'Container Registry'. Default value: 'Azure Container Registry'.<br>
+`string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select 'Azure Container Registry' to connect to it by using an Azure Service Connection. Select 'Container registry' to connect to Docker Hub or any other private container registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -230,10 +231,11 @@ Select 'Azure Container Registry' to connect to it by using an Azure Service Con
 :::moniker range=">=azure-pipelines-2022"
 
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default base image data like base image name and digest are added which helps with traceability. You can opt out of this default behavior by using this input.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -241,10 +243,11 @@ By default base image data like base image name and digest are added which helps
 :::moniker range=">=azure-pipelines-2019"
 
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
-Type: string. Optional. Use when containerregistrytype = Container Registry.<br>
+`string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -252,10 +255,11 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
-Type: string. Optional. Use when containerregistrytype = Azure Container Registry.<br>
+`string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -263,10 +267,11 @@ Select an Azure subscription.
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureContainerRegistry`** - **Azure container registry**<br>
-Type: string. Optional. Use when containerregistrytype = Azure Container Registry.<br>
+`string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Container Registry in the selected Azure Subscription. The container image will be built and pushed to this container registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -274,10 +279,11 @@ Select an Azure Container Registry in the selected Azure Subscription. The conta
 :::moniker range=">=azure-pipelines-2019"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'Build an image', 'Tag image', 'Push an image', 'Run an image', 'login', 'logout'. Default value: 'Build an image'.<br>
+`string`. Required. Allowed values: `Build an image` (build), `Tag image` (tag), `Push an image` (push), `Run an image` (run), `login`, `logout`. Default value: `Build an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The docker command to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -285,10 +291,11 @@ The docker command to run.
 :::moniker range=">=azure-pipelines-2019"
 
 **`dockerFile`** - **Dockerfile**<br>
-Type: string. Required when command = Build an image || command = build. Default value: '**/Dockerfile'.<br>
+`string`. Required when `command = Build an image || command = build`. Default value: `**/Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the Dockerfile. The task will use the first dockerfile it finds to build the image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -296,22 +303,24 @@ Path to the Dockerfile. The task will use the first dockerfile it finds to build
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when command != login && command != logout.<br>
+`string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments to be passed onto the docker client
 Be aware that if you use value `buildAndPush` for the command parameter, the arguments property is ignored.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when command != Run an image && command != run && command != login && command != logout.<br>
+`string`. Optional. Use when `command != Run an image && command != run && command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments to be passed onto the docker client
 Be aware that if you use value `buildAndPush` for the command parameter, the arguments property is ignored.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -319,10 +328,11 @@ Be aware that if you use value `buildAndPush` for the command parameter, the arg
 :::moniker range=">=azure-pipelines-2019"
 
 **`pushMultipleImages`** - **Push multiple images**<br>
-Type: boolean. Optional. Use when command = Push an image || command = push. Default value: false.<br>
+`boolean`. Optional. Use when `command = Push an image || command = push`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Push multiple images by using a text file that contains the names of the Docker images to push. Each image name is contained on its own line.<br>For example:<br>  Imagename1:tag1<br>  Imagename2:tag2<br>  Imagename3<br>In case only image name is provided,  all tags of the ImageName3 container image will be pushed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -330,10 +340,11 @@ Push multiple images by using a text file that contains the names of the Docker 
 :::moniker range=">=azure-pipelines-2019"
 
 **`tagMultipleImages`** - **Tag multiple images**<br>
-Type: boolean. Optional. Use when command = Tag image || command = tag. Default value: false.<br>
+`boolean`. Optional. Use when `command = Tag image || command = tag`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Tag multiple images by using a text file that contains the names of the Docker images to tag. Each image name is contained on its own line.<br>For example:<br>  Imagename1:tag1<br>  Imagename2:tag2<br>  Imagename3<br>In case only image name is provided, that image will be tagged as 'latest'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -341,10 +352,11 @@ Tag multiple images by using a text file that contains the names of the Docker i
 :::moniker range=">=azure-pipelines-2019"
 
 **`imageName`** - **Image name**<br>
-Type: string. Required when command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false. Default value: '$(Build.Repository.Name):$(Build.BuildId)'.<br>
+`string`. Required when `command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false`. Default value: `$(Build.Repository.Name):$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Docker image to build, push, or run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -352,10 +364,11 @@ Name of the Docker image to build, push, or run.
 :::moniker range=">=azure-pipelines-2019"
 
 **`imageNamesPath`** - **Image names path**<br>
-Type: string. Required when tagMultipleImages = true || pushMultipleImages = true.<br>
+`string`. Required when `tagMultipleImages = true || pushMultipleImages = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to a text file that contains the names of the Docker images to tag or push. Each image name is contained on its own line.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -363,10 +376,11 @@ Path to a text file that contains the names of the Docker images to tag or push.
 :::moniker range=">=azure-pipelines-2019"
 
 **`qualifyImageName`** - **Qualify image name**<br>
-Type: boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run. Default value: true.<br>
+`boolean`. Optional. Use when `command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Qualify the image name with the Docker registry service connection's hostname if not otherwise specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -374,10 +388,11 @@ Qualify the image name with the Docker registry service connection's hostname if
 :::moniker range=">=azure-pipelines-2020"
 
 **`qualifySourceImageName`** - **Qualify source image name**<br>
-Type: boolean. Optional. Use when command = Tag image || command = tag. Default value: false.<br>
+`boolean`. Optional. Use when `command = Tag image || command = tag`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Qualify the source image name with the Docker registry service connection's hostname if not otherwise specified.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -385,10 +400,11 @@ Qualify the source image name with the Docker registry service connection's host
 :::moniker range=">=azure-pipelines-2019"
 
 **`includeSourceTags`** - **Include source tags**<br>
-Type: boolean. Optional. Use when command = Build an image || command = build || command = Tag image || command = tag  || command = Push an image || command = push. Default value: false.<br>
+`boolean`. Optional. Use when `command = Build an image || command = build || command = Tag image || command = tag  || command = Push an image || command = push`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include Git tags when building or pushing the Docker image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -396,10 +412,11 @@ Include Git tags when building or pushing the Docker image.
 :::moniker range=">=azure-pipelines-2019"
 
 **`includeLatestTag`** - **Include latest tag**<br>
-Type: boolean. Optional. Use when command = Build an image || command = build. Default value: false.<br>
+`boolean`. Optional. Use when `command = Build an image || command = build`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Include the 'latest' tag when building the Docker image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -407,20 +424,22 @@ Include the 'latest' tag when building the Docker image.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`addDefaultLabels`** - **Add default labels**<br>
-Type: boolean. Optional. Use when addDefaultLabels = false. Default value: true.<br>
+`boolean`. Optional. Use when `addDefaultLabels = false`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add CI/CD metadata like repository, commit, build and release information to the container image by using Docker labels.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`addDefaultLabels`** - **Add default labels**<br>
-Type: boolean. Optional. Use when command = Build an image || command = build. Default value: true.<br>
+`boolean`. Optional. Use when `command = Build an image || command = build`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Add CI/CD metadata like repository, commit, build and release information to the container image by using Docker labels.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -428,10 +447,11 @@ Add CI/CD metadata like repository, commit, build and release information to the
 :::moniker range=">=azure-pipelines-2019"
 
 **`useDefaultContext`** - **Use default build context**<br>
-Type: boolean. Optional. Use when command = Build an image || command = build. Default value: true.<br>
+`boolean`. Optional. Use when `command = Build an image || command = build`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set the build context to the directory that contains the Dockerfile.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -439,10 +459,11 @@ Set the build context to the directory that contains the Dockerfile.
 :::moniker range=">=azure-pipelines-2019"
 
 **`buildContext`** - **Build context**<br>
-Type: string. Optional. Use when useDefaultContext = false.<br>
+`string`. Optional. Use when `useDefaultContext = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the build context.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -450,10 +471,11 @@ Path to the build context.
 :::moniker range=">=azure-pipelines-2019"
 
 **`imageDigestFile`** - **Image digest file**<br>
-Type: string. Optional. Use when command = Push an image || command = push.<br>
+`string`. Optional. Use when `command = Push an image || command = push`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to a file that is created and populated with the full image repository digest of the Docker image that was pushed.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -461,10 +483,11 @@ Path to a file that is created and populated with the full image repository dige
 :::moniker range=">=azure-pipelines-2019"
 
 **`containerName`** - **Container name**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the Docker container to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -472,10 +495,11 @@ Name of the Docker container to run.
 :::moniker range=">=azure-pipelines-2019"
 
 **`ports`** - **Ports**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Ports in the Docker container to publish to the host. Specify each host-port:container-port binding on a new line.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -483,10 +507,11 @@ Ports in the Docker container to publish to the host. Specify each host-port:con
 :::moniker range=">=azure-pipelines-2019"
 
 **`volumes`** - **Volumes**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Volumes to mount from the host. Specify each host-dir:container-dir on a new line.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -494,10 +519,11 @@ Volumes to mount from the host. Specify each host-dir:container-dir on a new lin
 :::moniker range=">=azure-pipelines-2019"
 
 **`envVars`** - **Environment variables**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Environment variables for the Docker container. Specify each name=value pair on a new line.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -505,10 +531,11 @@ Environment variables for the Docker container. Specify each name=value pair on 
 :::moniker range=">=azure-pipelines-2019"
 
 **`workingDirectory`** - **Working directory**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The working directory for the Docker container.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -516,10 +543,11 @@ The working directory for the Docker container.
 :::moniker range=">=azure-pipelines-2019"
 
 **`entrypointOverride`** - **Entry point override**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Override the default entry point for the Docker container.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -527,20 +555,22 @@ Override the default entry point for the Docker container.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`containerCommand`** - **Container command**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify 'python app.py' to launch the web application.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`containerCommand`** - **Command**<br>
-Type: string. Optional. Use when command = Run an image || command = run.<br>
+`string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify 'python app.py' to launch the web application.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -548,10 +578,11 @@ The docker run command first creates a writeable container layer over the specif
 :::moniker range=">=azure-pipelines-2019"
 
 **`runInBackground`** - **Run in background**<br>
-Type: boolean. Optional. Use when command = Run an image || command = run. Default value: true.<br>
+`boolean`. Optional. Use when `command = Run an image || command = run`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Run the Docker container in the background.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -559,10 +590,11 @@ Run the Docker container in the background.
 :::moniker range=">=azure-pipelines-2019"
 
 **`restartPolicy`** - **Restart policy**<br>
-Type: string. Required when runInBackground = true. Allowed values: 'no', 'onFailure', 'always', 'unlessStopped'. Default value: 'no'.<br>
+`string`. Required when `runInBackground = true`. Allowed values: `no`, `onFailure` (On failure), `always`, `unlessStopped` (Unless stopped). Default value: `no`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a restart policy.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -570,10 +602,11 @@ Select a restart policy.
 :::moniker range=">=azure-pipelines-2019"
 
 **`maxRestartRetries`** - **Maximum restart retries**<br>
-Type: string. Optional. Use when runInBackground = true && restartPolicy = onFailure.<br>
+`string`. Optional. Use when `runInBackground = true && restartPolicy = onFailure`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The maximum number of restart retries the Docker daemon attempts.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -581,10 +614,11 @@ The maximum number of restart retries the Docker daemon attempts.
 :::moniker range=">=azure-pipelines-2019"
 
 **`dockerHostEndpoint`** - **Docker host service connection**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -592,10 +626,11 @@ Select a Docker host service connection. Defaults to the agent's host.
 :::moniker range=">=azure-pipelines-2019"
 
 **`enforceDockerNamingConvention`** - **Force image name to follow Docker naming convention**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If enabled Docker image name will be modified to follow Docker naming convention. Converts upper case character to lower case and removes spaces in image name.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -603,10 +638,11 @@ If enabled Docker image name will be modified to follow Docker naming convention
 :::moniker range=">=azure-pipelines-2019"
 
 **`memoryLimit`** - **Memory limit**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The maximum amount of memory available to the container as a integer with optional suffixes like '2GB'.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

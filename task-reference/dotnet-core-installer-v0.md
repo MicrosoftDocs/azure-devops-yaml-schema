@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreInstaller@0 - .NET Core SDK/runtime installer v0 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH (task version 0).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,8 +27,8 @@ Acquire a specific version of the .NET Core SDK from the internet or local cache
 # Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
 - task: DotNetCoreInstaller@0
   inputs:
-    packageType: 'sdk' # 'runtime' | 'sdk'. Required. Package to install. Default: 'sdk'.
-    version: '1.0.4' # string. Required. Version. Default: '1.0.4'.
+    packageType: 'sdk' # 'runtime' | 'sdk'. Required. Package to install. Default: sdk.
+    version: '1.0.4' # string. Required. Version. Default: 1.0.4.
 ```
 
 :::moniker-end
@@ -51,10 +51,11 @@ Acquire a specific version of the .NET Core SDK from the internet or local cache
 :::moniker range="<=azure-pipelines"
 
 **`packageType`** - **Package to install**<br>
-Type: string. Required. Allowed values: 'runtime', 'sdk'. Default value: 'sdk'.<br>
+`string`. Required. Allowed values: `runtime`, `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Please select whether to install only runtime or full SDK.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -62,11 +63,12 @@ Please select whether to install only runtime or full SDK.
 :::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
-Type: string. Required. Default value: '1.0.4'.<br>
+`string`. Required. Default value: `1.0.4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify exact version of .NET Core SDK or runtime to install.<br/>Find the value of `version-sdk` for installing SDK, or `version-runtime` for installing Runtime from any releases [here](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/DotNetCoreInstallerV0/externals/releases.json).
  **NOTE: the task will not work with new versions of .NET Core. Kindly upgrade to 2.\* version of the task to download latest versions od .NET Core.**.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

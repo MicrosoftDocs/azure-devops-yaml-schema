@@ -1,7 +1,7 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,15 +36,15 @@ Copy files from source folder to target folder using match patterns (The match p
 - task: CopyFiles@2
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: '**'.
+    Contents: '**' # string. Required. Contents. Default: **.
     TargetFolder: # string. Required. Target Folder. 
   # Advanced
     #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
     #OverWrite: false # boolean. Overwrite. Default: false.
     #flattenFolders: false # boolean. Flatten Folders. Default: false.
     #preserveTimestamp: false # boolean. Preserve Target Timestamp. Default: false.
-    #retryCount: '0' # string. Retry count to copy the file. Default: '0'.
-    #delayBetweenRetries: '1000' # string. Delay between two retries. Default: '1000'.
+    #retryCount: '0' # string. Retry count to copy the file. Default: 0.
+    #delayBetweenRetries: '1000' # string. Delay between two retries. Default: 1000.
     #ignoreMakeDirErrors: false # boolean. Ignore errors during creation of target folder. Default: false.
 ```
 
@@ -58,7 +58,7 @@ Copy files from source folder to target folder using match patterns (The match p
 - task: CopyFiles@2
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: '**'.
+    Contents: '**' # string. Required. Contents. Default: **.
     TargetFolder: # string. Required. Target Folder. 
   # Advanced
     #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
@@ -77,7 +77,7 @@ Copy files from source folder to target folder using match patterns (The match p
 - task: CopyFiles@2
   inputs:
     #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: '**'.
+    Contents: '**' # string. Required. Contents. Default: **.
     TargetFolder: # string. Required. Target Folder. 
   # Advanced
     #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
@@ -105,12 +105,13 @@ Copy files from source folder to target folder using match patterns (The match p
 :::moniker range="<=azure-pipelines"
 
 **`SourceFolder`** - **Source Folder**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Folder that contains the files you want to copy. If you leave it empty, the copying is done from the root folder of the repo (same as if you had specified [**`$(Build.SourcesDirectory)`**](/azure/devops/pipelines/build/variables)).
 
 If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to copy files from the directory created for the pipeline.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -118,7 +119,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 :::moniker range="<=azure-pipelines"
 
 **`Contents`** - **Contents**<br>
-Type: string. Required. Default value: '**'.<br>
+`string`. Required. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File paths to include as part of the copy. Supports multiple lines of match patterns.
 
@@ -132,6 +133,7 @@ The pattern is used to match only file paths, not folder paths. So you should sp
 
 You must use the path separator that matches your build agent type, for example `/`must be used for Linux agents. More examples are shown below.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -139,10 +141,11 @@ You must use the path separator that matches your build agent type, for example 
 :::moniker range="<=azure-pipelines"
 
 **`TargetFolder`** - **Target Folder**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Target folder or UNC path files will copy to. You can use [variables](/azure/devops/pipelines/build/variables). Example: `$(build.artifactstagingdirectory)`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -150,10 +153,11 @@ Target folder or UNC path files will copy to. You can use [variables](/azure/dev
 :::moniker range="<=azure-pipelines"
 
 **`CleanTargetFolder`** - **Clean Target Folder**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Delete all existing files in target folder before copy.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -161,10 +165,11 @@ Delete all existing files in target folder before copy.
 :::moniker range="<=azure-pipelines"
 
 **`OverWrite`** - **Overwrite**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Replace existing file in target folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -172,10 +177,11 @@ Replace existing file in target folder.
 :::moniker range="<=azure-pipelines"
 
 **`flattenFolders`** - **Flatten Folders**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Flatten the folder structure and copy all files into the specified target folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -183,10 +189,11 @@ Flatten the folder structure and copy all files into the specified target folder
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`preserveTimestamp`** - **Preserve Target Timestamp**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Using the original source file, preserve the target file timestamp.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -194,10 +201,11 @@ Using the original source file, preserve the target file timestamp.
 :::moniker range=">=azure-pipelines-2022"
 
 **`retryCount`** - **Retry count to copy the file**<br>
-Type: string. Default value: '0'.<br>
+`string`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the retry count to copy the file. It might help to resolve intermittent issues e.g. with UNC target paths on a remote host.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -205,10 +213,11 @@ Specify the retry count to copy the file. It might help to resolve intermittent 
 :::moniker range=">=azure-pipelines-2022"
 
 **`delayBetweenRetries`** - **Delay between two retries.**<br>
-Type: string. Default value: '1000'.<br>
+`string`. Default value: `1000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the delay between two retries. It might help to be more resilient to intermittent issues e.g. with UNC target paths on a remote host.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -216,10 +225,11 @@ Specify the delay between two retries. It might help to be more resilient to int
 :::moniker range=">=azure-pipelines-2022"
 
 **`ignoreMakeDirErrors`** - **Ignore errors during creation of target folder.**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Ignore errors which happen during creation of target folder. This could be useful to avoid issues with parallel execution of task by several agents with one target folder.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

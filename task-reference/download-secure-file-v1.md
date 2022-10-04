@@ -1,7 +1,7 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -44,7 +44,7 @@ Download a secure file to a temporary location on the build or release agent.
 - task: DownloadSecureFile@1
   inputs:
     secureFile: # string. Required. Secure File. 
-    #retryCount: '8' # string. Retry Count. Default: '8'.
+    #retryCount: '8' # string. Retry Count. Default: 8.
     #socketTimeout: # string. Socket Timeout.
 ```
 
@@ -58,7 +58,7 @@ Download a secure file to a temporary location on the build or release agent.
 - task: DownloadSecureFile@1
   inputs:
     secureFile: # string. Required. Secure File. 
-    #retryCount: '5' # string. Retry Count. Default: '5'.
+    #retryCount: '5' # string. Retry Count. Default: 5.
 ```
 
 :::moniker-end
@@ -105,10 +105,12 @@ Download a secure file to a temporary location on the build or release agent.
 :::moniker range="<=azure-pipelines"
 
 **`secureFile`** - **Secure File**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The file name or unique identifier (GUID) of the secure file to download to the agent machine. The file will be deleted when the pipeline job completes. 
 Select the secure file to download to a temporary location on the agent. The file will be cleaned up after the pipeline runs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -116,20 +118,22 @@ Select the secure file to download to a temporary location on the agent. The fil
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`retryCount`** - **Retry Count**<br>
-Type: string. Default value: '8'.<br>
+`string`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional number of times to retry downloading a secure file if the download fails.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2020"
 
 **`retryCount`** - **Retry Count**<br>
-Type: string. Default value: '5'.<br>
+`string`. Default value: `5`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional number of times to retry downloading a secure file if the download fails.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -137,10 +141,11 @@ Optional number of times to retry downloading a secure file if the download fail
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`socketTimeout`** - **Socket Timeout**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional timeout for a socket associated with downloading secure file request in ms.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -168,11 +173,39 @@ The location of the secure file that was downloaded.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task in a pipeline to download a [secure file](/azure/devops/pipelines/library/secure-files) to the agent machine. When specifying the name of the file (using the `secureFile` input) use the name you specified when uploading it rather than the actual filename.
+
+Once downloaded, use the `name` value that is set on the task (or "Reference name" in the classic editor) to reference the path to the secure file on the agent machine. For example, if the task is given the name `mySecureFile`, its path can be referenced in the pipeline as `$(mySecureFile.secureFilePath)`. Alternatively, downloaded secure files can be found in the directory given by `$(Agent.TempDirectory)`. See a full example [below](#examples).
+
+When the pipeline job completes, no matter whether it succeeds, fails, or is canceled, the secure file is deleted from its download location.
+
+It is unnecessary to use this task with the [Install Apple Certificate](install-apple-certificate-v2.md) or [Install Apple Provisioning Profile](install-apple-provisioning-profile-v1.md) tasks because they automatically download, install, and delete (at the end of the pipeline job) the secure file.
+
+This task currently supports only one file task per instance.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+This example downloads a secure certificate file and installs it to a trusted  certificate authority (CA) directory on Linux:
+
+```yaml
+- task: DownloadSecureFile@1
+  name: caCertificate
+  displayName: 'Download CA certificate'
+  inputs:
+    secureFile: 'myCACertificate.pem'
+
+- script: |
+    echo Installing $(caCertificate.secureFilePath) to the trusted CA directory...
+    sudo chown root:root $(caCertificate.secureFilePath)
+    sudo chmod a+r $(caCertificate.secureFilePath)
+    sudo ln -s -t /etc/ssl/certs/ $(caCertificate.secureFilePath)
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

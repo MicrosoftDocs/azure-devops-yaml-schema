@@ -1,7 +1,7 @@
 ---
 title: SonarQubePublish@5 - Publish Quality Gate Result v5 task
 description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be 
 # Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
 - task: SonarQubePublish@5
   inputs:
-    pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: '300'.
+    pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: 300.
 ```
 
 :::moniker-end
@@ -40,10 +40,11 @@ Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be 
 :::moniker range="=azure-pipelines"
 
 **`pollingTimeoutSec`** - **Timeout (s)**<br>
-Type: string. Required. Default value: '300'.<br>
+`string`. Required. Default value: `300`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This task will poll SonarQube until the analysis is completed, or until the timeout is reached. It also add a build property with the quality gate status of the current build(s) analyses.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

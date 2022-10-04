@@ -1,7 +1,7 @@
 ---
 title: AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
 description: Observe the configured classic Azure Monitor rules for active alerts.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -47,7 +47,7 @@ Observe the configured Azure monitor rules for active alerts.
   inputs:
     connectedServiceNameARM: # string. Required. Azure subscription. 
     ResourceGroupName: # string. Required. Resource group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource type. Default: 'Microsoft.Insights/components'.
+    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource type. Default: Microsoft.Insights/components.
     resourceName: # string. Required. Resource name. 
     alertRules: # string. Required. Alert rules.
 ```
@@ -63,7 +63,7 @@ Observe the configured Azure monitor rules for active alerts.
   inputs:
     connectedServiceNameARM: # string. Required. Azure subscription. 
     ResourceGroupName: # string. Required. Resource group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource type. Default: 'Microsoft.Insights/components'.
+    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource type. Default: Microsoft.Insights/components.
     resourceName: # string. Required. Resource name. 
     alertRules: # string. Required. Alert rules.
 ```
@@ -88,10 +88,11 @@ Observe the configured Azure monitor rules for active alerts.
 :::moniker range="<=azure-pipelines"
 
 **`connectedServiceNameARM`** - **Azure subscription**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Manager subscription to monitor.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -99,10 +100,11 @@ Select an Azure Resource Manager subscription to monitor.
 :::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of a resource group to monitor.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -110,10 +112,11 @@ Provide the name of a resource group to monitor.
 :::moniker range="<=azure-pipelines"
 
 **`ResourceType`** - **Resource type**<br>
-Type: string. Required. Allowed values: 'Microsoft.Insights/components', 'Microsoft.Web/sites', 'Microsoft.Storage/storageAccounts', 'Microsoft.Compute/virtualMachines'. Default value: 'Microsoft.Insights/components'.<br>
+`string`. Required. Allowed values: `Microsoft.Insights/components` (Application Insights), `Microsoft.Web/sites` (App Services), `Microsoft.Storage/storageAccounts` (Storage Account), `Microsoft.Compute/virtualMachines` (Virtual Machines). Default value: `Microsoft.Insights/components`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure resource type to monitor.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,10 +124,11 @@ Select the Azure resource type to monitor.
 :::moniker range="<=azure-pipelines"
 
 **`resourceName`** - **Resource name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select name of Azure resource to monitor.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -132,10 +136,11 @@ Select name of Azure resource to monitor.
 :::moniker range="<=azure-pipelines"
 
 **`alertRules`** - **Alert rules**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 List of Azure alert rules to monitor.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

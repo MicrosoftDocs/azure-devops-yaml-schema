@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,15 +27,15 @@ Invoke a REST API as a part of your pipeline.
 # Invoke a REST API as a part of your pipeline.
 - task: InvokeRESTAPI@1
   inputs:
-    connectionType: 'connectedServiceName' # 'connectedServiceName' | 'connectedServiceNameARM'. Required. Connection type. Default: 'connectedServiceName'.
+    connectionType: 'connectedServiceName' # 'connectedServiceName' | 'connectedServiceNameARM'. Required. Connection type. Default: connectedServiceName.
     serviceConnection: # string. Required when connectedServiceNameSelector = connectedServiceName. Generic service connection. 
     #azureServiceConnection: # string. Required when connectedServiceNameSelector = connectedServiceNameARM. Azure subscription. 
-    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: 'POST'.
+    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
     #headers: # string. Headers. 
     #body: # string. Optional. Use when method != GET && method != HEAD. Body. 
     #urlSuffix: # string. URL suffix and parameters. 
   # Advanced
-    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: 'false'.
+    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: false.
     #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
 ```
 
@@ -59,10 +59,11 @@ Invoke a REST API as a part of your pipeline.
 :::moniker range=">=azure-pipelines-2019"
 
 **`connectionType`** - **Connection type**<br>
-Input alias: `connectedServiceNameSelector`. Type: string. Required. Allowed values: 'connectedServiceName', 'connectedServiceNameARM'. Default value: 'connectedServiceName'.<br>
+Input alias: `connectedServiceNameSelector`. `string`. Required. Allowed values: `connectedServiceName` (Generic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the service connection type to use to invoke the REST API. Select Azure Resource Manager to invoke an Azure management API or Generic for all other APIs.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -70,32 +71,35 @@ Select the service connection type to use to invoke the REST API. Select Azure R
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`serviceConnection`** - **Generic service connection**<br>
-Input alias: `connectedServiceName | genericService`. Type: string. Required when connectedServiceNameSelector = connectedServiceName.<br>
+Input alias: `connectedServiceName | genericService`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Generic service connection that provides the baseUrl for the call and the authorization to use.
-Select a generic service connection that should be used to pick the URL and construct authorization header for the http request. 
+Select a generic service connection that should be used to pick the URL and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`serviceConnection`** - **Generic service connection**<br>
-Input alias: `connectedServiceName`. Type: string. Required when connectedServiceNameSelector = connectedServiceName.<br>
+Input alias: `connectedServiceName`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Generic service connection that provides the baseUrl for the call and the authorization to use.
 Select a generic service connection that should be used to pick the URL and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`serviceConnection`** - **Generic endpoint**<br>
-Input alias: `connectedServiceName`. Type: string. Required.<br>
+Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a generic endpoint that should be used to pick the url and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -103,22 +107,24 @@ Select a generic endpoint that should be used to pick the url and construct auth
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureServiceConnection`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM | azureSubscription`. Type: string. Required when connectedServiceNameSelector = connectedServiceNameARM.<br>
+Input alias: `connectedServiceNameARM | azureSubscription`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
 Select an Azure Resource Manager subscription that should be used to pick the url and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2019"
 
 **`azureServiceConnection`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM`. Type: string. Required when connectedServiceNameSelector = connectedServiceNameARM.<br>
+Input alias: `connectedServiceNameARM`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
 Select an Azure Resource Manager subscription that should be used to pick the url and construct authorization header for the http request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -126,11 +132,12 @@ Select an Azure Resource Manager subscription that should be used to pick the ur
 :::moniker range="<=azure-pipelines"
 
 **`method`** - **Method**<br>
-Type: string. Required. Allowed values: 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'PATCH'. Default value: 'POST'.<br>
+`string`. Required. Allowed values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`. Default value: `POST`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The HTTP method with which the API will be invoked; for example, GET, PUT, or UPDATE.
 Select the HTTP method with which the API should be invoked.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,10 +145,11 @@ Select the HTTP method with which the API should be invoked.
 :::moniker range="<=azure-pipelines"
 
 **`headers`** - **Headers**<br>
-Type: string.<br>
+`string`. Default value: `{\n"Content-Type":"application/json", \n"PlanUrl": "$(system.CollectionUri)", \n"ProjectId": "$(system.TeamProjectId)", \n"HubName": "$(system.HostType)", \n"PlanId": "$(system.PlanId)", \n"JobId": "$(system.JobId)", \n"TimelineId": "$(system.TimelineId)", \n"TaskInstanceId": "$(system.TaskInstanceId)", \n"AuthToken": "$(system.AccessToken)"\n}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Define header in JSON format. The header shall be attached with request to be sent. The header in JSON format to be attached to the request sent to the API.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -149,10 +157,11 @@ Define header in JSON format. The header shall be attached with request to be se
 :::moniker range="<=azure-pipelines"
 
 **`body`** - **Body**<br>
-Type: string. Optional. Use when method != GET && method != HEAD.<br>
+`string`. Optional. Use when `method != GET && method != HEAD`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The request body for the function call in JSON format.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -160,22 +169,24 @@ The request body for the function call in JSON format.
 :::moniker range=">=azure-pipelines-2019"
 
 **`urlSuffix`** - **URL suffix and parameters**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The string to append to the baseUrl from the Generic service connection while making the HTTP call.
 Given string append to the URL. Example: If the service connection URL is https:...TestProj/_apis/Release/releases and the URL suffix is /2/environments/1, the service connection URL becomes https:.../TestProj/_apis/Release/releases/2/environments/1. If the URL suffix is ?definitionId=1&releaseCount=1 then the service connection URL becomes https//...TestProj/_apis/Release/releases?definitionId=1&releaseCount=1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`urlSuffix`** - **Url suffix and parameters**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The string to append to the baseUrl from the Generic service connection while making the HTTP call.
 Given string append to the URL. Example: If the service connection URL is https:...TestProj/_apis/Release/releases and the URL suffix is /2/environments/1, the service connection URL becomes https:.../TestProj/_apis/Release/releases/2/environments/1. If the URL suffix is ?definitionId=1&releaseCount=1 then the service connection URL becomes https//...TestProj/_apis/Release/releases?definitionId=1&releaseCount=1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -183,11 +194,12 @@ Given string append to the URL. Example: If the service connection URL is https:
 :::moniker range="<=azure-pipelines"
 
 **`waitForCompletion`** - **Completion event**<br>
-Type: string. Required. Allowed values: 'true', 'false'. Default value: 'false'.<br>
+`string`. Required. Allowed values: `true` (Callback), `false` (ApiResponse). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call where the REST API calls back to update the timeline record​.
 How the task reports completion. Can be API response (the default) - completion is when the function returns success within 20 seconds and the success criteria evaluates to true, or Callback - the external service makes a callback to update the timeline record.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -195,11 +207,12 @@ How the task reports completion. Can be API response (the default) - completion 
 :::moniker range="<=azure-pipelines"
 
 **`successCriteria`** - **Success criteria**<br>
-Type: string. Optional. Use when waitForCompletion = false.<br>
+`string`. Optional. Use when `waitForCompletion = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Criteria which defines when to pass the task. No criteria means response content does not influence the result. Example:- For response {"status" : "successful"}, the expression can be eq(root['status'], 'successful'). [More information](https://go.microsoft.com/fwlink/?linkid=842996)​.
 How to parse the response body for success. By default, the task passes when 200 OK is returned from the call. Additionally, the success criteria - if specified - is evaluated.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

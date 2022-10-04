@@ -1,7 +1,7 @@
 ---
 title: GitHubComment@0 - GitHub Comment v0 task
 description: Write a comment to your Github entity i.e. issue or a Pull Request (PR).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -28,7 +28,7 @@ Write a comment to your Github entity i.e. issue or a Pull Request (PR).
 - task: GitHubComment@0
   inputs:
     gitHubConnection: # string. Required. GitHub connection (OAuth or PAT). 
-    repositoryName: '$(Build.Repository.Name)' # string. Required. Repository. Default: '$(Build.Repository.Name)'.
+    repositoryName: '$(Build.Repository.Name)' # string. Required. Repository. Default: $(Build.Repository.Name).
     #id: # string. ID of the github pr/issue. 
     #comment: # string. Comment.
 ```
@@ -43,10 +43,11 @@ Write a comment to your Github entity i.e. issue or a Pull Request (PR).
 :::moniker range=">=azure-pipelines-2020"
 
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. Learn more about service connections [here](https://aka.ms/AA3am5s).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -54,10 +55,11 @@ Specify the name of the GitHub service connection to use to connect to the GitHu
 :::moniker range=">=azure-pipelines-2020"
 
 **`repositoryName`** - **Repository**<br>
-Type: string. Required. Default value: '$(Build.Repository.Name)'.<br>
+`string`. Required. Default value: `$(Build.Repository.Name)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the GitHub repository in which the GitHub comment will be created.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -65,10 +67,11 @@ Specify the name of the GitHub repository in which the GitHub comment will be cr
 :::moniker range=">=azure-pipelines-2020"
 
 **`id`** - **ID of the github pr/issue**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the issue or pr number; if used in a Pipeline for PRs leave it empty to dynamically figure out the id.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -76,10 +79,11 @@ Specify the issue or pr number; if used in a Pipeline for PRs leave it empty to 
 :::moniker range=">=azure-pipelines-2020"
 
 **`comment`** - **Comment**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Contents of the comment to be written.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

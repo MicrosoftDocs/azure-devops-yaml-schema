@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -39,10 +39,10 @@ Build or push Docker images, login or logout, or run a Docker command.
     #containerRegistry: # string. Container registry. 
     #repository: # string. Optional. Use when command != login && command != logout && command != start && command != stop. Container repository. 
   # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout' | 'start' | 'stop'. Required. Command. Default: 'buildAndPush'.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: '**/Dockerfile'.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: '**'.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: '$(Build.BuildId)'.
+    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout' | 'start' | 'stop'. Required. Command. Default: buildAndPush.
+    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
+    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
+    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
     #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments. 
     #addPipelineData: true # boolean. Add Pipeline metadata to image(s). Default: true.
     #addBaseImageData: true # boolean. Add base image metadata to image(s). Default: true.
@@ -62,10 +62,10 @@ Build or push Docker images, login or logout, or run a Docker command.
     #containerRegistry: # string. Container registry. 
     #repository: # string. Optional. Use when command != login && command != logout && command != start && command != stop. Container repository. 
   # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout' | 'start' | 'stop'. Required. Command. Default: 'buildAndPush'.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: '**/Dockerfile'.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: '**'.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: '$(Build.BuildId)'.
+    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout' | 'start' | 'stop'. Required. Command. Default: buildAndPush.
+    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
+    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
+    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
     #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments. 
     #addPipelineData: true # boolean. Add Pipeline metadata to image(s). Default: true.
     #container: # string. Optional. Use when command = start || command = stop. Container.
@@ -84,10 +84,10 @@ Build or push Docker images, login or logout, or run a Docker command.
     #containerRegistry: # string. Container registry. 
     #repository: # string. Optional. Use when command != login && command != logout. Container repository. 
   # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout'. Required. Command. Default: 'buildAndPush'.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: '**/Dockerfile'.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: '**'.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: '$(Build.BuildId)'.
+    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout'. Required. Command. Default: buildAndPush.
+    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
+    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
+    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
     #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments. 
     #addPipelineData: true # boolean. Add Pipeline metadata to image(s). Default: true.
 ```
@@ -105,10 +105,10 @@ Build or push Docker images, login or logout, or run a Docker command.
     #containerRegistry: # string. Container registry. 
     #repository: # string. Optional. Use when command != login && command != logout. Container repository. 
   # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout'. Required. Command. Default: 'buildAndPush'.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: '**/Dockerfile'.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: '**'.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: '$(Build.BuildId)'.
+    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout'. Required. Command. Default: buildAndPush.
+    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
+    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
+    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
     #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments.
 ```
 
@@ -122,10 +122,11 @@ Build or push Docker images, login or logout, or run a Docker command.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`containerRegistry`** - **Container registry**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the [Docker registry service connection](/azure/devops/pipelines/library/service-endpoints#docker-registry-service-connection). Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -133,20 +134,22 @@ Name of the [Docker registry service connection](/azure/devops/pipelines/library
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`repository`** - **Container repository**<br>
-Type: string. Optional. Use when command != login && command != logout && command != start && command != stop.<br>
+`string`. Optional. Use when `command != login && command != logout && command != start && command != stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the repository.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 **`repository`** - **Container repository**<br>
-Type: string. Optional. Use when command != login && command != logout.<br>
+`string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the repository.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,20 +157,22 @@ Name of the repository.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'buildAndPush', 'build', 'push', 'login', 'logout', 'start', 'stop'. Default value: 'buildAndPush'.<br>
+`string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`, `start`, `stop`. Default value: `buildAndPush`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The docker command to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 **`command`** - **Command**<br>
-Type: string. Required. Allowed values: 'buildAndPush', 'build', 'push', 'login', 'logout'. Default value: 'buildAndPush'.<br>
+`string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`. Default value: `buildAndPush`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The docker command to run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -175,10 +180,11 @@ The docker command to run.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`Dockerfile`** - **Dockerfile**<br>
-Type: string. Required when command = build || command = buildAndPush. Default value: '**/Dockerfile'.<br>
+`string`. Required when `command = build || command = buildAndPush`. Default value: `**/Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the Dockerfile. The task will use the first dockerfile it finds to build the image.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -186,10 +192,11 @@ Path to the Dockerfile. The task will use the first dockerfile it finds to build
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`buildContext`** - **Build context**<br>
-Type: string. Optional. Use when command = build || command = buildAndPush. Default value: '**'.<br>
+`string`. Optional. Use when `command = build || command = buildAndPush`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the build context. Pass ** to specify the directory that contains the Dockerfile.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -197,10 +204,11 @@ Path to the build context. Pass ** to specify the directory that contains the Do
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`tags`** - **Tags**<br>
-Type: string. Optional. Use when command = build || command = push || command = buildAndPush. Default value: '$(Build.BuildId)'.<br>
+`string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A list of tags in separate lines. These tags are used in build, push and buildAndPush commands.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -208,13 +216,14 @@ A list of tags in separate lines. These tags are used in build, push and buildAn
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`arguments`** - **Arguments**<br>
-Type: string. Optional. Use when command != login && command != logout && command != buildAndPush.<br>
+`string`. Optional. Use when `command != login && command != logout && command != buildAndPush`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments to be passed onto the docker client
 Be aware that if you use value `buildAndPush` for the command parameter, the arguments property is ignored.
 
 Example: For build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234 --quiet`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -222,10 +231,11 @@ Example: For build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234 --qui
 :::moniker range=">=azure-pipelines-2020"
 
 **`addPipelineData`** - **Add Pipeline metadata to image(s)**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default pipeline data like source branch name, build ID are added which helps with traceability. For example you can inspect an image to find out which pipeline built the image. You can opt out of this default behavior.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -233,10 +243,11 @@ By default pipeline data like source branch name, build ID are added which helps
 :::moniker range=">=azure-pipelines-2022"
 
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default base image data like base image name and digest are added which helps with traceability. You can opt out of this default behavior by using this input.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -244,10 +255,11 @@ By default base image data like base image name and digest are added which helps
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`container`** - **Container**<br>
-Type: string. Optional. Use when command = start || command = stop.<br>
+`string`. Optional. Use when `command = start || command = stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of the container resource to start or stop. For use with start and stop commands.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

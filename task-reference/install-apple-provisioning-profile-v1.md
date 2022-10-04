@@ -1,7 +1,7 @@
 ---
 title: InstallAppleProvisioningProfile@1 - Install Apple provisioning profile v1 task
 description: Install an Apple provisioning profile required to build on a macOS agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Install an Apple provisioning profile required to build on a macOS agent.
 # Install an Apple provisioning profile required to build on a macOS agent machine.
 - task: InstallAppleProvisioningProfile@1
   inputs:
-    provisioningProfileLocation: 'secureFiles' # 'secureFiles' | 'sourceRepository'. Required. Provisioning profile location. Default: 'secureFiles'.
+    provisioningProfileLocation: 'secureFiles' # 'secureFiles' | 'sourceRepository'. Required. Provisioning profile location. Default: secureFiles.
     provProfileSecureFile: # string. Required when provisioningProfileLocation == secureFiles. Provisioning profile. 
     #provProfileSourceRepository: # string. Required when provisioningProfileLocation == sourceRepository. Provisioning profile. 
     #removeProfile: true # boolean. Remove profile after build. Default: true.
@@ -50,7 +50,7 @@ Install an Apple provisioning profile required to build on a macOS agent.
 # Install an Apple provisioning profile required to build on a macOS agent.
 - task: InstallAppleProvisioningProfile@1
   inputs:
-    provisioningProfileLocation: 'secureFiles' # 'secureFiles' | 'sourceRepository'. Required. Provisioning profile location. Default: 'secureFiles'.
+    provisioningProfileLocation: 'secureFiles' # 'secureFiles' | 'sourceRepository'. Required. Provisioning profile location. Default: secureFiles.
     provProfileSecureFile: # string. Required when provisioningProfileLocation == secureFiles. Provisioning profile. 
     #provProfileSourceRepository: # string. Required when provisioningProfileLocation == sourceRepository. Provisioning profile. 
     #removeProfile: true # boolean. Remove profile after build. Default: true.
@@ -76,10 +76,11 @@ Install an Apple provisioning profile required to build on a macOS agent.
 :::moniker range="<=azure-pipelines"
 
 **`provisioningProfileLocation`** - **Provisioning profile location**<br>
-Type: string. Required. Allowed values: 'secureFiles', 'sourceRepository'. Default value: 'secureFiles'.<br>
+`string`. Required. Allowed values: `secureFiles` (Secure Files), `sourceRepository` (Source Repository). Default value: `secureFiles`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the location of the provisioning profile to install. The provisioning profile can be uploaded to `Secure Files` or stored in your source repository or a local path on the agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -87,10 +88,11 @@ Select the location of the provisioning profile to install. The provisioning pro
 :::moniker range="<=azure-pipelines"
 
 **`provProfileSecureFile`** - **Provisioning profile**<br>
-Type: string. Required when provisioningProfileLocation == secureFiles.<br>
+`string`. Required when `provisioningProfileLocation == secureFiles`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -98,10 +100,11 @@ Select the provisioning profile that was uploaded to `Secure Files` to install o
 :::moniker range="<=azure-pipelines"
 
 **`provProfileSourceRepository`** - **Provisioning profile**<br>
-Type: string. Required when provisioningProfileLocation == sourceRepository.<br>
+`string`. Required when `provisioningProfileLocation == sourceRepository`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the provisioning profile from the source repository or specify the local path to a provisioning profile on the macOS agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,10 +112,11 @@ Select the provisioning profile from the source repository or specify the local 
 :::moniker range="<=azure-pipelines"
 
 **`removeProfile`** - **Remove profile after build**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select to specify that the provisioning profile should be removed from the agent after the build or release is complete.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -157,6 +161,15 @@ The UUID property for the selected provisioning profile.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to install an Apple provisioning profile that is required to build on a macOS agent.
+You can use this task to install provisioning profiles needed to build iOS Apps, Apple WatchKit Apps and App Extensions.
+
+You can install an Apple provisioning profile that is:
+
+- Stored as a [secure file](/azure/devops/pipelines/library/secure-files) on the server.
+- (**Azure Pipelines**) Committed to the source repository or copied to a local path on the macOS agent. We recommend encrypting the provisioning profiles if you are committing them to the source repository. The **Decrypt File** task can be used to decrypt them during a build or release.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

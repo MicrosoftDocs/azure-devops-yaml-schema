@@ -1,7 +1,7 @@
 ---
 title: HelmInstaller@1 - Helm tool installer v1 task
 description: Install Helm on an agent machine.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,7 +27,7 @@ Install Helm on an agent machine.
 # Install Helm on an agent machine.
 - task: HelmInstaller@1
   inputs:
-    #helmVersionToInstall: 'latest' # string. Helm Version Spec. Default: 'latest'.
+    #helmVersionToInstall: 'latest' # string. Helm Version Spec. Default: latest.
 ```
 
 :::moniker-end
@@ -40,10 +40,11 @@ Install Helm on an agent machine.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`helmVersionToInstall`** - **Helm Version Spec**<br>
-Type: string. Default value: 'latest'.<br>
+`string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Helm to install.
+Specify the version of Helm to install. Acceptable values include any semantic version string like `2.14.1`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -65,11 +66,39 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task can be used for installing a specific version of helm binary on agents.
+
+### Troubleshooting
+
+#### HelmInstaller task running on a private agent behind a proxy fails to download helm package
+
+The HelmInstaller task does not use the proxy settings to download the file `https://get.helm.sh/helm-v3.1.0-linux-amd64.zip`. You can work around this by pre-installing Helm on your private agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+The following YAML example showcases the installation of latest version of helm binary on the agent - 
+
+```YAML
+- task: HelmInstaller@1
+  displayName: Helm installer
+  inputs: 
+    helmVersionToInstall: latest
+```
+
+The following YAML example demonstrates the use of an explicit version string rather than installing the latest version available at the time of task execution - 
+
+```YAML
+- task: HelmInstaller@1
+  displayName: Helm installer
+  inputs: 
+    helmVersionToInstall: 2.14.1
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: ReviewApp@0 - Review App v0 task
 description: Use this task under deploy phase provider to create a resource dynamically.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -42,10 +42,11 @@ Use this task under deploy phase provider to create a resource dynamically.
 :::moniker range=">=azure-pipelines-2020"
 
 **`resourceName`** - **Resource name**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Name of an existing resource in the environment which will be used for resource type information.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -53,9 +54,10 @@ Name of an existing resource in the environment which will be used for resource 
 :::moniker range=">=azure-pipelines-2020"
 
 **`baseEnvironmentName`** - **Environment name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -63,9 +65,10 @@ Type: string.<br>
 :::moniker range=">=azure-pipelines-2020"
 
 **`reviewResourceName`** - **Review Resource Name**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

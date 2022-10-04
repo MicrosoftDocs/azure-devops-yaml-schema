@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@1 - Azure Resource Group Deployment v1 task
 description: Deploy, start, stop, delete Azure Resource Groups.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,18 +29,18 @@ This task is deprecated.
 # Deploy, start, stop, delete Azure Resource Groups.
 - task: AzureResourceGroupDeployment@1
   inputs:
-    #ConnectedServiceNameSelector: 'ConnectedServiceName' # 'ConnectedServiceName' | 'ConnectedServiceNameClassic'. Azure Connection Type. Default: 'ConnectedServiceName'.
+    #ConnectedServiceNameSelector: 'ConnectedServiceName' # 'ConnectedServiceName' | 'ConnectedServiceNameClassic'. Azure Connection Type. Default: ConnectedServiceName.
     ConnectedServiceName: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Subscription. 
     #ConnectedServiceNameClassic: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic. Azure Classic Subscription. 
-    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'Restart' | 'Delete' | 'DeleteRG'. Required when ConnectedServiceNameSelector = ConnectedServiceName. Action. Default: 'Create Or Update Resource Group'.
-    #actionClassic: 'Select Resource Group' # 'Select Resource Group'. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic. Action. Default: 'Select Resource Group'.
+    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'Restart' | 'Delete' | 'DeleteRG'. Required when ConnectedServiceNameSelector = ConnectedServiceName. Action. Default: Create Or Update Resource Group.
+    #actionClassic: 'Select Resource Group' # 'Select Resource Group'. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic. Action. Default: Select Resource Group.
     resourceGroupName: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Resource Group. 
     #cloudService: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic. Cloud Service. 
-    #location: 'East US' # 'Australia East' | 'Australia Southeast' | 'Brazil South' | 'Canada Central' | 'Canada East' | 'Central India' | 'Central US' | 'East Asia' | 'East US' | 'East US 2 ' | 'Japan East' | 'Japan West' | 'North Central US' | 'North Europe' | 'South Central US' | 'South India' | 'Southeast Asia' | 'UK South' | 'UK West' | 'West Central US' | 'West Europe' | 'West India' | 'West US' | 'West US 2'. Required when action = Create Or Update Resource Group. Location. Default: 'East US'.
+    #location: 'East US' # 'Australia East' | 'Australia Southeast' | 'Brazil South' | 'Canada Central' | 'Canada East' | 'Central India' | 'Central US' | 'East Asia' | 'East US' | 'East US 2 ' | 'Japan East' | 'Japan West' | 'North Central US' | 'North Europe' | 'South Central US' | 'South India' | 'Southeast Asia' | 'UK South' | 'UK West' | 'West Central US' | 'West Europe' | 'West India' | 'West US' | 'West US 2'. Required when action = Create Or Update Resource Group. Location. Default: East US.
     #csmFile: # string. Required when action = Create Or Update Resource Group. Template. 
     #csmParametersFile: # string. Optional. Use when action = Create Or Update Resource Group. Template Parameters. 
     #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group. Override Template Parameters. 
-    #deploymentMode: 'Incremental' # 'Validation' | 'Incremental' | 'Complete'. Required when action = Create Or Update Resource Group. Deployment Mode. Default: 'Incremental'.
+    #deploymentMode: 'Incremental' # 'Validation' | 'Incremental' | 'Complete'. Required when action = Create Or Update Resource Group. Deployment Mode. Default: Incremental.
     #enableDeploymentPrerequisitesForCreate: false # boolean. Optional. Use when action = Create Or Update Resource Group. Enable Deployment Prerequisites. Default: false.
     #enableDeploymentPrerequisitesForSelect: false # boolean. Optional. Use when action = Select Resource Group. Enable Deployment Prerequisites. Default: false.
   # Output
@@ -67,9 +67,10 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceNameSelector`** - **Azure Connection Type**<br>
-Type: string. Allowed values: 'ConnectedServiceName', 'ConnectedServiceNameClassic'. Default value: 'ConnectedServiceName'.<br>
+`string`. Allowed values: `ConnectedServiceName` (Azure Resource Manager), `ConnectedServiceNameClassic` (Azure Classic). Default value: `ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +78,11 @@ Type: string. Allowed values: 'ConnectedServiceName', 'ConnectedServiceNameClass
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Azure Subscription**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceName.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -88,10 +90,11 @@ Select the Azure Resource Manager subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceNameClassic`** - **Azure Classic Subscription**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameClassic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Classic subscription for the deployment.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -99,10 +102,11 @@ Select the Azure Classic subscription for the deployment.
 :::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Allowed values: 'Create Or Update Resource Group', 'Select Resource Group', 'Start', 'Stop', 'Restart', 'Delete', 'DeleteRG'. Default value: 'Create Or Update Resource Group'.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`. Allowed values: `Create Or Update Resource Group`, `Select Resource Group`, `Start` (Start Virtual Machines), `Stop` (Stop Virtual Machines), `Restart` (Restart Virtual Machines), `Delete` (Delete Virtual Machines), `DeleteRG` (Delete Resource Group). Default value: `Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Action to be performed on the Azure resources or resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -110,10 +114,11 @@ Action to be performed on the Azure resources or resource group.
 :::moniker range="<=azure-pipelines"
 
 **`actionClassic`** - **Action**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic. Allowed values: 'Select Resource Group'. Default value: 'Select Resource Group'.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameClassic`. Allowed values: `Select Resource Group` (Select Cloud Service). Default value: `Select Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Action to be performed on the Azure resources or cloud service.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,10 +126,11 @@ Action to be performed on the Azure resources or cloud service.
 :::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource Group**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceName.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the resource group.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -132,10 +138,11 @@ Provide the name of the resource group.
 :::moniker range="<=azure-pipelines"
 
 **`cloudService`** - **Cloud Service**<br>
-Type: string. Required when ConnectedServiceNameSelector = ConnectedServiceNameClassic.<br>
+`string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameClassic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide the name of the cloud service.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,10 +150,11 @@ Provide the name of the cloud service.
 :::moniker range="<=azure-pipelines"
 
 **`location`** - **Location**<br>
-Type: string. Required when action = Create Or Update Resource Group. Allowed values: 'Australia East', 'Australia Southeast', 'Brazil South', 'Canada Central', 'Canada East', 'Central India', 'Central US', 'East Asia', 'East US', 'East US 2 ', 'Japan East', 'Japan West', 'North Central US', 'North Europe', 'South Central US', 'South India', 'Southeast Asia', 'UK South', 'UK West', 'West Central US', 'West Europe', 'West India', 'West US', 'West US 2'. Default value: 'East US'.<br>
+`string`. Required when `action = Create Or Update Resource Group`. Allowed values: `Australia East`, `Australia Southeast`, `Brazil South`, `Canada Central`, `Canada East`, `Central India`, `Central US`, `East Asia`, `East US`, `East US 2 `, `Japan East`, `Japan West`, `North Central US`, `North Europe`, `South Central US`, `South India`, `Southeast Asia`, `UK South`, `UK West`, `West Central US`, `West Europe`, `West India`, `West US`, `West US 2`. Default value: `East US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Location for deploying the resource group. If the resource group already exists in the subscription, then this value will be ignored.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,10 +162,11 @@ Location for deploying the resource group. If the resource group already exists 
 :::moniker range="<=azure-pipelines"
 
 **`csmFile`** - **Template**<br>
-Type: string. Required when action = Create Or Update Resource Group.<br>
+`string`. Required when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path to the Azure Resource Manager template. For more information about the templates see https://aka.ms/azuretemplates. To get started immediately use template https://aka.ms/sampletemplate.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -165,10 +174,11 @@ Specify the path to the Azure Resource Manager template. For more information ab
 :::moniker range="<=azure-pipelines"
 
 **`csmParametersFile`** - **Template Parameters**<br>
-Type: string. Optional. Use when action = Create Or Update Resource Group.<br>
+`string`. Optional. Use when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path for the parameters file for the Azure Resource Manager Template.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -176,10 +186,11 @@ Specify the path for the parameters file for the Azure Resource Manager Template
 :::moniker range="<=azure-pipelines"
 
 **`overrideParameters`** - **Override Template Parameters**<br>
-Type: string. Optional. Use when action = Create Or Update Resource Group.<br>
+`string`. Optional. Use when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the template parameters to override like, <br>-storageName fabrikam -adminUsername $(vmusername) -adminPassword (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force) -azureKeyVaultName $(fabrikamFibre).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -187,7 +198,7 @@ Specify the template parameters to override like, <br>-storageName fabrikam -adm
 :::moniker range="<=azure-pipelines"
 
 **`deploymentMode`** - **Deployment Mode**<br>
-Type: string. Required when action = Create Or Update Resource Group. Allowed values: 'Validation', 'Incremental', 'Complete'. Default value: 'Incremental'.<br>
+`string`. Required when `action = Create Or Update Resource Group`. Allowed values: `Validation` (Validation Only), `Incremental`, `Complete`. Default value: `Incremental`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Incremental mode handles deployments as incremental updates to the resource group . It leaves unchanged resources that exist in the resource group but are not specified in the template. 
 
@@ -197,6 +208,7 @@ Incremental mode handles deployments as incremental updates to the resource grou
 
  By default, Incremental mode is used.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -204,10 +216,11 @@ Incremental mode handles deployments as incremental updates to the resource grou
 :::moniker range="<=azure-pipelines"
 
 **`enableDeploymentPrerequisitesForCreate`** - **Enable Deployment Prerequisites**<br>
-Type: boolean. Optional. Use when action = Create Or Update Resource Group. Default value: false.<br>
+`boolean`. Optional. Use when `action = Create Or Update Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enabling this option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -215,10 +228,11 @@ Enabling this option configures Windows Remote Management (WinRM) listener over 
 :::moniker range="<=azure-pipelines"
 
 **`enableDeploymentPrerequisitesForSelect`** - **Enable Deployment Prerequisites**<br>
-Type: boolean. Optional. Use when action = Select Resource Group. Default value: false.<br>
+`boolean`. Optional. Use when `action = Select Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enabling this option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986).
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -226,10 +240,11 @@ Enabling this option configures Windows Remote Management (WinRM) listener over 
 :::moniker range="<=azure-pipelines"
 
 **`outputVariable`** - **Resource Group**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a name for the variable for the resource group. The variable can be used as $(variableName) to refer to the resource group in subsequent tasks like in the PowerShell on Target Machines task for deploying applications. <br>Valid only when the selected action is Create, Update or Select, and required when an existing resource group is selected.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -44,12 +44,12 @@ Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
 - task: cURLUploader@2
   inputs:
     files: # string. Required. Files. 
-    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: 'ServiceEndpoint'.
+    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: ServiceEndpoint.
     serviceEndpoint: # string. Required when authType = ServiceEndpoint. Service Connection. 
     #username: # string. Optional. Use when authType = UserAndPass. Username. 
     #password: # string. Optional. Use when authType = UserAndPass. Password. 
     #url: # string. Required when authType = UserAndPass. URL. 
-    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: 'upload/$(Build.BuildId)/'.
+    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: upload/$(Build.BuildId)/.
     #options: # string. Optional Arguments. 
   # Advanced
     #redirectStderr: true # boolean. Redirect Standard Error to Standard Out. Default: true.
@@ -65,12 +65,12 @@ Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
 - task: cURLUploader@2
   inputs:
     files: # string. Required. Files. 
-    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: 'ServiceEndpoint'.
+    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: ServiceEndpoint.
     serviceEndpoint: # string. Required when authType = ServiceEndpoint. Service Connection. 
     #username: # string. Optional. Use when authType = UserAndPass. Username. 
     #password: # string. Optional. Use when authType = UserAndPass. Password. 
     #url: # string. Required when authType = UserAndPass. URL. 
-    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: 'upload/$(Build.BuildId)/'.
+    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: upload/$(Build.BuildId)/.
     #options: # string. Optional Arguments. 
   # Advanced
     #redirectStderr: true # boolean. Redirect Standard Error to Standard Out. Default: true.
@@ -96,20 +96,32 @@ Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
 :::moniker range="<=azure-pipelines"
 
 **`files`** - **Files**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all ZIP files in all subfolders.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="authType"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`authType`** - **Authentication Method**<br>
-Type: string. Allowed values: 'ServiceEndpoint', 'UserAndPass'. Default value: 'ServiceEndpoint'.<br>
+`string`. Allowed values: `ServiceEndpoint` (Service connection), `UserAndPass` (Username and password). Default value: `ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`authType`** - **Authentication Method**<br>
+`string`. Allowed values: `ServiceEndpoint` (Service Endpoint), `UserAndPass` (Username and Password). Default value: `ServiceEndpoint`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -117,20 +129,22 @@ Type: string. Allowed values: 'ServiceEndpoint', 'UserAndPass'. Default value: '
 :::moniker range=">=azure-pipelines-2019"
 
 **`serviceEndpoint`** - **Service Connection**<br>
-Type: string. Required when authType = ServiceEndpoint.<br>
+`string`. Required when `authType = ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`serviceEndpoint`** - **Service Endpoint**<br>
-Type: string. Required when authType = ServiceEndpoint.<br>
+`string`. Required when `authType = ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -138,10 +152,11 @@ The service connection with the credentials for the server authentication. Use t
 :::moniker range="<=azure-pipelines"
 
 **`username`** - **Username**<br>
-Type: string. Optional. Use when authType = UserAndPass.<br>
+`string`. Optional. Use when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the username for server authentication.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -149,10 +164,11 @@ Specify the username for server authentication.
 :::moniker range="<=azure-pipelines"
 
 **`password`** - **Password**<br>
-Type: string. Optional. Use when authType = UserAndPass.<br>
+`string`. Optional. Use when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value. Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing ths value.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -160,10 +176,11 @@ Specify the password for server authentication. Use a new build variable with it
 :::moniker range="<=azure-pipelines"
 
 **`url`** - **URL**<br>
-Type: string. Required when authType = UserAndPass.<br>
+`string`. Required when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -171,20 +188,22 @@ Specify the URL to where the file(s) will be uploaded. The directory should end 
 :::moniker range=">=azure-pipelines-2019"
 
 **`remotePath`** - **Remote Directory**<br>
-Type: string. Default value: 'upload/$(Build.BuildId)/'.<br>
+`string`. Default value: `upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If supplied, this is the sub-folder on the remote server for the URL supplied in the credentials.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`remotePath`** - **Remote Directory**<br>
-Type: string. Default value: '/upload/$(Build.BuildId)/'.<br>
+`string`. Default value: `/upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If supplied, this is the sub-folder on the remote server for the URL supplied in the credentials.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -192,10 +211,11 @@ If supplied, this is the sub-folder on the remote server for the URL supplied in
 :::moniker range="<=azure-pipelines"
 
 **`options`** - **Optional Arguments**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional arguments that will be passed to cURL.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -203,10 +223,11 @@ Additional arguments that will be passed to cURL.
 :::moniker range="<=azure-pipelines"
 
 **`redirectStderr`** - **Redirect Standard Error to Standard Out**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds '--stderr -' as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
+Adds `--stderr -` as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -228,6 +249,16 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to use [cURL](https://curl.haxx.se/) to upload files with supported protocols
+such as FTP, FTPS, SFTP, HTTP, and more.
+
+[!INCLUDE [include](includes/qa-minimatch.md)]
+
+### Where can I learn FTP commands?
+
+* [List of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

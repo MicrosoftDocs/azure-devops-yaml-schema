@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@0 - Python twine upload authenticate v0 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection (task version 0).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -66,10 +66,11 @@ Authentication for uploading python distributions using twine. Please add "-r Fe
 :::moniker range=">=azure-pipelines-2019"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
-Input alias: `feedList`. Type: string.<br>
+Input alias: `feedList`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select feeds to authenticate present in this organization.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -77,10 +78,11 @@ Select feeds to authenticate present in this organization.
 :::moniker range=">=azure-pipelines-2019"
 
 **`externalFeeds`** - **Feeds from external organizations**<br>
-Input alias: `externalSources`. Type: string.<br>
+Input alias: `externalSources`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select endpoints to authenticate outside this organization. Make sure the endpoints have package upload permissions.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -88,10 +90,11 @@ Select endpoints to authenticate outside this organization. Make sure the endpoi
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-Type: boolean. Default value: true.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Associate this build/release pipeline’s metadata (run #, source code information) with the package when uploading to my feeds.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

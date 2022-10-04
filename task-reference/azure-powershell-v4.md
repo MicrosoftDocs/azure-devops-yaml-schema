@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@4 - Azure PowerShell v4 task
 description: Run a PowerShell script within an Azure environment (task version 4).
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -28,15 +28,15 @@ Run a PowerShell script within an Azure environment.
 - task: AzurePowerShell@4
   inputs:
     azureSubscription: # string. Required. Azure Subscription. 
-    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: 'FilePath'.
+    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
     #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
     #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
     #RestrictContextToCurrentTask: false # boolean. Restrict scope of context to current task. Default: false.
   # Azure PowerShell version options
-    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: 'OtherVersion'.
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
   # Advanced
     #pwsh: false # boolean. Use PowerShell Core. Default: false.
@@ -53,14 +53,14 @@ Run a PowerShell script within an Azure environment.
 - task: AzurePowerShell@4
   inputs:
     azureSubscription: # string. Required. Azure Subscription. 
-    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: 'FilePath'.
+    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
     #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
     #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
   # Azure PowerShell version options
-    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: 'OtherVersion'.
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
   # Advanced
     #pwsh: false # boolean. Use PowerShell Core. Default: false.
@@ -77,14 +77,14 @@ Run a PowerShell script within an Azure environment.
 - task: AzurePowerShell@4
   inputs:
     azureSubscription: # string. Required. Azure Subscription. 
-    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: 'FilePath'.
+    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
     #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: 'stop'.
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
     #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
   # Azure PowerShell version options
-    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: 'OtherVersion'.
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version.
 ```
 
@@ -98,10 +98,11 @@ Run a PowerShell script within an Azure environment.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. Type: string. Required.<br>
+Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Azure Resource Manager subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -109,10 +110,11 @@ Azure Resource Manager subscription to configure before running PowerShell.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ScriptType`** - **Script Type**<br>
-Type: string. Allowed values: 'FilePath', 'InlineScript'. Default value: 'FilePath'.<br>
+`string`. Allowed values: `FilePath` (Script File Path), `InlineScript` (Inline Script). Default value: `FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Type of the script: File Path or Inline Script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -120,10 +122,11 @@ Type of the script: File Path or Inline Script.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ScriptPath`** - **Script Path**<br>
-Type: string. Optional. Use when ScriptType = FilePath.<br>
+`string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path of the script. Should be fully qualified path or relative to the default working directory.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -131,10 +134,11 @@ Path of the script. Should be fully qualified path or relative to the default wo
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`Inline`** - **Inline Script**<br>
-Type: string. Optional. Use when ScriptType = InlineScript.<br>
+`string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the script to execute.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -142,10 +146,11 @@ Enter the script to execute.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`ScriptArguments`** - **Script Arguments**<br>
-Type: string. Optional. Use when ScriptType = FilePath.<br>
+`string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional parameters to pass to PowerShell.  Can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -153,10 +158,11 @@ Additional parameters to pass to PowerShell.  Can be either ordinal or named par
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`errorActionPreference`** - **ErrorActionPreference**<br>
-Type: string. Allowed values: 'stop', 'continue', 'silentlyContinue'. Default value: 'stop'.<br>
+`string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the value of the ErrorActionPreference variable for executing the script.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -164,10 +170,11 @@ Select the value of the ErrorActionPreference variable for executing the script.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`FailOnStandardError`** - **Fail on Standard Error**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -175,10 +182,11 @@ If this is true, this task will fail if any errors are written to the error pipe
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`RestrictContextToCurrentTask`** - **Restrict scope of context to current task**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, this task will restrict the scope of context to current task only and the context will not be available to other tasks in the pipeline when using private agent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -186,13 +194,14 @@ If this is true, this task will restrict the scope of context to current task on
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`azurePowerShellVersion`** - **Azure PowerShell Version**<br>
-Input alias: `TargetAzurePs`. Type: string. Allowed values: 'LatestVersion', 'OtherVersion'. Default value: 'OtherVersion'.<br>
+Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 In case of hosted agents, the supported Azure PowerShell Version is: 1.0.0(Hosted VS2017 Queue).
 To pick the latest version available on the agent, select "Latest installed version".
 
 For private agents you can specify preferred version of Azure PowerShell using "Specify version".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -200,10 +209,11 @@ For private agents you can specify preferred version of Azure PowerShell using "
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
-Input alias: `CustomTargetAzurePs`. Type: string. Required when TargetAzurePs = OtherVersion.<br>
+Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Preferred Azure PowerShell Version needs to be a proper semantic version eg. 1.2.3. Regex like 2.\*,2.3.\* is not supported. The Hosted VS2017 Pool currently supports Az module version: 1.0.0.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -211,10 +221,11 @@ Preferred Azure PowerShell Version needs to be a proper semantic version eg. 1.2
 :::moniker range=">=azure-pipelines-2020"
 
 **`pwsh`** - **Use PowerShell Core**<br>
-Type: boolean. Default value: false.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, then on Windows the task will use pwsh.exe from your PATH instead of powershell.exe.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -222,10 +233,11 @@ If this is true, then on Windows the task will use pwsh.exe from your PATH inste
 :::moniker range=">=azure-pipelines-2020"
 
 **`workingDirectory`** - **Working Directory**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory where the script is run.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

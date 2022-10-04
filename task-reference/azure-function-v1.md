@@ -1,7 +1,7 @@
 ---
 title: AzureFunction@1 - Invoke Azure Function v1 task
 description: Invoke an Azure Function.
-ms.date: 09/01/2022
+ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,12 +29,12 @@ Invoke an Azure Function from an agentless job in your pipeline.
   inputs:
     function: # string. Required. Azure function URL. 
     key: # string. Required. Function key. 
-    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: 'POST'.
+    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
     #headers: # string. Headers. 
     #queryParameters: # string. Query parameters. 
     #body: # string. Optional. Use when method != GET && method != HEAD. Body. 
   # Advanced
-    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: 'false'.
+    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: false.
     #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
 ```
 
@@ -49,12 +49,12 @@ Invoke an Azure Function from an agentless job in your pipeline.
   inputs:
     function: # string. Required. Azure function URL. 
     key: # string. Required. Function key. 
-    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: 'POST'.
+    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
     #headers: # string. Headers. 
     #queryParameters: # string. Query parameters. 
     #body: # string. Optional. Use when method != GET && method != HEAD. Body. 
   # Advanced
-    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: 'false'.
+    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: false.
     #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
 ```
 
@@ -78,20 +78,22 @@ Invoke an Azure Function from an agentless job in your pipeline.
 :::moniker range=">=azure-pipelines-2019"
 
 **`function`** - **Azure function URL**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 URL of the Azure function that needs to be invoked​. Example:- https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2018"
 
 **`function`** - **Azure function url**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 URL of the Azure function that needs to be invoked​. Example:- https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -99,10 +101,11 @@ URL of the Azure function that needs to be invoked​. Example:- https://azurefu
 :::moniker range="<=azure-pipelines"
 
 **`key`** - **Function key**<br>
-Type: string. Required.<br>
+`string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Function or Host key with which to access this function. To keep the key secure, define a secret variable and use it here. Example: - $(myFunctionKey) where myFunctionKey is a secret pipeline variable with a value of the secret key, like `ZxPXnIEODXLRzYwCw1TgZ4osMfoKs9Zn6se6X/N0FnztfDvZbdOmYw==`.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -110,10 +113,11 @@ Function or Host key with which to access this function. To keep the key secure,
 :::moniker range="<=azure-pipelines"
 
 **`method`** - **Method**<br>
-Type: string. Required. Allowed values: 'OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'PATCH'. Default value: 'POST'.<br>
+`string`. Required. Allowed values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`. Default value: `POST`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the HTTP method with which the function should be invoked.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -121,10 +125,11 @@ Select the HTTP method with which the function should be invoked.
 :::moniker range="<=azure-pipelines"
 
 **`headers`** - **Headers**<br>
-Type: string.<br>
+`string`. Default value: `{\n"Content-Type":"application/json", \n"PlanUrl": "$(system.CollectionUri)", \n"ProjectId": "$(system.TeamProjectId)", \n"HubName": "$(system.HostType)", \n"PlanId": "$(system.PlanId)", \n"JobId": "$(system.JobId)", \n"TimelineId": "$(system.TimelineId)", \n"TaskInstanceId": "$(system.TaskInstanceId)", \n"AuthToken": "$(system.AccessToken)"\n}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Define a header in JSON format. The header shall be attached to the request that is sent.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -132,10 +137,11 @@ Define a header in JSON format. The header shall be attached to the request that
 :::moniker range="<=azure-pipelines"
 
 **`queryParameters`** - **Query parameters**<br>
-Type: string.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Query parameters string to append to the function URL. It should not start with with "?" nor "&".
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -143,10 +149,11 @@ Query parameters string to append to the function URL. It should not start with 
 :::moniker range="<=azure-pipelines"
 
 **`body`** - **Body**<br>
-Type: string. Optional. Use when method != GET && method != HEAD.<br>
+`string`. Optional. Use when `method != GET && method != HEAD`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 JSON-formatted message body for the request.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -154,13 +161,14 @@ JSON-formatted message body for the request.
 :::moniker range="<=azure-pipelines"
 
 **`waitForCompletion`** - **Completion event**<br>
-Type: string. Required. Allowed values: 'true', 'false'. Default value: 'false'.<br>
+`string`. Required. Allowed values: `true` (Callback), `false` (ApiResponse). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use `true` in YAML to represent **Callback**, and `false` for **ApiResponse**.
 
 * `false` (**ApiResponse**) - The function returns success and success criteria evaluates to true. This is the default if no value is specified for this input.
 * `true` (**Callback**) - The function makes a callback to update the timeline record.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -168,10 +176,11 @@ Use `true` in YAML to represent **Callback**, and `false` for **ApiResponse**.
 :::moniker range="<=azure-pipelines"
 
 **`successCriteria`** - **Success criteria**<br>
-Type: string. Optional. Use when waitForCompletion = false.<br>
+`string`. Optional. Use when `waitForCompletion = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Criteria which defines when to pass the task. No criteria means the response content does not influence the result. Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. [More information](/azure/devops/pipelines/process/conditions)​.
 <!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -309,7 +318,7 @@ public static void PostEvent(String callbackUrl, String body, String authToken, 
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-* [Automate Azure Functions deployments with Azure Pipelines](/learn/modules/deploy-azure-functions/)
+* [Automate Azure Functions deployments with Azure Pipelines](/training/modules/deploy-azure-functions/)
 * [Agentless job](/azure/devops/pipelines/process/phases#server-jobs)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
