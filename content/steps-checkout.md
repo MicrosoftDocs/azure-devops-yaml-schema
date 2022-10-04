@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: steps.checkout definition reference.
-ms.date: 09/30/2022
+ms.date: 10/04/2022
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -1658,6 +1658,7 @@ steps:
 - checkout: string # Required as first property. Alias of the repository resource to check out or 'none'. 
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.  (true, false)
   fetchDepth: string # Depth of Git graph to fetch. 
+  fetchTags: string # Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior.. 
   lfs: string # set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
   submodules: true | recursive # set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
@@ -1732,6 +1733,26 @@ ___
 string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Depth of Git graph to fetch. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
+   `fetchTags`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -2009,6 +2030,21 @@ ___
 
 ## Remarks
 
+:::moniker range="azure-pipelines"
+
+* [Shallow fetch](#shallow-fetch)
+* [Clean property](#clean-property)
+* [Sync tags](#sync-tags)
+
+:::moniker-end
+
+:::moniker range="<azure-pipelines"
+
+* [Shallow fetch](#shallow-fetch)
+* [Clean property](#clean-property)
+
+:::moniker-end
+
 ### Shallow fetch
 
 > [!IMPORTANT]
@@ -2030,7 +2066,7 @@ The default value if the `clean` property is unset is configured by the **clean*
 
 ::: moniker range="= azure-pipelines"
 
-### Configuring sync tags
+### Sync tags
 
 The checkout step uses the `--tags` option when fetching the contents of a Git repository. This causes the server to fetch all tags as well as all objects that are pointed to by those tags. This increases the time to run the task in a pipeline, particularly if you have a large repository with a number of tags. Furthermore, the checkout step syncs tags even when you enable the shallow fetch option, thereby possibly defeating its purpose. To reduce the amount of data fetched or pulled from a Git repository, Microsoft has added a new option to checkout to control the behavior of syncing tags. This option is available both in classic and YAML pipelines.
 
@@ -2044,7 +2080,7 @@ steps:
   fetchTags: true
 ```
 
-To configure the setting in the pipeline UI, edit your YAML pipeline, and choose **More actions**, **Triggers**, **YAML**, **Get sources**, and check or uncheck the **Sync tags** checkbox.
+To configure the setting in the pipeline UI, edit your YAML pipeline, and choose **More actions**, **Triggers**, **YAML**, **Get sources**, and check or uncheck the **Sync tags** checkbox. For more information, see [Sync tags](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
 
 
 #### Default behavior
@@ -2052,11 +2088,7 @@ To configure the setting in the pipeline UI, edit your YAML pipeline, and choose
 * For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is `true`.
 * For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is `false`.
 
-> [!IMPORTANT]
-> A **Sync tags** setting of true in the UI takes precedence over a `fetchTags: false` statement in the YAML. If **Sync tags** is set to true in the UI, tags are synced even if `fetchTags` is set to false in the YAML.
-
-
-::: moniker-end
+:::moniker-end
 
 
 ## Examples
