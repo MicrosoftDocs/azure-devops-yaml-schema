@@ -2030,6 +2030,21 @@ ___
 
 ## Remarks
 
+:::moniker range="azure-pipelines"
+
+* [Shallow fetch](#shallow-fetch)
+* [Clean property](#clean-property)
+* [Sync tags](#sync-tags)
+
+:::moniker-end
+
+:::moniker range="<azure-pipelines"
+
+* [Shallow fetch](#shallow-fetch)
+* [Clean property](#clean-property)
+
+:::moniker-end
+
 ### Shallow fetch
 
 > [!IMPORTANT]
@@ -2051,7 +2066,7 @@ The default value if the `clean` property is unset is configured by the **clean*
 
 ::: moniker range="= azure-pipelines"
 
-### Configuring sync tags
+### Sync tags
 
 The checkout step uses the `--tags` option when fetching the contents of a Git repository. This causes the server to fetch all tags as well as all objects that are pointed to by those tags. This increases the time to run the task in a pipeline, particularly if you have a large repository with a number of tags. Furthermore, the checkout step syncs tags even when you enable the shallow fetch option, thereby possibly defeating its purpose. To reduce the amount of data fetched or pulled from a Git repository, Microsoft has added a new option to checkout to control the behavior of syncing tags. This option is available both in classic and YAML pipelines.
 
@@ -2065,7 +2080,7 @@ steps:
   fetchTags: true
 ```
 
-To configure the setting in the pipeline UI, edit your YAML pipeline, and choose **More actions**, **Triggers**, **YAML**, **Get sources**, and check or uncheck the **Sync tags** checkbox.
+To configure the setting in the pipeline UI, edit your YAML pipeline, and choose **More actions**, **Triggers**, **YAML**, **Get sources**, and check or uncheck the **Sync tags** checkbox. For more information, see [Sync tags](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
 
 
 #### Default behavior
