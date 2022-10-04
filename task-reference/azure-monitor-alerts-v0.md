@@ -107,9 +107,9 @@ Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription. 
 
-Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. 
+**Note:** To configure new service connection, select the Azure subscription from the list and click `Authorize`.
 
-If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
+If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using `Add` or `Manage` button.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +145,7 @@ Select the Azure resource type.
 **`ResourceName`** - **Resource name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select name of Azure resource where you want to configure an alert.
+Select the name of the Azure resource where you want to configure an alert.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,9 +157,9 @@ Select name of Azure resource where you want to configure an alert.
 **`AlertRules`** - **Alert rules**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-List of Azure monitor alerts configured on selected Azure resource. 
+The list of Azure monitor alerts configured on the selected Azure resource.
 
-To add or modify alerts, click on […] button.
+To add or modify alerts, click on the `…` button.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -171,7 +171,7 @@ To add or modify alerts, click on […] button.
 **`NotifyServiceOwners`** - **Subscription owners, contributors and readers**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send email notification to everyone who has access to this resource group.
+Optional. Send an email notification to everyone who has access to this resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +183,7 @@ Send email notification to everyone who has access to this resource group.
 **`NotifyEmails`** - **Additional administrator emails**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add additional email addresses separated by semicolons(;) if you want to send email notification to additional people (whether or not you checked the "subscription owners..." box).
+Optional. Add email addresses separated by semicolons (;) if you want to include additional email notification recipients. Can be incorporated whether or not the "subscription owners..." box is checked.
 <!-- :::editable-content-end::: -->
 <br>
 

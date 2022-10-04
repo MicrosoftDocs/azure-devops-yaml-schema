@@ -76,7 +76,7 @@ Version range or exact version of a Ruby version to use.
 **`addToPath`** - **Add to PATH**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Prepend the retrieved Ruby version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
+Optional. Prepend the retrieved Ruby version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
 <!-- :::editable-content-end::: -->
 <br>
 
