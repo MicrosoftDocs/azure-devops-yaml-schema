@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build with Apache Ant.
+Use this task to build with Apache Ant.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
