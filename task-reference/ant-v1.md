@@ -176,7 +176,7 @@ Select this option to publish JUnit test results produced by the Ant build to TF
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used. For more information, see [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+Test results files path. Wildcards can be used. For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -202,12 +202,12 @@ Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, 
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the code coverage tool.
 
-If you are using the [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), then the tools are set up for you. If you are using on-premises [Windows agent](/azure/devops/pipelines/agents/v2-windows), then select:
+If you are using the [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), then the tools are set up for you. If you are using the on-premises [Windows agent](/azure/devops/pipelines/agents/v2-windows), then select:
 
-- JaCoCo to make sure jacocoant.jar is available in lib folder of Ant installation. See [JaCoCo](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
+- JaCoCo to make sure jacocoant.jar is available in the lib folder of Ant installation. See [JaCoCo](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
 - Cobertura to set up an environment variable COBERTURA_HOME pointing to the Cobertura .jar files location. See [Cobertura](https://github.com/cobertura/cobertura/wiki/Ant-Task-Reference).
 
-After you select one of these tools, the following arguments appear.
+After you select one of these tools, the following arguments appear:
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +219,7 @@ After you select one of these tools, the following arguments appear.
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. *For example*: target/classes,target/testClasses.
+The comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example: `target/classes,target/testClasses`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +231,7 @@ The comma-separated list of relative paths from the Ant build file to directorie
 **`codeCoverageClassFilter`** - **Class inclusion/exclusion filters**<br>
 Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of filters to include or exclude classes from collecting code coverage. *For example*: +:com.*,+:org.*,-:my.app*.*.
+The comma-separated list of filters to include or exclude classes from collecting code coverage. For example: `+:com.`, `+:org.`, `-:my.app*.`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,7 @@ The comma-separated list of relative paths from the Ant build file to source cod
 **`codeCoverageFailIfEmpty`** - **Fail when code coverage results are missing**<br>
 Input alias: `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fails the build if code coverage did not produce any results to publish.
+Fails the build if the code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -291,7 +291,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+Attempts to discover the path to the selected JDK version and sets JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -302,7 +302,7 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+Attempts to discover the path to the selected JDK version and sets JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
