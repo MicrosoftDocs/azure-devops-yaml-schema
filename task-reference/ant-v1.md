@@ -114,7 +114,7 @@ For more information about build files, see [Using Apache Ant](http://ant.apache
 **`options`** - **Options**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides any options to pass to the Ant command line. You can provide your own properties (for example, `-DmyProperty=myPropertyValue`) and also use built-in variables (for example, `-DcollectionId=$(system.collectionId)`). Alternatively, the built-in variables are already set as environment variables during the build and can be passed directly (for example, `-DcollectionIdAsEnvVar=%SYSTEM_COLLECTIONID%`).
+Provides options to pass to the Ant command line. You can provide your own properties (for example, `-DmyProperty=myPropertyValue`) and also use built-in variables (for example, `-DcollectionId=$(system.collectionId)`). Alternatively, the built-in variables are already set as environment variables during the build and can be passed directly (for example, `-DcollectionIdAsEnvVar=%SYSTEM_COLLECTIONID%`).
 
 See [Running Apache Ant](http://ant.apache.org/manual/running.html#options).
 <!-- :::editable-content-end::: -->
@@ -176,7 +176,7 @@ Select this option to publish JUnit test results produced by the Ant build to TF
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used. For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+The test results file path. Wildcards can be used. For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -204,8 +204,8 @@ Selects the code coverage tool.
 
 If you are using the [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), then the tools are set up for you. If you are using the on-premises [Windows agent](/azure/devops/pipelines/agents/v2-windows), then select:
 
-- JaCoCo to make sure jacocoant.jar is available in the lib folder of Ant installation. See [JaCoCo](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
-- Cobertura to set up an environment variable COBERTURA_HOME pointing to the Cobertura .jar files location. See [Cobertura](https://github.com/cobertura/cobertura/wiki/Ant-Task-Reference).
+- JaCoCo to make sure jacocoant.jar is available in the lib folder of Ant installation. Learn more about[JaCoCo Ant tasks](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
+- Cobertura to set up an environment variable COBERTURA_HOME pointing to the Cobertura .jar files location. Learn more about [Cobertura with Ant tasks](https://github.com/cobertura/cobertura/wiki/Ant-Task-Reference).
 
 After you select one of these tools, the following arguments appear:
 <!-- :::editable-content-end::: -->
@@ -219,7 +219,7 @@ After you select one of these tools, the following arguments appear:
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example: `target/classes,target/testClasses`.
+The comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (`.jar`, `.war`, etc.). Code coverage is reported for class files in these directories. For example: `target/classes,target/testClasses`.
 <!-- :::editable-content-end::: -->
 <br>
 
