@@ -29,7 +29,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 >    :::column-end:::
 >    :::column span="2":::
 >       To view the task reference for tasks available for your platform, make sure that you select the correct Azure DevOps version from the version selector which is located above the table of contents. Feature support differs depending on whether you are working from Azure DevOps Services or an on-premises version of Azure DevOps Server.  
->       To learn which on-premises version you are using, see [What platform/version am I using?](/azure/devops/user-guide/provide-feedback?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json#what-platformversion-am-i-using)
+>       To learn which on-premises version you are using, see [Look up your Azure DevOps platform and version](/azure/devops/user-guide/lookup-platform-version).
 >    :::column-end:::
 > :::row-end:::
 <!-- :::taskIndex::: -->

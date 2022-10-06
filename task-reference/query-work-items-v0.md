@@ -78,7 +78,7 @@ Executes a work item query and checks for the number of items returned.
 **`queryId`** - **Query**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a saved work item query to execute.
+Select a saved work item query within the current project to execute. Can be a built-in or custom query.
 <!-- :::editable-content-end::: -->
 <br>
 

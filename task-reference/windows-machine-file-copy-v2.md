@@ -108,7 +108,7 @@ Copy files to remote machine(s).
 **`SourcePath`** - **Source**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path of the source folder or file on the local machine, or a UNC Share like c:\fabrikamfiber or \\\\fabrikamshare\fabrikamfiber.
+The path to the files to copy. Absolute path of the source folder or file on the local machine, or a UNC Share like `c:\fabrikamfiber` or `\\fabrikamshare\fabrikamfiber`. You can use predefined system variables such as `$(Build.Repository.LocalPath)` (the working folder on the agent computer), which makes it easy to specify the location of the build artifacts on the computer that hosts the automation agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,8 @@ Absolute path of the source folder or file on the local machine, or a UNC Share 
 **`MachineNames`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Provide a comma separated list of machine IP addresses or FQDNs, optionally including the port number. <br>For example: `dbserver.fabrikam.com`, `dbserver_int.fabrikam.com:5986`, `192.168.12.34` <br>Or provide output variable of other tasks. For example: `$(variableName)`. <br/>
+Can also be the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +132,8 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 **`MachineNames`** - **Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Provide a comma separated list of machine IP addresses or FQDNs, optionally including the port number. <br>For example: `dbserver.fabrikam.com`, `dbserver_int.fabrikam.com:5986`, `192.168.12.34` <br>Or provide output variable of other tasks. For example: `$(variableName)`. <br/>
+Can also be the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +145,9 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 **`AdminUserName`** - **Admin Login**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+The username of either a domain or a local administrative account on the target host(s).
+- Formats such as **domain\username**, **username**, and **machine-name\username** are supported.
+- UPN formats such as [username@domain.com] and built-in system accounts such as NT Authority\System are not supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -154,7 +158,9 @@ Administrator login for the target machines.
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+The username of either a domain or a local administrative account on the target host(s).
+- Formats such as **domain\username**, **username**, and **machine-name\username** are supported.
+- UPN formats such as [username@domain.com] and built-in system accounts such as NT Authority\System are not supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +172,7 @@ Administrator login for the target machines.
 **`AdminPassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
+Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines such as `$(passwordVariable)`. <br>You may mark the variable as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +183,7 @@ Password for administrator login for the target machines. <br>It can accept a va
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
+Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines, such as `$(passwordVariable)`. <br>You may mark the variable as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,7 +195,7 @@ Password for administrator login for the target machines. <br>It can accept a va
 **`TargetPath`** - **Destination Folder**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Local Path on the target machines or an accessible UNC path for copying the files from the source like d:\fabrikam or \\\\fabrikam\Web.
+Local Path on the target machines or an accessible UNC path for copying the files from the source, like `d:\fabrikam` or `\\fabrikam\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +207,7 @@ Local Path on the target machines or an accessible UNC path for copying the file
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will clean the destination folder before copying the files.
+Set this option to delete all the files in the target folder before copying the new files to it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +219,7 @@ Selecting it will clean the destination folder before copying the files.
 **`CopyFilesInParallel`** - **Copy Files in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will copy files in parallel to the machines.
+Set this option to copy files to all the target machines in parallel, which can speed up the copying process.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +231,7 @@ Selecting it will copy files in parallel to the machines.
 **`AdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional robocopy arguments that will be applied when copying files like, /min:33553332 /l.
+Additional robocopy arguments that will be applied when copying files, like `/min:33553332 /l`.
 <!-- :::editable-content-end::: -->
 <br>
 

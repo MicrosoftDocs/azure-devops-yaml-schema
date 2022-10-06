@@ -80,7 +80,7 @@ Update Function Apps with Docker containers.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Selects the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`appName`** - **App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed.
+Name of the Function App for Containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,7 @@ Enter or Select the name of an existing Azure App Service. App services based on
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
+Set to true to deploy to an existing deployment slot or Azure App Service Environment. For both the targets, the task needs a Resource Group name. For the deployment slot option, the default is to deploy to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service environment, leave the slot name as **production** and just specify the Resource Group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,7 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+Name of the Resource Group containing the Function App for Containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ The Resource group name is required when the deployment target is either a deplo
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Enters or selects an existing slot other than the **production** slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,8 @@ Enter or Select an existing Slot other than the Production slot.
 **`imageName`** - **Image name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry or namespace.<br/> Note: Fully qualified image name will be of the format: '<b>`<registry or namespace`></b>/`<repository`>:`<tag`>'. For example, '<b>myregistry.azurecr.io</b>/nginx:latest'.
+A globally unique top-level domain name for your specific registry or namespace.
+Note: A fully qualified image name will be of the format: `<registry or namespace>` `<repository>` `<tag>`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +153,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
+Startup command to be executed after deployment. For example: `dotnet run` `dotnet filename.dll.`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +165,8 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Application settings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes.
+Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Standard Time`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +178,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Configuration strings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 <!-- :::editable-content-end::: -->
 <br>
 

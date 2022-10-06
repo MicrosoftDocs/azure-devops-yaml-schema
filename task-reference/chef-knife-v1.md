@@ -80,7 +80,7 @@ This task is deprecated.
 **`ConnectedServiceName`** - **Chef Subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chef subscription to configure before running knife commands.
+The Chef subscription to configure before running knife commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ Chef subscription to configure before running knife commands.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script. Should be fully qualified path or relative to the default working directory.
+The path of the script. This should be fully qualified path or a relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,7 @@ Path of the script. Should be fully qualified path or relative to the default wo
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional parameters to pass to Script.  Can be either ordinal or named parameters.
+Optional. The additional parameters to pass to the script. Can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
 <br>
 

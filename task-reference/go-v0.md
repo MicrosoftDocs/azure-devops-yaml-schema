@@ -46,7 +46,7 @@ Get, build, or test a Go application, or run a custom Go command.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `get`, `build`, `test`, `custom`. Default value: `get`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Go command to run. Select 'Custom' to use a command not listed here.
+Selects a Go command to run. Select `Custom` to use a command not listed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -58,7 +58,7 @@ Select a Go command to run. Select 'Custom' to use a command not listed here.
 **`customCommand`** - **Custom command**<br>
 `string`. Required when `command == custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A custom Go command to execute. For example, to execute 'go version', enter 'version'.
+A custom Go command to execute. For example, to execute `go version`, enter `version`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ A custom Go command to execute. For example, to execute 'go version', enter 'ver
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional arguments to the selected command. For example, build-time arguments for the 'go build' command.
+The optional arguments to the selected command. For example, build-time arguments for the `go build` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ Optional arguments to the selected command. For example, build-time arguments fo
 **`workingDirectory`** - **Working directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of '$(System.DefaultWorkingDirectory)'.
+The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 

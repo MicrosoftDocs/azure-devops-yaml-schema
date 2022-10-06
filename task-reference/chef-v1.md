@@ -57,7 +57,7 @@ This task is deprecated.
 **`connectedServiceName`** - **Chef Service Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Chef subscription service connection.
+The name of the Chef subscription service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ Name of the Chef subscription service connection.
 **`connectedServiceName`** - **Chef Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Chef subscription service connection.
+The name of the Chef subscription service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -80,7 +80,7 @@ Name of the Chef subscription service connection.
 **`Environment`** - **Environment**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Chef Environment to be used for Deployment. The attributes of that environment will be edited.
+The name of the Chef environment to be used for deployment. The attributes of that environment will be edited.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ Name of the Chef Environment to be used for Deployment. The attributes of that e
 **`Attributes`** - **Environment Attributes**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the value of the leaf node attribute(s) to be updated. Example. { "default_attributes.connectionString" : "$(connectionString)", "override_attributes.buildLocation" : "https://sample.blob.core.windows.net/build" }. Task fails if the leaf node does not exist.
+Specifies the value of the leaf node attribute(s) to be updated. Example: `{ "default_attributes.connectionString" : "$(connectionString)", "override_attributes.buildLocation" : "https://sample.blob.core.windows.net/build" }`. The task fails if the leaf node does not exist.
 <!-- :::editable-content-end::: -->
 <br>
 

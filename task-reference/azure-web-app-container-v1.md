@@ -52,7 +52,7 @@ Deploy containers to Azure App Service.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Name of the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -76,7 +76,7 @@ Enter or Select the name of an existing Azure App Service. App services based on
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
+Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, the default is to deploy to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ Path of the Docker-Compose file. Should be a fully qualified path or relative to
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
+Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : `-Port 5000 -RequestTimeout 5000` <br /> `-WEBSITE_TIME_ZONE "Eastern Standard Time"`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> **Example** : `-phpVersion 5.6 -linuxFxVersion: node|6.11`
 <!-- :::editable-content-end::: -->
 <br>
 

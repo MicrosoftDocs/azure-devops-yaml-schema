@@ -114,9 +114,9 @@ Select or enter the load balancer.
 **`Action`** - **Action**<br>
 `string`. Required. Allowed values: `Disconnect` (Disconnect Primary Network Interface), `Connect` (Connect Primary Network Interface).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Disconnect:  Removes the virtual machine’s primary network interface from the load balancer’s backend pool. So that it stops receiving network traffic.
+**Disconnect:**  Removes the virtual machine’s primary network interface from the load balancer’s backend pool, so it stops receiving network traffic.
 
-Connect: Adds the virtual machine’s primary network interface to load balancer backend pool. So that it starts receiving network traffic based on the load balancing rules for the load balancer resource.
+**Connect:** Adds the virtual machine’s primary network interface to load balancer backend pool, so it starts receiving network traffic based on the load balancing rules for the load balancer resource.
 <!-- :::editable-content-end::: -->
 <br>
 

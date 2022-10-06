@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 09/26/2022
+ms.date: 10/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -128,21 +128,10 @@ Acquires a specific version of Java from a user supplied Azure blob or the tools
 ## Inputs
 
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **JDK version**<br>
 `string`. Required. Default value: `8`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-A number that specifies the JDK version to make available on the path. Use a whole number version, such as 10.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2018"
-
-**`versionSpec`** - **JDK version**<br>
-`string`. Required. Default value: `1.8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A number that specifies the JDK version to make available on the path. Use a whole number version, such as 10.
 <!-- :::editable-content-end::: -->
@@ -168,7 +157,7 @@ The architecture (x86, x64) of the JDK.
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory), `PreInstalled` (Pre-installed).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Source for the compressed JDK.
+Specify the source for the compressed JDK, either Azure blob storage or a local directory on the agent or source repository or use the pre-installed version of Java (available for Microsoft-hosted agents). Please see example below about how to use pre-installed version of Java.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +168,7 @@ Source for the compressed JDK.
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Source for the compressed JDK.
+Specify the source for the compressed JDK, either Azure blob storage or a local directory on the agent or source repository or use the pre-installed version of Java (available for Microsoft-hosted agents). Please see example below about how to use pre-installed version of Java.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +180,7 @@ Source for the compressed JDK.
 **`jdkFile`** - **JDK file**<br>
 `string`. Required when `jdkSourceOption == LocalDirectory`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to where the compressed JDK is located. The path could be in your source repository or a local path on the agent.
+Specify the path to the jdk archive file that contains the compressed JDK. The path could be in your source repository or a local path on the agent. The file should be an archive (.zip, .tar.gz, .7z), containing bin folder either on the root level or inside a single directory. For macOS - there's support of .pkg and .dmg files containing only one .pkg file inside.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -134,7 +134,7 @@ Index your source code and publish symbols to a file share or Visual Studio Team
 **`SymbolsFolder`** - **Path to symbols folder**<br>
 `string`. Default value: `$(Build.SourcesDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the folder that is searched for symbol files.  The default is $(Build.SourcesDirectory).  Otherwise specify a rooted path, for example: $(Build.BinariesDirectory)/MyProject.
+The path to the folder that is searched for symbol files.  The default is $(Build.SourcesDirectory).  Otherwise specify a rooted path, for example: $(Build.BinariesDirectory)/MyProject. Note that UNC paths aren't supported if you select the Azure Artifacts symbol server as the server type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ The pattern used to discover the pdb files to publish.
 **`IndexSources`** - **Index sources**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to inject source server information into the PDB files.
+Indicates whether to inject source server information into the PDB files. This option is only supported on Windows agents.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +182,7 @@ Indicates whether to publish the symbol files.
 **`SymbolServerType`** - **Symbol server type**<br>
 `string`. Required when `PublishSymbols = true`. Allowed values: `TeamServices` (Symbol Server in this organization/collection (requires Azure Artifacts)), `FileShare` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the "File share" option. Follow [these instructions](https://go.microsoft.com/fwlink/?linkid=846265) to use Symbol Server in Azure Artifacts.
+Choose where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the "File share" option. Follow [these instructions](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +193,7 @@ Choose where to publish symbols. Symbols published to the Azure Artifacts symbol
 **`SymbolServerType`** - **Symbol server type**<br>
 `string`. Required when `PublishSymbols = true`. Allowed values: `TeamServices` (Symbol Server in this account/collection (requires Package Management)), `FileShare` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the "File share" option. Follow [these instructions](https://go.microsoft.com/fwlink/?linkid=846265) to use Symbol Server in Azure Artifacts.
+Choose where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the "File share" option. Follow [these instructions](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,6 +206,12 @@ Choose where to publish symbols. Symbols published to the Azure Artifacts symbol
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = FileShare`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file share that hosts your symbols. This value will be used in the call to `symstore.exe add` as the `/s` parameter.
+To prepare your SymStore symbol store:
+
+1. Set up a folder on a file-sharing server to store the symbols. For example, set up \fabrikam-share\symbols.
+1. Grant full control permission to the [build agent service account](/azure/devops/pipelines/agents/agents#account).
+
+If you leave this argument blank, your symbols will be source indexed but not published. (You can also store your symbols with your drops. [See Publish Build Artifacts](/azure/devops/pipelines/tasks/utility/publish-build-artifacts)).
 <!-- :::editable-content-end::: -->
 <br>
 

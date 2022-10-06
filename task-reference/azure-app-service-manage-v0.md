@@ -137,7 +137,7 @@ Start, Stop, Restart, Slot swap, Install site extensions or Enable Continuous Mo
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription.
+Selects the Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +149,7 @@ Select the Azure Resource Manager subscription.
 **`Action`** - **Action**<br>
 `string`. Allowed values: `Swap Slots`, `Start Azure App Service` (Start App Service), `Stop Azure App Service` (Stop App Service), `Restart Azure App Service` (Restart App Service), `Start Swap With Preview`, `Complete Swap` (Complete Swap With Preview), `Cancel Swap` (Cancel Swap With Preview), `Delete Slot`, `Install Extensions`, `Enable Continuous Monitoring`, `Start all continuous webjobs`, `Stop all continuous webjobs`. Default value: `Swap Slots`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Action to be performed on the App Service. You can Start, Stop, Restart, Slot swap, Install site extensions or enable Continuous Monitoring for an Azure App Service.
+Optional. The action to be performed on the App Service. You can start, stop, restart, slot swap, start swap with a preview, complete swap with a preview, cancel swap with a preview, install site extensions, or enable continuous monitoring for an Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Action to be performed on the App Service. You can Start, Stop, Restart, Slot sw
 **`Action`** - **Action**<br>
 `string`. Allowed values: `Swap Slots`, `Start Azure App Service` (Start App Service), `Stop Azure App Service` (Stop App Service), `Restart Azure App Service` (Restart App Service), `Install Extensions`, `Enable Continuous Monitoring`, `Start all continuous webjobs`, `Stop all continuous webjobs`. Default value: `Swap Slots`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Action to be performed on the App Service. You can Start, Stop, Restart, Slot swap, Install site extensions or enable Continuous Monitoring for an Azure App Service.
+Optional. The action to be performed on the App Service. You can start, stop, restart, slot swap, start swap with a preview, complete swap with a preview, cancel swap with a preview, install site extensions, or enable continuous monitoring for an Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -172,7 +172,7 @@ Action to be performed on the App Service. You can Start, Stop, Restart, Slot sw
 **`WebAppName`** - **App Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or select the name of an existing Azure App Service.
+Enters or selects the name of an existing Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,7 +205,7 @@ Input alias: `SpecifySlot`. `boolean`. Optional. Use when `Action != Swap Slots`
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `Action = Swap Slots || Action = Delete Slot || SpecifySlot = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the Azure Resource Group that contains the Azure App Service specified above.
+Enters or selects the Azure Resource Group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +216,7 @@ Enter or Select the Azure Resource Group that contains the Azure App Service spe
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `Action = Swap Slots || SpecifySlot = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the Azure Resource Group that contains the Azure App Service specified above.
+Enters or selects the Azure Resource Group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +228,7 @@ Enter or Select the Azure Resource Group that contains the Azure App Service spe
 **`SourceSlot`** - **Source Slot**<br>
 `string`. Required when `Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The swap action directs destination slot's traffic to the source slot.
+Used as source slot when `action == Swap Slots`. The swap action directs destination slot's traffic to the source slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -239,7 +239,7 @@ The swap action directs destination slot's traffic to the source slot.
 **`SourceSlot`** - **Source Slot**<br>
 `string`. Required when `Action = Swap Slots`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The swap action directs destination slot's traffic to the source slot.
+Used as the source slot when `action == Swap Slots`. The swap action directs destination slot's traffic to the source slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -251,7 +251,7 @@ The swap action directs destination slot's traffic to the source slot.
 **`SwapWithProduction`** - **Swap with Production**<br>
 `boolean`. Optional. Use when `Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to swap the traffic of source slot with production. If this option is not selected, then you will have to provide source and target slot names.
+Selects the option to swap the traffic of source slot with production. If this option is not selected, then you will have to provide source and target slot names.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +262,7 @@ Select the option to swap the traffic of source slot with production. If this op
 **`SwapWithProduction`** - **Swap with Production**<br>
 `boolean`. Optional. Use when `Action = Swap Slots`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to swap the traffic of source slot with production. If this option is not selected, then you will have to provide source and target slot names.
+Selects the option to swap the traffic of source slot with production. If this option is not selected, then you will have to provide source and target slot names.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -274,7 +274,7 @@ Select the option to swap the traffic of source slot with production. If this op
 **`TargetSlot`** - **Target Slot**<br>
 `string`. Required when `SwapWithProduction = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The swap action directs destination slot's traffic to the source slot.
+Used as the destination slot when `action == Swap Slots`. The swap action directs the destination slot's traffic to the source slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -285,7 +285,7 @@ The swap action directs destination slot's traffic to the source slot.
 **`TargetSlot`** - **Target Slot**<br>
 `string`. Required when `Action = Swap Slots && SwapWithProduction = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The swap action directs destination slot's traffic to the source slot.
+Used as the destination slot when `action == Swap Slots`. The swap action directs the destination slot's traffic to the source slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -297,7 +297,7 @@ The swap action directs destination slot's traffic to the source slot.
 **`PreserveVnet`** - **Preserve Vnet**<br>
 `boolean`. Optional. Use when `Action = Swap Slots || Action = Start Swap With Preview || Action = Complete Swap`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Preserve the Virtual network settings.
+Preserves the virtual network settings.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +308,7 @@ Preserve the Virtual network settings.
 **`PreserveVnet`** - **Preserve Vnet**<br>
 `boolean`. Optional. Use when `Action = Swap Slots`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Preserve the Virtual network settings.
+Preserve the virtual network settings.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -351,7 +351,7 @@ Preserve the Virtual network settings.
 **`ExtensionsList`** - **Install Extensions**<br>
 `string`. Required when `Action = Install Extensions`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Site Extensions run on Microsoft Azure App Service. You can install set of tools as site extension and better manage your Azure App Service. The  App Service will be restarted to make sure latest changes take effect.
+Site Extensions run on Microsoft Azure App Service. You can install a set of tools as a site extension and better manage your Azure App Service. The App Service will restart for the latest changes take effect.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -362,7 +362,7 @@ Site Extensions run on Microsoft Azure App Service. You can install set of tools
 **`ExtensionsList`** - **Install Extensions**<br>
 `string`. Required when `Action = Install Extensions`. Allowed values: `Microsoft.ApplicationInsights.AzureWebSites` (Application Insights), `ComposerExtension` (Composer), `python2712x64` (Python 2.7.12 x64), `python2712x86` (Python 2.7.12 x86), `python2713x64` (Python 2.7.13 x64), `python2713x86` (Python 2.7.13 x86), `python353x64` (Python 3.5.3 x64), `python353x86` (Python 3.5.3 x86), `python360x86` (Python 3.6.0 x86), `python360x64` (Python 3.6.0 x64), `python361x86` (Python 3.6.1 x86), `python361x64` (Python 3.6.1 x64).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Site Extensions run on Microsoft Azure App Service. You can install set of tools as site extension and better manage your Azure App Service. The  App Service will be restarted to make sure latest changes take effect.
+Site Extensions run on Microsoft Azure App Service. You can install a set of tools as a site extension and better manage your Azure App Service. The App Service will restart for the latest changes take effect.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -374,7 +374,9 @@ Site Extensions run on Microsoft Azure App Service. You can install set of tools
 **`OutputVariable`** - **Output variable**<br>
 `string`. Optional. Use when `Action = Install Extensions`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the variable name for the local installation path for the selected extension.<br/>This field is now deprecated and would be removed. Use LocalPathsForInstalledExtensions variable from Output Variables section in subsequent tasks.
+Provides the variable name for the local installation path for the selected extension.
+
+This field is now deprecated and will be removed. Use the `LocalPathsForInstalledExtensions` variable from the Output Variables section in subsequent tasks.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -386,7 +388,7 @@ Provide the variable name for the local installation path for the selected exten
 **`AppInsightsResourceGroupName`** - **Resource Group name for Application Insights**<br>
 `string`. Required when `Action == Enable Continuous Monitoring`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select resource group where your application insights resource is available.
+Enters or selects the resource group where your application insights resource is available.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -398,7 +400,9 @@ Enter or Select resource group where your application insights resource is avail
 **`ApplicationInsightsResourceName`** - **Application Insights resource name**<br>
 `string`. Required when `Action == Enable Continuous Monitoring`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select Application Insights resource where continuous monitoring data will be recorded. <br/>If your application insights resource is not listed here and you want to create a new resource, click on [+New] button. Once the resource is created on Azure Portal, come back here and click on refresh button.
+Selects the Application Insights resource where continuous monitoring data will be recorded.
+
+If your application insights resource is not listed here and you want to create a new resource, click on the `[+New]` button. Once the resource is created on Azure Portal, come back here and click on the refresh button.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -410,7 +414,9 @@ Select Application Insights resource where continuous monitoring data will be re
 **`ApplicationInsightsWebTestName`** - **Application Insights web test name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter Application Insights Web Test name to be created or updated. <br/>If not provided, the default test name will be used.
+Optional. Enters the Application Insights web test name to be created or updated.
+
+If a web test name is not provided, the default test name will be used.
 <!-- :::editable-content-end::: -->
 <br>
 

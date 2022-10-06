@@ -96,7 +96,7 @@ Build an Android app with Xamarin.
 **`projectFile`** - **Project**<br>
 Input alias: `project`. `string`. Required. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).  For example, `**/*.csproj` for all csproj files in all subfolders.  The project must have a PackageForAndroid target if `Create App Package` is selected.
+Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards can be used, for more information see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).  For example, `**/*.csproj` for all csproj files in all subfolders.  The project must have a PackageForAndroid target if `Create App Package` is selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Build these targets in this project. Use a semicolon to separate multiple target
 **`outputDirectory`** - **Output directory**<br>
 Input alias: `outputDir`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally provide the output directory for the build. Example: $(build.binariesDirectory)/bin/Release.
+Optionally provide the output directory for the build. Example: **$(build.binariesDirectory)\/bin\/Release**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,6 +132,9 @@ Optionally provide the output directory for the build. Example: $(build.binaries
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify the configuration you want to build such as `debug` or `release`.
+
+Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +146,7 @@ Optionally provide the output directory for the build. Example: $(build.binaries
 **`createAppPackage`** - **Create app package**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the target (/t:PackageForAndroid) during build to generate an APK.
+Passes the target (\/t:PackageForAndroid) during build to generate an APK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,7 +158,7 @@ Passes the target (/t:PackageForAndroid) during build to generate an APK.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the clean target (/t:clean) during build.
+Passes the clean target (\/t:clean) during build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,6 +170,7 @@ Passes the clean target (/t:clean) during build.
 **`msbuildLocationOption`** - **MSBuild**<br>
 Input alias: `msbuildLocationMethod`. `string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Path to MSBuild (on Windows) or xbuild (on macOS). Default behavior is to search for the latest version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +182,7 @@ Input alias: `msbuildLocationMethod`. `string`. Allowed values: `version`, `loca
 **`msbuildVersionOption`** - **MSBuild version**<br>
 Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
+If the preferred version isn't found, the latest version is used. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +205,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildFile`** - **MSBuild location**<br>
 Input alias: `msbuildLocation`. `string`. Required when `msbuildLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to MSBuild (on Windows) or xbuild (on macOS).
+Optionally, supply the path to MSBuild (on Windows) or xbuild (on macOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +217,7 @@ Optionally supply the path to MSBuild (on Windows) or xbuild (on macOS).
 **`msbuildArchitectureOption`** - **MSBuild architecture**<br>
 Input alias: `msbuildArchitecture`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the architecture (x86, x64) of MSBuild to run.
+Optionally, supply the architecture (x86, x64) of the MSBuild you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -237,7 +241,7 @@ Additional arguments passed to MSBuild (on Windows) or xbuild (on macOS).
 **`jdkOption`** - **Select JDK to use for the build**<br>
 Input alias: `jdkSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pick the JDK to be used during the build by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
+Select the JDK to use during the build by selecting a JDK version that will be discovered during builds or, manually enter a JDK path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -249,7 +253,7 @@ Pick the JDK to be used during the build by selecting a JDK version that will be
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the selected JDK version during build.
+Use the selected JDK version during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +264,7 @@ Use the selected JDK version during build.
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the selected JDK version during build.
+Use the selected JDK version during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +276,7 @@ Use the selected JDK version during build.
 **`jdkDirectory`** - **JDK path**<br>
 Input alias: `jdkUserInputPath`. `string`. Required when `jdkSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the JDK version at specified path during build.
+Use the JDK version at specified path during the build.
 <!-- :::editable-content-end::: -->
 <br>
 

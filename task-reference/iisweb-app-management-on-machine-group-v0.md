@@ -320,7 +320,7 @@ Provide the user name that will be used to access the website's physical path.
 **`WebsiteAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user's password that will be used to access the website's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Provide the user's password that will be used to access the website's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +380,7 @@ Provide the port, where the Hypertext Transfer Protocol Stack (HTTP.sys) will li
 **`ServerNameIndication`** - **Server Name Indication required**<br>
 `boolean`. Optional. Use when `IISDeploymentType = randomDeployment`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to set the Server Name Indication (SNI) for the website. <br>SNI extends the SSL and TLS protocols to indicate the host name that the clients are attempting to connect to. It allows, multiple secure websites with different certificates, to use the same IP address.<br>.
+Select the option to set the Server Name Indication (SNI) for the website. <br>SNI extends the SSL and TLS protocols to indicate the host name that the clients are attempting to connect to. It allows, multiple secure websites with different certificates, to use the same IP address.<br>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -392,7 +392,7 @@ Select the option to set the Server Name Indication (SNI) for the website. <br>S
 **`HostNameWithOutSNI`** - **Host name**<br>
 `string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
+Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -404,7 +404,7 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 **`HostNameWithHttp`** - **Host name**<br>
 `string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
+Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -416,7 +416,7 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 **`HostNameWithSNI`** - **Host name**<br>
 `string`. Required when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
+Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -488,7 +488,7 @@ Provide the name of the IIS application pool to create or update.
 **`DotNetVersionForWebsite`** - **.NET version**<br>
 `string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
+Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -536,7 +536,7 @@ Provide the username of the custom account that you want to use.
 **`AppPoolPasswordForWebsite`** - **Password**<br>
 `string`. Optional. Use when `AppPoolIdentityForWebsite = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -646,7 +646,7 @@ Provide the user name that will be used to access the virtual directory's physic
 **`VDAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user's password that will be used to access the virtual directory's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Provide the user's password that will be used to access the virtual directory's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -720,7 +720,7 @@ Provide the user name that will be used to access the application's physical pat
 **`ApplicationAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user's password that will be used to access the application's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Provide the user's password that will be used to access the application's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -804,7 +804,7 @@ Provide the username of the custom account that you want to use.
 **`AppPoolPasswordForApplication`** - **Password**<br>
 `string`. Optional. Use when `AppPoolIdentityForApplication = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -828,7 +828,7 @@ Provide the name of the IIS application pool to create or update.
 **`DotNetVersion`** - **.NET version**<br>
 `string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
+Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -876,7 +876,7 @@ Provide the username of the custom account that you want to use.
 **`AppPoolPassword`** - **Password**<br>
 `string`. Optional. Use when `AppPoolIdentity = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
