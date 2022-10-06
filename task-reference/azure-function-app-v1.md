@@ -232,7 +232,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment. 
 
-Enter or select the Azure Resource group that contains the Azure App Service specified above.
+Enters or selects the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
