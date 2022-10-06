@@ -214,7 +214,7 @@ Enters or selects the name of an existing Azure Functions App. The Function Apps
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Optional. Use when `appType != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Deploys to an existing deployment slot or Azure App Service Environment. For both the targets, the task needs a Resource group name.
+Deploys to an existing deployment slot or Azure App Service Environment. For both targets, the task needs a Resource group name.
 
 If the deployment target is a slot, it will default to the **production** slot. Any other existing slot name can also be provided.
 
@@ -290,7 +290,7 @@ Learn about [supported runtime versions](/azure/azure-functions/functions-versio
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the dropdown menu.
+Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values, like `DOCKER|microsoft/azure-functions-*`, are deprecated. New values are listed in the dropdown menu.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -304,7 +304,8 @@ Learn about [supported runtime versions](/azure/azure-functions/functions-versio
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enters the start up command. For example:
 
-`dotnet run`<br/>`dotnet filename.dll`
+`dotnet run`  
+`dotnet filename.dll`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -316,7 +317,7 @@ Enters the start up command. For example:
 **`customWebConfig`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`. Optional. Use when `appType != functionAppLinux && package NotEndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config vary based on the application framework and they can be edited. For example, for the node.js application, web.config will have a startup file and iis_node module values. This edit feature is only for the [generated web.config](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureRmWebAppDeploymentV4/README.md#parameters-of-the-task).
+A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config vary based on the application framework, and they can be edited. For example, for the node.js application, web.config will have a startup file and iis_node module values. This edit feature is only for the [generated web.config](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureRmWebAppDeploymentV4/README.md#parameters-of-the-task).
 <!-- :::editable-content-end::: -->
 <br>
 
