@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Distribute app builds to testers and users via Visual Studio App Center.
+Use this task to distribute app builds to testers and users via Visual Studio App Center.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -56,7 +56,7 @@ Distribute app builds to testers and users via Visual Studio App Center.
 **`serverEndpoint`** - **App Center service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for Visual Studio App Center. To create one, click the Manage link and create a new service connection.
+Selects the service connection for Visual Studio App Center. To create one, click the Manage link and create a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ Select the service connection for Visual Studio App Center. To create one, click
 **`appSlug`** - **App slug**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The app slug is in the format of **{username}/{app_identifier}**.  To locate **{username}** and **{app_identifier}** for an app, click on its name from https://appcenter.ms/apps, and the resulting URL is in the format of [https://appcenter.ms/users/<b>{username}</b>/apps/<b>{app_identifier}</b>](https://appcenter.ms/users/{username}/apps/{app_identifier}). If you are using orgs, the app slug is of the format **{orgname}/{app_identifier}**.
+The app slug is in the format of `{username}/{app_identifier}`.  To locate `{username}` and `{app_identifier}` for an app, click on its name from [App Center](https://appcenter.ms/apps), and the resulting URL is in the format of [https://appcenter.ms/users/**{username}**/apps/**{app_identifier}**](https://appcenter.ms/users/{username}/apps/{app_identifier}). If you are using orgs, the app slug is of the format `{orgname}/{app_identifier}`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -80,7 +80,7 @@ The app slug is in the format of **{username}/{app_identifier}**.  To locate **{
 **`appFile`** - **Binary file path**<br>
 Input alias: `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK or IPA file you want to publish.
+The relative path from the repo root to the APK or IPA file you want to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ Relative path from the repo root to the APK or IPA file you want to publish.
 **`symbolsOption`** - **Symbols type**<br>
 Input alias: `symbolsType`. `string`. Allowed values: `Apple`. Default value: `Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include symbol files to receive symbolicated stack traces in App Center Diagnostics.
+Includes symbol files to receive symbolicated stack traces in App Center Diagnostics.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,7 @@ Include symbol files to receive symbolicated stack traces in App Center Diagnost
 **`symbolsPath`** - **Symbols path**<br>
 `string`. Optional. Use when `symbolsType == AndroidNative || symbolsType = Windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the symbols folder.
+The relative path from the repo root to the symbols folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,7 @@ Relative path from the repo root to the symbols folder.
 **`symbolsPdbFiles`** - **Symbols path (*.pdb)**<br>
 Input alias: `pdbPath`. `string`. Optional. Use when `symbolsType = UWP`. Default value: `**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to PDB symbols files. Path may contain wildcards.
+The relative path from the repo root to PDB symbols files. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ Relative path from the repo root to PDB symbols files. Path may contain wildcard
 **`symbolsDsymFiles`** - **dSYM path**<br>
 Input alias: `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to dSYM folder. Path may contain wildcards.
+The relative path from the repo root to dSYM folder. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,7 @@ Relative path from the repo root to dSYM folder. Path may contain wildcards.
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
 Input alias: `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to Android's mapping.txt file.
+The relative path from the repo root to Android's `mapping.txt` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +152,7 @@ Relative path from the repo root to Android's mapping.txt file.
 **`symbolsIncludeParentDirectory`** - **Include all items in parent folder**<br>
 Input alias: `packParentFolder`. `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Upload the selected symbols file or folder and all other items inside the same parent folder. This is required for React Native apps.
+Uploads the selected symbols file or folder and all other items inside the same parent folder. This is required for React Native apps.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ Upload the selected symbols file or folder and all other items inside the same p
 **`releaseNotesOption`** - **Create release notes**<br>
 Input alias: `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Release notes will be attached to the release and shown to testers on the installation page.
+Release notes are attached to the release and shown to testers on the installation page.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ Release notes will be attached to the release and shown to testers on the instal
 **`releaseNotesInput`** - **Release notes**<br>
 `string`. Required when `releaseNotesSelection = input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Release notes for this version.
+The release notes for this version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +188,7 @@ Release notes for this version.
 **`releaseNotesFile`** - **Release notes file**<br>
 `string`. Required when `releaseNotesSelection = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a UTF-8 encoded text file which contains the Release Notes for this version.
+Selects a UTF-8 encoded text file which contains the release notes for this version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +200,7 @@ Select a UTF-8 encoded text file which contains the Release Notes for this versi
 **`isMandatory`** - **Require users to update to this release**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-App Center Distribute SDK required to mandate update. Testers will automatically be prompted to update.
+The App Center Distribute SDK required to mandate update. Testers are automatically prompted to update.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +212,7 @@ App Center Distribute SDK required to mandate update. Testers will automatically
 **`distributionGroupId`** - **Destination IDs**<br>
 Input alias: `destinationIds | destinationId`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-ID of the distribution group or store the app will deploy to. Leave it empty to use the default group.
+The ID of the distribution group or store the app  deploys to. Leave it empty to use the default group.
 <!-- :::editable-content-end::: -->
 <br>
 
