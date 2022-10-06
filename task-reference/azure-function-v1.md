@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Invoke an Azure Function from an agentless job in your pipeline.
+Use this task in an agentless job of a release pipeline to invoke an HTTP triggered function in a function app that is created and hosted in Azure Functions and parse the response.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -80,7 +80,7 @@ Invoke an Azure Function from an agentless job in your pipeline.
 **`function`** - **Azure function URL**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-URL of the Azure function that needs to be invoked​. Example:- https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1.
+The URL of the Azure function to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +91,7 @@ URL of the Azure function that needs to be invoked​. Example:- https://azurefu
 **`function`** - **Azure function url**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-URL of the Azure function that needs to be invoked​. Example:- https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1.
+The URL of the Azure function to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +103,7 @@ URL of the Azure function that needs to be invoked​. Example:- https://azurefu
 **`key`** - **Function key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Function or Host key with which to access this function. To keep the key secure, define a secret variable and use it here. Example: - $(myFunctionKey) where myFunctionKey is a secret pipeline variable with a value of the secret key, like `ZxPXnIEODXLRzYwCw1TgZ4osMfoKs9Zn6se6X/N0FnztfDvZbdOmYw==`.
+The function or the host key used to access and invoke the function. To keep the key secure, use a secret pipeline variable to store the function key. Example: `$(myFunctionKey)`. `myFunctionKey` is an environment-level secret variable with a value as the secret key, such as `ZxPXnIEODXLRzYwCw1TgZ4osMfoKs9Zn6se6X/N0FnztfDvZbdOmYw==`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,7 @@ Function or Host key with which to access this function. To keep the key secure,
 **`method`** - **Method**<br>
 `string`. Required. Allowed values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`. Default value: `POST`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the HTTP method with which the function should be invoked.
+The HTTP method with which the function will be invoked.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -127,7 +127,7 @@ Select the HTTP method with which the function should be invoked.
 **`headers`** - **Headers**<br>
 `string`. Default value: `{\n"Content-Type":"application/json", \n"PlanUrl": "$(system.CollectionUri)", \n"ProjectId": "$(system.TeamProjectId)", \n"HubName": "$(system.HostType)", \n"PlanId": "$(system.PlanId)", \n"JobId": "$(system.JobId)", \n"TimelineId": "$(system.TimelineId)", \n"TaskInstanceId": "$(system.TaskInstanceId)", \n"AuthToken": "$(system.AccessToken)"\n}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Define a header in JSON format. The header shall be attached to the request that is sent.
+The header in JSON format to be attached to the request sent to the function.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -139,7 +139,7 @@ Define a header in JSON format. The header shall be attached to the request that
 **`queryParameters`** - **Query parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Query parameters string to append to the function URL. It should not start with with "?" nor "&".
+The string query to append to the function URL. Must not start with `?` or `&`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -151,7 +151,7 @@ Query parameters string to append to the function URL. It should not start with 
 **`body`** - **Body**<br>
 `string`. Optional. Use when `method != GET && method != HEAD`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-JSON-formatted message body for the request.
+The request body in JSON format.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -163,10 +163,10 @@ JSON-formatted message body for the request.
 **`waitForCompletion`** - **Completion event**<br>
 `string`. Required. Allowed values: `true` (Callback), `false` (ApiResponse). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use `true` in YAML to represent **Callback**, and `false` for **ApiResponse**.
+How the task reports completion.
 
-* `false` (**ApiResponse**) - The function returns success and success criteria evaluates to true. This is the default if no value is specified for this input.
-* `true` (**Callback**) - The function makes a callback to update the timeline record.
+- **`false` - API response** - the function returns success and success criteria evaluates to true.
+- **`true` - Callback** - the function makes a callback to update the timeline record.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +178,9 @@ Use `true` in YAML to represent **Callback**, and `false` for **ApiResponse**.
 **`successCriteria`** - **Success criteria**<br>
 `string`. Optional. Use when `waitForCompletion = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Criteria which defines when to pass the task. No criteria means the response content does not influence the result. Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. [More information](/azure/devops/pipelines/process/conditions)​.
+The criteria for a successful task. By default, the task returns `200 OK` status when successful.
+
+Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions?view=azure-devops&tabs=yaml)​.
 <!-- :::editable-content-end::: -->
 <br>
 

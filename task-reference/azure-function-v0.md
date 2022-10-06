@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Invoke Azure function as a part of your process.
+Use this task in an agentless job of a release pipeline to invoke an HTTP triggered function in a function app that is created and hosted in Azure Functions and parse the response.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -60,7 +60,7 @@ Invoke Azure function as a part of your process.
 **`function`** - **Azure function url**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-URL of the Azure function that needs to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
+The URL of the Azure function to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -72,7 +72,7 @@ URL of the Azure function that needs to be invoked​. Example: `https://azurefu
 **`key`** - **Function key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Function or Host key used to access this function. To keep the key secure, define a secret variable and use the variable here. Example: `$(myFunctionKey)` where `myFunctionKey` is an environment level secret variable with value as the secret key like `ZxPXnIEODXLRzYwCw1TgZ4osMfoKs9Zn6se6X/N0FnztfDvZbdOmYw==`.
+The function or the host key used to access and invoke the function. To keep the key secure, use a secret pipeline variable to store the function key. Example: `$(myFunctionKey)`. `myFunctionKey` is an environment-level secret variable with a value as the secret key, such as `ZxPXnIEODXLRzYwCw1TgZ4osMfoKs9Zn6se6X/N0FnztfDvZbdOmYw==`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,7 @@ Function or Host key used to access this function. To keep the key secure, defin
 **`method`** - **Method**<br>
 `string`. Required. Allowed values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`. Default value: `POST`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The http method with which the function should be invoked.
+The HTTP method with which the function will be invoked.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +132,10 @@ The request body in JSON format.
 **`waitForCompletion`** - **Complete based on**<br>
 `string`. Required. Allowed values: `true` (Callback), `false` (ApiResponse). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call where the Azure function calls back to update the timeline record​.
+How the task reports completion.
+
+- **`false` - API response** - the function returns success and success criteria evaluates to true.
+- **`true` - Callback** - the function makes a callback to update the timeline record.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +147,9 @@ Default value "ApiResponse". Available values :  "ApiResponse", "Callback" call 
 **`successCriteria`** - **Success criteria**<br>
 `string`. Optional. Use when `waitForCompletion = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Criteria which defines when to pass the task. No criteria means response content does not influence the result. Example:- For response {"status" : "successful"}, the expression can be eq(root['status'], 'successful'). [More Information](https://go.microsoft.com/fwlink/?linkid=842996)​.
+The criteria for a successful task. By default, the task returns `200 OK` status when successful.
+
+Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions?view=azure-devops&tabs=yaml)​.
 <!-- :::editable-content-end::: -->
 <br>
 
