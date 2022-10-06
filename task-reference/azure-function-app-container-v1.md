@@ -104,7 +104,7 @@ The name of the Function App for Containers.
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set this task to `true` to deploy to an existing deployment slot or Azure App Service Environment. The task needs a Resource Group name for both targets. The deployment slot option default deploys to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service Environment, leave the slot name as **production** and specify the Resource Group name.
+Set this task to `true` to deploy to an existing deployment slot or Azure App Service Environment. The task needs a Resource Group name for both targets. For the deployment slot option, the default deploys to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service Environment, leave the slot name as **production** and specify the Resource Group name.
 <!-- :::editable-content-end::: -->
 <br>
 
