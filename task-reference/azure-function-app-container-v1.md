@@ -92,7 +92,7 @@ Selects the [Azure Resource Manager subscription](/azure/devops/pipelines/librar
 **`appName`** - **App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Function App for Containers.
+The name of the Function App for Containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,7 @@ Name of the Function App for Containers.
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set to true to deploy to an existing deployment slot or Azure App Service Environment. For both the targets, the task needs a Resource Group name. For the deployment slot option, the default is to deploy to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service environment, leave the slot name as **production** and just specify the Resource Group name.
+Set this task to `true` to deploy to an existing deployment slot or Azure App Service Environment. The task needs a Resource Group name for both targets. The deployment slot option default deploys to the **production** slot, or you can specify any other existing slot name. If the deployment target is an Azure App Service Environment, leave the slot name as **production** and specify the Resource Group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,7 @@ Set to true to deploy to an existing deployment slot or Azure App Service Enviro
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Resource Group containing the Function App for Containers.
+The name of the Resource Group that contains the Function App for Containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ Name of the Resource Group containing the Function App for Containers.
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing slot other than the **production** slot.
+Enters or selects an existing slot, excluding the **production** slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -141,7 +141,8 @@ Enters or selects an existing slot other than the **production** slot.
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A globally unique top-level domain name for your specific registry or namespace.
-Note: A fully qualified image name will be of the format: `<registry or namespace>` `<repository>` `<tag>`. For example, `myregistry.azurecr.io/nginx:latest`.
+
+*Note:* A fully qualified image name will be of the format: `<registry or namespace> <repository> <tag>`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,7 +154,7 @@ Note: A fully qualified image name will be of the format: `<registry or namespac
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Startup command to be executed after deployment. For example: `dotnet run` `dotnet filename.dll.`
+The startup command that executes after deployment. For example, `dotnet run` `dotnet filename.dll.`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -165,8 +166,7 @@ Startup command to be executed after deployment. For example: `dotnet run` `dotn
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Application settings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes.
-Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Standard Time`.
+Enter the application settings using the syntax `-key value` (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). Enclose values that contain spaces in double quotes (for example: `"Eastern Standard Time"`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +178,7 @@ Example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `Eastern Stand
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configuration strings to be entered using the syntax `-key value`. Values containing spaces should be enclosed in double quotes. Example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
+Enter the configuration strings using the syntax `-key value` (for example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`). Enclose values that contain spaces in double quotes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,7 +199,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="AppServiceApplicationUrl"::: -->
 **`AppServiceApplicationUrl`**<br><!-- :::editable-content name="Value"::: -->
-Application URL of the selected App Service.
+The application URL of the selected App Service.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
