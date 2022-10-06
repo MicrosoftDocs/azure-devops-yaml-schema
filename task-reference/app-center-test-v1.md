@@ -487,7 +487,7 @@ The app slug is in the format of `<username>/<app_identifier>`.  To locate the `
 **`devices`** - **Devices**<br>
 `string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The string that identifies what devices this test will run against.  Copy and paste this string when you define a new test run from the Visual Studio App Center Test beacon.
+Identifies the devices this test will run against.  Copy and paste this string when you define a new test run from the Visual Studio App Center Test beacon.
 <!-- :::editable-content-end::: -->
 <br>
 
