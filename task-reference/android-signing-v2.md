@@ -89,7 +89,7 @@ Signs the APK with a provided keystore file. Unsigned APKs can only run in an em
 **`jarsignerKeystoreFile`** - **Keystore file**<br>
 Input alias: `keystoreFile`. `string`. Required when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file path to the Android Keystore file that should be used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file will be used to sign the APK, but will be removed from the agent machine when the pipeline completes.
+The file path to the Android Keystore file that is used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file is removed from the agent machine when the pipeline completes.
 
 The file can either be checked into source control or placed on the build machine directly by an administrator. It is recommended to encrypt the keystore file in source control and use the `Decrypt File` task to decrypt the file during the build.
 <!-- :::editable-content-end::: -->
