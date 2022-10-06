@@ -121,7 +121,7 @@ An array of JSON objects that consist of the name and value for each secret. The
 **`env`** - **env**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-An array of JSON objects that consist of the name and value for each environment variable. The name should match the variable name used in the Apache JMeter test script. Add or update the environment variables using the json syntax as shown in the following example.
+An array of JSON objects that consist of the name and value for each environment variable. The name should match the variable name used in the Apache JMeter test script. Add or update the environment variables using the JSON syntax as shown in the following example.
 
 ```json
 [
