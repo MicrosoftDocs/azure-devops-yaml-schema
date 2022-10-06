@@ -72,7 +72,7 @@ Name of the root folder or file to archive.  For folders, everything in the name
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepends the root folder name to file paths within the archive.  Otherwise, all file paths will start one level lower.
 
-For example, if the root folder path is: `/home/user/output/classes/` and the file path: `com/acme/Main.class`. The resulting archive will contain: `classes/com/acme/Main.class`. Otherwise, the resulting archive will contain: `com/acme/Main.class`.
+For example, if the root folder path is: `/home/user/output/classes/` and the file path `com/acme/Main.class`. The resulting archive will contain `classes/com/acme/Main.class`. Otherwise, the resulting archive will contain `com/acme/Main.class`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,8 +88,8 @@ Specifies a compression format.
 
 For example, to create an archive named `foo.jar`:
 
-- Select compression format: `zip`
-- Specify the archive name: `foo.jar`  
+- Set compression format: `zip`
+- Set the archive name: `foo.jar`  
 
 For all tar files (including compressed ones), choose `tar`.
 <!-- :::editable-content-end::: -->
@@ -103,7 +103,7 @@ For all tar files (including compressed ones), choose `tar`.
 **`tarCompression`** - **Tar compression**<br>
 `string`. Optional. Use when `archiveType = tar`. Allowed values: `gz`, `bz2`, `xz`, `none`. Default value: `gz`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Select a compression scheme or `None` to create an uncompressed tar file.
+Selects a compression scheme or `none` to create an uncompressed tar file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,12 @@ Optional. Select a compression scheme or `None` to create an uncompressed tar fi
 **`archiveFile`** - **Archive file to create**<br>
 `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the archive file to create.  For example, to create <b>`foo.tgz`</b>, select the <b>`tar`</b> archive type and <b>`gz`</b> for tar compression.
+Specify the name of the archive file to create.  
+
+For example, to create `foo.tgz`:
+
+- Set archive type: `tar`
+- Set tar compression: `gz`
 <!-- :::editable-content-end::: -->
 <br>
 

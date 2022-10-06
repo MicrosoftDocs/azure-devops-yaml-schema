@@ -176,7 +176,7 @@ Example, to create an archive named `foo.jar`:
 **`sevenZipCompression`** - **7z compression**<br>
 `string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `normal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Select a compression level or `None` to create an uncompressed .7z file.
+Set compression level or `None` to create an uncompressed .7z file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -187,7 +187,7 @@ Optional. Select a compression level or `None` to create an uncompressed .7z fil
 **`sevenZipCompression`** - **7z compression**<br>
 `string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `5`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Select a compression format or `None` to create an uncompressed .7z file.
+Set a compression format or `None` to create an uncompressed .7z file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,7 +199,7 @@ Optional. Select a compression format or `None` to create an uncompressed .7z fi
 **`tarCompression`** - **Tar compression**<br>
 `string`. Optional. Use when `archiveType = tar`. Allowed values: `gz`, `bz2`, `xz`, `none`. Default value: `gz`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Select a compression format or choose `None` to create an uncompressed .tar file.
+Set a compression format or choose `None` to create an uncompressed .tar file.
 
 - `gz` - Default format for gzip compression (.tar.gz, .tar.tgz, .taz)
 - `bz2` - bzip2 compression (.tar.bz2, .tz2, .tbz2)
