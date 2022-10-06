@@ -56,7 +56,7 @@ Use this task to distribute app builds to testers and users via Visual Studio Ap
 **`serverEndpoint`** - **App Center service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the service connection for Visual Studio App Center. To create one, click the Manage link and create a new service connection.
+Selects the service connection for Visual Studio App Center. To create one, click the `Manage` link and create a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +212,7 @@ The App Center Distribute SDK required to mandate update. Testers are automatica
 **`distributionGroupId`** - **Destination IDs**<br>
 Input alias: `destinationIds | destinationId`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ID of the distribution group or store the app  deploys to. Leave it empty to use the default group.
+The IDs of the distribution stores or groups who will receive the build release. Leave it empty to use the default group.
 <!-- :::editable-content-end::: -->
 <br>
 

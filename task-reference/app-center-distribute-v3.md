@@ -173,7 +173,7 @@ The relative path from the repo root to the symbols folder.
 **`appxsymPath`** - **Symbols path (*.appxsym)**<br>
 `string`. Optional. Use when `symbolsType = UWP`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The relative path from the repo root to APPXSYM symbols file. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
+The relative path to the APPXSYM symbols file. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 

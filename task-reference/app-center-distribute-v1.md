@@ -172,7 +172,7 @@ The relative path from the repo root to the dSYM folder. Path may contain [wildc
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
 Input alias: `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The elative path from the repo root to Android's `mapping.txt` file.
+The relative path from the repo root to Android's `mapping.txt` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,7 +244,7 @@ The App Center Distribute SDK required to mandate an update. Testers are automat
 **`distributionGroupId`** - **Destination ID**<br>
 Input alias: `destinationId`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ID of the distribution group or store the app is deployed to. Leave it empty to use the default group.
+The IDs of the distribution stores or groups who will receive the build release. Leave it empty to use the default group.
 <!-- :::editable-content-end::: -->
 <br>
 

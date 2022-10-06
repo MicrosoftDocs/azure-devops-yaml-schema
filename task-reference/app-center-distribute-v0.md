@@ -209,7 +209,7 @@ Selects a UTF-8 encoded text file which contains the release notes for this vers
 **`distributionGroupId`** - **Distribution group ID**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ID of the distribution group the app deploys to. Leave it empty to use the default group.
+The IDs of the distribution groups who will receive the build release.. Leave it empty to use the default group.
 <!-- :::editable-content-end::: -->
 <br>
 
