@@ -166,7 +166,7 @@ Specifies where to place the artifacts produced by the prepare step and used by 
 **`prepareTests`** - **Prepare tests**<br>
 Input alias: `enablePrepare`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to prepare the tests.
+Prepares the tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -285,7 +285,7 @@ The path to the directory with the built test assemblies.
 **`uitestStorePath`** - **Store file**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the store file used to sign the app.
+The path to the store file that is used to sign the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -297,7 +297,7 @@ The path to the store file used to sign the app.
 **`uiTestStorePassword`** - **Store password**<br>
 Input alias: `uitestStorePass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The password of the store file used to sign the app. To encrypt this value, use a new variable with its lock enabled on the Variables tab.
+The password of the store file that is used to sign the app. To encrypt this value, use a new variable with its lock enabled on the Variables tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -309,7 +309,7 @@ The password of the store file used to sign the app. To encrypt this value, use 
 **`uitestKeyAlias`** - **Key alias**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the alias that identifies the public/private key pair used in the store file.
+Enters the alias that identifies the public/private key pair that is used in the store file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -345,7 +345,7 @@ The path to the directory with the Xamarin UI test tools that contain *test-clou
 **`signInfo`** - **Signing information**<br>
 `string`. Optional. Use when `framework = calabash || framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use to sign the test server.
+Signs the test server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -393,7 +393,7 @@ The additional arguments that are passed to the App Center test prepare step.
 **`runTests`** - **Run tests**<br>
 Input alias: `enableRun`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to run the tests.
+Runs the tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -405,7 +405,7 @@ Specifies whether to run the tests.
 **`credentialsOption`** - **Authentication method**<br>
 Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center service connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Uses the App Center service connection or enters the credentials to connect to the Visual Studio App Center.
+Uses the App Center service connection or enters the credentials to connect to Visual Studio App Center.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -416,7 +416,7 @@ Uses the App Center service connection or enters the credentials to connect to t
 **`credentialsOption`** - **Authentication method**<br>
 Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center Connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Uses the App Center service connection or enters the credentials to connect to the Visual Studio App Center.
+Uses the App Center service connection or enters the credentials to connect to Visual Studio App Center.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -428,7 +428,7 @@ Uses the App Center service connection or enters the credentials to connect to t
 **`serverEndpoint`** - **App Center service connection**<br>
 `string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the service connection for the Visual Studio App Center. If needed, click the Manage link to create a new service connection.
+Selects the service connection for Visual Studio App Center. If needed, click the Manage link to create a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -439,7 +439,7 @@ Selects the service connection for the Visual Studio App Center. If needed, clic
 **`serverEndpoint`** - **App Center connection**<br>
 `string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the service connection for the Visual Studio App Center. If needed, click the Manage link to create a new service connection.
+Selects the service connection for Visual Studio App Center. If needed, click the Manage link to create a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -463,7 +463,7 @@ Visits the [App Center sign in page](https://appcenter.ms/settings/profile) to c
 **`password`** - **App Center password**<br>
 `string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visits the [Visual Studio App Center](https://appcenter.ms/settings/profile) to set your password. Variables defined in build or release pipelines as `$(passwordVariable)` are accepted. You may mark the variable type as `secret` to secure it.
+Visits [Visual Studio App Center](https://appcenter.ms/settings/profile) to set your password. Variables defined in build or release pipelines as `$(passwordVariable)` are accepted. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
