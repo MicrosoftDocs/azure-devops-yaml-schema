@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Sign and align Android APK files.
+Use this task in a pipeline to sign and align Android APK files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -62,7 +62,13 @@ Sign and align Android APK files.
 **`files`** - **APK Files**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files. For example, `**/bin/*.apk` for all .APK files in the 'bin' subfolder.
+The relative path from the repo root to the APK(s) you want to sign. You can use [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) to specify multiple files. For example:
+
+- `outputs\apk*.apk` to sign all .APK files in the `outputs\apk\` subfolder.
+- `**/bin/*.apk` to sign all .APK files in all `bin` subfolders.
+
+The default value: `/`.apk
+Argument aliases: `apkFiles`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -74,7 +80,7 @@ Relative path from the repo root to the APK(s) you want to sign. You can use wil
 **`jarsign`** - **Sign the APK**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to sign the APK with a provided keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
+Signs the APK with a provided Android Keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -86,7 +92,11 @@ Select this option to sign the APK with a provided keystore file. Unsigned APKs 
 **`keystoreFile`** - **Keystore File**<br>
 `string`. Required when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the file path to the keystore file that should be used to sign the APK. It can either be checked into source control or placed on the build machine directly by an administrator. It is recommended to encrypt the keystore file in source control and use the 'Decrypt File' task to decrypt the file during the build.
+The file path to the Android Keystore file that should be used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file will be used to sign the APK, but will be removed from the agent machine when the pipeline completes.
+
+The file can either be checked into source control or placed on the build machine directly by an administrator. It is recommended to encrypt the keystore file in source control and use the `Decrypt File` task to decrypt the file during the build.
+
+Argument aliases: `apksignerKeystoreFile`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -98,7 +108,11 @@ Enter the file path to the keystore file that should be used to sign the APK. It
 **`keystorePass`** - **Keystore Password**<br>
 `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the password for the provided keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
+The key password for the provided Android Keystore file.
+> [!IMPORTANT]
+> Use a new variable with its lock enabled on the Variables pane to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
+
+Argument aliases: `apksignerKeystorePassword`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,7 +124,9 @@ Enter the password for the provided keystore file. Use a new variable with its l
 **`keystoreAlias`** - **Alias**<br>
 `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the alias that identifies the public/private key pair to be used in the keystore file.
+The alias that identifies the public/private key pair to be used in the Android Keystore file.
+
+Argument aliases: `apksignerKeystoreAlias`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +138,9 @@ Enter the alias that identifies the public/private key pair to be used in the ke
 **`keyPass`** - **Key Password**<br>
 `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the key password for the alias and keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
+The key password for the alias and Android Keystore file.
+> [!IMPORTANT]
+> Use a new variable with its lock enabled on the Variables pane to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +152,7 @@ Enter the key password for the alias and keystore file. Use a new variable with 
 **`jarsignerArguments`** - **Jarsigner Arguments**<br>
 `string`. Optional. Use when `jarsign = true`. Default value: `-verbose -sigalg MD5withRSA -digestalg SHA1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide any options to pass to the jarsigner command line. Default is: -verbose -sigalg MD5withRSA -digestalg SHA1.
+Provides options to pass to the `jarsigner` command line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +164,7 @@ Provide any options to pass to the jarsigner command line. Default is: -verbose 
 **`zipalign`** - **Zipalign**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want to zipalign your package. This reduces the amount of RAM consumed by an app.
+Select this boolean if you want to zipalign your package. This reduces the amount of RAM consumed by an app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +176,9 @@ Select if you want to zipalign your package. This reduces the amount of RAM cons
 **`zipalignLocation`** - **Zipalign Location**<br>
 `string`. Optional. Use when `zipalign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
+Specifies the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
+
+Argument aliases: `zipalignFile`
 <!-- :::editable-content-end::: -->
 <br>
 
