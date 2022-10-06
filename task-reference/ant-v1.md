@@ -204,7 +204,7 @@ Selects the code coverage tool.
 
 If you are using the [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), then the tools are set up for you. If you are using the on-premises [Windows agent](/azure/devops/pipelines/agents/v2-windows), you must ensure the agent is set up for either JaCoco or Cobertura.
 
-- JaCoCo - ensure that jacocoant.jar is available in the lib folder of Ant installation. Learn more about[JaCoCo Ant tasks](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
+- JaCoCo - ensure that jacocoant.jar is available in the lib folder of Ant installation. Learn more about [JaCoCo Ant tasks](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
 - Cobertura - ensure that an environment variable COBERTURA_HOME points to the Cobertura .jar files location. Learn more about [Cobertura with Ant tasks](https://github.com/cobertura/cobertura/wiki/Ant-Task-Reference).
 
 After you select one of these tools, the following arguments appear:
