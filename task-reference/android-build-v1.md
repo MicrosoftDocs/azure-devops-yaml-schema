@@ -72,7 +72,7 @@ This task is deprecated.
 **`gradleWrapper`** - **Location of Gradle Wrapper**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The location of the `gradlew` wrapper that is used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about [the Gradle Wrapper](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/build/gradle?view=azure-devops).
+The location of the `gradlew` wrapper that is used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about [the Gradle Wrapper](/azure/devops/pipelines/tasks/build/gradle).
 <!-- :::editable-content-end::: -->
 <br>
 
