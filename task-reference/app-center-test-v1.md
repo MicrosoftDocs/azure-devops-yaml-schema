@@ -547,7 +547,7 @@ Enters any two-letter ISO-639 language code along with any two-letter ISO 3166 c
 **`loginOptions`** - **Additional options for login**<br>
 Input alias: `loginOpts`. `string`. Optional. Use when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to the Visual Studio App Center login step.
+The additional arguments that are passed to the Visual Studio App Center login step.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -559,7 +559,7 @@ Additional arguments passed to the Visual Studio App Center login step.
 **`runOptions`** - **Additional options for run**<br>
 Input alias: `runOpts`. `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to the Visual Studio App Center test run.
+The additional arguments that are passed to the Visual Studio App Center test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -571,7 +571,7 @@ Additional arguments passed to the Visual Studio App Center test run.
 **`skipWaitingForResults`** - **Do not wait for test result**<br>
 Input alias: `async`. `boolean`. Optional. Use when `enableRun = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Execute command asynchronously, exit when tests are uploaded, without waiting for test results.
+Executes a command asynchronously and exits when the tests are uploaded without waiting for the test results.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -583,7 +583,7 @@ Execute command asynchronously, exit when tests are uploaded, without waiting fo
 **`cliFile`** - **App Center CLI location**<br>
 Input alias: `cliLocationOverride`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the Visual Studio App Center CLI on the build or release agent.
+The path to the Visual Studio App Center CLI on the build or release agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -595,7 +595,7 @@ Path to the Visual Studio App Center CLI on the build or release agent.
 **`showDebugOutput`** - **Enable debug output**<br>
 Input alias: `debug`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add --debug to the Visual Studio App Center CLI.
+Adds `--debug` to the Visual Studio App Center CLI.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -632,7 +632,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-This task lets you run test suites against an application binary (`.apk` or `.ipa` file) using App Center Test.
+This task lets you run test suites against an application binary (**.apk** or **.ipa** file) using App Center Test.
 
 * [Sign up with App Center](https://appcenter.ms/signup?utm_source=DevOps&utm_medium=Azure&utm_campaign=docs) first.
 * For details about using this task, see the App Center documentation article [Using Azure DevOps for UI Testing](/appcenter/test-cloud/vsts-plugin).
