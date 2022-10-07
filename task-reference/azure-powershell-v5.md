@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Run a PowerShell script within an Azure environment. The Azure context is authenticated with the provided Azure Resource Manager service connection.
+Use this task to run a PowerShell script within an Azure environment. The Azure context is authenticated with the provided Azure Resource Manager service connection.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -54,7 +54,7 @@ Run a PowerShell script within an Azure environment. The Azure context is authen
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Resource Manager subscription to configure before running PowerShell.
+The Azure Resource Manager subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -66,7 +66,7 @@ Azure Resource Manager subscription to configure before running PowerShell.
 **`ScriptType`** - **Script Type**<br>
 `string`. Allowed values: `FilePath` (Script File Path), `InlineScript` (Inline Script). Default value: `FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of the script: File Path or Inline Script.
+The type of the script: file path or inline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +78,7 @@ Type of the script: File Path or Inline Script.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script. Should be fully qualified path or relative to the default working directory.
+The path of the script. This should be a fully qualified path or one relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +90,7 @@ Path of the script. Should be fully qualified path or relative to the default wo
 **`Inline`** - **Inline Script**<br>
 `string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the script to execute.
+Enters the script to execute.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +102,7 @@ Enter the script to execute.
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional parameters to pass to PowerShell. Can be either ordinal or named parameters. Not applicable for inline script option.
+The additional parameters to pass to PowerShell. These can be either ordinal or named parameters. Not applicable for an inline script option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Additional parameters to pass to PowerShell. Can be either ordinal or named para
 **`errorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the value of the ErrorActionPreference variable for executing the script.
+Selects the value of the `ErrorActionPreference` variable for executing the script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +126,7 @@ Select the value of the ErrorActionPreference variable for executing the script.
 **`FailOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream.
+When this is true, this task will fail if any errors are written to the error pipeline or if any data is written to the standard error stream.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,10 +138,10 @@ If this is true, this task will fail if any errors are written to the error pipe
 **`azurePowerShellVersion`** - **Azure PowerShell Version**<br>
 Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In case of hosted agents, the supported Azure PowerShell Version is: 1.0.0, 1.6.0, 2.3.2, 2.6.0, 3.1.0 (Hosted VS2017 Queue).
-To pick the latest version available on the agent, select "Latest installed version".
+In case of hosted agents, the supported Azure PowerShell Versions are `1.0.0`, `1.6.0`, `2.3.2`, `2.6.0`, and `3.1.0` (Hosted VS2017 Queue).
+To pick the latest version available on the agent, select `"Latest installed version"`.
 
-For private agents you can specify preferred version of Azure PowerShell using "Specify version".
+For private agents you can specify a preferred version of Azure PowerShell using `"Specify version"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,7 +153,7 @@ For private agents you can specify preferred version of Azure PowerShell using "
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
 Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Preferred Azure PowerShell Version needs to be a proper semantic version eg. 1.2.3. Regex like 2.\*,2.3.\* is not supported. The Hosted VS2017 Pool currently supports Az module version: 1.0.0, 1.6.0, 2.3.2, 2.6.0, 3.1.0.
+The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3`. Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Az module versions `1.0.0`, `1.6.0`, `2.3.2`, `2.6.0`, and `3.1.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -165,7 +165,7 @@ Preferred Azure PowerShell Version needs to be a proper semantic version eg. 1.2
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, then on Windows the task will use pwsh.exe from your PATH instead of powershell.exe.
+If this is true, then on Windows the task will use `pwsh.exe` from your path instead of `powershell.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +177,7 @@ If this is true, then on Windows the task will use pwsh.exe from your PATH inste
 **`workingDirectory`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory where the script is run.
+The working directory where the script is run.
 <!-- :::editable-content-end::: -->
 <br>
 
