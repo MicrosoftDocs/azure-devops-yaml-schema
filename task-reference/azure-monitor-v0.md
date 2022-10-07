@@ -90,7 +90,7 @@ Observe the configured Azure monitor rules for active alerts.
 **`connectedServiceNameARM`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Manager subscription to monitor.
+Selects an Azure Resource Manager subscription to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +102,7 @@ Select an Azure Resource Manager subscription to monitor.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of a resource group to monitor.
+Provides the name of a resource group to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Provide the name of a resource group to monitor.
 **`ResourceType`** - **Resource type**<br>
 `string`. Required. Allowed values: `Microsoft.Insights/components` (Application Insights), `Microsoft.Web/sites` (App Services), `Microsoft.Storage/storageAccounts` (Storage Account), `Microsoft.Compute/virtualMachines` (Virtual Machines). Default value: `Microsoft.Insights/components`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure resource type to monitor.
+Selects the Azure resource type to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +126,7 @@ Select the Azure resource type to monitor.
 **`resourceName`** - **Resource name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select name of Azure resource to monitor.
+Selects the name of the Azure resource to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +138,7 @@ Select name of Azure resource to monitor.
 **`alertRules`** - **Alert rules**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-List of Azure alert rules to monitor.
+A list of Azure alert rules to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
