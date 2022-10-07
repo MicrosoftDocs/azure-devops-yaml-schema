@@ -11,7 +11,9 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Build and deploy an Azure IoT Edge image.
+Use this task to build, test, and deploy applications quickly and efficiently to Azure IoT Edge.
+
+This task supports custom variables. If you're not familiar with how to use variables in pipelines, see [define variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -127,11 +129,11 @@ Build and deploy an Azure IoT Edge image.
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects an Azure IoT Edge action.
 
-`Build module images` only builds modules (you can use it to check compilation error).
+`Build module images` only builds modules (you can use it to check compilation errors).
 
 `Push module images` pushes modules to the container registry.
 
-`Deploy to IoT Edge devices` deploys the generated deployment file to IoT Hub. (We recommend putting the `Deploy` task in the release pipeline).
+`Deploy to IoT Edge devices` deploys the generated deployment file to IoT Hub. (We recommend putting the `Deploy` task in the release pipeline.)
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +146,7 @@ Selects an Azure IoT Edge action.
 `string`. Required when `action == Deploy to IoT Edge devices`. Default value: `$(System.DefaultWorkingDirectory)/config/deployment.json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the deployment json file.
- If this task is in `release pipeline`, you need to set the location of the deployment file in artifact. (The default value works for most conditions).
+ If this task is in `release pipeline`, you need to set the location of the deployment file in artifact. (The default value works for most conditions.)
  If this task is in a build pipeline, you must specify the deployment manifest output path.
 <!-- :::editable-content-end::: -->
 <br>
@@ -182,7 +184,7 @@ Selects the IoT Hub.
 `string`. Required. Default value: `$(System.TeamProject)-devops-deployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridden.
- This has up to 128 lowercase letters and numbers, and the following characters are allowed `-:+%_#*?!(),=@;'`.
+ This has up to 128 lowercase letters and numbers, and the following characters are allowed: `-:+%_#*?!(),=@;'`.
  For more information, see [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
 <!-- :::editable-content-end::: -->
 <br>
@@ -195,7 +197,7 @@ Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridd
 **`priority`** - **IoT Edge deployment priority**<br>
 `string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set the `priority` to a positive integer to resolve deployment conflicts: when targeted by multiple deployments, a device will use the one with the highest priority or, in the case of two deployments with the same priority, the latest creation time.
+Sets the `priority` to a positive integer to resolve deployment conflicts.  When this task is targeted by multiple deployments, a device will use the one with the highest priority or, in the case of two deployments with the same priority, the latest creation time.
  For more information, see [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
 <!-- :::editable-content-end::: -->
 <br>
@@ -258,7 +260,7 @@ Selects a `Container Registry Type`.
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Required when `containerregistrytype = Generic Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a generic Docker registry connection. This is required for Build and Push.
+Selects a generic Docker registry connection. This is required for build and push.
 <!-- :::editable-content-end::: -->
 <br>
 
