@@ -105,7 +105,7 @@ The type of the script: file path or inline.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tbe path of the script. This should be a fully qualified path or one relative to the default working directory.
+The path of the script. This should be a fully qualified path or one relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 

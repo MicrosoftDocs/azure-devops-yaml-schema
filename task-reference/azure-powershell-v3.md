@@ -163,7 +163,7 @@ Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest 
 In case of hosted agents, the supported Azure PowerShell Versions are `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and `6.7.0` (Hosted VS2017 Queue).
 To pick the latest version available on the agent, select `"Latest installed version"`.
 
-For private agents you can specify a preferred version of Azure PowerShell using `"Specify version"`.
+For private agents, you can specify a preferred version of Azure PowerShell using `"Specify version"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -175,7 +175,7 @@ For private agents you can specify a preferred version of Azure PowerShell using
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
 Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3.` Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Azure module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and AzureRM module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1`, `6.7.0`.
+The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3.`. Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Azure module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and AzureRM module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1`, `6.7.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
