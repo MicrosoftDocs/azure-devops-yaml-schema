@@ -341,7 +341,7 @@ Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymen
 <!-- :::editable-content name="helpMarkDown"::: -->
 Registering agents with the deployment group requires access to your Visual Studio project.
 
-Click `Add` to create an endpoint using a [personal access token (PAT)](azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) with its scope restricted to `Deployment Group` and the default expiration time of 90 days. Click `Manage` to update endpoint details.​
+Click `Add` to create an endpoint using a [personal access token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) with its scope restricted to `Deployment Group` and the default expiration time of 90 days. Click `Manage` to update endpoint details.​
 <!-- :::editable-content-end::: -->
 <br>
 
