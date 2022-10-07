@@ -157,7 +157,7 @@ Selects the name of the Azure resource where you want to configure an alert.
 **`AlertRules`** - **Alert rules**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The list of the Azure monitor alerts that are configured on the selected Azure resource.
+The list of Azure monitor alerts that are configured on the selected Azure resource.
 
 To add or modify alerts, click the `…` button.
 <!-- :::editable-content-end::: -->
