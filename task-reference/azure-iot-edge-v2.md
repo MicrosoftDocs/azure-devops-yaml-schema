@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to build, test, and deploy applications quickly and efficiently to Azure IoT Edge.
+Use this task to build and deploy images quickly and efficiently to Azure IoT Edge.
 
 This task supports custom variables. If you're not familiar with how to use variables in pipelines, see [define variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
