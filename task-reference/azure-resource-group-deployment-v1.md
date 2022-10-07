@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Deploy, start, stop, delete Azure Resource Groups.
+Use this task to deploy, start, stop, and delete Azure Resource Groups.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -69,6 +69,9 @@ This task is deprecated.
 **`ConnectedServiceNameSelector`** - **Azure Connection Type**<br>
 `string`. Allowed values: `ConnectedServiceName` (Azure Resource Manager), `ConnectedServiceNameClassic` (Azure Classic). Default value: `ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Required. Selects the service connection that contains an Azure Subscription for the deployment.
+
+Argument aliases: `azureSubscription`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -80,7 +83,9 @@ This task is deprecated.
 **`ConnectedServiceName`** - **Azure Subscription**<br>
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Required. Selects the service connection that contains an Azure Subscription for the deployment.
+
+Argument aliases: `azureSubscription`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +97,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`ConnectedServiceNameClassic`** - **Azure Classic Subscription**<br>
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameClassic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Classic subscription for the deployment.
+Selects an Azure Classic subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +109,7 @@ Select the Azure Classic subscription for the deployment.
 **`action`** - **Action**<br>
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`. Allowed values: `Create Or Update Resource Group`, `Select Resource Group`, `Start` (Start Virtual Machines), `Stop` (Stop Virtual Machines), `Restart` (Restart Virtual Machines), `Delete` (Delete Virtual Machines), `DeleteRG` (Delete Resource Group). Default value: `Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Action to be performed on the Azure resources or resource group.
+The action to be performed on the Azure resources or resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +121,7 @@ Action to be performed on the Azure resources or resource group.
 **`actionClassic`** - **Action**<br>
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameClassic`. Allowed values: `Select Resource Group` (Select Cloud Service). Default value: `Select Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Action to be performed on the Azure resources or cloud service.
+The action to be performed on the Azure resources or cloud service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +133,7 @@ Action to be performed on the Azure resources or cloud service.
 **`resourceGroupName`** - **Resource Group**<br>
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the resource group.
+Provides the name of the resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +145,7 @@ Provide the name of the resource group.
 **`cloudService`** - **Cloud Service**<br>
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameClassic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the cloud service.
+Provides the name of the cloud service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +157,7 @@ Provide the name of the cloud service.
 **`location`** - **Location**<br>
 `string`. Required when `action = Create Or Update Resource Group`. Allowed values: `Australia East`, `Australia Southeast`, `Brazil South`, `Canada Central`, `Canada East`, `Central India`, `Central US`, `East Asia`, `East US`, `East US 2 `, `Japan East`, `Japan West`, `North Central US`, `North Europe`, `South Central US`, `South India`, `Southeast Asia`, `UK South`, `UK West`, `West Central US`, `West Europe`, `West India`, `West US`, `West US 2`. Default value: `East US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location for deploying the resource group. If the resource group already exists in the subscription, then this value will be ignored.
+The location to deploy the resource group. If the resource group already exists in the subscription, then this value will be ignored.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +169,7 @@ Location for deploying the resource group. If the resource group already exists 
 **`csmFile`** - **Template**<br>
 `string`. Required when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path to the Azure Resource Manager template. For more information about the templates see https://aka.ms/azuretemplates. To get started immediately use template https://aka.ms/sampletemplate.
+Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +181,11 @@ Specify the path to the Azure Resource Manager template. For more information ab
 **`csmParametersFile`** - **Template Parameters**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path for the parameters file for the Azure Resource Manager Template.
+Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
+
+To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a parameters file to a storage account and generate a SAS token, use the [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
+
+To view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +197,16 @@ Specify the path for the parameters file for the Azure Resource Manager Template
 **`overrideParameters`** - **Override Template Parameters**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the template parameters to override like, <br>-storageName fabrikam -adminUsername $(vmusername) -adminPassword (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force) -azureKeyVaultName $(fabrikamFibre).
+Specifies the template parameters to override.
+
+To view the template parameters in a grid, click on `...` next to the Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If the templates are in the Azure storage blob, reference this string to enable CORS, or type the template parameters to override in the textbox.
+
+Example: `-storageName fabrikam -adminUsername $(vmusername) -adminPassword (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force) -azureKeyVaultName $(fabrikamFibre)`.
+
+If the parameter value has multiple words, enclose the words in quotes, even if you're passing the value by using variables.
+For example, `-name "parameter value" -name2 "$(var)"`.
+To override object type parameters, use stringified JSON objects.
+For example, `-options ["option1"] -map {"key1": "value1" }`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,13 +218,19 @@ Specify the template parameters to override like, <br>-storageName fabrikam -adm
 **`deploymentMode`** - **Deployment Mode**<br>
 `string`. Required when `action = Create Or Update Resource Group`. Allowed values: `Validation` (Validation Only), `Incremental`, `Complete`. Default value: `Incremental`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Incremental mode handles deployments as incremental updates to the resource group . It leaves unchanged resources that exist in the resource group but are not specified in the template. 
+The `Incremental` mode handles deployments as incremental updates to the resource group. It leaves unchanged resources that exist in the resource group but are not specified in the template.
 
- Complete mode deletes resources that are not in your template. 
+`Complete` mode deletes resources that are not in your template. Complete mode takes relatively more time than incremental mode. If the task times out, consider increasing the timeout or changing to the `Incremental` mode.
 
- Validate mode enables you to find problems with the template before creating actual resources. 
+> [!WARNING]
+> Complete mode will delete all the existing resources in the resource group that are not specified in the template. Do review if the resource group you're deploying to doesn't contain any necessary resources that are not specified in the template.
 
- By default, Incremental mode is used.
+`Validate` mode enables you to find problems with the template before creating actual resources.
+
+> [!NOTE]
+> The `Validate` mode always creates a resource group, even if no resources are deployed.
+
+Learn more about [deployment modes](/azure/azure-resource-manager/deployment-modes).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +242,11 @@ Incremental mode handles deployments as incremental updates to the resource grou
 **`enableDeploymentPrerequisitesForCreate`** - **Enable Deployment Prerequisites**<br>
 `boolean`. Optional. Use when `action = Create Or Update Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986).
+Applicable only when the Resource group contains virtual machines.
+
+Choosing the Deployment Group option configures the Deployment Group agent on each of the virtual machines.
+
+Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a Load balancer, ensure the Inbound NAT rules are configured for target port (5986).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +258,11 @@ Enabling this option configures Windows Remote Management (WinRM) listener over 
 **`enableDeploymentPrerequisitesForSelect`** - **Enable Deployment Prerequisites**<br>
 `boolean`. Optional. Use when `action = Select Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986).
+Applicable only when the Resource group contains virtual machines.
+
+Choosing the Deployment Group option configures the Deployment Group agent on each of the virtual machines.
+
+Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a Load balancer, ensure the Inbound NAT rules are configured for target port (5986).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +274,9 @@ Enabling this option configures Windows Remote Management (WinRM) listener over 
 **`outputVariable`** - **Resource Group**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable for the resource group. The variable can be used as $(variableName) to refer to the resource group in subsequent tasks like in the PowerShell on Target Machines task for deploying applications. <br>Valid only when the selected action is Create, Update or Select, and required when an existing resource group is selected.
+Required when an existing resource group is selected. Provides a name for the resource group variable. The variable can be used as `$(variableName)` to refer to the resource group in subsequent tasks, such as in PowerShell on Target Machines task for deploying applications.
+
+Valid only when the selected action is Create, Update, or Select.
 <!-- :::editable-content-end::: -->
 <br>
 
