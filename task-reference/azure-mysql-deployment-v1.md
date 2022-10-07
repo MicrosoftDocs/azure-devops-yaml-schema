@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Run your scripts and make changes to your Azure Database for MySQL.
+Use this task to run your scripts and make changes to your database in Azure Database for MySQL. The Azure Database for MySQL Deployment task only works with [Azure Database for MySQL Single Server](https://learn.microsoft.com/en-us/azure/mysql/single-server-overview).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -100,7 +100,11 @@ If your subscription is not listed or if you want to use an existing Service Pri
 **`ServerName`** - **Host Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Server name of `Azure Database for MySQL` is provided in the Azure portal on the `Overview` blade of your Azure Database for MySQL server resource. Example: `fabrikam.mysql.database.azure.com.` 
+The name of your Azure Database for MySQL server.
+
+Example: `fabrikam.mysql.database.azure.com`
+
+The server name is provided in the Azure portal on the 'Overview' blade of your Azure Database for MySQL server resource.
 
 When you connect using MySQL Workbench, this is the same value that is used for `Hostname` in `Parameters`.
 <!-- :::editable-content-end::: -->
@@ -114,9 +118,9 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 **`DatabaseName`** - **Database Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the database. The script will create a database name if one does not exist.  
+Optional. The name of the database. The script will create a database name if one does not exist.  
 
-If specified, the task attempts to create the database if it does not exist. If not specified, ensure that the database is referenced in the supplied SQL file or inline SQL, where needed.
+If not specified, ensure that the database is referenced in the supplied SQL file or inline SQL, where needed.
 
 Note: MySQL database names are case-sensitive.
 <!-- :::editable-content-end::: -->
@@ -160,9 +164,12 @@ Also, you may mark the variable type as `secret` to secure it.
 **`TaskNameSelector`** - **Type**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects one of the options between the Script File & Inline Script.
+Optional. Selects one of the options between Script File & Inline Script.
 
-Note: these values are case-sensitive.
+- `SqlTaskFile` (default), for use with the `SqlFile` argument
+- `InlineSqlTask`, for use with the `SqlInline` argument.
+
+**Note**: these values are case-sensitive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +186,7 @@ The full path of the script file on the automation agent or on a UNC path access
 Predefined system variables, such as `$(agent.releaseDirectory)`, and files containing SQL statements can be used here.​
 
 Note: The MySQL client prefers Unix style paths, so from version 1.183.0 on, the task will convert Windows style paths to Unix style paths.
-Example: from `c:\foo\bar\myscript.sql` to `c:/foo/bar/myscript.sql`. 
+Example: from `c:\foo\bar\myscript.sql` to `c:/foo/bar/myscript.sql`.
 
 When the task is used on Linux platforms, paths remain unchanged. There is no need to escape special characters in paths.
 <!-- :::editable-content-end::: -->
@@ -193,7 +200,7 @@ When the task is used on Linux platforms, paths remain unchanged. There is no ne
 **`SqlInline`** - **Inline MySQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the MySQL script to execute on the Database selected above.
+Enters the MySQL script to execute on the database selected above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,13 +212,13 @@ Enters the MySQL script to execute on the Database selected above.
 **`SqlAdditionalArguments`** - **Additional MySQL Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional options supported by the MySQL simple SQL shell.  These options are applied when executing the given file on the Azure Database for MySQL.​
+Optional. The additional options supported by the MySQL client. These options are applied when executing the given file on the Azure Database for MySQL.​
 
-Example: You can change to the default tab separated output format, to HTML, or even to the XML format. If you have problems due to insufficient memory for large result sets, use the `--quick` option.
+Example: You can change to the default tab separated output format, to HTML, or even to the XML format. Other examples include:
 
-Other options include:
-- `--comments` This strips comments sent from the client to the server.
-- `--xml` This outputs results as XML.
+- `--comments` to strip comments sent from the client to the server.
+- `--quick` to prevent result caching.
+- `--xml` to output results as XML.
 
 All available options are described in the MySQL client documentation.
 <!-- :::editable-content-end::: -->
@@ -227,14 +234,14 @@ All available options are described in the MySQL client documentation.
 <!-- :::editable-content name="helpMarkDown"::: -->
 For the successful execution of the task, we need to enable administrators to access the Azure Database for MySQL Server from the IP Address of the automation agent.
 
-By selecting auto-detect you can automatically add a firewall exception for the range of possible IP addresses of automation agents, ​or you can specify the range explicitly.
+By selecting auto-detect, you can automatically add a firewall exception for the range of possible IP addresses of automation agents, ​or you can explicitly specify the range.
 
 Accepted values:
 
-- `AutoDetect` This auto-detects the automation agent's public IP address.
-- `IPAddressRange` This explicitly specifies the IP address range to configure. Set the IP address range using the `StartIpAddress` and `EndIpAddress` parameters.
+- `AutoDetect` to auto-detect the automation agent's public IP address.
+- `IPAddressRange` to explicitly specify the IP address range to configure. Set the IP address range using the `StartIpAddress` and `EndIpAddress` parameters.
 
-Note: These values are case-sensitive.
+**Note**: These values are case-sensitive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -270,7 +277,7 @@ The ending IP Address of the automation agent machine pool. For example: `196.21
 **`DeleteFirewallRule`** - **Delete Rule After Task Ends**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If selected, the added exception for the IP addresses of the automation agent will be removed for the corresponding Azure Database for MySQL.
+Optional. If selected, the added exception for the IP addresses of the automation agent will be removed for the corresponding Azure Database for MySQL.
 <!-- :::editable-content-end::: -->
 <br>
 
