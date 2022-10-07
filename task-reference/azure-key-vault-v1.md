@@ -195,6 +195,10 @@ Works with cross-platform agents (Linux, macOS, or Windows).
 There is a newer version of the Archive Files task available.
 
 * [Azure Key Vault v2](azure-key-vault-v2.md)
+
+### I get a `forbidden` error on pipelines at the point of getting credentials from Azure Key Vault
+
+This occurs if the required permissions are missing in the Azure key vault. To resolve the issue, [add an access policy with the correct permissions](/azure/key-vault/general/assign-access-policy-portal).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
