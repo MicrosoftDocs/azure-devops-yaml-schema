@@ -383,9 +383,12 @@ Each PowerShell session lasts only for the duration of the job in which it runs.
 
 `PowerShell@2` has two shortcuts in YAML: [steps.powershell](/azure/devops/pipelines/yaml-schema/steps-powershell) and [steps.pwsh](/azure/devops/pipelines/yaml-schema/steps-pwsh).
 
+* `powershell` runs using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
+* `pwsh` runs PowerShell Core, the cross-platform edition of PowerShell built on .NET Core.
+
 ```yml
 steps:
-- powershell: # Run a script in Windows PowerShell.
+- powershell: # Run a script in Windows PowerShell on Windows, and pwsh on Linux and macOS.
 - pwsh: # Run a script in PowerShell Core on Windows, macOS, and Linux.
 ```
 
