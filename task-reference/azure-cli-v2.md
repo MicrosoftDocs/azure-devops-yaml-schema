@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020.1"
 
 <!-- :::editable-content name="description"::: -->
-Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent. Or, run Azure CLI commands against an Azure subscription in a PowerShell/PowerShell Core/Batch script when running on Windows agent.
+Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell script when running on Linux agent. Or, run Azure CLI commands against an Azure subscription in a PowerShell/PowerShell Core/batch script when running on Windows agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -229,7 +229,7 @@ If this input is false, this task will use its own [Azure CLI configuration dire
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -241,7 +241,7 @@ Current working directory where the script is run. If left blank, this input is 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and to rely on exit codes to determine the status.
+If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -121,7 +121,7 @@ Fully qualified path of the script or a path relative to the the default working
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can write your scripts inline here. For batch files use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script using arguments. 
+You can write your scripts inline here. For batch files, use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script using arguments. 
 
 See the following examples. The first is a shell example and the second is a batch example:
 
@@ -154,7 +154,7 @@ Arguments passed to the script.
 **`cwd`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 

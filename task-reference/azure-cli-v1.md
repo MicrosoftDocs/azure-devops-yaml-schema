@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run Azure CLI commands against an Azure subscription in a shell script when running on Linux agent or Batch script when running on Windows agent.
+Run Azure CLI commands against an Azure subscription in a shell script when running on Linux agent or batch script when running on Windows agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -124,7 +124,7 @@ Fully qualified path of the script or a path relative to the the default working
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can write your scripts inline here. When using Windows agent, use batch scripting. Use shell scripting when using Linux-based agents. For batch files use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script using arguments 
+You can write your scripts inline here. When using Windows agent, use batch scripting. Use shell scripting when using Linux-based agents. For batch files, use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script using arguments 
 
 See the following examples. The first is a shell example and the second is a batch example:
 
@@ -183,7 +183,7 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,7 +195,7 @@ Current working directory where the script is run. If left blank, this input is 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and to rely on exit codes to determine the status.
+If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +206,7 @@ If this input is true, this task will fail when any errors are written to the St
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and rely on exit codes to determine the status.
+If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
 <br>
 
