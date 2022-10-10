@@ -110,9 +110,7 @@ Specifies the Azure Resource Manager subscription for the scale set.
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Update image` (Update VM Scale set by using an image), `Configure application startup` (Run Custom Script VM extension on VM scale set). Default value: `Update image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose between updating a VM scale set by using a VHD image and/or by running deployment/install scripts using Custom Script VM Extension.  
-
-Updates a VM scale set by the chosen method, using a VHD image and/or by running deployment/install scripts using the Custom Script VM Extension.
+ Updates a VM scale set by the chosen method, using a VHD image and/or by running deployment/install scripts using the Custom Script VM Extension.
 
 **The VHD image approach** is better for scaling quickly and doing rollback. When a VM scale set is created by using a custom image, it can be updated by a VHD image. The update will fail if the VM scale set was created by using a platform/gallery image available in Azure.
 
