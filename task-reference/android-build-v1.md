@@ -13,7 +13,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to build an Android app using Gradle and (optionally) start the emulator for unit tests.
 
-The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipelines/tasks/build/gradle) instead.
+The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipelines/tasks/reference/gradle-v3) instead.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -72,7 +72,7 @@ This task is deprecated.
 **`gradleWrapper`** - **Location of Gradle Wrapper**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The location of the `gradlew` wrapper that is used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about [the Gradle Wrapper](/azure/devops/pipelines/tasks/build/gradle).
+The location of the `gradlew` wrapper that is used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about [the Gradle Wrapper](/azure/devops/pipelines/tasks/reference/gradle-v3).
 <!-- :::editable-content-end::: -->
 <br>
 
