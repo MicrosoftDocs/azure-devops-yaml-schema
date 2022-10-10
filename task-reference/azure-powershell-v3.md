@@ -161,9 +161,9 @@ When this is true, this task will fail if any errors are written to the error pi
 Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 In case of hosted agents, the supported Azure PowerShell Versions are `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and `6.7.0` (Hosted VS2017 Queue).
-To pick the latest version available on the agent, select `"Latest installed version"`.
+To pick the latest version available on the agent, select `LatestVersion` (Latest installed version).
 
-For private agents, you can specify a preferred version of Azure PowerShell using `"Specify version"`.
+For private agents, you can specify a preferred version of Azure PowerShell using `OtherVersion` (Specify other version).
 <!-- :::editable-content-end::: -->
 <br>
 
