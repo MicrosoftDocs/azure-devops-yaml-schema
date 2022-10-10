@@ -130,7 +130,9 @@ Deploy an Azure Cloud Service.
 **`azureClassicSubscription`** - **Azure subscription (Classic)**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Azure Classic subscription to target for deployment.
+
+The Azure subscription to target for deployment.
+
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +144,7 @@ The Azure Classic subscription to target for deployment.
 **`EnableAdvancedStorageOptions`** - **Enable ARM storage support**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select to enable Azure Resource Manager (ARM) storage support for this task.
+Enables or disables ARM storage support.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +179,7 @@ The storage account must exist prior to deployment.
 **`ARMConnectedServiceName`** - **Azure subscription (ARM)**<br>
 `string`. Required when `EnableAdvancedStorageOptions = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Azure Resource Manager subscription.
+The ARM subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,7 +191,7 @@ The Azure Resource Manager subscription.
 **`ARMStorageAccount`** - **Storage account (ARM)**<br>
 `string`. Required when `EnableAdvancedStorageOptions = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses a pre-existing Azure Resource Manager (ARM) storage account.
+A pre-existing ARM storage account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +203,7 @@ Chooses a pre-existing Azure Resource Manager (ARM) storage account.
 **`ServiceName`** - **Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects or enters an existing cloud service name.
+An existing cloud service name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +215,7 @@ Selects or enters an existing cloud service name.
 **`ServiceLocation`** - **Service location**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a region for new service deployment. Possible options are East US, East US 2, Central US, South Central US, West US, North Europe, West Europe, and others.
+A region for new service deployment. Options include: East US, East US 2, Central US, South Central US, West US, North Europe, West Europe, and others.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +227,7 @@ Selects a region for new service deployment. Possible options are East US, East 
 **`CsPkg`** - **CsPkg**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of CsPkg under the default artifact directory.
+Path to the CsPkg in the default artifact directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -237,7 +239,7 @@ The path of CsPkg under the default artifact directory.
 **`CsCfg`** - **CsCfg**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of CsCfg under the default artifact directory.
+The CsCfg path in the default artifact directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -249,7 +251,7 @@ The path of CsCfg under the default artifact directory.
 **`slotName`** - **Environment (Slot)**<br>
 Input alias: `Slot`. `string`. Required. Default value: `Production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Production or Staging.
+Set this value to 'Staging' or use the default.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -261,7 +263,7 @@ Production or Staging.
 **`DeploymentLabel`** - **Deployment label**<br>
 `string`. Default value: `$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the label name for the new deployment. If not specified, a globally unique identifier (GUID) is used.
+Specifies the label name for the new deployment. If not specified, defaults to a Globally Unique Identifier (GUID).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -273,7 +275,7 @@ Specifies the label name for the new deployment. If not specified, a globally un
 **`AppendDateTimeToLabel`** - **Append current date and time**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Appends the current date and time to the deployment label.
+Appends current date and time to the deployment label.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -285,7 +287,7 @@ Appends the current date and time to the deployment label.
 **`AllowUpgrade`** - **Allow upgrade**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected, this allows an upgrade to the Microsoft Azure deployment.
+Allows an upgrade to the Microsoft Azure deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -297,7 +299,7 @@ When selected, this allows an upgrade to the Microsoft Azure deployment.
 **`SimultaneousUpgrade`** - **Simultaneous upgrade**<br>
 `boolean`. Optional. Use when `AllowUpgrade == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Updates all instances at once. Your cloud service will be unavailable during the update.
+Upgrades all instances at once. Your cloud service is unavailable during this time.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -309,7 +311,7 @@ Updates all instances at once. Your cloud service will be unavailable during the
 **`ForceUpgrade`** - **Force upgrade**<br>
 `boolean`. Optional. Use when `AllowUpgrade == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected, this sets the upgrade to a forced upgrade, which can cause a loss of local data.
+Sets a forced upgrade.  Forcing an upgrade can cause loss of local data.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -321,7 +323,7 @@ When selected, this sets the upgrade to a forced upgrade, which can cause a loss
 **`VerifyRoleInstanceStatus`** - **Verify role instance status**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected, the task will wait until the role instances are in the ready state.
+Causes the task to wait until role instances are in the ready state.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -333,13 +335,15 @@ When selected, the task will wait until the role instances are in the ready stat
 **`DiagnosticStorageAccountKeys`** - **Diagnostic storage account keys**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides storage keys for a diagnostics storage account in the `Role:Storagekey` format. The diagnostics storage account name for each role is obtained from the diagnostics config file `.wadcfgx`. If the `.wadcfgx` file for a role is not found, diagnostics extensions won’t be set for the role. If the storage account name is missing in the `.wadcfgx` file, the default storage account is used for storing diagnostics results and the storage key parameters from deployment task are ignored. It’s recommended to save \<storage_account_key\> as a secret variable unless there is no sensitive information in the diagnostics result for your environment.
+Format storage key string as `Role:Storagekey`. The diagnostics storage account name for each role is retrieved from the diagnostic config file (.wadcfgx).
 
-For example:
+- If the .wadcfgx file for a role is not found: The diagnostic extension isn't set for that role.
+- If the storage account name is not found in the .wadcfgx file: The default storage account is used for storing diagnostic results, and storage key parameters from the deployment task is ignored.
 
-WebRole: \<WebRole_storage_account_key\>
+NOTE: If there is sensitive information in the diagnostic results for your environment, save the `storage_account_key` as a secret variable. For example:
 
-WorkerRole: \<WorkerRole_stoarge_account_key\>.
+- WebRole: `WebRole_storage_account_key`
+- WorkerRole: `WorkerRole_stoarge_account_key`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -351,13 +355,11 @@ WorkerRole: \<WorkerRole_stoarge_account_key\>.
 **`NewServiceCustomCertificates`** - **Custom certificates to import**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides custom certificates in `CertificatePfxBase64:CertificatePassword` format. It’s recommended to save \<certificate_password\> as a secret variable. 
 
-For example:
+Format the custom certificate string as `CertificatePfxBase64:CertificatePassword`. Save the `certificate_password` as a secret variable. For example: 
 
-Certificate1: \<Certificate1_password\>
-
-Certificate2: \<Certificate2_password\>.
+- Certificate1: `Certificate1_password`
+- Certificate2: `Certificate2_password`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -369,7 +371,7 @@ Certificate2: \<Certificate2_password\>.
 **`NewServiceAdditionalArguments`** - **Additional arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes on additional arguments while creating a brand new service. These are passed on to the `New-AzureService` cmdlet. For example, `-Label 'MyTestService'`.
+Passes additional arguments when creating a new service. Arguments are passed to the `New-AzureService` cmdlet. For example, `-Label 'MyTestService'`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -381,7 +383,7 @@ Passes on additional arguments while creating a brand new service. These are pas
 **`NewServiceAffinityGroup`** - **Affinity group**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-While creating a new service, this affinity group will be considered instead of using the service location.
+The affinity group used instead of service location when creating a new service.
 <!-- :::editable-content-end::: -->
 <br>
 
