@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2022"
 :::moniker range=">=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
-Build and deploy an Azure Static Web App.
+This task builds and deploys an Azure Static Web App.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -57,7 +57,7 @@ Build and deploy an Azure Static Web App.
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd | rootDirectory`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the absolute working directory in which to execute this task. If left empty, the default working directory will be used.
+Specifies the absolute working directory in which to execute this task. If left empty, the default working directory is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -69,7 +69,7 @@ Specify the absolute working directory in which to execute this task. If left em
 **`app_location`** - **App location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory location of the application source code relative to working directory.
+The directory location of the application source code relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Directory location of the application source code relative to working directory.
 **`app_build_command`** - **App build command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Custom command for Oryx to run when building application source code.
+The custom command used to run Oryx when building application source code.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -93,7 +93,7 @@ Custom command for Oryx to run when building application source code.
 **`output_location`** - **Output location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory location of the compiled application code after building.
+The directory location of the compiled application code after building is complete.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -105,7 +105,7 @@ Directory location of the compiled application code after building.
 **`api_location`** - **Api location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory location of the Azure Functions source code relative to working directory.
+The directory location of the Azure Functions source code relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -117,7 +117,7 @@ Directory location of the Azure Functions source code relative to working direct
 **`api_build_command`** - **Api build command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Custom command for Oryx to run when building Azure Functions source code.
+The custom command used to run Oryx when building Azure Functions source code.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -129,7 +129,8 @@ Custom command for Oryx to run when building Azure Functions source code.
 **`routes_location`** - **Routes location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory location where the routes.json file can be found, relative to working directory. Note: routes.json is deprecated, use staticwebapp.config.json.
+The directory location, relative to the working directory, where the routes.json file can be found.  
+*Note:* Routes.json is deprecated. Use staticwebapp.config.json.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -141,7 +142,7 @@ Directory location where the routes.json file can be found, relative to working 
 **`config_file_location`** - **Config file location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory location where the staticwebapp.config.json file can be found, relative to working directory.
+The directory location, relative to the working directory, where the staticwebapp.config.json file can be found.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,7 +154,7 @@ Directory location where the staticwebapp.config.json file can be found, relativ
 **`skip_app_build`** - **Skip app build**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Skips Oryx build for app folder.
+Skips Oryx build for the app folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -165,7 +166,7 @@ Skips Oryx build for app folder.
 **`skip_api_build`** - **Skip api build**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Skips Oryx build for api folder.
+Skips Oryx build for the API folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +178,9 @@ Skips Oryx build for api folder.
 **`is_static_export`** - **Set static export**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set this flag to true when your application is configured to export to static HTML, i.e. when if you're using `next export`.
+Set this flag to `true` when your application is configured to export to static HTML, like when using `next export`.
+
+When this flag is set to `true`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +204,7 @@ Enables verbose logging.
 **`build_timeout_in_minutes`** - **Build timeout in minutes**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Time limit of Oryx app folder build in minutes.
+Specifies the time limit of the Oryx app folder build in minutes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +216,8 @@ Time limit of Oryx app folder build in minutes.
 **`azure_static_web_apps_api_token`** - **Azure Static Web Apps api token**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Api token for deployment. Not required if passed as an environment variable.
+Specifies the API token for deployment.  
+*Note:* Not required if passed as an environment variable.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +229,7 @@ Api token for deployment. Not required if passed as an environment variable.
 **`deployment_environment`** - **Deployment Environment**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Environment to deploy to. Leave blank for production environment. Takes precedence over Production Branch.
+Specifies the environment to deploy to. Leave blank for the production environment. This input takes precedence over the Production Branch.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -237,7 +241,7 @@ Environment to deploy to. Leave blank for production environment. Takes preceden
 **`production_branch`** - **Production Branch**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Production branch. When specified and Deployment Environment is empty, deployments from other branches will be preview environments.
+Specifies the production branch. When defined, and the Deployment Environment is empty, deployments from other branches will be preview environments.
 <!-- :::editable-content-end::: -->
 <br>
 
