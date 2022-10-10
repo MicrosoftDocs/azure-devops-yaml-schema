@@ -335,7 +335,7 @@ Causes the task to wait until role instances are in the ready state.
 **`DiagnosticStorageAccountKeys`** - **Diagnostic storage account keys**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Format storage key string aa `Role:Storagekey`. The diagnostics storage account name for each role is retrieved from the diagnostic config file (.wadcfgx).
+Format storage key string as `Role:Storagekey`. The diagnostics storage account name for each role is retrieved from the diagnostic config file (.wadcfgx).
 
 - If the .wadcfgx file for a role is not found: The diagnostic extension isn't set for that role.
 - If the storage account name is not found in the .wadcfgx file: The default storage account is used for storing diagnostic results, and storage key parameters from the deployment task is ignored.
