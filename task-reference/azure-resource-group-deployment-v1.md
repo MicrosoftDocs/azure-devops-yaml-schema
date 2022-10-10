@@ -185,7 +185,7 @@ Specifies the URL of the parameters file. An example URL: `https://raw.githubuse
 
 To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a parameters file to a storage account and generate a SAS token, use the [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
 
-To view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+To view the template parameters in a grid, click on `…` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [Cross-Origin Resource Sharing](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,11 +242,11 @@ Learn more about [deployment modes](/azure/azure-resource-manager/deployment-mod
 **`enableDeploymentPrerequisitesForCreate`** - **Enable Deployment Prerequisites**<br>
 `boolean`. Optional. Use when `action = Create Or Update Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Applicable only when the Resource group contains virtual machines.
+Applicable only when the resource group contains virtual machines.
 
 Choosing the Deployment Group option configures the Deployment Group agent on each of the virtual machines.
 
-Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a Load balancer, ensure the Inbound NAT rules are configured for target port (5986).
+Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a load balancer, ensure the Inbound NAT rules are configured for the target port (5986).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,11 +258,11 @@ Selecting the WinRM option configures the Windows Remote Management (WinRM) list
 **`enableDeploymentPrerequisitesForSelect`** - **Enable Deployment Prerequisites**<br>
 `boolean`. Optional. Use when `action = Select Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Applicable only when the Resource group contains virtual machines.
+Applicable only when the resource group contains virtual machines.
 
 Choosing the Deployment Group option configures the Deployment Group agent on each of the virtual machines.
 
-Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a Load balancer, ensure the Inbound NAT rules are configured for target port (5986).
+Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a load balancer, ensure the Inbound NAT rules are configured for the target port (5986).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +276,7 @@ Selecting the WinRM option configures the Windows Remote Management (WinRM) list
 <!-- :::editable-content name="helpMarkDown"::: -->
 Required when an existing resource group is selected. Provides a name for the resource group variable. The variable can be used as `$(variableName)` to refer to the resource group in subsequent tasks, such as in PowerShell on Target Machines task for deploying applications.
 
-Valid only when the selected action is Create, Update, or Select.
+Valid only when the selected action is `Create`, `Update`, or `Select`.
 <!-- :::editable-content-end::: -->
 <br>
 
