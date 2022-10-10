@@ -166,7 +166,7 @@ Specifies where to place the artifacts produced by the prepare step and used by 
 **`prepareTests`** - **Prepare tests**<br>
 Input alias: `enablePrepare`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Prepares the tests.
+When set to `true`, this input prepares the tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -261,7 +261,7 @@ The profile to run.  This value must exist in the Cucumber configuration file.
 **`calabashSkipConfigCheck`** - **Skip Configuration Check**<br>
 `boolean`. Optional. Use when `enablePrepare = true && framework = calabash`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The force running without the Cucumber profile.
+When set to `true`, this input skips the configuration check specified by the Cucumber profile.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -309,7 +309,7 @@ The password of the store file that is used to sign the app. To encrypt this val
 **`uitestKeyAlias`** - **Key alias**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the alias that identifies the public/private key pair that is used in the store file.
+Specifies the alias that identifies the public/private key pair that is used in the store file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -321,7 +321,7 @@ Enters the alias that identifies the public/private key pair that is used in the
 **`uiTestKeyPassword`** - **Key password**<br>
 Input alias: `uitestKeyPass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the key password for the alias and store file. To encrypt this value, use a new variable with its lock enabled on the Variables tab.
+Specifies the key password for the alias and store file. To encrypt this value, use a new variable with its lock enabled on the Variables tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -451,7 +451,7 @@ Selects the service connection for Visual Studio App Center. If needed, click th
 **`username`** - **App Center username**<br>
 `string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visits the [App Center sign in page](https://appcenter.ms/settings/profile) to create your username.
+Create your username by visiting the [App Center sign in page](https://appcenter.ms/settings/profile), and provide the value here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -463,7 +463,7 @@ Visits the [App Center sign in page](https://appcenter.ms/settings/profile) to c
 **`password`** - **App Center password**<br>
 `string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visits [Visual Studio App Center](https://appcenter.ms/settings/profile) to set your password. Variables defined in build or release pipelines as `$(passwordVariable)` are accepted. You may mark the variable type as `secret` to secure it.
+Set your password by visiting the [App Center sign in page](https://appcenter.ms/settings/profile), and provide the value here. Variables defined in build or release pipelines as `$(passwordVariable)` are accepted. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
