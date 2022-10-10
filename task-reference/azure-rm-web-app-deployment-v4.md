@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
+Use this task to deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, 
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs.
+Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -185,7 +185,9 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 **`ConnectionType`** - **Connection type**<br>
 `string`. Required. Allowed values: `AzureRM` (Azure Resource Manager), `PublishProfile` (Publish Profile). Default value: `AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection type to use to deploy the Web App.<br />Select Publish Profile for using Visual Studio created Publish profile. [More Information](https://aka.ms/vsPublishProfile).
+Selects the service connection type to use to deploy the Web App.
+
+Select Publish Profile for using Visual Studio created [Publish profile](https://aka.ms/vsPublishProfile).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +198,7 @@ Select the service connection type to use to deploy the Web App.<br />Select Pub
 **`ConnectionType`** - **Connection type**<br>
 `string`. Required. Allowed values: `AzureRM` (Azure Resource Manager), `PublishProfile` (Publish Profile). Default value: `AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection type to use to deploy the Web App.
+Selects the service connection type to use to deploy the Web App.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +210,7 @@ Select the service connection type to use to deploy the Web App.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Selects the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +222,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`PublishProfilePath`** - **Publish profile path**<br>
 `string`. Required when `ConnectionType = PublishProfile`. Default value: `$(System.DefaultWorkingDirectory)/**/*.pubxml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the Publish profile created from Visual Studio.
+The path of the publish profile created from Visual Studio.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +234,7 @@ Path of the Publish profile created from Visual Studio.
 **`PublishProfilePassword`** - **Publish profile password**<br>
 `string`. Required when `ConnectionType = PublishProfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-It is recommended to store password in a secret variable and use that variable here e.g. $(Password).
+It is recommended to store a password in a secret variable and use that variable here e.g. `$(Password)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -256,7 +258,7 @@ Choose from Web App On Windows, Web App On Linux, Web App for Containers, Functi
 **`WebAppName`** - **App Service name**<br>
 `string`. Required when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed when using the task assistant.
+Enters or selects the name of an existing Azure App Service. App services based on selected app type will only be listed when using the task assistant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,7 +270,7 @@ Enter or Select the name of an existing Azure App Service. App services based on
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 Input alias: `DeployToSlotOrASEFlag`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing deployment slot or Azure App Service environment. For both the targets, the task requires a Resource Group name.
+Selects the option to deploy to an existing deployment slot or Azure App Service environment. For both of the targets, the task requires a Resource Group name.
 If the deployment target is a slot, by default the deployment is to the **production** slot. Any other existing slot name can be provided.
 If the deployment target is an Azure App Service environment, leave the slot name as **production** and specify just the Resource Group name.
 <!-- :::editable-content-end::: -->
@@ -284,7 +286,7 @@ If the deployment target is an Azure App Service environment, leave the slot nam
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.
 
-Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+Enter or select the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +298,7 @@ Enter or Select the Azure Resource group that contains the Azure App Service spe
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotOrASEFlag = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Enters or selects an existing Slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +310,7 @@ Enter or Select an existing Slot other than the Production slot.
 **`DockerNamespace`** - **Registry or Namespace**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry or namespace. Note: the fully-qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+A globally unique top-level domain name for your specific registry or namespace. Note: the fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -320,7 +322,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 **`DockerRepository`** - **Image**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository where the container images are stored. Note: the fully-qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+The name of the repository where the container images are stored. Note: the fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -332,7 +334,7 @@ Name of the repository where the container images are stored. Note: the fully-qu
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tags are optional, but are the mechanism that registries use to apply version information to Docker images. Note: the fully-qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+Tags are the mechanism that registries use to apply version information to Docker images. Note: the fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +346,7 @@ Tags are optional, but are the mechanism that registries use to apply version in
 **`VirtualApplication`** - **Virtual application**<br>
 `string`. Optional. Use when `WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the Virtual Application that has been configured in the Azure portal. This option is not required for deployments to the website root. The Virtual Application must have been configured before deployment of the web project.
+Specifies the name of the Virtual Application that has been configured in the Azure portal. This option is not required for deployments to the website root. The Virtual Application must have been configured before deployment of the web project.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,9 +358,9 @@ Specify the name of the Virtual Application that has been configured in the Azur
 **`packageForLinux`** - **Package or folder**<br>
 Input alias: `Package`. `string`. Required when `ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux`. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package, or to a folder containing app service contents generated by MSBuild or a compressed zip or war file.
+The file path to the package, or to a folder containing app service contents generated by MSBuild or a compressed zip or war file.
 
-Variables ([Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported.
+Variables are [Build](/azure/devops/pipelines/build/variables) and [Release](/azure/devops/pipelines/release/variables#default-variables). [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) are supported.
 
 For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.DefaultWorkingDirectory)/\*\*/\*.war`.
 <!-- :::editable-content-end::: -->
@@ -372,7 +374,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the framework and version for Function App on Linux.
+Selects the framework and version for Function App on Linux.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -384,7 +386,7 @@ Select the framework and version for Function App on Linux.
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the framework and version. Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
+Selects the framework and version. Refer to the [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -395,7 +397,7 @@ Select the framework and version. Refer [this doc](/azure/azure-functions/functi
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the framework and version.
+Selects the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -407,7 +409,11 @@ Select the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet exec filename.dll<br/>dotnet filename.dll.
+Enters the start-up command. For example,
+
+dotnet exec `filename.dll`
+
+dotnet `filename.dll`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -418,7 +424,7 @@ Enter the start up command. For ex.<br/>dotnet exec filename.dll<br/>dotnet file
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For example `dotnet run` `dotnet filename.dll`.
+Enters the start-up command. For example, `dotnet run` `dotnet filename.dll`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -429,7 +435,7 @@ Enter the start up command. For example `dotnet run` `dotnet filename.dll`.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command.
+Enters the start-up command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +447,7 @@ Enter the start up command.
 **`ScriptType`** - **Deployment script type**<br>
 `string`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Customize the deployment by providing a script that runs on the Azure App Service after successful deployment. Choose inline deployment script or the path and name of a script file. [Learn more](https://go.microsoft.com/fwlink/?linkid=843471).
+Customizes the deployment by providing a script that runs on the Azure App Service after successful deployment. Choose inline deployment script or the path and name of a script file. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -477,7 +483,7 @@ The path and name of the script to execute.
 **`WebConfigParameters`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config can be edited and vary based on the application framework. For example for node.js applications, web.config will have startup file and iis_node module values. This edit feature is only for the generated web.config. [Learn more](https://go.microsoft.com/fwlink/?linkid=843469).
+A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for `node.js` applications, `web.config` will have startup file and iis_node module values. This edit feature is only for the generated web.config. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -489,7 +495,7 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 **`AppSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app Application settings using the syntax `-key value`. Values containing spaces must be enclosed in double quotes. Examples: `-Port 5000 -RequestTimeout 5000` and `-WEBSITE_TIME_ZONE "Eastern Standard Time"`. To provide two or more key values, the key values must be separated by a space. Example: `-key1 "Value1" -Key2 "Value2"`.
+Edits web app application settings using the syntax `-key value`. Values containing spaces must be enclosed in double quotes. Examples: `-Port 5000 -RequestTimeout 5000` and `-WEBSITE_TIME_ZONE "Eastern Standard Time"`. To provide two or more key values, the key values must be separated by a space. Example: `-key1 "Value1" -Key2 "Value2"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -501,7 +507,7 @@ Edit web app Application settings using the syntax `-key value`. Values containi
 **`ConfigurationSettings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings using the syntax `-key value`. Values containing spaces must be enclosed in double quotes. Example: `-phpVersion 5.6 -linuxFxVersion: node|6.11`.
+Edits web app configuration settings using the syntax `-key value`. Values containing spaces must be enclosed in double quotes. Example: `-phpVersion 5.6 -linuxFxVersion: node|6.11`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -525,7 +531,7 @@ If unchecked or false, the task auto-detects the best deployment method based on
 **`DeploymentType`** - **Deployment method**<br>
 `string`. Required when `UseWebDeploy == true`. Allowed values: `webDeploy` (Web Deploy), `zipDeploy` (Zip Deploy), `runFromZip` (Run From Package). Default value: `webDeploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the deployment method for the app.
+Chooses the deployment method for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -537,7 +543,7 @@ Choose the deployment method for the app.
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType != runFromZip`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to take the Azure App Service offline by placing an **app_offline.htm** file in the root directory before the synchronization operation begins. The file will be removed after the synchronization completes successfully.
+Select this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory before the synchronization operation begins. The file will be removed after the synchronization completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -549,7 +555,7 @@ Select this option to take the Azure App Service offline by placing an **app_off
 **`SetParametersFile`** - **SetParameters file**<br>
 `string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional: location of the **SetParameters.xml** file to use.
+The location of the `SetParameters.xml` file to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -561,7 +567,7 @@ Optional: location of the **SetParameters.xml** file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select 'Exclude files from App_Data folder' checkbox.
+Selects the option to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -573,7 +579,7 @@ Select the option to delete files on the Azure App Service that have no matching
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to prevent files in the App_Data folder from being deployed to/ deleted from the Azure App Service.
+Selects the option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -585,7 +591,7 @@ Select the option to prevent files in the App_Data folder from being deployed to
 **`AdditionalArguments`** - **Additional arguments**<br>
 `string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `-retryAttempts:6 -retryInterval:10000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Web Deploy arguments following the syntax `-key:value`. These will be applied when deploying the Azure App Service. Example: `-disableLink:AppPoolExtension -disableLink:ContentExtension`. [More examples](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569089(v=ws.10)).
+Additional Web Deploy arguments following the syntax `-key:value`. These will be applied when deploying the Azure App Service. Examples: `-disableLink:AppPoolExtension -disableLink:ContentExtension`. Learn more about [Web Deploy Operation Settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569089(v=ws.10)).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -597,7 +603,7 @@ Additional Web Deploy arguments following the syntax `-key:value`. These will be
 **`RenameFilesFlag`** - **Rename locked files**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. The option if set enables msdeploy to rename files that are locked during app deployment.
+Selects the option to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. If set, the option enables msdeploy to rename files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -609,7 +615,7 @@ Select the option to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` i
 **`enableXmlTransform`** - **XML transformation**<br>
 Input alias: `XmlTransformation`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`. Configuration transformations run before variable substitution. XML transformations are supported only for the Windows platform. [Learn more](/azure/devops/pipelines/tasks/transforms-variable-substitution#xml-transformation).
+The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`. Configuration transformations run before variable substitution. [XML transformations](/azure/devops/pipelines/tasks/transforms-variable-substitution#xml-transformation) are supported only for the Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -623,7 +629,7 @@ Input alias: `XmlVariableSubstitution`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Variables defined in the build or release pipeline will be matched against the key or name entries in the `configSections`, `appSettings`, `applicationSettings`, and `connectionStrings` sections of any configuration file and `parameters.xml` file. Variable substitution runs after configuration transformations.
 
-If the same variables are defined in the release pipeline and in the stage, the stage variables will supersede the release pipeline variables. [Learn more](/azure/devops/pipelines/tasks/transforms-variable-substitution#xml-variable-substitution).
+If the same variables are defined in the release pipeline and in the stage, the stage variables will supersede the release pipeline variables. Learn more about [XML variable substitution]](/azure/devops/pipelines/tasks/transforms-variable-substitution#xml-variable-substitution).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -635,7 +641,7 @@ If the same variables are defined in the release pipeline and in the stage, the 
 **`JSONFiles`** - **JSON variable substitution**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a newline-separated list of JSON files to substitute the variable values. Filenames must be relative to the root folder. To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions. For example, to replace the value of `ConnectionString` in the sample below, define a variable named `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipelines stage).
+Provides a newline-separated list of JSON files to substitute the variable values. File names must be relative to the root folder. To substitute JSON variables that are nested or hierarchical, specify them using `JSONPath` expressions. For example, to replace the value of `ConnectionString` in the sample below, define a variable named `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipelines stage).
 
 ```json
 {
@@ -647,7 +653,7 @@ Provide a newline-separated list of JSON files to substitute the variable values
 }
 ```
 
-Variable substitution runs after configuration transformations. Note: build and release pipeline variables are excluded from substitution. [Learn more](/azure/devops/pipelines/tasks/transforms-variable-substitution#json-variable-substitution).
+Variable substitution runs after configuration transformations. Note: build and release pipeline variables are excluded from substitution. Learn more about [JSON variable substitution](/azure/devops/pipelines/tasks/transforms-variable-substitution#json-variable-substitution).
 <!-- :::editable-content-end::: -->
 <br>
 
