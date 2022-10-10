@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2022"
 :::moniker range=">=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
-This task builds and deploys an Azure Static Web App.
+This task builds and deploys an Azure Static Web app.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -229,7 +229,7 @@ Specifies the API token for deployment.
 **`deployment_environment`** - **Deployment Environment**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the environment to deploy to. Leave blank for the production environment. This input takes precedence over the Production Branch.
+Specifies the environment to deploy to. Leave blank for the production environment. This input takes precedence over the production branch.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -241,7 +241,7 @@ Specifies the environment to deploy to. Leave blank for the production environme
 **`production_branch`** - **Production Branch**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the production branch. When defined, and the Deployment Environment is empty, deployments from other branches will be preview environments.
+Specifies the production branch. When defined, and the deployment environment is empty, deployments from other branches will be preview environments.
 <!-- :::editable-content-end::: -->
 <br>
 
