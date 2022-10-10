@@ -142,7 +142,7 @@ The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to wh
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file path to the package or folder containing the Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).  
+The file path to the package or folder containing the Azure Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).  
 Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported.  
 For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 <!-- :::editable-content-end::: -->
