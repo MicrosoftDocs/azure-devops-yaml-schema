@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
+Use this task to run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -55,8 +55,7 @@ Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
 **`script`** - **Script**<br>
 `string`. Required. Default value: `echo Write your commands here\n\necho Hello world`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script you want to run.
-Default value: `echo Write your commands here\n\necho Hello world\n"`.
+The contents of the script you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -67,8 +66,7 @@ Default value: `echo Write your commands here\n\necho Hello world\n"`.
 **`script`** - **Script**<br>
 `string`. Required. Default value: `echo Write your commands here\n\necho Use the environment variables input below to pass secret variables to this script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script you want to run.
-Default value: `echo Write your commands here\n\necho Hello world\n"`.
+The contents of the script you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -79,8 +77,7 @@ Default value: `echo Write your commands here\n\necho Hello world\n"`.
 **`script`** - **Script**<br>
 `string`. Required. Default value: `echo Write your commands here`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script you want to run.
-Default value: `echo Write your commands here\n\necho Hello world\n"`.
+The contents of the script you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +89,7 @@ Default value: `echo Write your commands here\n\necho Hello world\n"`.
 **`workingDirectory`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
+Specifies the working directory to run commands. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +101,7 @@ Specify the working directory in which you want to run the command. If you leave
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the stderr.
+If the value is set to true, the task fails if any errors are written to the stderr.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +127,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Command line has a shortcut in YAML: [steps.script](/azure/devops/pipelines/yaml-schema/steps-script).
+The command line has a shortcut in YAML: [steps.script](/azure/devops/pipelines/yaml-schema/steps-script).
 
 ```yml
 - script: # script path or inline
@@ -145,7 +142,7 @@ Command line has a shortcut in YAML: [steps.script](/azure/devops/pipelines/yaml
 Azure Pipelines puts your inline script contents into a temporary batch file (.cmd) in order to run it.
 When you want to run a batch file from another batch file in Windows CMD, you must use the `call` command, otherwise the first batch file is terminated.
 This will result in Azure Pipelines running your intended script up until the first batch file, then running the batch file, then ending the step.
-Additional lines in the first script wouldn't be run.
+Additional lines in the first script aren't run.
 You should always prepend `call` before executing a batch file in an Azure Pipelines script step.
 
 > [!IMPORTANT]
