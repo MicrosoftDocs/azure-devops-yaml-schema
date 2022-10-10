@@ -19,7 +19,7 @@ Use this task to deploy to Azure App Service a web, mobile, or API app using Doc
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Update Azure App Services on Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
+Update Azure App Services on Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or d
 :::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
-Update Azure WebApp Services On Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node based Web applications, Function Apps, Mobile Apps, Api applications, Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
+Update Azure WebApp Services On Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node based Web applications, Function Apps, Mobile Apps, Api applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -196,7 +196,7 @@ Note: select Linux Web App for built-in platform images or custom container imag
 **`WebAppName`** - **App Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure App Service. App services based on the selected app type will only be listed.
+Enters or selects the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +260,7 @@ Custom image deployment or app deployment with a built-in platform image.
 <!-- :::editable-content name="helpMarkDown"::: -->
 A globally unique top-level domain name for your specific registry.
 
-Note: a fully qualified image name will be of the format: '**`<registry`>**/`<repository`>:`<tag`>'. For example, '**myregistry.azurecr.io**/nginx:latest'.
+Note: a fully qualified image name will be of the format: **`<registry>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -286,7 +286,7 @@ Enters or selects an Azure container registry login server name.
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the repository where the container images are stored.
 
- Note: a fully qualified image name will be of the format: '`<registry`>/**`<repository`>**:`<tag`>'. For example, 'myregistry.azurecr.io/**nginx**:latest'.
+Note: a fully qualified image name will be of the format: `<registry>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -300,7 +300,7 @@ The name of the repository where the container images are stored.
 <!-- :::editable-content name="helpMarkDown"::: -->
 This is the mechanism that registries use to give Docker images a version.
 
-Note: a fully qualified image name will be of the format: '`<registry`>/`<repository`>:**`<tag`>**'. For example, 'myregistry.azurecr.io/nginx:**latest**'.
+Note: a fully qualified image name will be of the format: `<registry>`/`<repository>`:**`<tag>`**. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -338,7 +338,7 @@ Selects the registry connection.
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the repository where the container images are stored.
 
-Note: a fully qualified image name will be of the format: '`<registry`>`**<repository`>**:`<tag`>'. For example, 'myregistry.azurecr.io/**nginx**:latest'.
+Note: a fully qualified image name will be of the format: `<registry>`**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -350,9 +350,9 @@ Note: a fully qualified image name will be of the format: '`<registry`>`**<repos
 **`PrivateRegistryTag`** - **Tag**<br>
 `string`. Optional. Use when `ImageSource = PrivateRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-These are the mechanism that registries use to give Docker images a version.
+Tags are the mechanism that registries use to give Docker images a version.
 
- Note: a fully qualified image name will be of the format: '`<registry`>/`<repository`>:**`<tag`>**'. For example, 'myregistry.azurecr.io/nginx:**latest**'.
+ Note: a fully qualified image name will be of the format: '`<registry>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -366,7 +366,7 @@ These are the mechanism that registries use to give Docker images a version.
 <!-- :::editable-content name="helpMarkDown"::: -->
 A globally unique top-level domain name for your specific registry or namespace.
 
- Note: a fully qualified image name will be of the format: '**`<registry or namespace`>**/`<repository`>:`<tag`>'. For example, '**myregistry.azurecr.io**/nginx:latest'.
+ Note: a fully qualified image name will be of the format: **`<registry or namespace>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx`:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +380,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the repository where the container images are stored.
 
- Note: a fully qualified image name will be of the format: '`<registry or namespace`>/**`<repository`>**:`<tag`>'. For example, 'myregistry.azurecr.io/**nginx**:latest'.
+ Note: a fully qualified image name will be of the format: '`<registry or namespace>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -394,7 +394,7 @@ The name of the repository where the container images are stored.
 <!-- :::editable-content name="helpMarkDown"::: -->
 This is the mechanism that registries use to give Docker images a version.
 
- Note: a fully qualified image name will be of the format: '`<registry or namespace`>/`<repository`>:**`<tag`>**'. For example, 'myregistry.azurecr.io/nginx:**latest**'.
+ Note: a fully qualified image name will be of the format: '`<registry or namespace>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -473,7 +473,7 @@ Selects the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = applinux || WebAppKind = linux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the start-up command.
+Enters the startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -543,7 +543,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 **`WebConfigParameters`** - **Web.config parameters**<br>
 `string`. Required when `GenerateWebConfig == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edits values like startup files in the generated `web.config` file. This edit feature is only for the generated web.config. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
+Edits values like startup files in the generated `web.config` file. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -632,7 +632,7 @@ Note: this will also remove all files related to any extension installed on this
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to prevent files in the App_Data folder from being deployed to/deleted from the Azure App Service.
+Selects the option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -704,11 +704,19 @@ Note: if the same variables are defined in the release pipeline and in the envir
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a new lines-separated list of JSON files to substitute the variable values. Files names are to be provided relative to the root folder.
 
-To substitute JSON variables that are nested or hierarchical, specify them using a `JSONPath` expressions.
+To substitute JSON variables that are nested or hierarchical, specify them using `JSONPath` expressions.
 
-For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build/release pipeline (or release pipeline’s environment).
+For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build/release pipeline (or the release pipeline’s environment).
 
-{<br/>&nbsp;&nbsp;"Data": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"DefaultConnection": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/> }
+```json
+{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
+    }
+  }
+}
+```
 
 Variable Substitution is run after configuration transforms.
 

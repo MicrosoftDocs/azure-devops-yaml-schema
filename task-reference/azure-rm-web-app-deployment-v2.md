@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to update Azure App Service using Web Deploy/Kudu REST APIs.
+Use this task to update Azure App Service using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -165,7 +165,7 @@ Specifies a name for the output variable that is generated for the URL of the Ap
 **`UseWebDeploy`** - **Publish using Web Deploy**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-`Publish using web deploy` options are supported only when using a Windows agent. On other platforms, the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the App Service, and following options are not supported.
+`Publish using web deploy` options are supported only when using a Windows agent. On other platforms, the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the App Service, and the following options are not supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +201,7 @@ Selects the option to delete files on the Azure App Service that have no matchin
 **`ExcludeFilesFromAppDataFlag`** - **Exclude Files from the App_Data Folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to prevent files in the App_Data folder from being deployed to the Azure App Service.
+Selects the option to prevent files in the `App_Data` folder from being deployed to the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -217,7 +217,7 @@ Additional Web Deploy arguments following the syntax `-key:value`.
 
 These will be applied when deploying the Azure App Service. Example: `-disableLink:AppPoolExtension` `-disableLink:ContentExtension`.
 
-See more examples of [Web Deploy operation settings](https://go.microsoft.com/fwlink/?linkid=838471).
+Learn more about [Web Deploy operation settings](https://go.microsoft.com/fwlink/?linkid=838471).
 <!-- :::editable-content-end::: -->
 <br>
 

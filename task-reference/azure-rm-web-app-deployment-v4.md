@@ -19,7 +19,7 @@ Use this task to deploy to Azure App Service a web, mobile, or API app using Doc
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
+Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -187,7 +187,7 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the service connection type to use to deploy the Web App.
 
-Select Publish Profile for using Visual Studio created [Publish profile](https://aka.ms/vsPublishProfile).
+Select `Publish Profile` for using Visual Studio created [Publish profiles](https://aka.ms/vsPublishProfile).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -222,7 +222,7 @@ Selects the Azure Resource Manager subscription for the deployment.
 **`PublishProfilePath`** - **Publish profile path**<br>
 `string`. Required when `ConnectionType = PublishProfile`. Default value: `$(System.DefaultWorkingDirectory)/**/*.pubxml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of the publish profile created from Visual Studio.
+The path of the [publish profile](https://aka.ms/vsPublishProfile) created from Visual Studio.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,7 +258,7 @@ Choose from Web App On Windows, Web App On Linux, Web App for Containers, Functi
 **`WebAppName`** - **App Service name**<br>
 `string`. Required when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure App Service. App services based on selected app type will only be listed when using the task assistant.
+Enters or selects the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -270,7 +270,7 @@ Enters or selects the name of an existing Azure App Service. App services based 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 Input alias: `DeployToSlotOrASEFlag`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to deploy to an existing deployment slot or Azure App Service environment. For both of the targets, the task requires a Resource Group name.
+Selects the option to deploy to an existing deployment slot or Azure App Service environment. For both targets, the task requires a Resource Group name.
 If the deployment target is a slot, by default the deployment is to the **production** slot. Any other existing slot name can be provided.
 If the deployment target is an Azure App Service environment, leave the slot name as **production** and specify just the Resource Group name.
 <!-- :::editable-content-end::: -->
@@ -298,7 +298,7 @@ Enter or select the Azure Resource group that contains the Azure App Service spe
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotOrASEFlag = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing Slot other than the Production slot.
+Enters or selects an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -386,7 +386,7 @@ Selects the framework and version for Function App on Linux.
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the framework and version. Refer to the [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
+Selects the framework and version. Refer to the [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. Please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -409,7 +409,7 @@ Selects the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the start-up command. For example,
+Enters the startup command. For example:
 
 dotnet exec `filename.dll`
 
@@ -435,7 +435,7 @@ Enters the start-up command. For example, `dotnet run` `dotnet filename.dll`.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the start-up command.
+Enters the startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -483,7 +483,7 @@ The path and name of the script to execute.
 **`WebConfigParameters`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for `node.js` applications, `web.config` will have startup file and iis_node module values. This edit feature is only for the generated web.config. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
+A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for `node.js` applications, `web.config` will have startup file and iis_node module values. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -653,7 +653,7 @@ Provides a newline-separated list of JSON files to substitute the variable value
 }
 ```
 
-Variable substitution runs after configuration transformations. Note: build and release pipeline variables are excluded from substitution. Learn more about [JSON variable substitution](/azure/devops/pipelines/tasks/transforms-variable-substitution#json-variable-substitution).
+A variable substitution runs after configuration transformations. Note: build and release pipeline variables are excluded from substitution. Learn more about [JSON variable substitution](/azure/devops/pipelines/tasks/transforms-variable-substitution#json-variable-substitution).
 <!-- :::editable-content-end::: -->
 <br>
 
