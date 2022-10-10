@@ -70,7 +70,7 @@ Name of the root folder or file to archive.  For folders, everything in the name
 **`includeRootFolder`** - **Prefix root folder name to archive paths**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Prepends the root folder name to file paths within the archive.  Otherwise, all file paths will start one level lower.
+By default, prepends the root folder name to file paths within the archive.  When set to `false`, all file paths will start one level lower.
 
 For example, if the root folder path is: `/home/user/output/classes/` and the file path `com/acme/Main.class`. The resulting archive will contain `classes/com/acme/Main.class`. Otherwise, the resulting archive will contain `com/acme/Main.class`.
 <!-- :::editable-content-end::: -->

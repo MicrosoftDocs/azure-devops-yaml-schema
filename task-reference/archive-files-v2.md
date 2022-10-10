@@ -231,7 +231,7 @@ Specify the name of the archive file to create.  For example, to create `foo.tgz
 **`replaceExistingArchive`** - **Replace existing archive**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Overwrites an existing archive. 
+By default, overwrites an existing archive. Otherwise, when set to `false`, uncompressed tar files are added to the existing archive.
 
 Supported file formats that can be added to an existing archive:
 
@@ -262,7 +262,7 @@ If set to true, forces tools to use verbose output. Overrides the 'quiet' settin
 **`quiet`** - **Force quiet output**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to true, forces tools to use quiet output. Overrides the 'verbose' setting.
+If set to `true`, forces tools to use quiet output. The `verbose` setting (or equivalent) can override this setting.
 <!-- :::editable-content-end::: -->
 <br>
 
