@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
+Use this task to run a command line script using Bash on Linux, macOS, and cmd.exe on Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
