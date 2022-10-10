@@ -101,7 +101,7 @@ Specifies the working directory to run commands. If you leave it empty, the work
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the value is set to true, the task fails if any errors are written to the stderr.
+If the value is set to true, the task fails if any errors are written to the Standard Error stream.
 <!-- :::editable-content-end::: -->
 <br>
 
