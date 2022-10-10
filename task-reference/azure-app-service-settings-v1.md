@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Update/Add App settings an Azure Web App for Linux or Windows.
+Updates or adds app service settings in an Azure Web App for Linux or Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -49,7 +49,7 @@ Update/Add App settings an Azure Web App for Linux or Windows.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription.
+Selects the Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -61,7 +61,7 @@ Select the Azure Resource Manager subscription.
 **`appName`** - **App Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service.
+Enters or selects the name of an existing Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -73,7 +73,7 @@ Enter or Select the name of an existing Azure App Service.
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the Azure Resource Group that contains the Azure App Service specified above.
+Enters or selects the Azure Resource Group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -85,7 +85,7 @@ Enter or Select the Azure Resource Group that contains the Azure App Service spe
 **`slotName`** - **Slot**<br>
 `string`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot. If no slot is selected, changes will be made to production.
+Enters or selects an existing slot. If you don't select a slot, changes are made to production.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -97,9 +97,23 @@ Enter or Select an existing Slot. If no slot is selected, changes will be made t
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Application settings to be entered using JSON syntax. Values containing spaces should be enclosed in double quotes.
+Application settings in JSON syntax. Enclose values containing spaces in double quotes. The following is an example of the JSON syntax:
 
-Add/Update App Service App Settings using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key1", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueabcd",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": false <br/> &nbsp;&nbsp; },<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key2", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueefgh",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": true <br/> &nbsp;&nbsp; }<br/>].
+```json
+[
+   {
+    "name": "key1",
+    "value": "valueabcd",
+    "slotSetting": false
+   },
+   {
+    "name": "key2",
+    "value": "valueefgh",
+    "slotSetting": true
+   }
+]
+```
+
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,9 +125,16 @@ Add/Update App Service App Settings using the json syntax as follows:<br/> [<br/
 **`generalSettings`** - **General settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-General settings to be entered using JSON syntax. Values containing spaces should be enclosed in double quotes. See the [App Service SiteConfig object documentation](/azure/templates/microsoft.web/sites) for the available properties.
+General settings in JSON syntax. Enclose values containing spaces in double quotes. For a list of the available properties, see the [App Service SiteConfig object documentation](/azure/templates/microsoft.web/sites). The following is an example of the JSON syntax:
 
-Add/Update App Service General Settings using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"alwaysOn": true, <br/>&nbsp;&nbsp;&nbsp;&nbsp;"webSocketsEnabled": false<br/> &nbsp;&nbsp; }<br/>].
+```json
+[
+   {
+    "alwaysOn": true,
+    "webSocketsEnabled": false
+   }
+]
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,9 +146,24 @@ Add/Update App Service General Settings using the json syntax as follows:<br/> [
 **`connectionStrings`** - **Connection Strings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Connection strings to be entered using JSON syntax. Values containing spaces should be enclosed in double quotes.
+Connection strings in JSON syntax. Enclose values containing spaces in double quotes. The following is an example of the JSON syntax:
 
-Add/Update App Service Connection strings using the json syntax as follows:<br/> [<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key1", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueabcd",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "MySql", <br/> &nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": false <br/> &nbsp;&nbsp; },<br/>&nbsp;&nbsp; {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "key2", <br/>&nbsp;&nbsp;&nbsp;&nbsp;"value": "valueefgh",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "Custom", <br/> &nbsp;&nbsp;&nbsp;&nbsp;"slotSetting": true <br/> &nbsp;&nbsp; }<br/>].
+```json
+[
+   {
+    "name": "key1",
+    "value": "valueabcd",
+    "type": "MySql",
+    "slotSetting": false
+   },
+   {
+    "name": "key2",
+    "value": "valueefgh",
+    "type": "Custom",
+    "slotSetting": true
+   }
+]
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,8 +191,7 @@ None.
 
 Use this task to configure App settings, connection strings and other general settings in bulk using JSON syntax on your web app or any of its deployment slots. 
 The task works on cross platform Azure Pipelines agents running Windows, Linux or Mac.
-The task works for ASP.NET, ASP.NET Core, PHP, Java, Python, Go and Node.js based web applications.
-<!-- :::editable-content-end::: -->
+The task works for ASP.NET, ASP.NET Core, PHP, Java, Python, Go and Node.js based web applications.<!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
