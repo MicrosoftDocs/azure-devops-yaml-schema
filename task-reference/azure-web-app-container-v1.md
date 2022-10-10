@@ -143,8 +143,8 @@ The path of the Docker-Compose file. Must be a fully qualified path or a path re
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the start up command.  
 For example:  
-dotnet run  
-dotnet filename.dll
+`dotnet run`  
+`dotnet filename.dll`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +156,7 @@ dotnet filename.dll
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edits the web app application settings using the syntax -key value (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). A value containing spaces should be enclosed in double quotes ( for example: `"Eastern Standard Time"`).
+Edits the web app application settings using the syntax -key value (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). A value containing spaces should be enclosed in double quotes (for example: `"Eastern Standard Time"`).
 <!-- :::editable-content-end::: -->
 <br>
 
