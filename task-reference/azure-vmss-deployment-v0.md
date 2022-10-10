@@ -173,7 +173,7 @@ Specifies the URL of the VHD image. If it's an Azure storage blob URL, the stora
 **`customScriptsDirectory`** - **Custom script directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The path to the directory containing the custom script(s) that are run by using the Custom Script VM Extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example, the script can set a machine level environment variable which the application uses, like database connection string.
+Optional. The path to the directory containing the custom script(s) that are run by using the Custom Script VM Extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example, the script can set a machine level environment variable which the application uses, like database connection strings.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -214,7 +214,7 @@ Optional. The custom script will be invoked with arguments passed. Build/release
 **`customScriptsStorageAccount`** - **Azure storage account where custom scripts will be uploaded**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The Custom Script Extension downloads and executes the scripts provided by you on each virtual machine in the VM scale set. These scripts will be stored in the pre-existing ARM storage account specified here.
+Optional. The Custom Script Extension downloads and executes the provided scripts on each virtual machine in the VM scale set. These scripts will be stored in the pre-existing ARM storage account specified here.
 <!-- :::editable-content-end::: -->
 <br>
 
