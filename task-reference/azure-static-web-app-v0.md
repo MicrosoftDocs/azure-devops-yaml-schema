@@ -129,7 +129,7 @@ The custom command used to run Oryx when building Azure Functions source code.
 **`routes_location`** - **Routes location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location, relative to the working directory, where the routes.json file can be found.  
+The directory location of the routes.json file relative to the working directory.  
 *Note:* Routes.json is deprecated. Use staticwebapp.config.json.
 <!-- :::editable-content-end::: -->
 <br>
@@ -142,7 +142,7 @@ The directory location, relative to the working directory, where the routes.json
 **`config_file_location`** - **Config file location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location, relative to the working directory, where the staticwebapp.config.json file can be found.
+The directory location of the staticwebapp.config.json file relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
