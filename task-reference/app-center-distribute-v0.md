@@ -77,7 +77,7 @@ Selects the service endpoint for your Visual Studio App Center connection. To cr
 **`appSlug`** - **App slug**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The app slug is in the format of `{username}/{app_identifier}`.  To locate `{username}` and `{app_identifier}` for an app, click on its name from [App Center](https://appcenter.ms/apps), and the resulting URL is in the format of [https://appcenter.ms/users/**{username}**/apps/**{app_identifier}**](https://appcenter.ms/users/{username}/apps/{app_identifier}). If you are using orgs, the app slug is of the format `{orgname}/{app_identifier}`.
+The app slug is in the format of `{username}/{app_identifier}`.  To locate `{username}` and `{app_identifier}` for an app, click on its name from [App Center](https://appcenter.ms/apps), and the resulting URL is in the format of `https://appcenter.ms/users/**{username}**/apps/**{app_identifier}**`. If you are using orgs, the app slug is of the format `{orgname}/{app_identifier}`.
 <!-- :::editable-content-end::: -->
 <br>
 
