@@ -271,8 +271,8 @@ Specify the name of an existing Azure App Service. App services based on the sel
 Input alias: `DeployToSlotOrASEFlag`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the option to deploy to an existing deployment slot or Azure App Service environment. For both targets, the task requires a Resource Group name.
-If the deployment target is a slot, by default the deployment is to the **production** slot. Any other existing slot name can be provided.
-If the deployment target is an Azure App Service environment, leave the slot name as **production** and specify just the Resource Group name.
+If the deployment target is a slot, by default the deployment is to the **Production** slot. Any other existing slot name can be provided.
+If the deployment target is an Azure App Service environment, leave the slot name as `Production` and specify just the Resource Group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -310,7 +310,7 @@ Specify an existing slot other than the Production slot.
 **`DockerNamespace`** - **Registry or Namespace**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry or namespace. Note: the fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+A globally unique top-level domain name for your specific registry or namespace. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -322,7 +322,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 **`DockerRepository`** - **Image**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the repository where the container images are stored. Note: the fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+The name of the repository where the container images are stored. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -334,7 +334,7 @@ The name of the repository where the container images are stored. Note: the full
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tags are the mechanism that registries use to apply version information to Docker images. Note: the fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+Tags are the mechanism that registries use to apply version information to Docker images. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -653,7 +653,7 @@ Provides a newline-separated list of JSON files to substitute the variable value
 }
 ```
 
-A variable substitution runs after configuration transformations. Note: build and release pipeline variables are excluded from substitution. Learn more about [JSON variable substitution](/azure/devops/pipelines/tasks/transforms-variable-substitution#json-variable-substitution).
+A variable substitution runs after configuration transformations. Note: Build and release pipeline variables are excluded from substitution. Learn more about [JSON variable substitution](/azure/devops/pipelines/tasks/transforms-variable-substitution#json-variable-substitution).
 <!-- :::editable-content-end::: -->
 <br>
 

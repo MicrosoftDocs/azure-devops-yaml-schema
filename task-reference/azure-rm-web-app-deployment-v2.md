@@ -91,7 +91,7 @@ Specify the name of an existing Azure App Service.
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to deploy to an existing slot other than the production slot.
+Use this option to deploy to an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,7 @@ Specify the Azure Resource group that contains the Azure App Service specified a
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify an existing slot other than the production slot.
+Specify an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 

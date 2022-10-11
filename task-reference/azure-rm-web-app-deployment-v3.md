@@ -184,7 +184,7 @@ Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), 
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the type of web app to deploy.
 
-Note: specify Linux Web App for built-in platform images or custom container image deployments.
+Note: Specify Linux Web App for built-in platform images or custom container image deployments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -207,7 +207,7 @@ Specify the name of an existing Azure App Service. App services based on the sel
 
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
 `boolean`. Optional. Use when `WebAppKind != ""`. Default value: `false`.<br>
-Use this option to deploy to an existing slot other than the production slot. If this option is not selected, then the Azure App Service will be deployed to the production slot.
+Use this option to deploy to an existing slot other than the Production slot. If this option is not selected, then the Azure App Service will be deployed to the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +231,7 @@ Specify the Azure Resource group that contains the Azure App Service specified a
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify an existing slot other than the production slot.
+Specify an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -259,7 +259,7 @@ Custom image deployment or app deployment with a built-in platform image.
 <!-- :::editable-content name="helpMarkDown"::: -->
 A globally unique top-level domain name for your specific registry.
 
-Note: a fully qualified image name will be of the format: **`<registry>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx:latest`.
+Note: A fully qualified image name will be of the format: **`<registry>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -285,7 +285,7 @@ Specify an Azure container registry login server name.
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the repository where the container images are stored.
 
-Note: a fully qualified image name will be of the format: `<registry>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
+Note: A fully qualified image name will be of the format: `<registry>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -299,7 +299,7 @@ Note: a fully qualified image name will be of the format: `<registry>`/**`<repos
 <!-- :::editable-content name="helpMarkDown"::: -->
 This is the mechanism that registries use to give Docker images a version.
 
-Note: a fully qualified image name will be of the format: `<registry>`/`<repository>`:**`<tag>`**. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
+Note: A fully qualified image name will be of the format: `<registry>`/`<repository>`:**`<tag>`**. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -337,7 +337,7 @@ Specify the registry connection.
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the repository where the container images are stored.
 
-Note: a fully qualified image name will be of the format: `<registry>`**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
+Note: A fully qualified image name will be of the format: `<registry>`**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -351,7 +351,7 @@ Note: a fully qualified image name will be of the format: `<registry>`**`<reposi
 <!-- :::editable-content name="helpMarkDown"::: -->
 Tags are the mechanism that registries use to give Docker images a version.
 
- Note: a fully qualified image name will be of the format: '`<registry>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
+ Note: A fully qualified image name will be of the format: '`<registry>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -365,7 +365,7 @@ Tags are the mechanism that registries use to give Docker images a version.
 <!-- :::editable-content name="helpMarkDown"::: -->
 A globally unique top-level domain name for your specific registry or namespace.
 
- Note: a fully qualified image name will be of the format: **`<registry or namespace>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx`:`latest`.
+ Note: A fully qualified image name will be of the format: **`<registry or namespace>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx`:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -379,7 +379,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the repository where the container images are stored.
 
- Note: a fully qualified image name will be of the format: '`<registry or namespace>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
+ Note: A fully qualified image name will be of the format: '`<registry or namespace>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -393,7 +393,7 @@ The name of the repository where the container images are stored.
 <!-- :::editable-content name="helpMarkDown"::: -->
 This is the mechanism that registries use to give Docker images a version.
 
- Note: a fully qualified image name will be of the format: '`<registry or namespace>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
+ Note: A fully qualified image name will be of the format: '`<registry or namespace>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -619,7 +619,7 @@ The location of the `SetParameters.xml` file to use.
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
 
-Note: this will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
+Note: This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -689,7 +689,7 @@ Input alias: `XmlVariableSubstitution`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Variables defined in the build or release pipeline will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`. Variable Substitution is run after config transforms.
 
-Note: if the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
+Note: If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
