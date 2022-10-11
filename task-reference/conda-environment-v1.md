@@ -11,7 +11,10 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-This task is deprecated. Use `conda` directly in script to work with Anaconda environments.
+Use this task to create and activate a Conda environment.
+
+> [!NOTE]
+> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -76,7 +79,7 @@ Create and activate a Conda environment.
 **`createCustomEnvironment`** - **Create a custom environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Create or reactivate a Conda environment instead of using the `base` environment (recommended for self-hosted agents).
+If the value for this boolean is set to `true`, the task [creates](https://docs.conda.io/projects/conda/en/latest/commands/create.html) or reactivates a Conda environment instead of using the `base` environment. Setting the value to `true` is recommended for self-hosted agents.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +91,7 @@ Create or reactivate a Conda environment instead of using the `base` environment
 **`environmentName`** - **Environment name**<br>
 `string`. Required when `createCustomEnvironment == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Conda environment to create and activate, or reactivate if it already exists.
+The name of the Conda environment to create and activate, or reactivate if it already exists.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +103,7 @@ Name of the Conda environment to create and activate, or reactivate if it alread
 **`packageSpecs`** - **Package specs**<br>
 `string`. Default value: `python=3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Space-delimited list of packages to install in the environment.
+The space-delimited list of packages to install in the environment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +115,7 @@ Space-delimited list of packages to install in the environment.
 **`updateConda`** - **Update to the latest Conda**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Update Conda to the latest version. This applies to the Conda installation found in `PATH` or at the path specified by the `CONDA` environment variable.
+Updates Conda to the latest version. This applies to the Conda installation found in `PATH` or to the path specified by the `CONDA` environment variable.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +127,7 @@ Update Conda to the latest version. This applies to the Conda installation found
 **`installOptions`** - **Other options for `conda install`**<br>
 `string`. Optional. Use when `createCustomEnvironment == false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Space-delimited list of additional arguments to pass to the `conda install` command.
+The space-delimited list of additional arguments to pass to the `conda install` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +139,7 @@ Space-delimited list of additional arguments to pass to the `conda install` comm
 **`createOptions`** - **Other options for `conda create`**<br>
 `string`. Optional. Use when `createCustomEnvironment == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Space-delimited list of additional arguments to pass to the `conda create` command.
+The space-delimited list of additional options to pass to the `conda create` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +151,7 @@ Space-delimited list of additional arguments to pass to the `conda create` comma
 **`cleanEnvironment`** - **Clean the environment**<br>
 `boolean`. Optional. Use when `createCustomEnvironment == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delete the environment and recreate it if it already exists. If not selected, the task will reactivate an existing environment.
+Deletes the environment and recreates it if it already exists. If this boolean is not selected, the task will reactivate an existing environment.
 <!-- :::editable-content-end::: -->
 <br>
 
