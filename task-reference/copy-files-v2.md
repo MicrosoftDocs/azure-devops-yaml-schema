@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
+Use this task to copy files from a source folder to a target folder using match patterns. (The match patterns will only match file paths, not folder paths).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Copy files from a source folder to a target folder using patterns matching file 
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths).
+Use this task to copy files from a source folder to a target folder using match patterns. (The match patterns will only match file paths, not folder paths).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -107,7 +107,7 @@ Copy files from source folder to target folder using match patterns (The match p
 **`SourceFolder`** - **Source Folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder that contains the files you want to copy. If you leave it empty, the copying is done from the root folder of the repo (same as if you had specified [**`$(Build.SourcesDirectory)`**](/azure/devops/pipelines/build/variables)).
+Optional. The folder that contains the files you want to copy. If the folder is empty, then the task copies files from the root folder of the repo as though [**`$(Build.SourcesDirectory)`**](/azure/devops/pipelines/build/variables) was specified.
 
 If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to copy files from the directory created for the pipeline.
 <!-- :::editable-content-end::: -->
@@ -121,17 +121,17 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 **`Contents`** - **Contents**<br>
 `string`. Required. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths to include as part of the copy. Supports multiple lines of match patterns.
+The file paths to include as part of the copy. This string supports multiple lines of match patterns.
 
 For example:
 
-* `*` copies all files in the specified source folder
-* `**` copies all files in the specified source folder and all files in all sub-folders
-* `**\bin\**` copies all files recursively from any bin folder
+* `*` copies all files in the specified source folder.
+* `**` copies all files in the specified source folder and all files in all sub-folders.
+* `**\bin\**` copies all files recursively from any bin folder.
 
-The pattern is used to match only file paths, not folder paths. So you should specify patterns such as `**\bin\**` instead of `**\bin`.
+The pattern is used to match only file paths, not folder paths. Specify patterns, such as `**\bin\**` instead of `**\bin`.
 
-You must use the path separator that matches your build agent type, for example `/`must be used for Linux agents. More examples are shown below.
+Use the path separator that matches your build agent type. For example, `/`must be used for Linux agents. More examples are shown below.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +143,7 @@ You must use the path separator that matches your build agent type, for example 
 **`TargetFolder`** - **Target Folder**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target folder or UNC path files will copy to. You can use [variables](/azure/devops/pipelines/build/variables). Example: `$(build.artifactstagingdirectory)`.
+The target folder or UNC path that will contain the copied files. You can use [variables](/azure/devops/pipelines/build/variables). Example: `$(build.artifactstagingdirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,7 +155,7 @@ Target folder or UNC path files will copy to. You can use [variables](/azure/dev
 **`CleanTargetFolder`** - **Clean Target Folder**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delete all existing files in target folder before copy.
+Optional. Deletes all existing files in target folder before the copy process.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +167,7 @@ Delete all existing files in target folder before copy.
 **`OverWrite`** - **Overwrite**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Replace existing file in target folder.
+Optional. Replaces the existing files in the target folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +179,7 @@ Replace existing file in target folder.
 **`flattenFolders`** - **Flatten Folders**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Flatten the folder structure and copy all files into the specified target folder.
+Optional. Flattens the folder structure and copies all files into the specified target folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +191,7 @@ Flatten the folder structure and copy all files into the specified target folder
 **`preserveTimestamp`** - **Preserve Target Timestamp**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Using the original source file, preserve the target file timestamp.
+Preserves the target file timestamp by using the original source file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +203,7 @@ Using the original source file, preserve the target file timestamp.
 **`retryCount`** - **Retry count to copy the file**<br>
 `string`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the retry count to copy the file. It might help to resolve intermittent issues e.g. with UNC target paths on a remote host.
+Specifies the retry count to copy the file. This string is useful for intermittent issues, such as UNC target paths on a remote host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,7 +215,7 @@ Specify the retry count to copy the file. It might help to resolve intermittent 
 **`delayBetweenRetries`** - **Delay between two retries.**<br>
 `string`. Default value: `1000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the delay between two retries. It might help to be more resilient to intermittent issues e.g. with UNC target paths on a remote host.
+Specifies the delay between two retries. This string is useful for intermittent issues, such as UNC target paths on a remote host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -227,7 +227,7 @@ Specify the delay between two retries. It might help to be more resilient to int
 **`ignoreMakeDirErrors`** - **Ignore errors during creation of target folder.**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Ignore errors which happen during creation of target folder. This could be useful to avoid issues with parallel execution of task by several agents with one target folder.
+Ignores errors that occur during the creation of the target folder. This string is useful for avoiding issues with the parallel execution of tasks by several agents within one target folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -253,7 +253,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-If no files are matched, the task will still report success. If a matched file already exists in the target, the task will report failure unless `Overwrite` is set to true.
+If no files are matched, the task will still report success. If a matched file already exists in the target folder, the task will report failure unless `Overwrite` is set to true.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
