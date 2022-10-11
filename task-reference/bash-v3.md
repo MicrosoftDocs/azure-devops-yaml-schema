@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run a Bash script on macOS, Linux, or Windows.
+Use this task to run a Bash script on macOS, Linux, or Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -97,7 +97,7 @@ Run a Bash script on macOS, Linux, or Windows.
 **`targetType`** - **Type**<br>
 `string`. Allowed values: `filePath` (File Path), `inline`. Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target script type: File Path or Inline.
+Targets script type: file path or inline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ Target script type: File Path or Inline.
 **`filePath`** - **Script Path**<br>
 `string`. Required when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
+The path of the script to execute. This must be a fully qualified path or relative to `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ Path of the script to execute. Must be a fully qualified path or relative to $(S
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the shell script. Either ordinal parameters or named parameters.
+The arguments passed to the shell script. Either ordinal parameters or named parameters.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +133,7 @@ Arguments passed to the shell script. Either ordinal parameters or named paramet
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your commands here\n\necho 'Hello world'`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script.
+The contents of the script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ Contents of the script.
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your commands here\n\n# Use the environment variables input below to pass secret variables to this script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script.
+The contents of the script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,7 +155,7 @@ Contents of the script.
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your commands here`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script.
+The contents of the script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +167,7 @@ Contents of the script.
 **`workingDirectory`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
+Specifies the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +179,7 @@ Specify the working directory in which you want to run the command. If you leave
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the StandardError stream.
+If this is true, this task will fail if any errors are written to the `StandardError` stream.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +191,7 @@ If this is true, this task will fail if any errors are written to the StandardEr
 **`bashEnvValue`** - **Set value for BASH_ENV environment variable**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If input is specified, it's value is expanded and used as the path of a startup file to execute before running the script. If the environment variable `BASH_ENV` has already been defined, the task will override this variable only for the current task. You can find more details by [link](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html).
+If the input is specified, it's value is expanded and used as the path of a startup file to execute before running the script. If the environment variable `BASH_ENV` has already been defined, the task will override this variable only for the current task. Learn more about [Bash Startup Files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +203,7 @@ If input is specified, it's value is expanded and used as the path of a startup 
 **`noProfile`** - **Don't load the profile startup/initialization files**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Don't load the system-wide startup file `/etc/profile' or any of the personal initialization files.
+Don't load the system-wide startup file `/etc/profile` or any of the personal initialization files.
 <!-- :::editable-content-end::: -->
 <br>
 
