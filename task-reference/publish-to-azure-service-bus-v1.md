@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection (no agent is required).
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -119,7 +119,8 @@ Enters the json messageBody.
 
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->The Session Id with which the message is published. For session based queues, publishing fails if value not specified. For Non-Session Based Queues, it will not matter.
+<!-- :::editable-content name="helpMarkDown"::: -->
+The Session Id with which the message is published. For session based queues, publishing fails if value not specified. For Non-Session Based Queues, it will not matter.
 <!-- :::editable-content-end::: -->
 <br>
 

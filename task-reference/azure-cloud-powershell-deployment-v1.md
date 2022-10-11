@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service.
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -130,9 +130,7 @@ Deploy an Azure Cloud Service.
 **`azureClassicSubscription`** - **Azure subscription (Classic)**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-
 The Azure subscription to target for deployment.
-
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -355,7 +353,6 @@ NOTE: If there is sensitive information in the diagnostic results for your envir
 **`NewServiceCustomCertificates`** - **Custom certificates to import**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-
 Format the custom certificate string as `CertificatePfxBase64:CertificatePassword`. Save the `certificate_password` as a secret variable. For example: 
 
 - Certificate1: `Certificate1_password`
