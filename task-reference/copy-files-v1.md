@@ -82,7 +82,7 @@ For example:
 
 The pattern is used to match only file paths, not folder paths. Specify patterns, such as `**\bin\**` instead of `**\bin`.
 
-Use the path separator that matches your build agent type. For example, `/`must be used for Linux agents. More examples are shown below.
+Use the path separator that matches your build agent type. For example, `/` must be used for Linux agents. More examples are shown below.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +106,7 @@ The target folder or UNC path that will contain the copied files. You can use [v
 **`CleanTargetFolder`** - **Clean Target Folder**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Deletes all existing files in target folder before the copy process.
+Optional. Deletes all existing files in the target folder before the copy process.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ None.
 
 There is a newer version of this task available at [CopyFiles@2](copy-files-v2.md).
 
-If no files are matched, the task will still report success. If a matched file already exists in the target folder, the task will report failure unless `Overwrite` is set to true.
+If no files match, the task will still report success. If a matched file already exists in the target folder, the task will report failure unless `Overwrite` is set to true.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
