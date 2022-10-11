@@ -191,7 +191,7 @@ If this is true, this task will fail if any errors are written to the `StandardE
 **`bashEnvValue`** - **Set value for BASH_ENV environment variable**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the input is specified, it's value is expanded and used as the path of a startup file to execute before running the script. If the environment variable `BASH_ENV` has already been defined, the task will override this variable only for the current task. Learn more about [Bash Startup Files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html).
+If the input is specified, its value is expanded and used as the path of a startup file to execute before running the script. If the environment variable `BASH_ENV` has already been defined, the task will override this variable only for the current task. Learn more about [Bash Startup Files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html).
 <!-- :::editable-content-end::: -->
 <br>
 
