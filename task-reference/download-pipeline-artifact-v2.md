@@ -32,7 +32,7 @@ Download build and pipeline artifacts.
     #definition: # string. Required when source == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when source == specific. Build version to download. Default: latest.
-    #branchName: 'refs/heads/master' # string. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/master.
+    #branchName: 'refs/heads/main' # string. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/main.
     #pipelineId: # string. Required when source == specific && runVersion == specific. Build. 
     #tags: # string. Optional. Use when source == specific && runVersion != specific. Build Tags. 
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from partially succeeded builds. Default: false.
@@ -112,7 +112,7 @@ Specifies which build version to download.
 :::moniker range=">=azure-pipelines-2020"
 
 **`branchName`** - **Branch name**<br>
-Input alias: `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/master`.<br>
+Input alias: `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/main`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
 <!-- :::editable-content-end::: -->
@@ -291,7 +291,7 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
     project: 'FabrikamFiber'
     pipeline: 12
     runVersion: 'latestFromBranch'
-    runBranch: 'refs/heads/master'
+    runBranch: 'refs/heads/main'
     tags: 'testTag'
 ```
 
