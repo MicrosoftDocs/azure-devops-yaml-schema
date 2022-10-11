@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run a Windows `.bat` or `.cmd` script. Optionally, allow it to permanently modify environment variables.
+Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` or `.cmd` script can permanently modify environment variables.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to run a Windows `.bat` or `.cmd` script. Optionally, allow it to 
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run a Windows `.bat` or `.cmd` script. Optionally, allow it to permanently modify environment variables.
+Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` or `.cmd` script can permanently modify environment variables.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -82,7 +82,7 @@ Use this task to run a Windows `.bat` or `.cmd` script. Optionally, allow it to 
 **`filename`** - **Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of the `.cmd` or `.bat` script to execute. This should be a fully qualified path or one relative to the default working directory. (Please note that the working directory could differ from `workingFolder` which could be specified for this task.)
+The path of the `.cmd` or `.bat` script to execute. This should be a fully qualified path or one relative to the default working directory. (Please note that the working directory could differ from `workingFolder`, which could be specified for this task.)
 <!-- :::editable-content-end::: -->
 <br>
 
