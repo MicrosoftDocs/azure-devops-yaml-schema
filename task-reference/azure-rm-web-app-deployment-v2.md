@@ -67,7 +67,7 @@ Use this task to update Azure App Service using Web Deploy/[Kudu REST APIs](http
 **`ConnectedServiceName`** - **Azure Subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription for the deployment.
+Specify the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -79,7 +79,7 @@ Selects the Azure Resource Manager subscription for the deployment.
 **`WebAppName`** - **App Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure App Service.
+Specify the name of an existing Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +91,7 @@ Enters or selects the name of an existing Azure App Service.
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to deploy to an existing slot other than the production slot.
+Use this option to deploy to an existing slot other than the production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +103,7 @@ Selects the option to deploy to an existing slot other than the production slot.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the Azure Resource group that contains the Azure App Service specified above.
+Specify the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,7 @@ Enters or selects the Azure Resource group that contains the Azure App Service s
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing slot other than the production slot.
+Specify an existing slot other than the production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -127,7 +127,7 @@ Enters or selects an existing slot other than the production slot.
 **`VirtualApplication`** - **Virtual Application**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the Virtual Application that has been configured in the Azure portal. The option is not required for deployments to the App Service root.
+Specify the name of the Virtual Application that has been configured in the Azure portal. The option is not required for deployments to the App Service root.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,7 +153,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip`.
 **`WebAppUri`** - **App Service URL**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a name for the output variable that is generated for the URL of the App Service. The variable can be consumed in subsequent tasks.
+Specify a name for the output variable that is generated for the URL of the App Service. The variable can be used in subsequent tasks.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +177,7 @@ Specifies a name for the output variable that is generated for the URL of the Ap
 **`SetParametersFile`** - **SetParameters File**<br>
 `string`. Optional. Use when `UseWebDeploy == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The location of the `SetParameters.xml` file to use.
+Specify the location of the `SetParameters.xml` file to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,7 +189,7 @@ The location of the `SetParameters.xml` file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove Additional Files at Destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
+Use this option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +201,7 @@ Selects the option to delete files on the Azure App Service that have no matchin
 **`ExcludeFilesFromAppDataFlag`** - **Exclude Files from the App_Data Folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to prevent files in the `App_Data` folder from being deployed to the Azure App Service.
+Exclude files in the `App_Data` folder from being deployed to the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -229,7 +229,7 @@ Learn more about [Web Deploy operation settings](https://go.microsoft.com/fwlink
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
+Use this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 

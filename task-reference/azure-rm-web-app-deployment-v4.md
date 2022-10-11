@@ -185,9 +185,9 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 **`ConnectionType`** - **Connection type**<br>
 `string`. Required. Allowed values: `AzureRM` (Azure Resource Manager), `PublishProfile` (Publish Profile). Default value: `AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the service connection type to use to deploy the Web App.
+Specify the service connection type to use to deploy the Web App.
 
-Select `Publish Profile` for using Visual Studio created [Publish profiles](https://aka.ms/vsPublishProfile).
+Specify `Publish Profile` for using Visual Studio created [Publish profiles](https://aka.ms/vsPublishProfile).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -198,7 +198,7 @@ Select `Publish Profile` for using Visual Studio created [Publish profiles](http
 **`ConnectionType`** - **Connection type**<br>
 `string`. Required. Allowed values: `AzureRM` (Azure Resource Manager), `PublishProfile` (Publish Profile). Default value: `AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the service connection type to use to deploy the Web App.
+Specify the service connection type to use to deploy the Web App.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -210,7 +210,7 @@ Selects the service connection type to use to deploy the Web App.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription for the deployment.
+Specify the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,7 +258,7 @@ Choose from Web App On Windows, Web App On Linux, Web App for Containers, Functi
 **`WebAppName`** - **App Service name**<br>
 `string`. Required when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
+Specify the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -270,7 +270,7 @@ Enters or selects the name of an existing Azure App Service. App services based 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 Input alias: `DeployToSlotOrASEFlag`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to deploy to an existing deployment slot or Azure App Service environment. For both targets, the task requires a Resource Group name.
+Specify the option to deploy to an existing deployment slot or Azure App Service environment. For both targets, the task requires a Resource Group name.
 If the deployment target is a slot, by default the deployment is to the **production** slot. Any other existing slot name can be provided.
 If the deployment target is an Azure App Service environment, leave the slot name as **production** and specify just the Resource Group name.
 <!-- :::editable-content-end::: -->
@@ -286,7 +286,7 @@ If the deployment target is an Azure App Service environment, leave the slot nam
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.
 
-Enter or select the Azure Resource group that contains the Azure App Service specified above.
+Specify the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -298,7 +298,7 @@ Enter or select the Azure Resource group that contains the Azure App Service spe
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotOrASEFlag = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing slot other than the Production slot.
+Specify an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -346,7 +346,7 @@ Tags are the mechanism that registries use to apply version information to Docke
 **`VirtualApplication`** - **Virtual application**<br>
 `string`. Optional. Use when `WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the Virtual Application that has been configured in the Azure portal. This option is not required for deployments to the website root. The Virtual Application must have been configured before deployment of the web project.
+Specify the name of the Virtual Application that has been configured in the Azure portal. This option is not required for deployments to the website root. The Virtual Application must have been configured before deployment of the web project.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -374,7 +374,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the framework and version for Function App on Linux.
+Specify the framework and version for Function App on Linux.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -386,7 +386,7 @@ Selects the framework and version for Function App on Linux.
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the framework and version. Refer to the [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. Please use the new values from dropdown.
+Specify the framework and version. Refer to the [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. Please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -397,7 +397,7 @@ Selects the framework and version. Refer to the [Azure Functions runtime version
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the framework and version.
+Specify the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -409,7 +409,7 @@ Selects the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the startup command. For example:
+Specify the startup command. For example:
 
 dotnet exec `filename.dll`
 
@@ -424,7 +424,7 @@ dotnet `filename.dll`.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the start-up command. For example, `dotnet run` `dotnet filename.dll`.
+Specify the start-up command. For example, `dotnet run` `dotnet filename.dll`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -435,7 +435,7 @@ Enters the start-up command. For example, `dotnet run` `dotnet filename.dll`.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the startup command.
+Specify the startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -543,7 +543,7 @@ Chooses the deployment method for the app.
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType != runFromZip`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory before the synchronization operation begins. The file will be removed after the synchronization completes successfully.
+Specify this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory before the synchronization operation begins. The file will be removed after the synchronization completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -567,7 +567,7 @@ The location of the `SetParameters.xml` file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
+Specify the option to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -579,7 +579,7 @@ Selects the option to delete files on the Azure App Service that have no matchin
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
+Specify the option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -603,7 +603,7 @@ Additional Web Deploy arguments following the syntax `-key:value`. These will be
 **`RenameFilesFlag`** - **Rename locked files**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. If set, the option enables msdeploy to rename files that are locked during app deployment.
+Specify the option to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. If set, the option enables msdeploy to rename files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
 <br>
 

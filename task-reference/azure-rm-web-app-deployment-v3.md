@@ -170,7 +170,7 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription for the deployment.
+Specify the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,9 +182,9 @@ Selects the Azure Resource Manager subscription for the deployment.
 **`appType`** - **App type**<br>
 Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), `applinux` (Linux Web App), `functionapp` (Function App), `api` (API App), `mobileapp` (Mobile App). Default value: `app`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the type of web app to deploy. 
+Specify the type of web app to deploy.
 
-Note: select Linux Web App for built-in platform images or custom container image deployments.
+Note: specify Linux Web App for built-in platform images or custom container image deployments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +196,7 @@ Note: select Linux Web App for built-in platform images or custom container imag
 **`WebAppName`** - **App Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
+Specify the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -207,8 +207,7 @@ Enters or selects the name of an existing Azure App Service. App services based 
 
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
 `boolean`. Optional. Use when `WebAppKind != ""`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to deploy to an existing slot other than the production slot. If this option is not selected, then the Azure App Service will be deployed to the production slot.
+Use this option to deploy to an existing slot other than the production slot. If this option is not selected, then the Azure App Service will be deployed to the production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +219,7 @@ Selects the option to deploy to an existing slot other than the production slot.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the Azure Resource group that contains the Azure App Service specified above.
+Specify the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +231,7 @@ Enters or selects the Azure Resource group that contains the Azure App Service s
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an existing slot other than the production slot.
+Specify an existing slot other than the production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +271,7 @@ Note: a fully qualified image name will be of the format: **`<registry>`**/`<rep
 **`AzureContainerRegistryLoginServer`** - **Registry Login Server Name**<br>
 `string`. Optional. Use when `ImageSource = invalidimagesource`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects an Azure container registry login server name.
+Specify an Azure container registry login server name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -312,7 +311,7 @@ Note: a fully qualified image name will be of the format: `<registry>`/`<reposit
 **`DockerRepositoryAccess`** - **Repository Access**<br>
 `string`. Required when `ImageSource = invalidImage`. Allowed values: `private`, `public`. Default value: `public`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Docker repository access.
+Specify the Docker repository access.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -324,7 +323,7 @@ Selects the Docker repository access.
 **`dockerRegistryConnection`** - **Registry Connection**<br>
 Input alias: `RegistryConnectedServiceName`. `string`. Required when `DockerRepositoryAccess = private || ImageSource = PrivateRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the registry connection.
+Specify the registry connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -406,7 +405,7 @@ This is the mechanism that registries use to give Docker images a version.
 **`VirtualApplication`** - **Virtual application**<br>
 `string`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the Virtual Application that has been configured in the Azure portal. The option is not required for deployments to the App Service root.
+Specify the name of the Virtual Application that has been configured in the Azure portal. The option is not required for deployments to the App Service root.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -450,7 +449,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the framework and version.
+Specify the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -461,7 +460,7 @@ Selects the framework and version.
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`. Allowed values: `node|4.4` (Node.js 4.4), `node|4.5` (Node.js 4.5), `node|6.2` (Node.js 6.2), `node|6.6` (Node.js 6.6), `node|6.9` (Node.js 6.9), `node|6.10` (Node.js 6.10), `node|6.11` (Node.js 6.11), `node|8.0` (Node.js 8.0), `node|8.1` (Node.js 8.1), `php|5.6` (PHP 5.6), `php|7.0` (PHP 7.0), `dotnetcore|1.0` (.NET Core 1.0), `dotnetcore|1.1` (.NET Core 1.1), `dotnetcore|2.0` (.NET Core 2.0), `ruby|2.3` (Ruby 2.3).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the framework and version.
+Specify the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -473,7 +472,7 @@ Selects the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = applinux || WebAppKind = linux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the startup command.
+Specify the startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -485,7 +484,7 @@ Enters the startup command.
 **`WebAppUri`** - **App Service URL**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a name for the output variable that is generated for the URL of the Azure App Service. The variable can be consumed in subsequent tasks.
+Specify a name for the output variable that is generated for the URL of the Azure App Service. The variable can be used in subsequent tasks.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -582,7 +581,7 @@ Examples: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
+Use this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -618,7 +617,7 @@ The location of the `SetParameters.xml` file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
+Use this option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
 
 Note: this will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
@@ -632,7 +631,7 @@ Note: this will also remove all files related to any extension installed on this
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
+Use this option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -660,7 +659,7 @@ See more examples of [Web Deploy Operation Settings](https://go.microsoft.com/fw
 **`RenameFilesFlag`** - **Rename locked files**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. The option enables msdeploy to rename locked files that are locked during app deployment.
+Use this option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. The option enables msdeploy to rename locked files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
