@@ -409,7 +409,7 @@ Specify the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the startup command. For example:
+Specify the Startup command. For example:
 
 dotnet exec `filename.dll`
 
@@ -424,7 +424,7 @@ dotnet `filename.dll`.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the start-up command. For example, `dotnet run` `dotnet filename.dll`.
+Specify the Startup command. For example, `dotnet run` `dotnet filename.dll`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -435,7 +435,7 @@ Specify the start-up command. For example, `dotnet run` `dotnet filename.dll`.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the startup command.
+Specify the Startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -483,7 +483,7 @@ The path and name of the script to execute.
 **`WebConfigParameters`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for `node.js` applications, `web.config` will have startup file and iis_node module values. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
+A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for `node.js` applications, `web.config` will have a Startup file and iis_node module values. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -531,7 +531,7 @@ If unchecked or false, the task auto-detects the best deployment method based on
 **`DeploymentType`** - **Deployment method**<br>
 `string`. Required when `UseWebDeploy == true`. Allowed values: `webDeploy` (Web Deploy), `zipDeploy` (Zip Deploy), `runFromZip` (Run From Package). Default value: `webDeploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the deployment method for the app.
+Determines the deployment method for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -567,7 +567,7 @@ The location of the `SetParameters.xml` file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the option to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
+Specify 'true' to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -603,7 +603,7 @@ Additional Web Deploy arguments following the syntax `-key:value`. These will be
 **`RenameFilesFlag`** - **Rename locked files**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the option to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. If set, the option enables msdeploy to rename files that are locked during app deployment.
+Specify the default value to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. If set, the option enables msdeploy to rename files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
