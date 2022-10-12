@@ -11,7 +11,14 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
+Use this task to copy build artifacts to a staging folder and then publish them to the server or a file share. Files are copied to the `$(Build.ArtifactStagingDirectory)` staging folder and then published.
+
+> [!IMPORTANT]
+> This task is deprecated. If you're using Team Foundation Server 2017 or newer, we recommend that you use [Pipeline Artifacts](../../artifacts/pipeline-artifacts.md).
+>
+> Use this task only if you're using Team Foundation Server (TFS) 2015 RTM. You can find this task under the **Build** category **Publish Build Artifacts**.
+
+Use the Copy Files task and the Publish Build Artifacts task instead.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -58,7 +65,9 @@ This task is deprecated.
 **`CopyRoot`** - **Copy Root**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Root folder to which file matching patterns should apply. If no value is provided, the repo root is used. Use variables to specify a folder outside of the repo, such as: $(Agent.BuildDirectory).
+The folder that contains the files you want to copy. If the folder is empty, the task copies files from the root folder of the repo as though [**`$(Build.SourcesDirectory)`**](/azure/devops/pipelines/build/variables) was specified.
+
+If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to copy files from the build agent working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +79,11 @@ Root folder to which file matching patterns should apply. If no value is provide
 **`Contents`** - **Contents**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File or folder paths to include as part of the artifact. Supports multiple lines of minimatch patterns. [More Information](https://go.microsoft.com/fwlink/?LinkID=613725).
+Specifies pattern filters (one on each line) that you want to apply to the list of files to be copied. For example:
+
+- `**` copies all files in the root folder.
+- `**\*` copies all files in the root folder and all files in all sub-folders.
+- `**\bin` copies files in any sub-folder named `bin`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +95,7 @@ File or folder paths to include as part of the artifact. Supports multiple lines
 **`ArtifactName`** - **Artifact Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to create.
+Specifies the name of the artifact to create.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +107,7 @@ The name of the artifact to create.
 **`ArtifactType`** - **Artifact Type**<br>
 `string`. Required. Allowed values: `Container` (Server), `FilePath` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose whether to store the artifact on TFS/Team Services, or to copy it to a file share that must be accessible from the build agent.
+Chooses whether to store the artifact on TFS/Team Services or to copy it to a file share that must be accessible from the build agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +119,7 @@ Choose whether to store the artifact on TFS/Team Services, or to copy it to a fi
 **`TargetPath`** - **Path**<br>
 `string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The UNC file path location to copy the artifact. It must be accessible from the build agent.
+The UNC file path location where the task will copy the artifact to. It must be accessible from the build agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,6 +143,16 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+### This step didn't produce the outcome I was expecting. How can I fix it?
+
+This task has a couple of known issues:
+
+- Some minimatch patterns don't work.
+- It eliminates the most common root path for all paths matched.
+
+You can avoid these issues by instead using the [Copy Files task](/azure/devops/pipelines/tasks/utility/copy-and-publish-build-artifacts) and the [Publish Build Artifacts task](/azure/devops/pipelines/tasks/utility/publish-build-artifacts).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
