@@ -43,7 +43,7 @@ Install the Docker CLI on an agent machine.
 **`dockerVersion`** - **Docker Version**<br>
 `string`. Required. Default value: `17.09.0-ce`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Docker CLI to install.
+Specifies the version of the Docker CLI to install.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -55,7 +55,7 @@ Specify the version of Docker CLI to install.
 **`releaseType`** - **Release type**<br>
 `string`. Allowed values: `stable`, `edge`, `test`, `nightly`. Default value: `stable`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the release type to install. The value `nightly` is not supported on Windows.
+Specifies the release type to install. The value `nightly` is not supported on Windows.
 <!-- :::editable-content-end::: -->
 <br>
 
