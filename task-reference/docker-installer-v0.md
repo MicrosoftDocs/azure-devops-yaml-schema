@@ -1,7 +1,7 @@
 ---
 title: DockerInstaller@0 - Docker CLI installer v0 task
 description: Install Docker CLI on agent machine.
-ms.date: 09/26/2022
+ms.date: 10/12/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install Docker CLI on agent machine.
+Install the Docker CLI on an agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -55,7 +55,7 @@ Specify the version of Docker CLI to install.
 **`releaseType`** - **Release type**<br>
 `string`. Allowed values: `stable`, `edge`, `test`, `nightly`. Default value: `stable`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pick the release type to install. Nightly is not supported on Windows.
+Specify the release type to install. The value `nightly` is not supported on Windows.
 <!-- :::editable-content-end::: -->
 <br>
 
