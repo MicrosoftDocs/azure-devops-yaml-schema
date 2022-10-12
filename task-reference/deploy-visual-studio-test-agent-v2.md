@@ -193,7 +193,7 @@ Denotes if the test agent needs to run as an interactive process. This input is 
 **`isDataCollectionOnly`** - **Enable data collection only**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies if the test agent is used only for data collection and not for running tests. This can typically be found on the application under the test(AUT) machine group.
+Optional. Specifies if the test agent is used only for data collection and not for running tests. This can typically be found on the application under the test (AUT) machine group.
 <!-- :::editable-content-end::: -->
 <br>
 
