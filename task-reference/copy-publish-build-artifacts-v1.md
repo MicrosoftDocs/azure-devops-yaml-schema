@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to copy build artifacts to a staging folder and then publish them to the server or a file share. Files are copied to the `$(Build.ArtifactStagingDirectory)` staging folder and then published.
 
 > [!IMPORTANT]
-> This task is deprecated. If you're using Team Foundation Server 2017 or newer, we recommend that you use [Pipeline Artifacts](../../artifacts/pipeline-artifacts.md).
+> This task is deprecated. If you're using Team Foundation Server 2017 or newer, we recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 >
 > Use this task only if you're using Team Foundation Server (TFS) 2015 RTM. You can find this task under the **Build** category **Publish Build Artifacts**.
 
