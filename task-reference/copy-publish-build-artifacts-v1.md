@@ -107,7 +107,7 @@ Specifies the name of the artifact to create.
 **`ArtifactType`** - **Artifact Type**<br>
 `string`. Required. Allowed values: `Container` (Server), `FilePath` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses whether to store the artifact on TFS/Team Services or to copy it to a file share that must be accessible from the build agent.
+Specifies whether to store the artifact on TFS/Team Services or to copy it to a file share that must be accessible from the build agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,7 +119,7 @@ Chooses whether to store the artifact on TFS/Team Services or to copy it to a fi
 **`TargetPath`** - **Path**<br>
 `string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The UNC file path location where the task will copy the artifact to. It must be accessible from the build agent.
+The UNC file path location where the artifact is copied. It must be accessible from the build agent.
 <!-- :::editable-content-end::: -->
 <br>
 
