@@ -130,7 +130,7 @@ The optional filename for a decrypted file. Defaults to the encrypted file with 
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The working directory for decryption. Defaults to the root of the repository.
+The optional working directory for decryption. Defaults to the root of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 
