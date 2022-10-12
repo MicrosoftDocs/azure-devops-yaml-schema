@@ -104,7 +104,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 **`SourceFolder`** - **Source Folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If you leave it empty, the deletions are done from the root folder of the repository (same as if you had specified [$(Build.SourcesDirectory))](/azure/devops/pipelines/build/variables).
+If the source folder is empty, the task deletes files from the root folder of the repository as though [\$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables) was specified.
 If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to delete files from the build agent working directory.
 <!-- :::editable-content-end::: -->
 <br>
