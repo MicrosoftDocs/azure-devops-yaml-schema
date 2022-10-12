@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Build, tag, push, or run Docker images, or run a Docker command.
+Build, tag, push, run Docker images, or run a Docker command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Build, tag, push, or run Docker images, or run a Docker command.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Build, tag, push, or run Docker images, or run a Docker command. Task can be used with Docker or Azure Container registry.
+Build, tag, push, run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -191,7 +191,7 @@ Select 'Azure Container Registry' to connect to it by using an Azure Service Con
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -202,7 +202,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -214,7 +214,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription.
+Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +226,7 @@ Select an Azure subscription.
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Container Registry in the selected Azure Subscription. The container image will be built and pushed to this container registry.
+Specifies an Azure Container Registry in the selected Azure Subscription. The container image is built and then pushed to this container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +238,7 @@ Select an Azure Container Registry in the selected Azure Subscription. The conta
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Build an image`, `Tag images`, `Push an image`, `Push images`, `Run an image`, `Run a Docker command`. Default value: `Build an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker action.
+Specifies a Docker action.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -250,7 +250,7 @@ Select a Docker action.
 **`dockerFile`** - **Docker File**<br>
 `string`. Required when `action = Build an image`. Default value: `**/Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the Dockerfile. The task will use the first dockerfile it finds to build the image.
+Specifies the path to the Dockerfile. The task uses the first Docker file it finds to build the image.
 <!-- :::editable-content-end::: -->
 <br>
 
