@@ -141,7 +141,7 @@ Provides the option to skip the authenticity validation of the machine's certifi
 **`testMachines`** - **Filter Criteria**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.com, 192.168.12.34 or tags like Role:DB;OS:Win8.1`. Returns machines that have either of the tags. For Azure Resource Group, provide the VM host name for the machine name. The default deploys an agent on all machines represented in the Machines field.
+Provides a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.com, 192.168.12.34` or tags like `Role:DB;OS:Win8.1`. Returns machines that have either of the tags. For Azure Resource Group, provide the VM host name for the machine name. The default deploys an agent on all machines represented in the Machines field.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,7 +189,7 @@ Denotes if the test agent needs to run as an interactive process. This input is 
 **`agentLocation`** - **Test Agent Location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Supplies the path to vstf_testagent.exe from the network or local location. If no path is provided, it will be downloaded from [vstf_testagent.exe](https://go.microsoft.com/fwlink/?LinkId=827840).
+Optional. Supplies the path to vstf_testagent.exe from the network or local location. If no path is provided, it will be downloaded from [the download center](https://go.microsoft.com/fwlink/?LinkId=827840).
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -217,7 +217,7 @@ Specifies the version of Visual Studio test agent. Chooses an appropriate versio
 **`agentLocation`** - **Test agent location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Supplies the path to vstf_testagent.exe from the network or local location. If no path is provided, it will be automatically downloaded from the [Download Center](https://go.microsoft.com/fwlink/?LinkId=827840). [Install the Test Agent 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=827840).  
+Optional. Supplies the path to vstf_testagent.exe from the network or local location. If no path is provided, it will be automatically downloaded from the [download center](https://go.microsoft.com/fwlink/?LinkId=827840). [Install the Test Agent 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=827840).  
 [Install Test Agent 2017](https://aka.ms/vs/15/release/vs_TestAgent.exe).
 <!-- :::editable-content-end::: -->
 <br>
