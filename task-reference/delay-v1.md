@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to delay further execution of a workflow by a fixed time.
+Delays further execution of a workflow by a fixed time.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to delay further execution of a workflow by a fixed time.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to delay further execution of the workflow by a fixed time.
+Delays further execution of the workflow by a fixed time.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -72,7 +72,7 @@ Use this task to delay further execution of the workflow by a fixed time.
 **`delayForMinutes`** - **Delay Time (minutes)**<br>
 `string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this task to delay the execution of the workflow by specified time in minutes. A `0` value means that workflow execution will start without delay.
+Delays the execution of the workflow by specified time in minutes. A `0` value means that workflow execution will start without delay.
 <!-- :::editable-content-end::: -->
 <br>
 
