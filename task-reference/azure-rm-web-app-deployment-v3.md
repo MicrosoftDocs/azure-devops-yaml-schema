@@ -748,7 +748,7 @@ None.
 What's new in Version 3.0: 
    Supports File Transformations (XDT) 
    Supports Variable Substitutions(XML, JSON) 
-   Click [here](https://aka.ms/azurermwebdeployreadme) for more information.
+   Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

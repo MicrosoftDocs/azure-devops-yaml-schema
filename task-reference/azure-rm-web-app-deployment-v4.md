@@ -757,38 +757,29 @@ based on the input package type, App Service type, and agent operating system.
 
 For windows based agents.
 
-<table><thead><tr><th>App Service type</th><th>Package type</th><th>Deployment Method</th></tr></thead>
-<tr><td>WebApp on Linux or Function App on Linux</td><td>Folder/Zip/jar <br/>War</td><td>Zip Deploy<br/>War Deploy</td></tr>
-<tr><td>WebApp for Containers (Linux) or Function App for Containers (Linux)</td><td>Update the App settings</td><td>NA</td></tr>
-<tr><td>WebApp on Windows, Function App on Windows, API App, or Mobile App</td><td>War<br/>Jar<br/>MsBuild package type or deploy to virtual application <br/><br/><br/>   Folder/Zip</td><td>War Deploy<br/>Zip Deploy <br/>Web Deploy <br/><br/> if postDeploymentScript == true, Zip Deploy <br/> else, Run From Package</td></tr>
-</table>
+| App Service type | Package type | Deployment Method |
+|--|--|--|
+| WebApp on Linux or Function App on Linux | Folder/Zip/jar</br>War | Zip Deploy</br>War Deploy|
+|WebApp for Containers (Linux) or Function App for Containers (Linux)| Update the App settings | NA |
+|WebApp on Windows, Function App on Windows, API App, or Mobile App | War </br>Jar</br>MsBuild package type or deploy to virtual application</br></br></br>Folder/Zip | War Deploy</br>Zip Deploy</br>Web Deploy</br></br>`if postDeploymentScript == true, Zip Deploy`</br>`else, Run From Package` |
 
-On non-Windows agents (for any App Service type), the task relies on
-[Kudu REST APIs](#kudu-rest-apis) to deploy the app.
+On non-Windows agents (for any App Service type), the task relies on [Kudu REST APIs](#kudu-rest-apis) to deploy the app.
 
 #### Web Deploy
 
-[Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (msdeploy.exe) can be used to deploy a Web App on Windows
-or a Function App to the Azure App Service using a Windows agent.
-Web Deploy is feature-rich and offers options such as:
+[Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (msdeploy.exe) can be used to deploy a Web App on Windows or a Function App to the Azure App Service using a Windows agent. Web Deploy is feature-rich and offers options such as:
 
-* **Rename locked files:** Rename any file that is still in use by the web server by enabling the msdeploy flag
-  MSDEPLOY\_RENAME\_LOCKED\_FILES=1 in the Azure App Service settings.
-  This option, if set, enables msdeploy to rename files that are locked during app deployment.
+* **Rename locked files:** Rename any file that is still in use by the web server by enabling the msdeploy flag `MSDEPLOY\_RENAME\_LOCKED\_FILES=1` in the Azure App Service settings. This option, if set, enables msdeploy to rename files that are locked during app deployment.
 
-* **Remove additional files at destination:** Deletes files in the Azure App Service that have no matching files
-  in the App Service artifact package or folder being deployed.
+* **Remove additional files at destination:** Deletes files in the Azure App Service that have no matching files in the App Service artifact package or folder being deployed.
 
-* **Exclude files from the App\_Data folder:** Prevent files in the App\_Data folder (in the artifact package/folder being deployed)
-  being deployed to the Azure App Service
+* **Exclude files from the App\_Data folder:** Prevent files in the App\_Data folder (in the artifact package/folder being deployed) being deployed to the Azure App Service
 
 * **Additional Web Deploy arguments:** Arguments that will be applied when deploying the Azure App Service.
   Example: `-disableLink:AppPoolExtension -disableLink:ContentExtension`.
   For more examples of Web Deploy operation settings, see [Web Deploy Operation Settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569089(v=ws.10)).
 
-Install Web Deploy on the agent using the [Microsoft Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=wdeploynosmo).
-Web Deploy 3.5 must be installed without the bundled SQL support. There is no need to choose any custom settings when installing Web Deploy.
-Web Deploy is installed at C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3.
+Install Web Deploy on the agent using the [Microsoft Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=wdeploynosmo). Web Deploy 3.5 must be installed without the bundled SQL support. There is no need to choose any custom settings when installing Web Deploy. Web Deploy is installed at C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3.
 
 
 #### Kudu REST APIs
@@ -851,14 +842,14 @@ You can also use *Run From Package deployment* method to avoid resource locking.
 
 #### Web Deploy Error
 
-If you are using web deploy to deploy your app, in some error scenarios Web Deploy will show an error code in the log. To troubleshoot a web deploy error see [this](/iis/publish/troubleshooting-web-deploy/web-deploy-error-codes).
+If you are using web deploy to deploy your app, in some error scenarios Web Deploy will show an error code in the log. To troubleshoot a web deploy error, see [Web Deploy error codes](/iis/publish/troubleshooting-web-deploy/web-deploy-error-codes).
 
 ### Web app deployment on App Service Environment (ASE) is not working
 * Ensure that the Azure DevOps build agent is on the same VNET (subnet can be different) as the Internal Load Balancer (ILB) of  ASE. This will enable the agent to pull code from Azure DevOps and deploy to ASE. 
-* If you are using Azure DevOps, the agent doesn't need to be accessible from internet but needs only outbound access to connect to Azure DevOps Service. 
+* If you are using Azure DevOps, the agent doesn't need to be accessible from the internet but needs only outbound access to connect to Azure DevOps Service.
 * If you are using TFS/Azure DevOps Server deployed in a Virtual Network, the agent can be completely isolated.
-* Build agent must be configured with the DNS configuration of the Web App it needs to deploy to. Since the private resources in the Virtual Network don't have entries in Azure DNS, this needs to be added to the hosts file on the agent machine.
-* If a self-signed certificate is used for the ASE configuration, "-allowUntrusted" option needs to be set in the deploy task for MSDeploy.It is also recommended to set the variable VSTS_ARM_REST_IGNORE_SSL_ERRORS to true. If a certificate from a certificate authority is used for ASE configuration, this should not be necessary. If you are deploying to a slot configured to auto-swap, the swap will fail unless you set `SCM_SKIP_SSL_VALIDATION` or 'SCM_SKIP_ASE_SSL_VALIDATION' to `1` in the app services configuration settings.
+* The build agent must be configured with the DNS configuration of the Web App it needs to deploy to. Since the private resources in the Virtual Network don't have entries in Azure DNS, this needs to be added to the hosts file on the agent machine.
+* If a self-signed certificate is used for the ASE configuration, the `-allowUntrusted` option needs to be set in the deploy task for MSDeploy. It is also recommended to set the variable `VSTS_ARM_REST_IGNORE_SSL_ERRORS` to true. If a certificate from a certificate authority is used for ASE configuration, this should not be necessary. If you are deploying to a slot configured to auto-swap, the swap will fail unless you set `SCM_SKIP_SSL_VALIDATION` or `SCM_SKIP_ASE_SSL_VALIDATION` to `1` in the app services configuration settings.
 
 ### FAQs
 
@@ -978,17 +969,9 @@ steps:
 
 ### Sample Post deployment script
 
-The task provides an option to customize the deployment by providing
-a script that will run on the Azure App Service after the app's artifacts
-have been successfully copied to the App Service. You can choose to provide
-either an inline deployment script or the path and name of a script file in
-your artifact folder.
+The task provides an option to customize the deployment by providing a script that will run on the Azure App Service after the app's artifacts have been successfully copied to the App Service. You can choose to provide either an inline deployment script or the path and name of a script file in your artifact folder.
 
-This is very useful when you want to restore your
-application dependencies directly on the App Service. Restoring packages for
-Node, PHP, and Python apps helps to avoid timeouts when the application
-dependency results in a large artifact being copied over from the agent to the
-Azure App Service.
+This is very useful when you want to restore your application dependencies directly on the App Service. Restoring packages for Node, PHP, and  python apps helps to avoid timeouts when the application dependency results in a large artifact being copied over from the agent to the Azure App Service.
 
 An example of a deployment script is:
 
