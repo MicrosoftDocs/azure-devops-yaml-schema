@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
+Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -53,7 +53,7 @@ Acquire a specific version of the .NET Core SDK from the internet or local cache
 **`packageType`** - **Package to install**<br>
 `string`. Required. Allowed values: `runtime`, `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Please select whether to install only runtime or full SDK.
+Selects whether to install only Runtime or the full SDK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -65,8 +65,12 @@ Please select whether to install only runtime or full SDK.
 **`version`** - **Version**<br>
 `string`. Required. Default value: `1.0.4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify exact version of .NET Core SDK or runtime to install.<br/>Find the value of `version-sdk` for installing SDK, or `version-runtime` for installing Runtime from any releases [here](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/DotNetCoreInstallerV0/externals/releases.json).
- **NOTE: the task will not work with new versions of .NET Core. Kindly upgrade to 2.\* version of the task to download latest versions od .NET Core.**.
+Specifies the exact version of the .NET Core SDK or Runtime to install.
+
+Find the value of `version-sdk` for installing the SDK, or `version-runtime` for installing Runtime from any releases [in GitHub](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/DotNetCoreInstallerV0/externals/releases.json).
+ 
+> [!NOTE]
+> The task won't work with new versions of .NET Core. Upgrade to version 2.\* of the task so you can download the latest versions of .NET Core.
 <!-- :::editable-content-end::: -->
 <br>
 
