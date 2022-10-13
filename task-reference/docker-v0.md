@@ -250,7 +250,7 @@ Specifies a Docker action.
 **`dockerFile`** - **Docker File**<br>
 `string`. Required when `action = Build an image`. Default value: `**/Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the Dockerfile. The task uses the first Docker file it finds to build the image.
+Specifies the path to the Docker file. The task uses the first Docker file it finds to build the image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +262,7 @@ Specifies the path to the Dockerfile. The task uses the first Docker file it fin
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default base image data like base image name and digest are added which helps with traceability. You can opt out of this default behavior by using this input.
+The default value adds base image data such as, the base image name and digest to help with traceability. You can opt out by setting the value to `false`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -274,7 +274,7 @@ By default base image data like base image name and digest are added which helps
 **`buildArguments`** - **Build Arguments**<br>
 `string`. Optional. Use when `action = Build an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Build-time variables for the Docker file. Specify each name=value pair on a new line.
+Specifies build-time variables for the Docker file, format each `name=value` pair on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -286,7 +286,7 @@ Build-time variables for the Docker file. Specify each name=value pair on a new 
 **`defaultContext`** - **Use Default Build Context**<br>
 `boolean`. Optional. Use when `action = Build an image`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set the build context to the directory that contains the Docker file.
+Specifies the build context of the directory that contains the Docker file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -298,7 +298,7 @@ Set the build context to the directory that contains the Docker file.
 **`context`** - **Build Context**<br>
 `string`. Optional. Use when `action = Build an image && defaultContext = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the build context.
+Specifies the path to the build context.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -310,7 +310,7 @@ Path to the build context.
 **`imageName`** - **Image Name**<br>
 `string`. Required when `action == Build an image || action == Push an image || action == Run an image`. Default value: `$(Build.Repository.Name):$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Docker image to build, push, or run.
+Specifies the name of the Docker image to build, push, or run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -322,7 +322,7 @@ Name of the Docker image to build, push, or run.
 **`imageNamesPath`** - **Image Names Path**<br>
 `string`. Required when `action == Tag images || action == Push images`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a text file that contains the names of the Docker images to tag or push. Each image name is contained on its own line.
+Specifies the path to a text file that contains the names of the Docker images to tag or push. List each image name on a separate line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -334,7 +334,7 @@ Path to a text file that contains the names of the Docker images to tag or push.
 **`qualifyImageName`** - **Qualify Image Name**<br>
 `boolean`. Optional. Use when `action = Build an image || action = Tag images || action = Push an image || action = Push images || action = Run an image`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Qualify the image name with the Docker registry service connection's hostname if not otherwise specified.
+Specifies a qualify image name with the Docker registry service connection's hostname.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -346,7 +346,7 @@ Qualify the image name with the Docker registry service connection's hostname if
 **`additionalImageTags`** - **Additional Image Tags**<br>
 `string`. Optional. Use when `action = Build an image || action = Tag images || action = Push an image || action = Push images`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional tags for the Docker image being built or pushed.
+Specifies additional tags for the Docker image being built or pushed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -358,7 +358,7 @@ Additional tags for the Docker image being built or pushed.
 **`includeSourceTags`** - **Include Source Tags**<br>
 `boolean`. Optional. Use when `action = Build an image || action = Tag image || action = Push an image || action = Push images`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include Git tags when building or pushing the Docker image.
+Specifies whether to include Git tags when building or pushing the Docker image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -370,7 +370,7 @@ Include Git tags when building or pushing the Docker image.
 **`includeLatestTag`** - **Include Latest Tag**<br>
 `boolean`. Optional. Use when `action = Build an image || action = Push an image || action = Push images`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the 'latest' tag when building or pushing the Docker image.
+Specifies whether to include the *latest* tag when building or pushing the Docker image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -382,7 +382,7 @@ Include the 'latest' tag when building or pushing the Docker image.
 **`imageDigestFile`** - **Image Digest File**<br>
 `string`. Optional. Use when `action = Push an image || action = Push images`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a file that is created and populated with the full image repository digest of the Docker image that was pushed.
+Specifies the path to a file that is created and populated with the full image repository digest of the Docker image that was pushed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -394,7 +394,7 @@ Path to a file that is created and populated with the full image repository dige
 **`containerName`** - **Container Name**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Docker container to run.
+Specifies the name of the Docker container to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -406,7 +406,7 @@ Name of the Docker container to run.
 **`ports`** - **Ports**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Ports in the Docker container to publish to the host. Specify each host-port:container-port binding on a new line.
+Specifies ports in the Docker container to publish to the host. List each `host-port:container-port` binding on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -418,7 +418,7 @@ Ports in the Docker container to publish to the host. Specify each host-port:con
 **`volumes`** - **Volumes**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Volumes to mount from the host. Specify each host-dir:container-dir on a new line.
+Specifies the volumes to mount from the host. List each `host-dir:container-dir` on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -430,7 +430,7 @@ Volumes to mount from the host. Specify each host-dir:container-dir on a new lin
 **`envVars`** - **Environment Variables**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Environment variables for the Docker container. Specify each name=value pair on a new line.
+Specifies environment variables for the Docker container. List each `name=value` pair on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -442,7 +442,7 @@ Environment variables for the Docker container. Specify each name=value pair on 
 **`workDir`** - **Working Directory**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory for the Docker container.
+Specifies the working directory for the Docker container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -454,7 +454,7 @@ The working directory for the Docker container.
 **`entrypoint`** - **Entry Point Override**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override the default entry point for the Docker container.
+Specifies an override of the default entry point for the Docker container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -465,7 +465,7 @@ Override the default entry point for the Docker container.
 **`entrypoint`** - **Entrypoint Override**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override the default entry point for the Docker container.
+Specifies an override of the default entry point for the Docker container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -477,7 +477,7 @@ Override the default entry point for the Docker container.
 **`containerCommand`** - **Command**<br>
 `string`. Optional. Use when `action = Run an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify 'python app.py' to launch the web application.
+Specifies a Docker run command. The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify `python app.py` to launch the web application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -489,7 +489,7 @@ The docker run command first creates a writeable container layer over the specif
 **`detached`** - **Run In Background**<br>
 `boolean`. Optional. Use when `action = Run an image`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the Docker container in the background.
+Specifies whether to run the Docker container in the background.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -501,7 +501,7 @@ Run the Docker container in the background.
 **`restartPolicy`** - **Restart Policy**<br>
 `string`. Required when `action = Run an image && detached = true`. Allowed values: `no`, `onFailure` (On failure), `always`, `unlessStopped` (Unless stopped). Default value: `no`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a restart policy.
+Specifies a restart policy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -513,7 +513,7 @@ Select a restart policy.
 **`restartMaxRetries`** - **Maximum Restart Retries**<br>
 `string`. Optional. Use when `action = Run an image && detached = true && restartPolicy = onFailure`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The maximum number of restart retries the Docker daemon attempts.
+Specifies the maximum number of restart retries that the Docker daemon attempts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -525,7 +525,7 @@ The maximum number of restart retries the Docker daemon attempts.
 **`customCommand`** - **Command**<br>
 `string`. Required when `action = Run a Docker command`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Docker command to execute, with arguments. For example, 'rmi -f image-name' to force remove an image.
+Specifies the Docker command and arguments to execute. For example, `rmi -f image-name` removes an image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -537,7 +537,7 @@ Docker command to execute, with arguments. For example, 'rmi -f image-name' to f
 **`dockerHostEndpoint`** - **Docker Host Service Connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker host service connection. Defaults to the agent's host.
+Specifies a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -548,7 +548,7 @@ Select a Docker host service connection. Defaults to the agent's host.
 **`dockerHostEndpoint`** - **Docker Host Connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker host service connection. Defaults to the agent's host.
+Specifies a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -560,7 +560,7 @@ Select a Docker host service connection. Defaults to the agent's host.
 **`enforceDockerNamingConvention`** - **Force image name to follow Docker naming convention**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If enabled Docker image name will be modified to follow Docker naming convention. Converts upper case character to lower case and removes spaces in image name.
+If enabled, modifies the Docker image name according to Docker naming conventions. For example, convert upper case characters to lower case and remove spaces.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -572,7 +572,7 @@ If enabled Docker image name will be modified to follow Docker naming convention
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory for the Docker command.
+Specifies the working directory for the Docker command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -584,7 +584,7 @@ Working directory for the Docker command.
 **`memory`** - **Memory limit**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The maximum amount of memory available to the container as a integer with optional suffixes like '2GB'.
+Specifies the maximum amount of memory available to the container as a integer with optional suffixes, for example `2GB`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -605,7 +605,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="DockerOutput"::: -->
 **`DockerOutput`**<br><!-- :::editable-content name="Value"::: -->
-Stores the output of the docker command
+Stores the output of the docker command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="DockerOutputPath"::: -->
