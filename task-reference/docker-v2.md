@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2020.1"
 
 <!-- :::editable-content name="description"::: -->
-Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
+Build or push Docker images, log in or log out, start or stop containers, or run a Docker command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Build or push Docker images, login or logout, start or stop containers, or run a
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Build or push Docker images, login or logout, or run a Docker command.
+Build or push Docker images, log in or log out, or run a Docker command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
