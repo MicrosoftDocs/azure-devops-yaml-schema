@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to use [cURL](https://curl.haxx.se/) to upload files with supported protocols such as FTP, FTPS, SFTP, HTTP, and more.
+Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Use cURL to upload files.
 :::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to use [cURL](https://curl.haxx.se/) to upload files with supported protocols such as FTP, FTPS, SFTP, HTTP, and more.
+Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -110,7 +110,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all Z
 **`authType`** - **Authentication Method**<br>
 `string`. Allowed values: `ServiceEndpoint` (Service connection), `UserAndPass` (Username and password). Default value: `ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the authentication method for the server authentication.
+Specifies the authentication method for server authentication.
 <!-- :::editable-content-end::: -->
 <br>
 

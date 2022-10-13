@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to use [cURL](https://curl.haxx.se/) to upload files with supported protocols such as FTP, FTPS, SFTP, HTTP, and more.
+Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
