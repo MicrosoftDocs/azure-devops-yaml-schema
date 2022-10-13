@@ -617,7 +617,7 @@ The folder where packages will be created. If this folder is empty, packages wil
 **`nobuild`** - **Do not build**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Don't build the project before packing. This task corresponds to the `--no-build` parameter of the `build` command.
+Specifies that the task will not build the project before packing. This task corresponds to the `--no-build` parameter of the `build` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -629,7 +629,7 @@ Don't build the project before packing. This task corresponds to the `--no-build
 **`includesymbols`** - **Include Symbols**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additionally creates symbol NuGet packages. This task corresponds to the `--include-symbols` command line parameter.
+Creates symbol NuGet packages. This task corresponds to the `--include-symbols` command line parameter.
 <!-- :::editable-content-end::: -->
 <br>
 
