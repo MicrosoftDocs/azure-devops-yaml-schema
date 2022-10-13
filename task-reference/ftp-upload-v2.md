@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Upload files using FTP.
+Use this task to upload files to a remote machine using FTP or securely with FTPS.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -92,9 +92,9 @@ Specifies the authentication method. Use an FTP service connection or enter the 
 **`serverEndpoint`** - **FTP Service Connection**<br>
 `string`. Required when `credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection for the FTP server. To create one, click the Manage link and create a new generic service connection, and then enter the FTP server URL for the server URL, e.g. **`ftp://server.example.com`**, and the required credentials.
+Specifies the service connection for the FTP server. To create one, click the Manage link and create a new generic service connection, and then enter the FTP server URL for the server URL, e.g. `ftp://server.example.com`, and the required credentials.
 
-Secure connections will always be made regardless of the specified protocol (**`ftp://`** or **`ftps://`**) if the target server supports FTPS. To allow only secure connections, use the **`ftps://`** protocol, e.g. **`ftps://server.example.com`**. Connections to servers not supporting FTPS will fail if **`ftps://`** is specified.
+Secure connections will always be made regardless of the specified protocol (`ftp://` or `ftps://`) if the target server supports FTPS. To allow only secure connections, use the `ftps://` protocol, e.g. `ftps://server.example.com`. Connections to servers not supporting FTPS will fail if `ftps://` is specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ Specifies the URL for the FTP server.
 **`username`** - **Username**<br>
 `string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the username for the FTP connection.
+Specifies the user name for the FTP connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +216,7 @@ Recursively deletes all content in the remote directory before uploading. The ex
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, the relative local directory structure is recreated under the remote directory where files are uploaded. Otherwise, files are uploaded directly to the remote directory without creating additional subdirectories.
 
-For example, suppose your source folder is **`/home/user/source/`**, which contains the file **`foo/bar/foobar.txt`**, and your remote directory is: **`/uploads/`**. If this boolean is selected, the file is uploaded to **`/uploads/foo/bar/foobar.txt`**. If this boolean is not selected, the file is uploaded to **`/uploads/foobar.txt`**.
+For example, suppose your source folder is `/home/user/source/`, which contains the file `foo/bar/foobar.txt`, and your remote directory is: `/uploads/`. If this boolean is selected, the file is uploaded to `/uploads/foo/bar/foobar.txt`. If this boolean is not selected, the file is uploaded to `/uploads/foobar.txt`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -266,7 +266,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to upload files to a remote machine using the File Transfer Protocol (FTP), or securely with FTPS.
+Use this task to upload files to a remote machine using FTP or securely with FTPS.
 
 ### Where can I learn more about file matching patterns?
 
