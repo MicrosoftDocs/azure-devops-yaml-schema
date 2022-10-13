@@ -126,7 +126,7 @@ Specifies the SSH key entry for the known_hosts file.
 **`sshPublicKey`** - **SSH Public Key**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the public SSH key.
+Optional. Specifies the contents of the public SSH key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +149,7 @@ Specifies the contents of the public SSH key.
 **`sshPassphrase`** - **SSH Passphrase**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the passphrase for the SSH key, if any.
+Optional. Specifies the passphrase for the SSH key, if any.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +173,7 @@ Specifies the SSH key that was uploaded to `Secure Files` to install on the agen
 **`addEntryToConfig`** - **Add entry to SSH config**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds an entry related to the key that was installed to the SSH config file. The key file will be available for all subsequent tasks.
+Optional. Adds an entry related to the key that was installed to the SSH config file. The key file will be available for all subsequent tasks.
 <!-- :::editable-content-end::: -->
 <br>
 
