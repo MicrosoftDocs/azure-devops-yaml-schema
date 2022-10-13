@@ -243,7 +243,7 @@ Specifies the file path to the primary Docker Compose file.
 **`additionalDockerComposeFiles`** - **Additional Docker Compose Files**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies additional Docker Compose files that is combined with the primary Docker Compose file. Relative paths are resolved relative to the directory containing the primary Docker Compose file. If a specified file is not found, it is ignored. Specify each file path on a new line.
+Specifies additional Docker Compose files that are combined with the primary Docker Compose file. Relative paths are resolved relative to the directory containing the primary Docker Compose file. If a specified file is not found, it is ignored. Specify each file path on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
