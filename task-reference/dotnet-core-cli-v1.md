@@ -94,7 +94,7 @@ The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.cspr
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the arguments for the selected command. For example, build configuration, output folder, and runtime. The arguments depend on the command selected.
 
-This input only currently accepts arguments for `build`, `publish`, `run`, `test`, and `custom`. If you would like to add arguments for a command not listed, use `custom`.
+This input currently only accepts arguments for `build`, `publish`, `run`, `test`, and `custom`. If you would like to add arguments for a command not listed, use `custom`.
 <!-- :::editable-content-end::: -->
 <br>
 

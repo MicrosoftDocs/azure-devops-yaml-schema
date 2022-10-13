@@ -379,7 +379,7 @@ If this task is set to `true`, folders created by the publish command will have 
 **`feedsToUse`** - **Feeds to use**<br>
 Input alias: `selectOrConfig`. `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or you can commit a `nuget.config` file to your source code repository and set  its path using the `nugetConfigPath` input.
+You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or you can commit a `nuget.config` file to your source code repository and set its path using the `nugetConfigPath` input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -391,7 +391,7 @@ You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or yo
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are both used for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
+Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are used for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -402,7 +402,7 @@ Includes the selected feed in the generated `NuGet.config`. You must have Packag
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are both used for for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
+Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are used for for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -555,7 +555,7 @@ Specifies a feed hosted in this organization. You must have Package Management i
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Associates this build/release pipeline's metadata (run `#`, source code information) with the package.
+Associates this build/release pipeline's metadata (run #, source code information) with the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -579,7 +579,7 @@ The NuGet [service connection](/azure/devops/pipelines/library/service-endpoints
 **`packagesToPack`** - **Path to csproj or nuspec file(s) to pack**<br>
 Input alias: `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The pattern to search for `csproj` or `nuspec` files to pack.
+The pattern to search for `.csproj` or `.nuspec` files to pack.
 
 You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**/*.csproj;!**/*.Tests.csproj`.
 <!-- :::editable-content-end::: -->
@@ -593,7 +593,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 **`configuration`** - **Configuration to Package**<br>
 Input alias: `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When using a `csproj` file, this input specifies the configuration to package.
+When using a `.csproj` file, this input specifies the configuration to package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -787,7 +787,7 @@ Most `dotnet` commands, including `build`, `publish`, and `test` include an impl
 
 To fix this issue, add the `--no-restore` flag to the `Arguments` textbox.
 
-In addition, the `test` command does not recognize the `feedRestore` or `vstsFeed` arguments and feeds specified in this manner will not be included in the generated `NuGet.config` file when the implicit `restore` step runs.  It's recommended that an explicit `dotnet restore` step be used to restore packages.  The `restore` command respects the `feedRestore` and `vstsFeed` arguments.
+In addition, the `test` command does not recognize the `feedRestore` or `vstsFeed` arguments, and feeds specified in this manner will not be included in the generated `NuGet.config` file when the implicit `restore` step runs.  It's recommended that an explicit `dotnet restore` step be used to restore packages.  The `restore` command respects the `feedRestore` and `vstsFeed` arguments.
 
 ### Why should I check in a NuGet.config?
 
@@ -802,7 +802,7 @@ However, for situations where a team of developers works on a large range of pro
 Azure DevOps hosted agents are configured with .NET Core 3.0, 2.1 and 2.2.
 CLI for .NET Core 3.0 has a different behavior while publishing projects using output folder argument. When publishing projects with the output folder argument (-o), the output folder is created in the root directory and not in the project file’s directory. Hence while publishing more than one project, all the files are published to the same directory, which causes an issue.
 
-To resolve this issue, use the `Add project name to publish path` parameter (modifyOutputPath in YAML) in the .NET Core CLI task. This creates a sub folder with project file’s name inside the output folder. All your projects will then be published under different subfolders inside the main output folder.
+To resolve this issue, use the `Add project name to publish path` parameter (`modifyOutputPath` in YAML) in the .NET Core CLI task. This creates a sub folder with the project file’s name inside the output folder. All of your projects will then be published under different subfolders inside the main output folder.
 
 ```YAML
 steps:
