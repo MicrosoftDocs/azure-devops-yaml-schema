@@ -153,7 +153,7 @@ The comma-delimited list of tags that the task uses to return tagged builds. Unt
 **`allowPartiallySucceededBuilds`** - **Download artifacts from partially succeeded builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, the build task downloads artifacts whether the build succeeds or partially succeeds.
+Specifies if the build task downloads artifacts whether the build succeeds or partially succeeds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +201,7 @@ The file matching patterns that limit downloaded files. The value can be one or 
 **`targetPath`** - **Destination directory**<br>
 Input alias: `path | downloadPath`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path on the agent machine where the artifacts will be downloaded. The path can be relative to the pipeline workspace directory or absolute. If the multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each download. Learn more about [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
+Specifies either a relative or absolute path on the agent machine where the artifacts will download. If the multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each download. Learn more about [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
