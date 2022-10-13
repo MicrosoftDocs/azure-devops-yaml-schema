@@ -107,7 +107,7 @@ Specifies the name of the artifact to download (for example: `drop`).
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the files to be downloaded as a multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples)
+Specifies the files to be downloaded as a multi line minimatch pattern. Learn more about [file matching patterns](https://aka.ms/minimatchexamples).
 
 The default pattern (`**`) downloads all files within the artifact.
 <!-- :::editable-content-end::: -->
