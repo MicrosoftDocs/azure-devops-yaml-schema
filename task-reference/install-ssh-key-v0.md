@@ -209,7 +209,7 @@ Specifies the host name property of SSH config entry.
 **`configUser`** - **User**<br>
 `string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the username property of the SSH config entry.
+Specifies the user name property of the SSH config entry.
 <!-- :::editable-content-end::: -->
 <br>
 
