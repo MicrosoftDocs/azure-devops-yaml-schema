@@ -11,7 +11,10 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Download build and pipeline artifacts.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -54,7 +57,7 @@ Download build and pipeline artifacts.
 **`buildType`** - **Download artifacts produced by**<br>
 Input alias: `source`. `string`. Required. Allowed values: `current` (Current run), `specific` (Specific run). Default value: `current`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download artifacts produced by the current pipeline run, or from a specific pipeline run.
+Downloads artifacts produced by the current pipeline run or from a specific pipeline run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -66,7 +69,7 @@ Download artifacts produced by the current pipeline run, or from a specific pipe
 **`project`** - **Project**<br>
 `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The project from which to download the pipeline artifacts.
+Specifies the project name or GUID from which to download the pipeline artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +81,7 @@ The project from which to download the pipeline artifacts.
 **`definition`** - **Build pipeline**<br>
 Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the build pipeline name.
+The definition ID of the build pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +93,7 @@ Select the build pipeline name.
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
 Input alias: `preferTriggeringPipeline`. `boolean`. Optional. Use when `source == specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will try to download artifacts from the triggering build. If there is no triggering build from the specified pipeline, it will download artifacts from the build specified in the options below.
+If checked, the task downloads artifacts from the triggering build. If there is no triggering build from the specified pipeline, the task downloads artifacts from the build specified in the options below.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +105,7 @@ If checked, this build task will try to download artifacts from the triggering b
 **`buildVersionToDownload`** - **Build version to download**<br>
 Input alias: `runVersion`. `string`. Required when `source == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies which build version to download.
+Specifies the build version to download.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +117,7 @@ Specifies which build version to download.
 **`branchName`** - **Branch name**<br>
 Input alias: `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
+Specifies the filter on the branch/ref name. For example: ```refs/heads/develop```.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +129,7 @@ Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
 **`pipelineId`** - **Build**<br>
 Input alias: `runId | buildId`. `string`. Required when `source == specific && runVersion == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build from which to download the artifacts.
+The build from which to download the artifacts. For example: `1764`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +141,7 @@ The build from which to download the artifacts.
 **`tags`** - **Build Tags**<br>
 `string`. Optional. Use when `source == specific && runVersion != specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A comma-delimited list of tags. Only builds with these tags will be returned.
+The comma-delimited list of tags that the task uses to return tagged builds. Untagged builds are not returned.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +153,7 @@ A comma-delimited list of tags. Only builds with these tags will be returned.
 **`allowPartiallySucceededBuilds`** - **Download artifacts from partially succeeded builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will try to download artifacts whether the build is succeeded or partially succeeded.
+If checked, the build task downloads artifacts whether the build succeeds or partially succeeds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +165,7 @@ If checked, this build task will try to download artifacts whether the build is 
 **`allowFailedBuilds`** - **Download artifacts from failed builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will try to download artifacts whether the build is succeeded or failed.
+If checked, the build task downloads artifacts whether the build succeeds or fails.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -174,7 +177,7 @@ If checked, this build task will try to download artifacts whether the build is 
 **`artifactName`** - **Artifact name**<br>
 Input alias: `artifact`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download. If left empty, it will download all artifacts associated to the pipeline run.
+Specifies the name of the artifact to download. If the value is left empty, the task downloads all artifacts associated with the pipeline run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -186,7 +189,7 @@ The name of the artifact to download. If left empty, it will download all artifa
 **`itemPattern`** - **Matching patterns**<br>
 Input alias: `patterns`. `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-One or more file matching patterns (new line delimited) that limit which files get downloaded. [More Information on file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+The file matching patterns that limit downloaded files. The value can be one or more file matching patterns that are new line delimited. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -198,7 +201,7 @@ One or more file matching patterns (new line delimited) that limit which files g
 **`targetPath`** - **Destination directory**<br>
 Input alias: `path | downloadPath`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the artifacts will be downloaded. Can be relative to the pipeline workspace directory or absolute. If multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
+The path on the agent machine where the artifacts will be downloaded. The path can be relative to the pipeline workspace directory or absolute. If the multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each download. Learn more about [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +222,11 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="BuildNumber"::: -->
 **`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores the build number of the pipeline artifact source.<br />Please note that in fact it returns <b>BuildId</b> due to backward compatibility <p>[More Information](/azure/devops/pipelines/build/variables#build-variables-devops-services)</p>
+Stores the build number of the pipeline artifact source.
+
+Due to backwards compatibility, this variable returns **BuildId**.
+
+Learn more about [build variables](/azure/devops/pipelines/build/variables#build-variables-devops-services).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -231,7 +238,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="BuildNumber"::: -->
 **`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores the build number of the pipeline artifact source
+Stores the build number of the pipeline artifact source.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -249,9 +256,9 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 
 The [publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [download](/azure/devops/pipelines/yaml-schema/steps-download) keywords are shortcuts for the **Publish Pipeline Artifact** task. You can use them in your pipeline to publish and download artifacts. For more information, see [Publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [Download](/azure/devops/pipelines/yaml-schema/steps-download) in the YAML schema.
 
-### How can I find the ID of the Pipeline I want to download an artifact from? 
+### How can I find the ID of the Pipeline I want to download an artifact from?
 
-You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID is the [system.definitionId](/azure/devops/pipelines/build/variables#system-variables) variable. You can also find it in the URL path.
+You can find the ID of the pipeline in the pipeline variables. The pipeline ID is the [system.definitionId](/azure/devops/pipelines/build/variables#system-variables) variable. You can also find the ID in the URL path.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

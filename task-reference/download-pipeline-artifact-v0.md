@@ -11,7 +11,10 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Downloads an artifact associated with a pipeline.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +24,10 @@ This task is deprecated.
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Download Pipeline Artifact.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -116,6 +122,11 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+### How can I find the ID of the Pipeline I want to download an artifact from?
+
+You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID is the [system.definitionId](/azure/devops/pipelines/build/variables#system-variables) variable. You can also find it in the URL path.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
