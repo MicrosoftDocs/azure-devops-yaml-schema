@@ -203,7 +203,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `build`, `push` (nuget push), `pack`, `publish`, `restore`, `run`, `test`, `custom`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The dotnet command to run. Select `custom` to add arguments or use a command not listed here.
+The dotnet command to run. Specify `custom` to add arguments or use a command not listed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,7 +215,7 @@ The dotnet command to run. Select `custom` to add arguments or use a command not
 **`publishWebProjects`** - **Publish web projects**<br>
 `boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by presence of either a web.config file or wwwroot folder in the directory. In the absence of a web.config file or wwwroot folder, projects that use a web SDK, like Microsoft.NET.Sdk.Web, are selected.
+If this task is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +226,7 @@ If true, the `projects` property value is skipped and the task tries to find the
 **`publishWebProjects`** - **Publish Web Projects**<br>
 `boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by presence of either a web.config file or wwwroot folder in the directory. In the absence of a web.config file or wwwroot folder, projects that use a web SDK, like Microsoft.NET.Sdk.Web, are selected.
+If this task is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +238,7 @@ If true, the `projects` property value is skipped and the task tries to find the
 **`projects`** - **Path to project(s)**<br>
 `string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the csproj file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all .csproj files in all subfolders). For more information, see [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
+The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -250,7 +250,7 @@ The path to the csproj file(s) to use. You can use wildcards (e.g. `**/*.csproj`
 **`custom`** - **Custom command**<br>
 `string`. Required when `command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The command to pass to dotnet.exe for execution. For a full list of available commands, see the [dotnet CLI documentation](/dotnet/core/tools/#cli-commands).
+The command to pass to `dotnet.exe` for execution. For a full list of available commands, see the [dotnet CLI documentation](/dotnet/core/tools/#cli-commands).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,9 +262,9 @@ The command to pass to dotnet.exe for execution. For a full list of available co
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command = build || command = publish || command = run || command = test || command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments to the selected command. For example, build configuration, output folder, runtime. The arguments depend on the command selected.
+Specifies the arguments for the selected command. For example, build configuration, output folder, and runtime. The arguments depend on the command selected.
 
-This input only currently accepts arguments for `build`, `publish`, `run`, `test`, `custom`. If you would like to add arguments for a command not listed, use `custom`.
+This input currently only accepts arguments for `build`, `publish`, `run`, `test`, and `custom`. If you would like to add arguments for a command not listed, use `custom`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +276,7 @@ This input only currently accepts arguments for `build`, `publish`, `run`, `test
 **`restoreArguments`** - **Arguments**<br>
 `string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Write the additional arguments to be passed to the `restore` command.
+Writes the additional arguments to be passed to the `restore` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -288,7 +288,12 @@ Write the additional arguments to be passed to the `restore` command.
 **`publishTestResults`** - **Publish test results and code coverage**<br>
 `boolean`. Optional. Use when `command = test`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option will generate a test results TRX file in `$(Agent.TempDirectory)` and results will be published to the server. <br>This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments. <br><br>Code coverage can be collected by adding `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
+Enabling this option will generate a `test results` TRX file in `$(Agent.TempDirectory)`, and the results will be published to the server.
+
+This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
+
+
+Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -299,7 +304,12 @@ Enabling this option will generate a test results TRX file in `$(Agent.TempDirec
 **`publishTestResults`** - **Publish test results**<br>
 `boolean`. Optional. Use when `command = test`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option will generate a test results TRX file in `$(Agent.TempDirectory)` and results will be published to the server. <br>This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments. <br><br>Code coverage can be collected by adding `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
+Enabling this option will generate a `test results` TRX file in `$(Agent.TempDirectory)`, and the results will be published to the server. 
+
+This option appends the `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
+
+
+Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -311,7 +321,7 @@ Enabling this option will generate a test results TRX file in `$(Agent.TempDirec
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `command = test`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Provides a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -323,7 +333,7 @@ Provide a name for the test run.
 **`zipAfterPublish`** - **Zip published projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, folder created by the publish command will be zipped and deleted.
+If this task is set to `true`, folders created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -334,7 +344,7 @@ If true, folder created by the publish command will be zipped and deleted.
 **`zipAfterPublish`** - **Zip Published Projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, folder created by the publish command will be zipped and deleted.
+If this task is set to `true`, the folder created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -346,7 +356,7 @@ If true, folder created by the publish command will be zipped and deleted.
 **`modifyOutputPath`** - **Add project's folder name to publish path**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, folders created by the publish command will have project file name prefixed to their folder names when output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
+If this task is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -357,7 +367,7 @@ If true, folders created by the publish command will have project file name pref
 **`modifyOutputPath`** - **Add project name to publish path**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, folders created by the publish command will have project file name prefixed to their folder names when output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
+If this task is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -369,7 +379,7 @@ If true, folders created by the publish command will have project file name pref
 **`feedsToUse`** - **Feeds to use**<br>
 Input alias: `selectOrConfig`. `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from Azure Artifacts and/or NuGet.org here, or commit a nuget.config file to your source code repository and set  its path using the `nugetConfigPath` input.
+You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or you can commit a `nuget.config` file to your source code repository and set  its path using the `nugetConfigPath` input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -381,7 +391,7 @@ You can either select a feed from Azure Artifacts and/or NuGet.org here, or comm
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here. projectName/feedName for project-scoped feed. FeedName only for organization-scoped feed. Note that this is not supported for the test command.
+Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are both used for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -392,7 +402,7 @@ Include the selected feed in the generated NuGet.config. You must have Package M
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here. projectName/feedName for project-scoped feed. FeedName only for organization-scoped feed. Note that this is not supported for the test command.
+Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are both used for for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the test command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -403,7 +413,7 @@ Include the selected feed in the generated NuGet.config. You must have Package M
 **`vstsFeed`** - **Use packages from this VSTS/TFS feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here.
+Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -415,7 +425,7 @@ Include the selected feed in the generated NuGet.config. You must have Package M
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
 `boolean`. Optional. Use when `selectOrConfig = select`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include NuGet.org in the generated NuGet.config.
+Includes `NuGet.org` in the generated `NuGet.config`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -427,7 +437,7 @@ Include NuGet.org in the generated NuGet.config.
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
 `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet.config in your repository that specifies the feeds from which to restore packages.
+The `NuGet.config` in your repository that specifies the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -439,7 +449,7 @@ The NuGet.config in your repository that specifies the feeds from which to resto
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
 Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization/collection, leave this blank; the build's credentials are used automatically.
+The credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization/collection, leave this input blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -450,7 +460,7 @@ Credentials to use for external registries located in the selected NuGet.config.
 **`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
 Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization/collection, leave this blank; the build's credentials are used automatically.
+The credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization/collection, leave this input blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -498,7 +508,7 @@ Specifies the amount of detail displayed in the output for the `restore` command
 **`packagesToPush`** - **Path to NuGet package(s) to publish**<br>
 Input alias: `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/*.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The pattern to match or path to nupkg files to be uploaded. Multiple patterns can be separated by a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**/*.nupkg;!**/*.Tests.nupkg`.
+The pattern to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**/*.nupkg;!**/*.Tests.nupkg`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -533,7 +543,7 @@ Specifies whether the target feed is internal or external.
 **`publishVstsFeed`** - **Target feed**<br>
 Input alias: `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a feed hosted in this organization. You must have Package Management installed and licensed to select a feed here.
+Specifies a feed hosted in this organization. You must have Package Management installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -545,7 +555,7 @@ Select a feed hosted in this organization. You must have Package Management inst
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Associate this build/release pipeline's metadata (run #, source code information) with the package.
+Associates this build/release pipeline's metadata (run `#`, source code information) with the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -569,9 +579,9 @@ The NuGet [service connection](/azure/devops/pipelines/library/service-endpoints
 **`packagesToPack`** - **Path to csproj or nuspec file(s) to pack**<br>
 Input alias: `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pattern to search for csproj or nuspec files to pack.
+The pattern to search for `csproj` or `nuspec` files to pack.
 
-You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with '!'. Example: `**/*.csproj;!**/*.Tests.csproj`.
+You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**/*.csproj;!**/*.Tests.csproj`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -583,7 +593,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 **`configuration`** - **Configuration to Package**<br>
 Input alias: `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When using a csproj file this specifies the configuration to package.
+When using a `csproj` file, this input specifies the configuration to package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -595,7 +605,7 @@ When using a csproj file this specifies the configuration to package.
 **`packDirectory`** - **Package Folder**<br>
 Input alias: `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder where packages will be created. If empty, packages will be created alongside the csproj file.
+The folder where packages will be created. If this folder is empty, packages will be created alongside the `csproj` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -607,7 +617,7 @@ Folder where packages will be created. If empty, packages will be created alongs
 **`nobuild`** - **Do not build**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Don't build the project before packing. Corresponds to the `--no-build` parameter of the `build` command.
+Don't build the project before packing. This task corresponds to the `--no-build` parameter of the `build` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -619,7 +629,7 @@ Don't build the project before packing. Corresponds to the `--no-build` paramete
 **`includesymbols`** - **Include Symbols**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additionally creates symbol NuGet packages. Corresponds to the `--include-symbols` command line parameter.
+Additionally creates symbol NuGet packages. This task corresponds to the `--include-symbols` command line parameter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -631,7 +641,7 @@ Additionally creates symbol NuGet packages. Corresponds to the `--include-symbol
 **`includesource`** - **Include Source**<br>
 `boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Includes source code in the package. Corresponds to the `--include-source` command line parameter.
+Includes source code in the package. This task corresponds to the `--include-source` command line parameter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -643,11 +653,11 @@ Includes source code in the package. Corresponds to the `--include-source` comma
 **`versioningScheme`** - **Automatic package versioning**<br>
 `string`. Required. Allowed values: `off`, `byPrereleaseNumber` (Use the date and time), `byEnvVar` (Use an environment variable), `byBuildNumber` (Use the build number). Default value: `off`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Cannot be used with include referenced projects. If you choose 'Use the date and time', this will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime` where you choose X, Y, and Z.
+This task cannot be used with included referenced projects. If you choose `Use the date and time`, this will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime` where you choose `X`, `Y`, and `Z`.
 
-If you choose 'Use an environment variable', you must select an environment variable and ensure it contains the version number you want to use.
+If you choose `Use an environment variable`, you must select an environment variable and ensure it contains the version number you want to use.
 
-If you choose 'Use the build number', this will use the build number to version your package. **Note:** Under Options set the build number format to be '[$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)](https://go.microsoft.com/fwlink/?LinkID=627416)'.
+If you choose `Use the build number`, this will use the build number to version your package. **Note:** Under `Options`, set the build number format to [`$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)`](https://go.microsoft.com/fwlink/?LinkID=627416).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -659,7 +669,7 @@ If you choose 'Use the build number', this will use the build number to version 
 **`versionEnvVar`** - **Environment variable**<br>
 `string`. Required when `versioningScheme = byEnvVar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the variable name without `$`, `$env`, or `%`.
+Specifies the variable name without `$`, `$env`, or `%`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -671,7 +681,7 @@ Enter the variable name without `$`, `$env`, or `%`.
 **`majorVersion`** - **Major**<br>
 Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -683,7 +693,7 @@ The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`minorVersion`** - **Minor**<br>
 Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -695,7 +705,7 @@ The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`patchVersion`** - **Patch**<br>
 Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -731,7 +741,7 @@ Specifies the amount of detail displayed in the output for the `pack` command.
 **`workingDirectory`** - **Working directory**<br>
 `string`. Optional. Use when `command != restore && command != push && command != pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -742,7 +752,7 @@ Current working directory where the script is run. Empty is the root of the repo
 **`workingDirectory`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -769,21 +779,21 @@ None.
 ## Remarks
 
 > [!IMPORTANT]
-> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The restore and push commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed.
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed.
 
 ### Why is my build, publish, or test step failing to restore packages?
 
 Most `dotnet` commands, including `build`, `publish`, and `test` include an implicit `restore` step. This will fail against authenticated feeds, even if you ran a successful `dotnet restore` in an earlier step, because the earlier step will have cleaned up the credentials it used.
 
-To fix this issue, add the `--no-restore` flag to the Arguments textbox.
+To fix this issue, add the `--no-restore` flag to the `Arguments` textbox.
 
-In addition, the `test` command does not recognize the `feedRestore` or `vstsFeed` arguments and feeds specified in this manner will not be included in the generated NuGet.config file when the implicit `restore` step runs.  It is recommended that an explicit `dotnet restore` step be used to restore packages.  The `restore` command respects the `feedRestore` and `vstsFeed` arguments.
+In addition, the `test` command does not recognize the `feedRestore` or `vstsFeed` arguments and feeds specified in this manner will not be included in the generated `NuGet.config` file when the implicit `restore` step runs.  It's recommended that an explicit `dotnet restore` step be used to restore packages.  The `restore` command respects the `feedRestore` and `vstsFeed` arguments.
 
 ### Why should I check in a NuGet.config?
 
-Checking a NuGet.config into source control ensures that a key piece of information needed to build your project-the location of its packages-is available to every developer that checks out your code.
+Checking a `NuGet.config` into source control ensures that a key piece of information needed to build your project&mdash;the location of its packages&mdash;is available to every developer that checks out your code.
 
-However, for situations where a team of developers works on a large range of projects, it's also possible to add an Azure Artifacts feed to the global NuGet.config on each developer's machine. In these situations, using the "Feeds I select here" option in the NuGet task replicates this configuration.
+However, for situations where a team of developers works on a large range of projects, it's also possible to add an Azure Artifacts feed to the global `NuGet.config` on each developer's machine. In these situations, using the `Feeds I select here` option in the NuGet task replicates this configuration.
 
 ### Troubleshooting
 
@@ -792,7 +802,7 @@ However, for situations where a team of developers works on a large range of pro
 Azure DevOps hosted agents are configured with .NET Core 3.0, 2.1 and 2.2.
 CLI for .NET Core 3.0 has a different behavior while publishing projects using output folder argument. When publishing projects with the output folder argument (-o), the output folder is created in the root directory and not in the project file’s directory. Hence while publishing more than one project, all the files are published to the same directory, which causes an issue.
 
-To resolve this issue, use the *Add project name to publish path* parameter (modifyOutputPath in YAML) in the .NET Core CLI task. This creates a sub folder with project file’s name, inside the output folder. Hence all your projects will be published under different subfolder’s inside the main output folder.
+To resolve this issue, use the `Add project name to publish path` parameter (modifyOutputPath in YAML) in the .NET Core CLI task. This creates a sub folder with project file’s name inside the output folder. All your projects will then be published under different subfolders inside the main output folder.
 
 ```YAML
 steps:
@@ -809,8 +819,8 @@ steps:
 
 #### Project using Entity Framework has stopped working on Hosted Agents
 
-The latest .NET Core: 3.0 does not have Entity Framework(EF) built-in. You will have to either install EF before beginning execution or add global.json to the project with required .NET Core SDK version. This will ensure that correct SDK is used to build EF project. If the required version is not present on the machine, add UseDotNetV2 task to your pipeline to install the required version.
-[Learn more about EF with .NET Core 3.0](https://devblogs.microsoft.com/dotnet/announcing-entity-framework-core-3-0-preview-4/)
+The latest .NET Core: 3.0 does not have Entity Framework(EF) built-in. You will have to either install EF before beginning execution or add `global.json` to the project with required .NET Core SDK version. This will ensure that correct SDK is used to build EF project. If the required version is not present on the machine, add the `UseDotNetV2` task to your pipeline to install the required version.
+Learn more about [EF with .NET Core 3.0](https://devblogs.microsoft.com/dotnet/announcing-entity-framework-core-3-0-preview-4/)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
