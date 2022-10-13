@@ -142,7 +142,7 @@ Optional. Specifies the number of times to retry downloading a secure file if th
 **`socketTimeout`** - **Socket Timeout**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. When downloading a secure file request, this input specifies the timeout for a socket in Microsoft.
+Optional. When downloading a secure file request in Microsoft, this input specifies the timeout for a socket.
 <!-- :::editable-content-end::: -->
 <br>
 
