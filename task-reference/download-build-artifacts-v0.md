@@ -295,9 +295,9 @@ The default pattern `\*\*` downloads all files across all artifacts in the build
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Optional. Use when `downloadType == specific`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the files to be download as a multi-line minimatch pattern. For more information, see [File matching patterns reference](https://aka.ms/minimatchexamples).
+Specifies the files to download as a multi-line minimatch pattern. For more information, see [File matching patterns reference](https://aka.ms/minimatchexamples).
 
-The default pattern `\*\*` downloads all files across all artifacts in the build if you choose the **Specific files** option. To download all the files within the artifact drop, use `drop/**`.</p>.
+The default pattern `\*\*` downloads all files across all artifacts in the build if you choose the **Specific files** option. To download all the files within the artifact drop, use `drop/**`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -357,7 +357,7 @@ If `true`, this build task checks that all files are fully downloaded.
 **`retryDownloadCount`** - **Retry count**<br>
 `string`. Default value: `4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Number of times to retry downloading a build artifact if the download fails.
+The number of times to retry downloading a build artifact if the download fails.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -402,7 +402,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="BuildNumber"::: -->
 **`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores build artifact source's build number.
+Stores the build artifact source's build number.
 
 Please note that this input returns **BuildId** due to backward compatibility. For more information, see [Variables](/azure/devops/pipelines/build/variables#build-variables-devops-services).
 <!-- :::editable-content-end::: -->
@@ -416,7 +416,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="BuildNumber"::: -->
 **`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores build artifact source's build number.
+Stores the build artifact source's build number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
