@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Download files that were saved as artifacts of a completed build.
+Use this task to download files that were saved as artifacts of a completed build.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -58,7 +58,7 @@ Download files that were saved as artifacts of a completed build.
 **`buildType`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `current` (Current build), `specific` (Specific build). Default value: `current`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download artifacts produced by the current build, or from a specific build.
+Downloads artifacts produced by the current build or from a specific build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ The project from which to download the build artifacts.
 **`pipeline`** - **Build pipeline**<br>
 Input alias: `definition`. `string`. Required when `buildType == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the build pipeline name.
+Specifies the build pipeline name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Select the build pipeline name.
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
 `boolean`. Optional. Use when `buildType == specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will try to download artifacts from the triggering build. If there is no triggering build from the specified pipeline, it will download artifacts from the build specified in the options below.
+If `true`, this build task tries to download artifacts from the triggering build. If there is no triggering build from the specified pipeline, it downloads artifacts from the build specified in the options below.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +106,7 @@ If checked, this build task will try to download artifacts from the triggering b
 **`buildVersionToDownload`** - **Build version to download**<br>
 `string`. Required when `buildType == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify which version of the build to download.
+Specifies which version of the build to download.
 
 - Choose `latest` to download the latest available build version.
 - Choose `latestFromBranch` to download the latest available build version of the branch specified by `branchName` and tags specified by `tags`.
@@ -122,7 +122,7 @@ Specify which version of the build to download.
 **`allowPartiallySucceededBuilds`** - **Download artifacts even from partially succeeded builds.**<br>
 `boolean`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will try to download artifacts whether the build is succeeded or partially succeeded.
+If `true`, this build task tries to download artifacts whether the build succeeds or partially succeeds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +134,7 @@ If checked, this build task will try to download artifacts whether the build is 
 **`branchName`** - **Branch name**<br>
 `string`. Required when `buildType == specific && buildVersionToDownload == latestFromBranch`. Default value: `refs/heads/master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
+Specifies whether to filter on branch/ref name, for example: `refs/heads/develop`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +146,7 @@ Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
 **`buildId`** - **Build**<br>
 `string`. Required when `buildType == specific && buildVersionToDownload == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build from which to download the artifacts.
+The build you want to download the artifacts from.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ The build from which to download the artifacts.
 **`tags`** - **Build Tags**<br>
 `string`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A comma-delimited list of tags. Only builds with these tags will be returned.
+A comma-delimited list of tags. Only builds with these tags are returned.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +170,7 @@ A comma-delimited list of tags. Only builds with these tags will be returned.
 **`downloadType`** - **Download type**<br>
 `string`. Required. Allowed values: `single` (Specific artifact), `specific` (Specific files). Default value: `single`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download a specific artifact or specific files from the build.
+Downloads a specific artifact or specific files from the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +194,9 @@ The name of the artifact to download.
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files across all artifacts in the build if "Specific files" option is selected. To download all files within artifact drop use drop/**.</p>
+Specifies the files to download as a multi-line minimatch pattern. For more information, see [File matching patterns reference](https://aka.ms/minimatchexamples). 
+
+The default pattern `\*\*` downloads all files across all artifacts in the build if you choose the **Specific files** option. To download all files within the artifact drop, use `drop/**`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +208,7 @@ Specify files to be downloaded as multi line minimatch pattern. [More Informatio
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the artifacts will be downloaded.
+The path on the agent machine where the artifacts are downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +220,7 @@ Path on the agent machine where the artifacts will be downloaded.
 **`parallelizationLimit`** - **Parallelization limit**<br>
 `string`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Number of files to download simultaneously.
+The number of files to download simultaneously.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +232,7 @@ Number of files to download simultaneously.
 **`checkDownloadedFiles`** - **Check downloaded files**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will check that all files are fully downloaded.
+If `true`, this build task checks that all files are fully downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +244,7 @@ If checked, this build task will check that all files are fully downloaded.
 **`retryDownloadCount`** - **Retry count**<br>
 `string`. Default value: `4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional number of times to retry downloading a build artifact if the download fails.
+The number of times to retry downloading a build artifact if the download fails.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -263,7 +265,9 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="BuildNumber"::: -->
 **`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores the build number of the build artifact source.<br />Please note that in fact it returns <b>BuildId</b> due to backward compatibility <p>[More Information](/azure/devops/pipelines/build/variables#build-variables-devops-services)</p>
+Stores the build number of the build artifact source.
+
+Please note that this input returns **BuildId** due to backward compatibility. For more information, see [Variables](/azure/devops/pipelines/build/variables#build-variables-devops-services).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
