@@ -124,6 +124,9 @@ items:
     displayName: Azure Database for MySQL deployment v1
 - name: Azure file copy
   items:
+  - name: AzureFileCopy@5
+    href: azure-file-copy-v5.md
+    displayName: Azure file copy v5
   - name: AzureFileCopy@4
     href: azure-file-copy-v4.md
     displayName: Azure file copy v4

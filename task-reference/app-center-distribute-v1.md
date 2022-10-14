@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@1 - App Center distribute v1 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 1).
-ms.date: 10/11/2022
+ms.date: 10/13/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -283,7 +283,22 @@ Add support for distribution to stores.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Deploy |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|
