@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,36 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# PowerShell v2
+# Run a PowerShell script on Linux, macOS, or Windows.
+- task: PowerShell@2
+  inputs:
+    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
+    filePath: # string. Required when targetType = filePath. Script Path. 
+    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
+    #script: # string. Required when targetType = inline. Script. 
+  # Preference Variables
+    #errorActionPreference: 'stop' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
+    #warningPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. WarningPreference. Default: default.
+    #informationPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. InformationPreference. Default: default.
+    #verbosePreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. VerbosePreference. Default: default.
+    #debugPreference: 'default' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. DebugPreference. Default: default.
+    #progressPreference: 'silentlyContinue' # 'default' | 'stop' | 'continue' | 'silentlyContinue'. ProgressPreference. Default: silentlyContinue.
+  # Advanced
+    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
+    #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
+    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
+    #pwsh: false # boolean. Use PowerShell Core. Default: false.
+    #workingDirectory: # string. Working Directory. 
+    #runScriptInSeparateScope: false # boolean. Run script in the separate scope. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # PowerShell v2
@@ -280,6 +309,18 @@ When not `Default`, prepends the line `$VerbosePreference = 'VALUE'` at the top 
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When not `Default`, prepends the line `$DebugPreference = 'VALUE'` at the top of your script.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="progressPreference"::: -->
+:::moniker range="=azure-pipelines"
+
+**`progressPreference`** - **ProgressPreference**<br>
+`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `silentlyContinue`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When not `Default`, prepends the line `$ProgressPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,30 @@ Run shell commands or a script on a remote machine using SSH.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# SSH v0
+# Run shell commands or a script on a remote machine using SSH.
+- task: SSH@0
+  inputs:
+    sshEndpoint: # string. Required. SSH service connection. 
+    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
+    commands: # string. Required when runOptions = commands. Commands. 
+    #scriptPath: # string. Required when runOptions = script. Shell script path. 
+    #inline: # string. Required when runOptions = inline. Inline Script. 
+    #interpreterCommand: '/bin/bash' # string. Optional. Use when runOptions = inline. Interpreter command. Default: /bin/bash.
+    #args: # string. Optional. Use when runOptions = script. Arguments. 
+  # Advanced
+    #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
+    #interactiveSession: false # boolean. Enable interactive session. Default: false.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
+    #interactiveKeyboardAuthentication: false # boolean. Use interactive-keyboard authentication. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
 # SSH v0
@@ -229,6 +252,18 @@ If this option is selected, interactive session will be started - if there's a p
 `string`. Required. Default value: `20000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 How long (in milliseconds) to wait for the SSH handshake to complete.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="interactiveKeyboardAuthentication"::: -->
+:::moniker range="=azure-pipelines"
+
+**`interactiveKeyboardAuthentication`** - **Use interactive-keyboard authentication**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use this value if PasswordAuthentication is disabled on the target machine.
 <!-- :::editable-content-end::: -->
 <br>
 

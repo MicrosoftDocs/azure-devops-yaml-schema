@@ -1,11 +1,11 @@
 ---
-title: AzureResourceGroupDeployment@2 * Azure resource group deployment v2 task
+title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
 ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
-# AzureResourceGroupDeployment@2 * Azure resource group deployment v2 task
+# AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 
 <!-- :::description::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -19,7 +19,7 @@ Deploy an Azure Resource Manager (ARM) template to a resource group and manage v
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy an Azure resource manager (ARM) template to a resource group. You can also start, stop, delete, deallocate all Virtual Machines (VM) in a resource group.
+Deploy an Azure resource manager (ARM) template to a resource group. You can also start, stop, delete, and deallocate all Virtual Machines (VM) in a resource group.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -130,7 +130,7 @@ Deploy, start, stop, delete Azure Resource Groups.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Selects the service connection that contains an Azure Subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +142,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Create Or Update Resource Group`, `Select Resource Group` (Configure virtual machine deployment options), `Start` (Start virtual machines), `Stop` (Stop virtual machines), `StopWithDeallocate` (Stop and deallocate virtual machines), `Restart` (Restart virtual machines), `Delete` (Delete virtual machines), `DeleteRG` (Delete resource group). Default value: `Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Action to be performed on the Azure resources or resource group.
+The action to be performed on the Azure resources or resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -154,7 +154,7 @@ Action to be performed on the Azure resources or resource group.
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of a resource group.
+Provides the name of the resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +166,7 @@ Provide the name of a resource group.
 **`location`** - **Location**<br>
 `string`. Required when `action = Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location for deploying the resource group. If the resource group already exists in the subscription, then this value will be ignored.
+The location to deploy the resource group. If the resource group already exists in the subscription, then this value will be ignored.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -190,11 +190,13 @@ Select either **Linked artifact** or **URL of the file**.
 **`csmFileLink`** - **Template link**<br>
 `string`. Required when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of the template file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) 
+Specifies the URL of the template file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json`
 
-To deploy a template stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a template file (or a linked template) to a storage account and generate a SAS token, you could use [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
+To deploy a template stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>`
 
-To  view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+To upload a template file (or a linked template) to a storage account and generate a SAS token, use the [Azure file copy](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureFileCopyV1/README.md) task or follow the steps using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell#deploy-private-template-with-sas-token) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
+
+To view the template parameters in a grid, click on `...` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If the templates are in an Azure storage blob, see [Understanding CORS requests](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,11 +208,11 @@ To  view the template parameters in a grid, click on “…” next to Override 
 **`csmParametersFileLink`** - **Template parameters link**<br>
 `string`. Optional. Use when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of the parameters file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json) 
+Specifies the URL of the parameters file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json)
 
 To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a parameters file to a storage account and generate a SAS token, you could use [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911). 
 
-To  view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+To view the template parameters in a grid, click on `...` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If the templates are in an Azure storage blob, see [Understanding CORS requests](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -222,7 +224,7 @@ To  view the template parameters in a grid, click on “…” next to Override 
 **`csmFile`** - **Template**<br>
 `string`. Required when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path or a pattern pointing to the Azure Resource Manager template. For more information about the templates see https://aka.ms/azuretemplates. To get started immediately use template https://aka.ms/sampletemplate.
+Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -234,7 +236,11 @@ Specify the path or a pattern pointing to the Azure Resource Manager template. F
 **`csmParametersFile`** - **Template parameters**<br>
 `string`. Optional. Use when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template.
+Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
+
+To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a parameters file to a storage account and generate a SAS token, use the [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
+
+To view the template parameters in a grid, click on `...` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If the templates are in an Azure storage blob, see [Understanding CORS requests](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -246,7 +252,16 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 **`overrideParameters`** - **Override template parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To view the template parameters in a grid, click on “…” next to Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS. Or type the template parameters to override in the textbox. Example, <br>–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre).<br>If the parameter value you're using has multiple words, enclose them in quotes, even if you're passing them using variables. For example, -name "parameter value" -name2 "$(var)".<br>To override object type parameters use stringified JSON objects. For example, -options ["option1"] -map {"key1": "value1" }.
+Specifies the template parameters to override.
+
+To view the template parameters in a grid, click on `...` next to the override parameters textbox. This feature requires that CORS rules are enabled at the source. If the templates are in the Azure storage blob, reference this string to enable CORS, or type the template parameters to override in the textbox.
+
+Example: `-storageName fabrikam -adminUsername $(vmusername) -adminPassword (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force) -azureKeyVaultName $(fabrikamFibre)`.
+
+If the parameter value has multiple words, enclose the words in quotes, even if you're passing the value by using variables.
+For example, `-name "parameter value" -name2 "$(var)"`.
+To override object type parameters, use stringified JSON objects.
+For example, `-options ["option1"] -map {"key1": "value1" }`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,16 +273,19 @@ To view the template parameters in a grid, click on “…” next to Override P
 **`deploymentMode`** - **Deployment mode**<br>
 `string`. Required. Allowed values: `Incremental`, `Complete`, `Validation` (Validation only). Default value: `Incremental`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details. 
+The `Incremental` mode handles deployments as incremental updates to the resource group. It leaves unchanged resources that exist in the resource group but are not specified in the template.
 
- Incremental mode handles deployments as incremental updates to the resource group. It leaves unchanged resources that exist in the resource group but are not specified in the template. 
+`Complete` mode deletes resources that are not in your template. Complete mode takes relatively more time than incremental mode. If the task times out, consider increasing the timeout or changing to the `Incremental` mode.
 
- Complete mode deletes resources that are not in your template. Complete mode takes relatively more time than incremental mode. If the task times out, consider increasing the timeout, or changing the mode to 'Incremental'. 
- **[Warning] Complete mode will delete all the existing resources in the resource group that are not specified in the template. Do review if the resource group you're deploying to doesn't contain any necessary resources that are not specified in the template.** 
+> [!WARNING]
+> Complete mode will delete all the existing resources in the resource group that are not specified in the template. Do review if the resource group you're deploying to doesn't contain any necessary resources that are not specified in the template.
 
- Validate mode enables you to find problems with the template before creating actual resources. Note that this mode always creates a resource group, even if no resources are deployed.
+`Validate` mode enables you to find problems with the template before creating actual resources.
 
- By default, Incremental mode is used.
+> [!NOTE]
+> The `Validate` mode always creates a resource group, even if no resources are deployed.
+
+Learn more about [deployment modes](/azure/azure-resource-manager/deployment-modes).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -279,7 +297,11 @@ Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details
 **`enableDeploymentPrerequisites`** - **Enable prerequisites**<br>
 `string`. Allowed values: `None`, `ConfigureVMwithWinRM` (Configure with WinRM agent), `ConfigureVMWithDGAgent` (Configure with Deployment Group agent). Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-These options would be applicable only when the Resource group contains virtual machines. <br><br>Choosing Deployment Group option would configure Deployment Group agent on each of the virtual machines. <br><br>Selecting WinRM option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986).
+Applicable only when the resource group contains virtual machines.
+
+Choosing the Deployment Group option configures the Deployment Group agent on each of the virtual machines.
+
+Selecting the WinRM option configures the Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986 using a self-signed certificate. This configuration is required for performing deployment operation on Azure machines. If the target virtual machines are backed by a load balancer, ensure the Inbound NAT rules are configured for target port (5986).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -291,7 +313,9 @@ These options would be applicable only when the Resource group contains virtual 
 **`teamServicesConnection`** - **Azure Pipelines service connection**<br>
 Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the service connection to connect to an Azure DevOps organization or collection for agent registration.<br><br>You can create a service connection using "+New", and select "Token-based authentication". You need a [personal access token(PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to setup a service connection. <br><br>​Click "Manage" to update the service connection details.
+Specifies the service connection to connect to an Azure DevOps organization or collection for agent registration.
+
+You can create a service connection using `+New` and then selecting `Token-based authentication`. You need a [personal access token(PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to setup a service connection. ​Click `Manage` to update the service connection details.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -302,7 +326,9 @@ Specify the service connection to connect to an Azure DevOps organization or col
 **`teamServicesConnection`** - **Azure Pipelines/TFS service connection**<br>
 Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the service connection to connect to an Azure DevOps organization or TFS collection for agent registration.<br><br>You can create a service connection using "+New", and select "Token-based authentication". You need a [personal access token(PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to setup a service connection. <br><br>​Click "Manage" to update the service connection details.
+Specifies the service connection to connect to an Azure DevOps organization or collection for agent registration.
+
+You can create a service connection using `+New` and then selecting `Token-based authentication`. You need a [personal access token(PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to setup a service connection. ​Click `Manage` to update the service connection details.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -313,7 +339,9 @@ Specify the service connection to connect to an Azure DevOps organization or TFS
 **`teamServicesConnection`** - **TFS/VSTS endpoint**<br>
 Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Agent registration with Deployment group requires access to your Visual Studio project.​ <br><br>Click "Add" to create an endpoint using personal access token (PAT) with scope restricted to "Deployment Group" and a default expiration time of 90 days. <br><br>​Click "Manage" to update endpoint details.​.
+Registering agents with the deployment group requires access to your Visual Studio project.
+
+Click `Add` to create an endpoint using a [personal access token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) with its scope restricted to `Deployment Group` and the default expiration time of 90 days. Click `Manage` to update endpoint details.​
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -325,7 +353,7 @@ Agent registration with Deployment group requires access to your Visual Studio p
 **`teamProject`** - **Team project**<br>
 Input alias: `project`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Team Project which has the Deployment Group defined in it​.
+Specifies the Team Project which defines the deployment group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -337,7 +365,7 @@ Specify the Team Project which has the Deployment Group defined in it​.
 **`deploymentGroupName`** - **Deployment Group**<br>
 `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Deployment Group against which the agent(s) will be registered. For more guidance, refer to [Deployment Groups](https://aka.ms/832442).
+Specifies the deployment group against which the agent(s) will be registered. Learn more about [deployment groups](/azure/devops/pipelines/release/deployment-groups/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -349,7 +377,11 @@ Specify the Deployment Group against which the agent(s) will be registered. For 
 **`copyAzureVMTags`** - **Copy Azure VM tags to agents**<br>
 `boolean`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose if the tags configured on the Azure VM need to be copied to the corresponding Deployment Group agent. <br><br>​By default all Azure tags will be copied following the format “Key: Value”. Example: An Azure Tag “Role : Web” would be copied  as-is to the Agent machine. <br><br>For more information on how tag Azure resources refer to [link](/azure/azure-resource-manager/resource-group-using-tags​).
+Chooses if the configured tags on the Azure VM need to be copied to the corresponding deployment group agent.
+
+​By default, all Azure tags are copied following the format: `Key: Value`. Example: A `Role : Web` Azure tag would be copied as-is to the agent machine.
+
+Learn more about [using tags for Azure resources](/azure/azure-resource-manager/resource-group-using-tags​).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -361,7 +393,9 @@ Choose if the tags configured on the Azure VM need to be copied to the correspon
 **`runAgentServiceAsUser`** - **Run agent service as a user**<br>
 `boolean`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Decide whether to run the agent service as a user other than the default. <br>The default user is "NT AUTHORITY\SYSTEM" in Windows and "root" in Linux.
+Runs the agent service as a user other than the default user if the value is set to `true`.
+
+The default user is `NT AUTHORITY\\SYSTEM` in Windows and `root` in Linux.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -373,7 +407,11 @@ Decide whether to run the agent service as a user other than the default. <br>Th
 **`userName`** - **User name**<br>
 `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The username to run the agent service on the virtual machines. <br>For domain users, please enter values as "domain\username" or "username@domain.com". For local users, please enter just the user name. <br>It is assumed that the same domain user\a local user with the same name, respectively, is present on all the virtual machines in the resource group.
+The username to run the agent service on the virtual machines.
+
+For domain users, specify values as `domain\username` or `username@domain.com`. For local users, specify `username`.
+
+It is assumed that the same domain user or a local user with the same name, respectively, is present on all the virtual machines in the resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -385,7 +423,13 @@ The username to run the agent service on the virtual machines. <br>For domain us
 **`password`** - **Password**<br>
 `string`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The password for the user to run the agent service on the Windows VMs. <br>It is assumed that the password is the same for the specified user on all the VMs. <br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'. You may mark variable as 'secret' to secure it. <br>For linux VMs, a password is not required and will be ignored.
+The password for the user to run the agent service on the Windows VMs.
+
+It is assumed that the password is the same for the specified user on all the VMs.
+
+It can accept variables defined in build or release pipelines as `$(passwordVariable)`. You may mark the variable as `secret` to secure it.
+
+For Linux VMs, a password is not required and will be ignored.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -397,7 +441,9 @@ The password for the user to run the agent service on the Windows VMs. <br>It is
 **`outputVariable`** - **VM details for WinRM**<br>
 `string`. Optional. Use when `enableDeploymentPrerequisites = ConfigureVMwithWinRM || enableDeploymentPrerequisites = None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable for the resource group. The variable can be used as $(variableName) to refer to the resource group in subsequent tasks like in the PowerShell on Target Machines task for deploying applications. <br>Valid only when the selected action is Create, Update or Select, and required when an existing resource group is selected.
+Required when an existing resource group is selected. Provides a name for the resource group variable. The variable can be used as `$(variableName)` to refer to the resource group in subsequent tasks, such as in PowerShell on Target Machines task for deploying applications.
+
+Valid only when the selected action is `Create`, `Update`, or `Select`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -421,7 +467,7 @@ Specifies the name of the resource group deployment to create.
 **`deploymentOutputs`** - **Deployment outputs**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable for the output variable which will contain the outputs section of the current deployment object in string format. You can use the “ConvertFrom-Json” PowerShell cmdlet to parse the JSON object and access the individual output values.
+Provides a name for the output variable, which contains the outputs section of the current deployment object in string format. Use the `ConvertFrom-Json` PowerShell cmdlet to parse the JSON object and access the individual output values.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -433,7 +479,7 @@ Provide a name for the variable for the output variable which will contain the o
 **`addSpnToEnvironment`** - **Access service principal details in override parameters**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds service principal id and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: `$servicePrincipalId` and `$servicePrincipalKey` in your override parameters like `-key $servicePrincipalKey`.
+Adds the service principal ID and key of the Azure endpoint chosen to be the script's execution environment. The variables `$servicePrincipalId` and `$servicePrincipalKey` can be in override parameters, such as `-key $servicePrincipalKey`.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,14 +1,14 @@
 ---
-title: AzureFileCopy@4 - Azure file copy v4 task
-description: Copy files to Azure Blob Storage or virtual machines (task version 4).
-ms.date: 09/26/2022
-monikerRange: ">=azure-pipelines-2020"
+title: AzureFileCopy@5 - Azure file copy v5 task
+description: Copy files to Azure Blob Storage or virtual machines.
+ms.date: 10/13/2022
+monikerRange: "=azure-pipelines"
 ---
 
-# AzureFileCopy@4 - Azure file copy v4 task
+# AzureFileCopy@5 - Azure file copy v5 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
@@ -20,12 +20,12 @@ Copy files to Azure Blob Storage or virtual machines.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 ```yaml
-# Azure file copy v4
+# Azure file copy v5
 # Copy files to Azure Blob Storage or virtual machines.
-- task: AzureFileCopy@4
+- task: AzureFileCopy@5
   inputs:
     SourcePath: # string. Required. Source. 
     azureSubscription: # string. Required. Azure Subscription. 
@@ -44,7 +44,7 @@ Copy files to Azure Blob Storage or virtual machines.
     #sasTokenTimeOutInMinutes: '240' # string. Optional. Use when Destination = AzureBlob. SAS Token Expiration Period In Minutes. Default: 240.
     #enableCopyPrerequisites: false # boolean. Optional. Use when Destination = AzureVMs. Enable Copy Prerequisites. Default: false.
     #CopyFilesInParallel: true # boolean. Optional. Use when Destination = AzureVMs. Copy in Parallel. Default: true.
-    #CleanTargetBeforeCopy: false # boolean. Optional. Use when Destination = AzureVMs. Clean Target. Default: false.
+    #CleanTargetBeforeCopy: false # boolean. Clean Target. Default: false.
     #skipCACheck: true # boolean. Optional. Use when Destination = AzureVMs. Test Certificate. Default: true.
 ```
 
@@ -55,7 +55,7 @@ Copy files to Azure Blob Storage or virtual machines.
 ## Inputs
 
 <!-- :::item name="SourcePath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`SourcePath`** - **Source**<br>
 `string`. Required.<br>
@@ -67,7 +67,7 @@ The source of the files to copy. YAML Pipelines and Classic Release support [pre
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
@@ -79,7 +79,7 @@ The name of an [Azure Resource Manager service connection](/azure/devops/pipelin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Destination"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`Destination`** - **Destination Type**<br>
 `string`. Required. Allowed values: `AzureBlob` (Azure Blob), `AzureVMs` (Azure VMs).<br>
@@ -91,7 +91,7 @@ Select the destination, either **Azure Blob** or **Azure VMs**.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="storage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`storage`** - **RM Storage Account**<br>
 Input alias: `StorageAccountRM`. `string`. Required.<br>
@@ -103,7 +103,7 @@ Specify a pre-existing ARM storage account. It is also used as an intermediary f
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ContainerName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`ContainerName`** - **Container Name**<br>
 `string`. Required when `Destination = AzureBlob`.<br>
@@ -115,7 +115,7 @@ Name of the Container for uploading the files. If a container with the given nam
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="BlobPrefix"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`BlobPrefix`** - **Blob Prefix**<br>
 `string`. Optional. Use when `Destination = AzureBlob`.<br>
@@ -127,7 +127,7 @@ Useful for filtering files, for example, append build number to all the blobs to
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`resourceGroup`** - **Resource Group**<br>
 Input alias: `EnvironmentNameRM`. `string`. Required when `Destination = AzureVMs`.<br>
@@ -139,7 +139,7 @@ Name of the target Resource Group for copying files to.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceFilteringMethod"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Optional. Use when `Destination = AzureVMs`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
@@ -151,7 +151,7 @@ Optionally, select a subset of VMs in resource group either by providing VMs hos
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="MachineNames"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`MachineNames`** - **Filter Criteria**<br>
 `string`. Optional. Use when `Destination = AzureVMs`.<br>
@@ -169,7 +169,7 @@ Specify tag names for a filter as {TagName}:{Value} Example: `Role:DB;OS:Win8.1`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vmsAdminUserName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`vmsAdminUserName`** - **Admin Login**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
@@ -184,7 +184,7 @@ The user name of an account that has administrative permissions for all the targ
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vmsAdminPassword"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`vmsAdminPassword`** - **Password**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
@@ -196,7 +196,7 @@ The password for the account specified as the **Admin Login** parameter. Use the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TargetPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`TargetPath`** - **Destination Folder**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
@@ -208,7 +208,7 @@ The folder in the Azure VMs to which the files will be copied. Environment varia
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdditionalArgumentsForBlobCopy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`AdditionalArgumentsForBlobCopy`** - **Optional Arguments (for uploading files to blob)**<br>
 `string`.<br>
@@ -220,7 +220,7 @@ Any arguments you want to pass to the **AzCopy.exe** program for use when upload
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdditionalArgumentsForVMCopy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`AdditionalArgumentsForVMCopy`** - **Optional Arguments (for downloading files to VM)**<br>
 `string`. Optional. Use when `Destination = AzureVMs`.<br>
@@ -232,7 +232,7 @@ Optional AzCopy.exe arguments that will be applied when downloading to VM like, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sasTokenTimeOutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`sasTokenTimeOutInMinutes`** - **SAS Token Expiration Period In Minutes**<br>
 `string`. Optional. Use when `Destination = AzureBlob`. Default value: `240`.<br>
@@ -244,7 +244,7 @@ Provide the time in minutes after which SAS token for the container will expire.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableCopyPrerequisites"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`enableCopyPrerequisites`** - **Enable Copy Prerequisites**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `false`.<br>
@@ -259,7 +259,7 @@ Setting this option configures the Windows Remote Management (WinRM) listener ov
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CopyFilesInParallel"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`CopyFilesInParallel`** - **Copy in Parallel**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `true`.<br>
@@ -271,10 +271,10 @@ Setting it to true will copy files in parallel to the target machines.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CleanTargetBeforeCopy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
-`boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Setting it to true will clean-up the destination folder before copying the files.
 <!-- :::editable-content-end::: -->
@@ -283,7 +283,7 @@ Setting it to true will clean-up the destination folder before copying the files
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="skipCACheck"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 **`skipCACheck`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `true`.<br>
@@ -303,7 +303,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -325,7 +325,7 @@ SasToken for the container where the files were copied to. Valid only when the s
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-AzureFileCopy@4 supports AzCopy.exe version 10.8.0.
+AzureFileCopy@5 supports AzCopy.exe version 10.12.2.
 
 > [!NOTE]
 > This task is written in PowerShell and thus works **only** when run on Windows agents. If your pipelines require Linux agents and need to copy files to an Azure Storage Account, consider running `az storage blob` commands in the [Azure CLI task](azure-cli-v2.md) as an alternative.
@@ -431,7 +431,7 @@ The hosted agents are assigned randomly every time a build is triggered and henc
 ## Examples
 
 ```yml
-- task: AzureFileCopy@4
+- task: AzureFileCopy@5
   inputs:
     SourcePath: 'Readme.md'
     azureSubscription: 'Azure'
@@ -451,7 +451,7 @@ The hosted agents are assigned randomly every time a build is triggered and henc
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

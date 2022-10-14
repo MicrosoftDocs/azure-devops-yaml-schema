@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Create or update Azure App Service using Azure PowerShell.
+This task creates or updates Azure App Service using Azure PowerShell.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -60,7 +60,7 @@ This task is deprecated.
 **`ConnectedServiceName`** - **Azure Subscription (Classic)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Classic subscription to target for deployment.
+Specifies the Azure Classic subscription to target for deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -72,7 +72,7 @@ Azure Classic subscription to target for deployment.
 **`WebSiteLocation`** - **Web App Location**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a location for website.
+Specifies a location for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,8 @@ Select a location for website.
 **`WebSiteName`** - **Web App Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the website name or Select from the list.<br>Note: Only the websites associated with Default App Service plan for the selected region are listed.
+Specifies the website name or selects it from the list.  
+*Note:* Only the websites associated with the default app service plan for the selected region are listed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +97,7 @@ Enter the website name or Select from the list.<br>Note: Only the websites assoc
 **`Slot`** - **Slot**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Slot.
+Specifies the slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +109,7 @@ Slot.
 **`Package`** - **Web Deploy Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the Visual Studio Web Deploy package under the default artifact directory.
+The path to the Visual Studio Web Deploy package under the default artifact directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +121,7 @@ Path to the Visual Studio Web Deploy package under the default artifact director
 **`doNotDelete`** - **Set DoNotDelete flag**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By enabling this, additional files in web deployment package are preserved while publishing website.
+When set to `true`, additional files in the Web Deployment package are preserved while publishing the website.
 <!-- :::editable-content-end::: -->
 <br>
 
