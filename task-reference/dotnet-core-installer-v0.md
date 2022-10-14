@@ -53,7 +53,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 **`packageType`** - **Package to install**<br>
 `string`. Required. Allowed values: `runtime`, `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects whether to install only Runtime or the full SDK.
+Specifies whether to install only Runtime or the full SDK.
 <!-- :::editable-content-end::: -->
 <br>
 

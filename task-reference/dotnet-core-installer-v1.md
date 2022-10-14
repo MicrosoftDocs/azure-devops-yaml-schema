@@ -57,7 +57,7 @@ Acquires a specific version of the .NET Core SDK from the internet or local cach
 **`packageType`** - **Package to install**<br>
 `string`. Required. Allowed values: `runtime` (Only Runtime), `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects whether to install only Runtime or the full SDK.
+Specifies whether to install only Runtime or the full SDK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -101,11 +101,11 @@ Specifies if you want preview versions to be included while searching for latest
 **`installationPath`** - **Path To Install .Net Core**<br>
 `string`. Default value: `$(Agent.ToolsDirectory)/dotnet`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify where .NET Core SDK/Runtime should be installed. Different paths can have the following impact on .NET's behavior.
+Specifies where .NET Core SDK/Runtime should be installed. Different paths can have the following impact on .NET's behavior:
 
-* **$(Agent.ToolsDirectory)**: This makes the version to be cached on the agent since this directory is not cleanup up across pipelines. All pipelines running on the agent, would have access to the versions installed previously using the agent.
+* **$(Agent.ToolsDirectory)**: This determines the version to be cached on the agent since this directory isn't cleaned up across pipelines. All pipelines running on the agent, would have access to the versions installed previously using the agent.
 * **$(Agent.TempDirectory)**: This can ensure that a pipeline doesn't use any cached version of .NET core since this folder is cleaned up after each pipeline.
-* **Any other path**: You can configure any other path given the agent process has access to the path. This will change the state of the machine and impact all processes running on it.
+* **Any other path**: You can configure any other path, given the agent process has access to the path. This will change the state of the machine and impact all processes running on it.
 
 You can also configure the Multi-Level Lookup setting. This setting can configure .NET host to probe for a suitable version.
 <!-- :::editable-content-end::: -->
@@ -120,8 +120,6 @@ You can also configure the Multi-Level Lookup setting. This setting can configur
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This input is only applicable to Windows-based agents. This input configures the behavior of .NET host processes for looking up a suitable shared framework. `False` means that only versions present in the folder specified in this task would be looked by the host process. `True` means that the host will attempt to look in pre-defined global locations using Multi-level Lookup.
-
-The default global locations are:
 
 For Windows, the default global locations are: 
 * `C:\Program Files\dotnet` (64-bit processes)
