@@ -233,7 +233,7 @@ Specifies the Azure Container Registry to connect using an Azure Service Connect
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The default value adds base image data such as, the base image name and digest to help with traceability. You can opt out of this default behavior by setting this value to `false`.
+The default value adds base image data, such as the base image name and digest, to help with traceability. You can opt out of this default behavior by setting this value to `false`.
 <!-- :::editable-content-end::: -->
 <br>
 

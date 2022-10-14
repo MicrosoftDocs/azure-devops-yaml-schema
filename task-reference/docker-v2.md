@@ -256,7 +256,7 @@ By default, base image data like base image name, or digest are added and help w
 **`container`** - **Container**<br>
 `string`. Optional. Use when `command = start || command = stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the container resource to start or stop. Use thi command with start and stop commands.
+Specifies the name of the container resource to start or stop. Use this command with `start` and `stop` commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +290,7 @@ Specifies the path to the files that contain the command output. You can list tw
 
 The following are the key benefits of using the Docker task instead of directly using Docker client binary in a script. 
 
-- **Integration with Docker registry service connection** - The task makes it easy to use a Docker registry service connection for connecting to any container registry. Once signed in, you can add follow up tasks that execute other tasks or scripts by leveraging the sign on used by the Docker task. For example, use the Docker task to sign in to any Azure Container Registry and then use another task or script to build and push an image to the registry.
+- **Integration with Docker registry service connection** - The task makes it easy to use a Docker registry service connection for connecting to any container registry. Once signed in, you can add follow up tasks that execute other tasks or scripts by leveraging the sign on used by the Docker task. For example, use the Docker task to sign in to any Azure Container Registry, and then use another task or script to build and push an image to the registry.
 
 - **Metadata added as labels** - The task adds traceability-related metadata to the image in the following labels -  
   - com.azure.dev.image.build.buildnumber
