@@ -11,7 +11,10 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
+Use this task to install and publish npm packages or to run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
+
+>[!NOTE]
+> The [npm Authenticate task](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) is the recommended way to authenticate with Azure Artifacts. This task no longer takes new features and only critical bugs are addressed.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +22,10 @@ Install and publish npm packages, or run an npm command. Supports npmjs.com and 
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Package Management.
+Use this task to install and publish npm packages or to run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
+
+>[!NOTE]
+> The [npm Authenticate task](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) is the recommended way to authenticate with Azure Artifacts. This task no longer takes new features and only critical bugs are addressed.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -122,9 +128,9 @@ Install and publish npm packages, or run an npm command. Supports npmjs.com and 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `ci`, `install`, `publish`, `custom`. Default value: `install`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The command and arguments which will be passed to npm for execution.
+Specifies the command and arguments, which are passed to `npm` for execution.
 
-If your arguments contain double quotes ("), escape them with a slash (\), and surround the escaped string with double quotes (").
+If your arguments contain double quotes (`"`), escape them with a slash (`\`), and surround the escaped string with double quotes (`"`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,9 +141,9 @@ If your arguments contain double quotes ("), escape them with a slash (\), and s
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `install`, `publish`, `custom`. Default value: `install`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The command and arguments which will be passed to npm for execution.
+Specifies the command and arguments, which are passed to `npm` for execution.
 
-If your arguments contain double quotes ("), escape them with a slash (\), and surround the escaped string with double quotes (").
+If your arguments contain double quotes (`"`), escape them with a slash (`\`), and surround the escaped string with double quotes (`"`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +155,7 @@ If your arguments contain double quotes ("), escape them with a slash (\), and s
 **`workingDir`** - **Working folder that contains package.json**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the folder containing the target package.json and .npmrc files. Select the folder, not the file e.g. "/packages/mypackage".
+Specifies the path to the folder containing the target `package.json` and `.npmrc` files. Select the folder, not the file. Example: `/packages/mypackage`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +166,7 @@ Path to the folder containing the target package.json and .npmrc files. Select t
 **`workingDir`** - **Working folder with package.json**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the folder containing the target package.json and .npmrc files. Select the folder, not the file e.g. "/packages/mypackage".
+Specifies the path to the folder containing the target `package.json` and `.npmrc` files. Select the folder, not the file. Example: `/packages/mypackage`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -172,7 +178,7 @@ Path to the folder containing the target package.json and .npmrc files. Select t
 **`verbose`** - **Verbose logging**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select to print more information to the console on run.
+Prints more information to the console when the task runs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -184,7 +190,7 @@ Select to print more information to the console on run.
 **`customCommand`** - **Command and arguments**<br>
 `string`. Required when `command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Custom command to run, e.g. "dist-tag ls mypackage".
+Runs a custom command. Example: `dist-tag ls mypackage`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +202,7 @@ Custom command to run, e.g. "dist-tag ls mypackage".
 **`customRegistry`** - **Registries to use**<br>
 `string`. Allowed values: `useNpmrc` (Registries in my .npmrc), `useFeed` (Registry I select here). Default value: `useNpmrc`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either commit a .npmrc file to your source code repository and set its path here or select a registry from Azure Artifacts here.
+Specifies the registries to use. Commit a `.npmrc` file to your source code repository and set its path as the value, or specify a registry from Azure Artifacts as the value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +214,7 @@ You can either commit a .npmrc file to your source code repository and set its p
 **`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated .npmrc.
+Includes the selected feed in the generated `.npmrc`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +225,7 @@ Include the selected feed in the generated .npmrc.
 **`customFeed`** - **Use packages from this VSTS/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated .npmrc.
+Includes the selected feed in the generated `.npmrc`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +237,7 @@ Include the selected feed in the generated .npmrc.
 **`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
 `string`. Optional. Use when `customRegistry = useNpmrc`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the project's .npmrc. For registries in this account/collection, leave this blank; the build’s credentials are used automatically.
+Credentials to use for external registries located in the project's `.npmrc`. Leave this blank for registries in this account/collection; the task uses the build's credentials automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +248,7 @@ Credentials to use for external registries located in the project's .npmrc. For 
 **`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
 `string`. Optional. Use when `customRegistry = useNpmrc`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the project's .npmrc. For registries in this account/collection, leave this blank; the build’s credentials are used automatically.
+Credentials to use for external registries located in the project's `.npmrc`. Leave this blank for registries in this account/collection; the task uses the build's credentials automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -254,7 +260,7 @@ Credentials to use for external registries located in the project's .npmrc. For 
 **`publishRegistry`** - **Registry location**<br>
 `string`. Allowed values: `useExternalRegistry` (External npm registry (including other accounts/collections)), `useFeed` (Registry I select here). Default value: `useExternalRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Registry the command will target.
+Specifies the registry that the command will target.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -266,7 +272,7 @@ Registry the command will target.
 **`publishFeed`** - **Target registry**<br>
 `string`. Required when `publishRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a registry hosted in this account. You must have Package Management installed and licensed to select a registry here.
+Specifies a registry hosted in the account. You must have Package Management installed and licensed to select a registry here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +284,7 @@ Select a registry hosted in this account. You must have Package Management insta
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command = publish && publishRegistry = useFeed`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Associate this build/release pipeline’s metadata (run #, source code information) with the package.
+Associates the build/release pipeline's metadata (the run # and source code information) with the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +296,7 @@ Associate this build/release pipeline’s metadata (run #, source code informati
 **`publishEndpoint`** - **External Registry**<br>
 `string`. Required when `publishRegistry = useExternalRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for publishing to an external registry.
+Specifies the credentials to use for publishing to an external registry.
 <!-- :::editable-content-end::: -->
 <br>
 
