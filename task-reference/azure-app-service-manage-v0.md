@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -16,15 +16,7 @@ Start, stop, restart, slot swap, slot delete, install site extensions, or enable
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Start, stop, restart, slot swap, install site extensions, or enable continuous monitoring for an Azure App Service.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
 Start, stop, restart, slot swap, install site extensions, or enable continuous monitoring for an Azure App Service.

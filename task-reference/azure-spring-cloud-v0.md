@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Cloud v0 task
 description: Deploy applications to Azure Spring Cloud and manage deployments.
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -106,7 +106,6 @@ The name of the Azure Spring Cloud app to deploy. The app must exist prior to th
 At the time the task runs, this input automatically selects the deployment that's set as `staging`.
 
 If set to `true`, apply the task to the [deployment](/azure/spring-apps/concept-understand-app-and-deployment) that is set as the staging deployment at time of execution. If omitted, the `DeploymentName` parameter must be set.
-
 <!-- :::editable-content-end::: -->
 <br>
 
