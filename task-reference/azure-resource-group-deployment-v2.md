@@ -5,7 +5,7 @@ ms.date: 09/26/2022
 monikerRange: "<=azure-pipelines"
 ---
 
-# AzureResourceGroupDeployment@2 * Azure resource group deployment v2 task
+# AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 
 <!-- :::description::: -->
 :::moniker range=">=azure-pipelines-2019.1"
