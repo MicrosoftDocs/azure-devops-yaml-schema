@@ -184,7 +184,7 @@ Specifies a code coverage tool to determine the code that is covered by the test
 **`codeCoverageClassFilesDirectories`** - **Class Files Directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool = false`. Default value: `build/classes/main/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of directories containing class files and archive files (.jar, .war, etc.). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
+The comma-separated list of directories containing class files and archive files (.jar, .war, and more). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -304,7 +304,7 @@ The endpoint that specifies the SonarQube server to use.
 **`sonarQubeProjectName`** - **SonarQube Project Name**<br>
 Input alias: `sqProjectName`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project name, i.e. `sonar.projectName`.
+The SonarQube project name, that is `sonar.projectName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -316,7 +316,7 @@ The SonarQube project name, i.e. `sonar.projectName`.
 **`sonarQubeProjectKey`** - **SonarQube Project Key**<br>
 Input alias: `sqProjectKey`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project unique key, i.e. `sonar.projectKey`.
+The SonarQube project unique key, that is `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -328,7 +328,7 @@ The SonarQube project unique key, i.e. `sonar.projectKey`.
 **`sonarQubeProjectVersion`** - **SonarQube Project Version**<br>
 Input alias: `sqProjectVersion`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project version, i.e. `sonar.projectVersion`.
+The SonarQube project version, that is `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -364,7 +364,7 @@ SonarQube server 5.1 and lower only. Specifies the database connection details.
 **`sonarQubeDBUrl`** - **Db Connection String**<br>
 Input alias: `sqDbUrl`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SonarQube server version 5.1 and lower only. Enters the database connection setting, i.e. `sonar.jdbc.url`. For example: `jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor`.
+SonarQube server version 5.1 and lower only. Enters the database connection setting, that is `sonar.jdbc.url`. For example: `jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -376,7 +376,7 @@ SonarQube server version 5.1 and lower only. Enters the database connection sett
 **`sonarQubeDBUsername`** - **Db Username**<br>
 Input alias: `sqDbUsername`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SonarQube server 5.1 and lower only. Enters the username for the database user, i.e. `sonar.jdbc.username`.
+SonarQube server 5.1 and lower only. Enters the username for the database user, that is `sonar.jdbc.username`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -388,7 +388,7 @@ SonarQube server 5.1 and lower only. Enters the username for the database user, 
 **`sonarQubeDBPassword`** - **Db User Password**<br>
 Input alias: `sqDbPassword`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SonarQube server 5.1 and lower only. Enter the password for the database user, i.e. `sonar.jdbc.password`.
+SonarQube server 5.1 and lower only. Enter the password for the database user, that is `sonar.jdbc.password`.
 <!-- :::editable-content-end::: -->
 <br>
 

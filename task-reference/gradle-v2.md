@@ -323,7 +323,7 @@ Specifies a code coverage tool to determine the code that is covered by the test
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `build/classes/main/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of directories containing class files and archive files (.jar, .war, etc.). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
+The comma-separated list of directories containing class files and archive files (.jar, .war, and more). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -334,7 +334,7 @@ The comma-separated list of directories containing class files and archive files
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool = false`. Default value: `build/classes/main/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of directories containing class files and archive files (.jar, .war, etc.). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
+The comma-separated list of directories containing class files and archive files (.jar, .war, and more). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
 <!-- :::editable-content-end::: -->
 <br>
 
