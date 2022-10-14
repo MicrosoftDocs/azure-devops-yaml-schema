@@ -274,7 +274,7 @@ The default value adds base image data such as, the base image name and digest t
 **`buildArguments`** - **Build Arguments**<br>
 `string`. Optional. Use when `action = Build an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies build-time variables for the Docker file, format each `name=value` pair on a new line.
+Specifies build-time variables for the Docker file. Format each `name=value` pair on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
