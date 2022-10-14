@@ -70,8 +70,6 @@ This task is deprecated.
 `string`. Allowed values: `ConnectedServiceName` (Azure Resource Manager), `ConnectedServiceNameClassic` (Azure Classic). Default value: `ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Required. Selects the service connection that contains an Azure Subscription for the deployment.
-
-Argument aliases: `azureSubscription`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,8 +82,6 @@ Argument aliases: `azureSubscription`
 `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Required. Selects the service connection that contains an Azure Subscription for the deployment.
-
-Argument aliases: `azureSubscription`
 <!-- :::editable-content-end::: -->
 <br>
 
