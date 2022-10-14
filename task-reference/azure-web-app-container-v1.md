@@ -79,7 +79,7 @@ Specifies the name of an existing Azure App Service. Only app services based on 
 Selects the option to deploy to an existing deployment slot or an Azure App Service Environment.  
 For both targets, the task needs a resource group name.  
 If the deployment target is a slot, the default is the production slot. Any other existing slot name can also be provided.  
-If the deployment target is an Azure App Service Environment, leave the slot name as ‘production’, and specify the resource group name.
+If the deployment target is an Azure App Service Environment, leave the slot name as `production`, and specify the resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
