@@ -626,7 +626,7 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 **`enforceDockerNamingConvention`** - **Force image name to follow Docker naming convention**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If enabled, modifies the Docker image name according to Docker naming conventions. For example, convert upper case characters to lower case and remove spaces.
+The default value modifies the Docker image name according to Docker naming conventions. For example, convert upper case characters to lower case and remove spaces.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -638,7 +638,7 @@ If enabled, modifies the Docker image name according to Docker naming convention
 **`memoryLimit`** - **Memory limit**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the maximum amount of memory available to the container as a integer with optional suffixes like `2GB`.
+Specifies the maximum amount of memory available to the container as an integer with optional suffixes like `2GB`.
 <!-- :::editable-content-end::: -->
 <br>
 

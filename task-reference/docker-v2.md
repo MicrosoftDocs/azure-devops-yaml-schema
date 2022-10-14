@@ -124,7 +124,7 @@ Build or push Docker images, log in or log out, or run a Docker command.
 **`containerRegistry`** - **Container registry**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the [Docker registry service connection](/azure/devops/pipelines/library/service-endpoints#docker-registry-service-connection). Required for commands that need to authenticate with a registry.
+Name of the [Docker registry service connection](/azure/devops/pipelines/library/service-endpoints#docker-registry-service-connection). Required for commands that perform authentication with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ Name of the [Docker registry service connection](/azure/devops/pipelines/library
 **`repository`** - **Container repository**<br>
 `string`. Optional. Use when `command != login && command != logout && command != start && command != stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository.
+Specifies the name of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +147,7 @@ Name of the repository.
 **`repository`** - **Container repository**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository.
+Specifies the name of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +159,7 @@ Name of the repository.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`, `start`, `stop`. Default value: `buildAndPush`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The docker command to run.
+Specifies the Docker command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +170,7 @@ The docker command to run.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`. Default value: `buildAndPush`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The docker command to run.
+Specifies the Docker command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +182,7 @@ The docker command to run.
 **`Dockerfile`** - **Dockerfile**<br>
 `string`. Required when `command = build || command = buildAndPush`. Default value: `**/Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the Dockerfile. The task will use the first dockerfile it finds to build the image.
+Specifies the path to the Docker file. The task uses the first Docker file it finds to build the image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +194,7 @@ Path to the Dockerfile. The task will use the first dockerfile it finds to build
 **`buildContext`** - **Build context**<br>
 `string`. Optional. Use when `command = build || command = buildAndPush`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the build context. Pass ** to specify the directory that contains the Dockerfile.
+Specifies the path to the build context. Pass `**` to indicate the directory that contains the Docker file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +206,7 @@ Path to the build context. Pass ** to specify the directory that contains the Do
 **`tags`** - **Tags**<br>
 `string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A list of tags in separate lines. These tags are used in build, push and buildAndPush commands.
+Specifies a list of tags on separate lines. These tags are used in `build`, `push` and `buildAndPush` commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,10 +218,9 @@ A list of tags in separate lines. These tags are used in build, push and buildAn
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout && command != buildAndPush`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments to be passed onto the docker client
-Be aware that if you use value `buildAndPush` for the command parameter, the arguments property is ignored.
+Specifies additional arguments to pass to the Docker client. If using the value `buildAndPush` for the command parameter, the arguments property is ignored.
 
-Example: For build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234 --quiet`.
+Example: Using the build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234 --quiet`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +232,7 @@ Example: For build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234 --qui
 **`addPipelineData`** - **Add Pipeline metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default pipeline data like source branch name, build ID are added which helps with traceability. For example you can inspect an image to find out which pipeline built the image. You can opt out of this default behavior.
+By default, pipeline data like source branch name, or build ID are added and help with traceability. For example, you can inspect an image to find out which pipeline built the image. You can opt out of this default behavior.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,10 +241,10 @@ By default pipeline data like source branch name, build ID are added which helps
 <!-- :::item name="addBaseImageData"::: -->
 :::moniker range=">=azure-pipelines-2022"
 
-**`addBaseImageData`** - **Add base image metadata to image(s)**<br>
+**`addBaseImageData`** - **Add base image metadata to image(s)**<br>.
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default base image data like base image name and digest are added which helps with traceability. You can opt out of this default behavior by using this input.
+By default, base image data like base image name, or digest are added and help with traceability. You can opt out of this default behavior.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -257,7 +256,7 @@ By default base image data like base image name and digest are added which helps
 **`container`** - **Container**<br>
 `string`. Optional. Use when `command = start || command = stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the container resource to start or stop. For use with start and stop commands.
+Specifies the name of the container resource to start or stop. Use thi command with start and stop commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +277,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="DockerOutput"::: -->
 **`DockerOutput`**<br><!-- :::editable-content name="Value"::: -->
-The path of the file(s) which contains the output of the command. This contains two file paths (separated by newline characters) in case of buildAndPush command, and one file path for any other command.
+Specifies the path to the files that contain the command output. You can list two file paths on separate lines for the `buildAndPush` command, and one file path for any other command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -289,11 +288,11 @@ The path of the file(s) which contains the output of the command. This contains 
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The following are the key benefits of using Docker task as compared to directly using docker client binary in script. 
+The following are the key benefits of using the Docker task instead of directly using Docker client binary in a script. 
 
-- **Integration with Docker registry service connection** - The task makes it easy to use a Docker registry service connection for connecting to any container registry. Once logged in, the user can author follow up tasks to execute any tasks/scripts by leveraging the login already done by the Docker task. For example, you can use the Docker task to sign in to any Azure Container Registry and then use a subsequent task/script to build and push an image to this registry.
+- **Integration with Docker registry service connection** - The task makes it easy to use a Docker registry service connection for connecting to any container registry. Once signed in, you can add follow up tasks that execute other tasks or scripts by leveraging the sign on used by the Docker task. For example, use the Docker task to sign in to any Azure Container Registry and then use another task or script to build and push an image to the registry.
 
-- **Metadata added as labels** - The task adds traceability-related metadata to the image in the form of the following labels -  
+- **Metadata added as labels** - The task adds traceability-related metadata to the image in the following labels -  
   - com.azure.dev.image.build.buildnumber
   - com.azure.dev.image.build.builduri
   - com.azure.dev.image.build.definitionname
@@ -309,13 +308,13 @@ The following are the key benefits of using Docker task as compared to directly 
 
 ### Troubleshooting
 
-#### Why does Docker task ignore arguments passed to buildAndPush command?
+#### Why does the Docker task ignore arguments passed to the buildAndPush command?
 
-Docker task configured with buildAndPush command ignores the arguments passed since they become ambiguous to the build and push commands that are run internally. You can split your command into separate build and push steps and pass the suitable arguments. See this [stackoverflow post](https://stackoverflow.com/questions/60287354/i-am-using-azure-devops-to-build-and-push-my-docker-image-how-can-i-pass-argume) for example.
+A Docker task configured using the `buildAndPush` command ignores the arguments passed because they become ambiguous to the internal build and push commands. You can split your command into separate build and push steps and pass the suitable arguments. For example, see this [stackoverflow post](https://stackoverflow.com/questions/60287354/i-am-using-azure-devops-to-build-and-push-my-docker-image-how-can-i-pass-argume).
 
 #### DockerV2 only supports Docker registry service connection and not support ARM service connection. How can I use an existing Azure service principal (SPN) for authentication in Docker task?
 
-You can create a Docker registry service connection using your Azure SPN credentials. Choose the Others from Registry type and provide the details as follows:
+You can create a Docker registry service connection using your Azure SPN credentials. Choose the others from Registry type and provide the details as follows:
 
 ```
 Docker Registry:    Your container registry URL (eg. https://myacr.azurecr.io)
@@ -333,7 +332,7 @@ Password:           Service principal key
 
 # [YAML](#tab/yaml)
 
-The following YAML snippet showcases container registry login using a Docker registry service connection.
+The following YAML snippet shows a container registry sign on using a Docker registry service connection.
 
 ```YAML
 - task: Docker@2
@@ -353,7 +352,7 @@ Use a Docker registry connection with the Docker login command. Set the **Contai
 
 ### Build and Push
 
-A convenience command called `buildAndPush` allows for build and push of images to container registry in a single command.
+A convenience command called `buildAndPush` allows the build and push of images to a container registry in a single command.
 
 # [YAML](#tab/yaml)
 
@@ -381,9 +380,9 @@ steps:
       tag2
 ```
 
-In the above snippet, the images ```contosoRepository:tag1``` and ```contosoRepository:tag2``` are built and pushed to the container registries corresponding to ```dockerRegistryServiceConnection1``` and ```dockerRegistryServiceConnection2```. 
+In the above snippet, the images ```contosoRepository:tag1``` and ```contosoRepository:tag2``` are built and pushed to the container registries corresponding to ```dockerRegistryServiceConnection1``` and ```dockerRegistryServiceConnection2```.
 
-If one wants to build and push to a specific authenticated container registry instead of building and pushing to all authenticated container registries at once, the ```containerRegistry``` input can be explicitly specified along with ```command: buildAndPush``` as shown below - 
+If you want to build and push to a specific authenticated container registry instead of building and pushing to all authenticated container registries at once, explicitly specify the ```containerRegistry``` input with ```command: buildAndPush``` as shown:
 
 ```YAML
 steps:
@@ -400,11 +399,11 @@ steps:
 
 # [Classic](#tab/classic)
 
-The command buildAndPush lets you build and push images to container registry in a single command. Here is an example of building and pushing multiple tags of an image with authentication to DockerHub.  
+Use the `buildAndPush` command to build and push images to a container registry in a single command. See the example for building and pushing multiple tags of an image with authentication to DockerHub.  
 
 :::image type="content" source="media/docker-classic-build-push.png" alt-text="Screenshot of build and push Docker classic task.":::
 
-You can also build and push without authentication.  In the buildAndPush tasks, the images for tag1 and tag2 are built and pushed to the container registries corresponding to service connections set up in the previous two login tasks. 
+You can build and push without authentication.  In the `buildAndPush` tasks, the images for `tag1` and `tag2` are built and pushed to the container registries corresponding to service connections set up in the previous two log on tasks.
 
 :::image type="content" source="media/docker-classic-build-push-two-containers.png" alt-text="Screenshot of Classic pipeline with build and push to two Docker container registries.":::
 
@@ -414,7 +413,7 @@ You can also build and push without authentication.  In the buildAndPush tasks, 
 
 # [YAML](#tab/yaml)
 
-The following YAML snippet showcases container registry logout using a Docker registry service connection.
+The following YAML snippet shows how to log out from a container registry using a Docker registry service connection.
 
 ```YAML
 - task: Docker@2
@@ -425,7 +424,7 @@ The following YAML snippet showcases container registry logout using a Docker re
 ```
 # [Classic](#tab/classic)
 
-You can also logout from your Docker registry service connection with the Docker task. 
+Log out from your Docker registry service connection with the Docker task.
 
 :::image type="content" source="media/docker-classic-logout.png" alt-text="Screenshot of docker task logout.":::
 
@@ -433,7 +432,7 @@ You can also logout from your Docker registry service connection with the Docker
 
 ### Start/stop
 
-This task can also be used to control job and service containers. This usage is uncommon, but occasionally used for unique circumstances.
+Use this task to control job and service containers. This usage is uncommon, but occasionally used in unique circumstances.
 
 ```yaml
 resources:
@@ -454,7 +453,7 @@ steps:
 
 ### Other commands and arguments
 
-The command and argument inputs can be used to pass additional arguments for build or push commands using docker client binary as shown in the following example.
+The command and argument inputs are used to pass additional arguments for build or push commands using Docker client binary as shown in the example.
 
 ```yaml
 steps:
@@ -473,7 +472,7 @@ steps:
 ```
 
 > [!NOTE]
-> The arguments input is evaluated for all commands except `buildAndPush`. As `buildAndPush` is a convenience command (`build` followed by `push`), `arguments` input is ignored for this command.
+> The arguments input is evaluated for all commands except `buildAndPush`. `buildAndPush` is a convenience command (`build` followed by `push`), `arguments` input is ignored when it is used.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
