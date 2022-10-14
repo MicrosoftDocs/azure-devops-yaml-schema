@@ -19,7 +19,7 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back-end address pool.
+Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's back-end address pool.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -78,7 +78,7 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription for the deployment.
+Specifies the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +90,7 @@ Selects the Azure Resource Manager subscription for the deployment.
 **`ResourceGroupName`** - **Resource Group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecta the resource group name.
+Specifies the resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +102,7 @@ Selecta the resource group name.
 **`LoadBalancer`** - **Load Balancer Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects or enters the load balancer's name.
+Specifies or enters the load balancer's name.
 <!-- :::editable-content-end::: -->
 <br>
 
