@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Create, edit, or delete a GitHub release.
+Use this task to create, edit, or delete a GitHub release.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -88,7 +88,7 @@ Create, edit, or delete a GitHub release.
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. Learn more about service connections [here](https://aka.ms/AA3am5s).
+Specifies the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. For more information about service connections, see [Manage service connections](https://aka.ms/AA3am5s).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +100,7 @@ Specify the name of the GitHub service connection to use to connect to the GitHu
 **`repositoryName`** - **Repository**<br>
 `string`. Required. Default value: `$(Build.Repository.Name)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the GitHub repository in which the GitHub release will be created, edited, or deleted.
+Specifies the name of the GitHub repository where you will create, edit, or delete the GitHub release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +112,7 @@ Specify the name of the GitHub repository in which the GitHub release will be cr
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `create`, `edit`, `delete`. Default value: `create`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the type of release operation to perform. This task can create, edit, or delete a GitHub release.
+Specifies the type of release operation to perform. This task can create, edit, or delete a GitHub release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,7 @@ Specify the type of release operation to perform. This task can create, edit, or
 **`target`** - **Target**<br>
 `string`. Required when `action = create || action = edit`. Default value: `$(Build.SourceVersion)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the commit SHA for which the GitHub release will be created. E.g. `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`. You can also use a variable here. E.g. `$(myCommitSHA)`.
+Specifies the commit SHA you want to use to create the GitHub release, for example `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`. You can also use a variable, like `$(myCommitSHA)`, in this field.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ Specify the commit SHA for which the GitHub release will be created. E.g. `48b11
 **`tagSource`** - **Tag source**<br>
 `string`. Required when `action = create`. Allowed values: `auto` (Git tag), `manual` (User specified tag). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the tag to be used for release creation. The 'Git tag' option automatically takes the tag which is associated with the Git commit. Use the 'User specified tag' option to manually provide a tag.
+Specifies the tag you want to use for release creation. The `auto` (Git tag) option automatically uses the tag that is associated with the Git commit. Use the `manual` (User specified tag) option to manually provide a tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Specify the tag to be used for release creation. The 'Git tag' option automatica
 **`tagPattern`** - **Tag Pattern**<br>
 `string`. Optional. Use when `tagSource = auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the git tag pattern using regex(Eg. `release-v1.*`). GitHub release will be created only for commits that have matching git tag.
+Specifies the Git tag pattern by using regex, for example `release-v1.*`. GitHub release will be created only for commits that have matching Git tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Specify the git tag pattern using regex(Eg. `release-v1.*`). GitHub release will
 **`tag`** - **Tag**<br>
 `string`. Required when `action = edit || action = delete || tagSource = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the tag for which to create, edit, or delete a release. You can also use a variable here. E.g. `$(myTagName)`.
+Specifies the tag you want to use when you create, edit, or delete a release. You can also use a variable, like `$(myTagName)`, in this field.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -172,7 +172,7 @@ Specify the tag for which to create, edit, or delete a release. You can also use
 **`title`** - **Release title**<br>
 `string`. Optional. Use when `action = create || action = edit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the title of the GitHub release. If left empty, the tag will be used as the release title.
+Specifies the title of the GitHub release. If left empty, the tag will be used as the release title.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -184,7 +184,7 @@ Specify the title of the GitHub release. If left empty, the tag will be used as 
 **`releaseNotesSource`** - **Release notes source**<br>
 `string`. Optional. Use when `action = create || action = edit`. Allowed values: `file` (Release notes file), `input` (Inline release notes). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the description of the GitHub release. Use the 'Release notes file' option to use the contents of a file as release notes. Use the 'Inline release notes' option to manually enter release notes.
+Specifies the description of the GitHub release. Use the `file` (Release notes file) option to use file contents as release notes. Use the `input` (Inline release notes) option to manually enter release notes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +196,7 @@ Specify the description of the GitHub release. Use the 'Release notes file' opti
 **`releaseNotesFile`** - **Release notes file path**<br>
 `string`. Optional. Use when `releaseNotesSource = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the file which contains the release notes.
+Specifies the file that contains the release notes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +208,7 @@ Select the file which contains the release notes.
 **`releaseNotes`** - **Release notes**<br>
 `string`. Optional. Use when `releaseNotesSource = input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the release notes here. Markdown is supported.
+Specifies the release notes. Markdown is supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,9 @@ Enter the release notes here. Markdown is supported.
 **`assets`** - **Assets**<br>
 `string`. Optional. Use when `action = create || action = edit`. Default value: `$(Build.ArtifactStagingDirectory)/*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the files to be uploaded as assets of the release. You can use wildcard characters to specify multiple files. E.g. For build pipelines, `$(Build.ArtifactStagingDirectory)/*.zip` or in case of release pipelines `$(System.DefaultWorkingDirectory)/*.zip`. You can also specify multiple patterns - one per line. By default, all files in the $(Build.ArtifactStagingDirectory) directory will be uploaded. To know more about the list of pre-defined variables available, see [build variables](https://aka.ms/AA4449z) and [release variables](https://aka.ms/AA43wws).
+Specifies the files you want to upload as assets of the release. You can use wildcard characters to specify multiple files. For example, use `$(Build.ArtifactStagingDirectory)/*.zip` for build pipelines or use `$(System.DefaultWorkingDirectory)/*.zip` for release pipelines. 
+
+You can also specify multiple patterns, one per line. By default, all files in the `$(Build.ArtifactStagingDirectory)` directory will be uploaded. For more information about the list of pre-defined variables that are available, see [build variables](https://aka.ms/AA4449z) and [release variables](https://aka.ms/AA43wws).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +234,7 @@ Specify the files to be uploaded as assets of the release. You can use wildcard 
 **`assetUploadMode`** - **Asset upload mode**<br>
 `string`. Optional. Use when `action = edit`. Allowed values: `delete` (Delete exisiting assets), `replace` (Replace existing assets). Default value: `delete`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the 'Delete existing assets' option to first delete any existing assets in the release and then upload all assets. Use the 'Replace existing assets' option to replace any assets that have the same name.
+Specifies the asset upload mode you want to use. Use the `delete` (Delete existing assets) option to first delete any existing assets in the release and then upload all assets. Use the `replace` (Replace existing assets) option to replace any assets that have the same name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,7 +246,7 @@ Use the 'Delete existing assets' option to first delete any existing assets in t
 **`isDraft`** - **Draft release**<br>
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicate whether the release should be saved as a draft (unpublished). If `false`, the release will be published.
+Indicates whether you want to save the release as a draft (unpublished). If `false`, the release will be published.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -256,7 +258,7 @@ Indicate whether the release should be saved as a draft (unpublished). If `false
 **`isPreRelease`** - **Pre-release**<br>
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicate whether the release should be marked as a pre-release.
+Indicates whether you want to mark the release as a pre-release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,7 +270,7 @@ Indicate whether the release should be marked as a pre-release.
 **`addChangeLog`** - **Add changelog**<br>
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, a list of changes (commits and issues) between this and the last published release will be generated and appended to the release notes.
+Specifies if you want to include a changelog. If set to `true`, a list of changes (commits and issues) between the current release and the last published release will be generated and appended to the release notes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -280,10 +282,11 @@ If set to `true`, a list of changes (commits and issues) between this and the la
 **`changeLogCompareToRelease`** - **Compare to**<br>
 `string`. Required when `addChangeLog = true`. Allowed values: `lastFullRelease` (Last full release), `lastNonDraftRelease` (Last non-draft release), `lastNonDraftReleaseByTag` (Last non-draft release by tag). Default value: `lastFullRelease`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicate which release we should compare with to generate the changelog: 
-Last full release: Compares the current release with  the most recent non-draft release which is not marked as pre-release.
-Last non-draft release: Compares the current release with the most recent non-draft release.
-Last non-draft release by tag: Compares the current release with the last non-draft release matching the specified tag. You can also specify a regex instead of an exact tag.
+Indicates which release to compare with to generate the changelog: 
+
+* `lastFullRelease` (Last full release): Compares the current release with the most recent non-draft release that is not marked as pre-release.
+* `lastNonDraftRelease` (Last non-draft release): Compares the current release with the most recent non-draft release.
+* `lastNonDraftReleaseByTag` (Last non-draft release by tag): Compares the current release with the last non-draft release matching the specified tag. You can also specify a regex instead of an exact tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -295,7 +298,7 @@ Last non-draft release by tag: Compares the current release with the last non-dr
 **`changeLogCompareToReleaseTag`** - **Release Tag**<br>
 `string`. Required when `changeLogCompareToRelease = lastNonDraftReleaseByTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the regex for release tag. Release matching this tag will be used as base for changelog computation.
+Specifies the regex for the release tag. A release matching this tag will be used as the base for changelog computation.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -307,7 +310,7 @@ Specify the regex for release tag. Release matching this tag will be used as bas
 **`changeLogType`** - **Changelog type**<br>
 `string`. Required when `addChangeLog = true`. Allowed values: `commitBased` (Commit based), `issueBased` (Issue based). Default value: `commitBased`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Changelog can be commit based or issue based . Commit based changelog lists all commits included in a release where as Issue based changelog lists all the issues/pr included in the release.
+Specifies the changelog type. A changelog can be commit based or issue based. A commit-based changelog lists all commits included in a release. An issue-based changelog lists all the issues or pull requests (PRs) included in the release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -319,7 +322,7 @@ Changelog can be commit based or issue based . Commit based changelog lists all 
 **`changeLogLabels`** - **Categories**<br>
 `string`. Optional. Use when `changeLogType = issueBased`. Default value: `[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Using this you can categorize changes based on the label associated with the issue/pr. For a label you can mention the display name for the category and the state of issue. E.g. `"[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]"` .In case a change has multiple labels on it, the first specified label takes priority. Leave this field empty, to see a flat list of issues/pr.
+Categorizes changes based on the label associated with the issue or PR. For a label, you can mention the display name for the category and the state of issue. Examples of labels include: `"[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]"`. In cases where a change has multiple labels on it, the first specified label takes priority. Leave this field empty to see a flat list of issues or PRs.
 <!-- :::editable-content-end::: -->
 <br>
 
