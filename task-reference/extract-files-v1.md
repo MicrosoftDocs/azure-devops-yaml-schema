@@ -99,7 +99,7 @@ Use this task to extract a variety of archive and compression files, such as .7z
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 `string`. Required. Default value: `**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns. Learn more about the [Extract Files task](https://go.microsoft.com/fwlink/?LinkId=800269).
+Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns. Learn more about the [Extract Files task](/azure/devops/pipelines/tasks/utility/extract-files).
 
 Specifies the patterns to match the archives you want to extract. By default, patterns start in the root folder of the repo (same as if you had specified `$(Build.SourcesDirectory)`.  
 Specifies the pattern filters, one per line, that match the archives to extract. For example:
@@ -118,7 +118,7 @@ The pattern is used to match only archive file paths, not folder paths, and not 
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 `string`. Required. Default value: `*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  Learn more about the [Extract Files task](https://go.microsoft.com/fwlink/?LinkId=800269).
+Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  Learn more about the [Extract Files task](/azure/devops/pipelines/tasks/utility/extract-files).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +130,7 @@ Specifies the file paths or patterns of the archive files to extract.  Supports 
 **`destinationFolder`** - **Destination folder**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the destination folder into which archive files should be extracted. Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. For example: `$(agent.builddirectory)`.
+Specifies the destination folder into which archive files should be extracted. Use [variables](/azure/devops/pipelines/build/variables) if files are not in the repo. For example: `$(agent.builddirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
