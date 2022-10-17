@@ -214,13 +214,15 @@ Specifies a new line separated list of JSON files to substitute the variable val
 
 To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions. For example, to replace the value of `ConnectionString` in the sample below, you must define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or in the release pipeline's stage).
 
+```
 {  
-&nbsp;&nbsp;"Data": {  
-&nbsp;&nbsp;&nbsp;&nbsp;"DefaultConnection": {  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"  
-&nbsp;&nbsp;&nbsp;&nbsp;}  
-&nbsp;&nbsp;}  
- }  
+  "Data": {  
+    "DefaultConnection": {  
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"  
+    }  
+  }  
+}
+```
  Variable Substitution is run after configuration transforms.
 
 *Note:* Pipeline variables are excluded in substitution.
