@@ -71,7 +71,7 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::item name="workingFile"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-**`workingFile`** - **`.npmrc` file to authenticate**<br>
+**`workingFile`** - **.npmrc file to authenticate**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the `.npmrc` file that specifies the registries you want to work with. Select the file, not the folder, such as `/packages/mypackage.npmrc`.
@@ -82,7 +82,7 @@ The path to the `.npmrc` file that specifies the registries you want to work wit
 
 :::moniker range="<=azure-pipelines-2019.1"
 
-**`workingFile`** - **`.npmrc` file to authenticate**<br>
+**`workingFile`** - **.npmrc file to authenticate**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the `.npmrc` file that specifies the registries you want to work with. Select the file, not the folder, such as `/packages/mypackage.npmrc`.
@@ -171,7 +171,7 @@ To do so, you can either:
   >**Caution:**  
   >`npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
 
-* Specify the proxy with a command line flag when calling `npm`
+* Specify the proxy with a command line flag when calling `npm`.
   ```YAML
   - script: npm ci --https-proxy $(agent.proxyurl)
   ```
@@ -227,7 +227,7 @@ registry=https://pkgs.dev.azure.com/{organization}/{project}/_packaging/{feed}/n
 always-auth=true
 ```
 
-The registry URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and the URL for a organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
+The registry URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and the URL for an organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 #### npm
 ```YAML
