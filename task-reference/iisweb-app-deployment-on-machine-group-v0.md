@@ -148,7 +148,7 @@ Selects the option to delete files on the Web App that have no matching files in
 **`ExcludeFilesFromAppDataFlag`** - **Exclude Files from the App_Data Folder**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to prevent files in the App_Data folder from being deployed to the Web App.
+Selects the option to prevent files in the `App_Data` folder from being deployed to the Web App.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Selects the option to prevent files in the App_Data folder from being deployed t
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to take the Web App offline by placing an app_offline.htm file in the root directory of the Web App before the sync operation begins. The file will be removed after the sync operation completes successfully.
+Selects the option to take the Web App offline by placing an `app_offline.htm` file in the root directory of the Web App before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +196,7 @@ Specifies the config transforms that are run for `*.Release.config` and `*.<Envi
 **`XmlVariableSubstitution`** - **XML variable substitution**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the variables defined in the build or release pipeline. These variables are matched against the `key` or `name` entries in the appSettings, applicationSettings, and connectionStrings sections of any config file and parameters.xml. Variable Substitution is run after config transforms.
+Specifies the variables defined in the build or release pipeline. These variables are matched against the `key` or `name` entries in the appSettings, applicationSettings, and connectionStrings sections of any config file and `parameters.xml`. Variable Substitution is run after config transforms.
 
 *Note:* If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
