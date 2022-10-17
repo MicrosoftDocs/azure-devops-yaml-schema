@@ -136,7 +136,7 @@ Optional. Specifies the location of the `SetParameters.xml` file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove Additional Files at Destination**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to delete files on the Web App that have no matching files in the Web App zip package.
+Selects the option to delete files on the Web App that have no matching files in the Web App zip package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Select the option to delete files on the Web App that have no matching files in 
 **`ExcludeFilesFromAppDataFlag`** - **Exclude Files from the App_Data Folder**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to prevent files in the App_Data folder from being deployed to the Web App.
+Selects the option to prevent files in the App_Data folder from being deployed to the Web App.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Select the option to prevent files in the App_Data folder from being deployed to
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to take the Web App offline by placing an app_offline.htm file in the root directory of the Web App before the sync operation begins. The file will be removed after the sync operation completes successfully.
+Selects the option to take the Web App offline by placing an app_offline.htm file in the root directory of the Web App before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 
