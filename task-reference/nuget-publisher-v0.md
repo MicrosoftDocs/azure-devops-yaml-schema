@@ -84,7 +84,7 @@ This task is deprecated.
 **`searchPattern`** - **Path/Pattern to nupkg**<br>
 `string`. Required. Default value: `**/*.nupkg;-:**/packages/**/*.nupkg;-:**/*.symbols.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The pattern to match or path to nupkg files to be uploaded. Multiple patterns can be separated by a semicolon.
+The pattern that the task uses to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,6 +96,7 @@ The pattern to match or path to nupkg files to be uploaded. Multiple patterns ca
 **`nuGetFeedType`** - **Feed type**<br>
 `string`. Required. Allowed values: `external` (External NuGet Feed), `internal` (Internal NuGet Feed). Default value: `external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies whether the target feed is an internal feed/collection or an external NuGet server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +108,7 @@ The pattern to match or path to nupkg files to be uploaded. Multiple patterns ca
 **`connectedServiceName`** - **NuGet Service Connection**<br>
 `string`. Required when `nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet server generic service connection, set the key 'Password/Token Key' field to your NuGet API key.
+Specifies the NuGet server generic service connection. Set the key `Password/Token Key` field to your NuGet API key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +119,7 @@ The NuGet server generic service connection, set the key 'Password/Token Key' fi
 **`connectedServiceName`** - **NuGet Server Endpoint**<br>
 `string`. Required when `nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet server generic service connection, set the key 'Password/Token Key' field to your NuGet API key.
+Specifies the NuGet server generic service connection. Set the key `Password/Token Key` field to your NuGet API key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +131,7 @@ The NuGet server generic service connection, set the key 'Password/Token Key' fi
 **`feedName`** - **Internal Feed URL**<br>
 `string`. Required when `nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The URL of a NuGet feed hosted in this account.
+Specifies the URL of a NuGet feed hosted in this account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +143,7 @@ The URL of a NuGet feed hosted in this account.
 **`nuGetAdditionalArgs`** - **NuGet Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to NuGet.exe push. [More Information](/nuget/tools/cli-ref-push).
+The additional arguments passed to `NuGet.exe push`. Learn more about the [push command in the NuGet CLI](/nuget/tools/cli-ref-push).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -154,7 +155,7 @@ Additional arguments passed to NuGet.exe push. [More Information](/nuget/tools/c
 **`verbosity`** - **Verbosity**<br>
 `string`. Allowed values: `-`, `Quiet`, `Normal`, `Detailed`. Default value: `-`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-NuGet's verbosity level.
+Specifies the amount of detail displayed in the output.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +167,7 @@ NuGet's verbosity level.
 **`nuGetVersion`** - **NuGet Version**<br>
 `string`. Required. Allowed values: `3.3.0`, `3.5.0.1829` (3.5.0), `4.0.0.2283` (4.0.0), `custom`. Default value: `3.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of NuGet to use, or custom version.
+Specifies the version of NuGet to use, or a custom version to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +179,7 @@ The version of NuGet to use, or custom version.
 **`nuGetPath`** - **Path to NuGet.exe**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to NuGet.exe. Will override version selection.
+Optional. Supplies the path to `NuGet.exe`. Will override version selection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -190,7 +191,7 @@ Optionally supply the path to NuGet.exe. Will override version selection.
 **`continueOnEmptyNupkgMatch`** - **Continue if no packages match the "Path/Pattern to nupkg"**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Continue instead of fail if no packages match the "Path/Pattern to nupkg".
+Continues the task instead of failing the task if no packages match the `searchPattern` string.
 <!-- :::editable-content-end::: -->
 <br>
 
