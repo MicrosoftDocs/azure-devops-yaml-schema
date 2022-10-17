@@ -44,7 +44,7 @@ Improve build performance by using this task to cache files, like dependencies, 
 **`key`** - **Key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The key (unique identifier) for the cache. This should be a string that can be segmented using `|`. File paths can be absolute or relative to `$(System.DefaultWorkingDirectory)`.
+The key (unique identifier) for the cache. This should be a newline-delimited list of strings or file paths. File paths can be absolute or relative to `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
