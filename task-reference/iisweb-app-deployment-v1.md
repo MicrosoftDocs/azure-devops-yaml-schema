@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy using MSDeploy, then create/update websites and app pools.
+Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +21,7 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy by MSDeploy, create/update website & app pools.
+Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -152,7 +152,7 @@ This task is deprecated.
 **`EnvironmentName`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. <br>Eg: dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Specifies a comma separated list of machine IP addresses or FQDNs, along with ports. The default port is based on the selected protocol, for example `dbserver.fabrikam.com` or `dbserver_int.fabrikam.com:5986,192.168.12.34:5986`. You can also provide the output variable of other tasks, for example `$(variableName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the administrator login for the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ Administrator login for the target machines.
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for the target machines. <br>It can accept variable defined in Build/Release definitions as '$(passwordVariable)'. <br>You may mark variable type as 'secret' to secure it.
+Specifies the administrator password for the target machines. It can accept variables defined in build/release definitions, such as `$(passwordVariable)`. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +188,7 @@ Administrator password for the target machines. <br>It can accept variable defin
 **`WinRMProtocol`** - **Protocol**<br>
 `string`. Allowed values: `Http`, `Https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the protocol to use for the WinRM connection with the machine(s). Default is HTTPS.
+Specifies the protocol used for the WinRM connection with the machine(s). The default is `HTTPS`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +200,7 @@ Select the protocol to use for the WinRM connection with the machine(s). Default
 **`TestCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `WinRMProtocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Selects the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM `HTTPS` protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +212,7 @@ Select the option to skip validating the authenticity of the machine's certifica
 **`WebDeployPackage`** - **Web Deploy Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the Web Deploy (MSDeploy) zip file on the target machines or on a UNC path like, \\\\BudgetIT\WebDeploy\WebDeployPackage.zip. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported like, $env:windir, $env:systemroot, like, $env:windir\FabrikamFibre\Web.
+Specifies the location of the Web Deploy (MSDeploy) zip file on the target machines or on a UNC path like, `\\BudgetIT\WebDeploy\WebDeployPackage.zip`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, and `$env:windir\FabrikamFibre\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,7 +224,7 @@ Location of the Web Deploy (MSDeploy) zip file on the target machines or on a UN
 **`WebDeployParamFile`** - **Web Deploy Parameter File**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the Parameter file on the target machines or on a UNC path. Parameter file is used to override Web application configuration settings like, IIS Web application name or database connection string.
+Specifies the location of the parameter file on the target machines or on a UNC path. The parameter file is used to override Web application configuration settings, like the IIS Web application name or database connection string.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -236,7 +236,8 @@ Location of the Parameter file on the target machines or on a UNC path. Paramete
 **`OverRideParams`** - **Override Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Parameters specified here will override the parameters in the MSDeploy zip file and the Parameter file. To override more than one parameter use line separator, e.g., <br/> "IIS Web Application Name"="Fabrikam" <br/> "ConnectionString"="Server=localhost;Database=Fabrikam;".
+Parameters specified here will override the parameters in the MSDeploy zip file and the parameter file. To override more than one parameter, use a line separator.  
+For example, `"IIS Web Application Name"="Fabrikam"` or `"ConnectionString"="Server=localhost;Database=Fabrikam;"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -248,7 +249,7 @@ Parameters specified here will override the parameters in the MSDeploy zip file 
 **`CreateWebSite`** - **Create or Update Website**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to create a website or to update an existing website.
+Selects the option to create a website or to update an existing website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +261,7 @@ Select the option to create a website or to update an existing website.
 **`WebSiteName`** - **Website Name**<br>
 `string`. Required when `CreateWebSite = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the IIS website that will be created if it does not exist, or it will be updated if it is already present on the IIS server. The name of the website should be same as that specified in the web deploy zip package file. If a Parameter file and override Parameters setting is also specified, then the name of the website should be same as that in the override Parameters setting.
+Specifies the name of the IIS website that will be created if it does not exist, or it will be updated if it is already present on the IIS server. The name of the website should be the same as that specified in the web deploy zip package file. If a parameter file and override parameters setting is also specified, then the name of the website should be the same as that in the override parameters setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +273,7 @@ Name of the IIS website that will be created if it does not exist, or it will be
 **`WebSitePhysicalPath`** - **Physical Path**<br>
 `string`. Required when `CreateWebSite = true`. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Physical path where the website content is stored. The content can reside on the local computer or on a remote directory or share like, C:\Fabrikam or \\\\ContentShare\Fabrikam.
+Specifies the physical path where the website content is stored. The content can reside on the local computer or on a remote directory or share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +285,7 @@ Physical path where the website content is stored. The content can reside on the
 **`WebSitePhysicalPathAuth`** - **Physical Path Authentication**<br>
 `string`. Required when `CreateWebSite = true`. Allowed values: `WebSiteUserPassThrough` (Application User (Pass-through)), `WebSiteWindowsAuth` (Windows Authentication). Default value: `Application User (Pass-through)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Authentication mechanism for accessing the physical path of the website.
+Specifies the authentication mechanism for accessing the physical path of the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +297,7 @@ Authentication mechanism for accessing the physical path of the website.
 **`WebSiteAuthUserName`** - **User Name**<br>
 `string`. Required when `WebSitePhysicalPathAuth = WebSiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-User name for accessing the website's physical path.
+Specifies the user name for accessing the website's physical path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +309,7 @@ User name for accessing the website's physical path.
 **`WebSiteAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `WebSitePhysicalPathAuth = WebSiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for accessing the website's physical path. If you are using a gMSA, this is not required.
+Specifies the password for accessing the website's physical path. If you are using a gMSA, this is not required.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -320,7 +321,7 @@ Password for accessing the website's physical path. If you are using a gMSA, thi
 **`AddBinding`** - **Add Binding**<br>
 `boolean`. Optional. Use when `CreateWebSite = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to add port binding for the website.
+Selects the option to add port binding for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -332,7 +333,7 @@ Select the option to add port binding for the website.
 **`AssignDuplicateBinding`** - **Assign Duplicate Binding**<br>
 `boolean`. Optional. Use when `AddBinding = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to add the bindings specified here, even if there is another website with the same bindings. If there are binding conflicts, then only one of the website will start.
+Selects the option to add the bindings specified here (even if there is another website with the same bindings). If there are binding conflicts, only one of the websites will start.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +345,7 @@ Select the option to add the bindings specified here, even if there is another w
 **`Protocol`** - **Protocol**<br>
 `string`. Required when `AddBinding = true`. Allowed values: `https`, `http`. Default value: `http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select HTTP for the website to have an HTTP binding, or select HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
+Specifies either HTTP for the website to have an HTTP binding, or HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
 <!-- :::editable-content-end::: -->
 <br>
 
