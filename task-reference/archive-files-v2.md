@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 09/26/2022
+ms.date: 10/18/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -219,7 +219,6 @@ Specify the name of the archive file to create.  For example, to create `foo.tgz
 
 - Set archive type: `tar`
 - Set tar compression: `gz`
-
 <!-- :::editable-content-end::: -->
 <br>
 

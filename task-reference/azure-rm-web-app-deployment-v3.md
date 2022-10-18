@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 09/26/2022
+ms.date: 10/18/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -207,6 +207,7 @@ Specify the name of an existing Azure App Service. App services based on the sel
 
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
 `boolean`. Optional. Use when `WebAppKind != ""`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to deploy to an existing slot other than the Production slot. If this option is not selected, then the Azure App Service will be deployed to the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
