@@ -108,7 +108,7 @@ Specifies the password to unlock the keychain. Use a new build variable with its
 **`customKeychainPath`** - **Custom Keychain Path**<br>
 `string`. Required when `keychain = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the full path to a custom keychain file. The keychain will be created if it does already not exist.
+Specifies the full path to a custom keychain file. The keychain will be created if it does not already exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ Specifies the custom keychain to delete from the agent after the build or releas
 **`signingIdentity`** - **Certificate Signing Identity**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The `Common Name` of the subject in the signing certificate.  Will attempt to parse the `Common Name` if this is left empty.
+Specifies the `Common Name` of the subject in the signing certificate.  Will attempt to parse the `Common Name` if this is left empty.
 <!-- :::editable-content-end::: -->
 <br>
 

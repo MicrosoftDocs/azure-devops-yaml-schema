@@ -123,7 +123,7 @@ Specifies the password to the Apple certificate (.p12). Use a new build variable
 **`keychain`** - **Keychain**<br>
 `string`. Required. Allowed values: `default` (Default Keychain), `temp` (Temporary Keychain), `custom` (Custom Keychain). Default value: `temp`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the keychain in which to install the Apple certificate. For Microsoft hosted builds, use `Temporary Keychain`. A temporary keychain will always be deleted after the build or release is complete.
+Specifies the keychain in which to install the Apple certificate. For Microsoft-hosted builds, use `Temporary Keychain`. A temporary keychain will always be deleted after the build or release is complete.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,7 +195,7 @@ Specifies the `Common Name` of the subject in the signing certificate.  Will att
 **`setUpPartitionIdACLForPrivateKey`** - **Set up partition_id ACL for the imported private key**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, sets the `partition_id` ACL for the imported private key so that `codesign` won't prompt to use the key for signing. This isn't necessary for temporary keychains on MacOS High Sierra. Learn more about [Open Radar](http://www.openradar.me/28524119).
+If `true`, sets the `partition_id` ACL for the imported private key so that `codesign` won't prompt to use the key for signing. This isn't necessary for temporary keychains on MacOS High Sierra. Learn more about [Open Radar](http://www.openradar.me/28524119).
 <!-- :::editable-content-end::: -->
 <br>
 

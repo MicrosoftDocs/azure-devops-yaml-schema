@@ -96,7 +96,7 @@ Specifies the keychain in which to install the Apple certificate. A temporary ke
 **`keychainPassword`** - **Keychain password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value. A password is generated for the temporary keychain if one is not specified.
+Specifies the password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value. A password is generated for the temporary keychain if one is not already specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ Specifies the custom keychain to delete from the agent after the build or releas
 **`signingIdentity`** - **Certificate signing identity**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the `Common Name` of the subject in the signing certificate.  Will attempt to parse the `Common Name` if this is left empty.
+Specifies the `Common Name` of the subject in the signing certificate. Will attempt to parse the `Common Name` if this is left empty.
 <!-- :::editable-content-end::: -->
 <br>
 
