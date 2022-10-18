@@ -310,7 +310,7 @@ Specifies the regex for the release tag. A release matching this tag will be use
 **`changeLogType`** - **Changelog type**<br>
 `string`. Required when `addChangeLog = true`. Allowed values: `commitBased` (Commit based), `issueBased` (Issue based). Default value: `commitBased`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the changelog type. A changelog can be commit based or issue based. A commit-based changelog lists all commits included in a release. An issue-based changelog lists all the issues or pull requests (PRs) included in the release.
+Specifies the changelog type. A changelog can be commit-based or issue-based. A commit-based changelog lists all commits included in a release. An issue-based changelog lists all the issues or pull requests (PRs) included in the release.
 <!-- :::editable-content-end::: -->
 <br>
 

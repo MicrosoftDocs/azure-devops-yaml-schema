@@ -122,7 +122,7 @@ Specifies the tag you want to use for release creation. The `gitTag` option auto
 **`tagPattern`** - **Tag Pattern**<br>
 `string`. Optional. Use when `tagSource = gitTag`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Git tag pattern by using regex, for example `release-v1.*`. GitHub release will be created only for commits that have matching Git tag.
+Specifies the Git tag pattern by using regex, for example `release-v1.*`. A GitHub release will be created only for commits that have matching Git tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +284,7 @@ Specifies the regex for release tag. Release matching this tag will be used as b
 **`changeLogType`** - **Changelog type**<br>
 `string`. Required when `addChangeLog = true`. Allowed values: `commitBased` (Commit based), `issueBased` (Issue based). Default value: `commitBased`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the changelog type. A changelog can be commit based or issue based. A commit-based changelog lists all commits included in a release. An issue-based changelog lists all the issues or pull requests (PRs) included in the release.
+Specifies the changelog type. A changelog can be commit-based or issue-based. A commit-based changelog lists all commits included in a release. An issue-based changelog lists all the issues or pull requests (PRs) included in the release.
 <!-- :::editable-content-end::: -->
 <br>
 
