@@ -167,7 +167,7 @@ Specifies the amount of detail displayed in the output.
 **`nuGetVersion`** - **NuGet Version**<br>
 `string`. Required. Allowed values: `3.3.0`, `3.5.0.1829` (3.5.0), `4.0.0.2283` (4.0.0), `custom`. Default value: `3.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of NuGet to use, or a custom version to use.
+Specifies the version of NuGet or a custom version to use.
 <!-- :::editable-content-end::: -->
 <br>
 
