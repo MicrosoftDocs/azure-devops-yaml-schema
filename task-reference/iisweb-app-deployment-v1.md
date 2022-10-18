@@ -345,7 +345,7 @@ Selects the option to add the bindings specified here (even if there is another 
 **`Protocol`** - **Protocol**<br>
 `string`. Required when `AddBinding = true`. Allowed values: `https`, `http`. Default value: `http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies either HTTP for the website to have an HTTP binding, or HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
+Specifies either HTTP for the website to have an HTTP binding or HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -357,7 +357,7 @@ Specifies either HTTP for the website to have an HTTP binding, or HTTPS for the 
 **`IPAddress`** - **IP Address**<br>
 `string`. Required when `AddBinding = true`. Default value: `All Unassigned`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type an IP address that users can use to access this website. If All Unassigned is selected, the site will respond to requests for all IP addresses on the port and the optional host name that is specified for this site, unless another site on the server has a binding on the same port but with a specific IP address.
+Specifies an IP address that users can use to access the website. If **All Unassigned** is selected, the site will respond to requests for all IP addresses on the port and the optional host name that is specified for the site. The site will not respond to requests if another site on the server has a binding on the same port but with a specific IP address.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -369,7 +369,7 @@ Type an IP address that users can use to access this website. If All Unassigned 
 **`Port`** - **Port**<br>
 `string`. Required when `AddBinding = true`. Default value: `80`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type the port on which Hypertext Transfer Protocol Stack (HTTP.sys) must listen for requests made to this website.
+Specifies the port on which Hypertext Transfer Protocol Stack (HTTP.sys) must monitor for requests made to this website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -393,7 +393,7 @@ Determines whether the website requires Server Name Indication (SNI). SNI extend
 **`HostNameWithOutSNI`** - **Host Name**<br>
 `string`. Optional. Use when `ServerNameIndication = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To assign one or more host names (or domain names) to a computer that uses a single IP address, type a host name here. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
+Assigns one or more host names (or domain names) to a computer that uses a single IP address. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -405,7 +405,7 @@ To assign one or more host names (or domain names) to a computer that uses a sin
 **`HostNameWithHttp`** - **Host Name**<br>
 `string`. Optional. Use when `Protocol = http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To assign one or more host names (or domain names) to a computer that uses a single IP address, type a host name here. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
+Assigns one or more host names (or domain names) to a computer that uses a single IP address. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -417,7 +417,7 @@ To assign one or more host names (or domain names) to a computer that uses a sin
 **`HostNameWithSNI`** - **Host Name**<br>
 `string`. Required when `ServerNameIndication = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To assign one or more host names (or domain names) to a computer that uses a single IP address, type a host name here. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
+Assigns one or more host names (or domain names) to a computer that uses a single IP address. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -429,7 +429,7 @@ To assign one or more host names (or domain names) to a computer that uses a sin
 **`SSLCertThumbPrint`** - **SSL Certificate Thumb Print**<br>
 `string`. Required when `Protocol = https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Thumb-print of the Secure Socket Layer certificate that the website is going to use. The certificate should be already installed on the machine and present under the Local Computer, Personal store.
+Specifies the thumb-print of the Secure Socket Layer certificate that the website is going to use. The certificate should already be installed on the machine and present under the Local Computer Personal store.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +441,7 @@ Thumb-print of the Secure Socket Layer certificate that the website is going to 
 **`CreateAppPool`** - **Create or Update Application Pool**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to create an application pool or to update an existing application pool.
+Selects the option to create an application pool or to update an existing application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -453,7 +453,7 @@ Select the option to create an application pool or to update an existing applica
 **`AppPoolName`** - **Name**<br>
 `string`. Required when `CreateAppPool = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the IIS application pool to create or update. Existing application pool will be updated with the settings specified here.
+Specifies the name of the IIS application pool to create or update. The existing application pool will be updated with the settings specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -465,7 +465,7 @@ Name of the IIS application pool to create or update. Existing application pool 
 **`DotNetVersion`** - **.NET Version**<br>
 `string`. Required when `CreateAppPool = true`. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version of the .NET Framework that is loaded by this application pool. If the applications assigned to this application pool do not contain managed code, select the No Managed Code option from the list.
+Specifies the version of the .NET Framework that is loaded by this application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -477,7 +477,7 @@ Version of the .NET Framework that is loaded by this application pool. If the ap
 **`PipeLineMode`** - **Managed Pipeline Mode**<br>
 `string`. Required when `CreateAppPool = true`. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Managed pipeline mode specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
+Managed pipeline mode specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in integrated mode.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -489,7 +489,7 @@ Managed pipeline mode specifies how IIS processes requests for managed content. 
 **`AppPoolIdentity`** - **Identity**<br>
 `string`. Required when `CreateAppPool = true`. Allowed values: `ApplicationPoolIdentity`, `LocalService`, `LocalSystem`, `NetworkService`, `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
+Configures the account under which an application pool's worker process runs. Specify one of the predefined security accounts, or configure a custom account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -524,7 +524,10 @@ If you are using a gMSA, this is not required.
 **`AppCmdCommands`** - **Additional AppCmd.exe Commands**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional AppCmd.exe commands to set website or application pool properties. For more than one command use line separator, e.g., <br/> list apppools <br/> list sites.
+Specifies additional `AppCmd.exe` commands to set the website or application pool properties. For more than one command, use a line separator.  
+For example:  
+\<list app pools\>  
+\<list sites\>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -536,7 +539,7 @@ Additional AppCmd.exe commands to set website or application pool properties. Fo
 **`DeployInParallel`** - **Deploy in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Setting it to true will deploy the Web application in-parallel on the target machines.
+If set to `true`, the Web application is deployed in-parallel on the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -548,7 +551,7 @@ Setting it to true will deploy the Web application in-parallel on the target mac
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, select a subset of machines either by providing machine names or tags.
+Optional. Specifies a subset of machines by providing machine names or tags.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -560,7 +563,9 @@ Optionally, select a subset of machines either by providing machine names or tag
 **`MachineFilter`** - **Deploy to Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input is valid only for machine groups and is not supported for flat list of machines or output variables yet. Provide a list of machines like, dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34, or tags like, Role:DB; OS:Win8.1. If multiple tags are provided, then the task will run in all the machines with the specified tags. For Azure Resource Groups, provide the virtual machine's name like, ffweb, ffdb. The default is to run the task in all machines.
+This input is only valid for machine groups and is not supported for a flat list of machines or output variables yet.
+
+Specifies a list of machines, like `dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34` or tags, like `Role:DB; OS:Win8.1`. If multiple tags are provided, the task will run in all of the machines with the specified tags. For Azure Resource Groups, specify the virtual machine's name, like `ffweb, ffdb`. The default runs the task in all machines.
 <!-- :::editable-content-end::: -->
 <br>
 
