@@ -321,7 +321,7 @@ Specifies the password for accessing the website's physical path. If you are usi
 **`AddBinding`** - **Add Binding**<br>
 `boolean`. Optional. Use when `CreateWebSite = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to add port binding for the website.
+Specifies the option to add port binding for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
