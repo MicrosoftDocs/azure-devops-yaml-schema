@@ -152,7 +152,7 @@ This task is deprecated.
 **`EnvironmentName`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a comma separated list of machine IP addresses or FQDNs, along with ports. The default port is based on the selected protocol, for example `dbserver.fabrikam.com` or `dbserver_int.fabrikam.com:5986,192.168.12.34:5986`. You can also provide the output variable of other tasks, for example `$(variableName)`.
+Specifies a comma-separated list of machine IP addresses or FQDNs, along with ports. The default port is based on the selected protocol, for example `dbserver.fabrikam.com` or `dbserver_int.fabrikam.com:5986,192.168.12.34:5986`. You can also provide the output variable of other tasks, for example `$(variableName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -249,7 +249,7 @@ For example, `"IIS Web Application Name"="Fabrikam"` or `"ConnectionString"="Ser
 **`CreateWebSite`** - **Create or Update Website**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to create a website or to update an existing website.
+Specifies the option to create a website or to update an existing website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -333,7 +333,7 @@ Selects the option to add port binding for the website.
 **`AssignDuplicateBinding`** - **Assign Duplicate Binding**<br>
 `boolean`. Optional. Use when `AddBinding = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to add the bindings specified here (even if there is another website with the same bindings). If there are binding conflicts, only one of the websites will start.
+Specifies the option to add the bindings specified here (even if there is another website with the same bindings). If there are binding conflicts, only one of the websites will start.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +441,7 @@ Specifies the thumb-print of the Secure Socket Layer certificate that the websit
 **`CreateAppPool`** - **Create or Update Application Pool**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the option to create an application pool or to update an existing application pool.
+Specifies the option to create an application pool or to update an existing application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
