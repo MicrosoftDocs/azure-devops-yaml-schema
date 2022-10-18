@@ -94,7 +94,7 @@ The encryption cypher to use. See [cypher suite names](https://go.microsoft.com/
 **`inFile`** - **Encrypted file**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The relative path of a file to decrypt.
+The relative path of the file to decrypt.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ The passphrase to use for decryption. **Use a variable to encrypt the passphrase
 **`outFile`** - **Decrypted file path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The optional filename for a decrypted file. Defaults to the encrypted file with an `.out` extension.
+The optional filename for the decrypted file. Defaults to the encrypted file with an `.out` extension.
 <!-- :::editable-content-end::: -->
 <br>
 
