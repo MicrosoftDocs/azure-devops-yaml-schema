@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build with Apache Maven.
+Use this task to build with Apache Maven.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -89,7 +89,7 @@ Build with Apache Maven.
 **`mavenPOMFile`** - **Maven POM file**<br>
 `string`. Required. Default value: `pom.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root to the Maven POM file.
+Specifies the relative path from the repository root to the Maven POM file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Relative path from the repository root to the Maven POM file.
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Maven build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
+Specifies the option to publish the JUnit test results produced by the Maven build to TFS/Team Services. Each test result's file matching `Test Results Files` will be published as a test run in TFS/Team Services.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +135,7 @@ Select this option to publish JUnit test results produced by the Maven build to 
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path and pattern of test results files to publish. For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`. If no root path is specified, files are matched beneath the default working directory, the value of which is available in the variable: $(System.DefaultWorkingDirectory).  For example, a value of '**/TEST-*.xml' will actually result in matching files from '$(System.DefaultWorkingDirectory)/**/TEST-*.xml'.
+Specifies the path and pattern of the test results files to publish. For example, `**/TEST-*.xml` for all XML files with a name that starts with `TEST-`. If no root path is specified, files are matched beneath the default working directory, the value of which is available in the variable `$(System.DefaultWorkingDirectory)`. For example, a value of `**/TEST-*.xml` will actually result in matching files from `$(System.DefaultWorkingDirectory)/**/TEST-*.xml`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +147,7 @@ Specify the path and pattern of test results files to publish. For example, `**/
 **`testRunTitle`** - **Test Run Title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Specifies a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +159,7 @@ Provide a name for the test run.
 **`codeCoverageToolOption`** - **Code Coverage Tool**<br>
 Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the code coverage tool.
+Specifies the code coverage tool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -171,7 +171,7 @@ Select the code coverage tool.
 **`codeCoverageClassFilter`** - **Class Inclusion/Exclusion Filters**<br>
 Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of filters to include or exclude classes from collecting code coverage. For example: +:com.*,+:org.*,-:my.app*.*.
+Specifies a comma-separated list of filters to include or exclude classes from collecting code coverage. For example, `+:com.*,+:org.*,-:my.app*.*`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +183,7 @@ Comma-separated list of filters to include or exclude classes from collecting co
 **`codeCoverageClassFilesDirectories`** - **Class Files Directories**<br>
 Input alias: `classFilesDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This field is required for a multi-module project. Specify a comma-separated list of relative paths from the Maven POM file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example: target/classes,target/testClasses.
+This field is required for a multi-module project. Specifies a comma-separated list of relative paths from the Maven POM file to the directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example, `target/classes,target/testClasses`.
 <!-- :::editable-content-end::: -->
 <br>
 
