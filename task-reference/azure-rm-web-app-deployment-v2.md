@@ -139,7 +139,7 @@ Specify the name of the Virtual Application that has been configured in the Azur
 **`Package`** - **Package or Folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The folder or file path to the App Service package or folder. Variables include [Build](https://www.visualstudio.com/docs/build/define/variables) and [Release](https://www.visualstudio.com/docs/release/author-release-definition/understanding-tasks#predefvariables). [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) are supported.
+The folder or file path to the App Service package or folder. Variables include [Build](/azure/devops/pipelines/build/variables) and [Release](/azure/devops/pipelines/release/variables#default-variables). [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) are supported.
 
 For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip`.
 <!-- :::editable-content-end::: -->
