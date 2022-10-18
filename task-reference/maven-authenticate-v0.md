@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Provides credentials for Azure Artifacts feeds and external maven repositories.
+Use this task to provide credentials for Azure Artifacts feeds and external Maven repositories.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -43,7 +43,7 @@ Provides credentials for Azure Artifacts feeds and external maven repositories.
 **`artifactsFeeds`** - **Feeds**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of Azure Artifacts feed names to authenticate with Maven. If you only need authentication for external maven repositories, leave this field blank.
+Specifies a comma-separated list of Azure Artifacts feed names to authenticate with Maven. If you only need authentication for external Maven repositories, leave this field blank.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -55,7 +55,7 @@ Comma-separated list of Azure Artifacts feed names to authenticate with Maven. I
 **`mavenServiceConnections`** - **Credentials for repositories outside this organization/collection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of [Maven service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with Maven. If you only needs authentication for Azure Artifacts feeds, leave this field blank.
+Specifies a comma-separated list of [Maven service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with Maven. If you only need authentication for Azure Artifacts feeds, leave this field blank.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,15 +81,15 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Provides credentials for Azure Artifacts feeds and external Maven repositories in the current user's settings.xml file.
+Specifies the credentials for Azure Artifacts feeds and external Maven repositories in the current user's `settings.xml` file.
 
-### Where is the `settings.xml` file which contains the authenticated repositories located?
+### Where is the `settings.xml` file, which contains the authenticated repositories, located?
 
-The Maven Authenticate task searches for the settings.xml in the current user's home directory. For Linux and Mac, the path is `$HOME/.m2/settings.xml`, for Windows the path is `%USERPROFILE%\.m2\settings.xml`. If the settings.xml file doesn't exist a new one will be created at that path.
+The Maven Authenticate task searches for the `settings.xml` file in the current user's home directory. For Linux and Mac, the path is `$HOME/.m2/settings.xml`. For Windows, the path is `%USERPROFILE%\.m2\settings.xml`. If the `settings.xml` file doesn't exist, a new one will be created at that path.
 
-### We use the `mvn -s` switch to specify our own `settings.xml` file, how do we authenticate Azure Artifacts feeds there?
+### We use the `mvn -s` switch to specify our own `settings.xml` file. How do we authenticate Azure Artifacts feeds there?
 
-The Maven Authenticate task doesn't have access to the custom settings.xml file that's specified by using an `-s` switch. To add Azure Artifacts authentication to your custom settings.xml, add a server element inside your settings.xml file:
+The Maven Authenticate task doesn't have access to the custom `settings.xml` file that's specified by using an `-s` switch. To add Azure Artifacts authentication to your custom `settings.xml`, add a server element inside your `settings.xml` file:
 
 ```XML
 <server>
@@ -124,7 +124,7 @@ In this example, we authenticate two Azure Artifacts feeds within our organizati
     artifactsFeeds: MyFeedInOrg1,MyFeedInOrg2
 ```
 
-The MavenAuthenticate task updates the settings.xml file present in the agent user's .m2 directory located at `{user.home}/.m2/settings.xml` to add two entries inside the `<servers>` element.
+The `MavenAuthenticate` task updates the `settings.xml` file present in the agent user's .m2 directory located at `{user.home}/.m2/settings.xml` to add two entries inside the `<servers>` element.
 
 #### settings.xml
 
@@ -143,7 +143,7 @@ The MavenAuthenticate task updates the settings.xml file present in the agent us
 </servers>
 ```
 
-You should set the repositories in your project's `pom.xml` to have the same `<id>` as the name specified in the task for Maven to be able to correctly authenticate the task.
+To correctly authenticate the task, set the repositories in your project's `pom.xml` to the same `<id>` as the name specified in the task for Maven.
 
 #### pom.xml
 
@@ -175,11 +175,11 @@ Organization scoped feed
  </repository>
 ```
 
-The Artifacts feed URL may or may not contain the project. An URL for a project scoped feed must contain the project and a URL for a organization scoped feed must not contain the project. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
+The Artifacts feed URL may or may not contain the project. A URL for a project-scoped feed must contain the project, and a URL for an organization-scoped feed must not contain the project. Learn more about [project-scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 ### Authenticate Maven feeds outside your organization
 
-In this example, we authenticate two external Maven repositories. 
+In this example, we authenticate two external Maven repositories.
 
 #### Task definition
 
@@ -190,7 +190,7 @@ In this example, we authenticate two external Maven repositories.
     MavenServiceConnections: central,MavenOrg
 ```
 
-The MavenAuthenticate task updates the settings.xml file present in the agent users' .m2 directory located at `{user.home}/.m2/settings.xml` to add two entries inside the `<servers>` element.
+The `MavenAuthenticate` task updates the `settings.xml` file present in the agent users' .m2 directory located at `{user.home}/.m2/settings.xml` to add two entries inside the `<servers>` element.
 
 #### settings.xml
 
@@ -209,7 +209,7 @@ The MavenAuthenticate task updates the settings.xml file present in the agent us
 </servers>
 ```
 
-You should set the repositories in your project's `pom.xml` to have the same `<id>` as the name specified in the task for Maven to be able to correctly authenticate the task.
+To correctly authenticate the task, set the repositories in your project's `pom.xml` to the same `<id>` as the name specified in the task for Maven.
 
 #### pom.xml
 
