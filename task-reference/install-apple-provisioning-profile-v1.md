@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to install an Apple provisioning profile that is required to build on a macOS agent machine.
+Use this task to install an Apple provisioning profile, which is required in order to build on a macOS agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to install an Apple provisioning profile that is required to build
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to install an Apple provisioning profile that is required to build on a macOS agent.
+Use this task to install an Apple provisioning profile, which is required in order to build on a macOS agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

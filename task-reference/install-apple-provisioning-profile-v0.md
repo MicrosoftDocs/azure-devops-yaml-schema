@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to install an Apple provisioning profile that is required to build on a macOS agent.
+Use this task to install an Apple provisioning profile, which is required in order to build on a macOS agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -98,7 +98,7 @@ You can install an Apple provisioning profile that is:
 - Stored as a [secure file](/azure/devops/pipelines/library/secure-files) on the server.
 - Committed to the source repository or copied to a local path on the macOS agent. You should encrypt the provisioning profiles if you are committing them to the source repository. You can use the **Decrypt File** task to decrypt the profiles during a build or release.
 <!-- :::editable-content-end::: -->
-<!-- :::remarks-end::: --
+<!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
