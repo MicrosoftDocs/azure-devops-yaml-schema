@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Publish build artifacts to Azure Pipelines or a Windows file share.
+Use this task in a build pipeline to publish build artifacts to Azure Pipelines, TFS, or a file share.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Publish build artifacts to Azure Pipelines or a Windows file share.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Publish build artifacts to Azure Pipelines/TFS or a file share.
+Use this task in a build pipeline to publish build artifacts to Azure Pipelines, TFS, or a file share.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Publish build artifacts to Azure Pipelines/TFS or a file share.
 :::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
-Publish build artifacts to Visual Studio Team Services/TFS or a file share.
+Use this task in a build pipeline to publish build artifacts to Azure Pipelines, TFS, or a file share.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -129,7 +129,7 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
 **`PathtoPublish`** - **Path to publish**<br>
 `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
+Specifies the folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,7 @@ The folder or file path to publish. This can be a fully-qualified path or a path
 **`PathtoPublish`** - **Path to publish**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
+Specifies the folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +152,7 @@ The folder or file path to publish. This can be a fully-qualified path or a path
 **`ArtifactName`** - **Artifact name**<br>
 `string`. Required. Default value: `drop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to create in the publish location.
+Specifies the name of the artifact to create in the publish location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -163,7 +163,7 @@ The name of the artifact to create in the publish location.
 **`ArtifactName`** - **Artifact name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to create in the publish location.
+Specifies the name of the artifact to create in the publish location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -175,7 +175,7 @@ The name of the artifact to create in the publish location.
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines), `FilePath` (A file share). Default value: `Container`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -186,7 +186,7 @@ Choose whether to store the artifact in Azure Pipelines (Container), or to copy 
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines/TFS), `FilePath` (A file share). Default value: `Container`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +197,7 @@ Choose whether to store the artifact in Azure Pipelines (Container), or to copy 
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Visual Studio Team Services/TFS), `FilePath` (A file share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +209,7 @@ Choose whether to store the artifact in Azure Pipelines (Container), or to copy 
 **`TargetPath`** - **File share path**<br>
 `string`. Required when `ArtifactType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
+Specifies the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,7 @@ Specify the path to the file share where you want to copy the files. The path mu
 **`TargetPath`** - **File share path**<br>
 `string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
+Specifies the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +232,7 @@ Specify the path to the file share where you want to copy the files. The path mu
 **`Parallel`** - **Parallel copy**<br>
 `boolean`. Optional. Use when `ArtifactType = FilePath`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, a single thread will be used.
+Specifies whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, a single thread will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,7 +244,7 @@ Select whether to copy files in parallel using multiple threads for greater pote
 **`ParallelCount`** - **Parallel count**<br>
 `string`. Optional. Use when `ArtifactType = FilePath && Parallel = true`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the degree of parallelism (the number of threads) used to perform the copy. The value must be at least 1 and not greater than 128. Choose a value based on CPU capabilities of the build agent.
+Specifies the degree of parallelism (the number of threads) used to perform the copy. The value must be at least 1 and not greater than 128. Choose a value based on CPU capabilities of the build agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -256,7 +256,7 @@ Enter the degree of parallelism (the number of threads) used to perform the copy
 **`FileCopyOptions`** - **File copy options**<br>
 `string`. Optional. Use when `ArtifactType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pass additional options to the Robocopy command. For example, the recursive minimatch pattern `**/*`.
+Passes additional options to the Robocopy command. For example, the recursive minimatch pattern `**/*`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,7 +268,7 @@ Pass additional options to the Robocopy command. For example, the recursive mini
 **`StoreAsTar`** - **Tar the artifact before uploading**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add all files from the publish path to a tar archive before uploading. This allows you to preserve the UNIX file permissions. Use `extractTars` option of the[DownloadBuildArtifacts](download-build-artifacts-v1.md) task to extract the downloaded items automatically. This setting is ignored on Windows agents.
+Adds all files from the publish path to a tar archive before uploading. This allows you to preserve the UNIX file permissions. Use `extractTars` option of the[DownloadBuildArtifacts](download-build-artifacts-v1.md) task to extract the downloaded items automatically. This setting is ignored on Windows agents.
 <!-- :::editable-content-end::: -->
 <br>
 
