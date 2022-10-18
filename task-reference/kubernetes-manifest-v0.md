@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
+Use a Kubernetes manifest task in a build or release pipeline to bake and deploy manifests to Kubernetes clusters using Helm charts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -154,7 +154,7 @@ Specifies the namespace for the commands by using the `–namespace` flag. If th
 **`strategy`** - **Strategy**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = reject`. Allowed values: `canary`, `none`. Default value: `none`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the deployment strategy used in the `deploy` action before a `promote` action or `reject` action. Currently, **`canary`** is the only acceptable deployment strategy.
+Specifies the deployment strategy used in the `deploy` action before a `promote` action or `reject` action. Currently, `canary` is the only acceptable deployment strategy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,11 +166,9 @@ Specifies the deployment strategy used in the `deploy` action before a `promote`
 **`trafficSplitMethod`** - **Traffic split method**<br>
 `string`. Optional. Use when `strategy = canary`. Allowed values: `pod`, `smi`. Default value: `pod`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Acceptable values are **`pod`** and **`smi`**. The default value is **`pod`**.
+For the value `smi`, the percentage traffic split is done at the request level by using a service mesh. A service mesh must be set up by a cluster admin. This task handles orchestration of SMI [TrafficSplit](https://github.com/servicemeshinterface/smi-spec/tree/main/apis/traffic-split) objects.
 
-For the value **`smi`**, the percentage traffic split is done at the request level by using a service mesh. A service mesh must be set up by a cluster admin. This task handles orchestration of SMI [TrafficSplit](https://github.com/servicemeshinterface/smi-spec/tree/main/apis/traffic-split) objects.
-
-For the value **`pod`**, the percentage split isn't possible at the request level in the absence of a service mesh. Instead, the percentage input is used to calculate the replicas for baseline and canary. The calculation is a percentage of replicas that are specified in the input manifests for the stable variant.
+For the value `pod`, the percentage split isn't possible at the request level in the absence of a service mesh. Instead, the percentage input is used to calculate the replicas for baseline and canary. The calculation is a percentage of replicas that are specified in the input manifests for the stable variant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -623,11 +621,11 @@ This task supports the following:
   - azure-pipelines/executionuri
   - azure-pipelines/jobName
 
-- **Secret handling**: The **`createSecret`** action lets Docker registry secrets be created using Docker registry service connections. It also lets generic secrets be created using either plain-text variables or secret variables. Before deployment to the cluster, you can use the **`secrets`** input along with the **`deploy`** action to augment the input manifest files with the appropriate **`imagePullSecrets`** value.
+- **Secret handling**: The `createSecret` action lets Docker registry secrets be created using Docker registry service connections. It also lets generic secrets be created using either plain-text variables or secret variables. Before deployment to the cluster, you can use the `secrets` input along with the `deploy` action to augment the input manifest files with the appropriate `imagePullSecrets` value.
 
-- **Bake manifest**: The **`bake`** action of the task allows for baking templates into Kubernetes manifest files. The action uses tools such as Helm, Compose, and kustomize. With baking, these Kubernetes manifest files are usable for deployments to the cluster.
+- **Bake manifest**: The `bake` action of the task allows for baking templates into Kubernetes manifest files. The action uses tools such as Helm, Compose, and kustomize. With baking, these Kubernetes manifest files are usable for deployments to the cluster.
 
-- **Deployment strategy**: Choosing the **`canary`** strategy with the **`deploy`** action leads to creation of workloads having names suffixed with `-baseline` and `-canary`. The task supports two methods of traffic splitting:
+- **Deployment strategy**: Choosing the `canary` strategy with the `deploy` action leads to creation of workloads having names suffixed with `-baseline` and `-canary`. The task supports two methods of traffic splitting:
 
   - **Service Mesh Interface**: [Service Mesh Interface](https://smi-spec.io/) (SMI) abstraction allows configuration with service mesh providers like `Linkerd` and `Istio`. The Kubernetes Manifest task maps SMI `TrafficSplit` objects to the stable, baseline, and canary services during the life cycle of the deployment strategy.
 
