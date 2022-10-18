@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install Helm on an agent machine.
+Use this task to install Helm on an agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -42,7 +42,7 @@ Install Helm on an agent machine.
 **`helmVersionToInstall`** - **Helm Version Spec**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Helm to install. Acceptable values include any semantic version string like `2.14.1`.
+Specifies the version of Helm to install. Acceptable values include any semantic version string,sw like `2.14.1`.
 <!-- :::editable-content-end::: -->
 <br>
 
