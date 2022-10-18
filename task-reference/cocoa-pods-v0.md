@@ -1,24 +1,14 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 09/26/2022
+ms.date: 10/18/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # CocoaPods@0 - CocoaPods v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/pod-install-vs-update.html).
-
-[CocoaPods](https://cocoapods.org/) is the dependency manager for Swift and Objective-C Cocoa projects. This task optionally runs `pod repo update` and then runs `pod install`.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/pod-install-vs-update.html).

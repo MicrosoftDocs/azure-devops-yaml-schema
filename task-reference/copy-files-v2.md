@@ -1,22 +1,14 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 09/26/2022
+ms.date: 10/18/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # CopyFiles@2 - Copy files v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to copy files from a source folder to a target folder using match patterns. (The match patterns will only match file paths, not folder paths).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to copy files from a source folder to a target folder using match patterns. (The match patterns will only match file paths, not folder paths).

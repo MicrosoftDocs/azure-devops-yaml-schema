@@ -104,7 +104,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 **`SourceFolder`** - **Source Folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If you leave it empty, the deletions are done from the root folder of the repository (same as if you had specified [$(Build.SourcesDirectory))](/azure/devops/pipelines/build/variables).
+If the source folder is empty, the task deletes files from the root folder of the repository as though [\$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables) was specified.
 If your build produces artifacts outside of the sources directory, specify `$(Agent.BuildDirectory)` to delete files from the build agent working directory.
 <!-- :::editable-content-end::: -->
 <br>
@@ -117,7 +117,7 @@ If your build produces artifacts outside of the sources directory, specify `$(Ag
 **`Contents`** - **Contents**<br>
 `string`. Required. Default value: `myFileShare`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File/folder paths to delete. Supports multiple lines of minimatch patterns; each one is processed before moving onto the next line. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
+The file/folder paths to delete. Supports multiple lines of minimatch patterns; each one is processed before moving onto the next line. Learn more about [File matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 For example:
 - `**/*` deletes all files and folders in the root folder.
 - `temp` deletes the *temp* folder in the root folder.
@@ -136,7 +136,7 @@ For example:
 **`RemoveSourceFolder`** - **Remove SourceFolder**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempt to remove the source folder after attempting to remove `Contents`. If you want to remove the whole folder, set this to `true` and set `Contents` to `*`.
+Attempts to remove the source folder after attempting to remove `Contents`. If you want to remove the whole folder, set this to `true` and set `Contents` to `*`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Attempt to remove the source folder after attempting to remove `Contents`. If yo
 **`RemoveDotFiles`** - **Remove files starting with a dot**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delete files starting with a dot (.git, .dockerfile). Omits these files if it's not specified explicitly (for example, '/.*'). Please see this [link](https://github.com/isaacs/minimatch#dot) for more info.
+Deletes files starting with a dot. For example: `.git` and `.dockerfile`. Omits these files if it's not specified explicitly. For example: `/.*`. Learn more about [minimatch](https://github.com/isaacs/minimatch#dot).
 <!-- :::editable-content-end::: -->
 <br>
 
