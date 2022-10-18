@@ -14,11 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to copy build artifacts to a staging folder and then publish them to the server or a file share. Files are copied to the `$(Build.ArtifactStagingDirectory)` staging folder and then published.
 
 > [!IMPORTANT]
-> This task is deprecated. If you're using Team Foundation Server 2017 or newer, we recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts).
->
-> Use this task only if you're using Team Foundation Server (TFS) 2015 RTM. You can find this task under the **Build** category **Publish Build Artifacts**.
-
-Use the Copy Files task and the Publish Build Artifacts task instead.
+> This task is deprecated. We recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts) and the [Copy Files task](copy-files-v2.md) and the [Publish Build Artifacts](publish-build-artifacts-v1.md) task instead.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -145,6 +141,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+> [!IMPORTANT]
+> This task is deprecated. We recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts) and the [Copy Files task](copy-files-v2.md) and the [Publish Build Artifacts](publish-build-artifacts-v1.md) task instead.
+
 ### This step didn't produce the outcome I was expecting. How can I fix it?
 
 This task has a couple of known issues:
@@ -152,7 +151,7 @@ This task has a couple of known issues:
 - Some minimatch patterns don't work.
 - It eliminates the most common root path for all paths matched.
 
-You can avoid these issues by instead using the [Copy Files task](/azure/devops/pipelines/tasks/utility/copy-and-publish-build-artifacts) and the [Publish Build Artifacts task](/azure/devops/pipelines/tasks/utility/publish-build-artifacts).
+You can avoid these issues by instead using the [Copy Files task](copy-files-v2.md) and the [Publish Build Artifacts task](publish-build-artifacts-v1.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
