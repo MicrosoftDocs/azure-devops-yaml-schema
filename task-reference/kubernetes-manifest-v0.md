@@ -119,7 +119,7 @@ Specifies the action to be performed.
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 `string`. Required when `action != bake`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Kubernetes service connection. The name of the [Kubernetes service connection](/azure/devops/pipelines/library/service-endpoints).
+Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -450,7 +450,7 @@ Specifies the path to the file used for a patch.
 **`kind`** - **Kind**<br>
 `string`. Required when `action = scale || resourceToPatch = name`. Allowed values: `deployment`, `replicaset`, `statefulset`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the `kind` of K8s object, such as `deployment`, `replicaSet` and more.
+Specifies the kind of K8s object, such as `deployment`, `replicaSet` and more.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -462,7 +462,7 @@ Specifies the `kind` of K8s object, such as `deployment`, `replicaSet` and more.
 **`name`** - **Name**<br>
 `string`. Required when `action = scale || resourceToPatch = name`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the k8s object.
+Specifies the name of the K8s object.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -511,7 +511,7 @@ Specifies the arguments for the `kubectl delete` command. An example is:
 **`patch`** - **Patch**<br>
 `string`. Required when `action = patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of patch.
+Specifies the contents of the patch.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -623,9 +623,9 @@ This task supports the following:
 
 - **Secret handling**: The `createSecret` action lets Docker registry secrets be created using Docker registry service connections. It also lets generic secrets be created using either plain-text variables or secret variables. Before deployment to the cluster, you can use the `secrets` input along with the `deploy` action to augment the input manifest files with the appropriate `imagePullSecrets` value.
 
-- **Bake manifest**: The `bake` action of the task allows for baking templates into Kubernetes manifest files. The action uses tools such as Helm, Compose, and kustomize. With baking, these Kubernetes manifest files are usable for deployments to the cluster.
+- **Bake manifest**: The `bake` action of the task allows for baking templates into Kubernetes manifest files. The action uses tools such as Helm, Compose, and Kustomize. With baking, these Kubernetes manifest files are usable for deployments to the cluster.
 
-- **Deployment strategy**: Choosing the `canary` strategy with the `deploy` action leads to creation of workloads having names suffixed with `-baseline` and `-canary`. The task supports two methods of traffic splitting:
+- **Deployment strategy**: Choosing the `canary` strategy with the `deploy` action leads to the creation of workload names suffixed with `-baseline` and `-canary`. The task supports two methods of traffic splitting:
 
   - **Service Mesh Interface**: [Service Mesh Interface](https://smi-spec.io/) (SMI) abstraction allows configuration with service mesh providers like `Linkerd` and `Istio`. The Kubernetes Manifest task maps SMI `TrafficSplit` objects to the stable, baseline, and canary services during the life cycle of the deployment strategy.
 
@@ -703,7 +703,7 @@ steps:
 
 ### Bake action
 
-The following YAML code is an example of baking manifest files from Helm charts. Note that the usage of a name input in the first task. This name is later referenced from the deploy step for specifying the path to the manifests that were produced by the bake step.
+The following YAML code is an example of baking manifest files from Helm charts. Note the usage of a name input in the first task. This name is later referenced from the deploy step for specifying the path to the manifests that were produced by the bake step.
 
 ```YAML
 steps:
