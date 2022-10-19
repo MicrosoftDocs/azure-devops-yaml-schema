@@ -123,7 +123,7 @@ Specifies the format of the results files you want to publish. The following for
 Specifies one or more test results files.
 
 * You can use a single-folder wildcard (`*`) and recursive wildcards (`**`). For example, `**/TEST-*.xml` searches for all the XML files whose names start with `TEST-` in all subdirectories. If using VSTest as the test result format, the file type should be changed to `.trx` e.g. `**/TEST-*.trx`
-* Multiple paths can be specified, separated by a newline.
+* Multiple paths can be specified, separated by a new line.
 * Additionally accepts [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 
 For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or `TEST3.xml`.
@@ -182,7 +182,7 @@ When this boolean's value is `true`, the task reports test results from all the 
 **`failTaskOnFailedTests`** - **Fail if there are test failures**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. When this boolean's value is `true`, the task will fail if any of the tests in the results file is marked as failed. The default is `false`, which will simply publish the results from the results file.
+Optional. When this boolean's value is `true`, the task will fail if any of the tests in the results file are marked as failed. The default is `false`, which will simply publish the results from the results file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +194,7 @@ Optional. When this boolean's value is `true`, the task will fail if any of the 
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Provides a name for the test run against which the results will be reported. Variable names declared in the build or release pipeline can be used.
+Optional. Specifies a name for the test run against which the results will be reported. Variable names declared in the build or release pipeline can be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -299,9 +299,9 @@ None.
 
 This task publishes test results to Azure Pipelines or TFS when tests are executed to provide a comprehensive test reporting and analytics experience. You can use the test runner of your choice that supports the results format you require. Supported results formats include [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) (including [PHPUnit](https://phpunit.readthedocs.io/en/9.5/configuration.html#the-logging-element)), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX), and [xUnit 2](https://xunit.net/docs/format-xml-v2).
 
-Other built-in tasks, such as [Visual Studio Test task](vstest-v2.md) and [Dot NetCore CLI task](dotnet-core-cli-v2.md) automatically publish test results to the pipeline, while tasks such as [Ant](ant-v1.md), [Maven](maven-v3.md), [Gulp](gulp-v1.md), [Grunt](grunt-v0.md), and [Xcode](xcode-v5.md) provide publishing results as an option within the task, or build libraries such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/). If you are using any of these tasks, you do not need a separate **Publish Test Results** task in the pipeline.
+Other built-in tasks, such as [Visual Studio Test task](vstest-v2.md) and [Dot NetCore CLI task](dotnet-core-cli-v2.md) automatically publish test results to the pipeline. Tasks such as [Ant](ant-v1.md), [Maven](maven-v3.md), [Gulp](gulp-v1.md), [Grunt](grunt-v0.md), and [Xcode](xcode-v5.md) provide publishing results as an option within the task, or build libraries such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/). If you are using any of these tasks, you do not need a separate **Publish Test Results** task in the pipeline.
 
-The published test results are displayed in the [Tests tab](/azure/devops/pipelines/test/review-continuous-test-results-after-build) in the pipeline summary and help you to measure pipeline quality, review traceability, troubleshoot failures, and drive failure ownership.
+The published test results are displayed in the [Tests tab](/azure/devops/pipelines/test/review-continuous-test-results-after-build) in the pipeline summary. The results help you to measure pipeline quality, review traceability, troubleshoot failures, and drive failure ownership.
 
 The following example shows the task is configured to publish test results.
 
@@ -519,9 +519,9 @@ The Publish Test Results task provides support for attachments for both test run
 
 For Docker based apps, there are many ways to build your application and run tests:
 
-* **Build and test in a build pipeline**: build and tests execute in the pipeline and test results are published using the **Publish Test Results** task.
-* **Build and test with a multi-stage Dockerfile**: build and tests execute inside the container using a multi-stage Docker file, as such test results are not published back to the pipeline.
-* **Build, test, and publish results with a Dockerfile**: build and tests execute inside the container, and results are published back to the pipeline. See the example below.
+* **Build and test in a build pipeline**: builds and tests execute in the pipeline and test results are published using the **Publish Test Results** task.
+* **Build and test with a multi-stage Dockerfile**: builds and tests execute inside the container using a multi-stage Docker file, as such test results are not published back to the pipeline.
+* **Build, test, and publish results with a Dockerfile**: builds and tests execute inside the container, and results are published back to the pipeline. See the example below.
 
 <a name="publishtestindocker"></a>
 
@@ -689,7 +689,7 @@ In this approach, you build your code and run tests inside the container using a
        docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io 
        docker push $(dockerId).azurecr.io/dotnetcore-sample:$BUILD_BUILDID
        ```
-6. If you use Azure Container Registry, ensure you have [pre-created the registry](/azure/container-registry/container-registry-get-started-portal) in the Azure portal. Copy the admin user name and password shown in the **Access keys** section of the registry settings in Azure portal.
+6. If you use Azure Container Registry, ensure you have [pre-created the registry](/azure/container-registry/container-registry-get-started-portal) in the Azure portal. Copy the admin user name and password shown in the **Access keys** section of the registry settings in Azure Portal.
 
 7. In the **Variables** tab of the build pipeline, define two variables:
 

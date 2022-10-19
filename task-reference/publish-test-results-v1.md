@@ -101,7 +101,7 @@ Specifies the format of the results files you want to publish. The following for
 Specifies one or more test results files.
 
 * You can use a single-folder wildcard (`*`) and recursive wildcards (`**`). For example, `**/TEST-*.xml` searches for all the XML files whose names start with `TEST-` in all subdirectories. If using VSTest as the test result format, the file type should be changed to `.trx` e.g. `**/TEST-*.trx`
-* Multiple paths can be specified, separated by a newline.
+* Multiple paths can be specified, separated by a new line.
 * Additionally accepts [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 
 For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or `TEST3.xml`.
@@ -131,7 +131,7 @@ When this boolean's value is `true`, the task reports test results from all the 
 **`testRunTitle`** - **Test Run Title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Provides a name for the test run against which the results will be reported. Variable names declared in the build or release pipeline can be used.
+Optional. Specifies a name for the test run against which the results will be reported. Variable names declared in the build or release pipeline can be used.
 <!-- :::editable-content-end::: -->
 <br>
 
