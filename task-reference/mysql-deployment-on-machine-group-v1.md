@@ -11,7 +11,9 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy, either using a script file or writing the script in our inline editor. Note that this is an early preview version. Since this task is server based, it appears on Deployment group jobs.
+Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor.
+> [!Note]
+> This is an early preview version. Since this task is server based, it appears on Deployment group jobs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
