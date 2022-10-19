@@ -551,7 +551,7 @@ Deletes the `configmap` if it exists and creates a new one with updated values.
 **`useConfigMapFile`** - **Use file**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Creates a `ConfigMap` from an individual file, or from multiple files by specifying a directory.
+Creates a `ConfigMap` from an individual file or from multiple files by specifying a directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -690,7 +690,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="KubectlOutput"::: -->
 **`KubectlOutput`**<br><!-- :::editable-content name="Value"::: -->
-Stores the output of the `kubectl` command
+Stores the output of the `kubectl` command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -703,7 +703,7 @@ Stores the output of the `kubectl` command
 
 What's new in Version 1.0.
 
-* Added a new service connection type input for easy selection of Azure AKS cluster.
+* Added a new service connection type input for easy selection of Azure AKS clusters.
 * Replaced the output variable input with an output variables section that we added in all tasks.
 
 Use this task to deploy, configure, or update a Kubernetes cluster by running `kubectl` commands.
@@ -787,10 +787,7 @@ This YAML example demonstrates the use of a configuration file with the `apply` 
 
 ### Secrets
 
-Kubernetes objects of type **secret** are intended to hold sensitive information such as passwords,
-OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than
-putting it verbatim in a pod definition or in a Docker image. Azure Pipelines simplifies the
-addition of `ImagePullSecrets` to a service account, or setting up of any generic secret, as described below.
+Kubernetes objects of type **secret** are intended to hold sensitive information such as passwords, OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than putting it verbatim in a pod definition or in a Docker image. Azure Pipelines simplifies the addition of `ImagePullSecrets` to a service account, or setting up of any generic secret, as described below.
 
 #### ImagePullSecret
 
