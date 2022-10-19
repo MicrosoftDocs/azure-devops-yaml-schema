@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
+Use this task to deploy an Azure Resource Manager (ARM) template to all deployment scopes.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -60,7 +60,7 @@ Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
 **`deploymentScope`** - **Deployment scope**<br>
 `string`. Required. Allowed values: `Management Group`, `Subscription`, `Resource Group`. Default value: `Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Deployment scope of the deployment. To know more abour deployment scopes, refer this [link](/Azure/azure-resource-manager/resource-group-template-deploy-rest#deployment-scope).
+The scope of the deployment. Learn more about [deployment scopes](/Azure/azure-resource-manager/resource-group-template-deploy-rest#deployment-scope).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -72,7 +72,7 @@ Deployment scope of the deployment. To know more abour deployment scopes, refer 
 **`azureResourceManagerConnection`** - **Azure Resource Manager connection**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager service connection having access to the selected deployment scope.
+Specifies the Azure Resource Manager service connection with access to the selected deployment scope.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,7 @@ Select the Azure Resource Manager service connection having access to the select
 **`subscriptionId`** - **Subscription**<br>
 Input alias: `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure subscription.
+Specifies the Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Select the Azure subscription.
 **`action`** - **Action**<br>
 `string`. Required when `deploymentScope = Resource Group`. Allowed values: `Create Or Update Resource Group`, `DeleteRG` (Delete resource group). Default value: `Create Or Update Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Action to be performed on the Azure resources or resource group.
+The action to be performed on the Azure resources or resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Action to be performed on the Azure resources or resource group.
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deploymentScope = Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of a resource group.
+Provides the name of a resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,8 +120,8 @@ Provide the name of a resource group.
 **`location`** - **Location**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For Resource Group deployment scope: Location for deploying the resource group. If the resource group already exists in the subscription, then this value will be ignored.
- For other deployment scope: Location to store deployment metadata.
+Resource Group deployment scopes: The location to deploy the resource group. If the resource group already exists in the Azure subscription, then this value will be ignored.
+Other deployment scopes: The location to store deployment metadata.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,6 +133,7 @@ For Resource Group deployment scope: Location for deploying the resource group. 
 **`templateLocation`** - **Template location**<br>
 `string`. Required. Allowed values: `Linked artifact`, `URL of the file`. Default value: `Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The location of the template for deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,11 +145,11 @@ For Resource Group deployment scope: Location for deploying the resource group. 
 **`csmFileLink`** - **Template link**<br>
 `string`. Required when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of the template file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) 
+Specifies the URL of the template file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json`
 
-To deploy a template stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a template file (or a linked template) to a storage account and generate a SAS token, you could use [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
+To deploy a template stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>`. To upload a template file (or a linked template) to a storage account and generate a SAS token, use the [Azure file copy](/azure/devops/pipelines/tasks/deploy/azure-file-copy) task or follow the steps using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell#deploy-private-template-with-sas-token) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
 
-To  view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+To  view the template parameters in a grid, click on `...` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If the templates are in an Azure storage blob, refer to [Cross-Origin Resource Sharing](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,11 +161,11 @@ To  view the template parameters in a grid, click on “…” next to Override 
 **`csmParametersFileLink`** - **Template parameters link**<br>
 `string`. Optional. Use when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of the parameters file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json) 
+Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
 
-To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a parameters file to a storage account and generate a SAS token, you could use [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911). 
+To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>`. To upload a template file (or a linked template) to a storage account and generate a SAS token, use the [Azure file copy](/azure/devops/pipelines/tasks/deploy/azure-file-copy) task or follow the steps using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell#deploy-private-template-with-sas-token) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
 
-To  view the template parameters in a grid, click on “…” next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+To  view the template parameters in a grid, click on `...` next to Override template parameters text box. This feature requires that CORS rules are enabled at the source. If the templates are in an Azure storage blob, refer to [Cross-Origin Resource Sharing](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +177,7 @@ To  view the template parameters in a grid, click on “…” next to Override 
 **`csmFile`** - **Template**<br>
 `string`. Required when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path or a pattern pointing to the Azure Resource Manager template. For more information about the templates see https://aka.ms/azuretemplates. To get started immediately use template https://aka.ms/sampletemplate.
+Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +189,11 @@ Specify the path or a pattern pointing to the Azure Resource Manager template. F
 **`csmParametersFile`** - **Template parameters**<br>
 `string`. Optional. Use when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template.
+Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
+
+To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>`. To upload a parameters file to a storage account and generate a SAS token, use the [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
+
+To view the template parameters in a grid, click on `…` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [Cross-Origin Resource Sharing](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +205,16 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 **`overrideParameters`** - **Override template parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To view the template parameters in a grid, click on “…” next to Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [this](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS. Or type the template parameters to override in the textbox. Example, <br>–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre).<br>If the parameter value you're using has multiple words, enclose them in quotes, even if you're passing them using variables. For example, -name "parameter value" -name2 "$(var)"<br>To override object type parameters use stringified JSON objects. For example, -options ["option1"] -map {"key1": "value1" }.
+Specifies the template parameters to override.
+
+To view the template parameters in a grid, click on `...` next to the Override Parameters textbox. This feature requires that CORS rules are enabled at the source. If the templates are in the Azure storage blob, reference this string to enable CORS, or type the template parameters to override in the textbox.
+
+Example: `-storageName fabrikam -adminUsername $(vmusername) -adminPassword (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force) -azureKeyVaultName $(fabrikamFibre)`.
+
+If the parameter value has multiple words, enclose the words in quotes, even if you're passing the value by using variables.
+For example, `-name "parameter value" -name2 "$(var)"`.
+To override object type parameters, use stringified JSON objects.
+For example, `-options ["option1"] -map {"key1": "value1" }`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,18 +226,17 @@ To view the template parameters in a grid, click on “…” next to Override P
 **`deploymentMode`** - **Deployment mode**<br>
 `string`. Required. Allowed values: `Incremental`, `Complete`, `Validation` (Validation only). Default value: `Incremental`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Refer to [this](/azure/azure-resource-manager/deployment-modes) for more details. 
+The `Incremental` mode handles deployments as incremental updates to the resource group. It leaves unchanged resources that exist in the resource group but are not specified in the template.
 
- Incremental mode handles deployments as incremental updates to the resource group. It leaves unchanged resources that exist in the resource group but are not specified in the template. 
+`Complete` mode deletes resources that are not in your template. Complete mode takes relatively more time than incremental mode. If the task times out, consider increasing the timeout or changing to the `Incremental` mode.
 
- Complete mode deletes resources that are not in your template. Complete mode takes relatively more time than incremental mode. If the task times out, consider increasing the timeout, or changing the mode to 'Incremental'. 
- **[Warning] Complete Mode will delete all the existing resources in the resource group that are not specified in the template. Do review if the resource group you're deploying to doesn't contain any necessary resources that are not specified in the template.** 
+> [!WARNING]
+> Complete mode will delete all the existing resources in the resource group that are not specified in the template. Do review if the resource group you're deploying to doesn't contain any necessary resources that are not specified in the template.
+`Validate` mode enables you to find problems with the template before creating actual resources.
 
- Validate mode enables you to find problems with the template before creating actual resources. 
-
- By default, Incremental mode is used. 
-
- 'Complete' mode is supported for 'Resource Group' Deployment scope only.
+> [!NOTE]
+> The `Validate` mode always creates a resource group, even if no resources are deployed.
+Learn more about [deployment modes](/azure/azure-resource-manager/deployment-modes).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -247,7 +260,7 @@ Specifies the name of the resource group deployment to create.
 **`deploymentOutputs`** - **Deployment outputs**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable for the output variable which will contain the outputs section of the current deployment object in string format. You can use the “ConvertFrom-Json” PowerShell cmdlet to parse the JSON object and access the individual output values. For more details refer to [this](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceManagerTemplateDeploymentV3#deployment-outputs).
+Provides a name for the variable for the output variable, which contains the outputs section of the current deployment object in string format. You can use the `ConvertFrom-Json` PowerShell cmdlet to parse the JSON object and access the individual output values. Learn more about [deployment outputs](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceManagerTemplateDeploymentV3#deployment-outputs).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -259,7 +272,7 @@ Provide a name for the variable for the output variable which will contain the o
 **`addSpnToEnvironment`** - **Access service principal details in override parameters**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds service principal id and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: `$servicePrincipalId` and `$servicePrincipalKey` in your override parameters like `-key $servicePrincipalKey`.
+Adds the service principal ID and key of the Azure endpoint chosen to be the script's execution environment. The variables `$servicePrincipalId` and `$servicePrincipalKey` can be in override parameters, such as `-key $servicePrincipalKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
