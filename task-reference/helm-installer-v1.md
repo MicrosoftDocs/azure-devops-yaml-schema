@@ -42,7 +42,7 @@ Use this task to install Helm on an agent machine.
 **`helmVersionToInstall`** - **Helm Version Spec**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Helm to install. Acceptable values include any semantic version string,sw like `2.14.1`.
+Specifies the version of Helm to install. Acceptable values include any semantic version string, like `2.14.1`.
 <!-- :::editable-content-end::: -->
 <br>
 

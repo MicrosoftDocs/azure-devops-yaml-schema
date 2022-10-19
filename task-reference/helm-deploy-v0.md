@@ -391,7 +391,7 @@ Specifies an Azure Resource Group that has your Container Registry.
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Container Registry to be used for pushing helm charts.
+Specifies an Azure Container Registry to be used for pushing Helm charts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -461,7 +461,7 @@ The name of the chart reference to install. This can be a url or a chart name. F
 **`chartPath`** - **Chart Path**<br>
 `string`. Required when `chartType == FilePath || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if you specify`./redis`, the task runs `helm install ./redis`. If you're consuming a chart that's published as an artifact, then the path will be `$(System.DefaultWorkingDirectory)/ARTIFACT-NAME/Charts/CHART-NAME`.
+The path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if you specify `./redis`, the task runs `helm install ./redis`. If you're consuming a chart that's published as an artifact, then the path will be `$(System.DefaultWorkingDirectory)/ARTIFACT-NAME/Charts/CHART-NAME`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -496,7 +496,7 @@ Specifies the exact chart version to install. If you don't specify the chart ver
 **`releaseName`** - **Release Name**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-the release name. If you don't specify the release name, the task autogenerates one for you. The `releaseName` input is only valid for `install` and `upgrade` commands.
+The release name. If you don't specify the release name, the task autogenerates one for you. The `releaseName` input is only valid for `install` and `upgrade` commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -587,7 +587,7 @@ If `true`, this input updates a Helm dependency update before installing the cha
 **`save`** - **Save**<br>
 `boolean`. Optional. Use when `command == package`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Saves packaged chart to local chart repository when `true​`.
+Saves the packaged chart to the local chart repository when set to `true​`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -799,12 +799,12 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="helmExitCode"::: -->
 **`helmExitCode`**<br><!-- :::editable-content name="Value"::: -->
-Exit code emitted from the execution of specified Helm command.
+The exit code emitted from the execution of specified Helm command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="helmOutput"::: -->
 **`helmOutput`**<br><!-- :::editable-content name="Value"::: -->
-Output emitted from the execution of specified Helm command.
+The output emitted from the execution of specified Helm command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 

@@ -148,7 +148,7 @@ Specifies the version of Kubectl to install.
 **`checkLatestKubeCtl`** - **Check for latest version of kubectl**<br>
 `boolean`. Optional. Use when `installKubeCtl == true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Checks for the latest version of kubectl.
+Checks for the latest version of Kubectl.
 <!-- :::editable-content-end::: -->
 <br>
 
