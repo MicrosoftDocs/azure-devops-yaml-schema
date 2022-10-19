@@ -43,7 +43,7 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 **`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of NuGet service connection names for feeds outside this organization/collection. For feeds in this organization/collection, leave this blank; the build’s credentials are used automatically.
+Optional. The comma-separated list of [NuGet service connection](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) names for feeds outside this organization or collection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -55,7 +55,7 @@ Comma-separated list of NuGet service connection names for feeds outside this or
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Reinstall the credential provider to the user profile directory even if already installed. If the credential provider is already installed in the user profile, determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
+Optional. Reinstalls the credential provider to the user profile directory, even if it's already installed. If the credential provider is already installed in the user profile, the task determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -86,24 +86,24 @@ None.
 
 ### What tools are compatible with this task?
 
-This task will configure tools that support [NuGet cross platform plugins](/nuget/reference/extensibility/nuget-cross-platform-plugins). Today, that includes nuget.exe, dotnet, and recent versions of MSBuild with built-in support for restoring NuGet packages.
+This task configures tools that support [NuGet cross platform plugins](/nuget/reference/extensibility/nuget-cross-platform-plugins). The tools currently include nuget.exe, dotnet, and recent versions of MSBuild with built-in support for restoring NuGet packages.
 
 Specifically, this task will configure:
-* nuget.exe, version 4.8.5385 or higher
-* dotnet / .NET 6 SDK or higher (NuGetAuthenticateV0 required .NET Core 2.1 that is now out of support)
-* MSBuild, version 15.8.166.59604 or higher
+* nuget.exe (version 4.8.5385 or higher)
+* dotnet / .NET 6 SDK or higher (a previous version of this task, NuGetAuthenticateV0, requires .NET Core 2.1, which is no longer supported)
+* MSBuild (version 15.8.166.59604 or higher)
 
-However, upgrading to the latest stable version is recommended if you encounter any issues.  
+Upgrading to the latest stable version is recommended if you encounter any issues.  
 
 ### I get "A task was canceled" errors during a package restore. What should I do?
 
-Known issues in NuGet and in the Azure Artifacts Credential Provider can cause this type of error and updating to the latest nuget may help.  
+Known issues in NuGet and in the Azure Artifacts Credential Provider can cause this type of error, and updating to the latest nuget may help.  
 
 A [known issue](https://github.com/NuGet/Home/issues/8198) in some versions of nuget/dotnet can cause this error, especially during large restores on resource constrained machines. This issue is fixed in [NuGet 5.2](/nuget/release-notes/nuget-5.2-rtm), and .NET Core SDK 2.1.80X and 2.2.40X. If you are using an older version, try upgrading your version of NuGet or dotnet. The [.NET Core Tool Installer](dotnet-core-installer-v1.md) task can be used to install a newer version of the .NET Core SDK.  
 
 There are also known issues with the Azure Artifacts Credential Provider (installed by this task), including [artifacts-credprovider/#77](https://github.com/microsoft/artifacts-credprovider/issues/77) and [artifacts-credprovider/#108](https://github.com/microsoft/artifacts-credprovider/issues/108). If you experience these issues, ensure you have the latest credential provider by setting the input `forceReinstallCredentialProvider` to `true` in the NuGet Authenticate task. This setting will also ensure your credential provider is automatically updated as issues are resolved.  
 
-If neither of the above resolves the issue, please enable [Plugin Diagnostic Logging](https://github.com/NuGet/Home/wiki/Plugin-Diagnostic-Logging) and report the issue to [NuGet](https://github.com/NuGet/Home/issues) and the [Azure Artifacts Credential Provider](https://github.com/microsoft/artifacts-credprovider/issues).  
+If neither of the above resolves the issue, enable [Plugin Diagnostic Logging](https://github.com/NuGet/Home/wiki/Plugin-Diagnostic-Logging) and report the issue to [NuGet](https://github.com/NuGet/Home/issues) and the [Azure Artifacts Credential Provider](https://github.com/microsoft/artifacts-credprovider/issues).  
 
 ### How is this task different than the NuGetCommand and DotNetCoreCLI tasks?
 
@@ -114,16 +114,16 @@ The NuGetCommand and DotNetCoreCLI tasks require using the task to restore or pu
 
 The NuGetAuthenticate task is the recommended way to use authenticated feeds within a pipeline.
 
-### When in my pipeline should I run this task? 
+### When in my pipeline should I run this task?
 
-This task must run before you use a NuGet tool to restore or push packages to an authenticated package source such as Azure Artifacts. There are no other ordering requirements.
-For example, this task can safely run either before or after a NuGet or .NET Core tool installer task.
+This task must run before you use a NuGet tool to restore or push packages to an authenticated package source such as Azure Artifacts. There are no other ordering requirements. For example, this task can safely run either before or after a NuGet or .NET Core tool installer task.
 
 ### How do I configure a NuGet package source that uses ApiKey ("NuGet API keys"), such as nuget.org?
 
 Some package sources such as nuget.org use API keys for authentication when pushing packages, rather than `username/password` credentials. Due to limitations in NuGet, this task cannot be used to set up a NuGet service connection that uses an API key.  
 
 Instead:
+
 1. Configure a [secret variable](/azure/devops/pipelines/process/variables#secret-variables) containing the ApiKey
 2. Perform the package push using `nuget push -ApiKey $(myNuGetApiKey)` or `dotnet nuget push --api-key $(myNuGetApiKey)`, assuming you named the variable `myNuGetApiKey`
 
@@ -132,6 +132,7 @@ Instead:
 No. While this task itself will work behind a web proxy [your agent has been configured to use](/azure/devops/pipelines/agents/proxy), it does not configure NuGet tools to use the proxy.
 
 To do so, you can either:
+
 * Set the environment variable `http_proxy` and optionally `no_proxy` to your proxy settings. See [NuGet CLI environment variables](/nuget/reference/cli-reference/cli-ref-environment-variables) for details. These variables are commonly used variables which other non-NuGet tools (e.g. curl) may also use.
   >**Caution:**  
   >The `http_proxy` and `no_proxy` variables are case-sensitive on Linux and Mac operating systems and must be lowercase. Attempting to use an Azure Pipelines variable to set the environment variable will not work, as it will be converted to uppercase. Instead, set the environment variables on the self-hosted agent's machine and restart the agent.
@@ -142,13 +143,11 @@ To do so, you can either:
 
 ### How do I debug if I have issues with this task?
 
-To get verbose logs from the pipeline, add a pipeline variable system.debug to true.
+To get verbose logs from the pipeline, add a pipeline variable `system.debug` and set to `true`.
 
 ### How does this task work?
 
-This task installs the [Azure Artifacts Credential Provider](https://github.com/Microsoft/artifacts-credprovider) into the NuGet plugins directory if it is not already installed.  
-It then sets environment variables such as `VSS_NUGET_URI_PREFIXES` and `VSS_NUGET_ACCESSTOKEN` to configure the credential provider. These variables remain set for the lifetime of the job.  
-When restoring or pushing packages, a NuGet tool executes the credential provider, which uses the above variables to determine if it should return credentials back to the tool.
+This task installs the [Azure Artifacts Credential Provider](https://github.com/Microsoft/artifacts-credprovider) into the NuGet plugins directory if it is not already installed. It then sets environment variables such as `VSS_NUGET_URI_PREFIXES` and `VSS_NUGET_ACCESSTOKEN` to configure the credential provider. These variables remain set for the lifetime of the job. When restoring or pushing packages, a NuGet tool executes the credential provider, which uses the above variables to determine if it should return credentials back to the tool.
 
 See the credential provider documentation for more details.
 
@@ -158,12 +157,11 @@ If the pipeline is running in a different project than the project hosting the f
 
 ### Will this work for pipeline runs that are triggered from an external fork?
 
-No. Pipeline runs that are triggered from an external fork don't have access to the proper secrets for internal feed authentication. Thus, it will appear like the authenticate task is successful, but subsequent tasks that require authentication (such as Nuget push) will fail with an error along the lines of: `##[error]The nuget command failed with exit code(1) and error(Response status code does not indicate success: 500 (Internal Server Error - VS800075: The project with id 'vstfs:///Classification/TeamProject/341ec244-e856-40ad-845c-af31c33c2152' does not exist, or you do not have permission to access it. (DevOps Activity ID: C12C19DC-642C-469A-8F58-C89F2D81FEA7)).`
-After the Pull Request is merged into the origin, then a pipeline that is triggered from that event will authenticate properly.
+No. Pipeline runs that are triggered from an external fork don't have access to the proper secrets for internal feed authentication. Thus, it will appear like the authenticate task is successful, but subsequent tasks that require authentication (such as Nuget push) will fail with an error along the lines of: `##[error]The nuget command failed with exit code(1) and error(Response status code does not indicate success: 500 (Internal Server Error - VS800075: The project with id 'vstfs:///Classification/TeamProject/341ec244-e856-40ad-845c-af31c33c2152' does not exist, or you do not have permission to access it. (DevOps Activity ID: C12C19DC-642C-469A-8F58-C89F2D81FEA7)).` After the Pull Request is merged into the origin, then a pipeline that is triggered from that event will authenticate properly.
 
 ### I updated from NuGetAuthenticateV0 to NuGetAuthenticateV1 and now my dotnet command fails with 401
 
-If you are updating from NuGetAuthenticateV0 to NuGetAuthenticateV1 and get an error running a dotnet command, look for the message `It was not possible to find any compatible framework version` from the logs. For dotnet users, NuGetAuthenticateV1 requires .NET 6 instead of .NET Core 2.1 that is required in NuGetAuthenticateV0 and is now out of support. To resolve the issue, use the UseDotNet@2 task before the dotnet command to install .NET 6.
+If you are updating from NuGetAuthenticateV0 to NuGetAuthenticateV1 and get an error running a dotnet command, look for the message `It was not possible to find any compatible framework version` from the logs. For dotnet users, NuGetAuthenticateV1 requires .NET 6 instead of .NET Core 2.1, which is required in NuGetAuthenticateV0 and is no longer supported. To resolve the issue, use the UseDotNet@2 task before the dotnet command to install .NET 6.
 
 ```YAML
 - task: UseDotNet@2
@@ -199,7 +197,8 @@ If all of the Azure Artifacts feeds you use are in the same organization as your
 </configuration>
 ```
 
-To use a service connection, specify the service connection in the `nuGetServiceConnections` input for the NuGet Authenticate task. You can then reference the service connection with `-ApiKey AzureArtifacts` in a task. 
+To use a service connection, specify the service connection in the `nuGetServiceConnections` input for the NuGet Authenticate task. You can then reference the service connection with `-ApiKey AzureArtifacts` in a task.
+
 #### nuget.exe
 ```YAML
 - task: NuGetAuthenticate@1
@@ -224,9 +223,9 @@ To use a service connection, specify the service connection in the `nuGetService
 # ...
 - script: dotnet nuget push --api-key AzureArtifacts --source https://pkgs.dev.azure.com/{organization}/_packaging/{feed1}/nuget/v3/index.json MyProject.*.nupkg
 ```
-In the above examples `OtherOrganizationFeedConnection` and `ThirdPartyRepositoryConnection` are the names of [NuGet service connections](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) that have been configured and authorized for use in your pipeline, and have URLs that match those in your nuget.config or command line argument.
+In the above examples, `OtherOrganizationFeedConnection` and `ThirdPartyRepositoryConnection` are the names of [NuGet service connections](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) that have been configured and authorized for use in your pipeline, and have URLs that match those in your `nuget.config` or command line argument.
 
-The package source URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and a URL for an organization scoped feed must not contain the project. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
+The package source URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and a URL for an organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 ### Restore and push NuGet packages outside your organization
 
@@ -274,7 +273,7 @@ Feeds within your Azure Artifacts organization will also be automatically authen
 ```
 `OtherOrganizationFeedConnection` and `ThirdPartyRepositoryConnection` are the names of [NuGet service connections](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) that have been configured and authorized for use in your pipeline, and have URLs that match those in your nuget.config or command line argument.
 
-The package source URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and a URL for an organization scoped feed must not contain the project. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
+The package source URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and a URL for an organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
