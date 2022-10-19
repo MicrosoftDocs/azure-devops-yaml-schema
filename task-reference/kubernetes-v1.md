@@ -227,7 +227,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service, or Kubernetes Service Connection for any other cluster.
+Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +238,7 @@ Specifies the service connection type: Azure Resource Manager when using Azure K
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service, or Kubernetes Service Connection for any other cluster.
+Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -382,7 +382,7 @@ Specifies the type of Kubernetes configuration for the `kubectl` command. It can
 **`configuration`** - **File path**<br>
 `string`. Required when `configurationType = configuration`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the filename, directory, or URL to kubernetes configuration files that will be used with the commands.
+Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -393,7 +393,7 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 **`configuration`** - **Configuration file**<br>
 `string`. Required when `useConfigurationFile = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the filename, directory, or URL to kubernetes configuration files that will be used with the commands.
+Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +441,7 @@ Creates or updates a generic or docker `imagepullsecret`. Select `dockerRegistry
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `secretType = generic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the keys and literal values to insert in secret. For example, `--from-literal=key1=value1` `--from-literal=key2="top secret"`.
+Specifies the keys and literal values to insert in secret. For example, `--from-literal=key1=value1`or `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -491,7 +491,7 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 **`azureContainerRegistry`** - **Azure container registry**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Container Registry which will be used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
+Specifies an Azure Container Registry which is used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -575,7 +575,7 @@ Specifies a file or directory that contains `configMaps`.
 **`configMapArguments`** - **Arguments**<br>
 `string`. Optional. Use when `useConfigMapFile = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the keys and literal values to insert in `configMap`. For example, `--from-literal=key1=value1` `--from-literal=key2="top secret"`.
+Specifies the keys and literal values to insert in `configMap`. For example, `--from-literal=key1=value1` or `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -599,7 +599,7 @@ Runs commands against Kubernetes clusters.
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.13.2`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Version Spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
+Specifies the version spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -610,7 +610,7 @@ Specifies the Version Spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.7.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Version Spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
+Specifies the version spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -634,7 +634,7 @@ Checks online for the latest available version (`stable.txt`) that satisfies the
 **`specifyLocation`** - **Path to kubectl**<br>
 `string`. Required when `versionOrLocation = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the full path to the `kubectl.exe`.
+Specifies the full path to the `kubectl.exe` file.
 <!-- :::editable-content-end::: -->
 <br>
 

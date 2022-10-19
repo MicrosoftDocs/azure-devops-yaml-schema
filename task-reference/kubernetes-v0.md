@@ -209,7 +209,7 @@ Specifies the namespace for the `kubectl` command by using the `–namespace` fl
 **`command`** - **Command**<br>
 `string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or specify a `kubectl` command to run.
+Specifies a `kubectl` command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,7 @@ Use a Kubernetes configuration file with the `kubectl` command. A filename, dire
 **`configuration`** - **Configuration file**<br>
 `string`. Required when `useConfigurationFile = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the filename, directory, or URL to kubernetes configuration files that will be used with the commands.
+Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -266,7 +266,7 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 **`configuration`** - **Configuration File**<br>
 `string`. Required when `useConfigurationFile = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the filename, directory, or URL to kubernetes configuration files that will be used with the commands.
+Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +290,7 @@ Specifies the arguments to the specified `kubectl` command.
 **`secretType`** - **Type of secret**<br>
 `string`. Required. Allowed values: `dockerRegistry`, `generic`. Default value: `dockerRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistry` to create or update the `imagepullsecret` of the selected registry. An `imagePullSecret` is a way to pass a secret that contains a container registry password to the Kubelet so it can pull a private image on behalf of your Pod.
+Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistry` to create or update the `imagepullsecret` of the selected registry. An `imagePullSecret` is a way to pass a secret that contains a container registry password to the Kubelet, so it can pull a private image on behalf of your Pod.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -302,7 +302,7 @@ Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistr
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `secretType = generic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies keys and literal values to insert in secret. For example, `--from-literal=key1=value1` `--from-literal=key2="top secret"`.
+Specifies keys and literal values to insert in secret. For example, `--from-literal=key1=value1` or `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -387,7 +387,7 @@ Specifies the Azure Resource Manager subscription, which contains the Azure Cont
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Container Registry which will be used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
+Specifies an Azure Container Registry which is used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -398,7 +398,7 @@ Specifies an Azure Container Registry which will be used for pulling container i
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Optional. Use when `containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Container Registry which will be used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
+Specifies an Azure Container Registry which is used for pulling Container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -482,7 +482,7 @@ Specifies a file or directory that contains the `configMaps`.
 **`configMapArguments`** - **Arguments**<br>
 `string`. Optional. Use when `useConfigMapFile = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies keys and literal values to insert in `configMap` .For example, `--from-literal=key1=value1` `--from-literal=key2="top secret"`.
+Specifies keys and literal values to insert in `configMap` .For example, `--from-literal=key1=value1` or `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -563,7 +563,7 @@ Checks online for the latest available version (`stable.txt`) that satisfies the
 **`specifyLocation`** - **Path to Kubectl**<br>
 `string`. Required when `versionOrLocation = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the full path to the `kubectl.exe`.
+Specifies the full path to the `kubectl.exe` file.
 <!-- :::editable-content-end::: -->
 <br>
 
