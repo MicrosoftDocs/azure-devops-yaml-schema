@@ -49,7 +49,7 @@ Use this task to run your scripts and make changes to your MySQL Database. There
 **`TaskNameSelector`** - **Deploy MySql Using**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies one of the options between Script File & Inline Script.
+Specifies either Script File or Inline Script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The password for MySQL Database. The password can be a variable defined in the pipeline, such as `$(password)`, and may be marked as `secret` to secure it.
+Specifies the password for MySQL Database. The password can be a variable defined in the pipeline, such as `$(password)`, and may be marked as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +133,7 @@ The password for MySQL Database. The password can be a variable defined in the p
 **`SqlAdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The additional options that are supported by MySQL simple SQL shell.  These options will be applied when executing the given file on the Database for MySQL.​
+Specifies the additional options that are supported by MySQL simple SQL shell.  These options will be applied when executing the given file on the Database for MySQL.​
 
 Example: You can change to the default tab separated output format, HTML format, or XML format. If you have problems due to insufficient memory for large result sets, use the `--quick` option.​
 <!-- :::editable-content-end::: -->
