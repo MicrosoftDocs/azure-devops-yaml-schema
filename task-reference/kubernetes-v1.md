@@ -262,7 +262,9 @@ Specifies the Kubernetes service connection.
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
 `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Resource Manager subscription, which contains the Azure Container Registry. Note: To configure a new service connection, specify the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
+Specifies the Azure Resource Manager subscription, which contains the Azure Container Registry. 
+>[!NOTE]
+>To configure a new service connection, specify the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -475,7 +477,9 @@ Specifies a Docker registry service connection. Required for commands that need 
 **`azureSubscriptionEndpointForSecrets`** - **Azure subscription**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Resource Manager subscription, which contains Azure Container Registry. Note: To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
+Specifies the Azure Resource Manager subscription, which contains Azure Container Registry. 
+>[!NOTE]
+>To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
