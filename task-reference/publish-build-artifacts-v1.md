@@ -129,7 +129,7 @@ Use this task in a build pipeline to publish build artifacts to Azure Pipelines,
 **`PathtoPublish`** - **Path to publish**<br>
 `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
+Specifies the folder or file path to publish. This can be a fully qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,7 @@ Specifies the folder or file path to publish. This can be a fully-qualified path
 **`PathtoPublish`** - **Path to publish**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
+Specifies the folder or file path to publish. This can be a fully qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +209,7 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 **`TargetPath`** - **File share path**<br>
 `string`. Required when `ArtifactType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
+Specifies the path to the file share where you want to copy the files. The path must be a fully qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,7 @@ Specifies the path to the file share where you want to copy the files. The path 
 **`TargetPath`** - **File share path**<br>
 `string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the file share where you want to copy the files. The path must be a fully-qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
+Specifies the path to the file share where you want to copy the files. The path must be a fully qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
 <br>
 
