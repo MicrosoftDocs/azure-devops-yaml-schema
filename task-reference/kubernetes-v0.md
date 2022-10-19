@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running kubectl commands.
+Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running `kubectl` commands.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running kubectl commands.
+Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running `kubectl` commands.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -197,7 +197,7 @@ Specifies a Kubernetes service connection.
 **`namespace`** - **Namespace**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set the namespace for the kubectl command by using the `–namespace` flag. If the namespace is not provided, the commands will run in the default namespace.
+Specifies the namespace for the `kubectl` command by using the `–namespace` flag. If the namespace is not provided, the commands will run in the default namespace.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +209,7 @@ Set the namespace for the kubectl command by using the `–namespace` flag. If t
 **`command`** - **Command**<br>
 `string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or specify a kubectl command to run.
+Select or specify a `kubectl` command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,7 @@ Select or specify a kubectl command to run.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`. Default value: `apply`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a kubectl command to run.
+Specifies a `kubectl` command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +231,7 @@ Specifies a kubectl command to run.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`. Default value: `apply`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a kubectl command.
+Specifies a `kubectl` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +278,7 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the arguments to the specified kubectl command.
+Specifies the arguments to the specified `kubectl` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -360,7 +360,9 @@ Specifies a Docker registry service connection. Required for commands that need 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Resource Manager subscription, which contains Azure Container Registry. Note: To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
+Specifies the Azure Resource Manager subscription, which contains Azure Container Registry.
+>[!NOTE]
+>To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -371,7 +373,9 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Resource Manager subscription, which contains the Azure Container Registry. Note: To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
+Specifies the Azure Resource Manager subscription, which contains the Azure Container Registry. 
+>[!NOTE]
+>To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -513,7 +517,7 @@ Runs commands against Kubernetes clusters.
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.7.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Version Spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
+Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -524,7 +528,7 @@ Specifies the Version Spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `
 **`versionSpec`** - **Version Spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.7.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Version Spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
+Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
