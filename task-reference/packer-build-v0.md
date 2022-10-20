@@ -196,7 +196,7 @@ Specifies the Azure Resource group that contains the selected storage account.
 **`baseImageSource`** - **Base image source**<br>
 `string`. Required. Allowed values: `default` (Gallery), `customVhd` (Custom). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the source of base image. You can either choose from a curated gallery of OS images or provide a URL of your custom image.
+Specifies the source of a base image. You can either choose from a curated gallery of OS images or provide a URL of your custom image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +208,7 @@ Specifies the source of base image. You can either choose from a curated gallery
 **`baseImage`** - **Base image**<br>
 `string`. Required when `baseImageSource = default`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses from curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
+Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,7 @@ Chooses from curated list of OS images. This will be used for installing pre-req
 **`customImageUrl`** - **Base image URL**<br>
 `string`. Required when `baseImageSource = customVhd`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of base image. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
+Specifies the URL of a base image. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,7 @@ Specifies the path for the deployment package directory relative to `$(System.De
 **`deployScriptPath`** - **Deployment script**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path to powershell script (for Windows) or shell script (for Linux) which deploys the package. This script should be contained in the package path selected above. Supports a minimatch pattern. Example path: `deploy/**/scripts/windows/deploy.ps1`.
+Specifies the relative path to a powershell script (for Windows) or a shell script (for Linux) which deploys the package. This script should be contained in the package path selected above. Supports a minimatch pattern. Example path: `deploy/**/scripts/windows/deploy.ps1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -267,7 +267,7 @@ Specifies the relative path to powershell script (for Windows) or shell script (
 **`deployScriptArguments`** - **Deployment script arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the arguments to be passed to deployment script.
+Specifies the arguments to be passed to the deployment script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -279,7 +279,7 @@ Specifies the arguments to be passed to deployment script.
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Default value: `{}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In an auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example, setting `ssh_tty=true` in case you are using a CentOS base image, and you need to have a tty to run sudo.
+In an auto-generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example, setting `ssh_tty=true` in case you are using a CentOS base image, and you need to have a tty to run sudo.
 
 To view or edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
@@ -293,7 +293,7 @@ To view or edit the additional parameters in a grid, click on `…` next to text
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. For more information, refer to [Azure Virtual Machine Image Builders](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During the deprovisioning of a VM, skips the cleanup of temporary files uploaded to the VM. For more information, refer to [Azure Virtual Machine Image Builders](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 

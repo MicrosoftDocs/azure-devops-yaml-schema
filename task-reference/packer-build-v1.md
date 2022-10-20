@@ -284,7 +284,7 @@ Specifies the path for a deployment package directory relative to `$(System.Defa
 **`deployScriptPath`** - **Deployment script**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path to powershell script (for Windows) or shell script (for Linux) which deploys the package. This script should be contained in the package path selected above. Supports a minimatch pattern. Example path: `deploy/**/scripts/windows/deploy.ps1`.
+Specifies the relative path to the powershell script (for Windows) or the shell script (for Linux) which deploys the package. This script should be contained in the package path selected above. Supports a minimatch pattern. Example path: `deploy/**/scripts/windows/deploy.ps1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +308,7 @@ Specifies the arguments to be passed to the deployment script.
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Optional. Use when `templateType = builtin`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In the auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: Setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
+In the auto-generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: Setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
 To view/edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
 <br>
@@ -333,7 +333,7 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Optional. Use when `templateType = builtin`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the cleanup of temporary files uploaded to VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During the deprovisioning of a VM, skips the cleanup of temporary files uploaded to the VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +344,7 @@ During deprovisioning of VM, skips the cleanup of temporary files uploaded to VM
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the cleanup of temporary files uploaded to VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During the deprovisioning of a VM, skips the cleanup of temporary files uploaded to the VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 
