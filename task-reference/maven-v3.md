@@ -336,7 +336,7 @@ Specifies a name for the test run.
 **`allowBrokenSymlinks`** - **Allow broken symbolic links**<br>
 Input alias: `allowBrokenSymbolicLinks`. `boolean`. Optional. Use when `publishJUnitResults = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `false`, fails the build when the task finds broken a symbolic link while publishing tests result.
+If set to `false`, fails the build when the task finds a broken symbolic link while publishing tests result.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -434,7 +434,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set `JAVA_HOME` accordingly.  
+Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.  
 *Note:* If running on an agent that is not hosted by Microsoft, and the requested Java version is not the one indicated by the `JAVA_HOME` variable set on the agent machine, the task will rely on the variable `JAVA_HOME_{version}_{arch}` (for example: `JAVA_HOME_8_X64`) to locate the necessary JDK. Ensure this variable is set on self-hosted agents for any version and architecture of the JDK that may be requested by this parameter and/or by `jdkArchitecture`.
 <!-- :::editable-content-end::: -->
 <br>
@@ -446,7 +446,7 @@ Attempts to discover the path to the selected JDK version and set `JAVA_HOME` ac
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set `JAVA_HOME` accordingly.
+Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -627,7 +627,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 **`spotBugsRunAnalysis`** - **Run SpotBugs analysis**<br>
 Input alias: `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enable this option to run SpotBugs code analysis plugin. More information about [SpotBugs Maven plugin](https://spotbugs.github.io/spotbugs-maven-plugin).
+Enable this option to run the SpotBugs code analysis plugin. More information about the [SpotBugs Maven plugin](https://spotbugs.github.io/spotbugs-maven-plugin).
 <!-- :::editable-content-end::: -->
 <br>
 
