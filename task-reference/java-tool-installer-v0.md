@@ -157,7 +157,7 @@ Specifies the architecture (`x86`, `x64`) of the JDK.
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory), `PreInstalled` (Pre-installed).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see example below about how to use the pre-installed version of Java.
+Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see the example below about how to use the pre-installed version of Java.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +168,7 @@ Specifies the source for the compressed JDK. The source can be Azure blob storag
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see example below about how to use the pre-installed version of Java.
+Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see the example below about how to use the pre-installed version of Java.
 <!-- :::editable-content-end::: -->
 <br>
 
