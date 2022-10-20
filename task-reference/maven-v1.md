@@ -123,7 +123,7 @@ Specifies the relative path from the repository root to the Maven POM file.
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the option to publish the JUnit test results produced by the Maven build to TFS/Team Services. Each test result's file matching `Test Results Files` will be published as a test run in TFS/Team Services.
+Specifies the option to publish the JUnit test results produced by the Maven build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +233,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 **`jdkVersionOption`** - **JDK Version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version, and set `JAVA_HOME` accordingly.
+Attempts to discover the path to the selected JDK version, and sets `JAVA_HOME` accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
