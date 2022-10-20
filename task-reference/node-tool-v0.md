@@ -88,7 +88,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 **`versionSpec`** - **Version Spec**<br>
 `string`. Required. Default value: `6.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version spec of version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
+Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
