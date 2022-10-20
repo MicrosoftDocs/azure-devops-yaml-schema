@@ -83,7 +83,7 @@ None.
 
 Specifies the credentials for Azure Artifacts feeds and external Maven repositories in the current user's `settings.xml` file.
 
-### Where is the `settings.xml` file, which contains the authenticated repositories, located?
+### Where is the `settings.xml` file containing the authenticated repositories located?
 
 The Maven Authenticate task searches for the `settings.xml` file in the current user's home directory. For Linux and Mac, the path is `$HOME/.m2/settings.xml`. For Windows, the path is `%USERPROFILE%\.m2\settings.xml`. If the `settings.xml` file doesn't exist, a new one will be created at that path.
 
