@@ -115,7 +115,7 @@ Specifies the protocol to use for the WinRM connection with the machine(s). The 
 **`TestCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `Protocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Skips validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
