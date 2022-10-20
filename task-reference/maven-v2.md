@@ -405,7 +405,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set `JAVA_HOME` accordingly.
+Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -416,7 +416,7 @@ Attempts to discover the path to the selected JDK version and set `JAVA_HOME` ac
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set `JAVA_HOME` accordingly.
+Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -427,7 +427,7 @@ Attempts to discover the path to the selected JDK version and set `JAVA_HOME` ac
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set `JAVA_HOME` accordingly.
+Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
