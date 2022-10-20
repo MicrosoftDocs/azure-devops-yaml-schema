@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
+Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Finds or downloads and caches the specified version spec of Node.js and adds it 
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Finds or Downloads and caches specified version spec of Node and adds it to the PATH.
+Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -88,7 +88,7 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 **`versionSpec`** - **Version Spec**<br>
 `string`. Required. Default value: `6.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
+Specifies the version spec of version to get.  Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,10 +100,10 @@ Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
 **`checkLatest`** - **Check for Latest Version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want the agent to check for the latest available version that satisfies the version spec. For example, you select this option because you run this build on your [self-hosted agent](/azure/devops/pipelines/agents/agents) and you want to always use the latest `6.x` version.
+Specifies if you want the agent to check for the latest available version that satisfies the version spec. For example, you select this option because you run this build on your [self-hosted agent](/azure/devops/pipelines/agents/agents) and you want to always use the latest `6.x` version.
 
 > [!TIP]
-> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to false. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
+> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to `false`. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,7 @@ Select if you want the agent to check for the latest available version that sati
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Installs the x86 version of Node regardless of the CPU architecture of the agent.
+Installs the `x86` version of Node regardless of the CPU architecture of the agent.
 <!-- :::editable-content-end::: -->
 <br>
 
