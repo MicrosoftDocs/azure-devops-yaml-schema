@@ -136,7 +136,7 @@ Specifies the path to a custom user-provided template.
 **`customTemplateParameters`** - **Template parameters**<br>
 `string`. Optional. Use when `templateType = custom`. Default value: `{}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies parameters which will be passed to Packer for building a custom template. This should map to the `variables` section in your custom template. For example, if the template has a variable named `drop-location`, then add a parameter here with name `drop-location` and a value which you want to use. You can link the value to a release variable as well. To view/edit the additional parameters in a grid, click on `…` next to text box.
+Specifies parameters which will be passed to Packer for building a custom template. This should map to the `variables` section in your custom template. For example, if the template has a variable named `drop-location`, then add a parameter here with the name `drop-location` and a value which you want to use. You can link the value to a release variable as well. To view/edit the additional parameters in a grid, click on `…` next to the text box.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +208,7 @@ Specifies the source of a base image. You can either choose from a curated galle
 **`baseImage`** - **Base image**<br>
 `string`. Required when `baseImageSource = default`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
+Chooses from a curated list of OS images. This is used for installing pre-requisite(s) and application(s) before capturing a machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,7 @@ Chooses from a curated list of OS images. This will be used for installing pre-r
 **`customImageUrl`** - **Base image URL**<br>
 `string`. Required when `baseImageSource = customVhd`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of a base image. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
+Specifies the URL of a base image. This is used for installing pre-requisite(s) and application(s) before capturing a machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -305,7 +305,7 @@ During the deprovisioning of a VM, skips the cleanup of temporary files uploaded
 **`imageUri`** - **Image URL**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which stores the generated machine image URL.
+Specifies a name for the output variable which stores the generated machine image URL.
 <!-- :::editable-content-end::: -->
 <br>
 

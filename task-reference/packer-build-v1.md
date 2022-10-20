@@ -320,7 +320,7 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In the auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: Setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
+In the auto-generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: Setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
 To view/edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
 <br>
@@ -368,7 +368,7 @@ Specifies the version of Packer to install. This will work only with custom temp
 **`imageUri`** - **Image URL or Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which will store the generated machine image VHD URL for an un-managed VM image or the image name for a managed VM image.
+Specifies a name for the output variable which will store the generated machine image VHD URL for an un-managed VM image or the image name for a managed VM image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +380,7 @@ Provides a name for the output variable which will store the generated machine i
 **`imageId`** - **Azure Resource Id**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which will store the Azure Resource ID for the newly created image.  This is for managed images only.
+Specifies a name for the output variable which will store the Azure Resource ID for the newly created image.  This is for managed images only.
 <!-- :::editable-content-end::: -->
 <br>
 
