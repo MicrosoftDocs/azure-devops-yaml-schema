@@ -1,7 +1,7 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
 description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 10/13/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,26 +36,26 @@ Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.or
 - task: NuGetCommand@2
   inputs:
     command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
-    restoreSolution: '**/*.sln' # string. Required when command = restore. Path to solution, packages.config, or project.json. Default: **/*.sln.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg.
+    restoreSolution: '**/*.sln' # string. Alias: solution. Required when command = restore. Path to solution, packages.config, or project.json. Default: **/*.sln.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg' # string. Alias: searchPatternPush. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg.
     #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
-    #publishVstsFeed: # string. Required when command = push && nuGetFeedType = internal. Target feed. 
+    #publishVstsFeed: # string. Alias: feedPublish. Required when command = push && nuGetFeedType = internal. Target feed. 
     #allowPackageConflicts: false # boolean. Optional. Use when command = push && nuGetFeedType = internal. Allow duplicates to be skipped. Default: false.
-    #publishFeedCredentials: # string. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
-    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to package. Default: $(BuildConfiguration).
-    #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
+    #publishFeedCredentials: # string. Alias: externalEndpoint. Required when command = push && nuGetFeedType = external. NuGet server. 
+    #packagesToPack: '**/*.csproj' # string. Alias: searchPatternPack. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Alias: configurationToPack. Optional. Use when command = pack. Configuration to package. Default: $(BuildConfiguration).
+    #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
     #arguments: # string. Required when command = custom. Command and arguments. 
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
-    #vstsFeed: # string. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
+    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required. Feeds to use. Default: select.
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Optional. Use when selectOrConfig = config. Credentials for feeds outside this organization/collection. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config. Credentials for feeds outside this organization/collection. 
   # Advanced
     #noCache: false # boolean. Disable local cache. Default: false.
     #disableParallelProcessing: false # boolean. Disable parallel processing. Default: false.
-    #restoreDirectory: # string. Destination directory. 
+    #restoreDirectory: # string. Alias: packagesDirectory. Destination directory. 
     #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
   # Advanced
     #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
@@ -64,9 +64,9 @@ Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.or
     versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
     #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off. Include referenced projects. Default: false.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
-    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
-    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
+    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
+    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
+    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
     #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber. Time zone. Default: utc.
     #includeSymbols: false # boolean. Create symbols package. Default: false.
     #toolPackage: false # boolean. Tool Package. Default: false.
@@ -86,26 +86,26 @@ Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.or
 - task: NuGetCommand@2
   inputs:
     command: 'restore' # 'restore' | 'pack' | 'push' | 'custom'. Required. Command. Default: restore.
-    restoreSolution: '**/*.sln' # string. Required when command = restore. Path to solution, packages.config, or project.json. Default: **/*.sln.
-    #packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg' # string. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg.
+    restoreSolution: '**/*.sln' # string. Alias: solution. Required when command = restore. Path to solution, packages.config, or project.json. Default: **/*.sln.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg' # string. Alias: searchPatternPush. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg.
     #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
-    #publishVstsFeed: # string. Required when command = push && nuGetFeedType = internal. Target feed. 
+    #publishVstsFeed: # string. Alias: feedPublish. Required when command = push && nuGetFeedType = internal. Target feed. 
     #allowPackageConflicts: false # boolean. Optional. Use when command = push && nuGetFeedType = internal. Allow duplicates to be skipped. Default: false.
-    #publishFeedCredentials: # string. Required when command = push && nuGetFeedType = external. NuGet server. 
-    #packagesToPack: '**/*.csproj' # string. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
-    #configuration: '$(BuildConfiguration)' # string. Optional. Use when command = pack. Configuration to package. Default: $(BuildConfiguration).
-    #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
+    #publishFeedCredentials: # string. Alias: externalEndpoint. Required when command = push && nuGetFeedType = external. NuGet server. 
+    #packagesToPack: '**/*.csproj' # string. Alias: searchPatternPack. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Alias: configurationToPack. Optional. Use when command = pack. Configuration to package. Default: $(BuildConfiguration).
+    #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
     #arguments: # string. Required when command = custom. Command and arguments. 
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
-    #vstsFeed: # string. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
+    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required. Feeds to use. Default: select.
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Optional. Use when selectOrConfig = config. Credentials for feeds outside this account/collection. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config. Credentials for feeds outside this account/collection. 
   # Advanced
     #noCache: false # boolean. Disable local cache. Default: false.
     #disableParallelProcessing: false # boolean. Disable parallel processing. Default: false.
-    #restoreDirectory: # string. Destination directory. 
+    #restoreDirectory: # string. Alias: packagesDirectory. Destination directory. 
     #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
   # Advanced
     #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
@@ -113,9 +113,9 @@ Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.or
     versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
     #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off. Include referenced projects. Default: false.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
-    #minorVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
-    #patchVersion: '0' # string. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
+    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
+    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
+    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
     #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber. Time zone. Default: utc.
     #includeSymbols: false # boolean. Create symbols package. Default: false.
     #toolPackage: false # boolean. Tool Package. Default: false.

@@ -1,7 +1,7 @@
 ---
 title: XamarinComponentRestore@0 - Xamarin Component Restore v0 task
 description: This task is deprecated. Use 'NuGet' instead.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ This task is deprecated. Use 'NuGet' instead.
 # This task is deprecated. Use 'NuGet' instead.
 - task: XamarinComponentRestore@0
   inputs:
-    solutionFile: '**/*.sln' # string. Required. Path to solution. Default: **/*.sln.
+    solutionFile: '**/*.sln' # string. Alias: solution. Required. Path to solution. Default: **/*.sln.
     email: # string. Required. Email. 
     password: # string. Required. Password.
 ```

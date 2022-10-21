@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@0 - Python twine upload authenticate v0 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection (task version 0).
-ms.date: 10/13/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,8 +36,8 @@ Authentication for uploading python distributions using twine. Please add "-r Fe
 - task: TwineAuthenticate@0
   inputs:
   # Feeds and Authentication
-    #artifactFeeds: # string. My feeds (select below). 
-    #externalFeeds: # string. Feeds from external organizations. 
+    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
+    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations. 
   # Advanced
     #publishPackageMetadata: true # boolean. Publish pipeline metadata. Default: true.
 ```
@@ -52,8 +52,8 @@ Authentication for uploading python distributions using twine. Please add "-r Fe
 - task: TwineAuthenticate@0
   inputs:
   # Feeds and Authentication
-    #artifactFeeds: # string. My feeds (select below). 
-    #externalFeeds: # string. Feeds from external organizations.
+    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
+    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations.
 ```
 
 :::moniker-end

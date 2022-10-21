@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@1 - Xamarin.iOS v1 task
 description: Build an iOS app with Xamarin on macOS (task version 1).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,27 +27,27 @@ Build an iOS app with Xamarin on macOS.
 # Build an iOS app with Xamarin on macOS.
 - task: XamariniOS@1
   inputs:
-    solutionFile: '**/*.sln' # string. Required. Solution. Default: **/*.sln.
+    solutionFile: '**/*.sln' # string. Alias: solution. Required. Solution. Default: **/*.sln.
     configuration: 'Release' # string. Required. Configuration. Default: Release.
     #clean: false # boolean. Clean. Default: false.
     packageApp: true # boolean. Required. Create app package. Default: true.
-    #buildForSimulator: false # boolean. Build for iOS Simulator. Default: false.
+    #buildForSimulator: false # boolean. Alias: forSimulator. Build for iOS Simulator. Default: false.
   # Advanced
     runNugetRestore: true # boolean. Required. Run NuGet restore. Default: true.
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
-    #buildToolOption: 'xbuild' # 'xbuild' | 'msbuild'. Build tool. Default: xbuild.
-    #mdtoolFile: # string. Build tool path. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
+    #buildToolOption: 'xbuild' # 'xbuild' | 'msbuild'. Alias: buildTool. Build tool. Default: xbuild.
+    #mdtoolFile: # string. Alias: mdtoolLocation. Build tool path. 
   # Signing & Provisioning
-    #signingOption: 'file' # 'file' | 'id'. Override using. Default: file.
-    #signingIdentity: # string. Optional. Use when signMethod = id. Signing identity. 
-    #signingUnlockDefaultKeychain: false # boolean. Required when signMethod = id. Unlock default keychain. Default: false.
-    #signingDefaultKeychainPassword: # string. Optional. Use when signMethod = id. Default keychain password. 
-    #signingProvisioningProfileID: # string. Optional. Use when signMethod = id. Provisioning profile UUID. 
-    #signingP12File: # string. Optional. Use when signMethod = file. P12 certificate file. 
-    #signingP12Password: # string. Optional. Use when signMethod = file. P12 password. 
-    #signingProvisioningProfileFile: # string. Optional. Use when signMethod = file. Provisioning profile file. 
-    #signingRemoveProfile: false # boolean. Optional. Use when signMethod = file. Remove profile after build. Default: false.
+    #signingOption: 'file' # 'file' | 'id'. Alias: signMethod. Override using. Default: file.
+    #signingIdentity: # string. Alias: iosSigningIdentity. Optional. Use when signMethod = id. Signing identity. 
+    #signingUnlockDefaultKeychain: false # boolean. Alias: unlockDefaultKeychain. Required when signMethod = id. Unlock default keychain. Default: false.
+    #signingDefaultKeychainPassword: # string. Alias: defaultKeychainPassword. Optional. Use when signMethod = id. Default keychain password. 
+    #signingProvisioningProfileID: # string. Alias: provProfileUuid. Optional. Use when signMethod = id. Provisioning profile UUID. 
+    #signingP12File: # string. Alias: p12. Optional. Use when signMethod = file. P12 certificate file. 
+    #signingP12Password: # string. Alias: p12pwd. Optional. Use when signMethod = file. P12 password. 
+    #signingProvisioningProfileFile: # string. Alias: provProfile. Optional. Use when signMethod = file. Provisioning profile file. 
+    #signingRemoveProfile: false # boolean. Alias: removeProfile. Optional. Use when signMethod = file. Remove profile after build. Default: false.
 ```
 
 :::moniker-end

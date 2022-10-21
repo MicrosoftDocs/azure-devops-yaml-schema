@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@0 - Package and deploy Helm charts v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -37,14 +37,14 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
   inputs:
   # Kubernetes Cluster
     connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
     #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager. Use cluster admin credentials. Default: false.
-    #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Azure Container Registry
-    azureSubscriptionForACR: # string. Required. Azure subscription for Container Registry. 
+    azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required. Azure subscription for Container Registry. 
     azureResourceGroupForACR: # string. Required. Resource group. 
     azureContainerRegistry: # string. Required. Azure Container Registry. 
   # Commands
@@ -52,7 +52,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Optional. Use when command == package || command == install || command == upgrade. Version. 
+    #chartVersion: # string. Alias: version. Optional. Use when command == package || command == install || command == upgrade. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
@@ -91,14 +91,14 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
   inputs:
   # Kubernetes Cluster
     connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
     #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager. Use cluster admin credentials. Default: false.
-    #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Azure Container Registry
-    azureSubscriptionForACR: # string. Required. Azure subscription for Container Registry. 
+    azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required. Azure subscription for Container Registry. 
     azureResourceGroupForACR: # string. Required. Resource group. 
     azureContainerRegistry: # string. Required. Azure Container Registry. 
   # Commands
@@ -106,7 +106,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Optional. Use when command == package || command == install || command == upgrade. Version. 
+    #chartVersion: # string. Alias: version. Optional. Use when command == package || command == install || command == upgrade. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
@@ -145,18 +145,18 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
   inputs:
   # Kubernetes Cluster
     connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
     #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager. Use cluster admin credentials. Default: false.
-    #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Optional. Use when command == package. Version. 
+    #chartVersion: # string. Alias: version. Optional. Use when command == package. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
@@ -192,17 +192,17 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
   inputs:
   # Kubernetes Cluster
     connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Optional. Use when command == package. Version. 
+    #chartVersion: # string. Alias: version. Optional. Use when command == package. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
@@ -237,17 +237,17 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
   inputs:
   # Kubernetes Cluster
     connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Required when connectionType = Azure Resource Manager. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
     #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
     #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #kubernetesServiceConnection: # string. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
     #namespace: # string. Namespace. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Optional. Use when command == package. Version. 
+    #chartVersion: # string. Alias: version. Optional. Use when command == package. Version. 
     #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 

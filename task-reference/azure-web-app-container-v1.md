@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -32,7 +32,7 @@ This task deploys containers to Azure App Service.
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    #containers: # string. Image name. 
+    #containers: # string. Alias: imageName. Image name. 
     #multicontainerConfigFile: # string. Configuration File. 
     #containerCommand: # string. Startup command. 
   # Application and Configuration Settings

@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@3 - Azure file copy v3 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 3).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -28,12 +28,12 @@ Copy files to Azure Blob Storage or virtual machines.
 - task: AzureFileCopy@3
   inputs:
     SourcePath: # string. Required. Source. 
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required. Azure Subscription. 
     Destination: # 'AzureBlob' | 'AzureVMs'. Required. Destination Type. 
-    storage: # string. Required. RM Storage Account. 
+    storage: # string. Alias: StorageAccountRM. Required. RM Storage Account. 
     #ContainerName: # string. Required when Destination = AzureBlob. Container Name. 
     #BlobPrefix: # string. Optional. Use when Destination = AzureBlob. Blob Prefix. 
-    #resourceGroup: # string. Required when Destination = AzureVMs. Resource Group. 
+    #resourceGroup: # string. Alias: EnvironmentNameRM. Required when Destination = AzureVMs. Resource Group. 
     #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Optional. Use when Destination = AzureVMs. Select Machines By. Default: machineNames.
     #MachineNames: # string. Optional. Use when Destination = AzureVMs. Filter Criteria. 
     #vmsAdminUserName: # string. Required when Destination = AzureVMs. Admin Login. 

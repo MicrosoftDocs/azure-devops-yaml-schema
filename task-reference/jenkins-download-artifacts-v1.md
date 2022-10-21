@@ -1,7 +1,7 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
 description: Download artifacts produced by a Jenkins job.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Download artifacts produced by a Jenkins job.
 # Download artifacts produced by a Jenkins job.
 - task: JenkinsDownloadArtifacts@1
   inputs:
-    jenkinsServerConnection: # string. Required. Jenkins service connection. 
+    jenkinsServerConnection: # string. Alias: serverEndpoint. Required. Jenkins service connection. 
     jobName: # string. Required. Job name. 
     #jenkinsJobType: # string. Optional. Use when jobName = invalidjobName. Jenkins job type. 
     saveTo: 'jenkinsArtifacts' # string. Required. Save to. Default: jenkinsArtifacts.
@@ -56,7 +56,7 @@ Download artifacts produced by a Jenkins job.
 # Download artifacts produced by a Jenkins job.
 - task: JenkinsDownloadArtifacts@1
   inputs:
-    jenkinsServerConnection: # string. Required. Jenkins service connection. 
+    jenkinsServerConnection: # string. Alias: serverEndpoint. Required. Jenkins service connection. 
     jobName: # string. Required. Job name. 
     #jenkinsJobType: # string. Optional. Use when jobName = invalidjobName. Jenkins job type. 
     saveTo: 'jenkinsArtifacts' # string. Required. Save to. Default: jenkinsArtifacts.

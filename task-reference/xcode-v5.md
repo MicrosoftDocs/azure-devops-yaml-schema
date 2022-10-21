@@ -1,7 +1,7 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -57,7 +57,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
     #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
   # Advanced
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
     #useXcpretty: true # boolean. Use xcpretty. Default: true.
     #xcprettyArgs: # string. Optional. Use when useXcpretty == true. Xcpretty arguments. 
     #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
@@ -103,7 +103,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
     #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
   # Advanced
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
     #useXcpretty: true # boolean. Use xcpretty. Default: true.
     #xcprettyArgs: # string. Optional. Use when useXcpretty == true. Xcpretty arguments. 
     #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
@@ -149,7 +149,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
     #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
   # Advanced
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
     #useXcpretty: true # boolean. Use xcpretty. Default: true.
     #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
 ```
@@ -193,7 +193,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
     #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
   # Advanced
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
     #useXcpretty: true # boolean. Use xcpretty. Default: true.
     #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines. Default: false.
 ```
@@ -237,7 +237,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
     #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
   # Advanced
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
     #useXcpretty: true # boolean. Use xcpretty. Default: true.
     #publishJUnitResults: false # boolean. Publish test results to Azure Pipelines/TFS. Default: false.
 ```

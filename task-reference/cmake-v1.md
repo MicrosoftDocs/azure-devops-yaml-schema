@@ -1,7 +1,7 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Use this task to build with the CMake cross-platform build system.
 # Build with the CMake cross-platform build system.
 - task: CMake@1
   inputs:
-    #workingDirectory: 'build' # string. Working Directory. Default: build.
+    #workingDirectory: 'build' # string. Alias: cwd. Working Directory. Default: build.
     #cmakeArgs: # string. Arguments. 
   # Advanced
     #runInsideShell: false # boolean. Run cmake command inside shell. Default: false.
@@ -42,7 +42,7 @@ Use this task to build with the CMake cross-platform build system.
 # Build with the CMake cross-platform build system.
 - task: CMake@1
   inputs:
-    #workingDirectory: 'build' # string. Working Directory. Default: build.
+    #workingDirectory: 'build' # string. Alias: cwd. Working Directory. Default: build.
     #cmakeArgs: # string. Arguments.
 ```
 

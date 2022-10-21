@@ -1,7 +1,7 @@
 ---
 title: AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 description: Configure alerts on available metrics for an Azure resource (Deprecated).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Configure alerts on available metrics for an Azure resource.
 # Configure alerts on available metrics for an Azure resource (Deprecated).
 - task: AzureMonitorAlerts@0
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
@@ -54,7 +54,7 @@ Configure alerts on available metrics for an Azure resource.
 # Configure alerts on available metrics for an Azure resource.
 - task: AzureMonitorAlerts@0
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
@@ -73,7 +73,7 @@ Configure alerts on available metrics for an Azure resource.
 # Configure alerts on available metrics for an Azure resource.
 - task: AzureMonitorAlerts@0
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 

@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -31,22 +31,22 @@ Download or publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
-    vstsFeed: # string. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Required when internalOrExternalDownload = internal. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
+    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
+    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
+    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
     #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed (or Project/Feed if the feed was created in a project). 
     #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
     #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Required when internalOrExternalPublish = external. organization/collection connection. 
-    vstsFeedPublish: # string. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Required when internalOrExternalPublish = internal. Package name. 
+    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. organization/collection connection. 
+    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
+    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
     #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed (or Project/Feed if the feed was created in a project). 
     #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Required. Version. Default: patch.
+    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
     #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
     #packagePublishDescription: # string. Description. 
   # Advanced
@@ -69,22 +69,22 @@ Download or publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
-    vstsFeed: # string. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Required when internalOrExternalDownload = internal. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
+    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
+    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
+    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
     #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed. 
     #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
     #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Required when internalOrExternalPublish = external. organization/collection connection. 
-    vstsFeedPublish: # string. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Required when internalOrExternalPublish = internal. Package name. 
+    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. organization/collection connection. 
+    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
+    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
     #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed. 
     #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Required. Version. Default: patch.
+    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
     #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
     #packagePublishDescription: # string. Description. 
   # Advanced
@@ -107,22 +107,22 @@ Download or publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Optional. Use when internalOrExternalDownload = external. Account/collection connection. 
-    vstsFeed: # string. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Required when internalOrExternalDownload = internal. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. Account/collection connection. 
+    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
+    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
+    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
     #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed. 
     #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
     #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Required when internalOrExternalPublish = external. Account/collection connection. 
-    vstsFeedPublish: # string. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Required when internalOrExternalPublish = internal. Package name. 
+    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. Account/collection connection. 
+    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
+    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
     #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed. 
     #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Required. Version. Default: patch.
+    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
     #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
     #packagePublishDescription: # string. Description. 
   # Advanced

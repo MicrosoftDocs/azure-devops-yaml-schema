@@ -1,7 +1,7 @@
 ---
 title: Gradle@1 - Gradle v1 task
 description: Build using a Gradle wrapper script (task version 1).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,41 +27,41 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@1
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Required. Gradle Wrapper. Default: gradlew.
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle Wrapper. Default: gradlew.
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
   # Advanced
-    #workingDirectory: # string. Working Directory. 
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK Version. Default: default.
-    #jdkDirectory: # string. Required when javaHomeSelection = Path. JDK Path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
-    #gradleOptions: '-Xmx1024m' # string. Set GRADLE_OPTS. Default: -Xmx1024m.
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK Version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK Path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
+    #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # JUnit Test Results
     publishJUnitResults: true # boolean. Required. Publish to TFS/Team Services. Default: true.
     testResultsFiles: '**/build/test-results/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/build/test-results/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
-    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code Coverage Tool. Default: None.
-    #codeCoverageClassFilesDirectories: 'build/classes/main/' # string. Required when codeCoverageTool = false. Class Files Directories. Default: build/classes/main/.
-    #codeCoverageClassFilter: # string. Optional. Use when codeCoverageTool != None. Class Inclusion/Exclusion Filters. 
-    #codeCoverageFailIfEmpty: false # boolean. Optional. Use when codeCoverageTool != None. Fail When Code Coverage Results Are Missing. Default: false.
+    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code Coverage Tool. Default: None.
+    #codeCoverageClassFilesDirectories: 'build/classes/main/' # string. Alias: classFilesDirectories. Required when codeCoverageTool = false. Class Files Directories. Default: build/classes/main/.
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class Inclusion/Exclusion Filters. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail When Code Coverage Results Are Missing. Default: false.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Required. Run SonarQube Analysis. Default: false.
-    #sonarQubeServiceEndpoint: # string. Required when sqAnalysisEnabled = true. SonarQube Endpoint. 
-    #sonarQubeProjectName: # string. Required when sqAnalysisEnabled = true. SonarQube Project Name. 
-    #sonarQubeProjectKey: # string. Required when sqAnalysisEnabled = true. SonarQube Project Key. 
-    #sonarQubeProjectVersion: # string. Required when sqAnalysisEnabled = true. SonarQube Project Version. 
-    #sonarQubeGradlePluginVersion: '2.0.1' # string. Required when sqAnalysisEnabled = true. SonarQube Gradle Plugin Version. Default: 2.0.1.
-    #sonarQubeSpecifyDB: false # boolean. Required when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
-    #sonarQubeDBUrl: # string. Optional. Use when sqDbDetailsRequired = true. Db Connection String. 
-    #sonarQubeDBUsername: # string. Optional. Use when sqDbDetailsRequired = true. Db Username. 
-    #sonarQubeDBPassword: # string. Optional. Use when sqDbDetailsRequired = true. Db User Password. 
-    #sonarQubeIncludeFullReport: true # boolean. Optional. Use when sqAnalysisEnabled = true. Include full analysis report in the build summary (SQ 5.3+). Default: true.
-    #sonarQubeFailWhenQualityGateFails: # boolean. Optional. Use when sqAnalysisEnabled = true. Fail the build on quality gate failure (SQ 5.3+). 
-    #checkStyleRunAnalysis: false # boolean. Run Checkstyle. Default: false.
-    #findBugsRunAnalysis: false # boolean. Run FindBugs. Default: false.
-    #pmdRunAnalysis: false # boolean. Run PMD. Default: false.
+    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube Analysis. Default: false.
+    #sonarQubeServiceEndpoint: # string. Alias: sqConnectedServiceName. Required when sqAnalysisEnabled = true. SonarQube Endpoint. 
+    #sonarQubeProjectName: # string. Alias: sqProjectName. Required when sqAnalysisEnabled = true. SonarQube Project Name. 
+    #sonarQubeProjectKey: # string. Alias: sqProjectKey. Required when sqAnalysisEnabled = true. SonarQube Project Key. 
+    #sonarQubeProjectVersion: # string. Alias: sqProjectVersion. Required when sqAnalysisEnabled = true. SonarQube Project Version. 
+    #sonarQubeGradlePluginVersion: '2.0.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true. SonarQube Gradle Plugin Version. Default: 2.0.1.
+    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Required when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
+    #sonarQubeDBUrl: # string. Alias: sqDbUrl. Optional. Use when sqDbDetailsRequired = true. Db Connection String. 
+    #sonarQubeDBUsername: # string. Alias: sqDbUsername. Optional. Use when sqDbDetailsRequired = true. Db Username. 
+    #sonarQubeDBPassword: # string. Alias: sqDbPassword. Optional. Use when sqDbDetailsRequired = true. Db User Password. 
+    #sonarQubeIncludeFullReport: true # boolean. Alias: sqAnalysisIncludeFullReport. Optional. Use when sqAnalysisEnabled = true. Include full analysis report in the build summary (SQ 5.3+). Default: true.
+    #sonarQubeFailWhenQualityGateFails: # boolean. Alias: sqAnalysisBreakBuildIfQualityGateFailed. Optional. Use when sqAnalysisEnabled = true. Fail the build on quality gate failure (SQ 5.3+). 
+    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
+    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
+    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
 ```
 
 :::moniker-end

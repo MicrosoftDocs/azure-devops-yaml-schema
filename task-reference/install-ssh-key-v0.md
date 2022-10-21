@@ -1,7 +1,7 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Install an SSH key prior to a build or release.
 # Install an SSH key prior to a build or deployment.
 - task: InstallSSHKey@0
   inputs:
-    knownHostsEntry: # string. Required. Known Hosts Entry. 
+    knownHostsEntry: # string. Alias: hostName. Required. Known Hosts Entry. 
     #sshPublicKey: # string. SSH Public Key. 
     #sshPassphrase: # string. SSH Passphrase. 
     sshKeySecureFile: # string. Required. SSH Key. 
@@ -56,7 +56,7 @@ Install an SSH key prior to a build or release.
 # Install an SSH key prior to a build or deployment.
 - task: InstallSSHKey@0
   inputs:
-    knownHostsEntry: # string. Required. Known Hosts Entry. 
+    knownHostsEntry: # string. Alias: hostName. Required. Known Hosts Entry. 
     #sshPublicKey: # string. SSH Public Key. 
     #sshPassphrase: # string. SSH Passphrase. 
     sshKeySecureFile: # string. Required. SSH Key.
@@ -71,7 +71,7 @@ Install an SSH key prior to a build or release.
 # Install an SSH key prior to a build or deployment.
 - task: InstallSSHKey@0
   inputs:
-    knownHostsEntry: # string. Required. Known Hosts Entry. 
+    knownHostsEntry: # string. Alias: hostName. Required. Known Hosts Entry. 
     sshPublicKey: # string. Required. SSH Public Key. 
     #sshPassphrase: # string. SSH Passphrase. 
     sshKeySecureFile: # string. Required. SSH Key.

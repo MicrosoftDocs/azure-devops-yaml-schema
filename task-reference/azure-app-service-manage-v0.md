@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 10/11/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,10 +35,10 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
 # Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
 - task: AzureAppServiceManage@0
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     #Action: 'Swap Slots' # 'Swap Slots' | 'Start Azure App Service' | 'Stop Azure App Service' | 'Restart Azure App Service' | 'Start Swap With Preview' | 'Complete Swap' | 'Cancel Swap' | 'Delete Slot' | 'Install Extensions' | 'Enable Continuous Monitoring' | 'Start all continuous webjobs' | 'Stop all continuous webjobs'. Action. Default: Swap Slots.
     WebAppName: # string. Required. App Service name. 
-    #SpecifySlotOrASE: false # boolean. Optional. Use when Action != Swap Slots && Action != Delete Slot && Action != Start Swap With Preview && Action != Complete Swap && Action != Cancel Swap. Specify Slot or App Service Environment. Default: false.
+    #SpecifySlotOrASE: false # boolean. Alias: SpecifySlot. Optional. Use when Action != Swap Slots && Action != Delete Slot && Action != Start Swap With Preview && Action != Complete Swap && Action != Cancel Swap. Specify Slot or App Service Environment. Default: false.
     #ResourceGroupName: # string. Required when Action = Swap Slots || Action = Delete Slot || SpecifySlot = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap. Resource group. 
     #SourceSlot: # string. Required when Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap. Source Slot. 
     #SwapWithProduction: true # boolean. Optional. Use when Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap. Swap with Production. Default: true.
@@ -62,10 +62,10 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
 # Start, stop, restart, slot swap, install site extensions or enable continuous monitoring for an Azure App Service.
 - task: AzureAppServiceManage@0
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     #Action: 'Swap Slots' # 'Swap Slots' | 'Start Azure App Service' | 'Stop Azure App Service' | 'Restart Azure App Service' | 'Install Extensions' | 'Enable Continuous Monitoring' | 'Start all continuous webjobs' | 'Stop all continuous webjobs'. Action. Default: Swap Slots.
     WebAppName: # string. Required. App Service name. 
-    #SpecifySlotOrASE: false # boolean. Optional. Use when Action != Swap Slots. Specify Slot or App Service Environment. Default: false.
+    #SpecifySlotOrASE: false # boolean. Alias: SpecifySlot. Optional. Use when Action != Swap Slots. Specify Slot or App Service Environment. Default: false.
     #ResourceGroupName: # string. Required when Action = Swap Slots || SpecifySlot = true. Resource group. 
     #SourceSlot: # string. Required when Action = Swap Slots. Source Slot. 
     #SwapWithProduction: true # boolean. Optional. Use when Action = Swap Slots. Swap with Production. Default: true.
@@ -89,10 +89,10 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
 # Start, Stop, Restart, Slot swap, Install site extensions or Enable Continuous Monitoring for an Azure App Service.
 - task: AzureAppServiceManage@0
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     #Action: 'Swap Slots' # 'Swap Slots' | 'Start Azure App Service' | 'Stop Azure App Service' | 'Restart Azure App Service' | 'Install Extensions' | 'Enable Continuous Monitoring' | 'Start all continuous webjobs' | 'Stop all continuous webjobs'. Action. Default: Swap Slots.
     WebAppName: # string. Required. App Service name. 
-    #SpecifySlotOrASE: false # boolean. Optional. Use when Action != Swap Slots. Specify Slot or App Service Environment. Default: false.
+    #SpecifySlotOrASE: false # boolean. Alias: SpecifySlot. Optional. Use when Action != Swap Slots. Specify Slot or App Service Environment. Default: false.
     #ResourceGroupName: # string. Required when Action = Swap Slots || SpecifySlot = true. Resource group. 
     #SourceSlot: # string. Required when Action = Swap Slots. Source Slot. 
     #SwapWithProduction: true # boolean. Optional. Use when Action = Swap Slots. Swap with Production. Default: true.

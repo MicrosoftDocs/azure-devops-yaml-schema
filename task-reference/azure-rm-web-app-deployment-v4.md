@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,19 +36,19 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM' # 'AzureRM' | 'PublishProfile'. Required. Connection type. Default: AzureRM.
-    azureSubscription: # string. Required when ConnectionType = AzureRM. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required when ConnectionType = AzureRM. Azure subscription. 
     #PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml' # string. Required when ConnectionType = PublishProfile. Publish profile path. Default: $(System.DefaultWorkingDirectory)/**/*.pubxml.
     #PublishProfilePassword: # string. Required when ConnectionType = PublishProfile. Publish profile password. 
-    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
+    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Alias: WebAppKind. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
     WebAppName: # string. Required when ConnectionType = AzureRM. App Service name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Alias: DeployToSlotOrASEFlag. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotOrASEFlag = true. Resource group. 
     #SlotName: 'production' # string. Required when DeployToSlotOrASEFlag = true. Slot. Default: production.
     #DockerNamespace: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Registry or Namespace. 
     #DockerRepository: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Image. 
     #DockerImageTag: # string. Optional. Use when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
     #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux. Startup command. 
@@ -58,14 +58,14 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
   # File Transforms & Variable Substitution Options
     #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
     #ConfigurationSettings: # string. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Select deployment method. Default: false.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
     #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
     #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
     #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
@@ -85,19 +85,19 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM' # 'AzureRM' | 'PublishProfile'. Required. Connection type. Default: AzureRM.
-    azureSubscription: # string. Required when ConnectionType = AzureRM. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required when ConnectionType = AzureRM. Azure subscription. 
     #PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml' # string. Required when ConnectionType = PublishProfile. Publish profile path. Default: $(System.DefaultWorkingDirectory)/**/*.pubxml.
     #PublishProfilePassword: # string. Required when ConnectionType = PublishProfile. Publish profile password. 
-    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
+    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Alias: WebAppKind. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
     WebAppName: # string. Required when ConnectionType = AzureRM. App Service name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Alias: DeployToSlotOrASEFlag. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotOrASEFlag = true. Resource group. 
     #SlotName: 'production' # string. Required when DeployToSlotOrASEFlag = true. Slot. Default: production.
     #DockerNamespace: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Registry or Namespace. 
     #DockerRepository: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Image. 
     #DockerImageTag: # string. Optional. Use when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
     #RuntimeStackFunction: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux. Startup command. 
@@ -107,14 +107,14 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
   # File Transforms & Variable Substitution Options
     #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
     #ConfigurationSettings: # string. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Select deployment method. Default: false.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
     #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
     #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
     #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
@@ -134,19 +134,19 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM' # 'AzureRM' | 'PublishProfile'. Required. Connection type. Default: AzureRM.
-    azureSubscription: # string. Required when ConnectionType = AzureRM. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required when ConnectionType = AzureRM. Azure subscription. 
     #PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml' # string. Required when ConnectionType = PublishProfile. Publish profile path. Default: $(System.DefaultWorkingDirectory)/**/*.pubxml.
     #PublishProfilePassword: # string. Required when ConnectionType = PublishProfile. Publish profile password. 
-    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
+    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Alias: WebAppKind. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
     WebAppName: # string. Required when ConnectionType = AzureRM. App Service name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Alias: DeployToSlotOrASEFlag. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotOrASEFlag = true. Resource group. 
     #SlotName: 'production' # string. Required when DeployToSlotOrASEFlag = true. Slot. Default: production.
     #DockerNamespace: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Registry or Namespace. 
     #DockerRepository: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Image. 
     #DockerImageTag: # string. Optional. Use when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
     #RuntimeStackFunction: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Startup command. 
@@ -156,14 +156,14 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
   # File Transforms & Variable Substitution Options
     #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
     #ConfigurationSettings: # string. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Select deployment method. Default: false.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
     #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
     #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
     #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 

@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,19 +27,19 @@ Download build and pipeline artifacts.
 # Download build and pipeline artifacts.
 - task: DownloadPipelineArtifact@2
   inputs:
-    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
+    buildType: 'current' # 'current' | 'specific'. Alias: source. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when source == specific. Project. 
-    #definition: # string. Required when source == specific. Build pipeline. 
-    #specificBuildWithTriggering: false # boolean. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
-    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when source == specific. Build version to download. Default: latest.
-    #branchName: 'refs/heads/master' # string. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/master.
-    #pipelineId: # string. Required when source == specific && runVersion == specific. Build. 
+    #definition: # string. Alias: pipeline. Required when source == specific. Build pipeline. 
+    #specificBuildWithTriggering: false # boolean. Alias: preferTriggeringPipeline. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
+    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Alias: runVersion. Required when source == specific. Build version to download. Default: latest.
+    #branchName: 'refs/heads/master' # string. Alias: runBranch. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/master.
+    #pipelineId: # string. Alias: runId | buildId. Required when source == specific && runVersion == specific. Build. 
     #tags: # string. Optional. Use when source == specific && runVersion != specific. Build Tags. 
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from partially succeeded builds. Default: false.
     #allowFailedBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from failed builds. Default: false.
-    #artifactName: # string. Artifact name. 
-    #itemPattern: '**' # string. Matching patterns. Default: **.
-    targetPath: '$(Pipeline.Workspace)' # string. Required. Destination directory. Default: $(Pipeline.Workspace).
+    #artifactName: # string. Alias: artifact. Artifact name. 
+    #itemPattern: '**' # string. Alias: patterns. Matching patterns. Default: **.
+    targetPath: '$(Pipeline.Workspace)' # string. Alias: path | downloadPath. Required. Destination directory. Default: $(Pipeline.Workspace).
 ```
 
 :::moniker-end

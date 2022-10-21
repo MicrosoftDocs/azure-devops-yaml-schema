@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 description: Update/Add App settings an Azure Web App for Linux or Windows.
-ms.date: 10/11/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,7 +27,7 @@ Updates or adds app service settings in an Azure Web App for Linux or Windows.
 # Update/Add App settings an Azure Web App for Linux or Windows.
 - task: AzureAppServiceSettings@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     appName: # string. Required. App Service name. 
     resourceGroupName: # string. Required. Resource group. 
     #slotName: 'production' # string. Slot. Default: production.

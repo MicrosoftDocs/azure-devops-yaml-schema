@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -34,7 +34,7 @@ Queue a job on a Jenkins server.
     captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
     capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    isParameterizedJob: false # boolean. Required. Parameterized job. Default: false.
+    isParameterizedJob: false # boolean. Alias: parameterizedJob. Required. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters. 
     #failOnUnstableResult: false # boolean. Fail on unstable result. Default: false.
     #retryCount: '3' # string. Number of retries for failed connection. Default: 3.
@@ -57,7 +57,7 @@ Queue a job on a Jenkins server.
     captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
     capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    isParameterizedJob: false # boolean. Required. Parameterized job. Default: false.
+    isParameterizedJob: false # boolean. Alias: parameterizedJob. Required. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
 ```
 
@@ -77,7 +77,7 @@ Queue a job on a Jenkins server.
     captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
     capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    isParameterizedJob: false # boolean. Required. Parameterized job. Default: false.
+    isParameterizedJob: false # boolean. Alias: parameterizedJob. Required. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,9 +30,9 @@ Restore your nuget packages using dotnet CLI.
     packageName: # string. Required. Package Name. 
     version: # string. Required. Package Version. 
   # Feeds and authentication
-    #externalFeedCredentials: # string. Required when selectOrConfig = config. Credentials for feed from GitHub. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Required when selectOrConfig = config. Credentials for feed from GitHub. 
   # Advanced
-    #restoreDirectory: # string. Destination directory.
+    #restoreDirectory: # string. Alias: packagesDirectory. Destination directory.
 ```
 
 :::moniker-end

@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@1 - FTP upload v1 task
 description: Upload files using FTP (task version 1).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,14 +35,14 @@ FTP Upload.
 # Upload files using FTP.
 - task: FtpUpload@1
   inputs:
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required. Authentication Method. Default: serviceEndpoint.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required. Authentication Method. Default: serviceEndpoint.
     serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
     #serverUrl: # string. Required when credsType = inputs. Server URL. 
     #username: # string. Required when credsType = inputs. Username. 
     #password: # string. Required when credsType = inputs. Password. 
-    rootDirectory: # string. Required. Root folder. 
+    rootDirectory: # string. Alias: rootFolder. Required. Root folder. 
     filePatterns: '**' # string. Required. File patterns. Default: **.
-    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
+    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
   # Advanced
     clean: false # boolean. Required. Delete remote directory. Default: false.
     cleanContents: false # boolean. Required when clean = false. Clear remote directory contents. Default: false.
@@ -60,14 +60,14 @@ FTP Upload.
 # FTP Upload.
 - task: FtpUpload@1
   inputs:
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required. Authentication Method. Default: serviceEndpoint.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required. Authentication Method. Default: serviceEndpoint.
     serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
     #serverUrl: # string. Required when credsType = inputs. Server URL. 
     #username: # string. Required when credsType = inputs. Username. 
     #password: # string. Required when credsType = inputs. Password. 
-    rootDirectory: # string. Required. Root folder. 
+    rootDirectory: # string. Alias: rootFolder. Required. Root folder. 
     filePatterns: '**' # string. Required. File patterns. Default: **.
-    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
+    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
   # Advanced
     clean: false # boolean. Required. Delete remote directory. Default: false.
     cleanContents: false # boolean. Required when clean = false. Clear remote directory contents. Default: false.

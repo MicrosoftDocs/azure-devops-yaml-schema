@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 10/18/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,7 +28,7 @@ This task deploys a Virtual Machine scale set image.
 - task: AzureVmssDeployment@0
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
@@ -53,7 +53,7 @@ This task deploys a Virtual Machine scale set image.
 - task: AzureVmssDeployment@0
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 

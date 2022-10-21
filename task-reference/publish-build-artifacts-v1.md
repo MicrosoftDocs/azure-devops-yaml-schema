@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -45,7 +45,7 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
     ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Alias: ArtifactType. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
     #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
@@ -65,7 +65,7 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
     ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Alias: ArtifactType. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
     #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
@@ -84,7 +84,7 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
     ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Alias: ArtifactType. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
     #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
@@ -101,7 +101,7 @@ Publish build artifacts to Visual Studio Team Services/TFS or a file share.
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
     ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
-    publishLocation: 'Container' # 'Container' | 'FilePath'. Required. Artifact publish location. Default: Container.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Alias: ArtifactType. Required. Artifact publish location. Default: Container.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
     #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
