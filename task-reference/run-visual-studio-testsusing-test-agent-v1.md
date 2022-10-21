@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the Visual Studio Test Platform task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests.
+RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the Visual Studio Test task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the Visual Studio Test Platform task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -104,7 +104,11 @@ This task is deprecated.
 **`testMachineGroup`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. Eg: `dbserver.fabrikam.com or 192.168.12.34` Or provide output variable of other tasks. Eg: `$(variableName)` Or provide a Machine Group Name.
+A comma-separated list of machine FQDNs or IP addresses, which may include the port number. The maximum is 32 machines or 32 agents. The list items can be:
+
+- The name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
+- A comma-delimited list of machine names. Example: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.34:5986`
+- An output variable from a previous task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +120,7 @@ Provide a comma separated list of machine IP addresses or FQDNs. Eg: `dbserver.f
 **`dropLocation`** - **Test Drop Location**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location where the test binaries have been dropped in the agent machine(s) as part of the 'Windows Machine File Copy' or 'Azure File Copy' task. System Environment Variables can also be used in location string. e.g., `%systemdrive%\Tests`, `%temp%\DropLocation` etc.
+Specifies the location on the test machine(s) where the test binaries have been copied by a [Windows Machine File Copy](/azure/devops/pipelines/tasks/deploy/windows-machine-file-copy) or an [Azure File Copy](/azure/devops/pipelines/tasks/deploy/azure-file-copy) task. System stage variables from the test agent machines can be used to specify the drop location. Examples: `c:\tests` and `%systemdrive%\Tests`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +132,7 @@ Location where the test binaries have been dropped in the agent machine(s) as pa
 **`testSelection`** - **Test Selection**<br>
 `string`. Required. Allowed values: `testAssembly` (Test Assembly), `testPlan` (Test Plan). Default value: `testAssembly`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the way you want to run tests : using Test Assemblies or using Test Plan.
+Specifies if tests are selected from test assemblies or from a test plan.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +144,7 @@ Select the way you want to run tests : using Test Assemblies or using Test Plan.
 **`testPlan`** - **Test Plan**<br>
 `string`. Required when `testSelection = testPlan`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Test Plan.
+Specifies a test plan that is already configured for this organization.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +156,7 @@ Select a Test Plan.
 **`testSuite`** - **Test Suite**<br>
 `string`. Required when `testSelection = testPlan`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select Test Suites from the Test Plan.
+Specifies a test suite from the selected test plan.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +168,7 @@ Select Test Suites from the Test Plan.
 **`testConfiguration`** - **Test Configuration**<br>
 `string`. Required when `testSelection = testPlan`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select Test Configuration.
+Specifies a test configuration from the selected test plan.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +180,7 @@ Select Test Configuration.
 **`sourcefilters`** - **Test Assembly**<br>
 `string`. Required when `testSelection = testAssembly`. Default value: `**\*test*.dll`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test binaries to run tests on. Wildcards can be used. For example, `**\*test*.dll;` for all dlls containing 'test' in their name.
+Specifies the test binaries to run tests on. Wildcards can be used. For example, `**\*test*.dll;` for all `.dll` files containing `test` in the file name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +192,7 @@ Test binaries to run tests on. Wildcards can be used. For example, `**\*test*.dl
 **`testFilterCriteria`** - **Test Filter criteria**<br>
 `string`. Optional. Use when `testSelection = testAssembly`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify the test case filter criteria. For example, `Owner=james&Priority=1`.
+The filter that specfies the tests to execute within the test assembly files. Works the same way as the `/TestCaseFilter` option in `vstest.console.exe`. Example: `Owner=james&Priority=1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +204,7 @@ Optionally specify the test case filter criteria. For example, `Owner=james&Prio
 **`runSettingsFile`** - **Run Settings File**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to runsettings or testsettings file to use with the tests.
+Specifies the file path to the `runsettings` or `testsettings` file to use with the tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +216,10 @@ Path to runsettings or testsettings file to use with the tests.
 **`overrideRunParams`** - **Override Test Run Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override parameters defined in the `TestRunParameters` section of runsettings file or `Properties` section of testsettings file. For example: `AppURL=$(DeployURL);Port=8080`. Note: Properties specified in testsettings file can be accessed via the TestContext using Test Agent 2017 Update 4 or higher.
+Specifies the override parameters that are defined in the `TestRunParameters` section of the `runsettings` file or the `Properties` section of the `testsettings` file. Example: `AppURL=$(DeployURL);Port=8080`.
+
+> [!NOTE]
+> The properties specified in the `testsettings` file can be accessed via `TestContext` using Test Agent 2017 Update 4 or higher.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,7 +231,7 @@ Override parameters defined in the `TestRunParameters` section of runsettings fi
 **`codeCoverageEnabled`** - **Code Coverage Enabled**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Whether code coverage needs to be enabled.
+Specifies if Code Coverage is enabled for the task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -236,7 +243,10 @@ Whether code coverage needs to be enabled.
 **`customSlicingEnabled`** - **Distribute tests by number of machines**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tests will be distributed based on the number of machines provided instead of number of test containers. Note that tests within a dll might also be distributed to multiple machines.
+When the value of this boolean is set to `true`, the tests are distributed based on the number of machines provided instead of number of test containers.
+
+> [!NOTE]
+> Tests within a `.dll` might also be distributed to multiple machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -248,7 +258,7 @@ Tests will be distributed based on the number of machines provided instead of nu
 **`testRunTitle`** - **Test Run Title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the Test Run.
+Specifies a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +270,7 @@ Provide a name for the Test Run.
 **`platform`** - **Platform**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Platform against which the tests should be reported. If you have defined a variable for platform in your build task, use that here.
+Specifies the platform against which the tests should be reported. If you have defined a variable for `platform` in your build task, use the variable as the value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +282,7 @@ Platform against which the tests should be reported. If you have defined a varia
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that here.
+Specifies the Configuration against which the tests should be reported. If you have defined a variable for `configuration` in your build task, use the variable as the value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +294,7 @@ Configuration against which the tests should be reported. If you have defined a 
 **`testConfigurations`** - **Test Configurations**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally associate a test case filter against a test configuration ID. Syntax: &lt;Filter1&gt;:&lt;Id1&gt;;DefaultTestConfiguration:&lt;Id3&gt;. For example: `FullyQualifiedName~Chrome:12`.
+Optional. Associates a test case filter against a test configuration ID. Syntax: `<Filter1>:<Id1>;DefaultTestConfiguration:<Id3>`. Example: `FullyQualifiedName~Chrome:12`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +306,7 @@ Optionally associate a test case filter against a test configuration ID. Syntax:
 **`autMachineGroup`** - **Application Under Test Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma separated list of machines or output variable or Machine Group Name on which server processes such as W3WP.exe is running.
+A comma separated list of machines, output variables, or machine group names on which server processes, such as `W3WP.exe`, are running.
 <!-- :::editable-content-end::: -->
 <br>
 
