@@ -78,7 +78,7 @@ The project from which to download the pipeline artifacts.
 **`definition`** - **Build pipeline**<br>
 Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the build pipeline name.
+The definition ID of the pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -265,8 +265,8 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download an artifact named 'WebApp' to 'bin' in $(Build.SourcesDirectory)
 - task: DownloadPipelineArtifact@2
   inputs:
-    artifact: 'WebApp'
-    path: $(Build.SourcesDirectory)/bin
+    artifactName: 'WebApp'
+    targetPath: $(Build.SourcesDirectory)/bin
 ```
 
 ### Download artifacts from a specific project/pipeline
@@ -275,10 +275,10 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download artifacts from a specific pipeline.
 - task: DownloadPipelineArtifact@2
   inputs:
-    source: 'specific'
+    buildType: 'specific'
     project: 'FabrikamFiber'
-    pipeline: 12
-    runVersion: 'latest'
+    definition: 12
+    buildVersionToDownload: 'latest'
 ```
 
 ### Download artifacts from a specific branch
@@ -287,11 +287,11 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download artifacts from a specific branch with a tag
 - task: DownloadPipelineArtifact@2
   inputs:
-    source: 'specific'
+    buildType: 'specific'
     project: 'FabrikamFiber'
-    pipeline: 12
-    runVersion: 'latestFromBranch'
-    runBranch: 'refs/heads/master'
+    definition: 12
+    buildVersionToDownload: 'latestFromBranch'
+    branchName: 'refs/heads/master'
     tags: 'testTag'
 ```
 
@@ -301,13 +301,13 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download an artifact named 'WebApp' from a specific build run to 'bin' in $(Build.SourcesDirectory)
 - task: DownloadPipelineArtifact@2
   inputs:
-    source: 'specific'
-    artifact: 'WebApp'
-    path: $(Build.SourcesDirectory)/bin
+    buildType: 'specific'
+    artifactName: 'WebApp'
+    targetPath: $(Build.SourcesDirectory)/bin
     project: 'FabrikamFiber'
-    pipeline: 12
-    runVersion: 'specific'
-    runId: 40
+    definition: 12
+    buildVersionToDownload: 'specific'
+    pipelineId: 40
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
