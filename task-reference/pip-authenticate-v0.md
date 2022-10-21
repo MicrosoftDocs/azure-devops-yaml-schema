@@ -66,7 +66,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 **`artifactFeeds`** - **My feeds (select below)**<br>
 Input alias: `feedList`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the feeds to authenticate as present in this organization.
+Specifies the feeds to authenticate as present in the organization.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +78,7 @@ Specifies the feeds to authenticate as present in this organization.
 **`externalFeeds`** - **Feeds from external organizations**<br>
 Input alias: `externalSources`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the endpoints to authenticate outside this organization.
+Specifies the endpoints to authenticate outside the organization.
 <!-- :::editable-content-end::: -->
 <br>
 

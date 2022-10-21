@@ -45,7 +45,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 **`artifactFeeds`** - **My feeds (select below)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the feeds to authenticate as present in this organization.
+Specifies the feeds to authenticate as present in the organization.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,7 @@ If the pipeline is running in a different project than the project hosting the f
 
 ### Download Python distributions from Azure Artifacts feeds without consulting official Python registry
 
-In this example, we are setting authentication for downloading from private Azure Artifacts feeds. The authenticate task creates environment variables `PIP_INDEX_URL` and `PIP_EXTRA_INDEX_URL` that are required to download the distributions. The task sets the variables with authentication credentials the task generates for the provided artifacts feeds. `HelloTestPackage` must be present in either `myTestFeed1` or `myTestFeed2`; otherwise, the install will fail.
+In this example, we are setting authentication for downloading from private Azure Artifacts feeds. The authenticate task creates environment variables `PIP_INDEX_URL` and `PIP_EXTRA_INDEX_URL` that are required to download the distributions. The task sets the variables with authentication credentials the task generates for the provided Artifacts feeds. `HelloTestPackage` must be present in either `myTestFeed1` or `myTestFeed2`; otherwise, the install will fail.
 
 For project-scoped feeds that are in a different project than where the pipeline is running, you must manually give the project and the feed access to the pipeline's project's build service.
 
@@ -141,7 +141,7 @@ For project-scoped feeds that are in a different project than where the pipeline
     pip install HelloTestPackage
 ```
 
-### Download Python distributions from Azure Artifacts feeds consulting official Python registry first
+### Consult official Python registry and then download Python distributions from Azure Artifacts feeds
 
 In this example, we are setting authentication for downloading from a private Azure Artifacts feed, but [pypi](https://pypi.org) is consulted first. The authenticate task creates an environment variable `PIP_EXTRA_INDEX_URL`, which contains auth credentials required to download the distributions. `HelloTestPackage` will be downloaded from the authenticated feeds only if it's not present in [pypi](https://pypi.org).
 
