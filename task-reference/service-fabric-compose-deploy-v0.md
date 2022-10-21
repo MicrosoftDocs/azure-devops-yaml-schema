@@ -241,7 +241,7 @@ Specifies the password for the Docker registry. If the password is not encrypted
 **`passwordEncrypted`** - **Password Encrypted**<br>
 `boolean`. Optional. Use when `registryCredentials = UsernamePassword`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Encrypts your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, an error will occur.
+Encrypts your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not encrypt your password, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, an error will occur.
 <!-- :::editable-content-end::: -->
 <br>
 
