@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Restores NuGet packages in preparation for a Visual Studio Build step.
+Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -60,7 +60,7 @@ Restores NuGet packages in preparation for a Visual Studio Build step.
 **`solution`** - **Path to solution, packages.config, or project.json**<br>
 `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to solution, packages.config, or project.json file that references the packages to be restored.
+The path to the solution, `packages.config`, or `project.json` file that references the packages to be restored.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -72,7 +72,7 @@ The path to solution, packages.config, or project.json file that references the 
 **`selectOrConfig`** - **Feeds to use**<br>
 `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To select one feed from VSTS and/or NuGet.org select them here. For multiple feeds, commit a nuget.config file to your source code repository and set its path here.
+Specifies the feed(s) to use. Specify one feed from VSTS and/or NuGet.org using the `select` value. Specify multiple feeds by committing a `nuget.config` file to your source code repository and setting its path with the `config` value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,7 @@ To select one feed from VSTS and/or NuGet.org select them here. For multiple fee
 **`feed`** - **Use packages from this VSTS feed**<br>
 `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated NuGet.config.
+Includes the specified VSTS feed in the generated `NuGet.config` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Include the selected feed in the generated NuGet.config.
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
 `boolean`. Optional. Use when `selectOrConfig = select`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include NuGet.org in the generated NuGet.config.
+Includes the specified NuGet.org feed in the generated `NuGet.config`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Include NuGet.org in the generated NuGet.config.
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
 `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet.config in your repository that specifies the feeds from which to restore packages.
+Specifies the path to the `NuGet.config` in your repository that specifies the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ The NuGet.config in your repository that specifies the feeds from which to resto
 **`noCache`** - **Disable local cache**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Equivalent to the -NoCache NuGet.exe command line argument.
+Prevents NuGet from using packages from local machine caches. Equivalent to the `-NoCache NuGet.exe` command line argument.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +132,7 @@ Equivalent to the -NoCache NuGet.exe command line argument.
 **`packagesDirectory`** - **Destination directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Equivalent to the -PackagesDirectory NuGet.exe command line argument.
+Specifies the folder in which packages are installed. If no folder is specified, packages are restored into a `packages/` folder alongside the selected solution, `packages.config`, or `project.json`. Equivalent to the `-PackagesDirectory NuGet.exe` command line argument.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ Equivalent to the -PackagesDirectory NuGet.exe command line argument.
 **`verbosity`** - **Verbosity**<br>
 `string`. Allowed values: `-`, `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-NuGet's verbosity level.
+Specifies the amount of detail displayed in the output.
 <!-- :::editable-content-end::: -->
 <br>
 
