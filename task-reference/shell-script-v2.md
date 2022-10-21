@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Run a shell script using Bash.
+Use this task to run a shell script using `bash`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run a shell script using Bash.
 :::moniker range="<=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run a shell script using bash.
+Use this task to run a shell script using `bash`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -82,7 +82,7 @@ Run a shell script using bash.
 **`scriptPath`** - **Script Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the shell script file to run.
+Specifies the relative path from the repo root to the shell script file that you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Relative path from repo root of the shell script file to run.
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments that you want to pass to the script.
+Specifies the arguments that you want to pass to the script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +106,7 @@ Arguments that you want to pass to the script.
 **`disableAutoCwd`** - **Specify Working Directory**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The default behavior is to set the working directory to the script location. This enables you to optionally specify a different working directory.
+Specifies the working directory where the task runs the script. If the value is left empty, the task defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ The default behavior is to set the working directory to the script location. Thi
 **`cwd`** - **Working Directory**<br>
 `string`. Optional. Use when `disableAutoCwd = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Specifies the working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +130,7 @@ Current working directory where the script is run.  Empty is the root of the rep
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the StandardError stream.
+If the value is `true`, the task will fail if errors are written to the StandardError stream.
 <!-- :::editable-content-end::: -->
 <br>
 
