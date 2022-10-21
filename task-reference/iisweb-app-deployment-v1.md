@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy using MSDeploy, then create/update websites and app pools.
+Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +21,7 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy by MSDeploy, create/update website & app pools.
+Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -152,7 +152,7 @@ This task is deprecated.
 **`EnvironmentName`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. <br>Eg: dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Specifies a comma-separated list of machine IP addresses or FQDNs, along with ports. The default port is based on the selected protocol, for example `dbserver.fabrikam.com` or `dbserver_int.fabrikam.com:5986,192.168.12.34:5986`. You can also provide the output variable of other tasks, for example `$(variableName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the administrator login for the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ Administrator login for the target machines.
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for the target machines. <br>It can accept variable defined in Build/Release definitions as '$(passwordVariable)'. <br>You may mark variable type as 'secret' to secure it.
+Specifies the administrator password for the target machines. It can accept variables defined in build/release definitions, such as `$(passwordVariable)`. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +188,7 @@ Administrator password for the target machines. <br>It can accept variable defin
 **`WinRMProtocol`** - **Protocol**<br>
 `string`. Allowed values: `Http`, `Https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the protocol to use for the WinRM connection with the machine(s). Default is HTTPS.
+Specifies the protocol used for the WinRM connection with the machine(s). The default is `HTTPS`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +200,7 @@ Select the protocol to use for the WinRM connection with the machine(s). Default
 **`TestCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `WinRMProtocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Selects the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM `HTTPS` protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +212,7 @@ Select the option to skip validating the authenticity of the machine's certifica
 **`WebDeployPackage`** - **Web Deploy Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the Web Deploy (MSDeploy) zip file on the target machines or on a UNC path like, \\\\BudgetIT\WebDeploy\WebDeployPackage.zip. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported like, $env:windir, $env:systemroot, like, $env:windir\FabrikamFibre\Web.
+Specifies the location of the Web Deploy (MSDeploy) zip file on the target machines or on a UNC path like, `\\BudgetIT\WebDeploy\WebDeployPackage.zip`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, and `$env:windir\FabrikamFibre\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,7 +224,7 @@ Location of the Web Deploy (MSDeploy) zip file on the target machines or on a UN
 **`WebDeployParamFile`** - **Web Deploy Parameter File**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the Parameter file on the target machines or on a UNC path. Parameter file is used to override Web application configuration settings like, IIS Web application name or database connection string.
+Specifies the location of the parameter file on the target machines or on a UNC path. The parameter file is used to override Web application configuration settings, like the IIS Web application name or database connection string.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -236,7 +236,8 @@ Location of the Parameter file on the target machines or on a UNC path. Paramete
 **`OverRideParams`** - **Override Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Parameters specified here will override the parameters in the MSDeploy zip file and the Parameter file. To override more than one parameter use line separator, e.g., <br/> "IIS Web Application Name"="Fabrikam" <br/> "ConnectionString"="Server=localhost;Database=Fabrikam;".
+Parameters specified here will override the parameters in the MSDeploy zip file and the parameter file. To override more than one parameter, use a line separator.  
+For example, `"IIS Web Application Name"="Fabrikam"` or `"ConnectionString"="Server=localhost;Database=Fabrikam;"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -248,7 +249,7 @@ Parameters specified here will override the parameters in the MSDeploy zip file 
 **`CreateWebSite`** - **Create or Update Website**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to create a website or to update an existing website.
+Specifies the option to create a website or to update an existing website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +261,7 @@ Select the option to create a website or to update an existing website.
 **`WebSiteName`** - **Website Name**<br>
 `string`. Required when `CreateWebSite = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the IIS website that will be created if it does not exist, or it will be updated if it is already present on the IIS server. The name of the website should be same as that specified in the web deploy zip package file. If a Parameter file and override Parameters setting is also specified, then the name of the website should be same as that in the override Parameters setting.
+Specifies the name of the IIS website that will be created if it does not exist, or it will be updated if it is already present on the IIS server. The name of the website should be the same as that specified in the web deploy zip package file. If a parameter file and override parameters setting is also specified, then the name of the website should be the same as that in the override parameters setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +273,7 @@ Name of the IIS website that will be created if it does not exist, or it will be
 **`WebSitePhysicalPath`** - **Physical Path**<br>
 `string`. Required when `CreateWebSite = true`. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Physical path where the website content is stored. The content can reside on the local computer or on a remote directory or share like, C:\Fabrikam or \\\\ContentShare\Fabrikam.
+Specifies the physical path where the website content is stored. The content can reside on the local computer or on a remote directory or share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +285,7 @@ Physical path where the website content is stored. The content can reside on the
 **`WebSitePhysicalPathAuth`** - **Physical Path Authentication**<br>
 `string`. Required when `CreateWebSite = true`. Allowed values: `WebSiteUserPassThrough` (Application User (Pass-through)), `WebSiteWindowsAuth` (Windows Authentication). Default value: `Application User (Pass-through)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Authentication mechanism for accessing the physical path of the website.
+Specifies the authentication mechanism for accessing the physical path of the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +297,7 @@ Authentication mechanism for accessing the physical path of the website.
 **`WebSiteAuthUserName`** - **User Name**<br>
 `string`. Required when `WebSitePhysicalPathAuth = WebSiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-User name for accessing the website's physical path.
+Specifies the user name for accessing the website's physical path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +309,7 @@ User name for accessing the website's physical path.
 **`WebSiteAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `WebSitePhysicalPathAuth = WebSiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for accessing the website's physical path. If you are using a gMSA, this is not required.
+Specifies the password for accessing the website's physical path. If you are using a gMSA, this is not required.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -320,7 +321,7 @@ Password for accessing the website's physical path. If you are using a gMSA, thi
 **`AddBinding`** - **Add Binding**<br>
 `boolean`. Optional. Use when `CreateWebSite = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to add port binding for the website.
+Specifies the option to add port binding for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -332,7 +333,7 @@ Select the option to add port binding for the website.
 **`AssignDuplicateBinding`** - **Assign Duplicate Binding**<br>
 `boolean`. Optional. Use when `AddBinding = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to add the bindings specified here, even if there is another website with the same bindings. If there are binding conflicts, then only one of the website will start.
+Specifies the option to add the bindings specified here (even if there is another website with the same bindings). If there are binding conflicts, only one of the websites will start.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +345,7 @@ Select the option to add the bindings specified here, even if there is another w
 **`Protocol`** - **Protocol**<br>
 `string`. Required when `AddBinding = true`. Allowed values: `https`, `http`. Default value: `http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select HTTP for the website to have an HTTP binding, or select HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
+Specifies either HTTP for the website to have an HTTP binding or HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,7 +357,7 @@ Select HTTP for the website to have an HTTP binding, or select HTTPS for the web
 **`IPAddress`** - **IP Address**<br>
 `string`. Required when `AddBinding = true`. Default value: `All Unassigned`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type an IP address that users can use to access this website. If All Unassigned is selected, the site will respond to requests for all IP addresses on the port and the optional host name that is specified for this site, unless another site on the server has a binding on the same port but with a specific IP address.
+Specifies an IP address that users can use to access the website. If **All Unassigned** is selected, the site will respond to requests for all IP addresses on the port and the optional host name that is specified for the site. The site will not respond to requests if another site on the server has a binding on the same port but with a specific IP address.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -368,7 +369,7 @@ Type an IP address that users can use to access this website. If All Unassigned 
 **`Port`** - **Port**<br>
 `string`. Required when `AddBinding = true`. Default value: `80`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type the port on which Hypertext Transfer Protocol Stack (HTTP.sys) must listen for requests made to this website.
+Specifies the port on which Hypertext Transfer Protocol Stack (HTTP.sys) must monitor for requests made to this website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -392,7 +393,7 @@ Determines whether the website requires Server Name Indication (SNI). SNI extend
 **`HostNameWithOutSNI`** - **Host Name**<br>
 `string`. Optional. Use when `ServerNameIndication = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To assign one or more host names (or domain names) to a computer that uses a single IP address, type a host name here. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
+Assigns one or more host names (or domain names) to a computer that uses a single IP address. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -404,7 +405,7 @@ To assign one or more host names (or domain names) to a computer that uses a sin
 **`HostNameWithHttp`** - **Host Name**<br>
 `string`. Optional. Use when `Protocol = http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To assign one or more host names (or domain names) to a computer that uses a single IP address, type a host name here. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
+Assigns one or more host names (or domain names) to a computer that uses a single IP address. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -416,7 +417,7 @@ To assign one or more host names (or domain names) to a computer that uses a sin
 **`HostNameWithSNI`** - **Host Name**<br>
 `string`. Required when `ServerNameIndication = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To assign one or more host names (or domain names) to a computer that uses a single IP address, type a host name here. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
+Assigns one or more host names (or domain names) to a computer that uses a single IP address. If a host name is specified then the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -428,7 +429,7 @@ To assign one or more host names (or domain names) to a computer that uses a sin
 **`SSLCertThumbPrint`** - **SSL Certificate Thumb Print**<br>
 `string`. Required when `Protocol = https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Thumb-print of the Secure Socket Layer certificate that the website is going to use. The certificate should be already installed on the machine and present under the Local Computer, Personal store.
+Specifies the thumb-print of the Secure Socket Layer certificate that the website is going to use. The certificate should already be installed on the machine and present under the Local Computer Personal store.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -440,7 +441,7 @@ Thumb-print of the Secure Socket Layer certificate that the website is going to 
 **`CreateAppPool`** - **Create or Update Application Pool**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to create an application pool or to update an existing application pool.
+Specifies the option to create an application pool or to update an existing application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -452,7 +453,7 @@ Select the option to create an application pool or to update an existing applica
 **`AppPoolName`** - **Name**<br>
 `string`. Required when `CreateAppPool = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the IIS application pool to create or update. Existing application pool will be updated with the settings specified here.
+Specifies the name of the IIS application pool to create or update. The existing application pool will be updated with the settings specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -464,7 +465,7 @@ Name of the IIS application pool to create or update. Existing application pool 
 **`DotNetVersion`** - **.NET Version**<br>
 `string`. Required when `CreateAppPool = true`. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version of the .NET Framework that is loaded by this application pool. If the applications assigned to this application pool do not contain managed code, select the No Managed Code option from the list.
+Specifies the version of the .NET Framework that is loaded by this application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -476,7 +477,7 @@ Version of the .NET Framework that is loaded by this application pool. If the ap
 **`PipeLineMode`** - **Managed Pipeline Mode**<br>
 `string`. Required when `CreateAppPool = true`. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Managed pipeline mode specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
+Managed pipeline mode specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in integrated mode.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -488,7 +489,7 @@ Managed pipeline mode specifies how IIS processes requests for managed content. 
 **`AppPoolIdentity`** - **Identity**<br>
 `string`. Required when `CreateAppPool = true`. Allowed values: `ApplicationPoolIdentity`, `LocalService`, `LocalSystem`, `NetworkService`, `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
+Configures the account under which an application pool's worker process runs. Specify one of the predefined security accounts, or configure a custom account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -523,7 +524,10 @@ If you are using a gMSA, this is not required.
 **`AppCmdCommands`** - **Additional AppCmd.exe Commands**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional AppCmd.exe commands to set website or application pool properties. For more than one command use line separator, e.g., <br/> list apppools <br/> list sites.
+Specifies additional `AppCmd.exe` commands to set the website or application pool properties. For more than one command, use a line separator.  
+For example:  
+\<list app pools\>  
+\<list sites\>
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -535,7 +539,7 @@ Additional AppCmd.exe commands to set website or application pool properties. Fo
 **`DeployInParallel`** - **Deploy in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Setting it to true will deploy the Web application in-parallel on the target machines.
+If set to `true`, the Web application is deployed in-parallel on the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -547,7 +551,7 @@ Setting it to true will deploy the Web application in-parallel on the target mac
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, select a subset of machines either by providing machine names or tags.
+Optional. Specifies a subset of machines by providing machine names or tags.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -559,7 +563,9 @@ Optionally, select a subset of machines either by providing machine names or tag
 **`MachineFilter`** - **Deploy to Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input is valid only for machine groups and is not supported for flat list of machines or output variables yet. Provide a list of machines like, dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34, or tags like, Role:DB; OS:Win8.1. If multiple tags are provided, then the task will run in all the machines with the specified tags. For Azure Resource Groups, provide the virtual machine's name like, ffweb, ffdb. The default is to run the task in all machines.
+This input is only valid for machine groups and is not supported for a flat list of machines or output variables yet.
+
+Specifies a list of machines, like `dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34` or tags, like `Role:DB; OS:Win8.1`. If multiple tags are provided, the task will run in all of the machines with the specified tags. For Azure Resource Groups, specify the virtual machine's name, like `ffweb, ffdb`. The default runs the task in all machines.
 <!-- :::editable-content-end::: -->
 <br>
 
