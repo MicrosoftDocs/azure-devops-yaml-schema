@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to deploy a Docker-compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the compose file.
+Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to deploy a Docker-compose application to a Service Fabric cluster
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to deploy a Docker-compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the compose file.
+Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -265,7 +265,7 @@ Upgrades an existing deployment rather than removing it.
 **`deployTimeoutSec`** - **Deploy Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the timeout in seconds for deploying the application.
+Specifies the timeout, in seconds,for deploying the application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -277,7 +277,7 @@ Specifies the timeout in seconds for deploying the application.
 **`removeTimeoutSec`** - **Remove Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the timeout in seconds for removing an existing application.
+Specifies the timeout, in seconds,for removing an existing application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -289,7 +289,7 @@ Specifies the timeout in seconds for removing an existing application.
 **`getStatusTimeoutSec`** - **Get Status Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the timeout in seconds for getting the status of an existing application.
+Specifies the timeout, in seconds,for getting the status of an existing application.
 <!-- :::editable-content-end::: -->
 <br>
 
