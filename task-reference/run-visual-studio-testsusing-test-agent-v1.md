@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the Visual Studio Test task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the Visual Studio Test Platform task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests.
+RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the Visual Studio Test task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the Visual Studio Test Platform task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities, such as automatically rerunning failed tests.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -104,7 +104,7 @@ This task is deprecated.
 **`testMachineGroup`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A comma-separated list of machine FQDNs or IP addresses, which may include the port number. The maximum is 32 machines or 32 agents. The list items can be:
+A comma separated list of machine FQDNs or IP addresses, which may include the port number. The maximum is 32 machines or 32 agents. The list items can be:
 
 - The name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 - A comma-delimited list of machine names. Example: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.34:5986`
@@ -132,7 +132,7 @@ Specifies the location on the test machine(s) where the test binaries have been 
 **`testSelection`** - **Test Selection**<br>
 `string`. Required. Allowed values: `testAssembly` (Test Assembly), `testPlan` (Test Plan). Default value: `testAssembly`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies if tests are selected from test assemblies or from a test plan.
+Specifies how tests are run: using test assemblies or Test Plan.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -243,7 +243,7 @@ Specifies if Code Coverage is enabled for the task.
 **`customSlicingEnabled`** - **Distribute tests by number of machines**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When the value of this boolean is set to `true`, the tests are distributed based on the number of machines provided instead of number of test containers.
+When the value of this boolean is set to `true`, the tests are distributed based on the number of machines provided instead of the number of test containers.
 
 > [!NOTE]
 > Tests within a `.dll` might also be distributed to multiple machines.
@@ -282,7 +282,7 @@ Specifies the platform against which the tests should be reported. If you have d
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Configuration against which the tests should be reported. If you have defined a variable for `configuration` in your build task, use the variable as the value.
+Specifies the configuration against which the tests should be reported. If you have defined a variable for `configuration` in your build task, use the variable as the value.
 <!-- :::editable-content-end::: -->
 <br>
 
