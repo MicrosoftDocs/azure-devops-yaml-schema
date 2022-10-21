@@ -23,13 +23,9 @@ Security and compliance assessment for Azure Policy.
 :::moniker range=">=azure-pipelines-2019.1"
 
 ```yaml
-# Check Azure Policy compliance v0
-# Security and compliance assessment for Azure Policy.
-- task: AzurePolicyCheckGate@0
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    #ResourceGroupName: # string. Resource group. 
-    #Resources: # string. Resource name.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end

@@ -1,7 +1,7 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,17 @@ Run scripts and make changes to a MySQL Database.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2020"
+
+```yaml
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019.1"
 
 ```yaml
 # MySQL database deploy v1

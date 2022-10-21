@@ -1,7 +1,7 @@
 ---
 title: IISWebAppDeploymentOnMachineGroup@0 - IIS web app deploy v0 task
 description: Deploy a website or web application using Web Deploy.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,50 +20,12 @@ Deploy a website or web application using Web Deploy.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-# IIS web app deploy v0
-# Deploy a website or web application using Web Deploy.
-- task: IISWebAppDeploymentOnMachineGroup@0
-  inputs:
-    WebSiteName: # string. Required. Website Name. 
-    #VirtualApplication: # string. Virtual Application. 
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip' # string. Required. Package or Folder. Default: $(System.DefaultWorkingDirectory)\**\*.zip.
-  # Advanced Deployment Options
-    #SetParametersFile: # string. SetParameters File. 
-    #RemoveAdditionalFilesFlag: false # boolean. Remove Additional Files at Destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: false # boolean. Exclude Files from the App_Data Folder. Default: false.
-    #TakeAppOfflineFlag: false # boolean. Take App Offline. Default: false.
-    #AdditionalArguments: # string. Additional Arguments. 
-  # File Transforms & Variable Substitution Options
-    #XmlTransformation: false # boolean. XML transformation. Default: false.
-    #XmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# IIS Web App Deploy v0
-# Deploy a website or web application using Web Deploy.
-- task: IISWebAppDeploymentOnMachineGroup@0
-  inputs:
-    WebSiteName: # string. Required. Website Name. 
-    #VirtualApplication: # string. Virtual Application. 
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip' # string. Required. Package or Folder. Default: $(System.DefaultWorkingDirectory)\**\*.zip.
-  # Advanced Deployment Options
-    #SetParametersFile: # string. SetParameters File. 
-    #RemoveAdditionalFilesFlag: false # boolean. Remove Additional Files at Destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: false # boolean. Exclude Files from the App_Data Folder. Default: false.
-    #TakeAppOfflineFlag: false # boolean. Take App Offline. Default: false.
-    #AdditionalArguments: # string. Additional Arguments. 
-  # File Transforms & Variable Substitution Options
-    #XmlTransformation: false # boolean. XML transformation. Default: false.
-    #XmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end

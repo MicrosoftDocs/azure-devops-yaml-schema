@@ -1,7 +1,7 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,30 +28,12 @@ Pause deployment and wait for intervention.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-# Manual intervention v8
-# Pause deployment and wait for manual intervention.
-- task: ManualIntervention@8
-  inputs:
-    #instructions: # string. Instructions. 
-    #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Manual Intervention v8
-# Pause deployment and wait for intervention.
-- task: ManualIntervention@8
-  inputs:
-    #instructions: # string. Instructions. 
-    #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end
