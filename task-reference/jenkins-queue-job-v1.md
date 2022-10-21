@@ -60,7 +60,7 @@ Use this task to queue a job on a Jenkins server.
 **`serverEndpoint`** - **Jenkins service endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service endpoint for your Jenkins instance.  Click the Manage link to a new Jenkins service endpoint.
+Specifies the service endpoint for your Jenkins instance.  Click the Manage link (when using the task assistant) to create a new Jenkins service endpoint.
 <!-- :::editable-content-end::: -->
 <br>
 
