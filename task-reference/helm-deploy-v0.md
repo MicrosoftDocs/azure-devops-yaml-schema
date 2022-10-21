@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
+Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running helm commands.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy, configure, update your Kubernetes cluster in Azure Container Service by running helm commands.
+Use this task to deploy, configure, or update your Kubernetes cluster in Azure Container Service by running helm commands.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -283,7 +283,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 **`connectionType`** - **Connection Type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by using Azure Service Connection. Select 'Kubernetes Service Connection' to connect to any Kubernetes cluster by using kubeconfig or Service Account.
+Specifies the connection type. Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -295,7 +295,7 @@ Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by usi
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Azure service connection. Select an Azure subscription, which has your Azure Container Registry.
+The name of the Azure Service Connection. Specify an Azure subscription that has your container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -307,7 +307,7 @@ Name of the Azure service connection. Select an Azure subscription, which has yo
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the resource group within the subscription. Select an Azure Resource Group.
+The name of the resource group within the subscription. Specify an Azure Resource Group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -319,7 +319,7 @@ Name of the resource group within the subscription. Select an Azure Resource Gro
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the AKS cluster. Select an Azure Managed Cluster.
+The name of the AKS cluster. Specify an Azure Managed Cluster.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -331,7 +331,7 @@ Name of the AKS cluster. Select an Azure Managed Cluster.
 **`useClusterAdmin`** - **Use cluster admin credentials**<br>
 `boolean`. Optional. Use when `connectionType = Azure Resource Manager`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use cluster administrator credentials instead of default cluster user credentials.
+Uses cluster administrator credentials instead of default cluster user credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -343,7 +343,7 @@ Use cluster administrator credentials instead of default cluster user credential
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection.
+Specifies a Kubernetes Service Connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -355,7 +355,7 @@ Select a Kubernetes service connection.
 **`namespace`** - **Namespace**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The namespace on which the kubectl commands are run. If not specified, the default namespace is used. Specify K8 namespace to use. Use Tiller namespace can be specified in the advanced section of the task or by passing the --tiller-namespace option as argument.
+The namespace on which you run the `kubectl` commands. If not specified, the task uses the default namespace. Specify the Kubernetes namespace to use. You can specify the Tiller namespace in the advanced section of the task or by passing the `--tiller-namespace` option as an argument.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -367,7 +367,7 @@ The namespace on which the kubectl commands are run. If not specified, the defau
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
 Input alias: `azureSubscriptionEndpointForACR`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription, which has your Azure Container Registry.
+Specifies an Azure subscription that has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -379,7 +379,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 **`azureResourceGroupForACR`** - **Resource group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Group, which has your Container Registry.
+Specifies an Azure Resource Group that has your Container Registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -391,7 +391,7 @@ Select an Azure Resource Group, which has your Container Registry.
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Container Registry which will be used for pushing helm charts.
+Specifies an Azure Container Registry to be used for pushing Helm charts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -403,7 +403,7 @@ Select an Azure Container Registry which will be used for pushing helm charts.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `save`, `upgrade`, `uninstall`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a helm command.
+Specifies a Helm command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -414,7 +414,7 @@ Select a helm command.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `save`, `upgrade`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a helm command.
+Specifies a Helm command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -425,7 +425,7 @@ Select a helm command.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `upgrade`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a helm command.
+Specifies a Helm command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -437,7 +437,7 @@ Select a helm command.
 **`chartType`** - **Chart Type**<br>
 `string`. Required when `command == install || command == upgrade`. Allowed values: `Name`, `FilePath` (File Path). Default value: `Name`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select how you want to enter chart information. You can either provide name of the chart or folder/file path to the chart.
+Specifies how you want to enter chart information. You can either provide the name of the chart or folder/file path to the chart.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -449,7 +449,7 @@ Select how you want to enter chart information. You can either provide name of t
 **`chartName`** - **Chart Name**<br>
 `string`. Required when `chartType == Name`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chart reference to install, this can be a url or a chart name. For example, if chart name is 'stable/mysql', the task will run 'helm install stable/mysql'.
+The name of the chart reference to install. This can be a url or a chart name. For example, if the chart name is `stable/mysql`, the task runs `helm install stable/mysql`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -461,7 +461,7 @@ Chart reference to install, this can be a url or a chart name. For example, if c
 **`chartPath`** - **Chart Path**<br>
 `string`. Required when `chartType == FilePath || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if './redis' is specified the task will run 'helm install ./redis'. If you're consuming a chart that's published as an artifact, then the path will be $(System.DefaultWorkingDirectory)/ARTIFACT-NAME/Charts/CHART-NAME
+The path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if you specify `./redis`, the task runs `helm install ./redis`. If you're consuming a chart that's published as an artifact, then the path will be `$(System.DefaultWorkingDirectory)/ARTIFACT-NAME/Charts/CHART-NAME`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -473,7 +473,7 @@ Path to the chart to install. This can be a path to a packaged chart or a path t
 **`chartVersion`** - **Version**<br>
 Input alias: `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the exact chart version to install. If this is not specified, the latest version is installed. Set the version on the chart to this semver version​.
+Specifies the exact chart version to install. If you don't specify the chart version, the task installs the latest version. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -484,7 +484,7 @@ Specify the exact chart version to install. If this is not specified, the latest
 **`chartVersion`** - **Version**<br>
 Input alias: `version`. `string`. Optional. Use when `command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the exact chart version to install. If this is not specified, the latest version is installed. Set the version on the chart to this semver version​.
+Specifies the exact chart version to install. If you don't specify the chart version, the task installs the latest version. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -496,7 +496,7 @@ Specify the exact chart version to install. If this is not specified, the latest
 **`releaseName`** - **Release Name**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Release name. If unspecified, it will autogenerate one for you. releaseName input is only valid for 'install' and 'upgrade' commands
+The release name. If you don't specify the release name, the task autogenerates one for you. The `releaseName` input is only valid for `install` and `upgrade` commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -508,10 +508,14 @@ Release name. If unspecified, it will autogenerate one for you. releaseName inpu
 **`overrideValues`** - **Set Values**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2). You can also specify multiple values by delimiting them with newline as so:
-<li>key1=val1
-<li>key2=val2<br><br>
-Please note that if you have a value which itself contains newlines, use the valueFile option, else the task will treat the newline as a delimiter. The task will construct the helm command by using these set values. For example, helm install --set key1=val1 ./redis
+Specifies values on the command line. This input can specify multiple or separate values with commas: `key1=val1,key2=val2`.
+
+You can also specify multiple values by delimiting them with a new line, as follows:
+
+* key1=val1
+* key2=val2
+
+If you have a value that contains new lines, use the `valueFile` option. Otherwise, the task treats the new line as a delimiter. The task constructs the Helm command by using these set values. For example, you can set the value using a command like the following: `helm install --set key1=val1 ./redis`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -523,7 +527,7 @@ Please note that if you have a value which itself contains newlines, use the val
 **`valueFile`** - **Value File**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify values in a YAML file or a URL. For example, specifying myvalues.yaml will result in 'helm install --values=myvals.yaml'.
+Specifies values in a YAML file or a URL. For example, specifying `myvalues.yaml` results in `helm install --values=myvals.yaml`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -535,7 +539,7 @@ Specify values in a YAML file or a URL. For example, specifying myvalues.yaml wi
 **`destination`** - **Destination**<br>
 `string`. Optional. Use when `command == package`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify values in a YAML file or a URL.
+Specifies values in a YAML file or a URL.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -547,7 +551,7 @@ Specify values in a YAML file or a URL.
 **`canaryimage`** - **Use canary image version.**<br>
 `boolean`. Optional. Use when `command == init`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the canary Tiller image, the latest pre-release version of Tiller.
+Specifies the canary Tiller image. Use the latest pre-release version of Tiller.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -559,7 +563,7 @@ Use the canary Tiller image, the latest pre-release version of Tiller.
 **`upgradetiller`** - **Upgrade Tiller**<br>
 `boolean`. Optional. Use when `command == init`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Upgrade if Tiller is already installed.
+If `true`, this input upgrades Tiller if Tiller is already installed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -571,7 +575,7 @@ Upgrade if Tiller is already installed.
 **`updatedependency`** - **Update Dependency**<br>
 `boolean`. Optional. Use when `command == install || command == package`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run helm dependency update before installing the chart. Update dependencies from 'requirements.yaml' to dir 'charts/' before packaging.
+If `true`, this input updates a Helm dependency update before installing the chart. Updates dependencies from `requirements.yaml` to the `charts/` directory before packaging.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -583,7 +587,7 @@ Run helm dependency update before installing the chart. Update dependencies from
 **`save`** - **Save**<br>
 `boolean`. Optional. Use when `command == package`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Save packaged chart to local chart repository (default true)​.
+Saves the packaged chart to the local chart repository when set to `true​`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -595,7 +599,7 @@ Save packaged chart to local chart repository (default true)​.
 **`install`** - **Install if release not present.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If a release by this name doesn't already exist, run an install​.
+If a release by this name doesn't already exist, this input runs an install​.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -607,7 +611,7 @@ If a release by this name doesn't already exist, run an install​.
 **`recreate`** - **Recreate Pods.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Performs pods restart for the resource if applicable.
+Performs pods restart for the resource, if applicable.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -619,7 +623,7 @@ Performs pods restart for the resource if applicable.
 **`resetValues`** - **Reset Values.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Reset the values to the ones built into the chart.
+Resets the values to the values built into the chart.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -631,7 +635,7 @@ Reset the values to the ones built into the chart.
 **`force`** - **Force**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Force resource update through delete/recreate if needed​.
+Forces a resource update through a delete or recreate action, if needed​.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -643,7 +647,7 @@ Force resource update through delete/recreate if needed​.
 **`waitForExecution`** - **Wait**<br>
 `boolean`. Optional. Use when `command == init || command == install || command == upgrade`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Block till command execution completes.
+Blocks the action until the command execution completes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -655,7 +659,7 @@ Block till command execution completes.
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Helm command options.
+The Helm command options.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -679,7 +683,7 @@ Enables using SSL between Helm and Tiller.
 **`caCert`** - **CA certificate**<br>
 `string`. Required when `enableTls == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-CA cert used to issue certificate for tiller and helm client.
+The CA cert used to issue a certificate for the Tiller and Helm client.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -691,7 +695,7 @@ CA cert used to issue certificate for tiller and helm client.
 **`certificate`** - **Certificate**<br>
 `string`. Required when `enableTls == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify Tiller certificate or Helm client certificate.
+Specify the Tiller certificate or the Helm client certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -703,7 +707,7 @@ Specify Tiller certificate or Helm client certificate.
 **`privatekey`** - **Key**<br>
 `string`. Required when `enableTls == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify Tiller Key or Helm client key.
+Specify the Tiller key or the Helm client key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -715,7 +719,7 @@ Specify Tiller Key or Helm client key.
 **`tillernamespace`** - **Tiller namespace**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify K8 namespace of tiller.
+Specify Tiller's Kubernetes namespace.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -727,7 +731,7 @@ Specify K8 namespace of tiller.
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely on the exit code to determine failure.
+If this input is `true`, this task fails if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise, the task relies on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -738,7 +742,7 @@ If this is true, this task will fail if any errors are written to the error pipe
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely on the exit code to determine failure.
+If this input is `true`, this task fails if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise, the task relies on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -750,7 +754,7 @@ If this is true, this task will fail if any errors are written to the error pipe
 **`publishPipelineMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, the task will collect and publish deployment metadata.
+If this input is `true`, the task collects and publishes deployment metadata.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -762,7 +766,7 @@ If this is true, the task will collect and publish deployment metadata.
 **`chartNameForACR`** - **Chart Name For Azure Container Registry**<br>
 `string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chart name with which the chart will be stored in Azure Container Registry.
+The chart's name in the Azure Container Registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -774,7 +778,7 @@ Chart name with which the chart will be stored in Azure Container Registry.
 **`chartPathForACR`** - **Chart Path for Azure Container Registry**<br>
 `string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the chart directory.
+The file path to the chart directory in the Azure Container Registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -795,12 +799,12 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="helmExitCode"::: -->
 **`helmExitCode`**<br><!-- :::editable-content name="Value"::: -->
-Exit code emitted from the execution of specified Helm command
+The exit code emitted from the execution of specified Helm command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="helmOutput"::: -->
 **`helmOutput`**<br><!-- :::editable-content name="Value"::: -->
-Output emitted from the execution of specified Helm command
+The output emitted from the execution of specified Helm command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
