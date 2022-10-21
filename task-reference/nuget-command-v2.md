@@ -171,7 +171,7 @@ Specifies the path to the solution, `packages.config`, or `project.json` file th
 **`feedsToUse`** - **Feeds to use**<br>
 Input alias: `selectOrConfig`. `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with the `select` value. Alternatively, you can commit a `nuget.config` file to your source code repository and set its path as the value using the `config` value.
+Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with the `select` value. Alternatively, you can commit a `NuGet.config` file to your source code repository and set its path as the value using the `config` value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -301,7 +301,7 @@ Specifies the amount of detail displayed in the output.
 **`packagesToPush`** - **Path to NuGet package(s) to publish**<br>
 Input alias: `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies he pattern to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon.
+Specifies the pattern to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon.
 <!-- :::editable-content-end::: -->
 <br>
 
