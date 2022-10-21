@@ -90,7 +90,7 @@ The value used to specify the version in the manifest files.
 **`versionBehavior`** - **Version Behavior**<br>
 `string`. Allowed values: `Append`, `Replace`. Default value: `Append`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Appends the version value to existing values in the manifest files or replace them.
+Appends the version value to existing values in the manifest files or replaces them.
 <!-- :::editable-content-end::: -->
 <br>
 
