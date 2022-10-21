@@ -134,7 +134,7 @@ Specifies the Python package directory published where `setup.py` is present.
 **`wheel`** - **Upload wheel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, the task will build and publish a universal wheel (platform independent) of this package. [More information regarding universal wheels](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+If set to `true`, the task will build and publish a universal wheel (platform independent) of this package. More information regarding [universal wheels](https://packaging.python.org/tutorials/distributing-packages/#wheels).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -165,7 +165,7 @@ None.
 
 Use this task to create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 
-This task builds an sdist package by running `python setup.py sdist` using the Python instance in `PATH`. It can optionally build a universal wheel in addition to the sdist. It will upload the package to a PyPI index using `twine`.
+This task builds an sdist package by running `python setup.py sdist` with the Python instance in `PATH`. In addition to the sdist, it can optionally build a universal wheel. It will upload the package to a PyPI index using `twine`.
 The task will install the `wheel` and `twine` packages with `python -m pip install --user`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
