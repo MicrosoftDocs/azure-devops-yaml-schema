@@ -177,7 +177,7 @@ See an [example of publishing code coverage using Cobertura](/azure/devops/pipel
 
 ## Docker
 
-For apps using Docker, build and tests may run inside the container, and generate code coverage results within the container. In order to publish the results to the pipeline, the resulting artifacts should be made available to the **Publish Code Coverage Results** task. For reference you can see a similar example for publishing test results under the [Build, test, and publish results with a Docker file](publish-test-results-v2.md#docker) section for **Docker**.
+For apps using Docker, build and tests may run inside the container and generate code coverage results within the container. In order to publish the results to the pipeline, the resulting artifacts should be made available to the **Publish Code Coverage Results** task. For reference, you can see a similar example for publishing test results under the [Build, test, and publish results with a Docker file](publish-test-results-v2.md#docker) section for **Docker**.
 
 ## View results
 
