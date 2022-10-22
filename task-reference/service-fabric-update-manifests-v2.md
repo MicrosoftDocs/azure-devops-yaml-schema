@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Automatically update portions of application and service manifests in a packaged Azure Service Fabric application.
+Use this task in a build pipeline to automatically update the versions of a packaged Service Fabric app. This task appends a version suffix to all service and app versions, specified in the manifest files, in an Azure Service Fabric app package.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Automatically update portions of application and service manifests in a packaged
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Automatically updates portions of the application and service manifests within a packaged Service Fabric application.
+Use this task in a build pipeline to automatically update the versions of a packaged Service Fabric app. This task appends a version suffix to all service and app versions, specified in the manifest files, in an Azure Service Fabric app package.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -106,7 +106,7 @@ Specifies the type of update that should be made to the manifest files. In order
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the application package. [Variables](http://azure/devops/pipelines/build/variables) and wildcards can be used in the path.
+Specifies the path to the application package. [Variables](http://azure/devops/pipelines/build/variables) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,8 @@ The path to the application package. [Variables](http://azure/devops/pipelines/b
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version in the manifest files.
 
-**Tip**: You can modify the build number format directly or use a logging command to dynamically set a variable in an format. For example, you can use `$(VersionSuffix)` defined in a PowerShell task:
+> [!TIP]
+> You can modify the build number format directly or use a logging command to dynamically set a variable in a format. For example, you can use `$(VersionSuffix)` defined in a PowerShell task:
 
 ```
 $versionSuffix = ".$([DateTimeOffset]::UtcNow.ToString('yyyyMMdd.HHmmss'))"
@@ -151,7 +152,8 @@ Specifies whether to append the version value to existing values in the manifest
 <!-- :::editable-content name="helpMarkDown"::: -->
 Appends the new version suffix to only the packages that have changed from a previous build. If no changes are found, the version suffix from the previous build will be appended.
 
-**Note**: By default, the compiler will create different outputs even if no changes were made. Use the [deterministic compiler flag](https://devblogs.microsoft.com/dotnet/whats-new-for-c-and-vb-in-visual-studio/) to ensure builds with the same inputs produce the same outputs.
+> [!NOTE]
+> By default, the compiler will create different outputs even if no changes were made. Use the [deterministic compiler flag](https://devblogs.microsoft.com/dotnet/whats-new-for-c-and-vb-in-visual-studio/) to ensure builds with the same inputs produce the same outputs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -163,7 +165,7 @@ Appends the new version suffix to only the packages that have changed from a pre
 **`pkgArtifactName`** - **Package Artifact Name**<br>
 `string`. Optional. Use when `updateType = Manifest versions && updateOnlyChanged = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact containing the application package for comparison.
+Specifies the name of the artifact containing the application package for comparison.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,7 +201,7 @@ Specifies whether to compare against the last completed and successful build or 
 **`buildNumber`** - **Build Number**<br>
 `string`. Optional. Use when `updateType = Manifest versions && compareType = Specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build number for comparison.
+Specifies the build number for comparison.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -211,7 +213,7 @@ The build number for comparison.
 **`overwriteExistingPkgArtifact`** - **Overwrite Existing Package Artifact**<br>
 `boolean`. Optional. Use when `updateType = Manifest versions && updateOnlyChanged = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always downloads a new copy of the artifact. Otherwise, this boolean uses an existing copy, if present.
+Downloads a new copy of the artifact. Otherwise, this boolean uses an existing copy if present.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -223,7 +225,7 @@ Always downloads a new copy of the artifact. Otherwise, this boolean uses an exi
 **`imageNamesPath`** - **Image Names Path**<br>
 `string`. Optional. Use when `updateType = Docker image settings`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to a text file that contains the names of the Docker images associated with the Service Fabric application that should be updated with digests. Each image name must be on its own line and must be in the same order as the digests in Image Digests file. If the images are created by the Service Fabric project, this file is generated as part of the Package target, and its output location is controlled by the property `BuiltDockerImagesFilePath`.
+Specifies the path to a text file that contains the names of the Docker images associated with the Service Fabric application that should be updated with digests. Each image name must be on its own line and must be in the same order as the digests in the Image Digests file. If the images are created by the Service Fabric project, this file is generated as part of the Package target, and its output location is controlled by the property `BuiltDockerImagesFilePath`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -235,7 +237,7 @@ The path to a text file that contains the names of the Docker images associated 
 **`imageDigestsPath`** - **Image Digests Path**<br>
 `string`. Required when `updateType = Docker image settings`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to a text file that contains the digest values of the Docker images associated with the Service Fabric application. This file can be output by the [Docker task](/azure/devops/pipelines/tasks/build/docker) when using the push action. The file should contain lines of text in the format of `registry/image_name@digest_value`.
+Specifies the path to a text file that contains the digest values of the Docker images associated with the Service Fabric application. This file can be output by the [Docker task](/azure/devops/pipelines/tasks/build/docker) when using the push action. The file should contain lines of text in the format of `registry/image_name@digest_value`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -261,10 +263,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task in a build pipeline to automatically update 
-the versions of a packaged Service Fabric app.
-This task appends a version suffix to all service and app versions, 
-specified in the manifest files, in an Azure Service Fabric app package.
+Use this task in a build pipeline to automatically update the versions of a packaged Service Fabric app. This task appends a version suffix to all service and app versions, specified in the manifest files, in an Azure Service Fabric app package.
 
 > [!NOTE]
 > This task requires Windows PowerShell.
@@ -275,13 +274,13 @@ This task can only be used in a build pipeline to automatically update the versi
 
 This task support two types of updates:
 
-1. **Manifest version**: It updates Service and Application versions specified in manifest files in a Service fabric application package. If specified, it compares current files against a previous build and updates version only for those services which have been changed.
+1. **Manifest version**: Updates Service and Application versions specified in manifest files in a Service fabric application package. If specified, it compares current files against a previous build and updates the version only for those services which have been changed.
 
-1. **Docker image settings**: It updates docker container image settings specified in manifest files in a Service fabric application package. The image settings to be placed are picked from two files:
+1. **Docker image settings**: Updates docker container image settings specified in manifest files in a Service fabric application package. The image settings to be placed are picked from two files:
 
-    a. **Image names file**: This file is generated by build task
+    a. **Image names file**: This file is generated by the build task
 
-    b. **Image digests file**: This file is generated by docker task when it pushes images to registry
+    b. **Image digests file**: This file is generated by the docker task when it pushes images to registry
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
