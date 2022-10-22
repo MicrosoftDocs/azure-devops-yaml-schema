@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,9 +27,9 @@ Publish (upload) a file or directory as a named artifact for the current run.
 # Publish (upload) a file or directory as a named artifact for the current run.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: $(Pipeline.Workspace).
-    #artifact: # string. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: pipeline.
+    targetPath: '$(Pipeline.Workspace)' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
+    #artifact: # string. Alias: artifactName. Artifact name. 
+    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
     #fileSharePath: # string. Required when artifactType = filepath. File share path. 
     #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
     #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
@@ -45,9 +45,9 @@ Publish (upload) a file or directory as a named artifact for the current run.
 # Publish (upload) a file or directory as a named artifact for the current run.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: $(Pipeline.Workspace).
-    #artifact: # string. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: pipeline.
+    targetPath: '$(Pipeline.Workspace)' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
+    #artifact: # string. Alias: artifactName. Artifact name. 
+    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
     #fileSharePath: # string. Required when artifactType = filepath. File share path. 
     #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
     #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.

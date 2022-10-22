@@ -1,7 +1,7 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -39,18 +39,18 @@ This task is deprecated.
 # [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
 - task: XamarinTestCloud@1
   inputs:
-    appFile: # string. Required. App file. 
-    #dsymFile: # string. dSYM file (iOS only). 
+    appFile: # string. Alias: app. Required. App file. 
+    #dsymFile: # string. Alias: dsym. dSYM file (iOS only). 
     teamApiKey: # string. Required. Team API key. 
-    email: # string. Required. User email. 
+    email: # string. Alias: user. Required. User email. 
     devices: # string. Required. Devices. 
     series: 'master' # string. Required. Series. Default: master.
-    testAssemblyDirectory: # string. Required. Test assembly directory. 
+    testAssemblyDirectory: # string. Alias: testDir. Required. Test assembly directory. 
   # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: none.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: en_US.
+    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Alias: parallelization. Required. Parallelization. Default: none.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
+    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Alias: testCloudLocation. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
     #optionalArgs: # string. Optional arguments. 
     #publishNUnitResults: true # boolean. Publish results to Azure Pipelines. Default: true.
 ```
@@ -64,18 +64,18 @@ This task is deprecated.
 # [Depreciated] Testing mobile apps with Xamarin Test Cloud using Xamarin.UITest - recommended task is now AppCenterTest.
 - task: XamarinTestCloud@1
   inputs:
-    appFile: # string. Required. App file. 
-    #dsymFile: # string. dSYM file (iOS only). 
+    appFile: # string. Alias: app. Required. App file. 
+    #dsymFile: # string. Alias: dsym. dSYM file (iOS only). 
     teamApiKey: # string. Required. Team API key. 
-    email: # string. Required. User email. 
+    email: # string. Alias: user. Required. User email. 
     devices: # string. Required. Devices. 
     series: 'master' # string. Required. Series. Default: master.
-    testAssemblyDirectory: # string. Required. Test assembly directory. 
+    testAssemblyDirectory: # string. Alias: testDir. Required. Test assembly directory. 
   # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: none.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: en_US.
+    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Alias: parallelization. Required. Parallelization. Default: none.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
+    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Alias: testCloudLocation. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
     #optionalArgs: # string. Optional arguments. 
     #publishNUnitResults: true # boolean. Publish results to Azure Pipelines/TFS. Default: true.
 ```

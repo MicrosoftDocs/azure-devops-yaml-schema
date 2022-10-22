@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 10/03/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Use this task to build with Apache Ant.
 # Build with Apache Ant.
 - task: Ant@1
   inputs:
-    buildFile: 'build.xml' # string. Required. Ant build file. Default: build.xml.
+    buildFile: 'build.xml' # string. Alias: antBuildFile. Required. Ant build file. Default: build.xml.
     #options: # string. Options. 
     #targets: # string. Target(s). 
   # JUnit Test Results
@@ -35,17 +35,17 @@ Use this task to build with Apache Ant.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
-    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code coverage tool. Default: None.
-    codeCoverageClassFilesDirectories: '.' # string. Required when codeCoverageTool != None. Class files directories. Default: ..
-    #codeCoverageClassFilter: # string. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageSourceDirectories: # string. Optional. Use when codeCoverageTool != None. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
+    codeCoverageClassFilesDirectories: '.' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: ..
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool != None. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
   # Advanced
-    #antHomeDirectory: # string. Set ANT_HOME path. 
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkUserInputDirectory: # string. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #antHomeDirectory: # string. Alias: antHomeUserInputPath. Set ANT_HOME path. 
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
+    #jdkUserInputDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -57,7 +57,7 @@ Use this task to build with Apache Ant.
 # Build with Apache Ant.
 - task: Ant@1
   inputs:
-    buildFile: 'build.xml' # string. Required. Ant build file. Default: build.xml.
+    buildFile: 'build.xml' # string. Alias: antBuildFile. Required. Ant build file. Default: build.xml.
     #options: # string. Options. 
     #targets: # string. Target(s). 
   # JUnit Test Results
@@ -65,17 +65,17 @@ Use this task to build with Apache Ant.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
-    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code coverage tool. Default: None.
-    codeCoverageClassFilesDirectories: '.' # string. Required when codeCoverageTool != None. Class files directories. Default: ..
-    #codeCoverageClassFilter: # string. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageSourceDirectories: # string. Optional. Use when codeCoverageTool != None. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
+    codeCoverageClassFilesDirectories: '.' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: ..
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool != None. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
   # Advanced
-    #antHomeDirectory: # string. Set ANT_HOME path. 
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkUserInputDirectory: # string. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #antHomeDirectory: # string. Alias: antHomeUserInputPath. Set ANT_HOME path. 
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
+    #jdkUserInputDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end

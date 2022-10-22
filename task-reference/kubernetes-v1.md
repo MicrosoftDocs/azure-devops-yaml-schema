@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -70,7 +70,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml' | 'none'. Output format. Default: json.
 ```
 
@@ -118,7 +118,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 
@@ -166,7 +166,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 
@@ -211,7 +211,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 

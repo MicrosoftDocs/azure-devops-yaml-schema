@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to azure service bus using a service connection (no agent required).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Sends a message to azure service bus using a service connection (no agent requir
 # Sends a message to azure service bus using a service connection (no agent required).
 - task: PublishToAzureServiceBus@0
   inputs:
-    azureSubscription: # string. Required. Azure service bus connection. 
+    azureSubscription: # string. Alias: connectedServiceName. Required. Azure service bus connection. 
     messageBody: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Required. Message body. Default: {"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}.
     waitForCompletion: false # boolean. Required. Wait for task completion. Default: false.
 ```

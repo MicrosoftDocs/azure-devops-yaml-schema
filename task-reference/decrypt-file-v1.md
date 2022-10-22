@@ -1,7 +1,7 @@
 ---
 title: DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 description: Decrypt a file using OpenSSL.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -40,7 +40,7 @@ A thin utility task for file decryption using OpenSSL.
     passphrase: # string. Required. Passphrase. 
     #outFile: # string. Decrypted file path. 
   # Advanced
-    #workingDirectory: # string. Working directory.
+    #workingDirectory: # string. Alias: cwd. Working directory.
 ```
 
 :::moniker-end
@@ -57,7 +57,7 @@ A thin utility task for file decryption using OpenSSL.
     passphrase: # string. Required. Passphrase. 
     #outFile: # string. Decrypted file path. 
   # Advanced
-    #workingDirectory: # string. Working directory.
+    #workingDirectory: # string. Alias: cwd. Working directory.
 ```
 
 :::moniker-end

@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -29,8 +29,8 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
   inputs:
   # Azure Details
     deploymentScope: 'Resource Group' # 'Management Group' | 'Subscription' | 'Resource Group'. Required. Deployment scope. Default: Resource Group.
-    azureResourceManagerConnection: # string. Required. Azure Resource Manager connection. 
-    #subscriptionId: # string. Required when deploymentScope != Management Group. Subscription. 
+    azureResourceManagerConnection: # string. Alias: ConnectedServiceName. Required. Azure Resource Manager connection. 
+    #subscriptionId: # string. Alias: subscriptionName. Required when deploymentScope != Management Group. Subscription. 
     #action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'DeleteRG'. Required when deploymentScope = Resource Group. Action. Default: Create Or Update Resource Group.
     #resourceGroupName: # string. Required when deploymentScope = Resource Group. Resource group. 
     #location: # string. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Location. 

@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,19 +27,19 @@ Download build and pipeline artifacts.
 # Download build and pipeline artifacts.
 - task: DownloadPipelineArtifact@2
   inputs:
-    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
+    buildType: 'current' # 'current' | 'specific'. Alias: source. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when source == specific. Project. 
-    #definition: # string. Required when source == specific. Build pipeline. 
-    #specificBuildWithTriggering: false # boolean. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
-    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when source == specific. Build version to download. Default: latest.
-    #branchName: 'refs/heads/master' # string. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/master.
-    #pipelineId: # string. Required when source == specific && runVersion == specific. Build. 
+    #definition: # string. Alias: pipeline. Required when source == specific. Build pipeline. 
+    #specificBuildWithTriggering: false # boolean. Alias: preferTriggeringPipeline. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
+    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Alias: runVersion. Required when source == specific. Build version to download. Default: latest.
+    #branchName: 'refs/heads/master' # string. Alias: runBranch. Required when source == specific && runVersion == latestFromBranch. Branch name. Default: refs/heads/master.
+    #pipelineId: # string. Alias: runId | buildId. Required when source == specific && runVersion == specific. Build. 
     #tags: # string. Optional. Use when source == specific && runVersion != specific. Build Tags. 
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from partially succeeded builds. Default: false.
     #allowFailedBuilds: false # boolean. Optional. Use when source == specific && runVersion != specific. Download artifacts from failed builds. Default: false.
-    #artifactName: # string. Artifact name. 
-    #itemPattern: '**' # string. Matching patterns. Default: **.
-    targetPath: '$(Pipeline.Workspace)' # string. Required. Destination directory. Default: $(Pipeline.Workspace).
+    #artifactName: # string. Alias: artifact. Artifact name. 
+    #itemPattern: '**' # string. Alias: patterns. Matching patterns. Default: **.
+    targetPath: '$(Pipeline.Workspace)' # string. Alias: path | downloadPath. Required. Destination directory. Default: $(Pipeline.Workspace).
 ```
 
 :::moniker-end
@@ -78,7 +78,7 @@ The project from which to download the pipeline artifacts.
 **`definition`** - **Build pipeline**<br>
 Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the build pipeline name.
+The definition ID of the pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -265,8 +265,8 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download an artifact named 'WebApp' to 'bin' in $(Build.SourcesDirectory)
 - task: DownloadPipelineArtifact@2
   inputs:
-    artifact: 'WebApp'
-    path: $(Build.SourcesDirectory)/bin
+    artifactName: 'WebApp'
+    targetPath: $(Build.SourcesDirectory)/bin
 ```
 
 ### Download artifacts from a specific project/pipeline
@@ -275,10 +275,10 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download artifacts from a specific pipeline.
 - task: DownloadPipelineArtifact@2
   inputs:
-    source: 'specific'
+    buildType: 'specific'
     project: 'FabrikamFiber'
-    pipeline: 12
-    runVersion: 'latest'
+    definition: 12
+    buildVersionToDownload: 'latest'
 ```
 
 ### Download artifacts from a specific branch
@@ -287,11 +287,11 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download artifacts from a specific branch with a tag
 - task: DownloadPipelineArtifact@2
   inputs:
-    source: 'specific'
+    buildType: 'specific'
     project: 'FabrikamFiber'
-    pipeline: 12
-    runVersion: 'latestFromBranch'
-    runBranch: 'refs/heads/master'
+    definition: 12
+    buildVersionToDownload: 'latestFromBranch'
+    branchName: 'refs/heads/master'
     tags: 'testTag'
 ```
 
@@ -301,13 +301,13 @@ You can find the ID of the pipeline in the 'Pipeline variables'. The pipeline ID
 # Download an artifact named 'WebApp' from a specific build run to 'bin' in $(Build.SourcesDirectory)
 - task: DownloadPipelineArtifact@2
   inputs:
-    source: 'specific'
-    artifact: 'WebApp'
-    path: $(Build.SourcesDirectory)/bin
+    buildType: 'specific'
+    artifactName: 'WebApp'
+    targetPath: $(Build.SourcesDirectory)/bin
     project: 'FabrikamFiber'
-    pipeline: 12
-    runVersion: 'specific'
-    runId: 40
+    definition: 12
+    buildVersionToDownload: 'specific'
+    pipelineId: 40
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->

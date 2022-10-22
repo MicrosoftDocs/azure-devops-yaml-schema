@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -44,7 +44,7 @@ Deploy, start, stop, delete Azure Resource Groups.
 - task: AzureResourceGroupDeployment@2
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: Create Or Update Resource Group.
     resourceGroupName: # string. Required. Resource group. 
     #location: # string. Required when action = Create Or Update Resource Group. Location. 
@@ -58,8 +58,8 @@ Deploy, start, stop, delete Azure Resource Groups.
     deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required. Deployment mode. Default: Incremental.
   # Advanced deployment options for virtual machines
     #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Enable prerequisites. Default: None.
-    #teamServicesConnection: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Azure Pipelines service connection. 
-    #teamProject: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Team project. 
+    #teamServicesConnection: # string. Alias: deploymentGroupEndpoint. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Azure Pipelines service connection. 
+    #teamProject: # string. Alias: project. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Team project. 
     #deploymentGroupName: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Deployment Group. 
     #copyAzureVMTags: true # boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Copy Azure VM tags to agents. Default: true.
     #runAgentServiceAsUser: false # boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Run agent service as a user. Default: false.
@@ -82,7 +82,7 @@ Deploy, start, stop, delete Azure Resource Groups.
 - task: AzureResourceGroupDeployment@2
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: Create Or Update Resource Group.
     resourceGroupName: # string. Required. Resource group. 
     #location: # string. Required when action = Create Or Update Resource Group. Location. 
@@ -96,8 +96,8 @@ Deploy, start, stop, delete Azure Resource Groups.
     deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required. Deployment mode. Default: Incremental.
   # Advanced deployment options for virtual machines
     #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Enable prerequisites. Default: None.
-    #teamServicesConnection: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Azure Pipelines/TFS service connection. 
-    #teamProject: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Team project. 
+    #teamServicesConnection: # string. Alias: deploymentGroupEndpoint. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Azure Pipelines/TFS service connection. 
+    #teamProject: # string. Alias: project. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Team project. 
     #deploymentGroupName: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Deployment Group. 
     #copyAzureVMTags: true # boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Copy Azure VM tags to agents. Default: true.
     #runAgentServiceAsUser: false # boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent. Run agent service as a user. Default: false.

@@ -1,7 +1,7 @@
 ---
 title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
-ms.date: 10/13/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,46 +27,46 @@ Test app packages with Visual Studio App Center.
 # Test app packages with Visual Studio App Center.
 - task: AppCenterTest@1
   inputs:
-    appFile: # string. Required. Binary application file path. 
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
+    appFile: # string. Alias: app. Required. Binary application file path. 
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Alias: artifactsDir. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
   # Prepare Tests
-    #prepareTests: true # boolean. Prepare tests. Default: true.
-    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Required when enablePrepare = true. Test framework. Default: appium.
-    #appiumBuildDirectory: # string. Required when enablePrepare = true && framework = appium. Build directory. 
-    #espressoBuildDirectory: # string. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
-    #espressoTestApkFile: # string. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
-    #calabashProjectDirectory: # string. Required when enablePrepare = true && framework = calabash. Project directory. 
+    #prepareTests: true # boolean. Alias: enablePrepare. Prepare tests. Default: true.
+    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Alias: framework. Required when enablePrepare = true. Test framework. Default: appium.
+    #appiumBuildDirectory: # string. Alias: appiumBuildDir. Required when enablePrepare = true && framework = appium. Build directory. 
+    #espressoBuildDirectory: # string. Alias: espressoBuildDir. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
+    #espressoTestApkFile: # string. Alias: espressoTestApkPath. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
+    #calabashProjectDirectory: # string. Alias: calabashProjectDir. Required when enablePrepare = true && framework = calabash. Project directory. 
     #calabashConfigFile: # string. Optional. Use when enablePrepare = true && framework = calabash. Cucumber config file. 
     #calabashProfile: # string. Optional. Use when enablePrepare = true && framework = calabash. Profile to run. 
     #calabashSkipConfigCheck: false # boolean. Optional. Use when enablePrepare = true && framework = calabash. Skip Configuration Check. Default: false.
-    #uiTestBuildDirectory: # string. Required when enablePrepare = true && framework = uitest. Build directory. 
+    #uiTestBuildDirectory: # string. Alias: uitestBuildDir. Required when enablePrepare = true && framework = uitest. Build directory. 
     #uitestStorePath: # string. Optional. Use when enablePrepare = true && framework = uitest. Store file. 
-    #uiTestStorePassword: # string. Optional. Use when enablePrepare = true && framework = uitest. Store password. 
+    #uiTestStorePassword: # string. Alias: uitestStorePass. Optional. Use when enablePrepare = true && framework = uitest. Store password. 
     #uitestKeyAlias: # string. Optional. Use when enablePrepare = true && framework = uitest. Key alias. 
-    #uiTestKeyPassword: # string. Optional. Use when enablePrepare = true && framework = uitest. Key password. 
-    #uiTestToolsDirectory: # string. Optional. Use when enablePrepare = true && framework = uitest. Test tools directory. 
+    #uiTestKeyPassword: # string. Alias: uitestKeyPass. Optional. Use when enablePrepare = true && framework = uitest. Key password. 
+    #uiTestToolsDirectory: # string. Alias: uitestToolsDir. Optional. Use when enablePrepare = true && framework = uitest. Test tools directory. 
     #signInfo: # string. Optional. Use when framework = calabash || framework = uitest. Signing information. 
-    #xcUITestBuildDirectory: # string. Optional. Use when enablePrepare = true && framework = xcuitest. Build directory. 
-    #xcUITestIpaFile: # string. Optional. Use when enablePrepare = true && framework = xcuitest. Test IPA path. 
-    #prepareOptions: # string. Optional. Use when enablePrepare = true. Additional options. 
+    #xcUITestBuildDirectory: # string. Alias: xcuitestBuildDir. Optional. Use when enablePrepare = true && framework = xcuitest. Build directory. 
+    #xcUITestIpaFile: # string. Alias: xcuitestTestIpaPath. Optional. Use when enablePrepare = true && framework = xcuitest. Test IPA path. 
+    #prepareOptions: # string. Alias: prepareOpts. Optional. Use when enablePrepare = true. Additional options. 
   # Run Tests
-    #runTests: true # boolean. Run tests. Default: true.
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
+    #runTests: true # boolean. Alias: enableRun. Run tests. Default: true.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
     #serverEndpoint: # string. Required when enableRun = true && credsType = serviceEndpoint. App Center service connection. 
     #username: # string. Required when enableRun = true && credsType = inputs. App Center username. 
     #password: # string. Required when enableRun = true && credsType = inputs. App Center password. 
     appSlug: # string. Required when enableRun = true. App slug. 
     devices: # string. Required when enableRun = true. Devices. 
     #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: master.
-    #dsymDirectory: # string. Optional. Use when enableRun = true. dSYM directory. 
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required when enableRun = true. System language. Default: en_US.
+    #dsymDirectory: # string. Alias: dsymDir. Optional. Use when enableRun = true. dSYM directory. 
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required when enableRun = true. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when enableRun = true && locale = user. Other locale. 
-    #loginOptions: # string. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
-    #runOptions: # string. Optional. Use when enableRun = true. Additional options for run. 
-    #skipWaitingForResults: false # boolean. Optional. Use when enableRun = true. Do not wait for test result. Default: false.
+    #loginOptions: # string. Alias: loginOpts. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
+    #runOptions: # string. Alias: runOpts. Optional. Use when enableRun = true. Additional options for run. 
+    #skipWaitingForResults: false # boolean. Alias: async. Optional. Use when enableRun = true. Do not wait for test result. Default: false.
   # Advanced
-    #cliFile: # string. App Center CLI location. 
-    #showDebugOutput: false # boolean. Enable debug output. Default: false.
+    #cliFile: # string. Alias: cliLocationOverride. App Center CLI location. 
+    #showDebugOutput: false # boolean. Alias: debug. Enable debug output. Default: false.
 ```
 
 :::moniker-end
@@ -78,46 +78,46 @@ Test app packages with Visual Studio App Center.
 # Test app packages with Visual Studio App Center.
 - task: AppCenterTest@1
   inputs:
-    appFile: # string. Required. Binary application file path. 
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
+    appFile: # string. Alias: app. Required. Binary application file path. 
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Alias: artifactsDir. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
   # Prepare Tests
-    #prepareTests: true # boolean. Prepare tests. Default: true.
-    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Required when enablePrepare = true. Test framework. Default: appium.
-    #appiumBuildDirectory: # string. Required when enablePrepare = true && framework = appium. Build directory. 
-    #espressoBuildDirectory: # string. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
-    #espressoTestApkFile: # string. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
-    #calabashProjectDirectory: # string. Required when enablePrepare = true && framework = calabash. Project directory. 
+    #prepareTests: true # boolean. Alias: enablePrepare. Prepare tests. Default: true.
+    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Alias: framework. Required when enablePrepare = true. Test framework. Default: appium.
+    #appiumBuildDirectory: # string. Alias: appiumBuildDir. Required when enablePrepare = true && framework = appium. Build directory. 
+    #espressoBuildDirectory: # string. Alias: espressoBuildDir. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
+    #espressoTestApkFile: # string. Alias: espressoTestApkPath. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
+    #calabashProjectDirectory: # string. Alias: calabashProjectDir. Required when enablePrepare = true && framework = calabash. Project directory. 
     #calabashConfigFile: # string. Optional. Use when enablePrepare = true && framework = calabash. Cucumber config file. 
     #calabashProfile: # string. Optional. Use when enablePrepare = true && framework = calabash. Profile to run. 
     #calabashSkipConfigCheck: false # boolean. Optional. Use when enablePrepare = true && framework = calabash. Skip Configuration Check. Default: false.
-    #uiTestBuildDirectory: # string. Required when enablePrepare = true && framework = uitest. Build directory. 
+    #uiTestBuildDirectory: # string. Alias: uitestBuildDir. Required when enablePrepare = true && framework = uitest. Build directory. 
     #uitestStoreFile: # string. Optional. Use when enablePrepare = true && framework = uitest. Store file. 
-    #uiTestStorePassword: # string. Optional. Use when enablePrepare = true && framework = uitest. Store password. 
+    #uiTestStorePassword: # string. Alias: uitestStorePass. Optional. Use when enablePrepare = true && framework = uitest. Store password. 
     #uitestKeyAlias: # string. Optional. Use when enablePrepare = true && framework = uitest. Key alias. 
-    #uiTestKeyPassword: # string. Optional. Use when enablePrepare = true && framework = uitest. Key password. 
-    #uiTestToolsDirectory: # string. Optional. Use when enablePrepare = true && framework = uitest. Test tools directory. 
+    #uiTestKeyPassword: # string. Alias: uitestKeyPass. Optional. Use when enablePrepare = true && framework = uitest. Key password. 
+    #uiTestToolsDirectory: # string. Alias: uitestToolsDir. Optional. Use when enablePrepare = true && framework = uitest. Test tools directory. 
     #signInfo: # string. Optional. Use when framework = calabash || framework = uitest. Signing information. 
-    #xcUITestBuildDirectory: # string. Optional. Use when enablePrepare = true && framework = xcuitest. Build directory. 
-    #xcUITestIpaFile: # string. Optional. Use when enablePrepare = true && framework = xcuitest. Test IPA path. 
-    #prepareOptions: # string. Optional. Use when enablePrepare = true. Additional options. 
+    #xcUITestBuildDirectory: # string. Alias: xcuitestBuildDir. Optional. Use when enablePrepare = true && framework = xcuitest. Build directory. 
+    #xcUITestIpaFile: # string. Alias: xcuitestTestIpaPath. Optional. Use when enablePrepare = true && framework = xcuitest. Test IPA path. 
+    #prepareOptions: # string. Alias: prepareOpts. Optional. Use when enablePrepare = true. Additional options. 
   # Run Tests
-    #runTests: true # boolean. Run tests. Default: true.
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
+    #runTests: true # boolean. Alias: enableRun. Run tests. Default: true.
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
     #serverEndpoint: # string. Required when enableRun = true && credsType = serviceEndpoint. App Center service connection. 
     #username: # string. Required when enableRun = true && credsType = inputs. App Center username. 
     #password: # string. Required when enableRun = true && credsType = inputs. App Center password. 
     appSlug: # string. Required when enableRun = true. App slug. 
     devices: # string. Required when enableRun = true. Devices. 
     #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: master.
-    #dsymDirectory: # string. Optional. Use when enableRun = true. dSYM directory. 
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required when enableRun = true. System language. Default: en_US.
+    #dsymDirectory: # string. Alias: dsymDir. Optional. Use when enableRun = true. dSYM directory. 
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required when enableRun = true. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when enableRun = true && locale = user. Other locale. 
-    #loginOptions: # string. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
-    #runOptions: # string. Optional. Use when enableRun = true. Additional options for run. 
-    #skipWaitingForResults: false # boolean. Optional. Use when enableRun = true. Do not wait for test result. Default: false.
+    #loginOptions: # string. Alias: loginOpts. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
+    #runOptions: # string. Alias: runOpts. Optional. Use when enableRun = true. Additional options for run. 
+    #skipWaitingForResults: false # boolean. Alias: async. Optional. Use when enableRun = true. Do not wait for test result. Default: false.
   # Advanced
-    #cliFile: # string. App Center CLI location. 
-    #showDebugOutput: false # boolean. Enable debug output. Default: false.
+    #cliFile: # string. Alias: cliLocationOverride. App Center CLI location. 
+    #showDebugOutput: false # boolean. Alias: debug. Enable debug output. Default: false.
 ```
 
 :::moniker-end

@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,13 +35,13 @@ Deploy a docker-compose application to a Service Fabric cluster.
 # Deploy a Docker Compose application to an Azure Service Fabric cluster.
 - task: ServiceFabricComposeDeploy@0
   inputs:
-    clusterConnection: # string. Required. Cluster Service Connection. 
+    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
     composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: **/docker-compose.yml.
     applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: fabric:/Application1.
   # Registry Settings
     registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    azureSubscription: # string. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpointName. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
+    azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
     #registryUserName: # string. Optional. Use when registryCredentials = UsernamePassword. Registry User Name. 
     #registryPassword: # string. Optional. Use when registryCredentials = UsernamePassword. Registry Password. 
     #passwordEncrypted: true # boolean. Optional. Use when registryCredentials = UsernamePassword. Password Encrypted. Default: true.
@@ -61,13 +61,13 @@ Deploy a docker-compose application to a Service Fabric cluster.
 # Deploy a docker-compose application to a Service Fabric cluster.
 - task: ServiceFabricComposeDeploy@0
   inputs:
-    clusterConnection: # string. Required. Cluster Service Connection. 
+    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
     composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: **/docker-compose.yml.
     applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: fabric:/Application1.
   # Registry Settings
     registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    azureSubscription: # string. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpointName. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
+    azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
     #registryUserName: # string. Optional. Use when registryCredentials = UsernamePassword. Registry User Name. 
     #registryPassword: # string. Optional. Use when registryCredentials = UsernamePassword. Registry Password. 
     #passwordEncrypted: true # boolean. Optional. Use when registryCredentials = UsernamePassword. Password Encrypted. Default: true.

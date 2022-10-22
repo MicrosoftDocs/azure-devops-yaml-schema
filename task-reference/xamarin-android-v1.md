@@ -1,7 +1,7 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,23 +27,23 @@ Build an Android app with Xamarin.
 # Build an Android app with Xamarin.
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*.csproj' # string. Required. Project. Default: **/*.csproj.
+    projectFile: '**/*.csproj' # string. Alias: project. Required. Project. Default: **/*.csproj.
     #target: # string. Target. 
-    #outputDirectory: # string. Output directory. 
+    #outputDirectory: # string. Alias: outputDir. Output directory. 
     #configuration: # string. Configuration. 
     #createAppPackage: true # boolean. Create app package. Default: true.
     #clean: false # boolean. Clean. Default: false.
   # MSBuild Options
-    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersionOption: '15.0' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
-    #msbuildFile: # string. Required when msbuildLocationMethod = location. MSBuild location. 
-    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
+    #msbuildLocationOption: 'version' # 'version' | 'location'. Alias: msbuildLocationMethod. MSBuild. Default: version.
+    #msbuildVersionOption: '15.0' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Alias: msbuildVersion. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
+    #msbuildFile: # string. Alias: msbuildLocation. Required when msbuildLocationMethod = location. MSBuild location. 
+    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Alias: msbuildArchitecture. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
     #msbuildArguments: # string. Additional arguments. 
   # JDK Options
-    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Required when jdkSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: jdkSelection. Required. Select JDK to use for the build. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when jdkSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -55,23 +55,23 @@ Build an Android app with Xamarin.
 # Build an Android app with Xamarin.
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*.csproj' # string. Required. Project. Default: **/*.csproj.
+    projectFile: '**/*.csproj' # string. Alias: project. Required. Project. Default: **/*.csproj.
     #target: # string. Target. 
-    #outputDirectory: # string. Output directory. 
+    #outputDirectory: # string. Alias: outputDir. Output directory. 
     #configuration: # string. Configuration. 
     #createAppPackage: true # boolean. Create app package. Default: true.
     #clean: false # boolean. Clean. Default: false.
   # MSBuild Options
-    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersionOption: '15.0' # 'latest' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
-    #msbuildFile: # string. Required when msbuildLocationMethod = location. MSBuild location. 
-    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
+    #msbuildLocationOption: 'version' # 'version' | 'location'. Alias: msbuildLocationMethod. MSBuild. Default: version.
+    #msbuildVersionOption: '15.0' # 'latest' | '15.0' | '14.0' | '12.0' | '4.0'. Alias: msbuildVersion. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
+    #msbuildFile: # string. Alias: msbuildLocation. Required when msbuildLocationMethod = location. MSBuild location. 
+    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Alias: msbuildArchitecture. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
     #msbuildArguments: # string. Additional arguments. 
   # JDK Options
-    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Required when jdkSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: jdkSelection. Required. Select JDK to use for the build. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when jdkSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end

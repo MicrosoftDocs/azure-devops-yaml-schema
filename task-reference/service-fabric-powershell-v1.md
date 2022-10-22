@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Run a PowerShell script within the context of an Azure Service Fabric cluster co
 # Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
 - task: ServiceFabricPowerShell@1
   inputs:
-    clusterConnection: # string. Required. Cluster Service Connection. 
+    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
     ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
@@ -51,7 +51,7 @@ Run a PowerShell script within the context of an Azure Service Fabric cluster co
 # Run a PowerShell script within the context of an Azure Service Fabric cluster connection.
 - task: ServiceFabricPowerShell@1
   inputs:
-    clusterConnection: # string. Required. Cluster Service Connection. 
+    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
     ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 

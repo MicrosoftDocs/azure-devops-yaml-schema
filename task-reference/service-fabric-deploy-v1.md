@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -69,8 +69,8 @@ Deploy a Service Fabric application to a cluster.
   # Docker Settings
     #configureDockerSettings: false # boolean. Configure Docker settings. Default: false.
     #registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword'. Required when configureDockerSettings = true. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Required when configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    #azureSubscription: # string. Required when configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
     #registryUserName: # string. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Registry User Name. 
     #registryPassword: # string. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Registry Password. 
     #passwordEncrypted: true # boolean. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Password Encrypted. Default: true.
@@ -119,8 +119,8 @@ Deploy a Service Fabric application to a cluster.
   # Docker Settings
     #configureDockerSettings: false # boolean. Configure Docker settings. Default: false.
     #registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword'. Required when configureDockerSettings = true. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Required when configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    #azureSubscription: # string. Required when configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
     #registryUserName: # string. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Registry User Name. 
     #registryPassword: # string. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Registry Password. 
     #passwordEncrypted: true # boolean. Optional. Use when configureDockerSettings = true && registryCredentials = UsernamePassword. Password Encrypted. Default: true.

@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 10/18/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -43,8 +43,8 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
 # Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
 - task: AzureRmWebAppDeployment@3
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
-    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Required. App type. Default: app.
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Alias: WebAppKind. Required. App type. Default: app.
     WebAppName: # string. Required. App Service name. 
     #DeployToSlotFlag: false # boolean. Optional. Use when WebAppKind != "". Deploy to slot. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotFlag = true. Resource group. 
@@ -55,7 +55,7 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
     #AzureContainerRegistryImage: # string. Required when ImageSource = AzureContainerRegistry. Image. 
     #AzureContainerRegistryTag: # string. Optional. Use when ImageSource = AzureContainerRegistry. Tag. 
     #DockerRepositoryAccess: 'public' # 'private' | 'public'. Required when ImageSource = invalidImage. Repository Access. Default: public.
-    #dockerRegistryConnection: # string. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: RegistryConnectedServiceName. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
     #PrivateRegistryImage: # string. Required when ImageSource = PrivateRegistry. Image. 
     #PrivateRegistryTag: # string. Optional. Use when ImageSource = PrivateRegistry. Tag. 
     #DockerNamespace: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Registry or Namespace. 
@@ -63,7 +63,7 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
     #DockerImageTag: # string. Optional. Use when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Virtual application. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != linux && WebAppKind != applinux &&  WebAppKind != "". Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: BuiltinLinuxPackage. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
   # Output
@@ -75,8 +75,8 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
   # File Transforms & Variable Substitution Options
     #GenerateWebConfig: false # boolean. Generate Web.config. Default: false.
     #WebConfigParameters: # string. Required when GenerateWebConfig == true. Web.config parameters. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
@@ -100,8 +100,8 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
 # Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs.
 - task: AzureRmWebAppDeployment@3
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
-    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Required. App type. Default: app.
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Alias: WebAppKind. Required. App type. Default: app.
     WebAppName: # string. Required. App Service name. 
     #DeployToSlotFlag: false # boolean. Optional. Use when WebAppKind != "". Deploy to slot. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotFlag = true. Resource group. 
@@ -112,7 +112,7 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
     #AzureContainerRegistryImage: # string. Required when ImageSource = AzureContainerRegistry. Image. 
     #AzureContainerRegistryTag: # string. Optional. Use when ImageSource = AzureContainerRegistry. Tag. 
     #DockerRepositoryAccess: 'public' # 'private' | 'public'. Required when ImageSource = invalidImage. Repository Access. Default: public.
-    #dockerRegistryConnection: # string. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: RegistryConnectedServiceName. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
     #PrivateRegistryImage: # string. Required when ImageSource = PrivateRegistry. Image. 
     #PrivateRegistryTag: # string. Optional. Use when ImageSource = PrivateRegistry. Tag. 
     #DockerNamespace: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Registry or Namespace. 
@@ -120,7 +120,7 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
     #DockerImageTag: # string. Optional. Use when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Virtual application. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != linux && WebAppKind != applinux &&  WebAppKind != "". Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: BuiltinLinuxPackage. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
   # Output
@@ -132,8 +132,8 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
   # File Transforms & Variable Substitution Options
     #GenerateWebConfig: false # boolean. Generate Web.config. Default: false.
     #WebConfigParameters: # string. Required when GenerateWebConfig == true. Web.config parameters. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
