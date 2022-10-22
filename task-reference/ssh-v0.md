@@ -240,7 +240,7 @@ If the value is `true`, the build fails when the remote commands or script write
 **`interactiveSession`** - **Enable interactive session**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Starts an interactive session. Password requests are filled by the user's password. Interactive sessions can be useful to run commands, such as `sudo`.
+Starts an interactive session. Password requests are filled by the user's password. Interactive sessions can be useful for running commands, such as `sudo`.
 <!-- :::editable-content-end::: -->
 <br>
 
