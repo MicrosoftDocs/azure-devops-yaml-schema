@@ -128,7 +128,7 @@ Specifies the version of the .NET Core SDK or runtime to install. The version va
 - `3.1.x`: Installs the latest SDK or runtime with the specified major and minor versions, `3` and `1`.
 - `3.1.402`: Installs the specified SDK or runtime version, `3.1.402`.
 
-The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example: the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
+The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +145,7 @@ Specifies the version of the .NET Core SDK or runtime to install. The version va
 - `3.1.x`: Installs the latest SDK or runtime with the specified major and minor versions, `3` and `1`.
 - `3.1.402`: Installs the specified SDK or runtime version, `3.1.402`.
 
-The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example: the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
+The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +159,7 @@ The version values for SDK or runtime installations are in the `releases.json` f
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a compatible Visual Studio version for a corresponding .NET Core SDK installation. The value must be a complete version number, such as `16.6.4`, which contains a major version, a minor version, and a patch number.
 
-The version values for SDK or runtime installations, which are used for the `version` string, are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example: the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
+The version values for SDK or runtime installations, which are used for the `version` string, are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
