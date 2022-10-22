@@ -80,7 +80,7 @@ Use this task to run a PowerShell script within the context of an Azure Service 
 **`clusterConnection`** - **Cluster Service Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Service Fabric cluster which has an established service connection when the specified PowerShell script is executed.
+Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +91,7 @@ Specifies the Azure Service Fabric cluster which has an established service conn
 **`clusterConnection`** - **Cluster Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Service Fabric cluster which has an established service connection when the specified PowerShell script is executed.
+Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->
 <br>
 
