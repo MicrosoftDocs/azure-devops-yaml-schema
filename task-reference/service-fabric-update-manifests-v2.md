@@ -274,7 +274,7 @@ This task can only be used in a build pipeline to automatically update the versi
 
 This task support two types of updates:
 
-1. **Manifest version**: Updates Service and Application versions specified in manifest files in a Service fabric application package. If specified, it compares current files against a previous build and updates the version only for those services which have been changed.
+1. **Manifest version**: Updates Service and Application versions specified in manifest files in a Service fabric application package. If specified, `manifest version` compares current files against a previous build and updates the version only for those services which have been changed.
 
 1. **Docker image settings**: Updates docker container image settings specified in manifest files in a Service fabric application package. The image settings to be placed are picked from two files:
 
