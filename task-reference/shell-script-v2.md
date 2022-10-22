@@ -118,7 +118,7 @@ Specifies the working directory where the task runs the script. If the value is 
 **`cwd`** - **Working Directory**<br>
 `string`. Optional. Use when `disableAutoCwd = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Specifies the working directory where the script is run. If the value is left empty, the task uses the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
