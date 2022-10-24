@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run scanner and upload the results to the SonarQube server.
+Use this task to run the scanner and upload the results to the SonarQube server.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
