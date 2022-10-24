@@ -99,7 +99,7 @@ Specifies your preferred configuration method.
 **`configFile`** - **Settings File**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = file`. Default value: `sonar-project.properties`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Learn more about the [SonarQube Extension for Azure DevOps](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html).
+Specifies the configuration settings and project properties. Learn more about the [SonarQube Extension for Azure DevOps](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html).
 <!-- :::editable-content-end::: -->
 <br>
 
