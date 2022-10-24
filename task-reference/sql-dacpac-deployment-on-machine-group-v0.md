@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to deploy an SQL Server database using DACPAC or SQL scripts.
+Use this task to deploy a SQL Server database using DACPAC or SQL scripts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to deploy an SQL Server database using DACPAC or SQL scripts.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to deploy an SQL Server database using DACPAC or SQL scripts.
+Use this task to deploy a SQL Server database using DACPAC or SQL scripts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
