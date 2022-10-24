@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy a SQL Server database using DACPAC or SQL scripts.
+Use this task to deploy an SQL Server database using DACPAC or SQL scripts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Deploy a SQL Server database using DACPAC or SQL scripts.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy to SQL Server Database using DACPAC or SQL scripts.
+Use this task to deploy an SQL Server database using DACPAC or SQL scripts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -104,7 +104,7 @@ Deploy to SQL Server Database using DACPAC or SQL scripts.
 **`TaskType`** - **Deploy SQL Using**<br>
 `string`. Required. Allowed values: `dacpac` (Sql Dacpac), `sqlQuery` (Sql Query File), `sqlInline` (Inline Sql). Default value: `dacpac`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the way in which you want to deploy DB, either by using Dacpac or by using SQL Scripts.
+Specifies the way you want to deploy the database: using Dacpac or SQL Scripts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,7 @@ Specify the way in which you want to deploy DB, either by using Dacpac or by usi
 **`DacpacFile`** - **DACPAC File**<br>
 `string`. Required when `TaskType = dacpac`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the DACPAC file on the target machines or on a UNC path like, `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, `$env:windir\FabrikamFibre\DB`. Wildcards can be used. For example, `**/*.dacpac` for DACPAC file present in all sub folders.
+Specifies the location of the DACPAC file on the target machines or on a UNC path, like `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, or `$env:windir\FabrikamFibre\DB`. Wildcards can be used. For example, `**/*.dacpac` for the DACPAC file that's present in all sub folders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ Location of the DACPAC file on the target machines or on a UNC path like, `\\Bud
 **`SqlFile`** - **Sql File**<br>
 `string`. Required when `TaskType = sqlQuery`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the SQL file on the target. Provide semi-colon separated list of SQL script files to execute multiple files. The SQL scripts will be executed in the order given. Location can also be a UNC path like, `\\BudgetIT\Web\Deploy\FabrikamDB.sql`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, `$env:windir\FabrikamFibre\DB`. Wildcards can be used. For example, `**/*.sql` for SQL file present in all sub folders.
+Specifies the location of the SQL file on the target. Provide a semi-colon separated list of SQL script files to execute multiple files. The SQL scripts are executed in the order given. The location can also be a UNC path, like `\\BudgetIT\Web\Deploy\FabrikamDB.sql`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, or `$env:windir\FabrikamFibre\DB`. Wildcards can be used. For example, `**/*.sql` for the SQL file present in all sub folders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,7 @@ Location of the SQL file on the target. Provide semi-colon separated list of SQL
 **`ExecuteInTransaction`** - **Execute within a transaction**<br>
 `boolean`. Optional. Use when `TaskType = sqlQuery`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Executes SQL script(s) within a transaction.
+Executes the SQL script(s) within a transaction.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ Acquires an exclusive app lock while executing script(s).
 **`AppLockName`** - **App lock name**<br>
 `string`. Required when `ExclusiveLock = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-App lock name.
+Specifies the app lock name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ App lock name.
 **`InlineSql`** - **Inline Sql**<br>
 `string`. Required when `TaskType = sqlInline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SQL Queries inline.
+Specifies the SQL queries inline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +188,7 @@ SQL Queries inline.
 **`TargetMethod`** - **Specify SQL Using**<br>
 `string`. Required when `TaskType = dacpac`. Allowed values: `server`, `connectionString` (Connection String), `publishProfile` (Publish Profile). Default value: `server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the option to connect to the target SQL Server Database. The options are either to provide the SQL Server Database details, or the SQL Server connection string, or the Publish profile XML file.
+Specifies the option to connect to the target SQL Server database. You can provide the SQL Server database details, the SQL Server connection string, or the publish profile XML file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +200,7 @@ Specify the option to connect to the target SQL Server Database. The options are
 **`ServerName`** - **Server Name**<br>
 `string`. Required when `TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline`. Default value: `localhost`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the SQL Server name like, `machinename\FabriakmSQL,1433` or `localhost` or `.\SQL2012R2`. Specifying localhost will connect to the Default SQL Server instance on the machine.
+Specifies the SQL Server name, like `machinename\FabriakmSQL,1433`, `localhost`, or `.\SQL2012R2`. Specifying `localhost` will connect to the default SQL Server instance on the machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +212,7 @@ Provide the SQL Server name like, `machinename\FabriakmSQL,1433` or `localhost` 
 **`DatabaseName`** - **Database Name**<br>
 `string`. Required when `TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the SQL Server database.
+Specifies the name of the SQL Server database.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,7 +224,7 @@ Provide the name of the SQL Server database.
 **`AuthScheme`** - **Authentication**<br>
 `string`. Required when `TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline`. Allowed values: `windowsAuthentication` (Windows Authentication), `sqlServerAuthentication` (SQL Server Authentication). Default value: `windowsAuthentication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the authentication mode for connecting to the SQL Server. In Windows authentication mode, the account used to configure deployment agent, is used to connect to the SQL Server. In SQL Server Authentication mode, the SQL login and password have to be provided in the parameters below.
+Specifies the authentication mode for connecting to the SQL Server. In Windows authentication mode, the account used to configure the deployment agent is used to connect to the SQL Server. In SQL Server authentication mode, the SQL login and password must be provided in the parameters below.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -236,7 +236,7 @@ Select the authentication mode for connecting to the SQL Server. In Windows auth
 **`SqlUsername`** - **SQL User name**<br>
 `string`. Required when `AuthScheme = sqlServerAuthentication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the SQL login to connect to the SQL Server. The option is only available if SQL Server Authentication mode has been selected.
+Specifies the SQL login to connect to the SQL Server. This option is only available if SQL Server authentication mode has been selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -248,7 +248,7 @@ Provide the SQL login to connect to the SQL Server. The option is only available
 **`SqlPassword`** - **SQL Password**<br>
 `string`. Required when `AuthScheme = sqlServerAuthentication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password of the SQL login. The option is only available if SQL Server Authentication mode has been selected.
+Specifies the password of the SQL login. This option is only available if SQL Server authentication mode has been selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +260,7 @@ Provide the password of the SQL login. The option is only available if SQL Serve
 **`ConnectionString`** - **Connection String**<br>
 `string`. Required when `TargetMethod = connectionString`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the SQL Server connection string like `Server=localhost;Database=Fabrikam;User ID=AccountPlaceholder;Password=PasswordPlaceholder;`.
+Specifies the SQL Server connection string, like `Server=localhost;Database=Fabrikam;User ID=AccountPlaceholder;Password=PasswordPlaceholder;`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +272,8 @@ Specify the SQL Server connection string like `Server=localhost;Database=Fabrika
 **`PublishProfile`** - **Publish Profile**<br>
 `string`. Optional. Use when `TaskType = dacpac`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish profile provide fine-grained control over SQL Server database deployments. Specify the path to the Publish profile XML file on the target machine or on a UNC share that is accessible by the machine administrator's credentials.
+Provides fine-grained control over SQL Server database deployments.  
+Specifies the path to the publish profile XML file on the target machine or on a UNC share that is accessible by the machine administrator's credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +285,7 @@ Publish profile provide fine-grained control over SQL Server database deployment
 **`AdditionalArguments`** - **Additional Arguments**<br>
 `string`. Optional. Use when `TaskType = dacpac`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when deploying the SQL Server Database like, `/p:IgnoreAnsiNulls=True` or `/p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
+Specifies additional `SqlPackage.exe` arguments that will be applied when deploying the SQL Server database, like `/p:IgnoreAnsiNulls=True` or `/p:IgnoreComments=True`. These arguments will override the settings in the publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +297,7 @@ Additional SqlPackage.exe arguments that will be applied when deploying the SQL 
 **`AdditionalArgumentsSql`** - **Additional Arguments**<br>
 `string`. Optional. Use when `TaskType = sqlQuery || TaskType = sqlInline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional `Invoke-Sqlcmd` arguments that will be applied when deploying the SQL Server Database.
+Specifies additional `Invoke-Sqlcmd` arguments that are applied when deploying the SQL Server database.
 <!-- :::editable-content-end::: -->
 <br>
 
