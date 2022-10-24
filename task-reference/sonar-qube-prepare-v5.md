@@ -67,16 +67,15 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 `string`. Required. Allowed values: `MSBuild` (Integrate with MSBuild), `Other` (Integrate with Maven or Gradle), `CLI` (Use standalone scanner). Default value: `MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 **MSBuild**
-* Put this task before your MSBuild task
-* Add the `Run Code Analysis` task after the MSBuild/VSTest tasks
+- Put this task before your MSBuild task.
+- Add the `Run Code Analysis` task after the MSBuild/VSTest tasks.
 
 **Maven/Gradle**
-* Put this task before the Maven/Gradle task
-* Tick the `Run SonarQube Analysis` checkbox in the Maven/Gradle task configuration.
+- Put this task before the Maven/Gradle task.
+- Tick the `Run SonarQube Analysis` checkbox in the Maven/Gradle task configuration.
 
 **Others**
-
-For other cases you can use the standalone scanner (sonar-scanner) and set all configuration with this task, and then add the `Run Code Analysis` task.
+- For other cases, you can use the standalone scanner (sonar-scanner), set all configurations with this task, and then add the `Run Code Analysis` task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -222,7 +221,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-- **Support non MSBuild projects:** This task can also configure analysis for non-MSBuild projects.
+- **Support non-MSBuild projects:** This task can also configure analysis for non-MSBuild projects.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
