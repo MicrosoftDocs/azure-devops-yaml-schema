@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to select a version of Ruby to run on an agent, and optionally add it to PATH.
+Use this task to select a version of Ruby to run on an agent. Optionally, the task can add the Ruby version to PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to select a version of Ruby to run on an agent, and optionally add
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to select a version of Ruby to run on an agent, and optionally add it to PATH.
+Use this task to select a version of Ruby to run on an agent. Optionally, the task can add the Ruby version to PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -64,7 +64,7 @@ Use this task to select a version of Ruby to run on an agent, and optionally add
 **`versionSpec`** - **Version spec**<br>
 `string`. Required. Default value: `>= 2.4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version range or an exact version of a Ruby version to use.
+Specifies the version range or a version of a Ruby version to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Use this task to select a version of Ruby to run on an agent, and optionally add
 
 * A [Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted#software) with side-by-side versions of Ruby installed, or a self-hosted agent with `Agent.ToolsDirectory` configured (see [FAQ](#how-can-i-configure-a-self-hosted-agent-to-use-this-task)).
 
-This task will fail if no Ruby versions are found in `Agent.ToolsDirectory`. Available Ruby versions on Microsoft-hosted agents can be found [here](/azure/devops/pipelines/agents/hosted#software).
+This task will fail if no Ruby versions are found in `Agent.ToolsDirectory`. See other available Ruby versions on [Microsoft-hosted agents](https://github.com/azure/devops/pipelines/agents/hosted#software).
 
 ### Where can I learn more about tool installers?
 
