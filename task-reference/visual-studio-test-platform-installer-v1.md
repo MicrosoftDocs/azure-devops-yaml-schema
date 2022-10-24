@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
+Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/) from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the `vstest` demand, and a subsequent Visual Studio Test task in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vst
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
+Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/) from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the `vstest` demand, and a subsequent Visual Studio Test task in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -86,13 +86,13 @@ Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘v
 **`packageFeedSelector`** - **Package Feed**<br>
 `string`. Required. Allowed values: `nugetOrg` (Official Nuget), `customFeed` (Custom Feed), `netShare` (Network path). Default value: `nugetOrg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the feed from which the Visual Studio Test Platform nuget packge should be fetched.
+Specifies the feed where the task fetches the Visual Studio Test Platform NuGet package.
 
-**Official NuGet** - Use this option to acquire the [test platform package from NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/). This option requires internet connectivity on the agent machine.
+**`nugetOrg`*** - **Official NuGet**: Acquires the [test platform package from NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/). This option requires internet connectivity on the agent machine.
 
-**Custom feed** - Use this option to acquire the test platform package from a custom feed or a package management feed in Azure DevOps or TFS.
+**`customFeed`** - **Custom feed**: Acquires the test platform package from a custom feed or a package management feed in Azure DevOps or TFS.
 
-**Network path** - Use this option to install the test platform from a network share. The desired version of Microsoft.TestPlatform.nupkg file must be downloaded from NuGet and placed on a network share that the build/release agent can access.
+**`netShare`** - **Network path**: Installs the test platform from a network share. The specified `Microsoft.TestPlatform.nupkg` version must be downloaded from NuGet and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,9 +104,7 @@ Specify the feed from which the Visual Studio Test Platform nuget packge should 
 **`versionSelector`** - **Version**<br>
 `string`. Required when `packageFeedSelector = nugetOrg || packageFeedSelector = customFeed`. Allowed values: `latestPreRelease` (Latest (Includes Pre-Release)), `latestStable` (Latest Stable), `specificVersion` (Specific Version). Default value: `latestPreRelease`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pick whether to install the latest version or a specific version of the Visual Studio Test Platform.
-If you use the test platform installer to run Coded UI tests, ensure that the version you choose matches the major version of Visual Studio with which the test binaries were built.
-For e.g., if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use test platform version 15.x.
+Installs the latest version or a specific version of the Visual Studio Test Platform. If you use the test platform installer to run Coded UI tests, the chosen Visual Studio Test Platform must match the major version of the Visual Studio installation that built the test binaries. For example, if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use Test Platform version 15.x.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -117,9 +115,7 @@ For e.g., if the Coded UI test project was built using Visual Studio 2017 (versi
 **`versionSelector`** - **Version**<br>
 `string`. Required. Allowed values: `latestPreRelease` (Latest Pre-Release), `specificVersion` (Specific Version). Default value: `latestPreRelease`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pick whether to install the latest version or a specific version of the Visual Studio Test Platform.
-If you use the test platform installer to run Coded UI tests, ensure that the version you choose matches the major version of Visual Studio with which the test binaries were built.
-For e.g., if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use test platform version 15.x.
+Installs the latest version or a specific version of the Visual Studio Test Platform. If you use the test platform installer to run Coded UI tests, the chosen Visual Studio Test Platform must match the major version of the Visual Studio installation that built the test binaries. For example, if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use Test Platform version 15.x.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +127,7 @@ For e.g., if the Coded UI test project was built using Visual Studio 2017 (versi
 **`testPlatformVersion`** - **Test Platform Version**<br>
 `string`. Required when `versionSelector = specificVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Visual Studio Test Platform to install on the agent. Available versions can be viewed on <a href="https://www.nuget.org/packages/Microsoft.TestPlatform/">nuget</a>.
+Specifies the version of Visual Studio Test Platform to install on the agent. Available versions can be viewed on [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +139,7 @@ Specify the version of Visual Studio Test Platform to install on the agent. Avai
 **`customFeed`** - **Package Source**<br>
 `string`. Required when `packageFeedSelector = customFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of a custom feed or a package management feed in Azure DevOps or TFS that contains the test platform package. Public as well as private feeds can be specified.
+Specifies the URL of a custom feed or a package management feed in Azure DevOps or TFS that contains the test platform package. Public and private feeds can be specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,7 +151,7 @@ Specify the URL of a custom feed or a package management feed in Azure DevOps or
 **`username`** - **User Name**<br>
 `string`. Optional. Use when `packageFeedSelector = customFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the user name to authenticate with the feed specified in the **Package Source** argument. If using a personal access token (PAT) in the password argument, this input is not required.
+Specifies the user name to authenticate the feed specified in the **Package Source** argument. This input is not required if the `password` input uses a personal access token (PAT).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +163,7 @@ Specify the user name to authenticate with the feed specified in the **Package S
 **`password`** - **Password**<br>
 `string`. Optional. Use when `packageFeedSelector = customFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password or personal access token for authenticating against the specified feed.
+Specifies the password or personal access token (PAT) for authenticating the feed specified in the `customFeed` input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +175,7 @@ Password or personal access token for authenticating against the specified feed.
 **`netShare`** - **UNC Path**<br>
 `string`. Required when `packageFeedSelector = netShare`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the full UNC path to the microsoft.testplatform nupkg file. The desired version of Microsoft.TestPlatform.nupkg must be downloaded from [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/) and placed on a network share that the build/release agent can access.
+Specifies the full UNC path to the `Microsoft.TestPlatform.nupkg` file. The specified `Microsoft.TestPlatform.nupkg` version must be downloaded from [NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/) and placed on a network share that the build/release agent can access.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,10 +201,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/)
-from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the 'vstest'
-demand and a subsequent [Visual Studio Test task](vstest-v2.md)
-in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
+Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/) from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the `vstest` demand, and a subsequent [Visual Studio Test task](vstest-v2.md) in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
 
 > [!NOTE]
 >
