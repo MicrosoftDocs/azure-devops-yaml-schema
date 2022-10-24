@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use the specified version of Python from the tool cache, optionally adding it to the PATH.
+Use this task to select a version of Python to run on an agent, and optionally add it to PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use the specified version of Python from the tool cache, optionally adding it to
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Retrieves the specified version of Python from the tool cache. Optionally add it to PATH.
+Use this task to select a version of Python to run on an agent, and optionally add it to PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -98,7 +98,7 @@ Specifies the version range or exact version of a Python version to use, using S
 **`disableDownloadFromRegistry`** - **Disable downloading releases from the GitHub registry**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Disables downloading missing Python version from the [Github Actions registry](https://github.com/actions/python-versions). This boolean should only be `true` if using a local installation of Python.
+Disables downloading missing Python versions from the [Github Actions registry](https://github.com/actions/python-versions). This boolean should only be `true` if using a local installation of Python.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +201,7 @@ If the task completes successfully, the task's output variable will contain the 
 
 After running this task with "Add to PATH," the `python` command in subsequent scripts will be for the highest available version of the interpreter matching the version spec and architecture.
 
-The versions of Python installed on the Microsoft-hosted Ubuntu and macOS images follow the symlinking structure for Unix-like systems that is defined in [PEP 394](https://www.python.org/dev/peps/pep-0394/).
+The versions of Python installed on the Microsoft-hosted Ubuntu and macOS images follow the symlinking structure for Unix-like systems that are defined in [PEP 394](https://www.python.org/dev/peps/pep-0394/).
 
 For example, `python3.7` is the actual interpreter for Python 3.7.
 
