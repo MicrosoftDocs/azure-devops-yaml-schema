@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Deploy and configure Test Agent to run tests on a set of machines.
+This task deploys and configures the Test Agent to run tests on a set of machines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -67,7 +67,10 @@ Deploy and configure Test Agent to run tests on a set of machines.
 **`testMachineGroup`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. Eg: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986` Or provide output variable of other tasks. Eg: `$(variableName)` Or provide a Machine Group Name.` If you are using HTTPS, name/IP of machine should match the CN in the certificate.
+This input has three options:
+* Provides a comma separated list of machine IP addresses or FQDNs along with ports. The default port is based on the selected protocol. For example, `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986`.
+* Provides the output variable of other tasks. For example, `$(variableName)`.
+* Provides a machine group name. If you are using HTTPS, the name/IP of the machine should match the CN on the certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -79,7 +82,7 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`adminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the administrator login for the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +94,7 @@ Administrator login for the target machines.
 **`adminPassword`** - **Admin Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for the target machines. <br>It can accept variable defined in Build/Release definitions as `$(passwordVariable)`. <br>You may mark variable type as 'secret' to secure it.
+Specifies the administrator password for the target machines. This input can accept a variable defined in build/release definitions as `$(passwordVariable)`. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +106,7 @@ Administrator password for the target machines. <br>It can accept variable defin
 **`winRmProtocol`** - **Protocol**<br>
 `string`. Allowed values: `Http`, `Https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the protocol to use for the WinRM connection with the machine(s). Default is `HTTPS`.
+Specifies the protocol to use for the WinRM connection with the machine(s). The default value is `HTTPS`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +118,7 @@ Select the protocol to use for the WinRM connection with the machine(s). Default
 **`testCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `winRmProtocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Provides the option to skip the authenticity validation of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +141,7 @@ Select the option to skip validating the authenticity of the machine's certifica
 **`testMachines`** - **Filter Criteria**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.com, 192.168.12.34 or tags like Role:DB;OS:Win8.1`. Returns machines with either of the tags. For Azure Resource Group provide the VM Host Name for the machine name. The default is to deploy agent on all machines represented in the Machines field.
+Provides a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.com, 192.168.12.34` or tags like `Role:DB;OS:Win8.1`. Returns machines that have either of the tags. For Azure Resource Group, provide the VM host name for the machine name. The default deploys an agent on all machines represented in the Machines field.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +153,7 @@ Provide a list of machines like `dbserver.fabrikam.com, dbserver_int.fabrikam.co
 **`machineUserName`** - **Username**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Username with which test agent needs to run.
+Specifies the username with which the test agent needs to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +165,7 @@ Username with which test agent needs to run.
 **`machinePassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the username given above.
+Specifies the password for the username given above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -174,7 +177,7 @@ Password for the username given above.
 **`runAsProcess`** - **Interactive Process**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Denotes if test agent needs to run as an interactive process, needed for Coded UI Tests.
+Denotes if the test agent needs to run as an interactive process. This input is needed for Coded UI Tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -186,7 +189,7 @@ Denotes if test agent needs to run as an interactive process, needed for Coded U
 **`agentLocation`** - **Test Agent Location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to vstf_testagent.exe from network or local location. If no path is provided, it will be downloaded from `https://go.microsoft.com/fwlink/?LinkId=827840`.
+Optional. Supplies the path to vstf_testagent.exe from the network or local location. If no path is provided, it will be downloaded from [the download center](https://go.microsoft.com/fwlink/?LinkId=827840).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -198,7 +201,7 @@ Optionally supply the path to vstf_testagent.exe from network or local location.
 **`updateTestAgent`** - **Update Test Agent**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify if test agent needs to be updated.
+Optional. Specifies if the test agent needs to be updated.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -210,7 +213,7 @@ Optionally specify if test agent needs to be updated.
 **`isDataCollectionOnly`** - **Enable Data Collection Only**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify if test agent needs to be used only for datacollection and not for running tests. Typically done on application under test(AUT) machine group.
+Optional. Specifies if the test agent is used only for data collection and not for running tests. This can typically be found on the application under the test (AUT) machine group.
 <!-- :::editable-content-end::: -->
 <br>
 

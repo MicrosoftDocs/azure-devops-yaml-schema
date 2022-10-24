@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -27,19 +27,19 @@ Build an iOS app with Xamarin on macOS.
 # Build an iOS app with Xamarin on macOS.
 - task: XamariniOS@2
   inputs:
-    solutionFile: '**/*.sln' # string. Required. Solution. Default: **/*.sln.
+    solutionFile: '**/*.sln' # string. Alias: solution. Required. Solution. Default: **/*.sln.
     configuration: 'Release' # string. Required. Configuration. Default: Release.
     #clean: false # boolean. Clean. Default: false.
     packageApp: true # boolean. Required. Create app package. Default: true.
-    #buildForSimulator: false # boolean. Build for iOS Simulator. Default: false.
+    #buildForSimulator: false # boolean. Alias: forSimulator. Build for iOS Simulator. Default: false.
   # Advanced
     runNugetRestore: false # boolean. Required. Run NuGet restore. Default: false.
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
-    #mdtoolFile: # string. Build tool path. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
+    #mdtoolFile: # string. Alias: buildToolLocation | mdtoolLocation. Build tool path. 
   # Signing & Provisioning
-    #signingIdentity: # string. Signing identity. 
-    #signingProvisioningProfileID: # string. Provisioning profile UUID.
+    #signingIdentity: # string. Alias: iosSigningIdentity. Signing identity. 
+    #signingProvisioningProfileID: # string. Alias: provProfileUuid. Provisioning profile UUID.
 ```
 
 :::moniker-end

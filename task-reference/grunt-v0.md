@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -39,7 +39,7 @@ The JavaScript Task Runner.
     #targets: # string. Grunt Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: node_modules/grunt-cli/bin/grunt.
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines. Default: false.
@@ -65,7 +65,7 @@ The JavaScript Task Runner.
     #targets: # string. Grunt Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: node_modules/grunt-cli/bin/grunt.
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.

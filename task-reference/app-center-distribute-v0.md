@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@0 - App Center Distribute v0 task
 description: Distribute app builds to testers and users via App Center (task version 1).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,18 +29,18 @@ Use this task to distribute app builds to testers and users via App Center.
   inputs:
     serverEndpoint: # string. Required. App Center connection. 
     appSlug: # string. Required. App slug. 
-    appFile: # string. Required. Binary file path. 
-    releaseNotesOption: 'input' # 'input' | 'file'. Required. Create release notes. Default: input.
+    appFile: # string. Alias: app. Required. Binary file path. 
+    releaseNotesOption: 'input' # 'input' | 'file'. Alias: releaseNotesSelection. Required. Create release notes. Default: input.
     releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
     #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
     #distributionGroupId: # string. Distribution group ID. 
   # Symbols
-    #symbolsOption: 'Apple' # 'Apple'. Symbols type. Default: Apple.
+    #symbolsOption: 'Apple' # 'Apple'. Alias: symbolsType. Symbols type. Default: Apple.
     #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
-    #symbolsPdbFiles: '**/*.pdb' # string. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
-    #symbolsDsymFiles: # string. Optional. Use when symbolsType = Apple. dSYM path. 
-    #symbolsMappingTxtFile: # string. Optional. Use when symbolsType = AndroidJava. Mapping file. 
-    #symbolsIncludeParentDirectory: # boolean. Include all items in parent folder.
+    #symbolsPdbFiles: '**/*.pdb' # string. Alias: pdbPath. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
+    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsType = Apple. dSYM path. 
+    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsType = AndroidJava. Mapping file. 
+    #symbolsIncludeParentDirectory: # boolean. Alias: packParentFolder. Include all items in parent folder.
 ```
 
 :::moniker-end

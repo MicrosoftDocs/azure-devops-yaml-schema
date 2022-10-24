@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@2 - Android Signing v2 task
 description: Sign and align Android APK files (task version 2).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,17 +27,17 @@ Use this task in a pipeline to sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@2
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
+    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
   # Signing Options
     #jarsign: true # boolean. Sign the APK. Default: true.
-    jarsignerKeystoreFile: # string. Required when jarsign = true. Keystore file. 
-    #jarsignerKeystorePassword: # string. Optional. Use when jarsign = true. Keystore password. 
-    #jarsignerKeystoreAlias: # string. Optional. Use when jarsign = true. Alias. 
-    #jarsignerKeyPassword: # string. Optional. Use when jarsign = true. Key password. 
+    jarsignerKeystoreFile: # string. Alias: keystoreFile. Required when jarsign = true. Keystore file. 
+    #jarsignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when jarsign = true. Keystore password. 
+    #jarsignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when jarsign = true. Alias. 
+    #jarsignerKeyPassword: # string. Alias: keyPass. Optional. Use when jarsign = true. Key password. 
     #jarsignerArguments: '-verbose -sigalg MD5withRSA -digestalg SHA1' # string. Optional. Use when jarsign = true. Jarsigner arguments. Default: -verbose -sigalg MD5withRSA -digestalg SHA1.
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
-    #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
+    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
 ```
 
 :::moniker-end

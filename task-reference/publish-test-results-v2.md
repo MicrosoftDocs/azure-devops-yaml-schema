@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -43,15 +43,15 @@ Publish Test Results to VSTS/TFS.
 # Publish test results to Azure Pipelines.
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Required. Test result format. Default: JUnit.
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Alias: testRunner. Required. Test result format. Default: JUnit.
     testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
     #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
     #mergeTestResults: false # boolean. Merge test results. Default: false.
     #failTaskOnFailedTests: false # boolean. Fail if there are test failures. Default: false.
     #testRunTitle: # string. Test run title. 
   # Advanced
-    #buildPlatform: # string. Build Platform. 
-    #buildConfiguration: # string. Build Configuration. 
+    #buildPlatform: # string. Alias: platform. Build Platform. 
+    #buildConfiguration: # string. Alias: configuration. Build Configuration. 
     #publishRunAttachments: true # boolean. Upload test results files. Default: true.
 ```
 
@@ -64,14 +64,14 @@ Publish Test Results to VSTS/TFS.
 # Publish Test Results to Azure Pipelines/TFS.
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Required. Test result format. Default: JUnit.
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Alias: testRunner. Required. Test result format. Default: JUnit.
     testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
     #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
     #mergeTestResults: false # boolean. Merge test results. Default: false.
     #testRunTitle: # string. Test run title. 
   # Advanced
-    #buildPlatform: # string. Build Platform. 
-    #buildConfiguration: # string. Build Configuration. 
+    #buildPlatform: # string. Alias: platform. Build Platform. 
+    #buildConfiguration: # string. Alias: configuration. Build Configuration. 
     #publishRunAttachments: true # boolean. Upload test results files. Default: true.
 ```
 

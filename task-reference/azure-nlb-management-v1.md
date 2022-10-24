@@ -1,7 +1,7 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Connect/Disconnect an Azure virtual machine's network interface to a Load Balanc
 # Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
 - task: AzureNLBManagement@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     LoadBalancer: # string. Required. Load Balancer Name. 
     Action: # 'Disconnect' | 'Connect'. Required. Action.
@@ -50,7 +50,7 @@ Connect/Disconnect an Azure virtual machine's network interface to a Load Balanc
 # Connect/Disconnect an Azure virtual machine's network interface to a Load Balancer's backend address pool.
 - task: AzureNLBManagement@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     LoadBalancer: # string. Required. Load Balancer Name. 
     Action: # 'Disconnect' | 'Connect'. Required. Action.

@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 # Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
 - task: Kubernetes@0
   inputs:
-    #kubernetesServiceConnection: # string. Kubernetes service connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
     #namespace: # string. Namespace. 
   # Commands
     #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Command. 
@@ -46,8 +46,8 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
     #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
     containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
     #secretName: # string. Secret name. 
     #forceUpdate: true # boolean. Force update secret. Default: true.
@@ -62,7 +62,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
   # Output
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
     #kubectlOutput: # string. Output variable name.
@@ -77,7 +77,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 # Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
 - task: Kubernetes@0
   inputs:
-    #kubernetesServiceConnection: # string. Kubernetes service connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
     #namespace: # string. Namespace. 
   # Commands
     #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Command. 
@@ -88,8 +88,8 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
     #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
     containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
     #secretName: # string. Secret name. 
     #forceUpdate: true # boolean. Force update secret. Default: true.
@@ -104,7 +104,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
   # Output
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
     #kubectlOutput: # string. Output variable name.
@@ -119,7 +119,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 # Deploy, configure, update your Kubernetes cluster in Azure Container Service by running kubectl commands.
 - task: Kubernetes@0
   inputs:
-    #kubernetesServiceConnection: # string. Kubernetes service connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
     #namespace: # string. Namespace. 
   # Commands
     command: 'apply' # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Required. Command. Default: apply.
@@ -130,8 +130,8 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
     #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
     containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
     #secretName: # string. Secret name. 
     #forceUpdate: true # boolean. Force update secret. Default: true.
@@ -146,7 +146,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
   # Output
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
     #kubectlOutput: # string. Output variable name.

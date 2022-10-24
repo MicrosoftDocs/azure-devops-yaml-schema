@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install Helm and Kubernetes on an agent machine.
+Use this task to install Helm and Kubernetes on an agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Install Helm and Kubernetes on an agent machine.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Install Helm and Kubernetes on agent machine.
+Use this task to install Helm and Kubernetes on an agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -89,7 +89,7 @@ Install Helm and Kubernetes on agent machine.
 **`helmVersion`** - **Helm Version Spec**<br>
 `string`. Required. Default value: `2.14.1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Helm to install.
+Specifies the version of Helm to install.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +100,7 @@ Specify the version of Helm to install.
 **`helmVersion`** - **Helm Version Spec**<br>
 `string`. Required. Default value: `2.9.1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Helm to install.
+Specifies the version of Helm to install.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +112,7 @@ Specify the version of Helm to install.
 **`checkLatestHelmVersion`** - **Check for latest version of Helm**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Check for latest version of Helm.
+Checks for the latest version of Helm.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,7 @@ Check for latest version of Helm.
 **`installKubeCtl`** - **Install Kubectl**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Install Kubectl.
+Installs Kubectl.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ Install Kubectl.
 **`kubectlVersion`** - **Kubectl Version Spec**<br>
 `string`. Optional. Use when `installKubeCtl == true`. Default value: `1.8.9`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Kubectl to install.
+Specifies the version of Kubectl to install.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Specify the version of Kubectl to install.
 **`checkLatestKubeCtl`** - **Check for latest version of kubectl**<br>
 `boolean`. Optional. Use when `installKubeCtl == true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Check for latest version of kubectl.
+Checks for the latest version of Kubectl.
 <!-- :::editable-content-end::: -->
 <br>
 

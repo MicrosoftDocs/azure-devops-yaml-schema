@@ -1,25 +1,17 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Deploy a virtual machine scale set image.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Deploy Virtual Machine scale set image.
+This task deploys a Virtual Machine scale set image.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -36,7 +28,7 @@ Deploy Virtual Machine scale set image.
 - task: AzureVmssDeployment@0
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
@@ -61,7 +53,7 @@ Deploy Virtual Machine scale set image.
 - task: AzureVmssDeployment@0
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
@@ -98,7 +90,7 @@ Deploy Virtual Machine scale set image.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the scale set.
+Specifies the Azure Resource Manager subscription for the scale set.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,7 +102,11 @@ Select the Azure Resource Manager subscription for the scale set.
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Update image` (Update VM Scale set by using an image), `Configure application startup` (Run Custom Script VM extension on VM scale set). Default value: `Update image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose between updating a VM scale set by using a VHD image and/or by running deployment/install scripts using Custom Script VM Extension.<br/>The VHD image approach is better for scaling quickly and doing rollback. The extension approach is useful for post deployment configuration, software installation, or any other configuration/management task.<br/>You can use a VHD image to update a VM scale set only when it was created by using a custom image. The update will fail if the VM scale set was created by using a platform/gallery image available in Azure.<br/>The Custom Script VM Extension approach can be used for VM scale set created by using either custom image or platform/gallery image.
+Updates a VM scale set by the chosen method, using a VHD image and/or by running deployment/install scripts using the Custom Script VM Extension.
+
+**The VHD image approach** is better for scaling quickly and doing rollback. When a VM scale set is created by using a custom image, it can be updated by a VHD image. The update will fail if the VM scale set was created by using a platform/gallery image available in Azure.
+
+**The Custom Script VM Extension approach** is useful for post deployment configuration, software installation, or any other configuration/management task. The Custom Script VM Extension approach can be used for a VM scale set created by using either a custom image or a platform/gallery image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +118,7 @@ Choose between updating a VM scale set by using a VHD image and/or by running de
 **`vmssName`** - **Virtual Machine scale set name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the VM scale setting that you want to update. Use either a VHD image or a custom script VM Extension.
+Specifies the name of the VM scale setting to update. Use either a VHD image or a Custom Script VM Extension.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +130,7 @@ The name of the VM scale setting that you want to update. Use either a VHD image
 **`vmssOsType`** - **OS type**<br>
 `string`. Required. Allowed values: `Windows`, `Linux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the operating system type of the VM scale set.
+Specifies the operating system type of the VM scale set.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +142,7 @@ Select the operating system type of the VM scale set.
 **`imageUrl`** - **Image URL**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of the VHD image. If it is an Azure storage blob URL, the storage account location should be the same as the scale set location.
+Specifies the URL of the VHD image. If it's an Azure storage blob URL, the storage account location is the same as the scale set location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +153,7 @@ Specify the URL of the VHD image. If it is an Azure storage blob URL, the storag
 **`imageUrl`** - **Image url**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL of the VHD image. If it is an Azure storage blob URL, the storage account location should be the same as the scale set location.
+Specifies the URL of the VHD image. If it's an Azure storage blob URL, the storage account location is the same as the scale set location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,7 +165,7 @@ Specify the URL of the VHD image. If it is an Azure storage blob URL, the storag
 **`customScriptsDirectory`** - **Custom script directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The path to the directory containing the custom script(s) that will be run by using the Custom Script VM Extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example, the script can set a machine level environment variable which the application uses, like database connection string.
+Optional. The path to the directory containing the custom script(s) that are run by using the Custom Script VM Extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example, the script can set a machine level environment variable which the application uses, like database connection strings.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,11 +177,12 @@ Optional. The path to the directory containing the custom script(s) that will be
 **`customScript`** - **Command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The script that will be run by using the Custom Script VM Extension. This script can invoke other scripts in the directory. The script will be invoked with arguments passed below.<br/>This script in conjunction with such arguments can be used to execute commands.
+Optional. The script that is run by using the Custom Script VM Extension. This script can invoke other scripts in the directory and is invoked with the arguments passed below.  
+In conjunction with such arguments, this script can be used to execute commands.
 
 For example:
-1. `Update-DatabaseConnectionStrings.ps1 -clusterType dev -user $(dbUser) -password $(dbUserPwd)` will update the connection string in `web.config` of the web application.
-2. `install-secrets.sh --key-vault-type prod -key serviceprincipalkey` will create an encrypted file containing a service principal key.
+1. `Update-DatabaseConnectionStrings.ps1 -clusterType dev -user $(dbUser) -password $(dbUserPwd)` updates the connection string in `web.config` of the web application.
+2. `install-secrets.sh --key-vault-type prod -key serviceprincipalkey` creates an encrypted file containing a service principal key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +194,7 @@ For example:
 **`customScriptArguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The custom script will be invoked with arguments passed. Build/Release variables can be used, which makes it easy to use secrets.
+Optional. The custom script will be invoked with arguments passed. Build/release variables can be used, which makes it easy to use secrets.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +206,7 @@ Optional. The custom script will be invoked with arguments passed. Build/Release
 **`customScriptsStorageAccount`** - **Azure storage account where custom scripts will be uploaded**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The Custom Script Extension downloads and executes scripts provided by you on each virtual machine in the VM scale set. These scripts will be stored in the pre-existing ARM storage account specified here.
+Optional. The Custom Script Extension downloads and executes the provided scripts on each virtual machine in the VM scale set. These scripts will be stored in the pre-existing ARM storage account specified here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -247,7 +244,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to deploy a virtual machine scale set image.
+Use this task to deploy a Virtual Machine scale set image.
 
 ### Error: 'Permission denied: Script is not executable'
 

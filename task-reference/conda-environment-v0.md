@@ -11,7 +11,10 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Create and activate a Conda environment.
+Use this task to create and activate a Conda environment.
+
+> [!NOTE]
+> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -64,7 +67,7 @@ Create and activate a Conda environment.
 **`environmentName`** - **Environment name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Conda environment to create and activate.
+The name of the Conda environment to create and activate, or reactivate if it already exists.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -76,7 +79,7 @@ Name of the Conda environment to create and activate.
 **`packageSpecs`** - **Package specs**<br>
 `string`. Default value: `python=3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Space-delimited list of packages to install when creating the environment.
+The space-delimited list of packages to install in the environment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +91,7 @@ Space-delimited list of packages to install when creating the environment.
 **`updateConda`** - **Update to the latest Conda**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Update Conda to the latest version. This applies to the Conda installation found in `PATH` or at the path specified by the `CONDA` environment variable.
+Updates Conda to the latest version. This applies to the Conda installation found in `PATH` or to the path specified by the `CONDA` environment variable.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +103,7 @@ Update Conda to the latest version. This applies to the Conda installation found
 **`createOptions`** - **Environment creation options**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Space-delimited list of other options to pass to the `conda create` command.
+The space-delimited list of additional options to pass to the `conda create` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +115,7 @@ Space-delimited list of other options to pass to the `conda create` command.
 **`cleanEnvironment`** - **Clean the environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delete the environment and recreate it if it already exists. If not selected, the task will reactivate an existing environment.
+Deletes the environment and recreates it if it already exists. If this boolean is not selected, the task will reactivate an existing environment.
 <!-- :::editable-content-end::: -->
 <br>
 

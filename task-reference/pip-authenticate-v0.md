@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@0 - Python pip authenticate v0 task
 description: Authentication task for the pip client used for installing Python distributions (task version 0).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,8 +36,8 @@ Authentication task for pip client used for installing python distributions.
 - task: PipAuthenticate@0
   inputs:
   # Feeds and Authentication
-    #artifactFeeds: # string. My feeds (select below). 
-    #externalFeeds: # string. Feeds from external organizations.
+    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
+    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations.
 ```
 
 :::moniker-end
@@ -50,8 +50,8 @@ Authentication task for pip client used for installing python distributions.
 - task: PipAuthenticate@0
   inputs:
   # Feeds and Authentication
-    #artifactFeeds: # string. My feeds (select below). 
-    #externalFeeds: # string. Feeds from external organizations.
+    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
+    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations.
 ```
 
 :::moniker-end

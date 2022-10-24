@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@3 - App Center distribute v3 task
 description: Distribute app builds to testers and users via Visual Studio App Center.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -29,24 +29,24 @@ Use this task to distribute app builds to testers and users via Visual Studio Ap
   inputs:
     serverEndpoint: # string. Required. App Center service connection. 
     appSlug: # string. Required. App slug. 
-    appFile: # string. Required. Binary file path. 
+    appFile: # string. Alias: app. Required. Binary file path. 
     #buildVersion: # string. Build version. 
-    releaseNotesOption: 'input' # 'input' | 'file'. Required. Create release notes. Default: input.
+    releaseNotesOption: 'input' # 'input' | 'file'. Alias: releaseNotesSelection. Required. Create release notes. Default: input.
     releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
     #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
     #isMandatory: false # boolean. Require users to update to this release. Default: false.
     destinationType: 'groups' # 'groups' | 'store'. Required. Release destination. Default: groups.
-    #distributionGroupId: # string. Optional. Use when destinationType = groups. Destination IDs. 
+    #distributionGroupId: # string. Alias: destinationGroupIds. Optional. Use when destinationType = groups. Destination IDs. 
     #destinationStoreId: # string. Required when destinationType = store. Destination ID. 
     #isSilent: # boolean. Optional. Use when destinationType = groups. Do not notify testers. Release will still be available to install. 
   # Symbols
-    #symbolsOption: 'Apple' # 'Apple' | 'Android' | 'UWP'. Symbols type. Default: Apple.
+    #symbolsOption: 'Apple' # 'Apple' | 'Android' | 'UWP'. Alias: symbolsType. Symbols type. Default: Apple.
     #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
     #appxsymPath: # string. Optional. Use when symbolsType = UWP. Symbols path (*.appxsym). 
-    #symbolsDsymFiles: # string. Optional. Use when symbolsType = Apple. dSYM path. 
-    #symbolsMappingTxtFile: # string. Optional. Use when symbolsType = Android. Mapping file. 
+    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsType = Apple. dSYM path. 
+    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsType = Android. Mapping file. 
     #nativeLibrariesPath: # string. Optional. Use when symbolsType == Android. Native Library File Path. 
-    #symbolsIncludeParentDirectory: # boolean. Optional. Use when symbolsType = Apple. Include all items in parent folder.
+    #symbolsIncludeParentDirectory: # boolean. Alias: packParentFolder. Optional. Use when symbolsType = Apple. Include all items in parent folder.
 ```
 
 :::moniker-end
@@ -60,22 +60,22 @@ Use this task to distribute app builds to testers and users via Visual Studio Ap
   inputs:
     serverEndpoint: # string. Required. App Center service connection. 
     appSlug: # string. Required. App slug. 
-    appFile: # string. Required. Binary file path. 
-    releaseNotesOption: 'input' # 'input' | 'file'. Required. Create release notes. Default: input.
+    appFile: # string. Alias: app. Required. Binary file path. 
+    releaseNotesOption: 'input' # 'input' | 'file'. Alias: releaseNotesSelection. Required. Create release notes. Default: input.
     releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
     #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
     #isMandatory: false # boolean. Require users to update to this release. Default: false.
     destinationType: 'groups' # 'groups' | 'store'. Required. Release destination. Default: groups.
-    #distributionGroupId: # string. Optional. Use when destinationType = groups. Destination IDs. 
+    #distributionGroupId: # string. Alias: destinationGroupIds. Optional. Use when destinationType = groups. Destination IDs. 
     #destinationStoreId: # string. Required when destinationType = store. Destination ID. 
     #isSilent: # boolean. Optional. Use when destinationType = groups. Do not notify testers. Release will still be available to install. 
   # Symbols
-    #symbolsOption: 'Apple' # 'Apple' | 'Android'. Symbols type. Default: Apple.
+    #symbolsOption: 'Apple' # 'Apple' | 'Android'. Alias: symbolsType. Symbols type. Default: Apple.
     #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
-    #symbolsPdbFiles: '**/*.pdb' # string. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
-    #symbolsDsymFiles: # string. Optional. Use when symbolsType = Apple. dSYM path. 
-    #symbolsMappingTxtFile: # string. Optional. Use when symbolsType = Android. Mapping file. 
-    #symbolsIncludeParentDirectory: # boolean. Optional. Use when symbolsType = Apple. Include all items in parent folder.
+    #symbolsPdbFiles: '**/*.pdb' # string. Alias: pdbPath. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
+    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsType = Apple. dSYM path. 
+    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsType = Android. Mapping file. 
+    #symbolsIncludeParentDirectory: # boolean. Alias: packParentFolder. Optional. Use when symbolsType = Apple. Include all items in parent folder.
 ```
 
 :::moniker-end
@@ -420,7 +420,22 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Deploy |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

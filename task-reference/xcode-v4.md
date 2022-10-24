@@ -1,7 +1,7 @@
 ---
 title: Xcode@4 - Xcode v4 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app (task version 4).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -56,7 +56,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
     #destinationDevices: # string. Optional. Use when destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices. Device. 
   # Advanced
     #args: # string. Arguments. 
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
     #outputPattern: # string. Output directory. 
     #useXcpretty: false # boolean. Use xcpretty. Default: false.
     #publishJUnitResults: false # boolean. Publish test results to VSTS/TFS. Default: false.

@@ -1,7 +1,7 @@
 ---
 title: PyPIPublisher@0 - PyPI publisher v0 task
 description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,9 +27,9 @@ Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 # Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 - task: PyPIPublisher@0
   inputs:
-    pypiConnection: # string. Required. PyPI service connection. 
-    packageDirectory: # string. Required. Python package directory. 
-    #alsoPublishWheel: false # boolean. Also publish a wheel. Default: false.
+    pypiConnection: # string. Alias: serviceEndpoint. Required. PyPI service connection. 
+    packageDirectory: # string. Alias: wd. Required. Python package directory. 
+    #alsoPublishWheel: false # boolean. Alias: wheel. Also publish a wheel. Default: false.
 ```
 
 :::moniker-end
@@ -41,9 +41,9 @@ Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 # Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 - task: PyPIPublisher@0
   inputs:
-    pypiConnection: # string. Required. PyPI service connection. 
-    packageDirectory: # string. Required. Python package directory. 
-    #alsoPublishWheel: false # boolean. Also publish a wheel. Default: false.
+    pypiConnection: # string. Alias: serviceEndpoint. Required. PyPI service connection. 
+    packageDirectory: # string. Alias: wd. Required. Python package directory. 
+    #alsoPublishWheel: false # boolean. Alias: wheel. Also publish a wheel. Default: false.
 ```
 
 :::moniker-end

@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install an Apple certificate required to build on a macOS agent machine.
+Use this task to install the Apple certificate that is required to build on a macOS agent. You can use this task to install an Apple certificate that is stored as a [secure file](/azure/devops/pipelines/library/secure-files) on the server.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -99,7 +99,7 @@ Install an Apple certificate required to build on a macOS agent.
 **`certSecureFile`** - **Certificate (P12)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the certificate (.p12) that was uploaded to `Secure Files` to install on the macOS agent.
+Specifies the certificate (.p12) that was uploaded to `Secure Files` to install on the macOS agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +111,7 @@ Select the certificate (.p12) that was uploaded to `Secure Files` to install on 
 **`certPwd`** - **Certificate (P12) password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password to the Apple certificate (.p12). Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value.
+Specifies the password to the Apple certificate (.p12). Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Password to the Apple certificate (.p12). Use a new build variable with its lock
 **`keychain`** - **Keychain**<br>
 `string`. Required. Allowed values: `default` (Default Keychain), `temp` (Temporary Keychain), `custom` (Custom Keychain). Default value: `temp`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the keychain in which to install the Apple certificate. For Microsoft hosted builds, use `Temporary Keychain`. A temporary keychain will always be deleted after the build or release is complete.
+Specifies the keychain in which to install the Apple certificate. For Microsoft-hosted builds, use `Temporary Keychain`. A temporary keychain will always be deleted after the build or release is complete.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +135,7 @@ Select the keychain in which to install the Apple certificate. For Microsoft hos
 **`keychainPassword`** - **Keychain password**<br>
 `string`. Required when `keychain = custom || keychain = default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value. A password is generated for the temporary keychain if not specified.
+Specifies the password to unlock the keychain. Use a new build variable with its lock enabled on the `Variables` tab to encrypt this value. A password is generated for the temporary keychain if not specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +147,7 @@ Password to unlock the keychain. Use a new build variable with its lock enabled 
 **`customKeychainPath`** - **Custom keychain path**<br>
 `string`. Required when `keychain = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Full path to a custom keychain file. The keychain will be created if it does not exist.
+Specifies the full path to a custom keychain file. The keychain will be created if it does not already exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +159,7 @@ Full path to a custom keychain file. The keychain will be created if it does not
 **`deleteCert`** - **Delete certificate from keychain**<br>
 `boolean`. Optional. Use when `keychain = custom || keychain = default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select to delete the certificate from the keychain after the build or release is complete.
+Specifies the certificate to delete from the keychain after the build or release is complete.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -171,7 +171,7 @@ Select to delete the certificate from the keychain after the build or release is
 **`deleteCustomKeychain`** - **Delete custom keychain**<br>
 `boolean`. Optional. Use when `keychain = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select to delete the custom keychain from the agent after the build or release is complete.
+Specifies the custom keychain to delete from the agent after the build or release is complete.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +183,7 @@ Select to delete the custom keychain from the agent after the build or release i
 **`signingIdentity`** - **Certificate signing identity**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Common Name of the subject in the signing certificate.  Will attempt to parse the Common Name if this is left empty.
+Specifies the `Common Name` of the subject in the signing certificate.  Will attempt to parse the `Common Name` if this is left empty.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,7 +195,7 @@ The Common Name of the subject in the signing certificate.  Will attempt to pars
 **`setUpPartitionIdACLForPrivateKey`** - **Set up partition_id ACL for the imported private key**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true - sets the partition_id ACL for the imported private key, so codesign won't prompt to use the key for signing. This isn't necessary for temporary keychains, at least on MacOS High Sierra. See the [link](http://www.openradar.me/28524119) for more details.
+If `true`, sets the `partition_id` ACL for the imported private key so that `codesign` won't prompt to use the key for signing. This isn't necessary for temporary keychains on MacOS High Sierra. Learn more about [Open Radar](http://www.openradar.me/28524119).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,12 +216,12 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="signingIdentity"::: -->
 **`signingIdentity`**<br><!-- :::editable-content name="Value"::: -->
-The resolved Common Name of the subject in the signing certificate. Either supplied as an input or parsed from the P12 certificate file.
+Specifies the resolved `Common Name` of the subject in the signing certificate. Either supplied as an input or parsed from the P12 certificate file.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="keychainPath"::: -->
 **`keychainPath`**<br><!-- :::editable-content name="Value"::: -->
-The path for the keychain file with the certificate.
+Specifies the path for the keychain file with the certificate.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 

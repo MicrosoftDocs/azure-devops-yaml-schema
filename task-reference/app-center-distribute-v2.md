@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@2 - App Center distribute v2 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 2).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -29,19 +29,19 @@ Use this task to distribute app builds to testers and users via Visual Studio Ap
   inputs:
     serverEndpoint: # string. Required. App Center service connection. 
     appSlug: # string. Required. App slug. 
-    appFile: # string. Required. Binary file path. 
-    releaseNotesOption: 'input' # 'input' | 'file'. Required. Create release notes. Default: input.
+    appFile: # string. Alias: app. Required. Binary file path. 
+    releaseNotesOption: 'input' # 'input' | 'file'. Alias: releaseNotesSelection. Required. Create release notes. Default: input.
     releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
     #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
     #isMandatory: false # boolean. Require users to update to this release. Default: false.
-    #distributionGroupId: # string. Destination IDs. 
+    #distributionGroupId: # string. Alias: destinationIds | destinationId. Destination IDs. 
   # Symbols
-    #symbolsOption: 'Apple' # 'Apple'. Symbols type. Default: Apple.
+    #symbolsOption: 'Apple' # 'Apple'. Alias: symbolsType. Symbols type. Default: Apple.
     #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
-    #symbolsPdbFiles: '**/*.pdb' # string. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
-    #symbolsDsymFiles: # string. Optional. Use when symbolsType = Apple. dSYM path. 
-    #symbolsMappingTxtFile: # string. Optional. Use when symbolsType = AndroidJava. Mapping file. 
-    #symbolsIncludeParentDirectory: # boolean. Include all items in parent folder.
+    #symbolsPdbFiles: '**/*.pdb' # string. Alias: pdbPath. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
+    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsType = Apple. dSYM path. 
+    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsType = AndroidJava. Mapping file. 
+    #symbolsIncludeParentDirectory: # boolean. Alias: packParentFolder. Include all items in parent folder.
 ```
 
 :::moniker-end
@@ -250,7 +250,22 @@ Added support for multiple destinations.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Deploy |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

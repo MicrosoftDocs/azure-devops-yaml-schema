@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 09/26/2022
+ms.date: 10/18/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Compress files into .7z, .tar.gz, or .zip.
+Archive files using compression formats such as .7z, .tar, .gz, and .zip.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Compress files into .7z, .tar.gz, or .zip.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
+Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -128,7 +128,7 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 **`rootFolderOrFile`** - **Root folder or file to archive**<br>
 `string`. Required. Default value: `$(Build.BinariesDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the root folder or file path to add to the archive. If a folder, everything under the folder will be added to the resulting archive.
+Name of the root folder or the file path to files to add to the archive. For folders, everything in the named folder is added to the archive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,9 @@ Enter the root folder or file path to add to the archive. If a folder, everythin
 **`includeRootFolder`** - **Prepend root folder name to archive paths**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If selected, the root folder name will be prepended to file paths within the archive. Otherwise, all file paths will start one level lower.<p>For example, suppose the selected root folder is: <b>`/home/user/output/classes/`</b>, and contains: <b>`com/acme/Main.class`</b>. <ul><li>If selected, the resulting archive would contain: <b>`classes/com/acme/Main.class`</b>.</li><li>Otherwise, the resulting archive would contain: <b>`com/acme/Main.class`</b>.</li></ul>
+Prepends the root folder name to file paths in the archive. Otherwise, all file paths will start one level lower.
+
+For example, if the root folder is: `/home/user/output/classes/` and the file path: `com/acme/Main.class`. The resulting archive will contain: `classes/com/acme/Main.class`. Otherwise, the resulting archive will contain: `com/acme/Main.class`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,12 +154,17 @@ If selected, the root folder name will be prepended to file paths within the arc
 **`archiveType`** - **Archive type**<br>
 `string`. Required. Allowed values: `zip`, `7z`, `tar`, `wim`. Default value: `zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the compression scheme used.  To create <b>`foo.jar`</b>, for example, choose <b>`zip`</b> for the compression, and specify <b>`foo.jar`</b> as the archive file to create.  For all tar files (including compressed ones), choose <b>`tar`</b>.
+Specifies a compression format.  Valid formats include:
 
-- `zip` - default, zip format, choose this for all zip compatible types, (.zip, .jar, .war, .ear)
+- `zip` - Default. Choose this format for all zip compatible types such as .zip, .jar, .war, .ear
 - `7z` - 7-Zip format, (.7z)
-- `tar` - tar format, choose this for compressed tars, (.tar.gz, .tar.bz2, .tar.xz)
-- `wim` - wim format, (.wim)
+- `tar` - tar format, use for compressed tars including .tar.gz, .tar.bz2, .tar.xz
+- `wim` - wim format, .wim
+
+Example, to create an archive named `foo.jar`:
+
+- Select compression format `zip`  
+- Specify the name of the archive file to create: `foo.jar`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,7 +176,7 @@ Specify the compression scheme used.  To create <b>`foo.jar`</b>, for example, c
 **`sevenZipCompression`** - **7z compression**<br>
 `string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `normal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally choose a compression level, or choose <b>`None`</b> to create an uncompressed 7z file.
+Set compression level or `None` to create an uncompressed .7z file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +187,7 @@ Optionally choose a compression level, or choose <b>`None`</b> to create an unco
 **`sevenZipCompression`** - **7z compression**<br>
 `string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `5`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally choose a compression level, or choose <b>`None`</b> to create an uncompressed 7z file.
+Set a compression format or `None` to create an uncompressed .7z file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,12 +199,11 @@ Optionally choose a compression level, or choose <b>`None`</b> to create an unco
 **`tarCompression`** - **Tar compression**<br>
 `string`. Optional. Use when `archiveType = tar`. Allowed values: `gz`, `bz2`, `xz`, `none`. Default value: `gz`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally choose a compression scheme, or choose <b>`None`</b> to create an uncompressed tar file.
+Set a compression format or choose `None` to create an uncompressed .tar file.
 
-- `gz` - default, gzip compression (.tar.gz, .tar.tgz, .taz)
+- `gz` - Default format for gzip compression (.tar.gz, .tar.tgz, .taz)
 - `bz2` - bzip2 compression (.tar.bz2, .tz2, .tbz2)
 - `xz` - xz compression (.tar.xz, .txz)
-- `None` - no compression, choose this to create a uncompressed tar file (.tar)
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +215,10 @@ Optionally choose a compression scheme, or choose <b>`None`</b> to create an unc
 **`archiveFile`** - **Archive file to create**<br>
 `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the archive file to create.  For example, to create <b>`foo.tgz`</b>, select the <b>`tar`</b> archive type and <b>`gz`</b> for tar compression.
+Specify the name of the archive file to create.  For example, to create `foo.tgz`:
+
+- Set archive type: `tar`
+- Set tar compression: `gz`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,13 +230,13 @@ Specify the name of the archive file to create.  For example, to create <b>`foo.
 **`replaceExistingArchive`** - **Replace existing archive**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If an existing archive exists, specify whether to overwrite it. Otherwise, files will be added to it as long as it is not a compressed tar.
+By default, overwrites an existing archive. Otherwise, when set to `false`, uncompressed tar files are added to the existing archive.
 
-If adding to an existing archive, these types are supported:
+Supported file formats that can be added to an existing archive:
 
 - `zip`
 - `7z`
-- `tar` - uncompressed only
+- `tar` - Only uncompressed
 - `wim`
 <!-- :::editable-content-end::: -->
 <br>
@@ -240,7 +249,7 @@ If adding to an existing archive, these types are supported:
 **`verbose`** - **Force verbose output**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to true, forces tools to use verbose output. Overrides 'quiet'.
+If set to true, forces tools to use verbose output. Overrides the 'quiet' setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +261,7 @@ If set to true, forces tools to use verbose output. Overrides 'quiet'.
 **`quiet`** - **Force quiet output**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to true, forces tools to use quiet output. Can be overridden by 'verbose'.
+If set to `true`, forces tools to use quiet output. The `verbose` setting (or equivalent) can override this setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -279,7 +288,7 @@ None.
 ## Remarks
 
 Use this task to create an archive file from a source folder.
-A range of standard archive formats are supported including .zip, .jar, .war, .ear, .tar, .7z, and more.
+Standard archive formats are supported including .zip, .jar, .war, .ear, .tar, .7z, and more.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
