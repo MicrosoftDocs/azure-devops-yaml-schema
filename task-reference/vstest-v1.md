@@ -176,7 +176,7 @@ Specifies the path to VSTest.
 **`pathtoCustomTestAdapters`** - **Path to Custom Test Adapters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the directory path to the custom test adapters. Nuget restored adapters are automatically searched for.
+Specifies the directory path to the custom test adapters. NuGet restored adapters are automatically searched for.
 <!-- :::editable-content-end::: -->
 <br>
 

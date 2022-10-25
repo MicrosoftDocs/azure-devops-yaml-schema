@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. Test frameworks that have a Visual Studio test adapter can be run, such as MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task (version 2).
+Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. You can run test frameworks that have a Visual Studio test adapter. Example frameworks are MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task (version 2).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -275,7 +275,7 @@ Specifies the test configuration.
 **`tcmTestRun`** - **Test Run**<br>
 `string`. Optional. Use when `testSelector = testRun`. Default value: `$(test.RunId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the test run based selection that is used when triggering automated test runs from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option cannot be used for running tests in the CI/CD pipeline.
+Specifies the test run-based selection that is used when triggering automated test runs from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option cannot be used for running tests in the CI/CD pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -299,7 +299,7 @@ Specifies the folder to search for the test assemblies.
 **`resultsFolder`** - **Test results folder**<br>
 `string`. Default value: `$(Agent.TempDirectory)\TestResults`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder to store test results. When this input is not specified, results are stored in `$(Agent.TempDirectory)/TestResults` by default, which is cleaned at the end of a pipeline run. The results directory will always be cleaned up at the start of the `vstest` task before the tests are run. The relative folder path, if provided, will be considered relative to `$(Agent.TempDirectory)`.
+Specifies the folder to store test results. When using the default directory, it is cleaned at the end of a pipeline run. The results directory will always be cleaned up at the start of the `vstest` task before the tests are run. The relative folder path, if provided, will be considered relative to `$(Agent.TempDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -323,7 +323,7 @@ Specifies additional criteria to filter tests from test assemblies. For example:
 **`runOnlyImpactedTests`** - **Run only impacted tests**<br>
 `boolean`. Optional. Use when `testSelector = testAssemblies`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Automatically selects and runs the tests needed to validate the code change. Learn about using [Test Impact Analysis](https://aka.ms/tialearnmore).
+Automatically specifies and runs the tests needed to validate the code change. Learn about using [Test Impact Analysis](https://aka.ms/tialearnmore).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -371,7 +371,7 @@ Specifies which test platform to use.
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Visual Studio Test to use. If **latest** is specified, it chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -382,7 +382,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Visual Studio Test to use. If **latest** is specified, it chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -406,7 +406,7 @@ Specifies the path to VSTest.
 **`runSettingsFile`** - **Settings file**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to a `runsettings` or `testsettings` file to use with the tests. For Visual Studio 15.7 and higher, it is recommended to use `runsettings` for all types of tests. Learn more about [converting a `.testsettings` file to a `.runsettings` file](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0023-TestSettings-Deprecation.md).
+Specifies the path to a `runsettings` or `testsettings` file to use with the tests. For Visual Studio 15.7 and higher, use `runsettings` for all test types. Learn more about [converting a `.testsettings` file to a `.runsettings` file](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0023-TestSettings-Deprecation.md).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -534,7 +534,7 @@ Specifies the batch size.
 **`batchingBasedOnExecutionTimeOption`** - **Batch options**<br>
 `string`. Optional. Use when `distributionBatchType = basedOnExecutionTime`. Allowed values: `autoBatchSize` (Automatically determine the batch time), `customTimeBatchSize` (Specify running time per batch). Default value: `autoBatchSize`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This batching considers past running time to create batches of tests where each batch has approximately equal running time. Quick-running tests will be batched together, while longer-running tests may belong to a separate batch. When this option is used with the multi-agent job setting, total test time is reduced to a minimum.
+This batching considers past running times to create batches of tests where each batch has approximately equal running time. Quick-running tests will be batched together, while longer-running tests may belong to a separate batch. When this option is used with the multi-agent job setting, the total test time is reduced to a minimum.
 <!-- :::editable-content-end::: -->
 <br>
 
