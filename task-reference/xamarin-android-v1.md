@@ -96,7 +96,7 @@ Use this task to build an Android app with Xamarin.
 **`projectFile`** - **Project**<br>
 Input alias: `project`. `string`. Required. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path from repo root of `Xamarin.Android` project(s) to build. Wildcards can be used. For more information see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/*.csproj` for all csproj files in all subfolders. The project must have a `PackageForAndroid` target if `Create App Package` is selected.
+Specifies the relative path from repo root of `Xamarin.Android` project(s) to build. Wildcards can be used. For more information, see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/*.csproj` for all csproj files in all subfolders. The project must have a `PackageForAndroid` target if `Create App Package` is selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +147,7 @@ Specifies the configuration you want to build. For example, `debug` or `release`
 **`createAppPackage`** - **Create app package**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the target `(/t:PackageForAndroid)` during the build to generate an APK.
+Passes the target, `(/t:PackageForAndroid)`, during the build to generate an APK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +159,7 @@ Passes the target `(/t:PackageForAndroid)` during the build to generate an APK.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the clean target `(/t:clean)` during the build.
+Passes the clean target, `(/t:clean)`, during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +218,7 @@ Optional. Supplies the path to MSBuild (on Windows) or xbuild (on macOS).
 **`msbuildArchitectureOption`** - **MSBuild architecture**<br>
 Input alias: `msbuildArchitecture`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Supplies the architecture (x86, x64) of the MSBuild you want to run.
+Supplies the architecture (x86, x64) of the MSBuild you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -289,7 +289,7 @@ Specifies the JDK version to use during the build at the `jdkSelection` path.
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Supplies the architecture (x86, x64) of JDK.
+Supplies the architecture (x86, x64) of JDK.
 <!-- :::editable-content-end::: -->
 <br>
 
