@@ -88,7 +88,7 @@ Use this task to acquire the [Microsoft test platform](https://www.nuget.org/pac
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the feed where the task fetches the Visual Studio Test Platform NuGet package.
 
-**`nugetOrg`*** - **Official NuGet**: Acquires the [test platform package from NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/). This option requires internet connectivity on the agent machine.
+**`nugetOrg`** - **Official NuGet**: Acquires the [test platform package from NuGet](https://www.nuget.org/packages/Microsoft.TestPlatform/). This option requires internet connectivity on the agent machine.
 
 **`customFeed`** - **Custom feed**: Acquires the test platform package from a custom feed or a package management feed in Azure DevOps or TFS.
 
