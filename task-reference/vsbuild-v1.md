@@ -227,7 +227,7 @@ Specifies the configuration you want to build, such as `debug` or `release`.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `false`, the task makes an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
+If set to `false`, the task makes an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set the Clean repository to `false`.
 
 If set to `true`, the task rebuilds all of the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
 <!-- :::editable-content-end::: -->
