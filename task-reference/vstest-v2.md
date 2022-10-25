@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
+Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. Test frameworks that have a Visual Studio test adapter can be run, such as MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task (version 2).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -202,7 +202,9 @@ Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the 
 **`testSelector`** - **Select tests using**<br>
 `string`. Required. Allowed values: `testAssemblies` (Test assemblies), `testPlan` (Test plan), `testRun` (Test run). Default value: `testAssemblies`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-<ul><li><b>Test assembly: </b>Use this option to specify one or more test assemblies that contain your tests. You can optionally specify a filter criteria to select only specific tests.</li><li><b>Test plan: </b>Use this option to run tests from your test plan that have an automated test method associated with it. To learn more about how to associate tests with a test case work item, see [Associate automated tests with test cases](/azure/devops/test/associate-automated-test-with-test-case).</li><li><b>Test run: </b>Use this option when you are setting up an environment to run tests from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option should not be used when running tests in a continuous integration/continuous deployment (CI/CD) pipeline.</li>
+- **Test assembly:** Specifies one or more test assemblies that contain your tests. You can optionally specify a filter criteria to select only specific tests.
+- **Test plan:** Runs tests from your test plan that have an automated test method associated with it. To learn more about how to associate tests with a test case work item, see [Associate automated tests with test cases](/azure/devops/test/associate-automated-test-with-test-case).
+- **Test run:** Use this option when you are setting up an environment to run tests from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option should not be used when running tests in a continuous integration/continuous deployment (CI/CD) pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -214,8 +216,7 @@ Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the 
 **`testAssemblyVer2`** - **Test files**<br>
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. Supports multiple lines of minimatch patterns. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns)
-Default value: `**\\*test*.dll\n!**\\*TestAdapter.dll\n!**\\obj\\**`
+Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +227,7 @@ Default value: `**\\*test*.dll\n!**\\*TestAdapter.dll\n!**\\obj\\**`
 **`testAssemblyVer2`** - **Test assemblies**<br>
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run tests from the specified files.<br>Ordered tests and webtests can be run by specifying the .orderedtest and .webtest files respectively. To run .webtest, Visual Studio 2017 Update 4 or higher is needed. <br><br>The file paths are relative to the search folder. Supports multiple lines of minimatch patterns. [More information](https://aka.ms/minimatchexamples).
+Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +239,7 @@ Run tests from the specified files.<br>Ordered tests and webtests can be run by 
 **`testPlan`** - **Test plan**<br>
 `string`. Required when `testSelector = testPlan`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a test plan containing test suites with automated test cases.
+Specifies a test plan containing test suites with automated test cases.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -250,7 +251,7 @@ Select a test plan containing test suites with automated test cases.
 **`testSuite`** - **Test suite**<br>
 `string`. Required when `testSelector = testPlan`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select one or more test suites containing automated test cases. Test case work items must be associated with an automated test method. [Learn more](https://go.microsoft.com/fwlink/?linkid=847773).
+Specifies one or more test suites containing automated test cases. Test case work items must be associated with an [automated test method](/azure/devops/test/associate-automated-test-with-test-case).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +263,7 @@ Select one or more test suites containing automated test cases. Test case work i
 **`testConfiguration`** - **Test configuration**<br>
 `string`. Required when `testSelector = testPlan`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select Test Configuration.
+Specifies the test configuration.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -274,7 +275,7 @@ Select Test Configuration.
 **`tcmTestRun`** - **Test Run**<br>
 `string`. Optional. Use when `testSelector = testRun`. Default value: `$(test.RunId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test run based selection is used when triggering automated test runs from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option cannot be used for running tests in the CI/CD pipeline.
+Specifies the test run based selection that is used when triggering automated test runs from [test plans](/azure/devops/test/run-automated-tests-from-test-hub). This option cannot be used for running tests in the CI/CD pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -286,7 +287,7 @@ Test run based selection is used when triggering automated test runs from [test 
 **`searchFolder`** - **Search folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder to search for the test assemblies.
+Specifies the folder to search for the test assemblies.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -298,7 +299,7 @@ Folder to search for the test assemblies.
 **`resultsFolder`** - **Test results folder**<br>
 `string`. Default value: `$(Agent.TempDirectory)\TestResults`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder to store test results. When this input is not specified, results are stored in $(Agent.TempDirectory)/TestResults by default, which is cleaned at the end of a pipeline run. The results directory will always be cleaned up at the start of the vstest task before the tests are run. Relative folder path if provided will be considered relative to $(Agent.TempDirectory).
+Specifies the folder to store test results. When this input is not specified, results are stored in `$(Agent.TempDirectory)/TestResults` by default, which is cleaned at the end of a pipeline run. The results directory will always be cleaned up at the start of the `vstest` task before the tests are run. The relative folder path, if provided, will be considered relative to `$(Agent.TempDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -310,7 +311,7 @@ Folder to store test results. When this input is not specified, results are stor
 **`testFiltercriteria`** - **Test filter criteria**<br>
 `string`. Optional. Use when `testSelector = testAssemblies`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional criteria to filter tests from Test assemblies. For example: `Priority=1|Name=MyTestMethod`. [More information](/previous-versions/jj155796(v=vs.140)).
+Specifies additional criteria to filter tests from test assemblies. For example: `Priority=1|Name=MyTestMethod`. Learn about [command-line options](/previous-versions/jj155796(v=vs.140)).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -322,7 +323,7 @@ Additional criteria to filter tests from Test assemblies. For example: `Priority
 **`runOnlyImpactedTests`** - **Run only impacted tests**<br>
 `boolean`. Optional. Use when `testSelector = testAssemblies`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Automatically select, and run only the tests needed to validate the code change. [More information](https://aka.ms/tialearnmore).
+Automatically selects and runs the tests needed to validate the code change. Learn about using [Test Impact Analysis](https://aka.ms/tialearnmore).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -334,7 +335,7 @@ Automatically select, and run only the tests needed to validate the code change.
 **`runAllTestsAfterXBuilds`** - **Number of builds after which all tests should be run**<br>
 `string`. Optional. Use when `testSelector = testAssemblies && runOnlyImpactedTests = true`. Default value: `50`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Number of builds after which to automatically run all tests. Test Impact Analysis stores the mapping between test cases and source code. It is recommended to regenerate the mapping by running all tests, on a regular basis.
+Specifies the number of builds to be executed before all tests are automatically run. Test Impact Analysis stores the mapping between test cases and source code. It is recommended to regenerate the mapping by running all tests on a regular basis.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -346,7 +347,7 @@ Number of builds after which to automatically run all tests. Test Impact Analysi
 **`uiTests`** - **Test mix contains UI tests**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To run UI tests, ensure that the agent is set to run in [interactive mode](/azure/devops/pipelines/agents/agents) with autologon enabled. Setting up an agent to run interactively must be done before queueing the build/release. Checking this box does not configure the agent in interactive mode automatically. This option in the task is to only serve as a reminder to configure agent appropriately to avoid failures. Hosted Windows agents from the VS 2015 and 2017 pools can be used to run UI tests.
+To run UI tests, ensure that the agent is set to run in [interactive mode](/azure/devops/pipelines/agents/agents) with **Autologon** enabled. Setting up an agent to run interactively must be done before queueing the build/release. Checking this box does not configure the agent in interactive mode automatically. This option serves as a reminder to configure the agent appropriately to avoid failures. Hosted Windows agents from the VS 2015 and 2017 pools can be used to run UI tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -358,7 +359,7 @@ To run UI tests, ensure that the agent is set to run in [interactive mode](/azur
 **`vstestLocationMethod`** - **Select test platform using**<br>
 `string`. Allowed values: `version`, `location` (Specific location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify which test platform should be used.
+Specifies which test platform to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -370,7 +371,7 @@ Specify which test platform should be used.
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of Visual Studio test to use. If latest is specified it chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the ‘Installed by tools installer’ option. Be sure to include the ‘Visual Studio Test Platform Installer’ task to acquire the test platform from nuget.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, it chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -381,7 +382,7 @@ The version of Visual Studio test to use. If latest is specified it chooses Visu
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of Visual Studio test to use. If latest is specified it chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the ‘Installed by tools installer’ option. Be sure to include the ‘Visual Studio Test Platform Installer’ task to acquire the test platform from nuget.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, it chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -393,7 +394,7 @@ The version of Visual Studio test to use. If latest is specified it chooses Visu
 **`vstestLocation`** - **Path to vstest.console.exe**<br>
 `string`. Optional. Use when `vstestLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to VSTest.
+Specifies the path to VSTest.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -405,7 +406,7 @@ Optionally supply the path to VSTest.
 **`runSettingsFile`** - **Settings file**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to `runsettings` or `testsettings` file to use with the tests.Starting with Visual Studio 15.7, it is recommended to use runsettings for all types of tests. To learn more about converting a .testsettings file to a .runsettings file, see [this topic](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0023-TestSettings-Deprecation.md).
+Specifies the path to a `runsettings` or `testsettings` file to use with the tests. For Visual Studio 15.7 and higher, it is recommended to use `runsettings` for all types of tests. Learn more about [converting a `.testsettings` file to a `.runsettings` file](https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0023-TestSettings-Deprecation.md).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -417,7 +418,7 @@ Path to `runsettings` or `testsettings` file to use with the tests.Starting with
 **`overrideTestrunParameters`** - **Override test run parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override parameters defined in the `TestRunParameters` section of runsettings file or `Properties` section of testsettings file. For example: `-key1 value1 -key2 value2`. Note: Properties specified in testsettings file can be accessed via the TestContext using Visual Studio 2017 Update 4 or higher.
+Overrides the parameters defined in the `TestRunParameters` section of a `runsettings` file or the `Properties` section of a `testsettings` file. For example: `-key1 value1 -key2 value2`. *Note:* Properties specified in a `testsettings` file can be accessed via the `TestContext` using Visual Studio 2017 (update 4 or higher).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -429,7 +430,7 @@ Override parameters defined in the `TestRunParameters` section of runsettings fi
 **`pathtoCustomTestAdapters`** - **Path to custom test adapters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory path to custom test adapters. Adapters residing in the same folder as the test assemblies are automatically discovered.
+Specifies the directory path to custom test adapters. Adapters residing in the same folder as the test assemblies are automatically discovered.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +442,7 @@ Directory path to custom test adapters. Adapters residing in the same folder as 
 **`runInParallel`** - **Run tests in parallel on multi-core machines**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set, tests will run in parallel leveraging available cores of the machine. This will override the MaxCpuCount if specified in your runsettings file. [Click here](https://aka.ms/paralleltestexecution) to learn more about how tests are run in parallel.
+If set to `true`, tests are run in parallel and leverage available cores of the machine. This will override the `MaxCpuCount` if specified in your `runsettings` file. Learn more about how [tests are run in parallel](https://devblogs.microsoft.com/devops/parallel-test-execution/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -453,7 +454,7 @@ If set, tests will run in parallel leveraging available cores of the machine. Th
 **`runTestsInIsolation`** - **Run tests in isolation**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Runs the tests in an isolated process. This makes vstest.console.exe process less likely to be stopped on an error in the tests, but tests might run slower. This option currently cannot be used when running with the multi-agent job setting.
+Runs the tests in an isolated process. This likely leads to fewer errors in the vstest.console.exe test process, but tests might run slower. This option currently cannot be used when running with the multi-agent job setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -465,7 +466,7 @@ Runs the tests in an isolated process. This makes vstest.console.exe process les
 **`codeCoverageEnabled`** - **Code coverage enabled**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Collect code coverage information from the test run.
+Collects code coverage information from the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -477,7 +478,9 @@ Collect code coverage information from the test run.
 **`otherConsoleOptions`** - **Other console options**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Other console options that can be passed to vstest.console.exe, as documented <a href="https://aka.ms/vstestotherconsoleoptions" target="_blank">here</a>. <p>These options are not supported and will be ignored when running tests using the ‘Multi agent’ parallel setting of an agent job or when running tests using ‘Test plan’ or 'Test run' option or when a custom batching option is selected. The options can be specified using a settings file instead.</p>.
+[Other console options](/visualstudio/test/vstest-console-options) that can be passed to vstest.console.exe.
+
+These options are not supported and will be ignored when running tests using the **Multi-agent parallel** setting of an agent job, when running tests using the **Test plan** or **Test run** option, or when a custom batching option is selected. The options can be specified using a settings file instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -489,7 +492,13 @@ Other console options that can be passed to vstest.console.exe, as documented <a
 **`distributionBatchType`** - **Batch tests**<br>
 `string`. Allowed values: `basedOnTestCases` (Based on number of tests and agents), `basedOnExecutionTime` (Based on past running time of tests), `basedOnAssembly` (Based on test assemblies). Default value: `basedOnTestCases`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A batch is a group of tests. A batch of tests runs its tests at the same time and results are published for the batch. If the job in which the task runs is set to use multiple agents, each agent picks up any available batches of tests to run in parallel.<br><br><b>Based on the number of tests and agents:</b> Simple batching based on the number of tests and agents participating in the test run.<br><br><b>Based on past running time of tests:</b> This batching considers past running time to create batches of tests such that each batch has approximately equal running time.<br><br><b>Based on test assemblies:</b> Tests from an assembly are batched together.
+A batch is a group of tests. A batch of tests runs its tests at the same time, and results are published for the batch. If the job in which the task runs is set to use multiple agents, each agent picks up any available batches of tests to run in parallel. A batch can be run:
+
+**based on the number of tests and agents.** Simple batching based on the number of tests and agents participating in the test run.
+
+**based on the past running time of tests.** This batching considers the past running time to create batches of tests where each batch has approximately equal running time.
+
+**based on test assemblies.** Tests from an assembly are batched together.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -501,7 +510,7 @@ A batch is a group of tests. A batch of tests runs its tests at the same time an
 **`batchingBasedOnAgentsOption`** - **Batch options**<br>
 `string`. Optional. Use when `distributionBatchType = basedOnTestCases`. Allowed values: `autoBatchSize` (Automatically determine the batch size), `customBatchSize` (Specify a batch size). Default value: `autoBatchSize`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Simple batching based on the number of tests and agents participating in the test run. When the batch size is automatically determined, each batch contains `(total number of tests / number of agents)` tests. If a batch size is specified, each batch will contain the specified number of tests.
+Specifies simple batching based on the number of tests and agents participating in the test run. When the batch size is automatically determined, each batch contains `(total number of tests / number of agents)` tests. If a batch size is specified, each batch will contain the specified number of tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -513,7 +522,7 @@ Simple batching based on the number of tests and agents participating in the tes
 **`customBatchSizeValue`** - **Number of tests per batch**<br>
 `string`. Required when `distributionBatchType = basedOnTestCases && batchingBasedOnAgentsOption = customBatchSize`. Default value: `10`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify batch size.
+Specifies the batch size.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -525,7 +534,7 @@ Specify batch size.
 **`batchingBasedOnExecutionTimeOption`** - **Batch options**<br>
 `string`. Optional. Use when `distributionBatchType = basedOnExecutionTime`. Allowed values: `autoBatchSize` (Automatically determine the batch time), `customTimeBatchSize` (Specify running time per batch). Default value: `autoBatchSize`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This batching considers past running time to create batches of tests such that each batch has approximately equal running time. Quick running tests will be batched together, while longer running tests may belong to a separate batch. When this option is used with the multi-agent job setting, total test time is reduced to a minimum.
+This batching considers past running time to create batches of tests where each batch has approximately equal running time. Quick-running tests will be batched together, while longer-running tests may belong to a separate batch. When this option is used with the multi-agent job setting, total test time is reduced to a minimum.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -537,7 +546,7 @@ This batching considers past running time to create batches of tests such that e
 **`customRunTimePerBatchValue`** - **Running time (sec) per batch**<br>
 `string`. Required when `distributionBatchType = basedOnExecutionTime && batchingBasedOnExecutionTimeOption = customTimeBatchSize`. Default value: `60`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the running time (sec) per batch.
+Specifies the running time (in seconds) per batch.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -549,7 +558,8 @@ Specify the running time (sec) per batch.
 **`dontDistribute`** - **Replicate tests instead of distributing when multiple agents are used in the job**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choosing this option will not distribute tests across agents when the task is running in a multi-agent job.<br>Each of the selected test(s) will be repeated on each agent.<br>The option is not applicable when the agent job is configured to run with no parallelism or with the multi-config option.
+Choosing this option will not distribute tests across agents when the task is running in a multi-agent job.
+Each of the selected test(s) will be repeated on each agent. This option is not applicable when the agent job is configured to run with no parallelism or with the multi-config option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -560,7 +570,8 @@ Choosing this option will not distribute tests across agents when the task is ru
 **`dontDistribute`** - **Do not distribute tests and replicate instead when multiple agents are used in the job**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choosing this option will not distribute tests across agents when the task is running in a multi-agent job.<br>Each of the selected test(s) will be repeated on each agent.<br>The option is not applicable when the agent job is configured to run with no parallelism or with the multi-config option.
+Choosing this option will not distribute tests across agents when the task is running in a multi-agent job.
+Each of the selected test(s) will be repeated on each agent. This option is not applicable when the agent job is configured to run with no parallelism or with the multi-config option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -571,7 +582,8 @@ Choosing this option will not distribute tests across agents when the task is ru
 **`dontDistribute`** - **Do not distribute tests and replicate instead when multiple agents are used in the phase**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choosing this option will not distribute tests across agents when the task is running in a multi-agent phase.<br>Each of the selected test(s) will be repeated on each agent.<br>The option is not applicable when the agent phase is configured to run with no parallelism or with the multi-config option.
+Choosing this option will not distribute tests across agents when the task is running in a multi-agent phase.
+Each of the selected test(s) will be repeated on each agent. This option is not applicable when the agent phase is configured to run with no parallelism or with the multi-config option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -583,7 +595,7 @@ Choosing this option will not distribute tests across agents when the task is ru
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Specifies a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -595,7 +607,7 @@ Provide a name for the test run.
 **`platform`** - **Build platform**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Build platform against which the tests should be reported. If you have defined a variable for platform in your build task, use that here.
+Specifies the build platform against which the tests should be reported. If you have defined a variable for the platform in your build task, use that with this input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -607,7 +619,7 @@ Build platform against which the tests should be reported. If you have defined a
 **`configuration`** - **Build configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Build configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that here.
+Specifies the build configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that with this input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -619,7 +631,7 @@ Build configuration against which the tests should be reported. If you have defi
 **`publishRunAttachments`** - **Upload test attachments**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Opt in/out of publishing run level attachments.
+Opts in or out of publishing run level attachments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -631,7 +643,7 @@ Opt in/out of publishing run level attachments.
 **`failOnMinTestsNotRun`** - **Fail the task if a minimum number of tests are not run.**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to fail the task if a minimum number of tests are not run. This may be useful if any changes to task inputs or underlying test adapter dependencies lead to only a subset of the desired tests to be found.
+Fails the task if a minimum number of tests are not run. This may be useful if any changes to task inputs or underlying test adapter dependencies lead to only a subset of the desired tests to be found.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -643,7 +655,7 @@ Use this option to fail the task if a minimum number of tests are not run. This 
 **`minimumExpectedTests`** - **Minimum # of tests**<br>
 `string`. Optional. Use when `failOnMinTestsNotRun = true`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the minimum # of tests that should be run for the task to succeed. Total tests executed is calculated as the sum of passed, failed and aborted tests.
+Specifies the minimum number of tests to run for the task to succeed. The total tests executed is calculated as the sum of passed, failed and aborted tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -655,8 +667,8 @@ Specify the minimum # of tests that should be run for the task to succeed. Total
 **`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to turn on collection of diagnostic data to troubleshoot catastrophic failures such as test crash.
-When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which tests ran, so that a potentially culprit test can be identified.
+Collects diagnostic data to troubleshoot catastrophic failures, such as a test crash.
+When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which the tests had run, so a potential culprit test can be identified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -667,8 +679,8 @@ When this option is checked, a sequence XML file is generated and attached to th
 **`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
 `boolean`. Default value: `True`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to turn on collection of diagnostic data to troubleshoot catastrophic failures such as test crash.
-When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which tests ran, so that a potentially culprit test can be identified.
+Collects diagnostic data to troubleshoot catastrophic failures, such as a test crash.
+When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which the tests had run, so a potential culprit test can be identified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -680,10 +692,11 @@ When this option is checked, a sequence XML file is generated and attached to th
 **`collectDumpOn`** - **Collect process dump and attach to test run report**<br>
 `string`. Optional. Use when `diagnosticsEnabled = true`. Allowed values: `onAbortOnly` (On abort only), `always`, `never`. Default value: `onAbortOnly`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to collect a mini-dump that can be used for further analysis.
-* **onAbortOnly** - On abort only: mini-dump will be collected only when test run is aborted.
-* **Always** - mini-dump will always be collected regardless of whether the test run completes or not.
-* **Never** - mini-dump will not be collected regardless of whether the test run completes or not
+Collects a mini dump that can be used for further analysis.
+
+- **onAbortOnly** - a mini dump will be collected only when the test run is aborted.
+- **Always** - a mini dump will always be collected regardless of whether the test run completes or not.
+- **Never** - a mini dump will not be collected regardless of whether the test run completes or not.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -695,7 +708,7 @@ Use this option to collect a mini-dump that can be used for further analysis.
 **`rerunFailedTests`** - **Rerun failed tests**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting this option will rerun any failed tests until they pass or the maximum # of attempts is reached.
+Reruns any failed tests until they pass or until the maximum number of attempts is reached.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -707,7 +720,7 @@ Selecting this option will rerun any failed tests until they pass or the maximum
 **`rerunType`** - **Do not rerun if test failures exceed specified threshold**<br>
 `string`. Optional. Use when `rerunFailedTests = true`. Allowed values: `basedOnTestFailurePercentage` (% failure), `basedOnTestFailureCount` (# of failed tests). Default value: `basedOnTestFailurePercentage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to avoid rerunning tests when failure rate crosses the specified threshold. This is applicable if any environment issues leads to massive failures.<br>You can specify % failures or # of failed tests as a threshold.
+Avoids rerunning tests when the failure rate crosses the specified threshold. This is applicable if environment issues lead to massive failures. You can specify the percentage of failures or number of failed tests as a threshold.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -719,7 +732,7 @@ Use this option to avoid rerunning tests when failure rate crosses the specified
 **`rerunFailedThreshold`** - **% failure**<br>
 `string`. Optional. Use when `rerunFailedTests = true && rerunType = basedOnTestFailurePercentage`. Default value: `30`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to avoid rerunning tests when failure rate crosses the specified threshold. This is applicable if any environment issues leads to massive failures.
+Avoids rerunning tests when the percentage of failed test cases crosses the specified threshold. This is applicable if environment issues lead to massive failures.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -731,7 +744,7 @@ Use this option to avoid rerunning tests when failure rate crosses the specified
 **`rerunFailedTestCasesMaxLimit`** - **# of failed tests**<br>
 `string`. Optional. Use when `rerunFailedTests = true && rerunType = basedOnTestFailureCount`. Default value: `5`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option to avoid rerunning tests when number of failed test cases crosses specified limit. This is applicable if any environment issues leads to massive failures.
+Avoids rerunning tests when the number of failed test cases crosses the specified limit. This is applicable if environment issues lead to massive failures.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -743,7 +756,7 @@ Use this option to avoid rerunning tests when number of failed test cases crosse
 **`rerunMaxAttempts`** - **Maximum # of attempts**<br>
 `string`. Optional. Use when `rerunFailedTests = true`. Default value: `3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the maximum # of times a failed test should be retried. If a test passes before the maximum # of attempts is reached, it will not be rerun further.
+Specifies the maximum number of times a failed test should be retried. If a test passes before the maximum number of attempts is reached, it will not be rerun again.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -769,9 +782,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, and more)
-using the Visual Studio Test Runner. Along with MSTest-based tests, test frameworks that have a
-Visual Studio test adapter, such as xUnit, NUnit, Chutzpah, can also be executed.  
+Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, and more) using the Visual Studio Test runner. Along with MSTest-based tests, test frameworks that have a Visual Studio test adapter can also be executed, such as xUnit, NUnit, or Chutzpah.
 
 Tests that the target .NET core framework can be executed by specifying the appropriate target framework value in the [.runsettings file](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file).
 
@@ -779,11 +790,11 @@ Tests can be distributed on multiple agents using version 2 of this task. For mo
 
 ### Check prerequisites
 
-If you're using a Windows self-hosted agent, be sure that your machine has this prerequisite installed:
+If you're using a Windows self-hosted agent, this prerequisite must be installed:
 
 - [.NET Framework](/dotnet/framework/install/) 4.6.2 or a later version
 
-### Demands 
+### Demands
 
 The agent must have the following capability:
 
@@ -800,7 +811,7 @@ To run automated tests that use TestCase as a data source, the following is need
 
 1. You must have Visual Studio 2017.6 or higher on the agent machine. Visual Studio Test Platform Installer task cannot be used to run tests that use TestCase as a data source.
 1. Create a [PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) that is authorized for the scope “Work Items (full)”.
-1. Add a secure Build or Release variable called Test.TestCaseAccessToken with the value set to the PAT created in the previous step.
+1. Add a secure build or release variable called `Test.TestCaseAccessToken` with the value set to the PAT created in the previous step.
 
 ### I am running into issues when running data-driven xUnit and NUnit tests with some of the task options. Are there known limitations?
 
@@ -812,10 +823,12 @@ Data-driven tests that use xUnit and NUnit test frameworks have some known limit
 
 The above limitations are because of how the adapters for these test frameworks discover and report data-driven tests.
 
-### Does the VsTest task support running tests that target multiple target frameworks at a time?
+The above limitations are because of how the adapters for these test frameworks discover and report data-driven tests.
 
-The VsTest task doesn't support running tests that target multiple target frameworks at a time as this is a limitation from the [vstest platform](https://github.com/microsoft/vstest/issues/2310) side.
-If you want to run tests that belong to multiple target frameworks, you'll need multiple instances of the vstest task, one per set of dlls that target a particular framework.
+### Does the VSTest task support running tests that target multiple target frameworks at a time?
+
+The VSTest task doesn't support running tests that target multiple target frameworks at a time as this is a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
+If you want to run tests that belong to multiple target frameworks, you'll need multiple instances of the VSTest task, one per set of DLLs that target a particular framework.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
