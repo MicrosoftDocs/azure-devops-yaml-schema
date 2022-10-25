@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Test mobile app packages with Visual Studio Mobile Center.
+Use this task to test mobile app packages with Visual Studio Mobile Center.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
