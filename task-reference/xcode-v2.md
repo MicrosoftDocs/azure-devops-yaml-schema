@@ -87,7 +87,7 @@ Use this task to build an Xcode workspace on macOS.
 **`actions`** - **Actions**<br>
 `string`. Required. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a space-delimited list of actions. Valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example, `build clean` would do a clean build. See [xcodebuild man page](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
+Specifies a space-delimited list of actions. Valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example, `build clean` performs a clean build. See the [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -99,7 +99,7 @@ Specifies a space-delimited list of actions. Valid options are `build`, `clean`,
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Xcode project or workspace configuration to be built. When using a variable, make sure to specify a value (for example, `Release`) on the **Variables** tab.
+Specifies the Xcode project or workspace configuration to build. When using a variable, specify a value (for example, `Release`) on the **Variables** tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +111,7 @@ Specifies the Xcode project or workspace configuration to be built. When using a
 **`sdk`** - **SDK**<br>
 `string`. Default value: `$(SDK)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Builds an Xcode project or workspace against the specified SDK. Run `xcodebuild -showsdks` to see the valid list of SDKs.
+Builds an Xcode project or workspace against the specified SDK. Run `xcodebuild -showsdks` to see a valid list of SDKs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,8 @@ Builds an Xcode project or workspace against the specified SDK. Run `xcodebuild 
 **`xcWorkspacePath`** - **Workspace/Project Path**<br>
 `string`. Default value: `**/*.xcodeproj/*.xcworkspace`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the relative path from the repo root to the Xcode workspace or project. For example: `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcworkspace/MyApp.xcodeproj`. Leave blank if you intend to use the -target flag under **Advanced Arguments**.
+Optional. Specifies the relative path from the repo root to the Xcode workspace or project. For example: `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcworkspace/MyApp.xcodeproj`.  
+Leave blank if you intend to use `-target flag` under **Advanced Arguments**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +136,7 @@ Optional. Specifies the relative path from the repo root to the Xcode workspace 
 **`scheme`** - **Scheme**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the scheme name in Xcode. *Must be a shared scheme* (shared checkbox under **Managed Schemes** in Xcode). **Required if Workspace is specified.**.
+Optional. Specifies the Xcode scheme name. *Must be a shared scheme* (shared checkbox under **Managed Schemes** in Xcode). **Required if Workspace is specified.**
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +148,7 @@ Optional. Specifies the scheme name in Xcode. *Must be a shared scheme* (shared 
 **`packageApp`** - **Create App Package**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether an IPA should be generated as a part of the build. For exporting archives with Xcode 7 and Xcode 8, review additional inputs in the **Package Options** section.
+Specifies whether an IPA is generated as a part of the build. For exporting archives with Xcode 7 and Xcode 8, review additional inputs in the **Package Options** section.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +220,7 @@ Specifies the method Xcode uses to export the archive. For example, `app-store`,
 **`exportTeamId`** - **Team ID**<br>
 `string`. Optional. Use when `exportOptions == specify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the 10-digit team ID from the Apple Developer Portal to use for the export.
+Specifies the Apple Developer Portal 10-digit team ID to use for the export.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -315,7 +316,7 @@ Specifies the password to unlock the default keychain.
 **`provProfileUuid`** - **Provisioning Profile UUID**<br>
 `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the UUID of an installed provisioning profile to be used for the build. Use separate build tasks with different schemes or targets to specify separate provisioning profiles by target in a single workspace (iOS, WatchKit, tvOS).
+Specifies the UUID of an installed provisioning profile to use for the build. Use separate build tasks with different schemes or targets to specify provisioning profiles by target in a single workspace (iOS, WatchKit, tvOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -327,7 +328,7 @@ Specifies the UUID of an installed provisioning profile to be used for the build
 **`p12`** - **P12 Certificate File**<br>
 `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional relative path to a PKCS12 formatted p12 certificate file containing a signing certificate to be used for this build.
+Specifies the relative path to a PKCS12 formatted P12 certificate file that contains a signing certificate to be used for the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -339,7 +340,7 @@ Optional relative path to a PKCS12 formatted p12 certificate file containing a s
 **`p12pwd`** - **P12 Password**<br>
 `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password to P12 Certificate File if specified. Use a Build Variable to encrypt.
+Specifies the password to a P12 certificate file if specified. Use a build variable to encrypt.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -351,7 +352,7 @@ Password to P12 Certificate File if specified. Use a Build Variable to encrypt.
 **`provProfile`** - **Provisioning Profile File**<br>
 `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional relative path to file containing provisioning profile override to be used for this build. Use separate build tasks with different Schemes or Targets to specify separate provisioning profiles by target in a single workspace (iOS, WatchKit, tvOS).
+Specifies the relative path to a file containing a provisioning profile override to be used for the build. Use separate build tasks with different schemes or targets to specify provisioning profiles by target in a single workspace (iOS, WatchKit, tvOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -363,7 +364,8 @@ Optional relative path to file containing provisioning profile override to be us
 **`removeProfile`** - **Remove Profile After Build**<br>
 `boolean`. Optional. Use when `signMethod = file`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies that the contents of the Provisioning Profile File should be removed from the build agent after the build is complete. **Only check if you are running one agent per user.**.
+Removes the contents of the provisioning profile file from the build agent after the build is complete. **Only check if you are running one agent per user.**
+
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -375,7 +377,7 @@ Specifies that the contents of the Provisioning Profile File should be removed f
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional command line arguments that should be used to build. Useful if you want to use -target or -project instead of specifying a Workspace and Scheme.
+Specifies additional command line arguments used to build. This input is useful if you want to use `-target` or `-project` instead of specifying a workspace and scheme.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -387,7 +389,7 @@ Additional command line arguments that should be used to build. Useful if you wa
 **`cwd`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory for build runs. Defaults to the root of the repository.
+Specifies the working directory for build runs. Defaults to the root of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -399,7 +401,7 @@ Working directory for build runs. Defaults to the root of the repository.
 **`outputPattern`** - **Output Directory**<br>
 `string`. Required. Default value: `output/$(SDK)/$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path where build output (binaries) will be placed.
+Specifies the relative path where build output (binaries) are placed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -411,7 +413,7 @@ Relative path where build output (binaries) will be placed.
 **`xcodeDeveloperDir`** - **Xcode Developer Path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional path to Xcode Developer folder if not the system default. For use when multiple versions of Xcode are installed on a system. Ex: /Applications/Xcode 7.app/Contents/Developer.
+Optional. Specifies the path to the Xcode Developer folder if it's not the system default. For use when multiple versions of Xcode are installed on a system. For example: `/Applications/Xcode 7.app/Contents/Developer`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -423,7 +425,7 @@ Optional path to Xcode Developer folder if not the system default. For use when 
 **`useXcpretty`** - **Use xcpretty**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use xcpretty to format xcodebuild output and generate JUnit test results report. Requires xcpretty be installed on agent hosts. See [xcpretty](https://github.com/supermarin/xcpretty) for details.
+Formats `xcodebuild` output and generates a JUnit test results report. Must be installed on agent hosts. Learn more about [xcpretty](https://github.com/supermarin/xcpretty).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -435,7 +437,7 @@ Use xcpretty to format xcodebuild output and generate JUnit test results report.
 **`publishJUnitResults`** - **Publish to VSTS/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit Test results produced above using xctool to VSTS/TFS.
+JUnit test results that were produced using `xctool` are published to VSTS/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -447,7 +449,8 @@ Select this option to publish JUnit Test results produced above using xctool to 
 **`useXctool`** - **Use xctool**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use xctool instead of xcodebuild. Requires xctool be installed on agent hosts. See [xctool](https://github.com/facebook/xctool) for details. Note: xctool has been deprecated and does not work with Xcode 8.
+Uses `xctool` instead of `xcodebuild`. Must be installed on agent hosts. Learn more about [xctool](https://github.com/facebook/xctool).  
+*Note:* `xctool` is deprecated and does not work with Xcode 8.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -459,7 +462,8 @@ Use xctool instead of xcodebuild. Requires xctool be installed on agent hosts. S
 **`xctoolReporter`** - **xctool Test Reporter Format**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test reporter format to use when "test" action is specified and "Use xctool" is checked. Specify "junit:output-file-path-here.xml" to generate a file format compatible with the Publish Test Results task. When specified, "plain" is automatically added as well. Requires xctool be installed on agent hosts. See [xctool](https://github.com/facebook/xctool) for details. Note: xctool has been deprecated and does not work with Xcode 8.
+Tests the reporter format to use when the **test** action is specified and **Use xctool** is checked. Specify `junit:output-file-path-here.xml` to generate a file format compatible with the Publish Test Results task. When specified, **plain** is automatically added. `xctool` must be installed on agent hosts. Learn more about [xctool](https://github.com/facebook/xctool).  
+*Note:* `xctool` is deprecated and does not work with Xcode 8.
 <!-- :::editable-content-end::: -->
 <br>
 

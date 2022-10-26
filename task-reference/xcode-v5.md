@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
+Use this task to build, test, or archive an Xcode workspace on macOS, and optionally package an app.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -254,7 +254,7 @@ Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
 **`actions`** - **Actions**<br>
 `string`. Required. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a space-delimited list of actions. Some valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example,`clean build` will run a clean build. See [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
+Specifies a space-delimited list of actions. Some valid options are `build`, `clean`, `test`, `analyze`, and `archive`. For example,`clean build` performs a clean build. See [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -266,7 +266,7 @@ Enter a space-delimited list of actions. Some valid options are `build`, `clean`
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the Xcode project or workspace configuration to be built. The default value of this field is the variable `$(Configuration)`. When using a variable, make sure to specify a value (for example, `Release`) on the [Variables](/azure/devops/pipelines/build/variables) tab.
+Specifies the Xcode project or workspace configuration to build. When using a variable, specify a value (for example, `Release`) on the [Variables](/azure/devops/pipelines/build/variables) tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +278,7 @@ Enter the Xcode project or workspace configuration to be built. The default valu
 **`sdk`** - **SDK**<br>
 `string`. Default value: `$(SDK)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify an SDK to use when building the Xcode project or workspace. From the macOS Terminal application, run `xcodebuild -showsdks` to display the valid list of SDKs. The default value of this field is the variable `$(SDK)`. When using a variable, make sure to specify a value (for example, `iphonesimulator`) on the [Variables](/azure/devops/pipelines/build/variables) tab.
+Specifies an SDK to use when building the Xcode project or workspace. From the macOS Terminal application, run `xcodebuild -showsdks` to display the valid list of SDKs. When using a variable, specify a value (for example, `iphonesimulator`) on the [Variables](/azure/devops/pipelines/build/variables) tab.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +290,7 @@ Specify an SDK to use when building the Xcode project or workspace. From the mac
 **`xcWorkspacePath`** - **Workspace or project path**<br>
 `string`. Default value: `**/*.xcodeproj/project.xcworkspace`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a relative path from the root of the repository to the Xcode workspace or project. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`. Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).
+Optional. Specifies a relative path from the root of the repository to the Xcode workspace or project. For example, `MyApp/MyApp.xcworkspace` or `MyApp/MyApp.xcodeproj`. Wildcards can be used. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -302,7 +302,7 @@ Specify an SDK to use when building the Xcode project or workspace. From the mac
 **`scheme`** - **Scheme**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a scheme name defined in Xcode. It must be a shared scheme, with its <strong>Shared</strong> checkbox enabled under <strong>Managed Schemes</strong> in Xcode. If you specify a <strong>Workspace or project path</strong> above without specifying a scheme, and the workspace has a single shared scheme, it will be automatically used.
+Optional. Specifies an Xcode scheme name. *Must be a shared scheme* (shared checkbox under **Managed Schemes** in Xcode). If you do not specify a scheme, and the specified workspace has a single shared scheme, the workspace scheme will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -314,7 +314,7 @@ Specify an SDK to use when building the Xcode project or workspace. From the mac
 **`xcodeVersion`** - **Xcode version**<br>
 `string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `11` (Xcode 11), `12` (Xcode 12), `13` (Xcode 13), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Selecting a version number (e.g. `Xcode 9`) relies on environment variables being set on the agent machine for the version's location (e.g. `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
+Specifies the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Specifying a version number (for example, `Xcode 9`) relies on the version's location to be set by environment variables on the agent machine (for example, `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -325,7 +325,7 @@ Specify the target version of Xcode. Select `Default` to use the default version
 **`xcodeVersion`** - **Xcode version**<br>
 `string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `11` (Xcode 11), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Selecting a version number (e.g. `Xcode 9`) relies on environment variables being set on the agent machine for the version's location (e.g. `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
+Specifies the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Specifying a version number (for example, `Xcode 9`) relies on the version's location to be set by environment variables on the agent machine (for example, `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -336,7 +336,7 @@ Specify the target version of Xcode. Select `Default` to use the default version
 **`xcodeVersion`** - **Xcode version**<br>
 `string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Selecting a version number (e.g. `Xcode 9`) relies on environment variables being set on the agent machine for the version's location (e.g. `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
+Specifies the target version of Xcode. Select `Default` to use the default version of Xcode on the agent machine. Specifying a version number (for example, `Xcode 9`) relies on the version's location to be set by environment variables on the agent machine (for example, `XCODE_9_DEVELOPER_DIR=/Applications/Xcode_9.0.0.app/Contents/Developer`). Select `Specify path` to provide a specific path to the Xcode developer directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -348,7 +348,7 @@ Specify the target version of Xcode. Select `Default` to use the default version
 **`xcodeDeveloperDir`** - **Xcode developer path**<br>
 `string`. Optional. Use when `xcodeVersion == specifyPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a path to a specific Xcode developer directory (e.g. `/Applications/Xcode_9.0.0.app/Contents/Developer`). This is useful when multiple versions of Xcode are installed on the agent machine.
+Specifies a path to a specific Xcode developer directory (for example, `/Applications/Xcode_9.0.0.app/Contents/Developer`). This input is useful when multiple versions of Xcode are installed on the agent machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -360,7 +360,7 @@ Specify the target version of Xcode. Select `Default` to use the default version
 **`packageApp`** - **Create app package**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicate whether an IPA app package file should be generated as a part of the build.
+Specifies whether an IPA app package file is generated as a part of the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -372,7 +372,7 @@ Indicate whether an IPA app package file should be generated as a part of the bu
 **`archivePath`** - **Archive path**<br>
 `string`. Optional. Use when `packageApp == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Specify a directory where created archives should be placed.
+Specifies a directory where created archives are placed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -384,7 +384,7 @@ Indicate whether an IPA app package file should be generated as a part of the bu
 **`exportPath`** - **Export path**<br>
 `string`. Optional. Use when `packageApp == true`. Default value: `output/$(SDK)/$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Specify the destination for the product exported from the archive.
+Specifies the destination for the product exported from the archive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -396,7 +396,7 @@ Indicate whether an IPA app package file should be generated as a part of the bu
 **`exportOptions`** - **Export options**<br>
 `string`. Optional. Use when `packageApp == true`. Allowed values: `auto` (Automatic), `plist`, `specify`. Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a way of providing options for exporting the archive. When the default value of `Automatic` is selected, the export method is automatically detected from the archive. Select `Plist` to specify a plist file containing export options. Select `Specify` to provide a specific **Export method** and **Team ID**.
+Specifies options for exporting the archive. When the default value of `Automatic` is selected, the export method is automatically detected from the archive. Select `Plist` to specify a plist file containing export options. Select `Specify` to provide a specific **Export method** and **Team ID**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -408,7 +408,7 @@ Select a way of providing options for exporting the archive. When the default va
 **`exportMethod`** - **Export method**<br>
 `string`. Required when `exportOptions == specify`. Default value: `development`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the method that Xcode should use to export the archive. For example: `app-store`, `package`, `ad-hoc`, `enterprise`, or `development`.
+Specifies the method that Xcode uses to export the archive. For example: `app-store`, `package`, `ad-hoc`, `enterprise`, or `development`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -420,7 +420,7 @@ Enter the method that Xcode should use to export the archive. For example: `app-
 **`exportTeamId`** - **Team ID**<br>
 `string`. Optional. Use when `exportOptions == specify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter the 10-character team ID from the Apple Developer Portal to use during export.
+Specifies the Apple Developer Portal 10-character team ID to use during the export.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -432,7 +432,7 @@ Enter the method that Xcode should use to export the archive. For example: `app-
 **`exportOptionsPlist`** - **Export options plist**<br>
 `string`. Required when `exportOptions == plist`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the path to the plist file that contains options to use during export.
+Specifies the path to the plist file that contains options to use during the export.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -444,7 +444,7 @@ Enter the path to the plist file that contains options to use during export.
 **`exportArgs`** - **Export arguments**<br>
 `string`. Optional. Use when `packageApp == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter additional command line arguments to be used during export.
+Specifies additional command line arguments used during the export.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -456,7 +456,7 @@ Enter the path to the plist file that contains options to use during export.
 **`signingOption`** - **Signing style**<br>
 `string`. Allowed values: `nosign` (Do not code sign), `default` (Project defaults), `manual` (Manual signing), `auto` (Automatic signing). Default value: `nosign`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the method of signing the build. Select `Do not code sign` to disable signing. Select `Project defaults` to use only the project's signing configuration. Select `Manual signing` to force manual signing and optionally specify a signing identity and provisioning profile. Select `Automatic signing` to force automatic signing and optionally specify a development team ID. If your project requires signing, use the "Install Apple..." tasks to install certificates and provisioning profiles prior to the Xcode build.
+Specifies the method of signing the build. Select `Do not code sign` to disable signing. Select `Project defaults` to use only the project's signing configuration. Select `Manual signing` to force manual signing and optionally specify a signing identity and provisioning profile. Select `Automatic signing` to force automatic signing and optionally specify a development team ID. If your project requires signing, use the **Install Apple...** tasks to install certificates and provisioning profiles prior to the Xcode build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -468,7 +468,7 @@ Choose the method of signing the build. Select `Do not code sign` to disable sig
 **`signingIdentity`** - **Signing identity**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter a signing identity override with which to sign the build. This may require unlocking the default keychain on the agent machine. If no value is entered, the Xcode project's setting will be used.
+Specifies a signing identity override with which to sign the build. Unlocking the default keychain on the agent machine may be required. If no value is entered, the Xcode project's setting is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -480,7 +480,7 @@ Choose the method of signing the build. Select `Do not code sign` to disable sig
 **`provisioningProfileUuid`** - **Provisioning profile UUID**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter the UUID of an installed provisioning profile to be used for this build. Use separate build tasks with different schemes or targets to specify separate provisioning profiles by target in a single workspace (iOS, tvOS, watchOS).
+Specifies the UUID of an installed provisioning profile used for the build. Use separate build tasks with different schemes or targets to specify provisioning profiles by target in a single workspace (iOS, tvOS, watchOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -492,7 +492,7 @@ Choose the method of signing the build. Select `Do not code sign` to disable sig
 **`provisioningProfileName`** - **Provisioning profile name**<br>
 `string`. Optional. Use when `signingOption = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter the name of an installed provisioning profile to be used for this build. If specified, this takes precedence over the provisioning profile UUID. Use separate build tasks with different schemes or targets to specify separate provisioning profiles by target in a single workspace (iOS, tvOS, watchOS).
+Specifies the name of an installed provisioning profile used for the build. If specified, this takes precedence over the provisioning profile UUID. Use separate build tasks with different schemes or targets to specify provisioning profiles by target in a single workspace (iOS, tvOS, watchOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -504,7 +504,7 @@ Choose the method of signing the build. Select `Do not code sign` to disable sig
 **`teamId`** - **Team ID**<br>
 `string`. Optional. Use when `signingOption = auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional, unless you are a member of multiple development teams.) Specify the 10-character development team ID.
+**Required if you are a member of multiple development teams.** Specifies the 10-character development team ID.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -516,7 +516,7 @@ Choose the method of signing the build. Select `Do not code sign` to disable sig
 **`destinationPlatformOption`** - **Destination platform**<br>
 `string`. Allowed values: `default`, `iOS` (iOS and watchOS), `tvOS`, `macOS`, `custom`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the destination device's platform to be used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in this list. When `Default` is selected, no simulators nor devices will be targeted.
+Specifies the destination device's platform used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in this list. When `Default` is selected, no simulators or devices are targeted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -528,7 +528,7 @@ Select the destination device's platform to be used for UI testing when the gene
 **`destinationPlatform`** - **Custom destination platform**<br>
 `string`. Optional. Use when `destinationPlatformOption == custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a destination device's platform to be used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in this list. When `Default` is selected, no simulators nor devices will be targeted.
+Specifies a destination device's platform used for UI testing when the generic build device isn't valid. Choose `Custom` to specify a platform not included in the list. When `Default` is selected, no simulators nor devices are targeted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -540,7 +540,7 @@ Enter a destination device's platform to be used for UI testing when the generic
 **`destinationTypeOption`** - **Destination type**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS`. Allowed values: `simulators` (Simulator), `devices` (Connected Device). Default value: `simulators`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the destination type to be used for UI testing. Devices must be connected to the Mac performing the build via a cable or network connection. See <strong>Devices and Simulators</strong> in Xcode.
+Specifies the destination type to use for UI testing. Devices must be connected to the Mac performing the build via a cable or network connection. See **Devices and Simulators** in Xcode for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -552,7 +552,7 @@ Choose the destination type to be used for UI testing. Devices must be connected
 **`destinationSimulators`** - **Simulator**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter an Xcode simulator name to be used for UI testing. For example, enter `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). A target OS version is optional and can be specified in the format 'OS=<i>versionNumber</i>', such as `iPhone X,OS=11.1`. A list of simulators installed on the <strong>Hosted macOS</strong> agent can be [found here](https://go.microsoft.com/fwlink/?linkid=875290).
+Specifies an Xcode simulator name used for UI testing. For example, `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). An optional target OS version can be specified in the format `OS=<versionNumber>`, such as `iPhone X,OS=11.1`. See this [list of simulators installed on the **Hosted macOS** agent](/appcenter/build/software) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -563,7 +563,7 @@ Enter an Xcode simulator name to be used for UI testing. For example, enter `iPh
 **`destinationSimulators`** - **Simulator**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == simulators`. Default value: `iPhone 7`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter an Xcode simulator name to be used for UI testing. For example, enter `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). A target OS version is optional and can be specified in the format 'OS=<i>versionNumber</i>', such as `iPhone X,OS=11.1`. A list of simulators installed on the <strong>Hosted macOS</strong> agent can be [found here](https://go.microsoft.com/fwlink/?linkid=875290).
+Specifies an Xcode simulator name used for UI testing. For example, `iPhone X` (iOS and watchOS) or `Apple TV 4K` (tvOS). An optional target OS version can be specified in the format `OS=<versionNumber>`, such as `iPhone X,OS=11.1`. See this [list of simulators installed on the **Hosted macOS** agent](/appcenter/build/software) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -575,7 +575,7 @@ Enter an Xcode simulator name to be used for UI testing. For example, enter `iPh
 **`destinationDevices`** - **Device**<br>
 `string`. Optional. Use when `destinationPlatformOption != default && destinationPlatformOption != macOS && destinationTypeOption == devices`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the name of the device to be used for UI testing, such as `Raisa's iPad`. Only one device is currently supported. Note that Apple does not allow apostrophes (`'`) in device names. Instead, right single quotation marks (`'`) can be used.
+Specifies the name of the device used for UI testing, such as `Raisa's iPad`. Only one device is currently supported. Note that Apple does not allow apostrophes (`'`) in device names. Instead, right single quotation marks (`'`) can be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -587,7 +587,7 @@ Enter the name of the device to be used for UI testing, such as `Raisa's iPad`. 
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter additional command line arguments with which to build. This is useful for specifying `-target` or `-project` arguments instead of specifying a workspace/project and scheme. See [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
+Optional. Specifies additional command line arguments with which to build. This input is useful for specifying `-target` or `-project` arguments instead of a workspace/project and scheme. See [Apple: Building from the command line with Xcode FAQ](https://developer.apple.com/library/archive/technotes/tn2339/_index.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -599,7 +599,7 @@ Enter the name of the device to be used for UI testing, such as `Raisa's iPad`. 
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-(Optional) Enter the working directory in which to run the build. If no value is entered, the root of the repository will be used.
+Optional. Specifies the working directory in which to run the build. If no value is entered, the root of the repository is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -611,7 +611,7 @@ Input alias: `cwd`. `string`.<br>
 **`useXcpretty`** - **Use xcpretty**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify whether to use xcpretty to format xcodebuild output. Enabling this requires xcpretty to be installed on the agent machine. If xcpretty is not installed, raw xcodebuild output is shown. xcpretty is preinstalled on Azure Pipelines hosted build agents. See [xcpretty](https://github.com/supermarin/xcpretty) on GitHub.
+Specifies whether to use `xcpretty` to format `xcodebuild` output. `xcpretty` must be installed on the agent machine (It is preinstalled on Azure Pipelines hosted build agents). If `xcpretty` is not installed, raw `xcodebuild` output is shown. See [xcpretty](https://github.com/supermarin/xcpretty) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -623,7 +623,7 @@ Specify whether to use xcpretty to format xcodebuild output. Enabling this requi
 **`xcprettyArgs`** - **Xcpretty arguments**<br>
 `string`. Optional. Use when `useXcpretty == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If xcpretty is enabled above, specify arguments for xcpretty. See [xcpretty](https://github.com/xcpretty/xcpretty) on GitHub for a list of xcpretty arguments.
+If `xcpretty` is enabled, this input specifies arguments for `xcpretty`. See [a list of xcpretty arguments on GitHub](https://github.com/xcpretty/xcpretty).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -635,7 +635,7 @@ If xcpretty is enabled above, specify arguments for xcpretty. See [xcpretty](htt
 **`publishJUnitResults`** - **Publish test results to Azure Pipelines**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify whether to publish JUnit test results to Azure Pipelines. This requires xcpretty to be enabled to generate JUnit test results.
+Specifies whether to publish JUnit test results to Azure Pipelines. This requires `xcpretty` to be enabled to generate JUnit test results.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -646,7 +646,7 @@ Specify whether to publish JUnit test results to Azure Pipelines. This requires 
 **`publishJUnitResults`** - **Publish test results to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify whether to publish JUnit test results to Azure Pipelines/TFS. This requires xcpretty to be enabled to generate JUnit test results.
+Specifies whether to publish JUnit test results to Azure Pipelines/TFS. This requires `xcpretty` to be enabled to generate JUnit test results.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -658,7 +658,7 @@ Specify whether to publish JUnit test results to Azure Pipelines/TFS. This requi
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `publishJUnitResults == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If xcpretty and publishJUnitResults are enabled above, you can specify test run title.
+If `xcpretty` and `publishJUnitResults` are enabled, you can specify the test run title.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -690,7 +690,7 @@ This version of the task is compatible with Xcode 8 - 11. Features that were sol
 
 ### Using multiple provisioning profiles
 
-Currently there's no support of multiple provisioning profiles for Xcode task (for example for iOS App Extension).
+Currently there's no support of multiple provisioning profiles for the Xcode task (for example for iOS App Extension).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
