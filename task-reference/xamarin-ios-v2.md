@@ -54,7 +54,7 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
 **`solutionFile`** - **Solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path from the repository root of the `Xamarin.iOS` solution or csproj project to build. May contain wildcards.
+Specifies the relative path from the repository root of the `Xamarin.iOS` solution or csproj project to the build. May contain wildcards.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Optional. Builds for the iOS Simulator instead of physical iOS devices.
 **`runNugetRestore`** - **Run NuGet restore**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
+Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before the build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
 <!-- :::editable-content-end::: -->
 <br>
 

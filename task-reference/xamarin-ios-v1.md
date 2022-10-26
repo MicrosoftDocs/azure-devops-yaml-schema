@@ -72,7 +72,7 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
 **`solutionFile`** - **Solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path from the repository root of the `Xamarin.iOS` solution to build. May contain wildcards.
+Specifies the relative path from the repository root of the `Xamarin.iOS` solution to the build. May contain wildcards.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +132,7 @@ Optional. Builds for the iOS Simulator instead of physical iOS devices.
 **`runNugetRestore`** - **Run NuGet restore**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
+Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before the build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ Runs `nuget restore` on the Xamarin iOS solution to install all referenced packa
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies additional command line arguments that are used to build.
+Optional. Specifies additional command line arguments that are used to the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +192,7 @@ Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MS
 **`signingOption`** - **Override using**<br>
 Input alias: `signMethod`. `string`. Allowed values: `file` (File Contents), `id` (Identifiers). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the build should use a signing or provisioning method that is different than the default, choose that method here. Choose `file` to use a P12 certificate and provisioning profile. Choose `id` to retrieve signing settings from the default Keychain and pre-installed profiles. Leave the corresponding fields blank if you do not wish to override default build settings.
+Use this input if the build uses a signing or provisioning method that is different than the default. Choose `file` to use a P12 certificate and provisioning profile. Choose `id` to retrieve signing settings from the default Keychain and pre-installed profiles. Leave the corresponding fields blank if you do not wish to override the default build settings.
 <!-- :::editable-content-end::: -->
 <br>
 
