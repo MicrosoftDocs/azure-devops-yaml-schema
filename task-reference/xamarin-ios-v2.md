@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Build an iOS app with Xamarin on macOS.
+Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -54,7 +54,7 @@ Build an iOS app with Xamarin on macOS.
 **`solutionFile`** - **Solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root of the Xamarin.iOS solution or csproj project to build. May contain wildcards.
+Specifies the relative path from the repository root of the `Xamarin.iOS` solution or csproj project to build. May contain wildcards.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -66,7 +66,7 @@ Relative path from the repository root of the Xamarin.iOS solution or csproj pro
 **`configuration`** - **Configuration**<br>
 `string`. Required. Default value: `Release`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Standard configurations are Ad-Hoc, AppStore, Debug, Release.
+Specifies the configuration. Standard configurations are Ad-Hoc, AppStore, Debug, and Release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +78,7 @@ Standard configurations are Ad-Hoc, AppStore, Debug, Release.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run a clean build (\/t:clean) prior to the build.
+Optional. Runs a clean build (`/t:clean`) prior to the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +90,7 @@ Run a clean build (\/t:clean) prior to the build.
 **`packageApp`** - **Create app package**<br>
 `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether an IPA should be generated as a part of the build.
+If set to `true`, generates an IPA as a part of the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +102,7 @@ Indicates whether an IPA should be generated as a part of the build.
 **`buildForSimulator`** - **Build for iOS Simulator**<br>
 Input alias: `forSimulator`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally build for the iOS Simulator instead of physical iOS devices.
+Optional. Builds for the iOS Simulator instead of physical iOS devices.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Optionally build for the iOS Simulator instead of physical iOS devices.
 **`runNugetRestore`** - **Run NuGet restore**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally run `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The NuGet tool in the PATH of the build agent machine will be used. To use a different version of NuGet or set additional arguments, use the [NuGet Tool Installer](/azure/devops/pipelines/tasks/tool/nuget) task.
+Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +126,7 @@ Optionally run `nuget restore` on the Xamarin iOS solution to install all refere
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional command line arguments that should be used to build.
+Optional. Specifies additional command line arguments that are used to build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +138,7 @@ Additional command line arguments that should be used to build.
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory in which builds will run. When empty, the root of the repository is used.
+Optional. Specifies the working directory in which builds will run. If the value is empty, the root of the repository is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +150,7 @@ Working directory in which builds will run. When empty, the root of the reposito
 **`mdtoolFile`** - **Build tool path**<br>
 Input alias: `buildToolLocation | mdtoolLocation`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the full path to MSBuild (the Visual Studio for Mac build tool). When empty, the default MSBuild path is used.
+Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MSBuild (the Visual Studio for Mac build tool). If the value is empty, the default xbuild or MSBuild path is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +162,7 @@ Optionally supply the full path to MSBuild (the Visual Studio for Mac build tool
 **`signingIdentity`** - **Signing identity**<br>
 Input alias: `iosSigningIdentity`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally override the signing identity that is used to sign the build. If nothing is entered, the setting in the project is used.
+Optional. Overrides the signing identity that will be used to sign the build. If the value is empty, the setting in the Xcode project will be used. You may need to select `signingUnlockDefaultKeychain` if you use this option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -174,7 +174,7 @@ Optionally override the signing identity that is used to sign the build. If noth
 **`signingProvisioningProfileID`** - **Provisioning profile UUID**<br>
 Input alias: `provProfileUuid`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional UUID of an installed provisioning profile to be used for this build.
+Optional. Specifies the UUID of an installed provisioning profile override to be used for this build.
 <!-- :::editable-content-end::: -->
 <br>
 
