@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Publish Pipeline Metadata to Evidence store.
+Use this task to publish Pipeline Metadata to the Evidence store.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
