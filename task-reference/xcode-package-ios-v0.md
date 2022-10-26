@@ -96,7 +96,7 @@ Specifies the name of the provisioning profile to use when signing.
 **`sdk`** - **SDK**<br>
 `string`. Required. Default value: `iphoneos`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SDK.  Run **xcodebuild -showsdks** to see the valid list of SDKs.
+Specifies the SDK. Run **xcodebuild -showsdks** to see the valid list of SDKs.
 <!-- :::editable-content-end::: -->
 <br>
 

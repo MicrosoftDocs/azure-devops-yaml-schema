@@ -132,7 +132,7 @@ Optional. Specifies the relative path from the repo root to the Xcode workspace 
 **`scheme`** - **Scheme**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the Xcode scheme name. *Must be a shared scheme* (shared checkbox under **Managed Schemes** in Xcode). **Required if Workspace is specified.**.
+Optional. Specifies the Xcode scheme name. *Must be a shared scheme* (shared checkbox under **Managed Schemes** in Xcode). **Required if Workspace is specified.**
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -336,7 +336,7 @@ Specifies the relative path to a PKCS12 formatted P12 certificate file that cont
 **`p12pwd`** - **P12 Password**<br>
 `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the password to a P12 certificate file if specified. Use a build variable to encrypt.
+Specifies the password to a P12 certificate file. Use a build variable to encrypt.
 <!-- :::editable-content-end::: -->
 <br>
 

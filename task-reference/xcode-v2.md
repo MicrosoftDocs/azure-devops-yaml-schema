@@ -95,7 +95,6 @@ Specifies a space-delimited list of actions. Valid options are `build`, `clean`,
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
-0
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
