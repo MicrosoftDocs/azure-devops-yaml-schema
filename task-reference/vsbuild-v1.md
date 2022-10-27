@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build with MSBuild and set the Visual Studio version property.
+Use this task to build with MSBuild and set the Visual Studio version property. Learn more about installing [Visual Studio images on Azure](/visualstudio/install/using-visual-studio-vm).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -113,19 +113,20 @@ Build with MSBuild and set the Visual Studio version property.
 **`solution`** - **Solution**<br>
 `string`. Required. Default value: `**\*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If you want to build a single solution, click the ... button and select the solution.
+Specifies the solution for the task to use in the build process.
 
-If you want to build multiple solutions, specify search criteria. You can use a single-folder wildcard (`*`) and recursive wildcards (`**`). For example, `**.sln` searches for all .sln files in all subdirectories.
+If you want to build a single solution, click the **...** button and specify the solution.
+
+If you want to build multiple solutions, specify the search criteria. You can use a single-folder wildcard (`*`) and recursive wildcards (`**`). For example, `**.sln` searches for all .sln files in all subdirectories.
 
 Make sure the solutions you specify are downloaded by this build pipeline. On the Repository tab:
 
 - If you use TFVC, make sure that the solution is a child of one of the mappings on the Repository tab.
 - If you use Git, make sure that the project or solution is in your Git repo, and in a branch that you're building.
 
-Tips:
-
-- You can also build MSBuild project (.*proj) files.
-- If you are building a customized MSBuild project file, we recommend you use the MSBuild task instead of the Visual Studio Build task.
+> [!TIP]
+> - You can also build MSBuild project (.*proj) files.
+> - If you are building a customized MSBuild project file, we recommend you use the MSBuild task instead of the Visual Studio Build task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,9 +138,9 @@ Tips:
 **`vsVersion`** - **Visual Studio Version**<br>
 `string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
+The value of this input must match the version of Visual Studio used to create your solution.
 
-The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
+Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you specify **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
 
 **Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
@@ -152,9 +153,9 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 **`vsVersion`** - **Visual Studio Version**<br>
 `string`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
+The value of this input must match the version of Visual Studio used to create your solution.
 
-The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
+Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you specify **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
 
 **Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
@@ -167,9 +168,9 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 **`vsVersion`** - **Visual Studio Version**<br>
 `string`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To avoid problems overall, you must make sure this value matches the version of Visual Studio used to create your solution.
+The value of this input must match the version of Visual Studio used to create your solution.
 
-The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you select **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
+Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you specify **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
 
 **Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
@@ -183,7 +184,7 @@ The value you select here adds the `/p:VisualStudioVersion={numeric_visual_studi
 **`msbuildArgs`** - **MSBuild Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can pass additional arguments to MSBuild. For syntax, see [MSBuild Command-Line Reference](/visualstudio/msbuild/msbuild-command-line-reference).
+Passes additional arguments to MSBuild. For syntax, see [MSBuild Command-Line Reference](/visualstudio/msbuild/msbuild-command-line-reference).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,12 +196,11 @@ You can pass additional arguments to MSBuild. For syntax, see [MSBuild Command-L
 **`platform`** - **Platform**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the platform you want to build such as `Win32`, `x86`, `x64`, or `any cpu`.
+Specifies the platform you want to build, such as `Win32`, `x86`, `x64`, or `any cpu`.
 
-Tips:
-
-- If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
-- Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
+> [!TIP]
+> - If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
+> - Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,9 +212,10 @@ Tips:
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the configuration you want to build such as `debug` or `release`.
+Specifies the configuration you want to build, such as `debug` or `release`.
 
-Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
+> [!TIP]
+> Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,9 +227,9 @@ Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab 
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
+If set to `false`, the task makes an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set the Clean repository to `false`.
 
-Set to True if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
+If set to `true`, the task rebuilds all of the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -240,7 +241,7 @@ Set to True if you want to rebuild all the code in the code projects. This is eq
 **`maximumCpuCount`** - **Build in Parallel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If your MSBuild target configuration is compatible with building in parallel, you can optionally check this input to pass the /m switch to MSBuild (Windows only). If your target configuration is not compatible with building in parallel, checking this option may cause your build to result in file-in-use errors, or intermittent or inconsistent build failures.
+Optional. If your MSBuild target configuration is compatible with building in parallel, you can check this input to pass the `/m` switch to MSBuild (Windows only). If your target configuration is not compatible with building in parallel, checking this option may cause your build to result in file-in-use errors, or intermittent or inconsistent build failures.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +253,7 @@ If your MSBuild target configuration is compatible with building in parallel, yo
 **`restoreNugetPackages`** - **Restore NuGet Packages**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This option is deprecated. To restore NuGet packages, add a [NuGet Tool Installer](nuget-installer-v0.md) task before the build.
+This input is deprecated. To restore NuGet packages, add a [NuGet Tool Installer](nuget-installer-v0.md) task before the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -264,9 +265,10 @@ This option is deprecated. To restore NuGet packages, add a [NuGet Tool Installe
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
 `string`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the architecture (x86, x64) of MSBuild to run.
+Optional. Supplies the architecture (`x86` or `x64`) of MSBuild to run.
 
-Tip: Because Visual Studio runs as a 32-bit application, you could experience problems when your build is processed by a build agent that is running the 64-bit version of Team Foundation Build Service. By selecting MSBuild x86, you might resolve these kinds of problems.
+> [!TIP]
+> Because Visual Studio runs as a 32-bit application, you may experience problems when your build is processed by a build agent that is running the 64-bit version of Team Foundation Build Service. By selecting MSBuild `x86`, you may resolve these issues.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +280,7 @@ Tip: Because Visual Studio runs as a 32-bit application, you could experience pr
 **`logProjectEvents`** - **Record Project Details**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally record timeline details for each project.
+Optional. Records timeline details for each project.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +292,7 @@ Optionally record timeline details for each project.
 **`createLogFile`** - **Create Log File**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally create a log file (Windows only).
+Optional. Creates a log file (Windows only).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -302,7 +304,7 @@ Optionally create a log file (Windows only).
 **`logFileVerbosity`** - **Log File Verbosity**<br>
 `string`. Optional. Use when `createLogFile = true`. Allowed values: `quiet`, `minimal`, `normal`, `detailed`, `diagnostic`. Default value: `normal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional log file verbosity.
+Specifies the verbosity level in log files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -314,7 +316,7 @@ Optional log file verbosity.
 **`enableDefaultLogger`** - **Enable Default Logger**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true - enables default logger for msbuild.
+If set to `true`, enables the default logger for MSBuild.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -326,9 +328,9 @@ If true - enables default logger for msbuild.
 **`customVersion`** - **Custom Version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Allows setting custom version of Visual Studio. Examples: 15.0, 16.0, 17.0. Make sure that the required version of Visual Studio is installed in the system.
+Sets a custom version of Visual Studio. Examples: `15.0`, `16.0`, `17.0`. The required version of Visual Studio must be installed in the system.
 
-**Azure Pipelines**: If your team wants to use Visual Studio 2022 with the Microsoft-hosted agents, select windows-2022 as your default build pool. For more info see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
+**Azure Pipelines**: If your team wants to use Visual Studio 2022 with the Microsoft-hosted agents, select `windows-2022` as your default build pool. For more info see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -354,7 +356,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
- Learn more about installing [Visual Studio images on Azure](/visualstudio/install/using-visual-studio-vm).
+Learn more about installing [Visual Studio images on Azure](/visualstudio/install/using-visual-studio-vm).
 
 > [!IMPORTANT]
 > This task is only supported on agents running Windows.
