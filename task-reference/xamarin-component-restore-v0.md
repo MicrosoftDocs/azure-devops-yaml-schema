@@ -88,7 +88,7 @@ Specifies the Xamarin account email address.
 **`password`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Xamarin account password. Use a new build variable with its lock enabled on the variables tab to encrypt this value.
+Specifies the Xamarin account password. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
