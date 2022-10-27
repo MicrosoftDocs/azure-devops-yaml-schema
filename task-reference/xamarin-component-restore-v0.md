@@ -64,7 +64,7 @@ This task is deprecated. Use 'NuGet' instead.
 **`solutionFile`** - **Path to solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the Visual Studio Solution file.
+Specifies the path to the Visual Studio solution file.
 <!-- :::editable-content-end::: -->
 <br>
 
