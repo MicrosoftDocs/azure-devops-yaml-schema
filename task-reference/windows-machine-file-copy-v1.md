@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Copy files to remote Windows machines.
+Use this task to copy files to remote Windows machines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Copy files to remote Windows machines.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Copy files to remote machine(s).
+Use this task to copy files to remote Windows machines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -92,7 +92,7 @@ Copy files to remote machine(s).
 **`SourcePath`** - **Source**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path of the source folder or file on the local machine, or a UNC Share like c:\fabrikamfiber or \\\\fabrikamshare\fabrikamfiber.
+Specifies the absolute path of the source folder or file on the local machine or a UNC Share, like `c:\fabrikamfiber` or `\\fabrikamshare\fabrikamfiber`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,7 @@ Absolute path of the source folder or file on the local machine, or a UNC Share 
 **`EnvironmentName`** - **Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Specifies a comma-separated list of machine IP addresses or FQDNs, for example, `dbserver.fabrikam.com,192.168.12.34`. You can also specify the output variable of other tasks, for example `$(variableName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,7 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the administrator login for the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ Administrator login for the target machines.
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept variable defined in Build/Release definitions as '$(passwordVariable)'. <br>You may mark variable type as 'secret' to secure it.
+Specifies the password for the administrator login for the target machines. Variables defined in build/release definitions as `$(passwordVariable)` are accepted. You can mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +140,7 @@ Password for administrator login for the target machines. <br>It can accept vari
 **`TargetPath`** - **Destination Folder**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Local Path on the target machines or an accessible UNC path for copying the files from the source like d:\fabrikam or \\\\fabrikam\Web.
+Specifies the local path on the target machine or an accessible UNC path for copying the files from the source, like `d:\fabrikam` or `\\fabrikam\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +152,7 @@ Local Path on the target machines or an accessible UNC path for copying the file
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will clean the destination folder before copying the files.
+Cleans the destination folder before copying the files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ Selecting it will clean the destination folder before copying the files.
 **`CopyFilesInParallel`** - **Copy Files in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will copy files in parallel to the machines.
+Copies files in parallel to the machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ Selecting it will copy files in parallel to the machines.
 **`AdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional robocopy arguments that will be applied when copying files like, /min:33553332 /l.
+Specifies additional robocopy arguments that are applied when copying files, like `/min:33553332 /l`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,7 +199,9 @@ Additional robocopy arguments that will be applied when copying files like, /min
 **`MachineNames`** - **Filter Criteria**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input is valid only for machine groups and is not supported for flat list of machines or output variables yet. Provide a list of machines like, dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34, or tags like, Role:DB; OS:Win8.1. If multiple tags are provided, then the task will run in all the machines with the specified tags. The default is to run the task in all machines.
+This input is only valid for machine groups and is not supported for a flat list of machines or output variables yet.
+
+Specifies a comma-separated list of machines, like `dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34`, or tags, like `Role:DB; OS:Win8.1`. If multiple tags are provided, the task will run in all machines with the specified tags. The default runs the task in all machines.
 <!-- :::editable-content-end::: -->
 <br>
 
