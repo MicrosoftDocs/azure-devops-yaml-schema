@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy a Docker Compose application to an Azure Service Fabric cluster.
+Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Deploy a Docker Compose application to an Azure Service Fabric cluster.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy a docker-compose application to a Service Fabric cluster.
+Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -100,7 +100,7 @@ Deploy a docker-compose application to a Service Fabric cluster.
 **`clusterConnection`** - **Cluster Service Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
+Specifies an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +111,7 @@ Selects an Azure Service Fabric service connection to be used to connect to the 
 **`clusterConnection`** - **Cluster Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
+Specifies an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,9 @@ Selects an Azure Service Fabric service connection to be used to connect to the 
 **`composeFilePath`** - **Compose File Path**<br>
 `string`. Required. Default value: `**/docker-compose.yml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the compose file that is to be deployed. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Example: `$(System.DefaultWorkingDirectory)/**/drop/projectartifacts/**/docker-compose.yml`. **Note**: combining compose files is not supported as part of this task.
+Specifies the path to the compose file that is to be deployed. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Example: `$(System.DefaultWorkingDirectory)/**/drop/projectartifacts/**/docker-compose.yml`. 
+> [!NOTE]
+> Combining compose files is not supported as part of this task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +137,7 @@ The path to the compose file that is to be deployed. [Variables](/azure/devops/p
 **`applicationName`** - **Application Name**<br>
 `string`. Required. Default value: `fabric:/Application1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Service Fabric application name of the deployed application. Use `fabric:/` as a prefix. Application names within a Service Fabric cluster must be unique.
+Specifies the Service Fabric application name of the deployed application. Use `fabric:/` as a prefix. Application names within a Service Fabric cluster must be unique.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -151,7 +153,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 
 * `AzureResourceManagerEndpoint` (Azure Resource Manager service connection): uses `azureSubscription` to obtain a service principal ID and key for an Azure Container Registry.
 * `ContainerRegistryEndpoint` (Container Registry service connection): uses `dockerRegistryConnection` to select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
-* `UsernamePassword` (Username and Password): uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the **Password Encrypted** option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
+* `UsernamePassword` (Username and Password): uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the `Password Encrypted` option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
 * `None`: No registry credentials are provided. This is used for accessing public container registries.
 <!-- :::editable-content-end::: -->
 <br>
@@ -167,7 +169,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 
 * `AzureResourceManagerEndpoint` (Azure Resource Manager service connection): uses `azureSubscription` to obtain a service principal ID and key for an Azure Container Registry.
 * `ContainerRegistryEndpoint` (Container Registry service connection): uses `dockerRegistryConnection` to select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
-* `UsernamePassword` (Username and Password): uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the **Password Encrypted** option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
+* `UsernamePassword` (Username and Password): uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the `Password Encrypted` option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
 * `None`: No registry credentials are provided. This is used for accessing public container registries.
 <!-- :::editable-content-end::: -->
 <br>
@@ -180,7 +182,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
 Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
+Specifies a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +193,7 @@ Selects a Docker registry service connection. If a certificate matching the Serv
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
+Specifies a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +205,7 @@ Selects a Docker registry service connection. If a certificate matching the Serv
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure subscription.
+Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,7 +217,7 @@ Selects an Azure subscription.
 **`registryUserName`** - **Registry User Name**<br>
 `string`. Optional. Use when `registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The username for the Docker registry.
+Specifies the username for the Docker registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -227,7 +229,7 @@ The username for the Docker registry.
 **`registryPassword`** - **Registry Password**<br>
 `string`. Optional. Use when `registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The password for the Docker registry. If the password is not encrypted, it is recommended that you use a custom release pipeline secret variable to store it.
+Specifies the password for the Docker registry. If the password is not encrypted, it is recommended that you use a custom release pipeline secret variable to store it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -239,7 +241,7 @@ The password for the Docker registry. If the password is not encrypted, it is re
 **`passwordEncrypted`** - **Password Encrypted**<br>
 `boolean`. Optional. Use when `registryCredentials = UsernamePassword`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, an error will occur.
+Encrypts your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not encrypt your password, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, an error will occur.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -263,7 +265,7 @@ Upgrades an existing deployment rather than removing it.
 **`deployTimeoutSec`** - **Deploy Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The timeout in seconds for deploying the application.
+Specifies the timeout, in seconds,for deploying the application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -275,7 +277,7 @@ The timeout in seconds for deploying the application.
 **`removeTimeoutSec`** - **Remove Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The timeout in seconds for removing an existing application.
+Specifies the timeout, in seconds,for removing an existing application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -287,7 +289,7 @@ The timeout in seconds for removing an existing application.
 **`getStatusTimeoutSec`** - **Get Status Timeout (s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The timeout in seconds for getting the status of an existing application.
+Specifies the timeout, in seconds,for getting the status of an existing application.
 <!-- :::editable-content-end::: -->
 <br>
 
