@@ -120,7 +120,7 @@ A comma separated list of machine FQDNs or IP addresses, which may include the p
 **`dropLocation`** - **Test Drop Location**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the location on the test machine(s) where the test binaries have been copied by a [Windows Machine File Copy](/azure/devops/pipelines/tasks/deploy/windows-machine-file-copy) or an [Azure File Copy](/azure/devops/pipelines/tasks/deploy/azure-file-copy) task. System stage variables from the test agent machines can be used to specify the drop location. Examples: `c:\tests` and `%systemdrive%\Tests`.
+Specifies the location on the test machine(s) where the test binaries have been copied by a [Windows Machine File Copy](windows-machine-file-copy-v2.md) or an [Azure File Copy](azure-file-copy-v3.md) task. System stage variables from the test agent machines can be used to specify the drop location. Examples: `c:\tests` and `%systemdrive%\Tests`.
 <!-- :::editable-content-end::: -->
 <br>
 
