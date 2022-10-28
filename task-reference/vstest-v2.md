@@ -823,8 +823,6 @@ Data-driven tests that use xUnit and NUnit test frameworks have some known limit
 
 The above limitations are because of how the adapters for these test frameworks discover and report data-driven tests.
 
-The above limitations are because of how the adapters for these test frameworks discover and report data-driven tests.
-
 ### Does the VSTest task support running tests that target multiple target frameworks at a time?
 
 The VSTest task doesn't support running tests that target multiple target frameworks at a time as this is a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
