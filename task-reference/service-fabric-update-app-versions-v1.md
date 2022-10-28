@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Automatically updates the versions of a packaged Service Fabric application.
+Use this task in a build pipeline to automatically update the versions of a packaged Service Fabric app. This task appends a version suffix to all service and app versions, specified in the manifest files, in an Azure Service Fabric app package.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -59,7 +59,7 @@ Automatically updates the versions of a packaged Service Fabric application.
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the application package. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) and wildcards can be used in the path.
+Specifies the location of the Service Fabric application package to be deployed to the cluster. Example: `$(system.defaultworkingdirectory)/**/drop/applicationpackage`. [Variables](/azure/devops/pipelines/build/variables&tabs=yaml) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -71,7 +71,14 @@ Path to the application package. [Variables](https://go.microsoft.com/fwlink/?Li
 **`versionSuffix`** - **Version Value**<br>
 `string`. Required. Default value: `.$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The value used to specify the version in the manifest files. Default is .$(Build.BuildNumber).
+The value used to specify the version in the manifest files.
+
+> [!TIP]
+> You can modify the build number format directly or use a logging command to dynamically set a variable in any format. For example, you can use `$(VersionSuffix)` defined in a PowerShell task:
+>
+> `$versionSuffix = ".$([DateTimeOffset]::UtcNow.ToString('yyyyMMdd.HHmmss'))"`
+>
+> `Write-Host "##vso[task.setvariable variable=VersionSuffix;]$versionSuffix"`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +90,7 @@ The value used to specify the version in the manifest files. Default is .$(Build
 **`versionBehavior`** - **Version Behavior**<br>
 `string`. Allowed values: `Append`, `Replace`. Default value: `Append`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify whether to append the version value to existing values in the manifest files or replace them.
+Appends the version value to existing values in the manifest files or replaces them.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +102,7 @@ Specify whether to append the version value to existing values in the manifest f
 **`updateOnlyChanged`** - **Update only if changed**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Incrementally update only the packages that have changed. Use the [deterministic compiler flag](https://go.microsoft.com/fwlink/?LinkId=808668) to ensure builds with the same inputs produce the same outputs.
+Incrementally updates only the packages that have changed. Use the [deterministic compiler flag](https://devblogs.microsoft.com/dotnet/whats-new-for-c-and-vb-in-visual-studio/) to ensure builds with the same inputs produce the same outputs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +114,7 @@ Incrementally update only the packages that have changed. Use the [deterministic
 **`pkgArtifactName`** - **Package Artifact Name**<br>
 `string`. Optional. Use when `updateOnlyChanged = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact containing the application package for comparison.
+Specifies the name of the artifact containing the application package from the previous build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,7 +126,7 @@ The name of the artifact containing the application package for comparison.
 **`logAllChanges`** - **Log all changes**<br>
 `boolean`. Optional. Use when `updateOnlyChanged = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Compare all files in every package and log if the file was added, removed, or if its content changed. Otherwise, compare files in a package only until the first change is found for faster performance.
+Compares all files in every package and logs if the file was added, removed, or if its content changed. Otherwise, compares files in a package only until the first change is found for faster performance.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +138,7 @@ Compare all files in every package and log if the file was added, removed, or if
 **`compareType`** - **Compare against**<br>
 `string`. Optional. Use when `updateOnlyChanged = true`. Allowed values: `LastSuccessful` (Last Successful Build), `Specific` (Specific Build). Default value: `LastSuccessful`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build for comparison.
+Compares against the last completed and successful build or against a specific build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +150,7 @@ The build for comparison.
 **`buildNumber`** - **Build Number**<br>
 `string`. Optional. Use when `compareType = Specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build number for comparison.
+Specifies the build number for comparison if the task is comparing against a specific build.
 <!-- :::editable-content-end::: -->
 <br>
 
