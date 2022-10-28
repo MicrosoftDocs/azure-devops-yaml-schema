@@ -208,7 +208,7 @@ Use this task to acquire the [Microsoft test platform](https://www.nuget.org/pac
 > * The **Visual Studio Test Platform Installer** task must appear before the **Visual Studio Test** task in the build or release pipeline.
 > * The **Test platform version** option in the **Visual Studio Test** task must be set to **Installed by Tools Installer**.
 
-See [Run automated tests from test plans](/azure/devops/test/run-automated-tests-from-test-hub)
+See [Run automated tests from test plans](/azure/devops/test/run-automated-tests-from-test-hub).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
