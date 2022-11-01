@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
+Use this task to build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -101,7 +101,7 @@ Build a machine image using Packer, which may be used for Azure Virtual machine 
 **`templateType`** - **Packer template**<br>
 `string`. Required. Allowed values: `builtin` (Auto generated), `custom` (User provided). Default value: `builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects whether the task auto generates a Packer template or uses a custom template provided by you.
+Specifies whether the task auto generates a Packer template or uses a custom template provided by you.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,7 +113,7 @@ Selects whether the task auto generates a Packer template or uses a custom templ
 **`customTemplateLocation`** - **Packer template location**<br>
 `string`. Required when `templateType = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to a custom user-provided template.
+Specifies the path to a custom user-provided template.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +137,7 @@ Specifies the parameters which will be passed to the Packer for building a custo
 **`ConnectedServiceName`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription for baking and storing the machine image.
+Specifies the Azure Resource Manager subscription for baking and storing the machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -161,7 +161,7 @@ Checks if the generated image should be a managed image.
 **`managedImageName`** - **Managed VM Disk Image Name**<br>
 `string`. Required when `isManagedImage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Managed disk image for auto-generated templates.
+Specifies the name of the Managed disk image for auto-generated templates.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +173,7 @@ The name of the Managed disk image for auto-generated templates.
 **`location`** - **Storage location**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The location for storing the built machine image. This location will also be used to create a temporary VM for the purpose of building an image.
+Specifies the location for storing the built machine image. This location will also be used to create a temporary VM for the purpose of building an image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +185,7 @@ The location for storing the built machine image. This location will also be use
 **`storageAccountName`** - **Storage account**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The storage account for storing the built machine image. This storage account must be pre-existing in the location selected.
+Specifies the storage account for storing the built machine image. This storage account must be pre-existing in the location selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +197,7 @@ The storage account for storing the built machine image. This storage account mu
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Azure Resource group that contains the selected storage account.
+Specifies the Azure Resource group that contains the selected storage account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,8 +209,9 @@ The Azure Resource group that contains the selected storage account.
 **`baseImageSource`** - **Base image source**<br>
 `string`. Required. Allowed values: `default` (Gallery), `customVhd` (Custom). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the source of the base image. You can either choose from a curated gallery of OS images or provide a URL of your custom VHD image.
-Please note that if you have the selected option to create a Managed image by checking the `Managed VM disk image` option, then you should only choose the `Gallery` option here. `Custom` source is not supported to create a managed image.
+Specifies the source of the base image. You can either choose from a curated gallery of OS images or provide a URL of your custom VHD image.
+> [!NOTE]
+> If you have selected the option to create a Managed image by checking the `Managed VM disk image` option, then you should only choose the `Gallery` option here. `Custom` source is not supported to create a managed image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -222,7 +223,7 @@ Please note that if you have the selected option to create a Managed image by ch
 **`baseImage`** - **Base image**<br>
 `string`. Required when `baseImageSource = default`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `Canonical:UbuntuServer:18.04-LTS:linux` (Ubuntu 18.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
+Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +234,7 @@ Chooses from a curated list of OS images. This will be used for installing pre-r
 **`baseImage`** - **Base image**<br>
 `string`. Required when `baseImageSource = default`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
+Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -245,7 +246,7 @@ Chooses from a curated list of OS images. This will be used for installing pre-r
 **`customImageUrl`** - **Base image URL**<br>
 `string`. Required when `baseImageSource = customVhd`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of a base image. This will be used for installing pre-requisite(s) and application(s) before capturing machine image.
+Specifies the URL of a base image. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,9 +269,10 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 **`packagePath`** - **Deployment Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path for a deployment package directory relative to `$(System.DefaultWorkingDirectory)`. Supports minimatch pattern. Example path: `FrontendWebApp/**/GalleryApp`
+Specifies the path for a deployment package directory relative to `$(System.DefaultWorkingDirectory)`. Supports a minimatch pattern. Example path: `FrontendWebApp/**/GalleryApp`
 
-Please note that this package will be copied to a temporary virtual machine which Packer creates. If the package contains a large number of files and/or the files are very large in size, the upload can take quite a long time (possibly running for a few hours). To optimize the upload time, please see if the size of the package can be meaningfully reduced. Another alternative is to use an intermediary Azure storage account. Upload the package to a storage account prior to running this task. And for this task, use a package containing a script which will download the required package from the storage account.
+>[!NOTE]
+> This package will be copied to a temporary virtual machine which Packer creates. If the package contains a large number of files and/or the files are very large in size, the upload can take a long time (possibly running for a few hours). To optimize the upload time, please see if the size of the package can be meaningfully reduced. Another alternative is to use an intermediary Azure storage account. Upload the package to a storage account prior to running this task. For this task, use a package containing a script which will download the required package from the storage account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -282,7 +284,7 @@ Please note that this package will be copied to a temporary virtual machine whic
 **`deployScriptPath`** - **Deployment script**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path to powershell script (for Windows) or shell script (for Linux) which deploys the package. This script should be contained in the package path selected above. Supports minimatch pattern. Example path: `deploy/**/scripts/windows/deploy.ps1`.
+Specifies the relative path to the powershell script (for Windows) or the shell script (for Linux) which deploys the package. This script should be contained in the package path selected above. Supports a minimatch pattern. Example path: `deploy/**/scripts/windows/deploy.ps1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -306,7 +308,7 @@ Specifies the arguments to be passed to the deployment script.
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Optional. Use when `templateType = builtin`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
+In the auto-generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: Setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
 To view/edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
 <br>
@@ -318,7 +320,7 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In auto generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
+In the auto-generated Packer template mode, the task creates a Packer template with an Azure builder. This builder is used to generate a machine image. You can add keys to the Azure builder to customize the generated Packer template. For example: Setting `ssh_tty=true` if you are using a CentOS base image and you need to have a tty to run `sudo`.
 To view/edit the additional parameters in a grid, click on `…` next to text box.
 <!-- :::editable-content-end::: -->
 <br>
@@ -331,7 +333,7 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Optional. Use when `templateType = builtin`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During the deprovisioning of a VM, skips the cleanup of temporary files uploaded to the VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -342,7 +344,7 @@ During deprovisioning of VM, skips the clean-up of temporary files uploaded to V
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-During deprovisioning of VM, skips the clean-up of temporary files uploaded to VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
+During the deprovisioning of a VM, skips the cleanup of temporary files uploaded to the VM. Learn more about [Azure Virtual Machine Image Builders in Packer](https://www.packer.io/docs/builders/azure.html#skip_clean).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -366,7 +368,7 @@ Specifies the version of Packer to install. This will work only with custom temp
 **`imageUri`** - **Image URL or Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which will store the generated machine image VHD URL for an un-managed VM image or the image name for a managed VM image.
+Specifies a name for the output variable which will store the generated machine image VHD URL for an un-managed VM image or the image name for a managed VM image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -378,7 +380,7 @@ Provides a name for the output variable which will store the generated machine i
 **`imageId`** - **Azure Resource Id**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides a name for the output variable which will store the Azure Resource Id for the newly created image.  This is for managed images only.
+Specifies a name for the output variable which will store the Azure Resource ID for the newly created image.  This is for managed images only.
 <!-- :::editable-content-end::: -->
 <br>
 
