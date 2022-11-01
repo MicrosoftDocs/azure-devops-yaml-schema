@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Authentication task for the pip client used for installing Python distributions.
+Use this task to provide authentication for the `pip` client that installs Python distributions.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Authentication task for the pip client used for installing Python distributions.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Authentication task for pip client used for installing python distributions.
+Use this task to provide authentication for the `pip` client that installs Python distributions.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -66,7 +66,7 @@ Authentication task for pip client used for installing python distributions.
 **`artifactFeeds`** - **My feeds (select below)**<br>
 Input alias: `feedList`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select feeds to authenticate present in this organization.
+Specifies the feeds to authenticate as present in the organization.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +78,7 @@ Select feeds to authenticate present in this organization.
 **`externalFeeds`** - **Feeds from external organizations**<br>
 Input alias: `externalSources`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select endpoints to authenticate outside this organization.
+Specifies the endpoints to authenticate outside the organization.
 <!-- :::editable-content-end::: -->
 <br>
 
