@@ -97,9 +97,9 @@ Specifies the path of the summary file containing code coverage statistics, such
 **`pathToSources`** - **Path to Source files**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this input if tests are run in a Docker container.
-
 Specifying a path to source files is required when coverage XML reports don't contain an absolute path to source files. For example, JaCoCo reports don't use absolute paths, so when publishing JaCoCo coverage for Java apps, the pattern is similar to `$(System.DefaultWorkingDirectory)/MyApp/src/main/java/`. This input should point to an absolute path to source files on the host. For example, `$(System.DefaultWorkingDirectory)/MyApp/`.
+
+This input can be used if tests are run in a Docker container.
 <!-- :::editable-content-end::: -->
 <br>
 
