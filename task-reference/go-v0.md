@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Get, build, or test a Go application, or run a custom Go command.
+Use this task to get, build, or test a Go application, or to run a custom Go command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -46,7 +46,7 @@ Get, build, or test a Go application, or run a custom Go command.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `get`, `build`, `test`, `custom`. Default value: `get`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a Go command to run. Select `Custom` to use a command not listed here.
+Specifies a Go command to run. Use `Custom` to run a command not listed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -58,7 +58,7 @@ Selects a Go command to run. Select `Custom` to use a command not listed here.
 **`customCommand`** - **Custom command**<br>
 `string`. Required when `command == custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A custom Go command to execute. For example, to execute `go version`, enter `version`.
+A custom Go command to execute. For example, to execute `go version`, use `version`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ A custom Go command to execute. For example, to execute `go version`, enter `ver
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The optional arguments to the selected command. For example, build-time arguments for the `go build` command.
+The optional arguments to the selected command. For example, use build-time arguments for the `go build` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ The optional arguments to the selected command. For example, build-time argument
 **`workingDirectory`** - **Working directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory where the command will run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of `$(System.DefaultWorkingDirectory)`.
+The working directory where you want the command to run. When empty, the root of the repository (for builds) or artifacts (for releases) is used, which is the value of `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to get, build, or test a go application, or run a custom go command.
+Use this task to get, build, or test a Go application, or to run a custom Go command.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
