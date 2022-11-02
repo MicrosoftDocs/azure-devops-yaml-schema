@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Install Azure Func Core Tools.
+Use this task to install Azure Functions Core Tools.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -42,7 +42,13 @@ Install Azure Func Core Tools.
 **`version`** - **Version**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Azure func tools to install. Ex:<br><br>2.7.1575<br>v2.7.1575<br>latest.
+Specifies the version of Azure Functions Core Tools to install. For example:
+
+`2.7.1575`
+
+`v2.7.1575`
+
+`latest`
 <!-- :::editable-content-end::: -->
 <br>
 
