@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Upload files using FTP.
+Use this task to upload files to a remote machine using FTP or securely with FTPS.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -80,7 +80,7 @@ Upload files using FTP.
 **`credentialsOption`** - **Authentication Method**<br>
 Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use FTP service connection or enter connection credentials.
+Specifies the authentication method. Use an FTP service connection or enter the connection credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,9 @@ Use FTP service connection or enter connection credentials.
 **`serverEndpoint`** - **FTP Service Connection**<br>
 `string`. Required when `credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your FTP server.  To create one, click the Manage link and create a new Generic service connection, enter the FTP server URL for the server URL, e.g. <b>`ftp://server.example.com`</b>, and required credentials.<p>Secure connections will always be made regardless of the specified protocol (<b>`ftp://`</b> or <b>`ftps://`</b>) if the target server supports FTPS.  To allow only secure connections, use the <b>`ftps://`</b> protocol, e.g. <b>`ftps://server.example.com`</b>.  Connections to servers not supporting FTPS will fail if <b>`ftps://`</b> is specified.
+Specifies the service connection for the FTP server. To create one, click the Manage link and create a new generic service connection, and then enter the FTP server URL for the server URL, e.g. `ftp://server.example.com`, and the required credentials.
+
+Secure connections will always be made regardless of the specified protocol (`ftp://` or `ftps://`) if the target server supports FTPS. To allow only secure connections, use the `ftps://` protocol, e.g. `ftps://server.example.com`. Connections to servers not supporting FTPS will fail if `ftps://` is specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,6 +106,7 @@ Select the service connection for your FTP server.  To create one, click the Man
 **`serverUrl`** - **Server URL**<br>
 `string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the URL for the FTP server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,6 +118,7 @@ Select the service connection for your FTP server.  To create one, click the Man
 **`username`** - **Username**<br>
 `string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the user name for the FTP connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,6 +130,7 @@ Select the service connection for your FTP server.  To create one, click the Man
 **`password`** - **Password**<br>
 `string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the password for the FTP connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +142,7 @@ Select the service connection for your FTP server.  To create one, click the Man
 **`rootDirectory`** - **Root folder**<br>
 Input alias: `rootFolder`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The source folder to upload files from.
+Specifies the source folder to upload files from.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +154,7 @@ The source folder to upload files from.
 **`filePatterns`** - **File patterns**<br>
 `string`. Required. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths or patterns of the files to upload.  Supports multiple lines of minimatch patterns.  [More Information](/azure/devops/pipelines/tasks/file-matching-patterns).
+Specifies the file paths or patterns of the files to upload. The string supports multiple lines of minimatch patterns. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -161,7 +166,7 @@ File paths or patterns of the files to upload.  Supports multiple lines of minim
 **`remoteDirectory`** - **Remote directory**<br>
 Input alias: `remotePath`. `string`. Required. Default value: `/upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Upload files to this directory on the remote FTP server.
+Specifies the directory on the remote FTP server where the task uploads files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +178,7 @@ Upload files to this directory on the remote FTP server.
 **`enableUtf8`** - **Enable UTF8 support**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enables UTF-8 support for the FTP connection ('OPTS UTF8 ON').
+Enables UTF-8 support for the FTP connection (`OPTS UTF8 ON`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +190,7 @@ Enables UTF-8 support for the FTP connection ('OPTS UTF8 ON').
 **`clean`** - **Delete remote directory**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delete the remote directory including its contents before uploading.
+Deletes the remote directory, including its contents, before uploading.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +202,7 @@ Delete the remote directory including its contents before uploading.
 **`cleanContents`** - **Clear remote directory contents**<br>
 `boolean`. Required when `clean = false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Recursively delete all contents of the remote directory before uploading.  The existing directory will not be deleted.  For better performance, consider using `Delete remote directory` instead.
+Recursively deletes all content in the remote directory before uploading. The existing directory will not be deleted. For better performance, use `clean` instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +214,9 @@ Recursively delete all contents of the remote directory before uploading.  The e
 **`preservePaths`** - **Preserve file paths**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If selected, the relative local directory structure is recreated under the remote directory where files are uploaded.  Otherwise, files are uploaded directly to the remote directory without creating additional subdirectories.<p>For example, suppose your source folder is: <b>`/home/user/source/`</b> and contains the file: <b>`foo/bar/foobar.txt`</b>, and your remote directory is: <b>`/uploads/`</b>.<br>If selected, the file is uploaded to: <b>`/uploads/foo/bar/foobar.txt`</b>.  Otherwise, to: <b>`/uploads/foobar.txt`</b>.
+If selected, the relative local directory structure is recreated under the remote directory where files are uploaded. Otherwise, files are uploaded directly to the remote directory without creating additional subdirectories.
+
+For example, suppose your source folder is `/home/user/source/`, which contains the file `foo/bar/foobar.txt`, and your remote directory is: `/uploads/`. If this boolean is selected, the file is uploaded to `/uploads/foo/bar/foobar.txt`. If this boolean is not selected, the file is uploaded to `/uploads/foobar.txt`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,7 +228,7 @@ If selected, the relative local directory structure is recreated under the remot
 **`trustSSL`** - **Trust server certificate**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting this option results in the FTP server's SSL certificate being trusted with ftps://, even if it is self-signed or cannot be validated by a Certificate Authority (CA).
+Trusts the FTP server's SSL certificate with `ftps://`, even if it is self-signed or cannot be validated by a certificate authority (CA).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +240,7 @@ Selecting this option results in the FTP server's SSL certificate being trusted 
 **`customCmds`** - **FTP Commands**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional FTP Commands that will be sent to the remote FTP server upon connection.
+The optional FTP commands that will be sent to the remote FTP server upon connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -259,7 +266,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to upload files to a remote machine using the File Transfer Protocol (FTP), or securely with FTPS.
+Use this task to upload files to a remote machine using FTP or securely with FTPS.
 
 ### Where can I learn more about file matching patterns?
 
