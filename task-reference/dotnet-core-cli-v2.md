@@ -215,7 +215,7 @@ The dotnet command to run. Specify `custom` to add arguments or use a command no
 **`publishWebProjects`** - **Publish web projects**<br>
 `boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
+If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +226,7 @@ If this task is set to `true`, the `projects` property value is skipped, and the
 **`publishWebProjects`** - **Publish Web Projects**<br>
 `boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
+If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -333,7 +333,7 @@ Provides a name for the test run.
 **`zipAfterPublish`** - **Zip published projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, folders created by the publish command will be zipped and deleted.
+If this input is set to `true`, folders created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +344,7 @@ If this task is set to `true`, folders created by the publish command will be zi
 **`zipAfterPublish`** - **Zip Published Projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, the folder created by the publish command will be zipped and deleted.
+If this input is set to `true`, the folder created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,7 +356,7 @@ If this task is set to `true`, the folder created by the publish command will be
 **`modifyOutputPath`** - **Add project's folder name to publish path**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
+If this input is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -367,7 +367,7 @@ If this task is set to `true`, folders created by the publish command will have 
 **`modifyOutputPath`** - **Add project name to publish path**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
+If this input is set to `true`, folders created by the publish command will have the project file name prefixed to their folder names when the output path is specified explicitly in arguments. This is useful if you want to publish multiple projects to the same folder.
 <!-- :::editable-content-end::: -->
 <br>
 

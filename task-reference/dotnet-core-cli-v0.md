@@ -72,7 +72,7 @@ The dotnet command to run. Specify `custom` to add arguments or use a command no
 **`publishWebProjects`** - **Publish Web Projects**<br>
 `boolean`. Required when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the `publish` command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
+If this input is set to `true`, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the `publish` command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,7 +110,7 @@ This input currently only accepts arguments for `build`, `publish`, `run`, `test
 **`zipAfterPublish`** - **Zip Published Projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this task is set to `true`, the folder created by the publish command will be zipped and deleted.
+If this input is set to `true`, the folder created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
 <br>
 
