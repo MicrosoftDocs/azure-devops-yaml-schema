@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Security and compliance assessment for Azure Policy.
+Use this task to check the security and compliance assessment for Azure Policy.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -44,7 +44,7 @@ Security and compliance assessment for Azure Policy.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription to enforce the policies.
+Selects the Azure Resource Manager subscription you want to use to enforce the policies.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Selects the Azure Resource Manager subscription to enforce the policies.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provides the name of a resource group.
+Provides the resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
