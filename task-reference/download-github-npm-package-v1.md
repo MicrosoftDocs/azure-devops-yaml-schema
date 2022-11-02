@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -29,8 +29,8 @@ Install npm packages from GitHub.
   inputs:
     packageName: # string. Required. Package Name. 
     version: # string. Required. Package Version. 
-    externalRegistryCredentials: # string. Required. Credentials for registry from GitHub. 
-    #installDirectory: # string. Destination directory.
+    externalRegistryCredentials: # string. Alias: externalEndpoints. Required. Credentials for registry from GitHub. 
+    #installDirectory: # string. Alias: packagesDirectory. Destination directory.
 ```
 
 :::moniker-end

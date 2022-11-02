@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,16 +20,37 @@ Invoke a REST API as a part of your pipeline.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019.1"
 
 ```yaml
 # Invoke REST API v1
 # Invoke a REST API as a part of your pipeline.
 - task: InvokeRESTAPI@1
   inputs:
-    connectionType: 'connectedServiceName' # 'connectedServiceName' | 'connectedServiceNameARM'. Required. Connection type. Default: connectedServiceName.
-    serviceConnection: # string. Required when connectedServiceNameSelector = connectedServiceName. Generic service connection. 
-    #azureServiceConnection: # string. Required when connectedServiceNameSelector = connectedServiceNameARM. Azure subscription. 
+    connectionType: 'connectedServiceName' # 'connectedServiceName' | 'connectedServiceNameARM'. Alias: connectedServiceNameSelector. Required. Connection type. Default: connectedServiceName.
+    serviceConnection: # string. Alias: connectedServiceName | genericService. Required when connectedServiceNameSelector = connectedServiceName. Generic service connection. 
+    #azureServiceConnection: # string. Alias: connectedServiceNameARM | azureSubscription. Required when connectedServiceNameSelector = connectedServiceNameARM. Azure subscription. 
+    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
+    #headers: # string. Headers. 
+    #body: # string. Optional. Use when method != GET && method != HEAD. Body. 
+    #urlSuffix: # string. URL suffix and parameters. 
+  # Advanced
+    waitForCompletion: 'false' # 'true' | 'false'. Required. Completion event. Default: false.
+    #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+```yaml
+# Invoke REST API v1
+# Invoke a REST API as a part of your pipeline.
+- task: InvokeRESTAPI@1
+  inputs:
+    connectionType: 'connectedServiceName' # 'connectedServiceName' | 'connectedServiceNameARM'. Alias: connectedServiceNameSelector. Required. Connection type. Default: connectedServiceName.
+    serviceConnection: # string. Alias: connectedServiceName. Required when connectedServiceNameSelector = connectedServiceName. Generic service connection. 
+    #azureServiceConnection: # string. Alias: connectedServiceNameARM. Required when connectedServiceNameSelector = connectedServiceNameARM. Azure subscription. 
     method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
     #headers: # string. Headers. 
     #body: # string. Optional. Use when method != GET && method != HEAD. Body. 

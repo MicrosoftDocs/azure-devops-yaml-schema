@@ -1,7 +1,7 @@
 ---
 title: AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
 description: Run your scripts and make changes to your Azure Database for MySQL.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -27,7 +27,7 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 # Run your scripts and make changes to your Azure Database for MySQL.
 - task: AzureMysqlDeployment@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
   # DB Details
     ServerName: # string. Required. Host Name. 
     #DatabaseName: # string. Database Name. 
@@ -54,7 +54,7 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 # Run your scripts and make changes to your Azure Database for MySQL.
 - task: AzureMysqlDeployment@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
   # DB Details
     ServerName: # string. Required. Host Name. 
     #DatabaseName: # string. Database Name. 

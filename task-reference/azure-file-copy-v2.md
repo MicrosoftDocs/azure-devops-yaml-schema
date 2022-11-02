@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@2 - Azure file copy v2 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 2).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -28,16 +28,16 @@ Copy files to Azure Blob Storage or virtual machines.
 - task: AzureFileCopy@2
   inputs:
     SourcePath: # string. Required. Source. 
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Connection Type. Default: ConnectedServiceNameARM.
-    #azureClassicSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
-    azureSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Alias: ConnectedServiceNameSelector. Azure Connection Type. Default: ConnectedServiceNameARM.
+    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
     Destination: # 'AzureBlob' | 'AzureVMs'. Required. Destination Type. 
-    #classicStorage: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Classic Storage Account. 
-    storage: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. RM Storage Account. 
+    #classicStorage: # string. Alias: StorageAccount. Required when ConnectedServiceNameSelector = ConnectedServiceName. Classic Storage Account. 
+    storage: # string. Alias: StorageAccountRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. RM Storage Account. 
     #ContainerName: # string. Required when Destination = AzureBlob. Container Name. 
     #BlobPrefix: # string. Optional. Use when Destination = AzureBlob. Blob Prefix. 
-    #cloudService: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
-    #resourceGroup: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
+    #cloudService: # string. Alias: EnvironmentName. Required when ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
+    #resourceGroup: # string. Alias: EnvironmentNameRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
     #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Optional. Use when Destination = AzureVMs. Select Machines By. Default: machineNames.
     #MachineNames: # string. Optional. Use when Destination = AzureVMs. Filter Criteria. 
     #vmsAdminUserName: # string. Required when Destination = AzureVMs. Admin Login. 
@@ -64,16 +64,16 @@ Copy files to Azure Blob Storage or virtual machines.
 - task: AzureFileCopy@2
   inputs:
     SourcePath: # string. Required. Source. 
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Connection Type. Default: ConnectedServiceNameARM.
-    #azureClassicSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
-    azureSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Alias: ConnectedServiceNameSelector. Azure Connection Type. Default: ConnectedServiceNameARM.
+    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
     Destination: # 'AzureBlob' | 'AzureVMs'. Required. Destination Type. 
-    #classicStorage: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Classic Storage Account. 
-    storage: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. RM Storage Account. 
+    #classicStorage: # string. Alias: StorageAccount. Required when ConnectedServiceNameSelector = ConnectedServiceName. Classic Storage Account. 
+    storage: # string. Alias: StorageAccountRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. RM Storage Account. 
     #ContainerName: # string. Required when Destination = AzureBlob. Container Name. 
     #BlobPrefix: # string. Optional. Use when Destination = AzureBlob. Blob Prefix. 
-    #cloudService: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
-    #resourceGroup: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
+    #cloudService: # string. Alias: EnvironmentName. Required when ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
+    #resourceGroup: # string. Alias: EnvironmentNameRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
     #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Optional. Use when Destination = AzureVMs. Select Machines By. Default: machineNames.
     #MachineNames: # string. Optional. Use when Destination = AzureVMs. Filter Criteria. 
     #vmsAdminUserName: # string. Required when Destination = AzureVMs. Admin Login. 
@@ -102,7 +102,7 @@ Copy files to Azure Blob Storage or virtual machines.
 **`SourcePath`** - **Source**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path of the source folder, or file on the local machine, or a UNC share. Expression should return a single folder or a file.
+Specify the absolute path to the source folder, file on the local machine, or a UNC share. The specified value or expression should return either a single folder name or a file name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,6 +114,7 @@ Absolute path of the source folder, or file on the local machine, or a UNC share
 **`azureConnectionType`** - **Azure Connection Type**<br>
 Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specify the Azure connection type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,7 +126,7 @@ Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `Connecte
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Classic subscription to target for copying the files.
+Specify the target Azure Classic subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +138,7 @@ Azure Classic subscription to target for copying the files.
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Resource Manager subscription to target for copying the files.
+Specify the target Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +150,7 @@ Azure Resource Manager subscription to target for copying the files.
 **`Destination`** - **Destination Type**<br>
 `string`. Required. Allowed values: `AzureBlob` (Azure Blob), `AzureVMs` (Azure VMs).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the destination, either Azure Blob or Azure VMs.
+Specify the destination type to use for copying the files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -161,7 +162,7 @@ Select the destination, either Azure Blob or Azure VMs.
 **`classicStorage`** - **Classic Storage Account**<br>
 Input alias: `StorageAccount`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify a pre-existing classic storage account. It is also used as an intermediary for copying files to Azure VMs.
+Specify a pre-existing classic storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +174,7 @@ Specify a pre-existing classic storage account. It is also used as an intermedia
 **`storage`** - **RM Storage Account**<br>
 Input alias: `StorageAccountRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify a pre-existing ARM storage account. It is also used as an intermediary for copying files to Azure VMs.
+Specify a pre-existing ARM storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +186,9 @@ Specify a pre-existing ARM storage account. It is also used as an intermediary f
 **`ContainerName`** - **Container Name**<br>
 `string`. Required when `Destination = AzureBlob`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Container for uploading the files. If a container with the given name does not exist in the specified storage account, it will automatically be created. <br> If you need to create a virtual directory inside the container, use the blob prefix input below. <br> Example: If your target location is <i>https://myaccount.blob.core.windows.net/mycontainer/vd1/vd2/</i>, then specify <i>mycontainer</i> as container name and <i>vd1/vd2</i> as blob prefix.
+Specify the name of the container into which files are copied. If the specified container does not exist in the storage account, it will be created.
+
+To create a virtual directory inside the container, use the Blob prefix input. For example, for target location `https://myaccount.blob.core.windows.net/mycontainer/vd1/vd2/`, specify the container name `mycontainer` and Blob prefix `vd1/vd2`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +200,11 @@ Name of the Container for uploading the files. If a container with the given nam
 **`BlobPrefix`** - **Blob Prefix**<br>
 `string`. Optional. Use when `Destination = AzureBlob`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Useful for filtering files, for example, append build number to all the blobs to download files from that build only. Example: If you specify blob prefix as <i>myvd1</i>, a virtual directory with this name will be created inside the container. The source files will be copied to <i>https://myaccount.blob.core.windows.net/mycontainer/myvd1/</i>.
+Specify a prefix that can be used to filter files.
+
+Example: You can append a build number to filter the files from all Blobs with the same build number.
+
+Example: If you specify a Blob prefix `myvd1`, a virtual directory is created inside the container. Files are copied from the source to `https://myaccount.blob.core.windows.net/mycontainer/myvd1/`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +216,7 @@ Useful for filtering files, for example, append build number to all the blobs to
 **`cloudService`** - **Cloud Service**<br>
 Input alias: `EnvironmentName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the target Cloud Service for copying files to.
+Specify the name of the target Cloud Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,7 +228,7 @@ Name of the target Cloud Service for copying files to.
 **`resourceGroup`** - **Resource Group**<br>
 Input alias: `EnvironmentNameRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the target Resource Group for copying files to.
+Specify the name of the target Resource Group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +240,7 @@ Name of the target Resource Group for copying files to.
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Optional. Use when `Destination = AzureVMs`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, select a subset of VMs in resource group either by providing VMs host name or tags. [Tags](/azure/virtual-machines/tag-template) are supported for resources created via the Azure Resource Manager only.
+Specify the VM host name or tag that identifies a subset of VMs in a resource group. [Tags](/azure/virtual-machines/tag-template) are supported for resources created via the Azure Resource Manager only.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -245,7 +252,9 @@ Optionally, select a subset of VMs in resource group either by providing VMs hos
 **`MachineNames`** - **Filter Criteria**<br>
 `string`. Optional. Use when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a list of VMs host name like ffweb, ffdb, or tags like Role:DB, Web; OS:Win8.1. Note the delimiters used for tags are &#44;(comma), &#58;(colon) and &#59;(semicolon). If multiple tags are provided, then the task will run in all the VMs with the specified tags. The default is to run the task in all the VMs.
+Provide a list of Azure VM host names such as `ffweb`, `ffdb`, or tags such as `Role:DB`, `Web`, `OS:Win8.1`.
+
+Note: Valid delimiters for tags include &#44;(comma), &#58;(colon) and &#59;(semicolon). When providing multiple tags, the task will run in all the VMs that contains the specified tags. By default, the task runs in all the VMs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -257,7 +266,7 @@ Provide a list of VMs host name like ffweb, ffdb, or tags like Role:DB, Web; OS:
 **`vmsAdminUserName`** - **Admin Login**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator Username of the VMs.
+Provide the user name of the Azure VM administrator account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -269,7 +278,9 @@ Administrator Username of the VMs.
 **`vmsAdminPassword`** - **Password**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The administrator password of the VMs. <br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark variable as 'secret' to secure it.
+Provide the password for the Azure VM administrator account.
+
+Valid input includes variables defined in build or release pipelines such as `$(passwordVariable)`. To secure a password, mark it as `secret`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -281,7 +292,9 @@ The administrator password of the VMs. <br>It can accept variable defined in bui
 **`TargetPath`** - **Destination Folder**<br>
 `string`. Required when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Local path on the target machines for copying the files from the source. Environment variable can be used like $env:windir\BudgetIT\Web.
+Specify the local path on the target VMs.
+
+Valid input includes environment variables such as `$env:windir\BudgetIT\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -293,7 +306,17 @@ Local path on the target machines for copying the files from the source. Environ
 **`AdditionalArgumentsForBlobCopy`** - **Optional Arguments (for uploading files to blob)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional AzCopy.exe arguments that will be applied when uploading to blob like, /NC:10. If no optional arguments are specified here, the following optional arguments will be added by default.<br> /Y, /SetContentType, /Z, /V,<br> /S (only if container name is not $root),<br> /BlobType:page (only if specified storage account is a premium account).<br> If source path is a file, /Pattern will always be added irrespective of whether or not you have specified optional arguments.
+Provide additional arguments to `AzCopy.exe` that can be applied when uploading to Blobs such as `/NC:10`.
+
+If no optional arguments are specified, the following arguments are added by default.
+
+- `/Y`
+- `/SetContentType`
+- `/Z`
+- `/V`
+- `/S` - Added when the container name is not `$root`.
+- `/BlobType:page` - Added when the specified storage account is a premium account.
+- `/Pattern` - Added when the source path is a file. Included with any other specified optional arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -305,7 +328,14 @@ Optional AzCopy.exe arguments that will be applied when uploading to blob like, 
 **`AdditionalArgumentsForVMCopy`** - **Optional Arguments (for downloading files to VM)**<br>
 `string`. Optional. Use when `Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional AzCopy.exe arguments that will be applied when downloading to VM like, /NC:10. If no optional arguments are specified here, the following optional arguments will be added by default.<br> /Y, /S, /Z, /V.
+Provide additional arguments to `AzCopy.exe` that can be applied when downloading to VMs such as `/NC:10`. 
+
+If no optional arguments are specified, the following are added by default.
+
+- `/Y`
+- `/S`
+- `/Z`
+- `/V`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -317,7 +347,7 @@ Optional AzCopy.exe arguments that will be applied when downloading to VM like, 
 **`enableCopyPrerequisites`** - **Enable Copy Prerequisites**<br>
 `boolean`. Optional. Use when `ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option configures Windows Remote Management (WinRM) listener over HTTPS protocol on port 5986, using a self-signed certificate. This configuration is required for performing copy operation on Azure machines. If the target Virtual Machines are backed by a Load balancer, ensure Inbound NAT rules are configured for target port (5986). Applicable only for ARM VMs.
+When enabled, uses a self-signed certificate to configure a Windows Remote Management (WinRM) listener on port 5986 instead of the HTTPS protocol. Required for performing copy operations on Azure VMs. If the target VMs use a load balancer, configure inbound NAT rules for the target port (5986). Applies only for ARM VMs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -329,7 +359,7 @@ Enabling this option configures Windows Remote Management (WinRM) listener over 
 **`CopyFilesInParallel`** - **Copy in Parallel**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Setting it to true will copy files in parallel to the target machines.
+Accepting the default setting copies files in parallel to the target VMs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -341,7 +371,7 @@ Setting it to true will copy files in parallel to the target machines.
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Setting it to true will clean-up the destination folder before copying the files.
+Setting this value to `true` cleans the destination folder before performing the copy action.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -353,7 +383,7 @@ Setting it to true will clean-up the destination folder before copying the files
 **`skipCACheck`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `Destination = AzureVMs`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this option is selected, client skips the validation that the server certificate is signed by a trusted certificate authority (CA) when connecting over Hypertext Transfer Protocol over Secure Socket Layer (HTTPS).
+The default value will not validate that the server certificate was signed by a trusted CA before connecting over HTTPS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -365,7 +395,7 @@ If this option is selected, client skips the validation that the server certific
 **`outputStorageUri`** - **Storage Container URI**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable for the storage container URI that the files were copied to with this task.  Valid only when the selected destination is Azure Blob.
+Specify the name of the variable used for the storage container URI to which files were copied.  Valid only when the selected destination is an Azure Blob.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -377,7 +407,7 @@ Provide a name for the variable for the storage container URI that the files wer
 **`outputStorageContainerSasToken`** - **Storage Container SAS Token**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable for the storage container SAS Token used to access the files copied to with this task.  Valid only when the selected destination is Azure Blob.
+Specify the name of the variable used for the storage container SAS token that accesses the files that were copied.  Valid only when the selected destination is an Azure Blob.
 <!-- :::editable-content-end::: -->
 <br>
 

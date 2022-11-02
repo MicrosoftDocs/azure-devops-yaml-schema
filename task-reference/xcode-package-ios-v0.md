@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below).
+Use this task to generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below).
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -60,7 +60,7 @@ This task is deprecated.
 **`appName`** - **Name of .app**<br>
 `string`. Required. Default value: `name.app`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the .app, which is sometimes different from the .ipa.
+Specifies the name of the .app, which is sometimes different from the .ipa.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -72,7 +72,7 @@ Name of the .app, which is sometimes different from the .ipa.
 **`ipaName`** - **Name of .ipa**<br>
 `string`. Required. Default value: `name.ipa`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the .ipa, which is sometimes different from the .app.
+Specifies the name of the .ipa, which is sometimes different from the .app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,7 @@ Name of the .ipa, which is sometimes different from the .app.
 **`provisioningProfile`** - **Provisioning Profile Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the provisioning profile to use when signing.
+Specifies the name of the provisioning profile to use when signing.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Name of the provisioning profile to use when signing.
 **`sdk`** - **SDK**<br>
 `string`. Required. Default value: `iphoneos`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the specified SDK.  Run **xcodebuild -showsdks** to see the valid list of SDKs.
+Specifies the SDK. Run **xcodebuild -showsdks** to see the valid list of SDKs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Use the specified SDK.  Run **xcodebuild -showsdks** to see the valid list of SD
 **`appPath`** - **Path to .app**<br>
 `string`. Required. Default value: `$(SDK)/$(Configuration)/build.sym/$(Configuration)-$(SDK)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path to the built .app file.
+Specifies the relative path to the built .app file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Relative path to the built .app file.
 **`ipaPath`** - **Path to place .ipa**<br>
 `string`. Required. Default value: `$(SDK)/$(Configuration)/build.sym/$(Configuration)-$(SDK)/output`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path where the .ipa will be placed. The directory will be created if it doesn't exist.
+Specifies the relative path where the .ipa is placed. The directory is created if it doesn't exist.
 <!-- :::editable-content-end::: -->
 <br>
 

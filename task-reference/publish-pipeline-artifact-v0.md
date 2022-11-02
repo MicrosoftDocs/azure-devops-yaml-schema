@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Publish a local directory or file as a named artifact for the current pipeline.
+Use this task to publish a local directory or file as a named artifact for the current pipeline.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +21,7 @@ This task is deprecated.
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Publish Pipeline Artifact.
+Use this task to publish a local directory or file as a named artifact for the current pipeline.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -80,7 +80,7 @@ Publish Pipeline Artifact.
 **`artifactName`** - **The name of this artifact**<br>
 `string`. Required. Default value: `drop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of this artifact.
+Specifies the name of the artifact.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ The name of this artifact.
 **`targetPath`** - **Path to publish**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The folder or file path to publish. This can be a fully-qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) are supported.
+Specifies the folder or file path to publish. This can be a fully qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) are supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,8 @@ The folder or file path to publish. This can be a fully-qualified path or a path
 **`properties`** - **Custom properties**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter custom properties to associate with the artifact. Valid JSON string expected with all keys having the prefix 'user-'.
+Specifies the custom properties to associate with the artifact. 
+Use a valid JSON string with the prefix `user-` on all keys.
 <!-- :::editable-content-end::: -->
 <br>
 

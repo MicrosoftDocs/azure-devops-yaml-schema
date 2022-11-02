@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,7 +29,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
   inputs:
     containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     dockerComposeFile: '**/docker-compose.yml' # string. Required. Docker Compose File. Default: **/docker-compose.yml.
     #additionalDockerComposeFiles: # string. Additional Docker Compose Files. 
@@ -44,7 +44,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
     #serviceName: # string. Required when action = Run a specific service. Service Name. 
     #containerName: # string. Optional. Use when action = Run a specific service. Container Name. 
     #ports: # string. Optional. Use when action = Run a specific service. Ports. 
-    #workingDirectory: # string. Optional. Use when action = Run a specific service. Working Directory. 
+    #workingDirectory: # string. Alias: workDir. Optional. Use when action = Run a specific service. Working Directory. 
     #entrypoint: # string. Optional. Use when action = Run a specific service. Entry Point Override. 
     #containerCommand: # string. Optional. Use when action = Run a specific service. Command. 
     #detached: true # boolean. Optional. Use when action = Run services || action = Run a specific service. Run in Background. Default: true.
@@ -59,7 +59,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
     #dockerHostEndpoint: # string. Docker Host Service Connection. 
     #nopIfNoDockerComposeFile: false # boolean. No-op if no Docker Compose File. Default: false.
     #requireAdditionalDockerComposeFiles: false # boolean. Require Additional Docker Compose Files. Default: false.
-    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working Directory. Default: $(System.DefaultWorkingDirectory).
+    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
     #dockerComposePath: # string. Docker Compose executable Path.
 ```
 
@@ -74,7 +74,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
   inputs:
     containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     dockerComposeFile: '**/docker-compose.yml' # string. Required. Docker Compose File. Default: **/docker-compose.yml.
     #additionalDockerComposeFiles: # string. Additional Docker Compose Files. 
@@ -89,7 +89,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
     #serviceName: # string. Required when action = Run a specific service. Service Name. 
     #containerName: # string. Optional. Use when action = Run a specific service. Container Name. 
     #ports: # string. Optional. Use when action = Run a specific service. Ports. 
-    #workingDirectory: # string. Optional. Use when action = Run a specific service. Working Directory. 
+    #workingDirectory: # string. Alias: workDir. Optional. Use when action = Run a specific service. Working Directory. 
     #entrypoint: # string. Optional. Use when action = Run a specific service. Entry Point Override. 
     #containerCommand: # string. Optional. Use when action = Run a specific service. Command. 
     #detached: true # boolean. Optional. Use when action = Run services || action = Run a specific service. Run in Background. Default: true.
@@ -104,7 +104,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
     #dockerHostEndpoint: # string. Docker Host Service Connection. 
     #nopIfNoDockerComposeFile: false # boolean. No-op if no Docker Compose File. Default: false.
     #requireAdditionalDockerComposeFiles: false # boolean. Require Additional Docker Compose Files. Default: false.
-    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working Directory. Default: $(System.DefaultWorkingDirectory).
+    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
 ```
 
 :::moniker-end
@@ -118,7 +118,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
   inputs:
     containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
     #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     dockerComposeFile: '**/docker-compose.yml' # string. Required. Docker Compose File. Default: **/docker-compose.yml.
     #additionalDockerComposeFiles: # string. Additional Docker Compose Files. 
@@ -133,7 +133,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
     #serviceName: # string. Required when action = Run a specific service. Service Name. 
     #containerName: # string. Optional. Use when action = Run a specific service. Container Name. 
     #ports: # string. Optional. Use when action = Run a specific service. Ports. 
-    #workingDirectory: # string. Optional. Use when action = Run a specific service. Working Directory. 
+    #workingDirectory: # string. Alias: workDir. Optional. Use when action = Run a specific service. Working Directory. 
     #entrypoint: # string. Optional. Use when action = Run a specific service. Entry Point Override. 
     #containerCommand: # string. Optional. Use when action = Run a specific service. Command. 
     #detached: true # boolean. Optional. Use when action = Run services || action = Run a specific service. Run in Background. Default: true.
@@ -147,7 +147,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
     #dockerHostEndpoint: # string. Docker Host Service Connection. 
     #nopIfNoDockerComposeFile: false # boolean. No-op if no Docker Compose File. Default: false.
     #requireAdditionalDockerComposeFiles: false # boolean. Require Additional Docker Compose Files. Default: false.
-    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working Directory. Default: $(System.DefaultWorkingDirectory).
+    #currentWorkingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
 ```
 
 :::moniker-end

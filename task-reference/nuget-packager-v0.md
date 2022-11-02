@@ -21,7 +21,7 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
+NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -102,9 +102,9 @@ This task is deprecated.
 **`searchPattern`** - **Path to csproj or nuspec file(s) to pack**<br>
 `string`. Required. Default value: `**\*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pattern to search for csproj or nuspec files to pack.
+The pattern that the task uses to search for `csproj` or `nuspec` files to pack.
 
-You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with '-:'. Example: `**\*.csproj;-:**\*.Tests.csproj`.
+You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with `-:`. Example: `**\*.csproj;-:**\*.Tests.csproj`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 **`outputdir`** - **Package Folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder where packages will be created. If empty, packages will be created alongside the csproj or nuspec file.
+The folder where the task creates packages. If this string is empty, packages will be created in the folder where the `csproj` or `nuspec` file is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,7 +128,7 @@ Folder where packages will be created. If empty, packages will be created alongs
 **`includeReferencedProjects`** - **Include referenced projects**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include referenced projects either as dependencies or as part of the package. Cannot be used with automatic package versioning. If a referenced project has a corresponding nuspec file that has the same name as the project, then that referenced project is added as a dependency. Otherwise, the referenced project is added as part of the package. [Learn more](/nuget/tools/cli-ref-pack).
+Includes referenced projects either as dependencies or as part of the package. Cannot be used with automatic package versioning. If a referenced project has a corresponding `nuspec` file that has the same name as the project, then that referenced project is added as a dependency. Otherwise, the referenced project is added as part of the package. Learn more about [using the pack command for NuGet CLI to create NuGet packages](/nuget/tools/cli-ref-pack).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,11 +140,14 @@ Include referenced projects either as dependencies or as part of the package. Ca
 **`versionByBuild`** - **Automatic package versioning**<br>
 `string`. Required. Allowed values: `false` (Off), `byPrereleaseNumber` (Use the date and time), `byEnvVar` (Use an environment variable), `true` (Use the build number). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Cannot be used with include referenced projects. If you choose 'Use the date and time', this will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime` where you choose X, Y, and Z.
+Applies automatic package versioning depending on the specified value. This string cannot be used with `includeReferencedProjects`. The allowed values are:
 
-If you choose 'Use an environment variable', you must select an environment variable and ensure it contains the version number you want to use.
+- **`byPrereleaseNumber`** - **Use the date and time**: The task will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime`, where you specify the values of X, Y, and Z.
+- **`byEnvVar`**- **Use an environment variable**: The task will use an environment variable that you specify and contains the version number you want to use.
+- **`true`** - **Use the build number**: The task will use the build number to version the package.
 
-If you choose 'Use the build number', this will use the build number to version you package. **Note:** Under General set the build format to be '[$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)](https://go.microsoft.com/fwlink/?LinkID=627416)'.
+> [!NOTE]
+> Under General, set the build format to be [`$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)`](/azure/devops/pipelines/tasks/package/nuget).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +159,7 @@ If you choose 'Use the build number', this will use the build number to version 
 **`versionEnvVar`** - **Environment variable**<br>
 `string`. Required when `versionByBuild = byEnvVar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the variable name without $, $env, or %.
+Specifies the variable name without `$`, `$env`, or `%`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +171,7 @@ Enter the variable name without $, $env, or %.
 **`requestedMajorVersion`** - **Major**<br>
 `string`. Required when `versionByBuild = byPrereleaseNumber`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +183,7 @@ The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`requestedMinorVersion`** - **Minor**<br>
 `string`. Required when `versionByBuild = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +195,7 @@ The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`requestedPatchVersion`** - **Patch**<br>
 `string`. Required when `versionByBuild = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -204,7 +207,7 @@ The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`configurationToPack`** - **Configuration to Package**<br>
 `string`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When using a csproj file this specifies the configuration to package.
+Specifies the configuration to package when using a `csproj` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +219,7 @@ When using a csproj file this specifies the configuration to package.
 **`buildProperties`** - **Additional build properties**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Semicolon delimited list of properties used to build the package.
+The semicolon delimited list of properties used to build the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +231,7 @@ Semicolon delimited list of properties used to build the package.
 **`nuGetAdditionalArgs`** - **NuGet Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to NuGet.exe pack. [More Information](/nuget/tools/cli-ref-pack).
+The additional arguments passed to `NuGet.exe pack`. Learn more about [using the pack command for NuGet CLI to create NuGet packages](/nuget/tools/cli-ref-pack).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -240,7 +243,7 @@ Additional arguments passed to NuGet.exe pack. [More Information](/nuget/tools/c
 **`nuGetPath`** - **Path to NuGet.exe**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to NuGet.exe.
+Optional. Supplies the path to `NuGet.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 

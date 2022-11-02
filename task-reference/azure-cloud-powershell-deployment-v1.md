@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service.
-ms.date: 10/11/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Deploy an Azure Cloud Service.
 # Deploy an Azure Cloud Service.
 - task: AzureCloudPowerShellDeployment@1
   inputs:
-    azureClassicSubscription: # string. Required. Azure subscription (Classic). 
+    azureClassicSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription (Classic). 
     EnableAdvancedStorageOptions: false # boolean. Required. Enable ARM storage support. Default: false.
     StorageAccount: # string. Required when EnableAdvancedStorageOptions = false. Storage account (Classic). 
     #ARMConnectedServiceName: # string. Required when EnableAdvancedStorageOptions = true. Azure subscription (ARM). 
@@ -36,7 +36,7 @@ Deploy an Azure Cloud Service.
     ServiceLocation: # string. Required. Service location. 
     CsPkg: # string. Required. CsPkg. 
     CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Required. Environment (Slot). Default: Production.
+    slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
     #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
     AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
@@ -59,13 +59,13 @@ Deploy an Azure Cloud Service.
 # Deploy an Azure Cloud Service.
 - task: AzureCloudPowerShellDeployment@1
   inputs:
-    azureClassicSubscription: # string. Required. Azure subscription (Classic). 
+    azureClassicSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription (Classic). 
     StorageAccount: # string. Required. Storage account. 
     ServiceName: # string. Required. Service name. 
     ServiceLocation: # string. Required. Service location. 
     CsPkg: # string. Required. CsPkg. 
     CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Required. Environment (Slot). Default: Production.
+    slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
     #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
     AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
@@ -88,13 +88,13 @@ Deploy an Azure Cloud Service.
 # Deploy an Azure Cloud Service.
 - task: AzureCloudPowerShellDeployment@1
   inputs:
-    azureClassicSubscription: # string. Required. Azure subscription (Classic). 
+    azureClassicSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription (Classic). 
     StorageAccount: # string. Required. Storage account. 
     ServiceName: # string. Required. Service name. 
     ServiceLocation: # string. Required. Service location. 
     CsPkg: # string. Required. CsPkg. 
     CsCfg: # string. Required. CsCfg. 
-    slotName: 'Production' # string. Required. Environment (Slot). Default: Production.
+    slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
     #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
     AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.

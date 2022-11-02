@@ -1,22 +1,14 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-This task deploys a Virtual Machine scale set image.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task deploys a Virtual Machine scale set image.
@@ -36,7 +28,7 @@ This task deploys a Virtual Machine scale set image.
 - task: AzureVmssDeployment@0
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
@@ -61,7 +53,7 @@ This task deploys a Virtual Machine scale set image.
 - task: AzureVmssDeployment@0
   inputs:
   # Azure Details
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
@@ -110,7 +102,7 @@ Specifies the Azure Resource Manager subscription for the scale set.
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Update image` (Update VM Scale set by using an image), `Configure application startup` (Run Custom Script VM extension on VM scale set). Default value: `Update image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
- Updates a VM scale set by the chosen method, using a VHD image and/or by running deployment/install scripts using the Custom Script VM Extension.
+Updates a VM scale set by the chosen method, using a VHD image and/or by running deployment/install scripts using the Custom Script VM Extension.
 
 **The VHD image approach** is better for scaling quickly and doing rollback. When a VM scale set is created by using a custom image, it can be updated by a VHD image. The update will fail if the VM scale set was created by using a platform/gallery image available in Azure.
 

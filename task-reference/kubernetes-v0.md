@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 # Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
 - task: Kubernetes@0
   inputs:
-    #kubernetesServiceConnection: # string. Kubernetes service connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
     #namespace: # string. Namespace. 
   # Commands
     #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Command. 
@@ -46,8 +46,8 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
     secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
     #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
     containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
     #secretName: # string. Secret name. 
     #forceUpdate: true # boolean. Force update secret. Default: true.
@@ -62,7 +62,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
   # Output
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
     #kubectlOutput: # string. Output variable name.
@@ -77,7 +77,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 # Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
 - task: Kubernetes@0
   inputs:
-    #kubernetesServiceConnection: # string. Kubernetes service connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
     #namespace: # string. Namespace. 
   # Commands
     #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Command. 
@@ -88,8 +88,8 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
     secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
     #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
     containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
     #secretName: # string. Secret name. 
     #forceUpdate: true # boolean. Force update secret. Default: true.
@@ -104,7 +104,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
   # Output
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
     #kubectlOutput: # string. Output variable name.
@@ -119,7 +119,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 # Deploy, configure, update your Kubernetes cluster in Azure Container Service by running kubectl commands.
 - task: Kubernetes@0
   inputs:
-    #kubernetesServiceConnection: # string. Kubernetes service connection. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
     #namespace: # string. Namespace. 
   # Commands
     command: 'apply' # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Required. Command. Default: apply.
@@ -130,8 +130,8 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
     secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
     #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
     containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
     #secretName: # string. Secret name. 
     #forceUpdate: true # boolean. Force update secret. Default: true.
@@ -146,7 +146,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
   # Output
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
     #kubectlOutput: # string. Output variable name.
@@ -174,7 +174,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Kubernetes service connection.
+Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +185,7 @@ Specifies a Kubernetes service connection.
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Kubernetes service connection.
+Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -243,7 +243,7 @@ Specifies a `kubectl` command.
 **`useConfigurationFile`** - **Use Configuration files**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use a Kubernetes configuration file with the `kubectl` command. A filename, directory, or URL to Kubernetes configuration files can also be provided.
+Use Kubernetes configuration file with the kubectl command. Filename, directory, or URL to Kubernetes configuration files can also be provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -314,7 +314,7 @@ Specifies keys and literal values to insert in secret. For example, `--from-lite
 **`containerRegistryType`** - **Container Registry type**<br>
 `string`. Required when `secretType = dockerRegistry`. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Container registry type. The task can use Azure Subscription details to work with an Azure Container registry. Other standard Container registries are also supported.
+Select a Container registry type. The task can use Azure Subscription details to work with an Azure Container registry. Other standard Container registries are also supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -325,7 +325,7 @@ Specifies a Container registry type. The task can use Azure Subscription details
 **`containerRegistryType`** - **Container Registry type**<br>
 `string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Container registry type. The task can use Azure Subscription details to work with an Azure Container registry. Other standard Container registries are also supported.
+Select a Container registry type. The task can use Azure Subscription details to work with an Azure Container registry. Other standard Container registries are also supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -337,7 +337,7 @@ Specifies a Container registry type. The task can use Azure Subscription details
 **`dockerRegistryConnection`** - **Docker Registry service connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -348,7 +348,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerRegistryType = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -410,7 +410,7 @@ Specifies an Azure Container Registry which is used for pulling Container images
 **`secretName`** - **Secret name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the secret. You can use this secret name in the Kubernetes YAML configuration file.
+Name of the secret. You can use this secret name in the Kubernetes YAML configuration file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -422,7 +422,7 @@ Specifies the name of the secret. You can use this secret name in the Kubernetes
 **`forceUpdate`** - **Force update secret**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Deletes the secret if it exists and creates a new one with updated values.
+Delete the secret if it exists and create a new one with updated values.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -434,7 +434,7 @@ Deletes the secret if it exists and creates a new one with updated values.
 **`configMapName`** - **ConfigMap name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-`ConfigMaps` allows you to decouple configuration artifacts from image content to keep containerized applications portable.
+ConfigMaps allow you to decouple configuration artifacts from image content to keep containerized applications portable.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -446,7 +446,7 @@ Deletes the secret if it exists and creates a new one with updated values.
 **`forceUpdateConfigMap`** - **Force update configmap**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Deletes the `configmap` if it exists and creates a new one with updated values.
+Delete the configmap if it exists and create a new one with updated values.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -458,7 +458,7 @@ Deletes the `configmap` if it exists and creates a new one with updated values.
 **`useConfigMapFile`** - **Use file**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Creates a `ConfigMap` from an individual file, or from multiple files by specifying a directory.
+Create a ConfigMap from an individual file, or from multiple files by specifying a directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -470,7 +470,7 @@ Creates a `ConfigMap` from an individual file, or from multiple files by specify
 **`configMapFile`** - **ConfigMap file**<br>
 `string`. Required when `useConfigMapFile = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a file or directory that contains the `configMaps`.
+Specify a file or directory that contains the configMaps.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -494,7 +494,7 @@ Specifies keys and literal values to insert in `configMap` .For example, `--from
 **`versionOrLocation`** - **Kubectl**<br>
 `string`. Allowed values: `version`, `location` (Specify location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Runs commands against Kubernetes clusters.
+kubectl is a command line interface for running commands against Kubernetes clusters.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -505,7 +505,7 @@ Runs commands against Kubernetes clusters.
 **`versionOrLocation`** - **Kubectl**<br>
 `string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Runs commands against Kubernetes clusters.
+kubectl is a command line interface for running commands against Kubernetes clusters.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -540,7 +540,7 @@ Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4
 **`checkLatest`** - **Check for latest version**<br>
 `boolean`. Optional. Use when `versionOrLocation = version`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Checks online for the latest available version (`stable.txt`) that satisfies the version spec. This will incur download costs when potentially unnecessary, especially with the hosted build pool.
+Always checks online for the latest available version (stable.txt) that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -551,7 +551,7 @@ Checks online for the latest available version (`stable.txt`) that satisfies the
 **`checkLatest`** - **Check for Latest Version**<br>
 `boolean`. Optional. Use when `versionOrLocation = version`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Checks online for the latest available version (`stable.txt`) that satisfies the version spec. This will incur download costs when potentially unnecessary, especially with the hosted build pool.
+Always checks online for the latest available version (stable.txt) that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -575,7 +575,7 @@ Specifies the full path to the `kubectl.exe` file.
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the working directory for the `Kubectl` command.
+Working directory for the Kubectl command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -587,7 +587,7 @@ Specifies the working directory for the `Kubectl` command.
 **`outputFormat`** - **Output format**<br>
 `string`. Allowed values: `json`, `yaml`. Default value: `json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the output format.
+Output format.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -599,7 +599,7 @@ Specifies the output format.
 **`kubectlOutput`** - **Output variable name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the variable in which the output of the command should be saved.
+Name of the variable in which output of the command should be saved.
 <!-- :::editable-content-end::: -->
 <br>
 

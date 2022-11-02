@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Automate performance regression testing with Azure Load Testing.
 # Automate performance regression testing with Azure Load Testing.
 - task: AzureLoadTest@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure subscription. 
     loadTestConfigFile: # string. Required. Load Test File. 
     resourceGroup: # string. Required. Load Test Resource Group. 
     loadTestResource: # string. Required. Load Test Resource Name. 

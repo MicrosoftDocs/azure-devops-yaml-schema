@@ -1,7 +1,7 @@
 ---
 title: gulp@1 - gulp v1 task
 description: Run the gulp Node.js streaming task-based build system.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -39,7 +39,7 @@ Node.js streaming task based build system.
     #targets: # string. gulp Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #gulpjs: # string. gulp.js location. 
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines. Default: false.
@@ -65,7 +65,7 @@ Node.js streaming task based build system.
     #targets: # string. Gulp Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #gulpjs: # string. gulp.js location. 
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.

@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Download or publish Universal Packages.
+Use this task to download, or package and publish Universal Packages.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -31,22 +31,22 @@ Download or publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
-    vstsFeed: # string. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Required when internalOrExternalDownload = internal. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
+    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
+    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
+    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
     #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed (or Project/Feed if the feed was created in a project). 
     #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
     #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Required when internalOrExternalPublish = external. organization/collection connection. 
-    vstsFeedPublish: # string. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Required when internalOrExternalPublish = internal. Package name. 
+    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. organization/collection connection. 
+    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
+    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
     #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed (or Project/Feed if the feed was created in a project). 
     #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Required. Version. Default: patch.
+    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
     #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
     #packagePublishDescription: # string. Description. 
   # Advanced
@@ -69,22 +69,22 @@ Download or publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
-    vstsFeed: # string. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Required when internalOrExternalDownload = internal. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
+    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
+    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
+    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
     #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed. 
     #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
     #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Required when internalOrExternalPublish = external. organization/collection connection. 
-    vstsFeedPublish: # string. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Required when internalOrExternalPublish = internal. Package name. 
+    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. organization/collection connection. 
+    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
+    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
     #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed. 
     #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Required. Version. Default: patch.
+    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
     #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
     #packagePublishDescription: # string. Description. 
   # Advanced
@@ -107,22 +107,22 @@ Download or publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Optional. Use when internalOrExternalDownload = external. Account/collection connection. 
-    vstsFeed: # string. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Required when internalOrExternalDownload = internal. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. Account/collection connection. 
+    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
+    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
+    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
     #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed. 
     #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
     #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Required when internalOrExternalPublish = external. Account/collection connection. 
-    vstsFeedPublish: # string. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Required when internalOrExternalPublish = internal. Package name. 
+    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. Account/collection connection. 
+    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
+    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
     #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed. 
     #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Required. Version. Default: patch.
+    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
     #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
     #packagePublishDescription: # string. Description. 
   # Advanced
@@ -141,7 +141,7 @@ Download or publish Universal Packages.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `download`, `publish`. Default value: `download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet command to run.
+Specifies the NuGet command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,7 +153,7 @@ The NuGet command to run.
 **`downloadDirectory`** - **Destination directory**<br>
 `string`. Required when `command = download`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder path where the package's contents will be downloaded.
+Specifies the folder path where the task downloads the package's contents.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -165,7 +165,7 @@ Folder path where the package's contents will be downloaded.
 **`feedsToUse`** - **Feed location**<br>
 Input alias: `internalOrExternalDownload`. `string`. Required. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from this collection or any other collection in Azure Artifacts.
+Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ You can either select a feed from this collection or any other collection in Azu
 **`feedsToUse`** - **Feed location**<br>
 Input alias: `internalOrExternalDownload`. `string`. Required. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from this collection or any other collection in Azure Artifacts.
+Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +188,7 @@ You can either select a feed from this collection or any other collection in Azu
 **`externalFeedCredentials`** - **organization/collection connection**<br>
 Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization (collection), leave this blank; the build's credentials are used automatically.
+Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,7 +199,7 @@ Credentials to use for external registries located in the selected NuGet.config.
 **`externalFeedCredentials`** - **Account/collection connection**<br>
 Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. For feeds in this organization (collection), leave this blank; the build's credentials are used automatically.
+Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -211,7 +211,7 @@ Credentials to use for external registries located in the selected NuGet.config.
 **`vstsFeed`** - **Feed**<br>
 Input alias: `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed. You must have Azure Artifacts installed and licensed to select a feed here.
+Includes the selected feed. You must have Azure Artifacts installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -223,7 +223,7 @@ Include the selected feed. You must have Azure Artifacts installed and licensed 
 **`vstsFeedPackage`** - **Package name**<br>
 Input alias: `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of package to download.
+Specifies the name of the package for the task to download.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -235,7 +235,7 @@ Name of package to download.
 **`vstsPackageVersion`** - **Version**<br>
 Input alias: `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the package version or use a variable containing the version to download. This entry can also be a wildcard expression such as `*` to get the highest version, `1.*` to get the highest version with major version 1, or `1.2.*` to get the highest patch release with major version 1 and minor version 2.
+Specifies the package version or uses a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version. Examples: `1.*` gets the highest version with major version 1, and `1.2.*` gets the highest patch release with major version 1 and minor version 2.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -247,9 +247,9 @@ Select the package version or use a variable containing the version to download.
 **`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of an external feed from which to download.
+Specifies the name of an external feed that the task downloads.
 
-If the feed was created in a project, this should be Project/Feed where Project is project's name or ID and Feed is the feed's name. If not created in a project, this should be only the feed name.
+If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,9 +260,9 @@ If the feed was created in a project, this should be Project/Feed where Project 
 **`feedDownloadExternal`** - **Feed**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of an external feed from which to download.
+Specifies the name of an external feed that the task downloads.
 
-If the feed was created in a project, this should be Project/Feed where Project is project's name or ID and Feed is the feed's name. If not created in a project, this should be only the feed name.
+If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -286,7 +286,7 @@ Specifies the package name to download.
 **`versionDownloadExternal`** - **Version**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the package version or use a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version, `1.*` to get the highest version with major version 1, or `1.2.*` to get the highest patch release with major version 1 and minor version 2. Wildcard patterns are not supported with pre-release packages.
+Specifies the package version or uses a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version. Examples: `1.*` gets the highest version with major version 1, and `1.2.*` gets the highest patch release with major version 1 and minor version 2. Wildcard patterns are not supported with pre-release packages.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -310,7 +310,7 @@ Specifies the path to list of files to be published.
 **`feedsToUsePublish`** - **Feed location**<br>
 Input alias: `internalOrExternalPublish`. `string`. Required. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from this collection or any other collection in Azure Artifacts.
+Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -321,7 +321,7 @@ You can either select a feed from this collection or any other collection in Azu
 **`feedsToUsePublish`** - **Feed location**<br>
 Input alias: `internalOrExternalPublish`. `string`. Required. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from this collection or any other collection in Azure Artifacts.
+Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -333,7 +333,7 @@ You can either select a feed from this collection or any other collection in Azu
 **`publishFeedCredentials`** - **organization/collection connection**<br>
 Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external feeds.
+Specifies the credentials to use for external feeds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +344,7 @@ Credentials to use for external feeds.
 **`publishFeedCredentials`** - **Account/collection connection**<br>
 Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external feeds.
+Specifies the credentials to use for external feeds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,7 +356,7 @@ Credentials to use for external feeds.
 **`vstsFeedPublish`** - **Destination Feed**<br>
 Input alias: `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the project and feed's name/GUID to publish to.
+Specifies the project and the feed's name/GUID to publish to.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -368,7 +368,7 @@ Specifies the project and feed's name/GUID to publish to.
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command = publish && internalOrExternalPublish = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Associate this build/release pipeline’s metadata (run #, source code information) with the package.
+Associates this build/release pipeline's metadata (such as run # and source code information) with the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +380,7 @@ Associate this build/release pipeline’s metadata (run #, source code informati
 **`vstsFeedPackagePublish`** - **Package name**<br>
 Input alias: `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a package ID to publish or type a new package ID if you've never published a version of this package before. Package names must be lower case and can only use letters, numbers, and dashes(-).
+Specifies a package ID to publish or creates a new package ID if you've never published a version of this package before. Package names must be lower case and can only use letters, numbers, and dashes (`-`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -392,9 +392,9 @@ Select a package ID to publish or type a new package ID if you've never publishe
 **`feedPublishExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalPublish = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-External feed name to publish to.
+Specifies the external feed name to publish to.
 
-If the feed was created in a project, this should be Project/Feed where Project is project's name or ID and Feed is the feed's name. If not created in a project, this should be only the feed name.
+If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -405,7 +405,9 @@ If the feed was created in a project, this should be Project/Feed where Project 
 **`feedPublishExternal`** - **Feed**<br>
 `string`. Required when `internalOrExternalPublish = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-External feed name to publish to.
+Specifies the external feed name to publish to.
+
+If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -417,7 +419,7 @@ External feed name to publish to.
 **`packagePublishExternal`** - **Package name**<br>
 `string`. Required when `internalOrExternalPublish = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Package name.
+Specifies the package name when publishing to an external feed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -429,7 +431,7 @@ Package name.
 **`versionOption`** - **Version**<br>
 Input alias: `versionPublishSelector`. `string`. Required. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a version increment strategy, or select Custom to input your package version manually. For new packages, the first version will be 1.0.0 if you select "Next major", 0.1.0 if you select "Next minor", or 0.0.1 if you select "Next patch". See the [Semantic Versioning spec](https://semver.org/) for more information.
+Specifies a version increment strategy. The `custom` value to input your package version manually. For new packages, the first version will be 1.0.0 if you specify `major`, 0.1.0 if you specify `minor`, or 0.0.1 if you specify `patch`. See the [Semantic Versioning spec](https://semver.org/) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +443,7 @@ Select a version increment strategy, or select Custom to input your package vers
 **`versionPublish`** - **Custom version**<br>
 `string`. Required when `versionPublishSelector = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the custom package version.
+Specifies a custom version schema for the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -453,7 +455,7 @@ Select the custom package version.
 **`packagePublishDescription`** - **Description**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Description of the contents of this package and/or the changes made in this version of the package.
+Specifies the description of the package contents and/or the changes made in this version of the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -488,7 +490,7 @@ Specifies the amount of detail displayed in the output.
 **`publishedPackageVar`** - **Package Output Variable**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the variable that will contain the published package name and version.
+Specifies a name for the variable that will contain the published package name and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -528,7 +530,7 @@ If the pipeline is running in a different project than the project hosting the f
 
 The simplest way to get started with the Universal Package task is to use the Pipelines task editor to generate the YAML. You can then copy the generated code into your project's `azure-pipelines.yml` file. In this example, the sample demonstrates how to quickly generate the YAML using a pipeline that builds a GatsbyJS progressive web app (PWA).  
 
-Universal Packages are a useful way to both encapsulate and version a web app.  Packaging a web app into a Universal Package enables quick rollbacks to a specific version of your site and eliminates the need to build the site in the deployment pipeline.
+Universal Packages are a useful way to both encapsulate and version a web app. Packaging a web app into a Universal Package enables quick rollbacks to a specific version of your site and eliminates the need to build the site in the deployment pipeline.
 
 This example pipeline demonstrates how to fetch a tool from a feed within your project. The Universal Package task is used to download the tool, run a build, and again uses the Universal Package task to publish the entire compiled GatsbyJS PWA to a feed as a versioned Universal Package.
 
@@ -538,13 +540,13 @@ This example pipeline demonstrates how to fetch a tool from a feed within your p
 
 The second task in the sample project uses the Universal Package task to fetch a tool, imagemagick, from a feed that is within a different project in the same organization. The tool, imagemagick, is required by the subsequent build step to resize images.
 
-1. Add the Universal Package task by clicking the plus icon, typing "universal" in the search box, and clicking the "Add" button to add the task to your pipeline.
+1. Add the Universal Package task by clicking the plus icon, typing "universal" in the search box, and clicking the **Add** button to add the task to your pipeline.
 
     :::image type="content" source="media/add-universal-task.png" alt-text="Screenshot of adding the Universal Package task.":::
 
-2. Click the newly added **Universal Package** task and the **Command** to `Download`. 
-3. Choose the **Destination directory** to use for the tool download. 
-4. Select a source **Feed** that contains the tool, set the **Package name**, and choose **Version** of the imagemagick tool from the source *Feed**.
+2. Click the newly added **Universal Package** task and the **Command** to `Download`.
+3. Choose the **Destination directory** to use for the tool download.
+4. Select a source **Feed** that contains the tool, set the **Package name**, and choose **Version** of the imagemagick tool from the source **Feed**.
 
     :::image type="content" source="media/universal-package-download.png" alt-text="Screenshot of configuring the Universal Package task to download.":::
 
@@ -552,7 +554,7 @@ The second task in the sample project uses the Universal Package task to fetch a
 
     :::image type="content" source="media/copy-yaml-to-clipboard.png" alt-text="Screenshot of viewing the YAML.":::
 
-6. The **Universal Package** task builder generates simplified YAML that contains non-default values. Copy the generated YAML into your `azure-pipelines.yml` file at the root of your project's git repo as defined [here](/azure/devops/pipelines/customize-pipeline#understand-the-azure-pipelinesyml-file).
+6. The **Universal Package** task builder generates simplified YAML that contains non-default values. Copy the generated YAML into your `azure-pipelines.yml` file at the [root of your project's git repo](/azure/devops/pipelines/customize-pipeline#understand-the-azure-pipelinesyml-file).
 
     ```YAML
     # Download Universal Package
@@ -568,9 +570,9 @@ The second task in the sample project uses the Universal Package task to fetch a
 
 ### Publish a package with the Universal Package task
 
-The last step in this sample pipeline uses the Universal Package task to upload the production-ready Gatsby PWA that was produced by the `Run gatsby build` step to a feed as a versioned Universal Package.  Once in a feed, you have a permanent copy of your complete site that can be deployed to hosting provider and started with `gatsby serve`.  
+The last step in this sample pipeline uses the Universal Package task to upload the production-ready Gatsby PWA that was produced by the `Run gatsby build` step to a feed as a versioned Universal Package. Once in a feed, you have a permanent copy of your complete site that can be deployed to hosting provider and started with `gatsby serve`.  
 
-1. Add another Universal Package task to the end of the pipeline by clicking the plus icon, typing "universal" in the search box, and clicking the "Add" button to add the task to your pipeline.  This task gathers all of the production-ready assets produced by the `Run gatsby build` step, produce a versioned Universal Package, and publish the package to a feed.  
+1. Add another Universal Package task to the end of the pipeline by clicking the plus icon, typing "universal" in the search box, and clicking the **Add** button to add the task to your pipeline. This task gathers all of the production-ready assets produced by the `Run gatsby build` step, produce a versioned Universal Package, and publish the package to a feed.  
 
     :::image type="content" source="media/universal-package-upload.png" alt-text="Screenshot of setting a Universal Package task to publish.":::
 

@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Cloud v0 task
 description: Deploy applications to Azure Spring Cloud and manage deployments.
-ms.date: 10/11/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -27,7 +27,7 @@ This task deploys applications to Azure Spring Cloud and manages those deploymen
 # Deploy applications to Azure Spring Cloud and manage deployments.
 - task: AzureSpringCloud@0
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
     AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
     AppName: # string. Required. App. 

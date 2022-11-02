@@ -1,7 +1,7 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,9 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
+XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
+>[!NOTE]
+> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterTest](app-center-test-v1.md) task instead.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +23,9 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-[Depreciated] Testing mobile apps with Xamarin Test Cloud using Xamarin.UITest - recommended task is now AppCenterTest.
+XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
+>[!NOTE]
+> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterTest](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AppCenterTestV1) task instead.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -39,18 +43,18 @@ This task is deprecated.
 # [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
 - task: XamarinTestCloud@1
   inputs:
-    appFile: # string. Required. App file. 
-    #dsymFile: # string. dSYM file (iOS only). 
+    appFile: # string. Alias: app. Required. App file. 
+    #dsymFile: # string. Alias: dsym. dSYM file (iOS only). 
     teamApiKey: # string. Required. Team API key. 
-    email: # string. Required. User email. 
+    email: # string. Alias: user. Required. User email. 
     devices: # string. Required. Devices. 
     series: 'master' # string. Required. Series. Default: master.
-    testAssemblyDirectory: # string. Required. Test assembly directory. 
+    testAssemblyDirectory: # string. Alias: testDir. Required. Test assembly directory. 
   # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: none.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: en_US.
+    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Alias: parallelization. Required. Parallelization. Default: none.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
+    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Alias: testCloudLocation. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
     #optionalArgs: # string. Optional arguments. 
     #publishNUnitResults: true # boolean. Publish results to Azure Pipelines. Default: true.
 ```
@@ -64,18 +68,18 @@ This task is deprecated.
 # [Depreciated] Testing mobile apps with Xamarin Test Cloud using Xamarin.UITest - recommended task is now AppCenterTest.
 - task: XamarinTestCloud@1
   inputs:
-    appFile: # string. Required. App file. 
-    #dsymFile: # string. dSYM file (iOS only). 
+    appFile: # string. Alias: app. Required. App file. 
+    #dsymFile: # string. Alias: dsym. dSYM file (iOS only). 
     teamApiKey: # string. Required. Team API key. 
-    email: # string. Required. User email. 
+    email: # string. Alias: user. Required. User email. 
     devices: # string. Required. Devices. 
     series: 'master' # string. Required. Series. Default: master.
-    testAssemblyDirectory: # string. Required. Test assembly directory. 
+    testAssemblyDirectory: # string. Alias: testDir. Required. Test assembly directory. 
   # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Required. Parallelization. Default: none.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Required. System language. Default: en_US.
+    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Alias: parallelization. Required. Parallelization. Default: none.
+    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required. System language. Default: en_US.
     #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
+    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Alias: testCloudLocation. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
     #optionalArgs: # string. Optional arguments. 
     #publishNUnitResults: true # boolean. Publish results to Azure Pipelines/TFS. Default: true.
 ```
@@ -102,7 +106,7 @@ This task is deprecated.
 **`appFile`** - **App file**<br>
 Input alias: `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the app(s) to test.  Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).  For example, `**/*.apk` for all APK files in all subfolders.
+Specifies the relative path from repo root of the app(s) to test.  Wildcards can be used.  For example, `**/*.apk` for all APK files in all subfolders. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +118,7 @@ Relative path from repo root of the app(s) to test.  Wildcards can be used ([mor
 **`dsymFile`** - **dSYM file (iOS only)**<br>
 Input alias: `dsym`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-To make crash logs easier to read, you can upload a dSYM file that is associated with your app. This field only applies to iOS apps. Provide path relative to the .ipa file. Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example: *.dSYM.
+Provides a path relative to the `.ipa` file. To make crash logs easier to read, you can upload a dSYM file that is associated with your app. This field only applies to iOS apps. Wildcards can be used. For example: `*.dSYM`. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +130,7 @@ To make crash logs easier to read, you can upload a dSYM file that is associated
 **`teamApiKey`** - **Team API key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Your Xamarin Test Cloud Team API key can be found under "Teams & Apps" at https://testcloud.xamarin.com/account.
+Specifies your Xamarin Test Cloud Team API key, which can be found under [Teams & Apps](https://testcloud.xamarin.com/account). Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +142,7 @@ Your Xamarin Test Cloud Team API key can be found under "Teams & Apps" at https:
 **`email`** - **User email**<br>
 Input alias: `user`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-User name this test will run under.
+Specifies the email address of your [Xamarin Test Cloud account](https://testcloud.xamarin.com/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +154,7 @@ User name this test will run under.
 **`devices`** - **Devices**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The devices string is generated by Xamarin Test Cloud. It can be found as the value of the --devices command line argument of a Test Cloud test run.
+Specifies the devices string generated by Xamarin Test Cloud. The string can be found as the value of the `--devices` command line argument of a Test Cloud test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +166,7 @@ The devices string is generated by Xamarin Test Cloud. It can be found as the va
 **`series`** - **Series**<br>
 `string`. Required. Default value: `master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The series name for organizing test runs (e.g. master, production, beta).
+Specifies the series name for organizing test runs (e.g. `master`, `production`, `beta`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -174,7 +178,7 @@ The series name for organizing test runs (e.g. master, production, beta).
 **`testAssemblyDirectory`** - **Test assembly directory**<br>
 Input alias: `testDir`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path to the folder containing the test assemblies, such as: SolutionName/TestsProjectName/bin/Release.
+Specifies the relative path to the folder containing the test assemblies, such as: `SolutionName/TestsProjectName/bin/Release`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -186,6 +190,7 @@ Relative path to the folder containing the test assemblies, such as: SolutionNam
 **`parallelizationOption`** - **Parallelization**<br>
 Input alias: `parallelization`. `string`. Required. Allowed values: `none`, `--fixture-chunk` (By test fixture), `--test-chunk` (By test method). Default value: `none`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies tests to run simultaneously.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +202,7 @@ Input alias: `parallelization`. `string`. Required. Allowed values: `none`, `--f
 **`localeOption`** - **System language**<br>
 Input alias: `locale`. `string`. Required. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If your language isn't displayed, select 'Other' and enter its locale below, such as en_US.
+Specifies your language. If your language isn't displayed, select `Other` and enter its locale below, such as `en_US`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +214,7 @@ If your language isn't displayed, select 'Other' and enter its locale below, suc
 **`userDefinedLocale`** - **Other locale**<br>
 `string`. Optional. Use when `locale = user`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format [language]_[country], such as en_US.
+Enters any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format [language]_[country], such as `en_US`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,7 +226,7 @@ Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 co
 **`testCloudFile`** - **test-cloud.exe location**<br>
 Input alias: `testCloudLocation`. `string`. Required. Default value: `**/packages/**/tools/test-cloud.exe`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to test-cloud.exe.  Wildcards can be used, in which case the first occurrence of test-cloud.exe is used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)).
+Specifies the path to `test-cloud.exe`. Wildcards can be used, and when they are, the first occurrence of `test-cloud.exe` is used. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +238,7 @@ The path to test-cloud.exe.  Wildcards can be used, in which case the first occu
 **`optionalArgs`** - **Optional arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to test-cloud.exe.
+Specifies the additional arguments passed to `test-cloud.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -245,7 +250,7 @@ Additional arguments passed to test-cloud.exe.
 **`publishNUnitResults`** - **Publish results to Azure Pipelines**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected, --nunit-xml option will be passed to test-cloud.exe. Results from the NUnit xml file will be published to Azure Pipelines.
+Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`so that results from the NUnit xml file are be published to Azure Pipelines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -256,7 +261,7 @@ When selected, --nunit-xml option will be passed to test-cloud.exe. Results from
 **`publishNUnitResults`** - **Publish results to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected, --nunit-xml option will be passed to test-cloud.exe. Results from the NUnit xml file will be published to Azure Pipelines/TFS.
+Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`so that results from the NUnit xml file are be published to TFS or Azure Pipelines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -267,7 +272,7 @@ When selected, --nunit-xml option will be passed to test-cloud.exe. Results from
 **`publishNUnitResults`** - **Publish results to TFS/Team Services**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected, --nunit-xml option will be passed to test-cloud.exe. Results from the NUnit xml file will be published to TFS/Team Services.
+Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`. Results from the NUnit xml file will be published to TFS/Team Services.
 <!-- :::editable-content-end::: -->
 <br>
 
