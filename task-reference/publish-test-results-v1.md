@@ -193,7 +193,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-[PublishestResults@2](publish-test-results-v2.md) is a newer version of this task that provides NUnit3 support and support for Minimatch files patterns.
+[PublishestTestResults@2](publish-test-results-v2.md) is a newer version of this task that provides NUnit3 support and support for Minimatch files patterns.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
