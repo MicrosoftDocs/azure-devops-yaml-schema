@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-NuGet@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
+NuGet@0 is deprecated. Use the [NuGetCommand](nuget-command-v2.md) task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -68,9 +68,7 @@ This task is deprecated.
 **`command`** - **Command**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet command to run.
-
-Examples: restore, pack.
+Specifies the NuGet command to run. Set the value as `Custom` to add arguments or to use a different command. The allowed values are `restore`, `pack`, `custom`, and `push`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +80,7 @@ Examples: restore, pack.
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments for the provided command.
+Specifies the command and arguments that will be passed to `NuGet.exe` for execution. If NuGet 3.5 or later is used, authenticated commands like `list`, `restore`, and `publish` against any feed in this organization or collection that the Project Collection Build Service has access to will be automatically authenticated.
 <!-- :::editable-content-end::: -->
 <br>
 
