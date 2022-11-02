@@ -131,7 +131,7 @@ For more information, see [Multi-level SharedFX Lookup](https://github.com/dotne
 
 :::moniker-end
 <!-- :::item-end::: -->
-8
+
 ### Task control options
 
 All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
@@ -150,6 +150,8 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+This task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
 
 What's new in this task version.
 * Support for installing multiple versions side by side.
