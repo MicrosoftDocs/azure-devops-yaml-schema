@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -27,7 +27,7 @@ Security and compliance assessment for Azure Policy.
 # Security and compliance assessment for Azure Policy.
 - task: AzurePolicyCheckGate@0
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     #ResourceGroupName: # string. Resource group. 
     #Resources: # string. Resource name.
 ```
@@ -44,7 +44,7 @@ Security and compliance assessment for Azure Policy.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription to enforce the policies.
+Selects the Azure Resource Manager subscription to enforce the policies.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Select the Azure Resource Manager subscription to enforce the policies.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide name of a resource group.
+Provides the name of a resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ Provide name of a resource group.
 **`Resources`** - **Resource name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select name of Azure resources for which you want to check the policy compliance.
+Selects the name of Azure resources for which you want to check the policy compliance.
 <!-- :::editable-content-end::: -->
 <br>
 

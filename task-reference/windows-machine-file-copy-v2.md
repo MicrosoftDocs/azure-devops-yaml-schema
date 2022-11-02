@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Copy files to remote Windows machines.
+Use this task to copy files to remote Windows machines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Copy files to remote Windows machines.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Copy files to remote machine(s).
+Use this task to copy files to remote Windows machines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -108,7 +108,7 @@ Copy files to remote machine(s).
 **`SourcePath`** - **Source**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path of the source folder or file on the local machine, or a UNC Share like c:\fabrikamfiber or \\\\fabrikamshare\fabrikamfiber.
+The path to the files to copy. Specifies the absolute path of the source folder or file on the local machine or a UNC Share, like `c:\fabrikamfiber` or `\\fabrikamshare\fabrikamfiber`. You can use predefined system variables, such as `$(Build.Repository.LocalPath)` (the working folder on the agent computer), which makes it easy to specify the location of the build artifacts on the computer that hosts the automation agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,8 @@ Absolute path of the source folder or file on the local machine, or a UNC Share 
 **`MachineNames`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Specifies a comma-separated list of machine IP addresses or FQDNs, optionally including the port number.  
+For example: `dbserver.fabrikam.com, dbserver_int.fabrikam.com:5986, 192.168.12.34` You can also specify the output variable of other tasks, for example `$(variableName)`, or you can use the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +132,7 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 **`MachineNames`** - **Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserver.fabrikam.com,192.168.12.34 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Specifies a comma-separated list of machine IP addresses or FQDNs, optionally including the port number. For example: `dbserver.fabrikam.com, dbserver_int.fabrikam.com:5986, 192.168.12.34`. You can also specify the output variable of other tasks, for example `$(variableName)`, or you can use the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +144,7 @@ Provide a comma separated list of machine IP addresses or FQDNs. <br>Eg: dbserve
 **`AdminUserName`** - **Admin Login**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the username of a domain or a local administrative account on the target host(s). Formats such as **domain\username**, **username**, and **machine-name\username** are supported. UPN formats, such as `username@domain.com`, and built-in system accounts, such as **NT Authority\System**, are not supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -154,7 +155,7 @@ Administrator login for the target machines.
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the username of a domain or a local administrative account on the target host(s). Formats such as **domain\username**, **username**, and **machine-name\username** are supported. UPN formats, such as `username@domain.com`, and built-in system accounts, such as **NT Authority\System**, are not supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +167,7 @@ Administrator login for the target machines.
 **`AdminPassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
+Specifies the password for the administrator login for the target machines. Variables defined in build or release pipelines, such as `$(passwordVariable)`, are accepted. You can mark the variable as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +178,7 @@ Password for administrator login for the target machines. <br>It can accept a va
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for administrator login for the target machines. <br>It can accept a variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark the variable as 'secret' to secure it.
+Specifies the password for the administrator login for the target machines. Variables defined in build or release pipelines, such as `$(passwordVariable)`, are accepted. You can mark the variable as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,7 +190,7 @@ Password for administrator login for the target machines. <br>It can accept a va
 **`TargetPath`** - **Destination Folder**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Local Path on the target machines or an accessible UNC path for copying the files from the source like d:\fabrikam or \\\\fabrikam\Web.
+Specifies the local path on the target machines or an accessible UNC path for copying the files from the source, like `d:\fabrikam` or `\\fabrikam\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +202,7 @@ Local Path on the target machines or an accessible UNC path for copying the file
 **`CleanTargetBeforeCopy`** - **Clean Target**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will clean the destination folder before copying the files.
+Deletes all files in the target folder before copying the new files to it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +214,7 @@ Selecting it will clean the destination folder before copying the files.
 **`CopyFilesInParallel`** - **Copy Files in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting it will copy files in parallel to the machines.
+Copies files to all target machines in parallel, which can speed up the copying process.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +226,7 @@ Selecting it will copy files in parallel to the machines.
 **`AdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional robocopy arguments that will be applied when copying files like, /min:33553332 /l.
+Specifies additional RoboCopy arguments that are applied when copying files, like `/min:33553332 /l`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -251,13 +252,12 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to copy application files and other artifacts such as PowerShell scripts and PowerShell-DSC modules that are required to install the application on Windows Machines. It uses RoboCopy, the command-line utility built for fast copying of data.
+Use this task to copy application files and other artifacts, such as PowerShell scripts and PowerShell-DSC modules, which are required to install the application on Windows machines. It uses RoboCopy, the command-line utility built for fast copying of data.
 
-### I get a system error 53 when using this task. Why?
+### Why do I get a system error 53 when using this task?
 
 Typically this occurs when the specified path cannot be located.
-This may be due to a firewall blocking the necessary ports for file and printer sharing,
-or an invalid path specification. For more details, see
+This may be due to a firewall blocking the necessary ports for file and printer sharing or an invalid path specification. For more details, see
 [Error 53](/previous-versions/windows/it-pro/windows-2000-server/cc940100(v=technet.10)) on TechNet.
 
 ### What's new in Version 2.0

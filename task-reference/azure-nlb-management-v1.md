@@ -1,7 +1,7 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Connect/Disconnect an Azure virtual machine's network interface to a Load Balanc
 # Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
 - task: AzureNLBManagement@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     LoadBalancer: # string. Required. Load Balancer Name. 
     Action: # 'Disconnect' | 'Connect'. Required. Action.
@@ -50,7 +50,7 @@ Connect/Disconnect an Azure virtual machine's network interface to a Load Balanc
 # Connect/Disconnect an Azure virtual machine's network interface to a Load Balancer's backend address pool.
 - task: AzureNLBManagement@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     LoadBalancer: # string. Required. Load Balancer Name. 
     Action: # 'Disconnect' | 'Connect'. Required. Action.
@@ -114,9 +114,9 @@ Select or enter the load balancer.
 **`Action`** - **Action**<br>
 `string`. Required. Allowed values: `Disconnect` (Disconnect Primary Network Interface), `Connect` (Connect Primary Network Interface).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Disconnect:  Removes the virtual machine’s primary network interface from the load balancer’s backend pool. So that it stops receiving network traffic.
+**Disconnect:**  Removes the virtual machine’s primary network interface from the load balancer’s backend pool, so it stops receiving network traffic.
 
-Connect: Adds the virtual machine’s primary network interface to load balancer backend pool. So that it starts receiving network traffic based on the load balancing rules for the load balancer resource.
+**Connect:** Adds the virtual machine’s primary network interface to load balancer backend pool, so it starts receiving network traffic based on the load balancing rules for the load balancer resource.
 <!-- :::editable-content-end::: -->
 <br>
 

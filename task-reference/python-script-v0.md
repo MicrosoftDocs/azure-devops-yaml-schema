@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run a Python file or inline script.
+Use this task to run a Python file or inline script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run a Python file or inline script.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Run a Python script.
+Use this task to run a Python file or inline script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -76,7 +76,7 @@ Run a Python script.
 **`scriptSource`** - **Script source**<br>
 `string`. Required. Allowed values: `filePath` (File path), `inline`. Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Whether the script is a file in the source tree or is written inline in this task.
+Specifies whether the script is a file in the source tree or is written inline in this task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +88,7 @@ Whether the script is a file in the source tree or is written inline in this tas
 **`scriptPath`** - **Script path**<br>
 `string`. Required when `scriptSource = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
+Specifies the path of the script to execute. Must be a fully qualified path or relative to `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +100,7 @@ Path of the script to execute. Must be a fully qualified path or relative to $(S
 **`script`** - **Script**<br>
 `string`. Required when `scriptSource = inline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Python script to run.
+Specifies the Python script to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +112,7 @@ The Python script to run.
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the script execution, available through `sys.argv`as if you passed them on the command line.
+Specifies the arguments passed to the script execution available through `sys.argv`, as if you passed them on the command line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,8 @@ Arguments passed to the script execution, available through `sys.argv`as if you 
 **`pythonInterpreter`** - **Python interpreter**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path to the Python interpreter to use. If not specified, the task will use the interpreter in PATH.<br /> Run the [Use Python Version](https://go.microsoft.com/fwlink/?linkid=871498) task to add a version of Python to PATH.
+Specifies the absolute path to the Python interpreter to use. If not specified, the task will use the interpreter in PATH.  
+Run the [Use Python Version](https://go.microsoft.com/fwlink/?linkid=871498) task to add a version of Python to PATH.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +137,7 @@ Absolute path to the Python interpreter to use. If not specified, the task will 
 **`workingDirectory`** - **Working directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory where the script will run. If not specified, the value of `System.DefaultWorkingDirectory` will be used. For builds, this variable defaults to the root of the repository. For releases, it defaults to the root of the artifacts directory.
+Specifies the working directory where the script will run. If not specified, the value of `System.DefaultWorkingDirectory` will be used. For builds, this variable defaults to the root of the repository. For releases, it defaults to the root of the artifacts directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +149,7 @@ The working directory where the script will run. If not specified, the value of 
 **`failOnStderr`** - **Fail on standard error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any text is written to the `stderr` stream.
+If set to `true`, this task will fail if any text is written to the `stderr` stream.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: XamarinComponentRestore@0 - Xamarin Component Restore v0 task
 description: This task is deprecated. Use 'NuGet' instead.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ This task is deprecated. Use 'NuGet' instead.
 # This task is deprecated. Use 'NuGet' instead.
 - task: XamarinComponentRestore@0
   inputs:
-    solutionFile: '**/*.sln' # string. Required. Path to solution. Default: **/*.sln.
+    solutionFile: '**/*.sln' # string. Alias: solution. Required. Path to solution. Default: **/*.sln.
     email: # string. Required. Email. 
     password: # string. Required. Password.
 ```
@@ -64,7 +64,7 @@ This task is deprecated. Use 'NuGet' instead.
 **`solutionFile`** - **Path to solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the Visual Studio Solution file.
+Specifies the path to the Visual Studio solution file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -76,7 +76,7 @@ The path to the Visual Studio Solution file.
 **`email`** - **Email**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Xamarin account email address.
+Specifies the Xamarin account email address.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +88,7 @@ Xamarin account email address.
 **`password`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Xamarin account password. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+Specifies the Xamarin account password. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Find in cache or download a specific version of Go and add it to the PATH.
+Use this task to find in the tools cache or download a specific version of Go and add it to the PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Find in cache or download a specific version of Go and add it to the PATH.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this to set the version of Go used in subsequent tasks.
+Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this task to set the version of Go used in subsequent tasks.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -68,7 +68,7 @@ Finds or downloads a specific version of Go in the tools cache and adds it to th
 **`version`** - **Version**<br>
 `string`. Required. Default value: `1.10`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Go version to download (if necessary) and use. Example: 1.9.3.
+The Go version to download (if necessary) and use, for example `1.9.3`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,8 +118,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to find or download a specific version of the Go tool into the
-tools cache and add it to the PATH. Use the task to change the version of Go Lang used in subsequent tasks.
+Use this task to find or download a specific version of the Go tool into the tools cache and add it to the PATH. Use the task to change the version of Go Lang used in subsequent tasks.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

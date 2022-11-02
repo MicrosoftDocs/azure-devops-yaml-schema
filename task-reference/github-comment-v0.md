@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Write a comment to your Github entity i.e. issue or a Pull Request (PR).
+Use this task to write a comment to your Github entity, for example an issue or a Pull Request (PR).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -45,7 +45,7 @@ Write a comment to your Github entity i.e. issue or a Pull Request (PR).
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. Learn more about service connections [here](https://aka.ms/AA3am5s).
+Specifies the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. For more information about service connections, see [Manage service connections](https://aka.ms/AA3am5s).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -57,7 +57,7 @@ Specify the name of the GitHub service connection to use to connect to the GitHu
 **`repositoryName`** - **Repository**<br>
 `string`. Required. Default value: `$(Build.Repository.Name)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the GitHub repository in which the GitHub comment will be created.
+Specifies the name of the GitHub repository where the GitHub comment will be created.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -69,7 +69,7 @@ Specify the name of the GitHub repository in which the GitHub comment will be cr
 **`id`** - **ID of the github pr/issue**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the issue or pr number; if used in a Pipeline for PRs leave it empty to dynamically figure out the id.
+Specifies the issue or PR number. If used in a PR pipeline, leave this field empty to dynamically figure out the ID.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Specify the issue or pr number; if used in a Pipeline for PRs leave it empty to 
 **`comment`** - **Comment**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the comment to be written.
+The contents of the comment to be written.
 <!-- :::editable-content-end::: -->
 <br>
 

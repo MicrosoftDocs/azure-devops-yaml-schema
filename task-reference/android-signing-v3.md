@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Sign and align Android APK files.
+Use this task in a pipeline to sign and align Android APK files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,20 +27,20 @@ Sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@3
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
+    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
   # Signing Options
     #apksign: true # boolean. Sign the APK. Default: true.
-    apksignerKeystoreFile: # string. Required when apksign = true. Keystore file. 
-    #apksignerKeystorePassword: # string. Optional. Use when apksign = true. Keystore password. 
-    #apksignerKeystoreAlias: # string. Optional. Use when apksign = true. Alias. 
-    #apksignerKeyPassword: # string. Optional. Use when apksign = true. Key password. 
+    apksignerKeystoreFile: # string. Alias: keystoreFile. Required when apksign = true. Keystore file. 
+    #apksignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when apksign = true. Keystore password. 
+    #apksignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when apksign = true. Alias. 
+    #apksignerKeyPassword: # string. Alias: keyPass. Optional. Use when apksign = true. Key password. 
     #apksignerVersion: 'latest' # string. Optional. Use when apksign = true. apksigner version. Default: latest.
     #apksignerArguments: '--verbose' # string. Optional. Use when apksign = true. apksigner arguments. Default: --verbose.
-    #apksignerFile: # string. Optional. Use when apksign = true. apksigner location. 
+    #apksignerFile: # string. Alias: apksignerLocation. Optional. Use when apksign = true. apksigner location. 
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
     #zipalignVersion: 'latest' # string. Optional. Use when zipalign = true. Zipalign version. Default: latest.
-    #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
+    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
 ```
 
 :::moniker-end
@@ -52,18 +52,18 @@ Sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@3
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
+    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
   # Signing Options
     #apksign: true # boolean. Sign the APK. Default: true.
-    apksignerKeystoreFile: # string. Required when apksign = true. Keystore file. 
-    #apksignerKeystorePassword: # string. Optional. Use when apksign = true. Keystore password. 
-    #apksignerKeystoreAlias: # string. Optional. Use when apksign = true. Alias. 
-    #apksignerKeyPassword: # string. Optional. Use when apksign = true. Key password. 
+    apksignerKeystoreFile: # string. Alias: keystoreFile. Required when apksign = true. Keystore file. 
+    #apksignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when apksign = true. Keystore password. 
+    #apksignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when apksign = true. Alias. 
+    #apksignerKeyPassword: # string. Alias: keyPass. Optional. Use when apksign = true. Key password. 
     #apksignerArguments: '--verbose' # string. Optional. Use when apksign = true. apksigner arguments. Default: --verbose.
-    #apksignerFile: # string. Optional. Use when apksign = true. apksigner location. 
+    #apksignerFile: # string. Alias: apksignerLocation. Optional. Use when apksign = true. apksigner location. 
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
-    #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
+    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
 ```
 
 :::moniker-end
@@ -78,7 +78,10 @@ Sign and align Android APK files.
 **`apkFiles`** - **APK files**<br>
 Input alias: `files`. `string`. Required. Default value: `**/*.apk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**\bin\*.apk` to sign all .APK files in all 'bin' subfolder and `outputs\apk*.apk` to sign all .APK files in the outputs\apk\ subfolder
+The relative path from the repo root to the APK(s) you want to sign. You can use [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) to specify multiple files. For example:
+
+- `outputs\apk*.apk` to sign all .APK files in the `outputs\apk\` subfolder.
+- `**/bin/*.apk` to sign all .APK files in all `bin` subfolders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +93,7 @@ Relative path from the repo root to the APK(s) you want to sign. You can use wil
 **`apksign`** - **Sign the APK**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to sign the APK with a provided keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
+Signs the APK with a provided Android Keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +105,9 @@ Select this option to sign the APK with a provided keystore file. Unsigned APKs 
 **`apksignerKeystoreFile`** - **Keystore file**<br>
 Input alias: `keystoreFile`. `string`. Required when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or enter the file name of the Android Keystore file that should be used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. The Android Keystore file will be used to sign the APK, but will be removed from the agent machine when the pipeline completes.
+The file path to the Android Keystore file that is used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file is removed from the agent machine when the pipeline completes.
+
+The file can either be checked into source control or placed on the build machine directly by an administrator. It is recommended to encrypt the keystore file in source control and use the `Decrypt File` task to decrypt the file during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +119,7 @@ Select or enter the file name of the Android Keystore file that should be used t
 **`apksignerKeystorePassword`** - **Keystore password**<br>
 Input alias: `keystorePass`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the password for the provided keystore file.
+The key password for the provided Android Keystore file.
 > [!IMPORTANT]
 > Use a new variable with its lock enabled on the Variables pane to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
@@ -128,7 +133,7 @@ Enter the password for the provided keystore file.
 **`apksignerKeystoreAlias`** - **Alias**<br>
 Input alias: `keystoreAlias`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the alias that identifies the public/private key pair to be used in the keystore file.
+The alias that identifies the public/private key pair to be used in the Android Keystore file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,7 +145,7 @@ Enter the alias that identifies the public/private key pair to be used in the ke
 **`apksignerKeyPassword`** - **Key password**<br>
 Input alias: `keyPass`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the key password for the alias and keystore file.
+The key password for the alias and keystore file.
 
 > [!IMPORTANT]
 > Use a new variable with its lock enabled on the Variables pane to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
@@ -155,7 +160,7 @@ Enter the key password for the alias and keystore file.
 **`apksignerVersion`** - **apksigner version**<br>
 `string`. Optional. Use when `apksign = true`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter Android SDK build-tools version to look apksigner executable from.
+The Android SDK build-tools version that the `apksigner` executable uses for the task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +172,7 @@ Enter Android SDK build-tools version to look apksigner executable from.
 **`apksignerArguments`** - **apksigner arguments**<br>
 `string`. Optional. Use when `apksign = true`. Default value: `--verbose`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide any options to pass to the apksigner command line. Default is: --verbose. See the [apksigner documentation](https://developer.android.com/studio/command-line/apksigner).
+Provides options to pass to the `apksigner` command line. See the [apksigner documentation](https://developer.android.com/studio/command-line/apksigner).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +184,7 @@ Provide any options to pass to the apksigner command line. Default is: --verbose
 **`apksignerFile`** - **apksigner location**<br>
 Input alias: `apksignerLocation`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify the location of the apksigner executable used during signing. This defaults to the apksigner found in the Android SDK version folder that your application builds against.
+Specifies the location of the apksigner executable used during signing. This defaults to the apksigner found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +208,7 @@ Select if you want to zipalign your package. This reduces the amount of RAM cons
 **`zipalignVersion`** - **Zipalign version**<br>
 `string`. Optional. Use when `zipalign = true`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter Android SDK build-tools version to look zipalign executable from.
+The Android SDK build-tools version that the `zipalign` executable uses for the task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,7 +220,7 @@ Enter Android SDK build-tools version to look zipalign executable from.
 **`zipalignFile`** - **Zipalign location**<br>
 Input alias: `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
+Specifies the location of the `zipalign` executable used during signing. This defaults to the `zipalign` found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->
 <br>
 

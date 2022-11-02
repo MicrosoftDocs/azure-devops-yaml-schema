@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Use this task under deploy phase provider to create a resource dynamically.
+Use this task under a deploy phase provider to create a resource dynamically.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -44,7 +44,7 @@ Use this task under deploy phase provider to create a resource dynamically.
 **`resourceName`** - **Resource name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of an existing resource in the environment which will be used for resource type information.
+Specifies the name of an existing resource in the environment, which will be used for resource-type information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task under deploy phase provider to create a resource dynamically.
+Use this task under a deploy phase provider to create a resource dynamically.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

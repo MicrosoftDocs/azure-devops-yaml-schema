@@ -11,7 +11,9 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run scripts and make changes to a MySQL Database.
+Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor.
+> [!Note]
+> This is an early preview version. Since this task is server based, it appears on Deployment group jobs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -49,7 +51,7 @@ Run scripts and make changes to a MySQL Database.
 **`TaskNameSelector`** - **Deploy MySql Using**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select one of the options between Script File & Inline Script.
+Specifies either Script File or Inline Script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -61,7 +63,7 @@ Select one of the options between Script File & Inline Script.
 **`SqlFile`** - **MySQL Script**<br>
 `string`. Required when `TaskNameSelector = SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Full path of the script file on the automation agent or on a UNC path accessible to the automation agent like,  \\\\BudgetIT\DeployBuilds\script.sql. Also, predefined system variables like, $(agent.releaseDirectory) can also be used here. A file containing SQL statements can be used here.​.
+Specifies the full path of the script file on the automation agent or on a UNC path that is accessible to the automation agent, such as `BudgetIT\DeployBuilds\script.sql`. This string can also use predefined system variables, such as `$(agent.releaseDirectory)` and a file containing SQL statements.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -73,7 +75,7 @@ Full path of the script file on the automation agent or on a UNC path accessible
 **`SqlInline`** - **Inline MySQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the MySQL script to execute on the Database selected above.
+Specifies the MySQL script to execute on the selected database.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -85,7 +87,7 @@ Enter the MySQL script to execute on the Database selected above.
 **`ServerName`** - **Host Name**<br>
 `string`. Required. Default value: `localhost`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Server name of 'Database for MySQL'.Example: localhost. When you connect using MySQL Workbench, this is the same value that is used for 'Hostname' in 'Parameters'.
+Specifies the server name of `Database for MySQL`, such as `localhost`. This string is the same value that is used for `Hostname` in `Parameters` in MySQL Workbench.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -97,7 +99,7 @@ Server name of 'Database for MySQL'.Example: localhost. When you connect using M
 **`DatabaseName`** - **Database Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of database, if you already have one, on which the below script is needed to be run, else the script itself can be used to create the database.
+Specifies the name of the database. The script will create a database name if one does not already exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +111,7 @@ The name of database, if you already have one, on which the below script is need
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When you connect using MySQL Workbench, this is the same value that is used for 'Username' in 'Parameters'.
+This string is the same value that is used for `Username` in `Parameters` in MySQL Workbench.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +123,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for MySQL Database.<br>It can be variable defined in the pipeline. Example : $(password).<br>Also, you may mark the variable type as 'secret' to secure it.
+Specifies the password for MySQL Database. The password can be a variable defined in the pipeline, such as `$(password)`, and may be marked as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +135,9 @@ Password for MySQL Database.<br>It can be variable defined in the pipeline. Exam
 **`SqlAdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional options supported by MySQL simple SQL shell.  These options will be applied when executing the given file on the Database for MySQL.​<br>Example: You can change to default tab separated output format to HTML or even XML format. Or if you have problems due to insufficient memory for large result sets, use the --quick option.​.
+Specifies the additional options that are supported by MySQL simple SQL shell.  These options will be applied when executing the given file on the Database for MySQL.​
+
+Example: You can change to the default tab separated output format, HTML format, or XML format. If you have problems due to insufficient memory for large result sets, use the `--quick` option.​
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +163,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy, either using a script file or writing the script in our inline editor. Note that this is an early preview version. Since this task is server based, it appears on Deployment group jobs.
+Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy, either using a script file or writing the script in our inline editor.
+> [!Note]
+> This is an early preview version. Since this task is server-based, it appears on deployment group jobs.
 
 ### Prerequisites
 

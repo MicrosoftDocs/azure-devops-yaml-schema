@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@1 - Azure CLI v1 task
 description: Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
+Run Azure CLI commands against an Azure subscription in a shell script when running on Linux agent or batch script when running on Windows agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run Azure CLI commands against an Azure subscription in a Shell script when runn
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Run a Shell or Batch script with Azure CLI commands against an azure subscription.
+Run a shell or batch script with Azure CLI commands against an Azure subscription.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -35,15 +35,15 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 # Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
 - task: AzureCLI@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure subscription. 
     scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
-    #arguments: # string. Arguments. 
+    #arguments: # string. Alias: args. Arguments. 
   # Advanced
     #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
     #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
 ```
 
@@ -56,13 +56,13 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 # Run a Shell or Batch script with Azure CLI commands against an azure subscription.
 - task: AzureCLI@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure subscription. 
     scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
-    #arguments: # string. Arguments. 
+    #arguments: # string. Alias: args. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
 ```
 
@@ -88,7 +88,7 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure resource manager subscription for the deployment.
+Selects an Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +100,7 @@ Select an Azure resource manager subscription for the deployment.
 **`scriptLocation`** - **Script Location**<br>
 `string`. Required. Allowed values: `inlineScript` (Inline script), `scriptPath` (Script path). Default value: `scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of script: File path or Inline script.
+Selects the script location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,11 +124,16 @@ Fully qualified path of the script or a path relative to the the default working
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can write your scripts inline here. When using Windows agent, use batch scripting whereas use shell scripting when using Linux based agents. For batch files use the prefix "call" before every azure command. You can also pass predefined and custom variables to this script using arguments 
+You can write your scripts inline here. When using Windows agent, use batch scripting. Use shell scripting when using Linux-based agents. For batch files, use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script using arguments 
 
- example for shell: az --version || az account show 
+See the following examples. The first is a shell example and the second is a batch example:
 
- example for batch: call  az --version || call az account show.
+```
+azure --version || azure account show 
+```
+```
+call  azure --version || call azure account show
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +157,7 @@ Arguments passed to the script.
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds service principal id and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: `$servicePrincipalId` and `$servicePrincipalKey` in your script.
+Adds the service principal ID and key of the Azure endpoint that you chose to the script's execution environment. You can use the `$servicePrincipalId` and `$servicePrincipalKey` variables in your script.
 
 This is honored only when the Azure endpoint has Service Principal authentication scheme.
 <!-- :::editable-content-end::: -->
@@ -178,7 +183,7 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -190,7 +195,7 @@ Current working directory where the script is run.  Empty is the root of the rep
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status.
+If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +206,7 @@ If this is true, this task will fail when any errors are written to the Standard
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status.
+If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
 <br>
 

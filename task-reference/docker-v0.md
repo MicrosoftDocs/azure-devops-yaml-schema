@@ -1,7 +1,7 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 10/12/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,8 +36,8 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 - task: Docker@0
   inputs:
     containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     action: 'Build an image' # 'Build an image' | 'Tag images' | 'Push an image' | 'Push images' | 'Run an image' | 'Run a Docker command'. Required. Action. Default: Build an image.
     #dockerFile: '**/Dockerfile' # string. Required when action = Build an image. Docker File. Default: **/Dockerfile.
@@ -67,7 +67,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
   # Advanced Options
     #dockerHostEndpoint: # string. Docker Host Service Connection. 
     #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working Directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
     #memory: # string. Memory limit.
 ```
 
@@ -81,8 +81,8 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 - task: Docker@0
   inputs:
     containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     action: 'Build an image' # 'Build an image' | 'Tag images' | 'Push an image' | 'Push images' | 'Run an image' | 'Run a Docker command'. Required. Action. Default: Build an image.
     #dockerFile: '**/Dockerfile' # string. Required when action = Build an image. Docker File. Default: **/Dockerfile.
@@ -110,7 +110,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
   # Advanced Options
     #dockerHostEndpoint: # string. Docker Host Service Connection. 
     #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working Directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
     #memory: # string. Memory limit.
 ```
 
@@ -124,8 +124,8 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 - task: Docker@0
   inputs:
     containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container Registry Type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
-    #azureSubscription: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when containerregistrytype = Container Registry. Docker Registry Service Connection. 
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     action: 'Build an image' # 'Build an image' | 'Tag images' | 'Push an image' | 'Push images' | 'Run an image' | 'Run a Docker command'. Required. Action. Default: Build an image.
     #dockerFile: '**/Dockerfile' # string. Required when action = Build an image. Docker File. Default: **/Dockerfile.
@@ -153,7 +153,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
   # Advanced Options
     #dockerHostEndpoint: # string. Docker Host Service Connection. 
     #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working Directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working Directory. Default: $(System.DefaultWorkingDirectory).
     #memory: # string. Memory limit.
 ```
 

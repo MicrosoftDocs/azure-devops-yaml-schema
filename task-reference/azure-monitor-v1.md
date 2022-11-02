@@ -51,7 +51,7 @@ Observe the configured Azure Monitor rules for active alerts.
 **`connectedServiceNameARM`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Manager subscription to monitor.
+Selects an Azure Resource Manager subscription to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -63,7 +63,7 @@ Select an Azure Resource Manager subscription to monitor.
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of a resource group to monitor.
+Provides the name of a resource group to monitor in the subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -75,7 +75,7 @@ Provide the name of a resource group to monitor.
 **`filterType`** - **Filter type**<br>
 `string`. Required. Allowed values: `resource` (By resource), `alertrule` (By alert rule), `none`. Default value: `none`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filter by specific resource or alert rule. Default value is None.
+Filters the type by a specific resource or alert rule.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -87,7 +87,7 @@ Filter by specific resource or alert rule. Default value is None.
 **`resource`** - **Resource**<br>
 `string`. Required when `filterType = resource`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select Azure resource to monitor.
+Selects the Azure resource to monitor.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -99,7 +99,9 @@ Select Azure resource to monitor.
 **`alertRule`** - **Alert rule**<br>
 `string`. Required when `filterType = alertrule`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filter by specific alert rule. Default value is to select all.
+Selects from the currently configured alert rules to query for the status.
+
+The default value is to select all.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +113,7 @@ Filter by specific alert rule. Default value is to select all.
 **`severity`** - **Severity**<br>
 `string`. Allowed values: `Sev0`, `Sev1`, `Sev2`, `Sev3`, `Sev4`. Default value: `Sev0,Sev1,Sev2,Sev3,Sev4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filter by severity. Default value is select all.
+Filters by severity.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +125,7 @@ Filter by severity. Default value is select all.
 **`timeRange`** - **Time range**<br>
 `string`. Allowed values: `1h` (Past hour), `1d` (Past 24 hours), `7d` (Past 7 days), `30d` (Past 30 days). Default value: `1h`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filter by time range. Default value is 1 hour.
+Filters by the time range.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +137,7 @@ Filter by time range. Default value is 1 hour.
 **`alertState`** - **Alert state**<br>
 `string`. Allowed values: `New`, `Acknowledged`, `Closed`. Default value: `Acknowledged,New`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filter by state of the alert instance. Default value is to select all.
+Filters by the state of the alert instance.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +149,7 @@ Filter by state of the alert instance. Default value is to select all.
 **`monitorCondition`** - **Monitor condition**<br>
 `string`. Allowed values: `Fired ` (Fired), `Resolved`. Default value: `Fired`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Monitor condition represents whether the underlying conditions have crossed the defined alert rule thresholds.
+Represents whether the underlying conditions have crossed the defined alert rule thresholds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,10 +175,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to observe the configured Azure monitor rules for active alerts.
+To observe the configured Azure monitor rules for active alerts, use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
 > [!NOTE]
-> Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+> This task can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
 The task succeeds if none of the alert rules are activated at the time of sampling.
 

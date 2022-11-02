@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
+Use this task to deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, 
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs.
+Update Azure App Services on Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 :::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
-Update Azure WebApp Services On Windows, Web App On Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node based Web applications, Function Apps, Mobile Apps, Api applications, Web Jobs using Web Deploy / Kudu REST APIs.
+Update Azure WebApp Services On Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node based Web applications, Function Apps, Mobile Apps, Api applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -43,8 +43,8 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
 # Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
 - task: AzureRmWebAppDeployment@3
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
-    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Required. App type. Default: app.
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Alias: WebAppKind. Required. App type. Default: app.
     WebAppName: # string. Required. App Service name. 
     #DeployToSlotFlag: false # boolean. Optional. Use when WebAppKind != "". Deploy to slot. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotFlag = true. Resource group. 
@@ -55,7 +55,7 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
     #AzureContainerRegistryImage: # string. Required when ImageSource = AzureContainerRegistry. Image. 
     #AzureContainerRegistryTag: # string. Optional. Use when ImageSource = AzureContainerRegistry. Tag. 
     #DockerRepositoryAccess: 'public' # 'private' | 'public'. Required when ImageSource = invalidImage. Repository Access. Default: public.
-    #dockerRegistryConnection: # string. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: RegistryConnectedServiceName. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
     #PrivateRegistryImage: # string. Required when ImageSource = PrivateRegistry. Image. 
     #PrivateRegistryTag: # string. Optional. Use when ImageSource = PrivateRegistry. Tag. 
     #DockerNamespace: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Registry or Namespace. 
@@ -63,7 +63,7 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
     #DockerImageTag: # string. Optional. Use when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Virtual application. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != linux && WebAppKind != applinux &&  WebAppKind != "". Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: BuiltinLinuxPackage. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
   # Output
@@ -75,8 +75,8 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
   # File Transforms & Variable Substitution Options
     #GenerateWebConfig: false # boolean. Generate Web.config. Default: false.
     #WebConfigParameters: # string. Required when GenerateWebConfig == true. Web.config parameters. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
@@ -100,8 +100,8 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
 # Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs.
 - task: AzureRmWebAppDeployment@3
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
-    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Required. App type. Default: app.
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Alias: WebAppKind. Required. App type. Default: app.
     WebAppName: # string. Required. App Service name. 
     #DeployToSlotFlag: false # boolean. Optional. Use when WebAppKind != "". Deploy to slot. Default: false.
     #ResourceGroupName: # string. Required when DeployToSlotFlag = true. Resource group. 
@@ -112,7 +112,7 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
     #AzureContainerRegistryImage: # string. Required when ImageSource = AzureContainerRegistry. Image. 
     #AzureContainerRegistryTag: # string. Optional. Use when ImageSource = AzureContainerRegistry. Tag. 
     #DockerRepositoryAccess: 'public' # 'private' | 'public'. Required when ImageSource = invalidImage. Repository Access. Default: public.
-    #dockerRegistryConnection: # string. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: RegistryConnectedServiceName. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
     #PrivateRegistryImage: # string. Required when ImageSource = PrivateRegistry. Image. 
     #PrivateRegistryTag: # string. Optional. Use when ImageSource = PrivateRegistry. Tag. 
     #DockerNamespace: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Registry or Namespace. 
@@ -120,7 +120,7 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
     #DockerImageTag: # string. Optional. Use when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Virtual application. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != linux && WebAppKind != applinux &&  WebAppKind != "". Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: BuiltinLinuxPackage. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
   # Output
@@ -132,8 +132,8 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
   # File Transforms & Variable Substitution Options
     #GenerateWebConfig: false # boolean. Generate Web.config. Default: false.
     #WebConfigParameters: # string. Required when GenerateWebConfig == true. Web.config parameters. 
-    #enableXmlTransform: false # boolean. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. XML variable substitution. Default: false.
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
     #JSONFiles: # string. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
@@ -170,7 +170,7 @@ Update Azure WebApp Services On Windows, Web App On Linux with built-in images o
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Specify the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +182,9 @@ Select the Azure Resource Manager subscription for the deployment.
 **`appType`** - **App type**<br>
 Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), `applinux` (Linux Web App), `functionapp` (Function App), `api` (API App), `mobileapp` (Mobile App). Default value: `app`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select type of web app to deploy. <br/> Note: Select Linux Web App for built-in platform images or custom container image deployments.
+Specify the type of web app to deploy.
+
+Note: Specify Linux Web App for built-in platform images or custom container image deployments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +196,7 @@ Select type of web app to deploy. <br/> Note: Select Linux Web App for built-in 
 **`WebAppName`** - **App Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed.
+Specify the name of an existing Azure App Service. App services based on the selected app type will only be listed when using the task assistant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +208,7 @@ Enter or Select the name of an existing Azure App Service. App services based on
 **`DeployToSlotFlag`** - **Deploy to slot**<br>
 `boolean`. Optional. Use when `WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing slot other than the Production slot. If this option is not selected, then the Azure App Service will be deployed to the Production slot.
+Use this option to deploy to an existing slot other than the Production slot. If this option is not selected, then the Azure App Service will be deployed to the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +220,7 @@ Select the option to deploy to an existing slot other than the Production slot. 
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+Specify the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +232,7 @@ Enter or Select the Azure Resource group that contains the Azure App Service spe
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotFlag = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Specify an existing slot other than the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +244,9 @@ Enter or Select an existing Slot other than the Production slot.
 **`ImageSource`** - **Image Source**<br>
 `string`. Optional. Use when `WebAppKind = applinux || WebAppKind = linux`. Allowed values: `Registry` (Container Registry), `Builtin` (Built-in Image). Default value: `Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-App Service on Linux offers two different options to publish your application <br/> Custom image deployment or App deployment with a built-in platform image. [Learn More](https://go.microsoft.com/fwlink/?linkid=862490).
+App Service on Linux offers two different options to publish your application:
+
+Custom image deployment or app deployment with a built-in platform image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -254,7 +258,9 @@ App Service on Linux offers two different options to publish your application <b
 **`AzureContainerRegistry`** - **Registry**<br>
 `string`. Required when `ImageSource = AzureContainerRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry.<br/> Note: Fully qualified image name will be of the format: '<b>`<registry`></b>/`<repository`>:`<tag`>'. For example, '<b>myregistry.azurecr.io</b>/nginx:latest'.
+A globally unique top-level domain name for your specific registry.
+
+Note: A fully qualified image name will be of the format: **`<registry>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx:latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -266,7 +272,7 @@ A globally unique top-level domain name for your specific registry.<br/> Note: F
 **`AzureContainerRegistryLoginServer`** - **Registry Login Server Name**<br>
 `string`. Optional. Use when `ImageSource = invalidimagesource`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an Azure container registry login server name.
+Specify an Azure container registry login server name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +284,9 @@ Enter or Select an Azure container registry login server name.
 **`AzureContainerRegistryImage`** - **Image**<br>
 `string`. Required when `ImageSource = AzureContainerRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository where the container images are stored.<br/> Note: Fully qualified image name will be of the format: '`<registry`>/<b>`<repository`></b>:`<tag`>'. For example, 'myregistry.azurecr.io/<b>nginx</b>:latest'.
+The name of the repository where the container images are stored.
+
+Note: A fully qualified image name will be of the format: `<registry>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +298,9 @@ Name of the repository where the container images are stored.<br/> Note: Fully q
 **`AzureContainerRegistryTag`** - **Tag**<br>
 `string`. Optional. Use when `ImageSource = AzureContainerRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tags are optional, it is the mechanism that registries use to give Docker images a version.<br/> Note: Fully qualified image name will be of the format: '`<registry`>/`<repository`>:<b>`<tag`></b>'. For example, 'myregistry.azurecr.io/nginx:<b>latest</b>'.
+This is the mechanism that registries use to give Docker images a version.
+
+Note: A fully qualified image name will be of the format: `<registry>`/`<repository>`:**`<tag>`**. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -302,7 +312,7 @@ Tags are optional, it is the mechanism that registries use to give Docker images
 **`DockerRepositoryAccess`** - **Repository Access**<br>
 `string`. Required when `ImageSource = invalidImage`. Allowed values: `private`, `public`. Default value: `public`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Docker repository access.
+Specify the Docker repository access.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -314,7 +324,7 @@ Select the Docker repository access.
 **`dockerRegistryConnection`** - **Registry Connection**<br>
 Input alias: `RegistryConnectedServiceName`. `string`. Required when `DockerRepositoryAccess = private || ImageSource = PrivateRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the registry connection.
+Specify the registry connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -326,7 +336,9 @@ Select the registry connection.
 **`PrivateRegistryImage`** - **Image**<br>
 `string`. Required when `ImageSource = PrivateRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository where the container images are stored.<br/> Note: Fully qualified image name will be of the format: '`<registry`>/<b>`<repository`></b>:`<tag`>'. For example, 'myregistry.azurecr.io/<b>nginx</b>:latest'.
+The name of the repository where the container images are stored.
+
+Note: A fully qualified image name will be of the format: `<registry>`**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -338,7 +350,9 @@ Name of the repository where the container images are stored.<br/> Note: Fully q
 **`PrivateRegistryTag`** - **Tag**<br>
 `string`. Optional. Use when `ImageSource = PrivateRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tags are optional, it is the mechanism that registries use to give Docker images a version.<br/> Note: Fully qualified image name will be of the format: '`<registry`>/`<repository`>:<b>`<tag`></b>'. For example, 'myregistry.azurecr.io/nginx:<b>latest</b>'.
+Tags are the mechanism that registries use to give Docker images a version.
+
+ Note: A fully qualified image name will be of the format: '`<registry>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -350,7 +364,9 @@ Tags are optional, it is the mechanism that registries use to give Docker images
 **`DockerNamespace`** - **Registry or Namespace**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry or namespace.<br/> Note: Fully qualified image name will be of the format: '<b>`<registry or namespace`></b>/`<repository`>:`<tag`>'. For example, '<b>myregistry.azurecr.io</b>/nginx:latest'.
+A globally unique top-level domain name for your specific registry or namespace.
+
+ Note: A fully qualified image name will be of the format: **`<registry or namespace>`**/`<repository>`:`<tag>`. For example, **`myregistry.azurecr.io`**/`nginx`:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -362,7 +378,9 @@ A globally unique top-level domain name for your specific registry or namespace.
 **`DockerRepository`** - **Image**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository where the container images are stored.<br/> Note: Fully qualified image name will be of the format: '`<registry or namespace`>/<b>`<repository`></b>:`<tag`>'. For example, 'myregistry.azurecr.io/<b>nginx</b>:latest'.
+The name of the repository where the container images are stored.
+
+ Note: A fully qualified image name will be of the format: '`<registry or namespace>`/**`<repository>`**:`<tag>`. For example, `myregistry.azurecr.io`/**`nginx`**:`latest`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -374,7 +392,9 @@ Name of the repository where the container images are stored.<br/> Note: Fully q
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tags are optional, it is the mechanism that registries use to give Docker images a version.<br/> Note: Fully qualified image name will be of the format: '`<registry or namespace`>/`<repository`>:<b>`<tag`></b>'. For example, 'myregistry.azurecr.io/nginx:<b>latest</b>'.
+This is the mechanism that registries use to give Docker images a version.
+
+ Note: A fully qualified image name will be of the format: '`<registry or namespace>`/`<repository>`:**`<tag>`**'. For example, `myregistry.azurecr.io`/`nginx`:**`latest`**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -398,7 +418,11 @@ Specify the name of the Virtual Application that has been configured in the Azur
 **`Package`** - **Package or folder**<br>
 `string`. Required when `WebAppKind != linux && WebAppKind != applinux &&  WebAppKind != ""`. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.<br />Variables ( [Build](https://www.visualstudio.com/docs/build/define/variables) | [Release](https://www.visualstudio.com/docs/release/author-release-definition/understanding-tasks#predefvariables)), wild cards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip or $(System.DefaultWorkingDirectory)/\*\*/\*.war.
+The file path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.
+
+Variables are [Build](/azure/devops/pipelines/build/variables) and [Release](/azure/devops/pipelines/release/variables#default-variables). [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) are supported.
+
+For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.DefaultWorkingDirectory)/\*\*/\*.war`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -410,7 +434,11 @@ File path to the package or a folder containing app service contents generated b
 **`packageForLinux`** - **Package or folder**<br>
 Input alias: `BuiltinLinuxPackage`. `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.<br />Variables ( [Build](https://www.visualstudio.com/docs/build/define/variables) | [Release](https://www.visualstudio.com/docs/release/author-release-definition/understanding-tasks#predefvariables)), wild cards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip or $(System.DefaultWorkingDirectory)/\*\*/\*.war.
+The file path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.
+
+Variables are [Build](https://www.visualstudio.com/docs/build/define/variables) and [Release](https://www.visualstudio.com/docs/release/author-release-definition/understanding-tasks#predefvariables). [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) are supported.
+
+For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.DefaultWorkingDirectory)/\*\*/\*.war`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -422,7 +450,7 @@ File path to the package or a folder containing app service contents generated b
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the framework and version.
+Specify the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -433,7 +461,7 @@ Select the framework and version.
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`. Allowed values: `node|4.4` (Node.js 4.4), `node|4.5` (Node.js 4.5), `node|6.2` (Node.js 6.2), `node|6.6` (Node.js 6.6), `node|6.9` (Node.js 6.9), `node|6.10` (Node.js 6.10), `node|6.11` (Node.js 6.11), `node|8.0` (Node.js 8.0), `node|8.1` (Node.js 8.1), `php|5.6` (PHP 5.6), `php|7.0` (PHP 7.0), `dotnetcore|1.0` (.NET Core 1.0), `dotnetcore|1.1` (.NET Core 1.1), `dotnetcore|2.0` (.NET Core 2.0), `ruby|2.3` (Ruby 2.3).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the framework and version.
+Specify the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -445,7 +473,7 @@ Select the framework and version.
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = applinux || WebAppKind = linux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command.
+Specify the startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -457,7 +485,7 @@ Enter the start up command.
 **`WebAppUri`** - **App Service URL**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify a name for the output variable that is generated for the URL of the Azure App Service. The variable can be consumed in subsequent tasks.
+Specify a name for the output variable that is generated for the URL of the Azure App Service. The variable can be used in subsequent tasks.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -469,7 +497,7 @@ Specify a name for the output variable that is generated for the URL of the Azur
 **`ScriptType`** - **Deployment script type**<br>
 `string`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Customize the deployment by providing a script that will run on the Azure App service once the task has completed the deployment successfully . For example restore packages for Node, PHP, Python applications. [Learn more](https://go.microsoft.com/fwlink/?linkid=843471).
+Customizes the deployment by providing a script that will run on the Azure App service once the task has completed the deployment successfully . For example, this can restore packages for Node, PHP, and Python applications. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -503,7 +531,7 @@ Customize the deployment by providing a script that will run on the Azure App se
 **`GenerateWebConfig`** - **Generate Web.config**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config can be edited and vary based on the application framework. For example for node.js application, web.config will have startup file and iis_node module values. [Learn more](https://go.microsoft.com/fwlink/?linkid=843469).
+A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for the `node.js` application, `web.config` will have startup file and `iis_node` module values. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -515,7 +543,7 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 **`WebConfigParameters`** - **Web.config parameters**<br>
 `string`. Required when `GenerateWebConfig == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit values like startup file in the generated web.config file. This edit feature is only for the generated web.config. [Learn more](https://go.microsoft.com/fwlink/?linkid=843469).
+Edits values like startup files in the generated `web.config` file. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -527,7 +555,8 @@ Edit values like startup file in the generated web.config file. This edit featur
 **`AppSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Edits web app application settings following the syntax -key value . Values containing spaces should be enclosed in double quotes.
+Examples: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE` `"Eastern Standard Time"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -539,7 +568,9 @@ Edit web app application settings following the syntax -key value . Value contai
 **`ConfigurationSettings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Edits web app configuration settings following the syntax `-key` value. Values containing spaces should be enclosed in double quotes.
+
+Examples: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -551,7 +582,7 @@ Edit web app configuration settings following the syntax -key value. Value conta
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to take the Azure App Service offline by placing an app_offline.htm file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
+Use this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -563,7 +594,7 @@ Select the option to take the Azure App Service offline by placing an app_offlin
 **`UseWebDeploy`** - **Publish using Web Deploy**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish using Web Deploy options are supported only when using Windows agent. On other platforms, the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the Azure App Service, and following options are not supported.
+`Publish using Web Deploy` options are supported only when using Windows agent. On other platforms, the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the Azure App Service, and following options are not supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -575,7 +606,7 @@ Publish using Web Deploy options are supported only when using Windows agent. On
 **`SetParametersFile`** - **SetParameters file**<br>
 `string`. Optional. Use when `UseWebDeploy == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional: location of the SetParameters.xml file to use.
+The location of the `SetParameters.xml` file to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -587,7 +618,9 @@ Optional: location of the SetParameters.xml file to use.
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to delete files on the Azure App Service that have no matching files in the App Service package or folder.<br /><br />Note: This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select 'Exclude files from App_Data folder' checkbox.
+Use this option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
+
+Note: This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -599,7 +632,7 @@ Select the option to delete files on the Azure App Service that have no matching
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to prevent files in the App_Data folder from being deployed to/ deleted from the Azure App Service.
+Use this option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -611,7 +644,11 @@ Select the option to prevent files in the App_Data folder from being deployed to
 **`AdditionalArguments`** - **Additional arguments**<br>
 `string`. Optional. Use when `UseWebDeploy == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Web Deploy arguments following the syntax -key:value .<br />These will be applied when deploying the Azure App Service. Example: -disableLink:AppPoolExtension -disableLink:ContentExtension.<br />For more examples of Web Deploy operation settings, refer to  [this](https://go.microsoft.com/fwlink/?linkid=838471).
+The additional Web Deploy arguments following the syntax `-key:value`.
+
+These will be applied when deploying the Azure App Service. Examples: `-disableLink:AppPoolExtension` `-disableLink:ContentExtension`.
+
+See more examples of [Web Deploy Operation Settings](https://go.microsoft.com/fwlink/?linkid=838471).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -623,7 +660,7 @@ Additional Web Deploy arguments following the syntax -key:value .<br />These wil
 **`RenameFilesFlag`** - **Rename locked files**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to enable msdeploy flag MSDEPLOY_RENAME_LOCKED_FILES=1 in Azure App Service application settings. The option if set enables msdeploy to rename locked files that are locked during app deployment.
+Use this option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. The option enables msdeploy to rename locked files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -635,7 +672,11 @@ Select the option to enable msdeploy flag MSDEPLOY_RENAME_LOCKED_FILES=1 in Azur
 **`enableXmlTransform`** - **XML transformation**<br>
 Input alias: `XmlTransformation`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`.<br/> Config transforms will be run prior to the Variable Substitution.<br/>XML transformations are supported only for Windows platform.
+The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`.
+
+Config transforms will be run prior to the Variable Substitution.
+
+XML transformations are supported only for Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -647,7 +688,9 @@ The config transforms will be run for `*.Release.config` and `*.<EnvironmentName
 **`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
 Input alias: `XmlVariableSubstitution`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Variables defined in the build or release pipeline will be matched against the 'key' or 'name' entries in the appSettings, applicationSettings, and connectionStrings sections of any config file and parameters.xml. Variable Substitution is run after config transforms. <br/><br/> Note: If same variables are defined in the release pipeline and in the Environment, then the Environment variables will supersede the release pipeline variables.<br/>.
+Variables defined in the build or release pipeline will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`. Variable Substitution is run after config transforms.
+
+Note: If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -659,7 +702,25 @@ Variables defined in the build or release pipeline will be matched against the '
 **`JSONFiles`** - **JSON variable substitution**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of JSON files to substitute the variable values. Files names are to be provided relative to the root folder. <br/> To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions. <br/> <br/> For example, to replace the value of ‘ConnectionString’ in the sample below, you need to define a variable as ‘Data.DefaultConnection.ConnectionString’ in the build/release pipeline (or release pipeline’s environment). <br/> {<br/>&nbsp;&nbsp;"Data": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"DefaultConnection": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/> }<br/> Variable Substitution is run after configuration transforms. <br/><br/> Note: pipeline variables are excluded in substitution.
+Provides a new lines-separated list of JSON files to substitute the variable values. Files names are to be provided relative to the root folder.
+
+To substitute JSON variables that are nested or hierarchical, specify them using `JSONPath` expressions.
+
+For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build/release pipeline (or the release pipeline’s environment).
+
+```json
+{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
+    }
+  }
+}
+```
+
+Variable Substitution is run after configuration transforms.
+
+Note: pipeline variables are excluded in substitution.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -688,7 +749,7 @@ None.
 What's new in Version 3.0: 
    Supports File Transformations (XDT) 
    Supports Variable Substitutions(XML, JSON) 
-   Click [here](https://aka.ms/azurermwebdeployreadme) for more information.
+   Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

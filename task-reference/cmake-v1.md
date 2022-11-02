@@ -1,7 +1,7 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build with the CMake cross-platform build system.
+Use this task to build with the CMake cross-platform build system.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Build with the CMake cross-platform build system.
 # Build with the CMake cross-platform build system.
 - task: CMake@1
   inputs:
-    #workingDirectory: 'build' # string. Working Directory. Default: build.
+    #workingDirectory: 'build' # string. Alias: cwd. Working Directory. Default: build.
     #cmakeArgs: # string. Arguments. 
   # Advanced
     #runInsideShell: false # boolean. Run cmake command inside shell. Default: false.
@@ -42,7 +42,7 @@ Build with the CMake cross-platform build system.
 # Build with the CMake cross-platform build system.
 - task: CMake@1
   inputs:
-    #workingDirectory: 'build' # string. Working Directory. Default: build.
+    #workingDirectory: 'build' # string. Alias: cwd. Working Directory. Default: build.
     #cmakeArgs: # string. Arguments.
 ```
 
@@ -68,7 +68,13 @@ Build with the CMake cross-platform build system.
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when cmake is run.
+The current working directory when CMake is run.
+
+If you specify a relative path, then it is relative to your repo. For example, if you specify `build`, the result is the same as if you specified `$(Build.SourcesDirectory)\build`.
+
+You can also specify a full path outside the repo, and you can use [variables](/azure/devops/pipelines/build/variables). For example: `$(Build.ArtifactStagingDirectory)\build`
+
+If the path you specify does not exist, CMake creates it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -80,7 +86,7 @@ Current working directory when cmake is run.
 **`cmakeArgs`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to cmake.
+The arguments passed to CMake.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +98,7 @@ Arguments passed to cmake.
 **`runInsideShell`** - **Run cmake command inside shell**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-CMake arguments will be handled like they would be inside of an OS specific shell. It can be used to handle environment variables inside of argument strings.
+CMake arguments are handled the same way as they are handled inside of an OS specific shell. This input can be used to handle environment variables inside of argument strings.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,21 +128,21 @@ Use this task to build with the CMake cross-platform build system.
 
 ### How do I enable CMake for Microsoft-hosted agents?
 
-The [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted) have CMake installed already so you don't need to do anything. You do not need to add a demand for CMake in your `azure-pipelines.yml` file.
+The [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted) have CMake installed already, so you don't need to do anything. You do not need to add a demand for CMake in your `azure-pipelines.yml` file.
 
 
 ### How do I enable CMake for my on-premises agent?
 
 1. [Deploy an agent](/azure/devops/pipelines/agents/agents#install).
 
-1. [Install CMake](https://cmake.org/install/) and make sure to add it to the path of the user that the agent is running as on your agent machine.
+1. On your agent machine, [install CMake](https://cmake.org/install/) and make sure to add it to the user's path that the agent is running as.
 
-1. In your web browser, go to Agent pools and [add a capability](/azure/devops/pipelines/process/demands#manually-entered-demands) named `cmake` and set its value to `yes`.
+1. In your web browser, go to **Agent pools** and [add a capability](/azure/devops/pipelines/process/demands#manually-entered-demands) named `cmake`. Set its value to `yes`.
 
 ### How does CMake work? What arguments can I use?
 
 * [About CMake](https://cmake.org/overview/)
-* [CMake Documentation](https://cmake.org/documentation/)
+* [CMake documentation](https://cmake.org/documentation/)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

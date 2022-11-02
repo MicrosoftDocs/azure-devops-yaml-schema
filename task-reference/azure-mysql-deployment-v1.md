@@ -1,7 +1,7 @@
 ---
 title: AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
 description: Run your scripts and make changes to your Azure Database for MySQL.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Run your scripts and make changes to your Azure Database for MySQL.
+Use this task to run your scripts and make changes to your database in Azure Database for MySQL. The Azure Database for MySQL Deployment task only works with [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Run your scripts and make changes to your Azure Database for MySQL.
 # Run your scripts and make changes to your Azure Database for MySQL.
 - task: AzureMysqlDeployment@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
   # DB Details
     ServerName: # string. Required. Host Name. 
     #DatabaseName: # string. Database Name. 
@@ -54,7 +54,7 @@ Run your scripts and make changes to your Azure Database for MySQL.
 # Run your scripts and make changes to your Azure Database for MySQL.
 - task: AzureMysqlDeployment@1
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
   # DB Details
     ServerName: # string. Required. Host Name. 
     #DatabaseName: # string. Database Name. 
@@ -84,7 +84,11 @@ Run your scripts and make changes to your Azure Database for MySQL.
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This is needed to connect to your Azure account.<br>To configure new service connection, select the Azure subscription from the list and click 'Authorize'.<br>If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
+This is needed to connect to your Azure account.
+
+To configure a new service connection, select the Azure subscription from the list and click `Authorize`.
+
+If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +100,13 @@ This is needed to connect to your Azure account.<br>To configure new service con
 **`ServerName`** - **Host Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Server name of 'Azure Database for MySQL'.Example: fabrikam.mysql.database.azure.com. When you connect using MySQL Workbench, this is the same value that is used for 'Hostname' in 'Parameters'.
+The name of your Azure Database for MySQL server.
+
+Example: `fabrikam.mysql.database.azure.com`
+
+The server name is provided in the Azure portal on the 'Overview' blade of your Azure Database for MySQL server resource.
+
+When you connect using MySQL Workbench, this is the same value that is used for `Hostname` in `Parameters`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +118,11 @@ Server name of 'Azure Database for MySQL'.Example: fabrikam.mysql.database.azure
 **`DatabaseName`** - **Database Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of database, if you already have one, on which the below script is needed to be run, else the script itself can be used to create the database.
+Optional. The name of the database. The script will create a database name if one does not exist.  
+
+If not specified, ensure that the database is referenced in the supplied SQL file or inline SQL, where needed.
+
+Note: MySQL database names are case-sensitive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +134,9 @@ The name of database, if you already have one, on which the below script is need
 **`SqlUsername`** - **Server Admin Login**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Database for MySQL server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. Example:  bbo1@fabrikam. When you connect using MySQL Workbench, this is the same value that is used for 'Username' in 'Parameters'.
+The Azure Database for MySQL server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. Example: `bbo1@fabrikam`.
+
+When you connect using MySQL Workbench, this is the same value that is used for `Username` in `Parameters`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +148,11 @@ Azure Database for MySQL server supports native MySQL authentication. You can co
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for Azure Database for MySQL. In case you don’t recall the password you can change the password from [Azure portal](/azure/mysql/howto-create-manage-server-portal).<br>It can be variable defined in the pipeline. Example : $(password).<br>Also, you may mark the variable type as 'secret' to secure it.
+The administrator password for Azure Database for MySQL. In case you don’t recall the password, you can change the password from [Azure portal](/azure/mysql/howto-create-manage-server-portal).
+
+This string can be defined with a variable in the pipeline. Example: `$(password)`.
+
+Also, you may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +164,12 @@ Administrator password for Azure Database for MySQL. In case you don’t recall 
 **`TaskNameSelector`** - **Type**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select one of the options between Script File & Inline Script.
+Optional. Selects one of the options between Script File & Inline Script.
+
+- `SqlTaskFile` (default), for use with the `SqlFile` argument
+- `InlineSqlTask`, for use with the `SqlInline` argument.
+
+**Note**: these values are case-sensitive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +181,14 @@ Select one of the options between Script File & Inline Script.
 **`SqlFile`** - **MySQL Script**<br>
 `string`. Required when `TaskNameSelector = SqlTaskFile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Full path of the script file on the automation agent or on a UNC path accessible to the automation agent like,  \\\\BudgetIT\DeployBuilds\script.sql. Also, predefined system variables like, $(agent.releaseDirectory) can also be used here. A file containing SQL statements can be used here.​.
+The full path of the script file on the automation agent or on a UNC path accessible to the automation agent. For example: `\BudgetIT\DeployBuilds\script.sql`.
+
+Predefined system variables, such as `$(agent.releaseDirectory)`, and files containing SQL statements can be used here.​
+
+Note: The MySQL client prefers Unix style paths, so from version 1.183.0 on, the task will convert Windows style paths to Unix style paths.
+Example: from `c:\foo\bar\myscript.sql` to `c:/foo/bar/myscript.sql`.
+
+When the task is used on Linux platforms, paths remain unchanged. There is no need to escape special characters in paths.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +200,7 @@ Full path of the script file on the automation agent or on a UNC path accessible
 **`SqlInline`** - **Inline MySQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the MySQL script to execute on the Database selected above.
+Enters the MySQL script to execute on the database selected above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +212,15 @@ Enter the MySQL script to execute on the Database selected above.
 **`SqlAdditionalArguments`** - **Additional MySQL Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional options supported by MySQL simple SQL shell.  These options will be applied when executing the given file on the Azure Database for MySQL.​<br>Example: You can change to default tab separated output format to HTML or even XML format. Or if you have problems due to insufficient memory for large result sets, use the --quick option.​.
+Optional. The additional options supported by the MySQL client. These options are applied when executing the given file on the Azure Database for MySQL.​
+
+Example: You can change to the default tab separated output format, to HTML, or even to the XML format. Other examples include:
+
+- `--comments` to strip comments sent from the client to the server.
+- `--quick` to prevent result caching.
+- `--xml` to output results as XML.
+
+All available options are described in the MySQL client documentation.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +232,16 @@ Additional options supported by MySQL simple SQL shell.  These options will be a
 **`IpDetectionMethod`** - **Specify Firewall Rules Using**<br>
 `string`. Required. Allowed values: `AutoDetect`, `IPAddressRange`. Default value: `AutoDetect`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For successful execution of the task, we need to enable administrators to access the Azure Database for MySQL Server from the IP Address of the automation agent.<br>By selecting auto-detect you can automatically add firewall exception for range of possible IP Address of automation agent ​or else you can specify the range explicitly.
+For the successful execution of the task, we need to enable administrators to access the Azure Database for MySQL Server from the IP Address of the automation agent.
+
+By selecting auto-detect, you can automatically add a firewall exception for the range of possible IP addresses of automation agents, ​or you can explicitly specify the range.
+
+Accepted values:
+
+- `AutoDetect` to auto-detect the automation agent's public IP address.
+- `IPAddressRange` to explicitly specify the IP address range to configure. Set the IP address range using the `StartIpAddress` and `EndIpAddress` parameters.
+
+**Note**: These values are case-sensitive.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -204,7 +253,7 @@ For successful execution of the task, we need to enable administrators to access
 **`StartIpAddress`** - **Start IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The starting IP Address of the automation agent machine pool like 196.21.30.50 .
+The starting IP Address of the automation agent machine pool. For example: `196.21.30.50`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +265,7 @@ The starting IP Address of the automation agent machine pool like 196.21.30.50 .
 **`EndIpAddress`** - **End IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ending IP Address of the automation agent machine pool like 196.21.30.65 .
+The ending IP Address of the automation agent machine pool. For example: `196.21.30.65`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +277,7 @@ The ending IP Address of the automation agent machine pool like 196.21.30.65 .
 **`DeleteFirewallRule`** - **Delete Rule After Task Ends**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If selected, the added exception for IP addresses of the automation agent will be removed for corresponding Azure Database for MySQL.
+Optional. If selected, the added exception for the IP addresses of the automation agent will be removed for the corresponding Azure Database for MySQL.
 <!-- :::editable-content-end::: -->
 <br>
 

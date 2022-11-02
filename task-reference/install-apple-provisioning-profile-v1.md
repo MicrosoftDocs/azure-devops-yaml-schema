@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install an Apple provisioning profile required to build on a macOS agent machine.
+Use this task to install an Apple provisioning profile, which is required in order to build on a macOS agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Install an Apple provisioning profile required to build on a macOS agent machine
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Install an Apple provisioning profile required to build on a macOS agent.
+Use this task to install an Apple provisioning profile, which is required in order to build on a macOS agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -78,7 +78,7 @@ Install an Apple provisioning profile required to build on a macOS agent.
 **`provisioningProfileLocation`** - **Provisioning profile location**<br>
 `string`. Required. Allowed values: `secureFiles` (Secure Files), `sourceRepository` (Source Repository). Default value: `secureFiles`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the location of the provisioning profile to install. The provisioning profile can be uploaded to `Secure Files` or stored in your source repository or a local path on the agent.
+Specifies the location of the provisioning profile to install. The provisioning profile can be uploaded to `Secure Files`, or stored in your source repository or a local path on the agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +90,7 @@ Select the location of the provisioning profile to install. The provisioning pro
 **`provProfileSecureFile`** - **Provisioning profile**<br>
 `string`. Required when `provisioningProfileLocation == secureFiles`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent.
+Specifies the provisioning profile that was uploaded to `Secure Files` to install on the macOS agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +102,7 @@ Select the provisioning profile that was uploaded to `Secure Files` to install o
 **`provProfileSourceRepository`** - **Provisioning profile**<br>
 `string`. Required when `provisioningProfileLocation == sourceRepository`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the provisioning profile from the source repository or specify the local path to a provisioning profile on the macOS agent.
+Specifies the provisioning profile from the source repository or the local path to a provisioning profile on the macOS agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,7 +114,7 @@ Select the provisioning profile from the source repository or specify the local 
 **`removeProfile`** - **Remove profile after build**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select to specify that the provisioning profile should be removed from the agent after the build or release is complete.
+Specifies that the provisioning profile should be removed from the agent after the build or release is complete.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -163,13 +163,12 @@ The UUID property for the selected provisioning profile.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to install an Apple provisioning profile that is required to build on a macOS agent.
-You can use this task to install provisioning profiles needed to build iOS Apps, Apple WatchKit Apps and App Extensions.
+You can use this task to install provisioning profiles needed to build iOS Apps, Apple WatchKit apps, and App extensions.
 
 You can install an Apple provisioning profile that is:
 
 - Stored as a [secure file](/azure/devops/pipelines/library/secure-files) on the server.
-- (**Azure Pipelines**) Committed to the source repository or copied to a local path on the macOS agent. We recommend encrypting the provisioning profiles if you are committing them to the source repository. The **Decrypt File** task can be used to decrypt them during a build or release.
+- Committed to the source repository or copied to a local path on the macOS agent. You should encrypt the provisioning profiles if you are committing them to the source repository. The **Decrypt File** task can be used to decrypt the profiles during a build or release.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

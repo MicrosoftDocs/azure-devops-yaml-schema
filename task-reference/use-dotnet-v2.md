@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
+Use this task to acquire a specific version of the .NET Core SDK from the internet or the local cache and add it to the PATH. Use this task to change the version of .NET Core that is used in subsequent tasks. This task also provides proxy support.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -86,7 +86,7 @@ Acquires a specific version of the .NET Core SDK from the internet or the local 
 **`packageType`** - **Package to install**<br>
 `string`. Allowed values: `runtime`, `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Please select whether to install only runtime or SDK.
+Specifies whether to install only the .NET runtime or the SDK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -98,7 +98,7 @@ Please select whether to install only runtime or SDK.
 **`useGlobalJson`** - **Use global json**<br>
 `boolean`. Optional. Use when `packageType = sdk`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to install all SDKs from global.json files. These files are searched from system.DefaultWorkingDirectory. You can change the search root path by setting working directory input.
+Installs all SDKs from `global.json` files. These files are searched from `system.DefaultWorkingDirectory`. You can change the search root path by setting the working directory input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,7 +110,7 @@ Select this option to install all SDKs from global.json files. These files are s
 **`workingDirectory`** - **Working Directory**<br>
 `string`. Optional. Use when `useGlobalJson = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify path from where global.json files should be searched when using `Use global json`. If empty, `system.DefaultWorkingDirectory` will be considered as the root path.
+Specifies the path from where `global.json` files should be searched when using `useGlobalJson`. If the value is empty, `system.DefaultWorkingDirectory` will be considered as the root path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +122,13 @@ Specify path from where global.json files should be searched when using `Use glo
 **`version`** - **Version**<br>
 `string`. Optional. Use when `useGlobalJson = false || packageType = runtime`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify version of .NET Core SDK or runtime to install.<br/>Versions can be given in the following formats<li>2.x   => Install latest in major version.</li><li>2.2.x => Install latest in major and minor version</li><li>2.2.104 => Install exact version</li><li>3.1.x => Install latest in major and minor version</li><li>3.1.402 => Install exact version</li><br/>Find the value of `version` for installing SDK/Runtime, from the releases.json. The link to releases.json of that major.minor version can be found in [**releases-index file.**](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json). Like link to releases.json for 2.2 version is https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/2.2/releases.json. Like link to releases.json for 3.1 version is https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json.
+Specifies the version of the .NET Core SDK or runtime to install. The version value formats are shown with examples:
+
+- `2.x`: Installs the latest SDK or runtime with the specified major version, `2`.
+- `3.1.x`: Installs the latest SDK or runtime with the specified major and minor versions, `3` and `1`.
+- `3.1.402`: Installs the specified SDK or runtime version, `3.1.402`.
+
+The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +139,13 @@ Specify version of .NET Core SDK or runtime to install.<br/>Versions can be give
 **`version`** - **Version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify version of .NET Core SDK or runtime to install.<br/>Versions can be given in the following formats<li>2.x   => Install latest in major version.</li><li>2.2.x => Install latest in major and minor version</li><li>2.2.104 => Install exact version</li><br/>Find the value of `version` for installing SDK/Runtime, from the releases.json. The link to releases.json of that major.minor version can be found in [**releases-index file.**](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json). Like link to releases.json for 2.2 version is https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/2.2/releases.json.
+Specifies the version of the .NET Core SDK or runtime to install. The version value formats are shown with examples:
+
+- `2.x`: Installs the latest SDK or runtime with the specified major version, `2`.
+- `3.1.x`: Installs the latest SDK or runtime with the specified major and minor versions, `3` and `1`.
+- `3.1.402`: Installs the specified SDK or runtime version, `3.1.402`.
+
+The version values for SDK or runtime installations are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +157,9 @@ Specify version of .NET Core SDK or runtime to install.<br/>Versions can be give
 **`vsVersion`** - **Compatible Visual Studio version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify version of compatible visual studio for which .NET core sdk to install. Specifiy complete vs-version like 16.6.4 containing major version, minor version and patch number.Find the value of `version` for installing SDK/Runtime, from the releases.json. The link to releases.json of that major.minor version can be found in [**releases-index file.**](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json).
+Specifies a compatible Visual Studio version for a corresponding .NET Core SDK installation. The value must be a complete version number, such as `16.6.4`, which contains a major version, a minor version, and a patch number.
+
+The version values for SDK or runtime installations, which are used for the `version` string, are in the `releases.json` file. The link to the `releases.json` of a major/minor version is in the [releases-index](https://github.com/dotnet/core/blob/master/release-notes/releases-index.json) file. For example, the link to the [releases.json file for version 3.1](https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/3.1/releases.json).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +171,7 @@ Specify version of compatible visual studio for which .NET core sdk to install. 
 **`includePreviewVersions`** - **Include Preview Versions**<br>
 `boolean`. Optional. Use when `useGlobalJson = false  || packageType = runtime`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want preview versions to be included while searching for latest versions, such as while searching 2.2.x or 3.1.x. This setting is ignored if you specify an exact version, such as: 3.0.100-preview3-010431.
+If set to `true`, includes preview versions when the task searches for latest runtime/SDK versions, such as searching for `2.2.x` or `3.1.x`. This setting is ignored if you specify an exact version, such as `3.0.100-preview3-010431`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +182,7 @@ Select if you want preview versions to be included while searching for latest ve
 **`includePreviewVersions`** - **Include Preview Versions**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want preview versions to be included while searching for latest versions, such as while searching 2.2.x. This setting is ignored if you specify an exact version, such as: 3.0.100-preview3-010431.
+If set to `true`, includes preview versions when the task searches for latest runtime/SDK versions, such as searching for `2.2.x` or `3.1.x`. This setting is ignored if you specify an exact version, such as `3.0.100-preview3-010431`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +194,14 @@ Select if you want preview versions to be included while searching for latest ve
 **`installationPath`** - **Path To Install .Net Core**<br>
 `string`. Default value: `$(Agent.ToolsDirectory)/dotnet`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify where .Net Core SDK/Runtime should be installed. Different paths can have the following impact on .Net's behavior.<li>$(Agent.ToolsDirectory): This makes the version to be cached on the agent since this directory is not cleanup up across pipelines. All pipelines running on the agent, would have access to the versions installed previously using the agent.</li><li>$(Agent.TempDirectory): This can ensure that a pipeline doesn't use any cached version of .Net core since this folder is cleaned up after each pipeline.</li><li>Any other path: You can configure any other path given the agent process has access to the path. This will change the state of the machine and impact all processes running on it.<br/>Note that you can also configure Multi-Level Lookup setting which can configure .Net host's probing for a suitable version.
+Specifies where the .NET Core SDK/Runtime should be installed. Different paths can have the following impact on .NET's behavior.
+
+- **`$(Agent.ToolsDirectory)`**: Using this path caches the installation on the agent, as this directory is not cleaned across pipelines. All pipelines running on the agent have access to the previously installed versions.
+- **`$(Agent.TempDirectory)`**: Using this path ensures that a pipeline doesn't use a cached version of .NET Core, as this folder is cleaned after each pipeline.
+- **Another path**: You can use any path if the agent process has access to the path. This will change the state of the machine and impact all processes running on it.
+
+> [!NOTE]
+> You can use the **Multi-Level Lookup** setting, `performMultiLevelLookup`, to configure how the .NET host searches for versions.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +213,14 @@ Specify where .Net Core SDK/Runtime should be installed. Different paths can hav
 **`performMultiLevelLookup`** - **Perform Multi Level Lookup**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input is only applicable to Windows based agents. This configures the behavior of .Net host process for looking up a suitable shared framework.<li>unchecked: Only versions present in the folder specified in this task would be looked by the host process.</li><li>checked: The host will attempt to look in pre-defined global locations using multi-level lookup.<br/>The default global locations are: <br/><b>For Windows:</b><br/>C:\Program Files\dotnet (64-bit processes)<br/>C:\Program Files (x86)\dotnet (32-bit process)</li> You can read more about it [**HERE**](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/multilevel-sharedfx-lookup.md).<br/>.
+Configures the behavior of the .NET host process when it searches for a suitable shared framework. The values are:
+
+- **`false`**: The host process searches only for versions that are present in the folder that is specified by the task.
+- **`true`**: The host process will search in predefined global locations using multi-level lookup. The default global locations are:
+    - `C:\Program Files\dotnet` (64-bit processes)
+    - `C:\Program Files (x86)\dotnet` (32-bit processes)
+
+Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/multilevel-sharedfx-lookup.md).
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run a command line with arguments.
+Use this task to run a program from the command prompt.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -56,7 +56,7 @@ Run a command line with arguments.
 **`filename`** - **Tool**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tool name to run. Tool should be found in your path.  Optionally, a fully qualified path can be supplied but that relies on that being present on the agent.
+The name of the tool to run. The tool should be found in your path.  Optionally, a fully qualified path can be supplied, but the path must be present on the agent.
 
 Note: You can use **$(Build.SourcesDirectory)**\\ if you want the path relative to repo.
 <!-- :::editable-content-end::: -->
@@ -70,7 +70,7 @@ Note: You can use **$(Build.SourcesDirectory)**\\ if you want the path relative 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the tool. Use double quotes to escape spaces.
+The arguments that are passed to the tool. Use double quotes to escape spaces.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ Arguments passed to the tool. Use double quotes to escape spaces.
 **`workingFolder`** - **Working folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the working directory in which you want to run the command. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
+Specifies the working directory to run commands. If you leave it empty, the working directory is [$(Build.SourcesDirectory)](/azure/devops/pipelines/build/variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Specify the working directory in which you want to run the command. If you leave
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the StandardError stream.
+If the value is set to true, the task fails if any errors are written to the Standard Error stream.
 <!-- :::editable-content-end::: -->
 <br>
 

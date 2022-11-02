@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Authentication task for the pip client used for installing Python distributions.
+Use this task to provide authentication for the `pip` client that installs Python distributions.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -45,7 +45,7 @@ Authentication task for the pip client used for installing Python distributions.
 **`artifactFeeds`** - **My feeds (select below)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select feeds to authenticate present in this organization.
+Specifies the feeds to authenticate as present in the organization.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -57,7 +57,7 @@ Select feeds to authenticate present in this organization.
 **`pythonDownloadServiceConnections`** - **Feeds from external organizations**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of [pip service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with pip.
+Specifies a comma-separated list of [pip service connection](/azure/devops/pipelines/library/service-endpoints) names from external organizations to authenticate with pip.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -69,7 +69,7 @@ Comma-separated list of [pip service connection](/azure/devops/pipelines/library
 **`onlyAddExtraIndex`** - **Don't set primary index URL**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set to true, no feed will be set as the primary index URL. All of the configured feeds/endpoints will be set as extra index URLs. Defaults to false.
+If this task is set to `true`, no feed will be set as the primary index URL. All of the configured feeds/endpoints will be set as extra index URLs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,18 +95,18 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Provides authentication for the `pip` client that can be used to install Python distributions.
+Provides authentication for the `pip` client that is used to install Python distributions.
 
 ### When in my pipeline should I run this task?
 
-This task must run before you use pip to download python distributions to an authenticated package source such as Azure Artifacts. There are no other ordering requirements. Multiple invocation of this task will not stack credentials. Every run of the task will erase any previously stored credentials.
+This task must run before you use pip to download Python distributions to an authenticated package source such as Azure Artifacts. There are no other ordering requirements. Multiple invocations of this task will not stack credentials. Every run of the task will erase any previously stored credentials.
 
 ### My agent is behind a web proxy. Will PipAuthenticate set up pip to use my proxy?
 
 No. While this task itself will work behind a [web proxy your agent has been configured to use](/azure/devops/pipelines/agents/proxy), it does not configure pip to use the proxy.
 
-To do so, you can either:
-* Set the environment variable `http_proxy`, `https_proxy` and optionally `no_proxy` to your proxy settings. See [Pip official guidelines](https://pip.pypa.io/en/stable/user_guide/#using-a-proxy-server) for details. These are commonly used variables which other non-Python tools (e.g. curl) may also use.
+To do so, you can:
+* Set the environment variables `http_proxy`, `https_proxy` and optionally `no_proxy` to your proxy settings. See [Pip official guidelines](https://pip.pypa.io/en/stable/user_guide/#using-a-proxy-server) for details. These are commonly used variables, which other non-Python tools (e.g. curl) may also use.
     > [!CAUTION]
     >The `http_proxy` and `no_proxy` variables are case-sensitive on Linux and Mac operating systems and must be lowercase. Attempting to use an Azure Pipelines variable to set the environment variable will not work, as it will be converted to uppercase. Instead, set the environment variables on the self-hosted agent's machine and restart the agent.
 * Add the proxy settings to the [pip config file](https://pip.pypa.io/en/stable/user_guide/#config-file) file using `proxy` key.
@@ -122,11 +122,11 @@ If the pipeline is running in a different project than the project hosting the f
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-### Download python distributions from Azure Artifacts feeds without consulting official python registry
+### Download Python distributions from Azure Artifacts feeds without consulting official Python registry
 
-In this example, we are setting authentication for downloading from private Azure Artifacts feeds. The authenticate task creates environment variables `PIP_INDEX_URL` and `PIP_EXTRA_INDEX_URL` that are required to download the distributions. The task sets the variables with auth credentials the task generates for the provided Artifacts feeds. 'HelloTestPackage' has to be present in either 'myTestFeed1' or 'myTestFeed2', otherwise install will fail hard. 
+In this example, we are setting authentication for downloading from private Azure Artifacts feeds. The authenticate task creates environment variables `PIP_INDEX_URL` and `PIP_EXTRA_INDEX_URL` that are required to download the distributions. The task sets the variables with authentication credentials the task generates for the provided Artifacts feeds. `HelloTestPackage` must be present in either `myTestFeed1` or `myTestFeed2`; otherwise, the install will fail.
 
-For project scoped feeds that are in a different project than where the pipeline is running in, you must manually give the project and the feed access to the pipeline's project's build service.
+For project-scoped feeds that are in a different project than where the pipeline is running, you must manually give the project and the feed access to the pipeline's project's build service.
 
 ```YAML
 - task: PipAuthenticate@1
@@ -141,11 +141,11 @@ For project scoped feeds that are in a different project than where the pipeline
     pip install HelloTestPackage
 ```
 
-### Download python distributions from Azure Artifacts feeds consulting official python registry first
+### Consult official Python registry and then download Python distributions from Azure Artifacts feeds
 
-In this example, we are setting authentication for downloading from private Azure Artifacts feed but [pypi](https://pypi.org) is consulted first. The authenticate task creates an environment variable `PIP_EXTRA_INDEX_URL` which contain auth credentials required to download the distributions. 'HelloTestPackage' will be downloaded from the authenticated feeds only if it's not present in [pypi](https://pypi.org).
+In this example, we are setting authentication for downloading from a private Azure Artifacts feed, but [pypi](https://pypi.org) is consulted first. The authenticate task creates an environment variable `PIP_EXTRA_INDEX_URL`, which contains auth credentials required to download the distributions. `HelloTestPackage` will be downloaded from the authenticated feeds only if it's not present in [pypi](https://pypi.org).
 
-For project scoped feeds that are in a different project than where the pipeline is running in, you must manually give the project and the feed access to the pipeline's project's build service.
+For project-scoped feeds that are in a different project than where the pipeline is running, you must manually give the project and the feed access to the pipeline's project's build service.
 
 ```YAML
 - task: PipAuthenticate@1
@@ -162,9 +162,9 @@ For project scoped feeds that are in a different project than where the pipeline
     pip install HelloTestPackage
 ```
 
-### Download python distributions from other private python servers
+### Download Python distributions from other private Python servers
 
-In this example, we are setting authentication for downloading from a external python distribution server. Create a [pip service connection](/azure/devops/pipelines/library/service-endpoints#python-package-download-service-connection) entry for the external service. The authenticate task uses the service connection to create an environment variable `PIP_INDEX_URL` which contain auth credentials required to download the distributions. 'HelloTestPackage' has to be present in 'pypitest' service connection, otherwise install will fail. If you want [pypi](https://pypi.org) to be consulted first, set `onlyAddExtraIndex` to `true`.
+In this example, we are setting authentication for downloading from an external Python distribution server. Create a [pip service connection](/azure/devops/pipelines/library/service-endpoints#python-package-download-service-connection) entry for the external service. The authenticate task uses the service connection to create an environment variable `PIP_INDEX_URL`, which contains auth credentials required to download the distributions. `HelloTestPackage` has to be present in the `pypitest` service connection; otherwise, install will fail. If you want [pypi](https://pypi.org) to be consulted first, set `onlyAddExtraIndex` to `true`.
 
 ```YAML
 - task: PipAuthenticate@1

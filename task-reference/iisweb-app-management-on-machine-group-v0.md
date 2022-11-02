@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Create or update websites, web apps, virtual directories, or application pools.
+Use this task to create or update websites, web apps, virtual directories, or application pools.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Create or update websites, web apps, virtual directories, or application pools.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Create or update a Website, Web App, Virtual Directories, and Application Pool.
+Use this task to create or update websites, web apps, virtual directories, or application pools.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -204,7 +204,7 @@ Create or update a Website, Web App, Virtual Directories, and Application Pool.
 **`EnableIIS`** - **Enable IIS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Check this if you want to install IIS on the machine.
+Set to `true` if you want to install IIS on the machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +216,7 @@ Check this if you want to install IIS on the machine.
 **`IISDeploymentType`** - **Configuration type**<br>
 `string`. Required. Allowed values: `IISWebsite` (IIS Website), `IISWebApplication` (IIS Web Application), `IISVirtualDirectory` (IIS Virtual Directory), `IISApplicationPool` (IIS Application Pool). Default value: `IISWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can create or update sites, applications, virtual directories, and application pools.
+Specifies the configuration type: website, web application, virtual directory, or application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,11 +228,11 @@ You can create or update sites, applications, virtual directories, and applicati
 **`ActionIISWebsite`** - **Action**<br>
 `string`. Required when `IISDeploymentType = IISWebsite`. Allowed values: `CreateOrUpdateWebsite` (Create Or Update), `StartWebsite` (Start), `StopWebsite` (Stop). Default value: `CreateOrUpdateWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the appropriate action that you want to perform on an IIS website. 
+Specifies the appropriate action that you want to perform on an IIS website.
 
-"Create Or Update" will create a website or update an existing website.
+**Create Or Update** will create a website or update an existing website.
 
- Start, Stop will start or stop the website respectively.
+**Start, Stop** will start or stop the website respectively.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,11 +244,11 @@ Select the appropriate action that you want to perform on an IIS website.
 **`ActionIISApplicationPool`** - **Action**<br>
 `string`. Required when `IISDeploymentType = IISApplicationPool`. Allowed values: `CreateOrUpdateAppPool` (Create Or Update), `StartAppPool` (Start), `StopAppPool` (Stop), `RecycleAppPool` (Recycle). Default value: `CreateOrUpdateAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the appropriate action that you want to perform on an IIS Application Pool. 
+Specifies the appropriate action that you want to perform on an IIS application pool.
 
-"Create Or Update" will create app-pool or update an existing one.
+**Create Or Update** will create an application pool or update an existing application pool.
 
-Start, Stop, Recycle will start, stop or recycle the application pool respectively.
+**Start, Stop, Recycle** will start, stop or recycle the application pool respectively.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,7 +260,7 @@ Start, Stop, Recycle will start, stop or recycle the application pool respective
 **`StartStopWebsiteName`** - **Website name**<br>
 `string`. Required when `ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the IIS website.
+Specifies the name of the IIS website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +272,7 @@ Provide the name of the IIS website.
 **`WebsiteName`** - **Website name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the IIS website to create or update.
+Specifies the name of the IIS website to create or update.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +284,7 @@ Provide the name of the IIS website to create or update.
 **`WebsitePhysicalPath`** - **Physical path**<br>
 `string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the physical path where the website content will be stored. The content can reside on the local Computer, or in a remote directory, or on a network share, like C:\Fabrikam or \\\\ContentShare\Fabrikam.
+Specifies the physical path where the website content will be stored. The content can reside on the local computer, in a remote directory, or on a network share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +296,7 @@ Provide the physical path where the website content will be stored. The content 
 **`WebsitePhysicalPathAuth`** - **Physical path authentication**<br>
 `string`. Required. Allowed values: `WebsiteUserPassThrough` (Application User (Pass-through)), `WebsiteWindowsAuth` (Windows Authentication). Default value: `WebsiteUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the authentication mechanism that will be used to access the physical path of the website.
+Specifies the authentication mechanism that will be used to access the physical path of the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +308,7 @@ Select the authentication mechanism that will be used to access the physical pat
 **`WebsiteAuthUserName`** - **Username**<br>
 `string`. Required when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user name that will be used to access the website's physical path.
+Specifies the user name that will be used to access the website's physical path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -320,7 +320,9 @@ Provide the user name that will be used to access the website's physical path.
 **`WebsiteAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user's password that will be used to access the website's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Specifies the user's password that will be used to access the website's physical path.  
+The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
+*Note:* Special characters in the password are interpreted per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -332,7 +334,7 @@ Provide the user's password that will be used to access the website's physical p
 **`AddBinding`** - **Add binding**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to add port binding for the website.
+Specifies the option to add port binding for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +346,7 @@ Select the option to add port binding for the website.
 **`Protocol`** - **Protocol**<br>
 `string`. Required when `IISDeploymentType = randomDeployment`. Allowed values: `https`, `http`. Default value: `http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select HTTP for the website to have an HTTP binding, or select HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
+Specifies either HTTP for the website to have an HTTP binding or HTTPS for the website to have a Secure Sockets Layer (SSL) binding.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,7 +358,8 @@ Select HTTP for the website to have an HTTP binding, or select HTTPS for the web
 **`IPAddress`** - **IP address**<br>
 `string`. Required when `IISDeploymentType = randomDeployment`. Default value: `All Unassigned`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide an IP address that end-users can use to access this website. <br>If 'All Unassigned' is selected, then the website will respond to requests for all IP addresses on the port and for the host name, unless another website on the server has a binding on the same port but with a specific IP address.<br>.
+Specifies an IP address that end-users can use to access this website.  
+If **All Unassigned** is selected, then the website will respond to requests for all IP addresses on the port and for the host name. The website will not respond to requests if another website on the server has a binding on the same port but with a specific IP address.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -368,7 +371,7 @@ Provide an IP address that end-users can use to access this website. <br>If 'All
 **`Port`** - **Port**<br>
 `string`. Required when `IISDeploymentType = randomDeployment`. Default value: `80`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the port, where the Hypertext Transfer Protocol Stack (HTTP.sys) will listen to the website requests.
+Specifies the port where the Hypertext Transfer Protocol Stack (HTTP.sys) will monitor the website requests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +383,8 @@ Provide the port, where the Hypertext Transfer Protocol Stack (HTTP.sys) will li
 **`ServerNameIndication`** - **Server Name Indication required**<br>
 `boolean`. Optional. Use when `IISDeploymentType = randomDeployment`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to set the Server Name Indication (SNI) for the website. <br>SNI extends the SSL and TLS protocols to indicate the host name that the clients are attempting to connect to. It allows, multiple secure websites with different certificates, to use the same IP address.<br>.
+Specifies the option to set the Server Name Indication (SNI) for the website.  
+SNI extends the SSL and TLS protocols to indicate the host name that the clients are attempting to connect to. It allows multiple secure websites with different certificates to use the same IP address.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -392,7 +396,8 @@ Select the option to set the Server Name Indication (SNI) for the website. <br>S
 **`HostNameWithOutSNI`** - **Host name**<br>
 `string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
+Specifies a host name (or domain name) for the website.  
+If a host name is specified, the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -404,7 +409,8 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 **`HostNameWithHttp`** - **Host name**<br>
 `string`. Optional. Use when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
+Specifies a host name (or domain name) for the website.  
+If a host name is specified, the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -416,7 +422,8 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 **`HostNameWithSNI`** - **Host name**<br>
 `string`. Required when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter a host name (or domain name) for the website. <br>If a host name is specified, then the clients must use the host name instead of the IP address to access the website.<br>.
+Specifies a host name (or domain name) for the website.  
+If a host name is specified, the clients must use the host name instead of the IP address to access the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -428,7 +435,7 @@ Enter a host name (or domain name) for the website. <br>If a host name is specif
 **`SSLCertThumbPrint`** - **SSL certificate thumbprint**<br>
 `string`. Required when `IISDeploymentType = randomDeployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the thumb-print of the Secure Socket Layer certificate that the website is going to use for the HTTPS communication as a 40 character long hexadecimal string. The SSL certificate should be already installed on the Computer, at Local Computer, Personal store.
+Specifies the thumb-print of the Secure Socket Layer certificate that the website uses for the HTTPS communication. The thumb-print is a 40 character long hexadecimal string. The SSL certificate should already be installed on the computer in the Local Computer Personal store.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -440,7 +447,7 @@ Provide the thumb-print of the Secure Socket Layer certificate that the website 
 **`Bindings`** - **Add bindings**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Click on the extension [...] button to add bindings for the website.
+Click on the extension button `...` to add bindings for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -452,7 +459,7 @@ Click on the extension [...] button to add bindings for the website.
 **`CreateOrUpdateAppPoolForWebsite`** - **Create or update app pool**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to create or update an application pool. If checked, the website will be created in the specified app pool.
+Specifies the option to create or update an application pool. If checked, the website will be created in the specified application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -464,7 +471,7 @@ Select the option to create or update an application pool. If checked, the websi
 **`ConfigureAuthenticationForWebsite`** - **Configure authentication**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to configure authentication for website.
+Specifies the option to configure authentication for the website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -476,7 +483,7 @@ Select the option to configure authentication for website.
 **`AppPoolNameForWebsite`** - **Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the IIS application pool to create or update.
+Specifies the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -488,7 +495,7 @@ Provide the name of the IIS application pool to create or update.
 **`DotNetVersionForWebsite`** - **.NET version**<br>
 `string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
+Specifies the version of the .NET Framework that is loaded by the application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -500,7 +507,7 @@ Select the version of the .NET Framework that is loaded by the application pool.
 **`PipeLineModeForWebsite`** - **Managed pipeline mode**<br>
 `string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the managed pipeline mode that specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
+Specifies the managed pipeline mode to determine how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in integrated mode.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -512,7 +519,7 @@ Select the managed pipeline mode that specifies how IIS processes requests for m
 **`AppPoolIdentityForWebsite`** - **Identity**<br>
 `string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
+Configures the account under which an application pool's worker process runs. Specifies one of the predefined security accounts or configures a custom account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -524,7 +531,7 @@ Configure the account under which an application pool's worker process runs. Sel
 **`AppPoolUsernameForWebsite`** - **Username**<br>
 `string`. Required when `AppPoolIdentityForWebsite = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the username of the custom account that you want to use.
+Specifies the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -536,7 +543,9 @@ Provide the username of the custom account that you want to use.
 **`AppPoolPasswordForWebsite`** - **Password**<br>
 `string`. Optional. Use when `AppPoolIdentityForWebsite = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Specifies the password for the custom account.  
+The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
+*Note:* Special characters in the password are interpreted per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -548,7 +557,7 @@ Provide the password for custom account. <br/>The best practice is to create a v
 **`AnonymousAuthenticationForWebsite`** - **Anonymous authentication**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to enable anonymous authentication for website.
+Specifies the option to enable anonymous authentication for a website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -560,7 +569,7 @@ Select the option to enable anonymous authentication for website.
 **`BasicAuthenticationForWebsite`** - **Basic authentication**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to enable basic authentication for website.
+Specifies the option to enable basic authentication for a website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -572,7 +581,7 @@ Select the option to enable basic authentication for website.
 **`WindowsAuthenticationForWebsite`** - **Windows authentication**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to enable windows authentication for website.
+Specifies the option to enable windows authentication for a website.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -584,7 +593,7 @@ Select the option to enable windows authentication for website.
 **`ParentWebsiteNameForVD`** - **Parent website name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the parent Website of the virtual directory.
+Specifies the name of the parent website of the virtual directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -596,9 +605,9 @@ Provide the name of the parent Website of the virtual directory.
 **`VirtualPathForVD`** - **Virtual path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the virtual path of the virtual directory. 
+Specifies the virtual path of the virtual directory.
 
-Example: To create a virtual directory Site/Application/VDir enter /Application/Vdir. The parent website and application should be already existing.
+For example, to create a virtual directory `Site/Application/VDir`, enter `/Application/Vdir`. The parent website and application should already exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -610,7 +619,7 @@ Example: To create a virtual directory Site/Application/VDir enter /Application/
 **`PhysicalPathForVD`** - **Physical path**<br>
 `string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the physical path where the virtual directory's content will be stored. The content can reside on the local Computer, or in a remote directory, or on a network share, like C:\Fabrikam or \\\\ContentShare\Fabrikam.
+Specifies the physical path where the virtual directory's content is stored. The content can reside on the local computer, in a remote directory, or on a network share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -622,7 +631,7 @@ Provide the physical path where the virtual directory's content will be stored. 
 **`VDPhysicalPathAuth`** - **Physical path authentication**<br>
 `string`. Allowed values: `VDUserPassThrough` (Application User (Pass-through)), `VDWindowsAuth` (Windows Authentication). Default value: `VDUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the authentication mechanism that will be used to access the physical path of the virtual directory.
+Specifies the authentication mechanism that is used to access the physical path of the virtual directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -634,7 +643,7 @@ Select the authentication mechanism that will be used to access the physical pat
 **`VDAuthUserName`** - **Username**<br>
 `string`. Required when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user name that will be used to access the virtual directory's physical path.
+Specifies the user name that is used to access the virtual directory's physical path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -646,7 +655,9 @@ Provide the user name that will be used to access the virtual directory's physic
 **`VDAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user's password that will be used to access the virtual directory's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Specifies the user's password that is used to access the virtual directory's physical path.  
+The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
+*Note:* Special characters in the password are interpreted per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -658,7 +669,7 @@ Provide the user's password that will be used to access the virtual directory's 
 **`ParentWebsiteNameForApplication`** - **Parent website name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the parent Website under which the application will be created or updated.
+Specifies the name of the parent website under which the application will be created or updated.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -670,9 +681,9 @@ Provide the name of the parent Website under which the application will be creat
 **`VirtualPathForApplication`** - **Virtual path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the virtual path of the application. 
+Specifies the virtual path of the application.
 
-Example: To create an application Site/Application enter /Application. The parent website should be already existing.
+For example, to create an application `Site/Application`, enter `/Application`. The parent website should already exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -684,7 +695,7 @@ Example: To create an application Site/Application enter /Application. The paren
 **`PhysicalPathForApplication`** - **Physical path**<br>
 `string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the physical path where the application's content will be stored. The content can reside on the local Computer, or in a remote directory, or on a network share, like C:\Fabrikam or \\\\ContentShare\Fabrikam.
+Specifies the physical path where the application's content is stored. The content can reside on the local computer, in a remote directory, or on a network share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -696,7 +707,7 @@ Provide the physical path where the application's content will be stored. The co
 **`ApplicationPhysicalPathAuth`** - **Physical path authentication**<br>
 `string`. Allowed values: `ApplicationUserPassThrough` (Application User (Pass-through)), `ApplicationWindowsAuth` (Windows Authentication). Default value: `ApplicationUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the authentication mechanism that will be used to access the physical path of the application.
+Specifies the authentication mechanism that is used to access the physical path of the application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -708,7 +719,7 @@ Select the authentication mechanism that will be used to access the physical pat
 **`ApplicationAuthUserName`** - **Username**<br>
 `string`. Required when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user name that will be used to access the application's physical path.
+Specifies the user name that is used to access the application's physical path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -720,7 +731,9 @@ Provide the user name that will be used to access the application's physical pat
 **`ApplicationAuthUserPassword`** - **Password**<br>
 `string`. Optional. Use when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the user's password that will be used to access the application's physical path. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Specifies the user's password that is used to access the application's physical path.  
+The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
+*Note:* Special characters in the password are interpreted per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -732,7 +745,7 @@ Provide the user's password that will be used to access the application's physic
 **`CreateOrUpdateAppPoolForApplication`** - **Create or update app pool**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to create or update an application pool. If checked, the application will be created in the specified app pool.
+Specifies the option to create or update an application pool. If checked, the application will be created in the specified application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -744,7 +757,7 @@ Select the option to create or update an application pool. If checked, the appli
 **`AppPoolNameForApplication`** - **Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the IIS application pool to create or update.
+Specifies the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -756,7 +769,7 @@ Provide the name of the IIS application pool to create or update.
 **`DotNetVersionForApplication`** - **.NET version**<br>
 `string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
+Specifies the version of the .NET Framework that is loaded by the application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -768,7 +781,7 @@ Select the version of the .NET Framework that is loaded by the application pool.
 **`PipeLineModeForApplication`** - **Managed pipeline mode**<br>
 `string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the managed pipeline mode that specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
+Specifies the managed pipeline mode to determine how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the integrated mode.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -780,7 +793,7 @@ Select the managed pipeline mode that specifies how IIS processes requests for m
 **`AppPoolIdentityForApplication`** - **Identity**<br>
 `string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
+Configures the account under which an application pool's worker process runs. Specifies one of the predefined security accounts or configures a custom account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -792,7 +805,7 @@ Configure the account under which an application pool's worker process runs. Sel
 **`AppPoolUsernameForApplication`** - **Username**<br>
 `string`. Required when `AppPoolIdentityForApplication = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the username of the custom account that you want to use.
+Specifies the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -804,7 +817,9 @@ Provide the username of the custom account that you want to use.
 **`AppPoolPasswordForApplication`** - **Password**<br>
 `string`. Optional. Use when `AppPoolIdentityForApplication = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Specifies the password for the custom account.  
+The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
+*Note:* Special characters in the password are interpreted per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -816,7 +831,7 @@ Provide the password for custom account. <br/>The best practice is to create a v
 **`AppPoolName`** - **Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the IIS application pool to create or update.
+Specifies the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -828,7 +843,7 @@ Provide the name of the IIS application pool to create or update.
 **`DotNetVersion`** - **.NET version**<br>
 `string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the version of the .NET Framework that is loaded by the application pool. <br>If the applications assigned to this application pool do not contain managed code, then select the 'No Managed Code' option from the list.<br>.
+Specifies the version of the .NET Framework that is loaded by the application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -840,7 +855,7 @@ Select the version of the .NET Framework that is loaded by the application pool.
 **`PipeLineMode`** - **Managed pipeline mode**<br>
 `string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the managed pipeline mode that specifies how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the Integrated mode.
+Specifies the managed pipeline mode to determine how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the integrated mode.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -852,7 +867,7 @@ Select the managed pipeline mode that specifies how IIS processes requests for m
 **`AppPoolIdentity`** - **Identity**<br>
 `string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configure the account under which an application pool's worker process runs. Select one of the predefined security accounts or configure a custom account.
+Configures the account under which an application pool's worker process runs. Specifies one of the predefined security accounts or configures a custom account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -864,7 +879,7 @@ Configure the account under which an application pool's worker process runs. Sel
 **`AppPoolUsername`** - **Username**<br>
 `string`. Required when `AppPoolIdentity = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the username of the custom account that you want to use.
+Specifies the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -876,7 +891,9 @@ Provide the username of the custom account that you want to use.
 **`AppPoolPassword`** - **Password**<br>
 `string`. Optional. Use when `AppPoolIdentity = SpecificUser`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the password for custom account. <br/>The best practice is to create a variable in the build or release pipeline, and mark it as 'Secret' to secure it, and then use it here, like '$(userCredentials)'. <br> Note: Special characters in password are interpreted as per <a href="https://go.microsoft.com/fwlink/?linkid=843470">command-line arguments</a>.
+Specifies the password for the custom account.  
+The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
+*Note:* Special characters in the password are interpreted per [command-line arguments](/cpp/c-language/parsing-c-command-line-arguments).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -888,7 +905,7 @@ Provide the password for custom account. <br/>The best practice is to create a v
 **`StartStopRecycleAppPoolName`** - **Application pool name**<br>
 `string`. Required when `ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the IIS application pool.
+Specifies the name of the IIS application pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -900,7 +917,11 @@ Provide the name of the IIS application pool.
 **`AppCmdCommands`** - **Additional appcmd.exe commands**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter additional AppCmd.exe commands. For more than one command use a line separator, like <br/> list apppools <br/> list sites<br/> recycle apppool /apppool.name:ExampleAppPoolName.
+Specifies additional `AppCmd.exe` commands. For more than one command, use a line separator.  
+For example:  
+`list apppools`  
+`list sites`  
+`recycle apppool /apppool.name:ExampleAppPoolName`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -926,7 +947,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to create or update a Website, Web App, Virtual Directory, or Application Pool.
+Use this task to create or update a website, web app, virtual directory, or application pool.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

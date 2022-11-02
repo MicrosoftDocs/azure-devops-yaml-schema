@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build with Apache Ant.
+Use this task to build with Apache Ant.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Build with Apache Ant.
 # Build with Apache Ant.
 - task: Ant@1
   inputs:
-    buildFile: 'build.xml' # string. Required. Ant build file. Default: build.xml.
+    buildFile: 'build.xml' # string. Alias: antBuildFile. Required. Ant build file. Default: build.xml.
     #options: # string. Options. 
     #targets: # string. Target(s). 
   # JUnit Test Results
@@ -35,17 +35,17 @@ Build with Apache Ant.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
-    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code coverage tool. Default: None.
-    codeCoverageClassFilesDirectories: '.' # string. Required when codeCoverageTool != None. Class files directories. Default: ..
-    #codeCoverageClassFilter: # string. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageSourceDirectories: # string. Optional. Use when codeCoverageTool != None. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
+    codeCoverageClassFilesDirectories: '.' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: ..
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool != None. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
   # Advanced
-    #antHomeDirectory: # string. Set ANT_HOME path. 
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkUserInputDirectory: # string. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #antHomeDirectory: # string. Alias: antHomeUserInputPath. Set ANT_HOME path. 
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
+    #jdkUserInputDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -57,7 +57,7 @@ Build with Apache Ant.
 # Build with Apache Ant.
 - task: Ant@1
   inputs:
-    buildFile: 'build.xml' # string. Required. Ant build file. Default: build.xml.
+    buildFile: 'build.xml' # string. Alias: antBuildFile. Required. Ant build file. Default: build.xml.
     #options: # string. Options. 
     #targets: # string. Target(s). 
   # JUnit Test Results
@@ -65,17 +65,17 @@ Build with Apache Ant.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
-    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Code coverage tool. Default: None.
-    codeCoverageClassFilesDirectories: '.' # string. Required when codeCoverageTool != None. Class files directories. Default: ..
-    #codeCoverageClassFilter: # string. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageSourceDirectories: # string. Optional. Use when codeCoverageTool != None. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
+    codeCoverageClassFilesDirectories: '.' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: ..
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool != None. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
   # Advanced
-    #antHomeDirectory: # string. Set ANT_HOME path. 
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkUserInputDirectory: # string. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #antHomeDirectory: # string. Alias: antHomeUserInputPath. Set ANT_HOME path. 
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
+    #jdkUserInputDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -100,7 +100,9 @@ Build with Apache Ant.
 **`buildFile`** - **Ant build file**<br>
 Input alias: `antBuildFile`. `string`. Required. Default value: `build.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root to the Ant build file.
+The relative path from the repository root to the Ant build file.
+
+For more information about build files, see [Using Apache Ant](http://ant.apache.org/manual/using.html#buildfile).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +114,9 @@ Relative path from the repository root to the Ant build file.
 **`options`** - **Options**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide any options to pass to the Ant command line. You can provide your own properties (for example, ***-DmyProperty=myPropertyValue***) and also use built-in variables (for example, ***-DcollectionId=$(system.collectionId)***). Alternatively, the built-in variables are already set as environment variables during the build and can be passed directly (for example, ***-DcollectionIdAsEnvVar=%SYSTEM_COLLECTIONID%***).
+Provides options to pass to the Ant command line. You can provide your own properties (for example, `-DmyProperty=myPropertyValue`) and also use built-in variables (for example, `-DcollectionId=$(system.collectionId)`). Alternatively, the built-in variables are already set as environment variables during the build and can be passed directly (for example, `-DcollectionIdAsEnvVar=%SYSTEM_COLLECTIONID%`).
+
+See [Running Apache Ant](http://ant.apache.org/manual/running.html#options).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,6 +129,8 @@ Provide any options to pass to the Ant command line. You can provide your own pr
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 An optional, space-separated list of targets to build. If not specified, the `default` target will be used. If no `default` target is defined, Ant 1.6.0 and later will build all top-level tasks.
+
+See [Using Apache Ant Targets](http://ant.apache.org/manual/targets.html#targets).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +176,7 @@ Select this option to publish JUnit test results produced by the Ant build to TF
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+The test results file path. Wildcards can be used. For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +188,7 @@ Test results files path. Wildcards can be used ([more information](https://go.mi
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Provides a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +200,14 @@ Provide a name for the test run.
 **`codeCoverageToolOptions`** - **Code coverage tool**<br>
 Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the code coverage tool. For on-premises agent support, refer to the `More Information` link below.
+Selects the code coverage tool.
+
+If you are using the [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), then the tools are set up for you. If you are using the on-premises [Windows agent](/azure/devops/pipelines/agents/v2-windows), you must ensure the agent is set up for either JaCoco or Cobertura.
+
+- JaCoCo - ensure that jacocoant.jar is available in the lib folder of Ant installation. Learn more about [JaCoCo Ant tasks](http://www.eclemma.org/jacoco/trunk/doc/ant.html).
+- Cobertura - ensure that an environment variable COBERTURA_HOME points to the Cobertura .jar files location. Learn more about [Cobertura with Ant tasks](https://github.com/cobertura/cobertura/wiki/Ant-Task-Reference).
+
+After you select one of these tools, the following arguments appear:
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +219,7 @@ Select the code coverage tool. For on-premises agent support, refer to the `More
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. For example: target/classes,target/testClasses.
+The comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (`.jar`, `.war`, etc.). Code coverage is reported for class files in these directories. For example: `target/classes,target/testClasses`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +231,7 @@ Comma-separated list of relative paths from the Ant build file to directories co
 **`codeCoverageClassFilter`** - **Class inclusion/exclusion filters**<br>
 Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of filters to include or exclude classes from collecting code coverage. For example: +:com.*,+:org.*,-:my.app*.*.
+The comma-separated list of filters to include or exclude classes from collecting code coverage. For example: `+:com.`, `+:org.`, `-:my.app*.`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +243,7 @@ Comma-separated list of filters to include or exclude classes from collecting co
 **`codeCoverageSourceDirectories`** - **Source files directories**<br>
 Input alias: `srcDirectories`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of relative paths from the Ant build file to source code directories. Code coverage reports will use these to highlight source code. For example: src/java,src/Test.
+The comma-separated list of relative paths from the Ant build file to source code directories. Code coverage reports will use these to highlight source code. For example: `src/java,src/Test`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +255,7 @@ Comma-separated list of relative paths from the Ant build file to source code di
 **`codeCoverageFailIfEmpty`** - **Fail when code coverage results are missing**<br>
 Input alias: `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail the build if code coverage did not produce any results to publish.
+Fails the build if the code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -278,7 +291,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+Attempts to discover the path to the selected JDK version and sets JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -289,7 +302,7 @@ Will attempt to discover the path to the selected JDK version and set JAVA_HOME 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+Attempts to discover the path to the selected JDK version and sets JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -313,7 +326,7 @@ Sets JAVA_HOME to the given path.
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the architecture (x86, x64) of the JDK.
+Optionally supplies the architecture (x86, x64) of the JDK.
 <!-- :::editable-content-end::: -->
 <br>
 

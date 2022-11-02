@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@2 - Android Signing v2 task
 description: Sign and align Android APK files (task version 2).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Sign and align Android APK files.
+Use this task in a pipeline to sign and align Android APK files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,17 +27,17 @@ Sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@2
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
+    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
   # Signing Options
     #jarsign: true # boolean. Sign the APK. Default: true.
-    jarsignerKeystoreFile: # string. Required when jarsign = true. Keystore file. 
-    #jarsignerKeystorePassword: # string. Optional. Use when jarsign = true. Keystore password. 
-    #jarsignerKeystoreAlias: # string. Optional. Use when jarsign = true. Alias. 
-    #jarsignerKeyPassword: # string. Optional. Use when jarsign = true. Key password. 
+    jarsignerKeystoreFile: # string. Alias: keystoreFile. Required when jarsign = true. Keystore file. 
+    #jarsignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when jarsign = true. Keystore password. 
+    #jarsignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when jarsign = true. Alias. 
+    #jarsignerKeyPassword: # string. Alias: keyPass. Optional. Use when jarsign = true. Key password. 
     #jarsignerArguments: '-verbose -sigalg MD5withRSA -digestalg SHA1' # string. Optional. Use when jarsign = true. Jarsigner arguments. Default: -verbose -sigalg MD5withRSA -digestalg SHA1.
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
-    #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
+    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
 ```
 
 :::moniker-end
@@ -62,7 +62,10 @@ Sign and align Android APK files.
 **`apkFiles`** - **APK files**<br>
 Input alias: `files`. `string`. Required. Default value: `**/*.apk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK(s) you want to sign. You can use wildcards to specify multiple files ([more information](https://go.microsoft.com/fwlink/?linkid=856077)). For example, `**/bin/*.apk` for all .APK files in the 'bin' subfolder.
+The relative path from the repo root to the APK(s) you want to sign. You can use [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) to specify multiple files. For example:
+
+- `outputs\apk*.apk` to sign all .APK files in the `outputs\apk\` subfolder.
+- `**/bin/*.apk` to sign all .APK files in all `bin` subfolders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -74,7 +77,7 @@ Relative path from the repo root to the APK(s) you want to sign. You can use wil
 **`jarsign`** - **Sign the APK**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to sign the APK with a provided keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
+Signs the APK with a provided keystore file. Unsigned APKs can only run in an emulator. APKs must be signed to run on a device.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -86,7 +89,9 @@ Select this option to sign the APK with a provided keystore file. Unsigned APKs 
 **`jarsignerKeystoreFile`** - **Keystore file**<br>
 Input alias: `keystoreFile`. `string`. Required when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the keystore file that was uploaded to `Secure Files` to be used to sign the APK.
+The file path to the Android Keystore file that is used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file is removed from the agent machine when the pipeline completes.
+
+The file can either be checked into source control or placed on the build machine directly by an administrator. It is recommended to encrypt the keystore file in source control and use the `Decrypt File` task to decrypt the file during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -98,7 +103,9 @@ Select the keystore file that was uploaded to `Secure Files` to be used to sign 
 **`jarsignerKeystorePassword`** - **Keystore password**<br>
 Input alias: `keystorePass`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the password for the provided keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
+The password for the provided Android Keystore file.
+> [!IMPORTANT]
+> Use a new variable with its lock enabled on the Variables tab to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,7 +117,7 @@ Enter the password for the provided keystore file. Use a new variable with its l
 **`jarsignerKeystoreAlias`** - **Alias**<br>
 Input alias: `keystoreAlias`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the alias that identifies the public/private key pair to be used in the keystore file.
+The alias that identifies the public/private key pair to be used in the Android Keystore file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -122,7 +129,9 @@ Enter the alias that identifies the public/private key pair to be used in the ke
 **`jarsignerKeyPassword`** - **Key password**<br>
 Input alias: `keyPass`. `string`. Optional. Use when `jarsign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the key password for the alias and keystore file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
+The key password for the alias and Android Keystore file.
+> [!IMPORTANT]
+> Use a new variable with its lock enabled on the Variables tab to encrypt this value. See [secret variables](/azure/devops/pipelines/process/variables).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +143,7 @@ Enter the key password for the alias and keystore file. Use a new variable with 
 **`jarsignerArguments`** - **Jarsigner arguments**<br>
 `string`. Optional. Use when `jarsign = true`. Default value: `-verbose -sigalg MD5withRSA -digestalg SHA1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide any options to pass to the jarsigner command line. Default is: -verbose -sigalg MD5withRSA -digestalg SHA1.
+Provides options to pass to the `jarsigner` command line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +155,7 @@ Provide any options to pass to the jarsigner command line. Default is: -verbose 
 **`zipalign`** - **Zipalign**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want to zipalign your package. This reduces the amount of RAM consumed by an app.
+Select this boolean if you want to zipalign your package. This reduces the amount of RAM consumed by an app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +167,7 @@ Select if you want to zipalign your package. This reduces the amount of RAM cons
 **`zipalignFile`** - **Zipalign location**<br>
 Input alias: `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
+Specifies the location of the zipalign executable used during signing. This defaults to the zipalign found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->
 <br>
 

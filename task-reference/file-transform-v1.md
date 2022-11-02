@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Replace tokens with variable values in XML or JSON configuration files.
+Use this task to replace tokens with variable values in XML or JSON configuration files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -64,7 +64,11 @@ Replace tokens with variable values in XML or JSON configuration files.
 **`folderPath`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip.
+The file path to the package or a folder.
+
+Variables are [Build](/azure/devops/pipelines/build/variables) and [Release](/azure/devops/pipelines/release/variables#default-variables). Wildcards are supported.
+
+For example, `$(System.DefaultWorkingDirectory)/**/*.zip`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -76,7 +80,9 @@ File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pip
 **`enableXmlTransform`** - **XML transformation**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Config transforms will be run prior to the Variable Substitution.<br/>XML transformations are supported only for Windows platform.
+Config transforms will be run prior to the Variable Substitution.
+
+XML transformations are supported only for Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +94,9 @@ Config transforms will be run prior to the Variable Substitution.<br/>XML transf
 **`xmlTransformationRules`** - **Transformation rules**<br>
 `string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`.
+Provides a new line separated list of transformation file rules using the syntax:
+
+`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -99,7 +107,9 @@ Provide new line separated list of transformation file rules using the syntax: <
 **`xmlTransformationRules`** - **Transformation rules**<br>
 `string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config\n-transform **\*.$(Release.EnvironmentName).config -xml **\*.config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`.
+Provides a newline-separated list of transformation file rules using the syntax:
+
+`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +121,28 @@ Provide new line separated list of transformation file rules using the syntax: <
 **`fileType`** - **File format**<br>
 `string`. Allowed values: `xml`, `json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide file format on which substitution has to be perfformed<br/>For XML, Variables defined in the build or release pipelines will be matched against the 'key' or 'name' entries in the appSettings, applicationSettings, and connectionStrings sections of any config file and parameters.xml. Variable Substitution is run after config transforms.<br/>To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions. <br/> <br/> For example, to replace the value of ‘ConnectionString’ in the sample below, you need to define a variable as ‘Data.DefaultConnection.ConnectionString’ in the build or release pipeline (or release pipeline's environment). <br/> {<br/>&nbsp;&nbsp;"Data": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"DefaultConnection": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/> }<br/> Variable Substitution is run after configuration transforms. <br/><br/> Note: only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. <br/>Note: If same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
+Provides the file format on which the substitution is perfformed.
+
+For XML, variables defined in the build or release pipelines will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`. `Variable Substitution` is run after config transforms.
+
+To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions.
+
+For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment).
+
+```json
+{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
+    }
+  }
+}
+```
+
+ Variable Substitution is run after configuration transforms.
+
+
+Note: Only custom variables that are defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +154,7 @@ Provide file format on which substitution has to be perfformed<br/>For XML, Vari
 **`targetFiles`** - **Target files**<br>
 `string`. Optional. Use when `fileType = xml || fileType = json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of files to substitute the variable values. Files names are to be provided relative to the root folder.
+Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
 <!-- :::editable-content-end::: -->
 <br>
 

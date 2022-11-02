@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run shell commands or a script on a remote machine using SSH.
+Use this task to run shell commands or a script on a remote machine using SSH. This task enables you to connect to a remote machine using SSH and run commands or a script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,7 +20,30 @@ Run shell commands or a script on a remote machine using SSH.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# SSH v0
+# Run shell commands or a script on a remote machine using SSH.
+- task: SSH@0
+  inputs:
+    sshEndpoint: # string. Required. SSH service connection. 
+    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
+    commands: # string. Required when runOptions = commands. Commands. 
+    #scriptPath: # string. Required when runOptions = script. Shell script path. 
+    #inline: # string. Required when runOptions = inline. Inline Script. 
+    #interpreterCommand: '/bin/bash' # string. Optional. Use when runOptions = inline. Interpreter command. Default: /bin/bash.
+    #args: # string. Optional. Use when runOptions = script. Arguments. 
+  # Advanced
+    #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
+    #interactiveSession: false # boolean. Enable interactive session. Default: false.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
+    #interactiveKeyboardAuthentication: false # boolean. Use interactive-keyboard authentication. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
 # SSH v0
@@ -101,7 +124,7 @@ Run shell commands or a script on a remote machine using SSH.
 **`sshEndpoint`** - **SSH service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+Specifies the name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
 
 - The private key and the passphrase must be specified for authentication.
 - A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
@@ -115,7 +138,7 @@ The name of an SSH service connection containing connection details for the remo
 **`sshEndpoint`** - **SSH endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+Specifies the name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
 
 - The private key and the passphrase must be specified for authentication.
 - A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
@@ -130,7 +153,7 @@ The name of an SSH service connection containing connection details for the remo
 **`runOptions`** - **Run**<br>
 `string`. Required. Allowed values: `commands`, `script` (Script File), `inline` (Inline Script). Default value: `commands`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose to either run shell commands or a shell script on the remote machine.
+Runs shell commands or a shell script on the remote machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,9 +165,10 @@ Choose to either run shell commands or a shell script on the remote machine.
 **`commands`** - **Commands**<br>
 `string`. Required when `runOptions = commands`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The shell commands to run on the remote machine. This parameter is available only when **Commands** is selected for the **Run** option. Enter each command together with its arguments on a new line of the multi-line textbox. To run multiple commands together, enter them on the same line separated by semicolons. Example: `cd /home/user/myFolder;build`.
+Specifies the shell commands to run on the remote machine. This parameter is available only when **Commands** is selected for the **Run** option. Enter each command together with its arguments on a new line of the multi-line textbox. To run multiple commands together, enter them on the same line separated by semicolons. Example: `cd /home/user/myFolder;build`.
 
-**NOTE:** Each command runs in a separate process. If you want to run a series of commands that are interdependent (for example, changing the current folder before executing a command) use the **Inline Script** option instead.
+> [!NOTE]
+> Each command runs in a separate process. If you want to run a series of commands that are interdependent (for example, changing the current folder before executing a command), use the **Inline Script** option instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +180,7 @@ The shell commands to run on the remote machine. This parameter is available onl
 **`scriptPath`** - **Shell script path**<br>
 `string`. Required when `runOptions = script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the shell script file to run on the remote machine. This parameter is available only when **Shell script** is selected for the **Run** option.
+Specifies the path to the shell script file to run on the remote machine. This parameter is available only when **Shell script** is selected for the **Run** option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +192,7 @@ Path to the shell script file to run on the remote machine. This parameter is av
 **`inline`** - **Inline Script**<br>
 `string`. Required when `runOptions = inline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Write the shell script to run on the remote machine.
+Writes the shell script to run on the remote machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +204,7 @@ Write the shell script to run on the remote machine.
 **`interpreterCommand`** - **Interpreter command**<br>
 `string`. Optional. Use when `runOptions = inline`. Default value: `/bin/bash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the command interpreter used to execute the script. Adds a shebang line to the beginning of the script. Relevant only for UNIX-like operating systems. Please use empty string for Windows-based remote hosts. [See more about shebang (#!)](https://homepages.cwi.nl/~aeb/std/shebang/unix-faq.txt).
+Specifies the path to the command interpreter used to execute the script. Adds a shebang line to the beginning of the script. Relevant only for UNIX-like operating systems. Use an empty string for Windows-based remote hosts. Learn more about [shebang (#!)](https://homepages.cwi.nl/~aeb/std/shebang/unix-faq.txt).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +216,7 @@ Path to the command interpreter used to execute the script. Adds a shebang line 
 **`args`** - **Arguments**<br>
 `string`. Optional. Use when `runOptions = script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments to pass to the shell script. This parameter is available only when **Shell script** is selected for the **Run** option.
+Specifies the arguments to pass to the shell script. This parameter is available only when **Shell script** is selected for the **Run** option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -204,7 +228,7 @@ Arguments to pass to the shell script. This parameter is available only when **S
 **`failOnStdErr`** - **Fail on STDERR**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this option is selected, the build will fail when the remote commands or script write to STDERR.
+If the value is `true`, the build fails when the remote commands or script write to `STDERR`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +240,7 @@ If this option is selected, the build will fail when the remote commands or scri
 **`interactiveSession`** - **Enable interactive session**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this option is selected, interactive session will be started - if there's a password request, it will be filled by user's password. It could be useful to run commands like 'sudo'.
+Starts an interactive session. Password requests are filled by the user's password. Interactive sessions can be useful for running commands, such as `sudo`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +252,19 @@ If this option is selected, interactive session will be started - if there's a p
 **`readyTimeout`** - **SSH handshake timeout**<br>
 `string`. Required. Default value: `20000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-How long (in milliseconds) to wait for the SSH handshake to complete.
+Specifies how long (in milliseconds) the task waits for the SSH handshake to complete.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="interactiveKeyboardAuthentication"::: -->
+:::moniker range="=azure-pipelines"
+
+**`interactiveKeyboardAuthentication`** - **Use interactive-keyboard authentication**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Enables interactive-keyboard authentication. Use this value if `PasswordAuthentication` is disabled on the target machine.
 <!-- :::editable-content-end::: -->
 <br>
 

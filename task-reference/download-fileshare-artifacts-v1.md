@@ -72,7 +72,7 @@ Download artifacts from a file share e.g \\share\drop.
 **`filesharePath`** - **File share path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path e.g \\server\folder.
+Fileshare path (for example: `\\server\folder`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +83,7 @@ Fileshare path e.g \\server\folder.
 **`filesharePath`** - **Fileshare path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path e.g \\server\folder.
+Fileshare path (`for example: \\server\folder`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Fileshare path e.g \\server\folder.
 **`artifactName`** - **Artifact name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download e.g drop.
+The name of the artifact to download (for example: `drop`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +107,7 @@ The name of the artifact to download e.g drop.
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files within the artifact.</p>.
+Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (`**`) will download all files within the artifact.</p>
 <!-- :::editable-content-end::: -->
 <br>
 
