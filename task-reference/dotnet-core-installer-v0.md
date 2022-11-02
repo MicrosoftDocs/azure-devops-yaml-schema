@@ -70,7 +70,7 @@ Specifies the exact version of the .NET Core SDK or Runtime to install.
 Find the value of `version-sdk` for installing the SDK, or `version-runtime` for installing Runtime from any releases [in GitHub](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/DotNetCoreInstallerV0/externals/releases.json).
  
 > [!NOTE]
-> The task won't work with new versions of .NET Core. Upgrade to version 2.\* of the task so you can download the latest versions of .NET Core.
+> The task won't work with new versions of .NET Core. Upgrade to [@UseDotNet2](use-dotnet-v2.md) of the task so you can download the latest versions of .NET Core.
 <!-- :::editable-content-end::: -->
 <br>
 
