@@ -74,7 +74,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 **`pipelineId`** - **The specific pipeline to download from**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build from which to download the artifacts. For example: `1764`.
+The build from which to download the artifacts. For example: `1764`. If missing, target the current pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
