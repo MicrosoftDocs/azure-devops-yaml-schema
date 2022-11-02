@@ -104,6 +104,8 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
+
 :::moniker range=">=azure-pipelines-2022"
 
 This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories.
