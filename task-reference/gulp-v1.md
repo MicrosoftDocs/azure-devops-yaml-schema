@@ -1,7 +1,7 @@
 ---
 title: gulp@1 - gulp v1 task
 description: Run the gulp Node.js streaming task-based build system.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Run the gulp Node.js streaming task-based build system.
+Use this task to run the gulp Node.js streaming task-based build system.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -39,7 +39,7 @@ Node.js streaming task based build system.
     #targets: # string. gulp Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #gulpjs: # string. gulp.js location. 
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines. Default: false.
@@ -65,7 +65,7 @@ Node.js streaming task based build system.
     #targets: # string. Gulp Task(s). 
     #arguments: # string. Arguments. 
   # Advanced
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #gulpjs: # string. gulp.js location. 
   # JUnit Test Results
     #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.
@@ -90,7 +90,7 @@ Node.js streaming task based build system.
 **`gulpFile`** - **gulp File Path**<br>
 `string`. Default value: `gulpfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the gulp file script file to run.
+The relative path from the repo root of the gulp file script file you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -101,7 +101,7 @@ Relative path from repo root of the gulp file script file to run.
 **`gulpFile`** - **Gulp File Path**<br>
 `string`. Required. Default value: `gulpfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the gulp file script file to run.
+The relative path from the repo root of the gulp file script file you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,7 +113,7 @@ Relative path from repo root of the gulp file script file to run.
 **`targets`** - **gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Space-delimited list of tasks to run. If not specified, the default task will run.
+Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,7 @@ Optional. Space-delimited list of tasks to run. If not specified, the default ta
 **`targets`** - **Gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Space-delimited list of tasks to run. If not specified, the default task will run.
+Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ Optional. Space-delimited list of tasks to run. If not specified, the default ta
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to gulp. --gulpfile is not needed since already added via gulpFile input above.
+Additional arguments passed to gulp. `--gulpfile` is not needed since it's already added via `gulpFile` input above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,7 @@ Additional arguments passed to gulp. --gulpfile is not needed since already adde
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when script is run. Defaults to the folder where the script is located.
+The current working directory to use when the script is run. This input defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +160,7 @@ Current working directory when script is run. Defaults to the folder where the s
 **`gulpjs`** - **gulp.js location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to an alternative gulp.js, relative to the working directory.
+Path to an alternative `gulp.js`, relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -172,7 +172,7 @@ Path to an alternative gulp.js, relative to the working directory.
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Gulp build to Azure Pipelines/TFS.
+Publishes JUnit test results produced by the gulp build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +183,7 @@ Select this option to publish JUnit test results produced by the Gulp build to A
 **`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Gulp build to Azure Pipelines/TFS.
+Publishes JUnit test results produced by the gulp build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,7 +195,7 @@ Select this option to publish JUnit test results produced by the Gulp build to A
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+Test results files path. You can use wildcards. For example, you can use `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -207,7 +207,7 @@ Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for
 **`testRunTitle`** - **Test Run Title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Provides a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +219,7 @@ Provide a name for the test run.
 **`enableCodeCoverage`** - **Enable code Coverage**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to enable Code Coverage using Istanbul.
+Enables Code Coverage using Istanbul.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +231,7 @@ Select this option to enable Code Coverage using Istanbul.
 **`testFramework`** - **Test Framework**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`. Allowed values: `Mocha`, `Jasmine`. Default value: `Mocha`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select your test framework.
+Specifies your test framework.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -243,7 +243,7 @@ Select your test framework.
 **`srcFiles`** - **Source Files**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your source files which you want to hookRequire().
+Provides the path to the source files you want to hookRequire().
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,7 @@ Provide the path to your source files which you want to hookRequire().
 **`testFiles`** - **Test Script Files**<br>
 `string`. Required when `enableCodeCoverage = true`. Default value: `test/*.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your test script files.
+Provides the path to your test script files.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -31,13 +31,13 @@ This task supports custom variables. If you're not familiar with how to use vari
   inputs:
     action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
     #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
-    #azureSubscription: # string. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
+    #azureSubscription: # string. Alias: connectedServiceNameARM. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
     #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
     #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
     #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
     #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
     #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.
@@ -63,13 +63,13 @@ This task supports custom variables. If you're not familiar with how to use vari
   inputs:
     action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
     #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
-    #azureSubscription: # string. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
+    #azureSubscription: # string. Alias: connectedServiceNameARM. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
     #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
     #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
     #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
     #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
     #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.
@@ -95,13 +95,13 @@ This task supports custom variables. If you're not familiar with how to use vari
   inputs:
     action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
     #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
-    #azureSubscription: # string. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
+    #azureSubscription: # string. Alias: connectedServiceNameARM. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
     #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
     #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
     #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
     #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
     #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
+    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
     #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
     #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
     #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.

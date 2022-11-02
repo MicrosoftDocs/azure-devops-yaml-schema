@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run scanner and upload the results to the SonarQube server.
+Use this task to run the scanner and upload the results to the SonarQube server.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -62,7 +62,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-To be used with the new version of the `Prepare Analysis Configuration` task.
+This task is to be used with the new version of the `Prepare Analysis Configuration` task.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

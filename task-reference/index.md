@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 08/31/2022
+ms.date: 10/13/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -83,7 +83,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure CLI Preview**<br>[AzureCLI@0](azure-cli-v0.md) | Run a Shell or Batch script with Azure CLI commands against an azure subscription. |
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
-| **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
+| **Azure file copy**<br>[AzureFileCopy@5](azure-file-copy-v5.md)<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
 | **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |

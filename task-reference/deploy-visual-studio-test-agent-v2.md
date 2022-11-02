@@ -94,7 +94,10 @@ This task is deprecated.
 **`testMachines`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. Eg: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986` Or provide output variable of other tasks. Eg: `$(variableName)`. If you are using HTTPS, name/IP of machine should match the CN in the certificate.
+This input has three options:
+* Provides a comma separated list of machine IP addresses or FQDNs along with ports. The default port is based on the selected protocol. For example, `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986`.
+* Provides the output variable of other tasks. For example, `$(variableName)`.
+* Provides a machine group name. If you are using HTTPS, the name/IP of the machine should match the CN on the certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +109,7 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`adminUserName`** - **Admin login**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the administrator login for the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +121,7 @@ Administrator login for the target machines.
 **`adminPassword`** - **Admin password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for the target machines. <br>It can accept variable defined in build or release pipelines as `$(passwordVariable)`. <br>You may mark a variable as 'secret' to secure it.
+Specifies the administrator password for the target machines. This input can accept a variable defined in build/release definitions as `$(passwordVariable)`. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +133,7 @@ Administrator password for the target machines. <br>It can accept variable defin
 **`winRmProtocol`** - **Protocol**<br>
 `string`. Required. Allowed values: `Http`, `Https`. Default value: `Http`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the protocol to use for the WinRM service connection with the machine(s). Default is `HTTP`.
+Specifies the protocol to use for the WinRM connection with the machine(s). The default value is `HTTPS`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +145,7 @@ Select the protocol to use for the WinRM service connection with the machine(s).
 **`testCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `winRmProtocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Provides the option to skip the authenticity validation of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -154,7 +157,7 @@ Select the option to skip validating the authenticity of the machine's certifica
 **`machineUserName`** - **Username**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Username with which test agent needs to run.
+Specifies the username with which test agent needs to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +169,7 @@ Username with which test agent needs to run.
 **`machinePassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the username given above.
+Specifies the password for the username given above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +181,7 @@ Password for the username given above.
 **`runAsProcess`** - **Run UI tests**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Denotes if test agent needs to run as an interactive process, needed for Coded UI Tests.
+Denotes if the test agent needs to run as an interactive process. This input is needed for Coded UI Tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -190,7 +193,7 @@ Denotes if test agent needs to run as an interactive process, needed for Coded U
 **`isDataCollectionOnly`** - **Enable data collection only**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify if test agent needs to be used only for data collection and not for running tests. Typically done on application under test(AUT) machine group.
+Optional. Specifies if the test agent is used only for data collection and not for running tests. This can typically be found on the application under the test (AUT) machine group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -202,7 +205,7 @@ Optionally specify if test agent needs to be used only for data collection and n
 **`testPlatform`** - **Test agent version**<br>
 `string`. Allowed values: `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015). Default value: `14.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of Visual Studio test agent to use. Pick an appropriate version to match the VS version using which test binaries were built.
+Specifies the version of Visual Studio test agent. Chooses an appropriate version to match the VS version using the test binaries that were built.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -214,7 +217,8 @@ The version of Visual Studio test agent to use. Pick an appropriate version to m
 **`agentLocation`** - **Test agent location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to vstf_testagent.exe from network or local location. If no path is provided, it will be automatically downloaded from the Download Center. Installer for Test Agent 2015 Update 3 from `https://go.microsoft.com/fwlink/?LinkId=827840`. Installer for Test Agent 2017 from `https://aka.ms/vs/15/release/vs_TestAgent.exe`. Refer to `https://aka.ms/testagentlocation` for details on how to use offline installers.
+Optional. Supplies the path to vstf_testagent.exe from the network or local location. If no path is provided, it will be automatically downloaded from the [download center](https://go.microsoft.com/fwlink/?LinkId=827840). [Install the Test Agent 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=827840).  
+[Install Test Agent 2017](https://aka.ms/vs/15/release/vs_TestAgent.exe).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +230,7 @@ Optionally supply the path to vstf_testagent.exe from network or local location.
 **`updateTestAgent`** - **Update test agent**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If Test Agent is already deployed on a machine, this option checks to see if an update is available for that version of the Test Agent.
+If the Test Agent is already deployed on a machine, this option checks to see if an update is available for that version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,10 +256,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in this task version.
+What's new in this task version:
 
 * Support for Visual Studio Test Agent 2017: You can now deploy and run tests using multiple versions of Visual Studio Test Agent. Versions 2015 and 2017 are supported.
-* Machine groups created from the Test hub are no longer supported. You can continue to use a list of machines or Azure resource groups.
+* Machine groups created from the test hub are no longer supported. You can continue to use a list of machines or Azure resource groups.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

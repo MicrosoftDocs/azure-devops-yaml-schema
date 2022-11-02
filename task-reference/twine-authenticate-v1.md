@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
+Use this task to authenticate uploads of Python distributions using twine. Add `-r FeedName/EndpointName --config-file $(PYPIRC_PATH)` to your twine upload command. For feeds present in this organization, use the feed name as the repository (`-r`). Otherwise, use the endpoint name defined in the service connection.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -44,7 +44,7 @@ Authenticate for uploading Python distributions using twine. Add '-r FeedName/En
 **`artifactFeed`** - **My feed (select below)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
- The Azure artifact's feed name to authenticate with twine. Select a feed to authenticate present in this organization. For project-scoped feeds, use this syntax: *projectName/feedNameSelect*.
+Specifies the Azure artifact's feed name to authenticate with twine. The authenticating feed must be present within the organization. For project-scoped feeds, use the syntax `projectName/feedNameSelect`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Authenticate for uploading Python distributions using twine. Add '-r FeedName/En
 **`pythonUploadServiceConnection`** - **Feed from external organizations**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) name from external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions. Select an endpoint to authenticate outside this organization.
+A [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) name from an external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -86,7 +86,7 @@ Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the sco
 
 ### When in my pipeline should I run this task?
 
-This task must run before you use twine to upload python distributions to an authenticated package source such as Azure Artifacts. There are no other ordering requirements. Multiple invocations of this task will not stack credentials. Every run of the task will erase any previously stored credentials.
+This task must run before you use twine to upload Python distributions to an authenticated package source, such as Azure Artifacts. There are no other ordering requirements. Multiple invocations of this task will not stack credentials. Every task run will erase any previously stored credentials.
 
 ### My agent is behind a web proxy. Will TwineAuthenticate set up twine to use my proxy?
 
@@ -104,7 +104,7 @@ If the pipeline is running in a different project than the project hosting the f
 
 The following examples demonstrate how to publish python distribution to Azure Artifacts feed and the official python registry.
 
-### Publish python distribution to Azure Artifacts feed
+### Publish Python distribution to Azure Artifacts feed
 
 In this example, we are setting authentication for publishing to a private Azure Artifacts Feed. The authenticate task creates a `.pypirc` file that contains the auth credentials required to publish a distribution to the feed.
 
@@ -131,9 +131,9 @@ In this example, we are setting authentication for publishing to a private Azure
 
 The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feedsd).
 
-### Publish python distribution to official python registry
+### Publish Python distribution to the official Python registry
 
-In this example, we are setting authentication for publishing to official python registry. Create a [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) entry for [pypi](https://pypi.org). The authenticate task uses that service connection to create a `.pypirc` file that contains the auth credentials required to publish the distribution.
+In this example, we are setting up authentication for publishing to the official Python registry. Create a [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) entry for [pypi](https://pypi.org). The authenticate task uses that service connection to create a `.pypirc` file that contains the auth credentials required to publish the distribution.
 
 ```YAML 
 # Install python distributions like wheel, twine etc
@@ -161,7 +161,22 @@ In this example, we are setting authentication for publishing to official python
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Package |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

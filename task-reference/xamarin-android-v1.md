@@ -1,7 +1,7 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build an Android app with Xamarin.
+Use this task to build an Android app with Xamarin.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,23 +27,23 @@ Build an Android app with Xamarin.
 # Build an Android app with Xamarin.
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*.csproj' # string. Required. Project. Default: **/*.csproj.
+    projectFile: '**/*.csproj' # string. Alias: project. Required. Project. Default: **/*.csproj.
     #target: # string. Target. 
-    #outputDirectory: # string. Output directory. 
+    #outputDirectory: # string. Alias: outputDir. Output directory. 
     #configuration: # string. Configuration. 
     #createAppPackage: true # boolean. Create app package. Default: true.
     #clean: false # boolean. Clean. Default: false.
   # MSBuild Options
-    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersionOption: '15.0' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
-    #msbuildFile: # string. Required when msbuildLocationMethod = location. MSBuild location. 
-    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
+    #msbuildLocationOption: 'version' # 'version' | 'location'. Alias: msbuildLocationMethod. MSBuild. Default: version.
+    #msbuildVersionOption: '15.0' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Alias: msbuildVersion. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
+    #msbuildFile: # string. Alias: msbuildLocation. Required when msbuildLocationMethod = location. MSBuild location. 
+    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Alias: msbuildArchitecture. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
     #msbuildArguments: # string. Additional arguments. 
   # JDK Options
-    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Required when jdkSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: jdkSelection. Required. Select JDK to use for the build. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when jdkSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -55,23 +55,23 @@ Build an Android app with Xamarin.
 # Build an Android app with Xamarin.
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/*.csproj' # string. Required. Project. Default: **/*.csproj.
+    projectFile: '**/*.csproj' # string. Alias: project. Required. Project. Default: **/*.csproj.
     #target: # string. Target. 
-    #outputDirectory: # string. Output directory. 
+    #outputDirectory: # string. Alias: outputDir. Output directory. 
     #configuration: # string. Configuration. 
     #createAppPackage: true # boolean. Create app package. Default: true.
     #clean: false # boolean. Clean. Default: false.
   # MSBuild Options
-    #msbuildLocationOption: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersionOption: '15.0' # 'latest' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
-    #msbuildFile: # string. Required when msbuildLocationMethod = location. MSBuild location. 
-    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
+    #msbuildLocationOption: 'version' # 'version' | 'location'. Alias: msbuildLocationMethod. MSBuild. Default: version.
+    #msbuildVersionOption: '15.0' # 'latest' | '15.0' | '14.0' | '12.0' | '4.0'. Alias: msbuildVersion. Optional. Use when msbuildLocationMethod = version. MSBuild version. Default: 15.0.
+    #msbuildFile: # string. Alias: msbuildLocation. Required when msbuildLocationMethod = location. MSBuild location. 
+    #msbuildArchitectureOption: 'x86' # 'x86' | 'x64'. Alias: msbuildArchitecture. Optional. Use when msbuildLocationMethod = version. MSBuild architecture. Default: x86.
     #msbuildArguments: # string. Additional arguments. 
   # JDK Options
-    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Required. Select JDK to use for the build. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Required when jdkSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    jdkOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: jdkSelection. Required. Select JDK to use for the build. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when jdkSelection = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when jdkSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
 ```
 
 :::moniker-end
@@ -96,7 +96,7 @@ Build an Android app with Xamarin.
 **`projectFile`** - **Project**<br>
 Input alias: `project`. `string`. Required. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards can be used, for more information see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).  For example, `**/*.csproj` for all csproj files in all subfolders.  The project must have a PackageForAndroid target if `Create App Package` is selected.
+Specifies the relative path from repo root of `Xamarin.Android` project(s) to build. Wildcards can be used. For more information, see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/*.csproj` for all csproj files in all subfolders. The project must have a `PackageForAndroid` target if `Create App Package` is selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Relative path from repo root of Xamarin.Android project(s) to build.  Wildcards 
 **`target`** - **Target**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Build these targets in this project. Use a semicolon to separate multiple targets.
+Specifies which targets to build in this project. Use a semicolon to separate multiple targets.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Build these targets in this project. Use a semicolon to separate multiple target
 **`outputDirectory`** - **Output directory**<br>
 Input alias: `outputDir`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally provide the output directory for the build. Example: **$(build.binariesDirectory)\/bin\/Release**.
+Optional. Provides the output directory for the build. Example: **$(build.binariesDirectory)\/bin\/Release**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,9 +132,10 @@ Optionally provide the output directory for the build. Example: **$(build.binari
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the configuration you want to build such as `debug` or `release`.
+Specifies the configuration you want to build. For example, `debug` or `release`.
 
-Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
+> [!TIP]
+> Declare a build variable such as `BuildConfiguration` on the variables tab (selecting `Allow` at Queue Time) and reference it here as `$(BuildConfiguration)`. You can then modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +147,7 @@ Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab 
 **`createAppPackage`** - **Create app package**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the target (\/t:PackageForAndroid) during build to generate an APK.
+Passes the target, `(/t:PackageForAndroid)`, during the build to generate an APK.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +159,7 @@ Passes the target (\/t:PackageForAndroid) during build to generate an APK.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passes the clean target (\/t:clean) during build.
+Passes the clean target, `(/t:clean)`, during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +171,7 @@ Passes the clean target (\/t:clean) during build.
 **`msbuildLocationOption`** - **MSBuild**<br>
 Input alias: `msbuildLocationMethod`. `string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to MSBuild (on Windows) or xbuild (on macOS). Default behavior is to search for the latest version.
+Specifies the path to MSBuild (on Windows) or xbuild (on macOS). The default behavior is to search for the latest version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +183,7 @@ Path to MSBuild (on Windows) or xbuild (on macOS). Default behavior is to search
 **`msbuildVersionOption`** - **MSBuild version**<br>
 Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version isn't found, the latest version is used. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
+Specifies the use of the latest version if the preferred version cannot be found. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +194,7 @@ If the preferred version isn't found, the latest version is used. On macOS, xbui
 **`msbuildVersionOption`** - **MSBuild version**<br>
 Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
+Specifies the use of the latest version if the preferred version cannot be found. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,7 +206,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildFile`** - **MSBuild location**<br>
 Input alias: `msbuildLocation`. `string`. Required when `msbuildLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, supply the path to MSBuild (on Windows) or xbuild (on macOS).
+Optional. Supplies the path to MSBuild (on Windows) or xbuild (on macOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -217,7 +218,7 @@ Optionally, supply the path to MSBuild (on Windows) or xbuild (on macOS).
 **`msbuildArchitectureOption`** - **MSBuild architecture**<br>
 Input alias: `msbuildArchitecture`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, supply the architecture (x86, x64) of the MSBuild you want to run.
+Supplies the architecture (x86, x64) of the MSBuild you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -229,7 +230,7 @@ Optionally, supply the architecture (x86, x64) of the MSBuild you want to run.
 **`msbuildArguments`** - **Additional arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to MSBuild (on Windows) or xbuild (on macOS).
+Specifies additional arguments passed to MSBuild (on Windows) or xbuild (on macOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -241,7 +242,7 @@ Additional arguments passed to MSBuild (on Windows) or xbuild (on macOS).
 **`jdkOption`** - **Select JDK to use for the build**<br>
 Input alias: `jdkSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the JDK to use during the build by selecting a JDK version that will be discovered during builds or, manually enter a JDK path.
+Specifies the JDK version that the task uses during the build process. The `JDKVersion` value specifies a JDK version that the task discovers during builds. The `Path` value specifies a file path for a JDK version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -253,7 +254,7 @@ Select the JDK to use during the build by selecting a JDK version that will be d
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the selected JDK version during the build.
+Specifies the JDK version to use during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -264,7 +265,7 @@ Use the selected JDK version during the build.
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the selected JDK version during the build.
+Specifies the JDK version to use during the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +277,7 @@ Use the selected JDK version during the build.
 **`jdkDirectory`** - **JDK path**<br>
 Input alias: `jdkUserInputPath`. `string`. Required when `jdkSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the JDK version at specified path during the build.
+Specifies the JDK version to use during the build at the `jdkSelection` path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -288,7 +289,7 @@ Use the JDK version at specified path during the build.
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the architecture (x86, x64) of JDK.
+Supplies the architecture (x86, x64) of JDK.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -38,7 +38,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -64,7 +64,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -90,7 +90,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -116,7 +116,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -142,7 +142,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -212,7 +212,7 @@ Enters or selects the name of an existing Azure Functions App. The Function Apps
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
-`boolean`. Optional. Use when `appType != ""`. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Deploys to an existing deployment slot or Azure App Service Environment. For both targets, the task needs a Resource group name.
 
@@ -341,7 +341,7 @@ Enter the application settings using the syntax `-key value` (for example: `-Por
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the configuration strings using the syntax `-key value` (for example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`). Enclose values that contain spaces in double quotes. 
+Enter the configuration strings using the syntax `-key value` (for example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`). Enclose values that contain spaces in double quotes.
 <!-- :::editable-content-end::: -->
 <br>
 

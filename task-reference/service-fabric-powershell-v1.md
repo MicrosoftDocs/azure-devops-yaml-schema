@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
+Use this task to run a PowerShell script within the context of an Azure Service Fabric cluster connection. Runs any PowerShell command or script in a PowerShell session that has a Service Fabric cluster connection initialized.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run a PowerShell script in the context of an Azure Service Fabric cluster connec
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Run a PowerShell script within the context of an Azure Service Fabric cluster connection.
+Use this task to run a PowerShell script within the context of an Azure Service Fabric cluster connection. Runs any PowerShell command or script in a PowerShell session that has a Service Fabric cluster connection initialized.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -35,7 +35,7 @@ Run a PowerShell script within the context of an Azure Service Fabric cluster co
 # Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
 - task: ServiceFabricPowerShell@1
   inputs:
-    clusterConnection: # string. Required. Cluster Service Connection. 
+    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
     ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
@@ -51,7 +51,7 @@ Run a PowerShell script within the context of an Azure Service Fabric cluster co
 # Run a PowerShell script within the context of an Azure Service Fabric cluster connection.
 - task: ServiceFabricPowerShell@1
   inputs:
-    clusterConnection: # string. Required. Cluster Service Connection. 
+    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
     ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
@@ -80,7 +80,7 @@ Run a PowerShell script within the context of an Azure Service Fabric cluster co
 **`clusterConnection`** - **Cluster Service Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Azure Service Fabric cluster, which will have an established service connection when the specified PowerShell script is executed.
+Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -91,7 +91,7 @@ The Azure Service Fabric cluster, which will have an established service connect
 **`clusterConnection`** - **Cluster Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Azure Service Fabric cluster, which will have an established service connection when the specified PowerShell script is executed.
+Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +115,9 @@ Specifies whether the script is provided as a file or inline in the task.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the PowerShell script to run. Can include wildcards and variables. Example: `$(system.defaultworkingdirectory)/**/drop/projectartifacts/**/docker-compose.yml`. **Note**: combining compose files is not supported as part of this task.
+Specifies the path to the PowerShell script to run. Can include wildcards and variables. Example: `$(system.defaultworkingdirectory)/**/drop/projectartifacts/**/docker-compose.yml`.
+> [!NOTE]
+> Combining Compose files is not supported as part of this task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -127,7 +129,7 @@ The path to the PowerShell script to run. Can include wildcards and variables. E
 **`Inline`** - **Inline Script**<br>
 `string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your PowerShell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The PowerShell commands to run on the build agent. Learn more about [PowerShell tasks](/azure/devops/pipelines/tasks/utility/powershell).
+Specifies the PowerShell commands to run on the build agent. Learn more about [PowerShell tasks](/azure/devops/pipelines/tasks/utility/powershell).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -139,7 +141,7 @@ The PowerShell commands to run on the build agent. Learn more about [PowerShell 
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The additional parameters to pass to PowerShell. Can be either ordinal or named parameters.
+Specifies the additional parameters to pass to PowerShell. Can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -27,20 +27,20 @@ Use this task in a pipeline to sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@3
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
+    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
   # Signing Options
     #apksign: true # boolean. Sign the APK. Default: true.
-    apksignerKeystoreFile: # string. Required when apksign = true. Keystore file. 
-    #apksignerKeystorePassword: # string. Optional. Use when apksign = true. Keystore password. 
-    #apksignerKeystoreAlias: # string. Optional. Use when apksign = true. Alias. 
-    #apksignerKeyPassword: # string. Optional. Use when apksign = true. Key password. 
+    apksignerKeystoreFile: # string. Alias: keystoreFile. Required when apksign = true. Keystore file. 
+    #apksignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when apksign = true. Keystore password. 
+    #apksignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when apksign = true. Alias. 
+    #apksignerKeyPassword: # string. Alias: keyPass. Optional. Use when apksign = true. Key password. 
     #apksignerVersion: 'latest' # string. Optional. Use when apksign = true. apksigner version. Default: latest.
     #apksignerArguments: '--verbose' # string. Optional. Use when apksign = true. apksigner arguments. Default: --verbose.
-    #apksignerFile: # string. Optional. Use when apksign = true. apksigner location. 
+    #apksignerFile: # string. Alias: apksignerLocation. Optional. Use when apksign = true. apksigner location. 
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
     #zipalignVersion: 'latest' # string. Optional. Use when zipalign = true. Zipalign version. Default: latest.
-    #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
+    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
 ```
 
 :::moniker-end
@@ -52,18 +52,18 @@ Use this task in a pipeline to sign and align Android APK files.
 # Sign and align Android APK files.
 - task: AndroidSigning@3
   inputs:
-    apkFiles: '**/*.apk' # string. Required. APK files. Default: **/*.apk.
+    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
   # Signing Options
     #apksign: true # boolean. Sign the APK. Default: true.
-    apksignerKeystoreFile: # string. Required when apksign = true. Keystore file. 
-    #apksignerKeystorePassword: # string. Optional. Use when apksign = true. Keystore password. 
-    #apksignerKeystoreAlias: # string. Optional. Use when apksign = true. Alias. 
-    #apksignerKeyPassword: # string. Optional. Use when apksign = true. Key password. 
+    apksignerKeystoreFile: # string. Alias: keystoreFile. Required when apksign = true. Keystore file. 
+    #apksignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when apksign = true. Keystore password. 
+    #apksignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when apksign = true. Alias. 
+    #apksignerKeyPassword: # string. Alias: keyPass. Optional. Use when apksign = true. Key password. 
     #apksignerArguments: '--verbose' # string. Optional. Use when apksign = true. apksigner arguments. Default: --verbose.
-    #apksignerFile: # string. Optional. Use when apksign = true. apksigner location. 
+    #apksignerFile: # string. Alias: apksignerLocation. Optional. Use when apksign = true. apksigner location. 
   # Zipalign Options
     #zipalign: true # boolean. Zipalign. Default: true.
-    #zipalignFile: # string. Optional. Use when zipalign = true. Zipalign location.
+    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
 ```
 
 :::moniker-end

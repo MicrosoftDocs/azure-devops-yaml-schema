@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Cache files between runs.
+Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -44,7 +44,7 @@ Cache files between runs.
 **`key`** - **Key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key (unique identifier) for the cache. This should be a newline-delimited list of strings or file paths. File paths can be absolute or relative to $(System.DefaultWorkingDirectory).
+The key (unique identifier) for the cache. This should be a newline-delimited list of strings or file paths. File paths can be absolute or relative to `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Key (unique identifier) for the cache. This should be a newline-delimited list o
 **`path`** - **Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the folder to cache. Can be fully-qualified or relative to $(System.DefaultWorkingDirectory). Wildcards are not supported. [Variables](https://go.microsoft.com/fwlink/?LinkID=550988) are supported.
+The path of the folder to cache. Can be fully qualified or relative to `$(System.DefaultWorkingDirectory)`. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ Path of the folder to cache. Can be fully-qualified or relative to $(System.Defa
 **`cacheHitVar`** - **Cache hit variable**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Variable to set to 'true' when the cache is restored (i.e. a cache hit), otherwise set to 'false'.
+The variable to set to `true` when the cache is restored (i.e. a cache hit). Otherwise, sets the variable to `false`.
 <!-- :::editable-content-end::: -->
 <br>
 

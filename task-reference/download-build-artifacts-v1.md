@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@1 - Download build artifacts v1 task
 description: Download files that were saved as artifacts of a completed build.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -29,7 +29,7 @@ Download files that were saved as artifacts of a completed build.
   inputs:
     buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Required when buildType == specific. Build pipeline. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when buildType == specific && buildVersionToDownload != specific. Download artifacts even from partially succeeded builds. Default: false.

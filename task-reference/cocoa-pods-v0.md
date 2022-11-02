@@ -1,25 +1,19 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # CocoaPods@0 - CocoaPods v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-<!-- :::editable-content-end::: -->
+Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/pod-install-vs-update.html).
 
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This task runs 'pod install'.
+[CocoaPods](https://cocoapods.org/) is the dependency manager for Swift and Objective-C Cocoa projects. This task optionally runs `pod repo update` and then runs `pod install`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -35,7 +29,7 @@ CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This
 # Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
 - task: CocoaPods@0
   inputs:
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
   # Advanced
     forceRepoUpdate: false # boolean. Required. Force repo update. Default: false.
     #projectDirectory: # string. Project directory.
@@ -50,7 +44,7 @@ CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This
 # CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This task runs 'pod install'.
 - task: CocoaPods@0
   inputs:
-    #workingDirectory: # string. Working directory. 
+    #workingDirectory: # string. Alias: cwd. Working directory. 
   # Advanced
     forceRepoUpdate: false # boolean. Required. Force repo update. Default: false.
     #projectDirectory: # string. Project directory.
@@ -78,7 +72,7 @@ CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the working directory in which to execute this task. If left empty, the repository directory will be used.
+Specifies the working directory in which to execute this task. If left empty, the repository directory will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +84,7 @@ Specify the working directory in which to execute this task. If left empty, the 
 **`forceRepoUpdate`** - **Force repo update**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selecting this option will force running 'pod repo update' before install.
+Selecting this option will force running `pod repo update` before installation.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +96,7 @@ Selecting this option will force running 'pod repo update' before install.
 **`projectDirectory`** - **Project directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally specify the path to the root of the project directory. If left empty, the project specified in the Podfile will be used. If no project is specified, then a search for an Xcode project will be made. If more than one Xcode project is found, an error will occur.
+Optional. Specifies the path to the root of the project directory. If left empty, the task uses the specified project in the podfile. If no project is specified, then the task searches for an Xcode project. If the task finds more than one Xcode project, an error will occur.
 <!-- :::editable-content-end::: -->
 <br>
 

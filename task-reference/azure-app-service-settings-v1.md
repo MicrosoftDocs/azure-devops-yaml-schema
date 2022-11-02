@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 description: Update/Add App settings an Azure Web App for Linux or Windows.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -27,7 +27,7 @@ Updates or adds app service settings in an Azure Web App for Linux or Windows.
 # Update/Add App settings an Azure Web App for Linux or Windows.
 - task: AzureAppServiceSettings@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     appName: # string. Required. App Service name. 
     resourceGroupName: # string. Required. Resource group. 
     #slotName: 'production' # string. Slot. Default: production.
@@ -113,7 +113,6 @@ Application settings in JSON syntax. Enclose values containing spaces in double 
    }
 ]
 ```
-
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +190,8 @@ None.
 
 Use this task to configure App settings, connection strings and other general settings in bulk using JSON syntax on your web app or any of its deployment slots. 
 The task works on cross platform Azure Pipelines agents running Windows, Linux or Mac.
-The task works for ASP.NET, ASP.NET Core, PHP, Java, Python, Go and Node.js based web applications.<!-- :::editable-content-end::: -->
+The task works for ASP.NET, ASP.NET Core, PHP, Java, Python, Go and Node.js based web applications.
+<!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->

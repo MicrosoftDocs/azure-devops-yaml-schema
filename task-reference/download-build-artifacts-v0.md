@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ Download Build Artifacts.
   inputs:
     buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Required when buildType == specific. Build pipeline. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when buildType == specific && buildVersionToDownload != specific. Download artifacts even from partially succeeded builds. Default: false.
@@ -67,7 +67,7 @@ Download Build Artifacts.
   inputs:
     buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Required when buildType == specific. Build pipeline. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
     #allowPartiallySucceededBuilds: false # boolean. Optional. Use when buildType == specific && buildVersionToDownload != specific. Download artifacts even from partially succeeded builds. Default: false.
@@ -93,7 +93,7 @@ Download Build Artifacts.
   inputs:
     buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Required when buildType == specific. Build pipeline. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
     #branchName: 'refs/heads/master' # string. Required when buildType == specific && buildVersionToDownload == latestFromBranch. Branch name. Default: refs/heads/master.

@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -45,15 +45,15 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
   inputs:
     buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Required when buildType == specific. Build pipeline. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
     #branchName: 'refs/heads/master' # string. Required when buildType == specific && buildVersionToDownload == latestFromBranch. Branch name. Default: refs/heads/master.
-    #pipelineId: # string. Required when buildType == specific && buildVersionToDownload == specific. Build. 
+    #pipelineId: # string. Alias: buildId. Required when buildType == specific && buildVersionToDownload == specific. Build. 
     #tags: # string. Optional. Use when buildType == specific && buildVersionToDownload != specific. Build Tags. 
     #artifactName: # string. Artifact name. 
     #itemPattern: '**' # string. Matching pattern. Default: **.
-    targetPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
+    targetPath: '$(System.ArtifactsDirectory)' # string. Alias: downloadPath. Required. Destination directory. Default: $(System.ArtifactsDirectory).
 ```
 
 :::moniker-end
@@ -67,15 +67,15 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
   inputs:
     buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
     #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Required when buildType == specific. Build pipeline. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
     #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
     #branchName: 'refs/heads/master' # string. Required when buildType == specific && buildVersionToDownload == latestFromBranch. Branch name. Default: refs/heads/master.
-    #pipelineId: # string. Required when buildType == specific && buildVersionToDownload == specific. Build. 
+    #pipelineId: # string. Alias: buildId. Required when buildType == specific && buildVersionToDownload == specific. Build. 
     #tags: # string. Optional. Use when buildType == specific && buildVersionToDownload != specific. Build Tags. 
     #artifactName: # string. Artifact name. 
     #itemPattern: '**' # string. Matching pattern. Default: **.
-    targetPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
+    targetPath: '$(System.ArtifactsDirectory)' # string. Alias: downloadPath. Required. Destination directory. Default: $(System.ArtifactsDirectory).
 ```
 
 :::moniker-end

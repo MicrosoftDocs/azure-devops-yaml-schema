@@ -11,7 +11,11 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Index your source code and publish symbols to a file share.
+Use this task to index your source code and publish your symbols to a file share or Azure Artifacts symbol server.
+
+Indexing your source code allows you to use your symbol files to debug your application on a machine other than the one you used to build your application. For example, you can debug an application built by a build agent from a dev machine that does not have the source code.
+
+Symbol servers enable your debugger to automatically retrieve the correct symbol files without knowing product names, build numbers, or package names.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -61,7 +65,7 @@ Index your source code and publish symbols to a file share.
 **`SymbolsPath`** - **Path to publish symbols**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path to the symbol store share.  If this value is not set, source indexing will occur but symbols will not be published.
+Specifies the path to the symbol store share.  If this value is not set, source indexing will occur, but symbols will not be published.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -73,7 +77,7 @@ Specify the path to the symbol store share.  If this value is not set, source in
 **`SearchPattern`** - **Search pattern**<br>
 `string`. Required. Default value: `**/bin/**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The pattern used to discover the pdb files to publish.
+Specifies the pattern used to discover the PDB files to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -85,7 +89,7 @@ The pattern used to discover the pdb files to publish.
 **`SymbolsFolder`** - **Path to symbols folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the folder that is searched for symbol files.  The default is $(Build.SourcesDirectory).  Otherwise specify a rooted path, for example: $(Build.BinariesDirectory)/MyProject.
+Specifies the path to the folder that is searched for symbol files.  The default is `$(Build.SourcesDirectory)`.  Otherwise, specify a rooted path, for example: `$(Build.BinariesDirectory)/MyProject`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -97,7 +101,7 @@ The path to the folder that is searched for symbol files.  The default is $(Buil
 **`SkipIndexing`** - **Skip indexing**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to skip injecting source server information into the PDB files.
+Specifies whether to skip injecting source server information into the PDB files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,8 +112,7 @@ Indicates whether to skip injecting source server information into the PDB files
 
 **`TreatNotIndexedAsWarning`** - **Warn if not indexed**<br>
 `boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to warn if sources are not indexed for a PDB file. Otherwise the messages are logged as normal output.
+Specifies whether to warn if sources are not indexed for a PDB file. Otherwise, the messages are logged as normal output.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +136,7 @@ The number of minutes to wait before failing the step.
 **`SymbolsProduct`** - **Product**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the product parameter to symstore.exe.  The default is $(Build.DefinitionName).
+Specifies the product parameter to `symstore.exe`.  The default is `$(Build.DefinitionName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +148,7 @@ Specify the product parameter to symstore.exe.  The default is $(Build.Definitio
 **`SymbolsVersion`** - **Version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version parameter to symstore.exe.  The default is $(Build.BuildNumber).
+Specifies the version parameter to `symstore.exe`.  The default is `$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +160,7 @@ Specify the version parameter to symstore.exe.  The default is $(Build.BuildNumb
 **`SymbolsArtifactName`** - **Artifact name**<br>
 `string`. Default value: `Symbols_$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the artifact name to use for the Symbols artifact.  The default is Symbols_$(BuildConfiguration).
+Specifies the artifact name to use for the symbols artifact.  The default is `Symbols_$(BuildConfiguration)`.
 <!-- :::editable-content-end::: -->
 <br>
 

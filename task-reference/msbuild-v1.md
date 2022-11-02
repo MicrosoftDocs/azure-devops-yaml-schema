@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build with MSBuild.
+Use this task to build with MSBuild.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -117,14 +117,15 @@ Build with MSBuild.
 **`solution`** - **Project**<br>
 `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If you want to build multiple projects, specify search criteria. You can use a single-folder wildcard (*) and recursive wildcards (**). For example, `**.*proj` searches for all MSBuild project (.*proj) files in all subdirectories.
+If you want to build multiple projects, specify search criteria. You can use a single-folder wildcard (\*) and recursive wildcards (\*\*). For example, `**.*proj` searches for all MSBuild project (`.*proj`) files in all subdirectories.
 
 Make sure the projects you specify are downloaded by this build pipeline. On the Repository tab:
 
 - If you use TFVC, make sure that the project is a child of one of the mappings on the Repository tab.
 - If you use Git, make sure that the project or project is in your Git repo, in a branch that you're building.
 
-Tip: If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
+> [!TIP]
+> If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +148,7 @@ Tip: If you are building a solution, we recommend you use the [Visual Studio bui
 **`msbuildVersion`** - **MSBuild Version**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
+If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +159,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildVersion`** - **MSBuild Version**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
+If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,7 +170,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildVersion`** - **MSBuild Version**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found will be used instead. On an macOS agent, xbuild (Mono) will be used if version is lower than 15.0.
+If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +182,7 @@ If the preferred version cannot be found, the latest version found will be used 
 **`msbuildArchitecture`** - **MSBuild Architecture**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the architecture (x86, x64) of MSBuild to run.
+Supplies the MSBuild architecture (x86, x64) to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +194,7 @@ Optionally supply the architecture (x86, x64) of MSBuild to run.
 **`msbuildLocation`** - **Path to MSBuild**<br>
 `string`. Optional. Use when `msbuildLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to MSBuild.
+Supplies the path to MSBuild.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,10 +206,9 @@ Optionally supply the path to MSBuild.
 **`platform`** - **Platform**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tips:
-
-- If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
-- Declare a build variable such as `BuildPlatform` on the Variables tab (selecting Allow at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
+> [!TIP]
+> - If you are targeting an MSBuild project (.*proj) file instead of a solution, specify `AnyCPU` (no whitespace).
+> - Declare a build variable such as `BuildPlatform` on the Variables tab (selecting `Allow` at Queue Time) and reference it here as `$(BuildPlatform)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +220,8 @@ Tips:
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting Allow at Queue Time) and reference it here as $`(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
+> [!TIP]
+> Declare a build variable such as `BuildConfiguration` on the Variables tab (selecting `Allow` at Queue Time) and reference it here as `$(BuildConfiguration)`. This way you can modify the platform when you queue the build and enable building multiple configurations.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +233,7 @@ Tip: Declare a build variable such as `BuildConfiguration` on the Variables tab 
 **`msbuildArguments`** - **MSBuild Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to MSBuild (on Windows) and xbuild (on macOS).
+Specifies additional arguments passed to MSBuild (on Windows) and xbuild (on macOS).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,9 +245,9 @@ Additional arguments passed to MSBuild (on Windows) and xbuild (on macOS).
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set to False if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set Clean repository to False.
-Set to True if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
-See, [repo options](/azure/devops/pipelines/repos/pipeline-options-for-git)
+Set to `False` if you want to make this an incremental build. This setting might reduce your build time, especially if your codebase is large. This option has no practical effect unless you also set the `Clean` repository to `False`.
+Set to `True` if you want to rebuild all the code in the code projects. This is equivalent to the MSBuild `/target:clean` argument.
+For more information, see [repo options](/azure/devops/pipelines/repos/pipeline-options-for-git)
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,7 +259,7 @@ See, [repo options](/azure/devops/pipelines/repos/pipeline-options-for-git)
 **`maximumCpuCount`** - **Build in Parallel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If your MSBuild target configuration is compatible with building in parallel, you can optionally check this input to pass the /m switch to MSBuild (Windows only). If your target configuration is not compatible with building in parallel, checking this option may cause your build to result in file-in-use errors, or intermittent or inconsistent build failures.
+If your MSBuild target configuration is compatible with building in parallel, you can  check this input to pass the `/m` switch to MSBuild (Windows only). If your target configuration is not compatible with building in parallel, checking this option may cause your build to result in `file-in-use` errors, or intermittent or inconsistent build failures.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -282,7 +283,7 @@ This option is deprecated. To restore NuGet packages, add a [NuGet](/azure/devop
 **`logProjectEvents`** - **Record Project Details**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally record timeline details for each project (Windows only).
+Optionally records timeline details for each project (Windows only).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -294,7 +295,7 @@ Optionally record timeline details for each project (Windows only).
 **`createLogFile`** - **Create Log File**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally create a log file (Windows only).
+Optionally creates a log file (Windows only).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -306,7 +307,7 @@ Optionally create a log file (Windows only).
 **`logFileVerbosity`** - **Log File Verbosity**<br>
 `string`. Optional. Use when `createLogFile = true`. Allowed values: `quiet`, `minimal`, `normal`, `detailed`, `diagnostic`. Default value: `normal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional log file verbosity.
+Specifies log file verbosity.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -339,7 +340,7 @@ If you are building a solution, in most cases you should use the [Visual Studio 
 * Sets the `/p:VisualStudioVersion` property for you. This forces MSBuild to use a particular set of targets that increase the likelihood of a successful build.
 * Specifies the MSBuild version argument.
 
-In some cases, you might need to use the MSBuild task. For example, you should use it if you are building code projects apart from a solution.
+In some cases, you might need to use the `MSBuild` task. For example, you should use it if you are building code projects apart from a solution.
 
 ### Where can I learn more about MSBuild?
 
@@ -348,68 +349,26 @@ In some cases, you might need to use the MSBuild task. For example, you should u
 [MSBuild command-line reference](/visualstudio/msbuild/msbuild-command-line-reference)
 
 <a name="multiconfiguration"></a>
+
 ### How do I build multiple configurations for multiple platforms?
 
-<ol>
-   <li>
-      <p>
-         On the Variables tab, make sure you&#39;ve got variables defined for your configurations and platforms. To specify multiple values, separate them with commas.
-      </p>
-      <p>For example, for a .NET app you could specify:</p>
-      <table>
-         <thead>
-            <tr>
-               <td>Name</td>
-               <td>Value</td>
-            </tr>
-         </thead>
-         <tr>
-            <td>BuildConfiguration</td>
-            <td>debug, release</td>
-         </tr>
-         <tr>
-            <td>BuildPlatform</td>
-            <td>any cpu</td>
-         </tr>
-      </table>
-      <p>For example, for a C++ app you could specify:</p>
-      <table>
-         <thead>
-            <tr>
-               <td>Name</td>
-               <td>Value</td>
-            </tr>
-         </thead>
-         <tr>
-            <td>BuildConfiguration</td>
-            <td>debug, release</td>
-         </tr>
-         <tr>
-            <td>BuildPlatform</td>
-            <td>x86, x64</td>
-         </tr>
-      </table>
-   </li>
-   <li>
-      <p>On the Options tab, select <strong>MultiConfiguration</strong> and specify the Multipliers, separated by commas. For example: <code>BuildConfiguration, BuildPlatform</code></p>
-      <p>Select Parallel if you want to distribute the jobs (one for each combination of values) to multiple agents in parallel if they are available.</p>
-   </li>
-   <li>
-      <p>On the Build tab, select this step and specify the Platform and Configuration arguments. For example:</p>
-      <ul>
-         <li>Platform: <code>$(BuildPlatform)</code></li>
-         <li>Configuration: <code>$(BuildConfiguration)</code></li>
-      </ul>
-   </li>
-</ol>
+1. On the Variables tab, make sure you have variables defined for your configurations and platforms. To specify multiple values, separate them with commas. For example:
+   - For a .NET app, you could specify `BuildConfiguration` with debug and release values, and you could specify `BuildPlatform` with any CPU value.
+   - For a C++ app, you could specify `BuildConfiguration` with debug and release values, and you could specify `BuildPlatform` with any x86 and x64 values.
+
+1. On the Options tab, select `MultiConfiguration` and specify the `Multipliers`, separated by commas. For example: `BuildConfiguration, BuildPlatform`
+Select `Parallel` if you want to distribute the jobs (one for each combination of values) to multiple agents in parallel if they are available.
+1. On the Build tab, select this step and specify the `Platform` and `Configuration` arguments. For example:
+   - Platform: `$(BuildPlatform)`
+   - Configuration: `$(BuildConfiguration)`
 
 ### Can I build TFSBuild.proj files?
 
-You cannot build TFSBuild.proj files. These kinds of files are generated by TFS 2005 and 2008.  These files contain tasks and targets are supported only using [XAML builds](/previous-versions/visualstudio/visual-studio-2013/ms181709(v=vs.120)).
+You cannot build `TFSBuild.proj` files. These kinds of files are generated by `TFS 2005` and `TFS 2008`.  These files contain tasks, and targets are supported only using [XAML builds](/previous-versions/visualstudio/visual-studio-2013/ms181709(v=vs.120)).
 
 ### Troubleshooting
 
-This section provides troubleshooting tips for common issues that a user might encounter when using the MSBuild task.
+This section provides troubleshooting tips for common issues that a user might encounter when using the `MSBuild` task.
 
 * [Build failed with the following error: An internal failure occurred while running MSBuild](#build-failed-with-the-following-error-an-internal-failure-occurred-while-running-msbuild)
 
@@ -422,7 +381,7 @@ This section provides troubleshooting tips for common issues that a user might e
 
 * Change in the MSBuild version.
 * Issues with a third-party extension.
-* New updates to Visual Studio that can cause missing assemblies on the build agent. 
+* New updates to Visual Studio that can cause missing assemblies on the build agent.
 * Moved or deleted some of the necessary NuGet packages.
 
 ##### Troubleshooting suggestions
@@ -452,12 +411,12 @@ In addition to the pipeline diagnostic logs, you can also check these other type
 
 If you are using a hosted build agent, you might want to try to reproduce the error locally. This will help you to narrow down whether the failure is the result of the build agent or the build task.
 
-Run the same MSBuild command on your local machine using the same arguments. Check out [MSBuild command](/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019&preserve-view=true) for reference
+Run the same `MSBuild` command on your local machine using the same arguments. Check out [MSBuild command](/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019&preserve-view=true) for reference.
 
 > [!TIP]
 > If you can reproduce the problem on your local machine, then your next step is to investigate the [MSBuild](/visualstudio/msbuild/msbuild?view=vs-2019&preserve-view=true) issue.
 
-For more information on [Microsoft hosted agents](/azure/devops/pipelines/agents/hosted)
+Learn more about [Microsoft hosted agents](/azure/devops/pipelines/agents/hosted).
 
 To setup your own self-hosted agent and run the build jobs:
 

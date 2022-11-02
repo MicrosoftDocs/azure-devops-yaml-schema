@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy a SQL Server database using DACPAC.
+Use this task to deploy a SQL Server database using DACPAC.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +21,7 @@ This task is deprecated.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy SQL Server Database using DACPAC.
+Use this task to deploy a SQL Server database using DACPAC.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -114,7 +114,7 @@ This task is deprecated.
 **`EnvironmentName`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. <br>Eg: dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986 <br>Or provide output variable of other tasks. Eg: $(variableName).
+Specifies a comma-separated list of machine IP addresses or FQDNs along with ports. The default port is based on the selected protocol. For example: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986` Output variables of other tasks can also be provided, for example `$(variableName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +126,7 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines.
+Specifies the administrator login for the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +138,7 @@ Administrator login for the target machines.
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for the target machines.<br>It can accept variable defined in Build/Release definitions as '$(passwordVariable)'. <br>You may mark variable type as 'secret' to secure it.
+Specifies the administrator password for the target machines. Variables defined in build or release definitions are accepted as `$(passwordVariable)`. You can mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +150,7 @@ Administrator password for the target machines.<br>It can accept variable define
 **`Protocol`** - **Protocol**<br>
 `string`. Allowed values: `Http`, `Https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the protocol to use for the WinRM connection with the machine(s). Default is HTTPS.
+Specifies the protocol to use for the WinRM connection with the machine(s). The default value is `HTTPS`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +162,7 @@ Select the protocol to use for the WinRM connection with the machine(s). Default
 **`TestCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `Protocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Skips the authenticity validation of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -174,7 +174,7 @@ Select the option to skip validating the authenticity of the machine's certifica
 **`DacpacFile`** - **DACPAC File**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the DACPAC file on the target machines or on a UNC path like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported like $env:windir, $env:systemroot, like, $env:windir\FabrikamFibre\Web.
+Specifies the location of the DACPAC file on the target machines or on a UNC path, like `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. The UNC path should be accessible to the machine's administrator account. Environment variables are also supported, like `$env:windir`, `$env:systemroot`, and `$env:windir\FabrikamFibre\Web`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -186,7 +186,7 @@ Location of the DACPAC file on the target machines or on a UNC path like, \\\\Bu
 **`TargetMethod`** - **Specify SQL Using**<br>
 `string`. Required. Allowed values: `server`, `connectionString` (Connection String), `publishProfile` (Publish Profile). Default value: `server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to connect to the target SQL Server Database. The options are to provide SQL Server Database details, or a SQL Server connection string, or a Publish profile XML file.
+Specifies the option to connect to the target SQL Server database. You can provide SQL Server database details, a SQL Server connection string, or a publish profile XML file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -198,7 +198,7 @@ Select the option to connect to the target SQL Server Database. The options are 
 **`ServerName`** - **Server Name**<br>
 `string`. Required when `TargetMethod = server`. Default value: `localhost`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the SQL Server name like, machinename\FabriakmSQL,1433 or localhost or .\SQL2012R2. Specifying localhost will connect to the Default SQL Server instance on the machine.
+Specifies the SQL Server name, like `machinename\FabriakmSQL,1433` or `localhost` or `.\SQL2012R2`. Specifying `localhost` connects to the default SQL Server instance on the machine.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -210,7 +210,7 @@ Provide the SQL Server name like, machinename\FabriakmSQL,1433 or localhost or .
 **`DatabaseName`** - **Database Name**<br>
 `string`. Required when `TargetMethod = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of the SQL Server database.
+Specifies the name of the SQL Server database.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -222,7 +222,7 @@ Provide the name of the SQL Server database.
 **`SqlUsername`** - **SQL Username**<br>
 `string`. Optional. Use when `TargetMethod = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the SQL Server login is specified, it will be used to connect to the SQL Server. The default is Integrated Authentication and uses the machine administrator's credentials.
+If the SQL Server login is specified, it is used to connect to the SQL Server. The default, Integrated Authentication, uses the machine administrator's credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -234,7 +234,7 @@ If the SQL Server login is specified, it will be used to connect to the SQL Serv
 **`SqlPassword`** - **SQL Password**<br>
 `string`. Optional. Use when `TargetMethod = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If SQL Server login user name is specified, then provide the SQL Server password. The default is Integrated Authentication and uses the machine administrator's credentials.
+If the SQL Server login user name is specified, provide the SQL Server password. The default, Integrated Authentication, uses the machine administrator's credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -246,7 +246,7 @@ If SQL Server login user name is specified, then provide the SQL Server password
 **`ConnectionString`** - **Connection String**<br>
 `string`. Required when `TargetMethod = connectionString`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the SQL Server connection string like "Server=localhost;Database=Fabrikam;User ID=AccountPlaceholder;Password=PasswordPlaceholder;".
+Specifies the SQL Server connection string, like `Server=localhost;Database=Fabrikam;User ID=AccountPlaceholder;Password=PasswordPlaceholder;`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,7 +258,7 @@ Specify the SQL Server connection string like "Server=localhost;Database=Fabrika
 **`PublishProfile`** - **Publish Profile**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish profile provide fine-grained control over SQL Server database creation or upgrades. Specify the path to the Publish profile XML file on the target machine or on a UNC share that is accessible by the machine administrator's credentials.
+Provides fine-grained control over SQL Server database creation or upgrades. Specifies the path to the publish profile XML file on the target machine or on a UNC share that is accessible by the machine administrator's credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -270,7 +270,7 @@ Publish profile provide fine-grained control over SQL Server database creation o
 **`AdditionalArguments`** - **Additional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when creating or updating the SQL Server database like, /p:IgnoreAnsiNulls=True /p:IgnoreComments=True. These arguments will override the settings in the Publish profile XML file (if provided).
+Specifies additional `SqlPackage.exe` arguments that are applied when creating or updating the SQL Server database, like `/p:IgnoreAnsiNulls=True` or `/p:IgnoreComments=True`. These arguments will override the settings in the publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -282,7 +282,7 @@ Additional SqlPackage.exe arguments that will be applied when creating or updati
 **`DeployInParallel`** - **Deploy in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Setting it to true will run the database deployment task in-parallel on the target machines.
+When set to `true`, runs the database deployment task in parallel on the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -294,7 +294,7 @@ Setting it to true will run the database deployment task in-parallel on the targ
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, select a subset of machines either by providing machine names or tags.
+Optional. Specifies a subset of machines by providing machine names or tags.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -306,7 +306,8 @@ Optionally, select a subset of machines either by providing machine names or tag
 **`MachineFilter`** - **Deploy to Machines**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input is valid only for machine groups and is not supported for flat list of machines or output variables yet. Provide a list of machines like, dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34, or tags like, Role:DB; OS:Win8.1. If multiple tags are provided, then the task will run in all the machines with the specified tags. For Azure Resource Groups, provide the virtual machine's name like, ffweb, ffdb. The default is to run the task in all machines.
+This input is only valid for machine groups and is not supported for a flat list of machines or output variables yet.  
+Specifies a list of machines, like `dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34`, or tags, like `Role:DB; OS:Win8.1`. If multiple tags are provided, the task runs in all machines with the specified tags. For Azure Resource Groups, provide the virtual machine's name, like `ffweb` or `ffdb`. The default runs the task in all machines.
 <!-- :::editable-content-end::: -->
 <br>
 
