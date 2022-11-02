@@ -104,7 +104,11 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+:::moniker range=">=azure-pipelines-2022"
+
 This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories.
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
