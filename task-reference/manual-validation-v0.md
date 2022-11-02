@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020.1"
 :::moniker range=">=azure-pipelines-2020.1"
 
 <!-- :::editable-content name="description"::: -->
-Pause a YAML pipeline run to wait for manual interaction.
+Use this task to pause a YAML pipeline run to wait for manual interaction.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -44,7 +44,7 @@ Pause a YAML pipeline run to wait for manual interaction.
 **`notifyUsers`** - **Notify users**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send to a group using `[org name]\group name` syntax.
+Sends a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send an email to a group using the `[org name]\group name` syntax.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,7 +56,7 @@ Send a manual validation pending email to specific users (or groups). Only users
 **`instructions`** - **Instructions**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-These instructions will be shown to the user for resuming or rejecting the manual validation. Based on these instructions the user will take an informed decision about this manual validation.
+Specifies the instructions that are shown to the user when resuming or rejecting the manual intervention. Based on these instructions, the user will make an informed decision about this manual intervention.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ These instructions will be shown to the user for resuming or rejecting the manua
 **`onTimeout`** - **On timeout**<br>
 `string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Reject or resume this manual validation automatically after it is pending for the specified timeout or 30 days, whichever is earlier.
+Automatically rejects or resumes this manual validation after it is pending for the specified timeout, or 30 days, whichever is earlier.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,23 +94,16 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task in a YAML pipeline to pause a run within a stage, typically to perform some manual actions or validations, and then resume/reject the run.
+Use this task in a YAML pipeline to pause a run within a stage. This is typically executed to perform various manual steps or actions and then the run is resumed or rejected.
 
 > [!IMPORTANT]
-> This task is supported only in YAML pipelines, and can be used only in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a YAML pipeline.
+> This task is only supported in YAML pipelines and can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a YAML pipeline.
 
-The **Manual Validation** task allows you to pause a pipeline run within a stage, typically to perform some
-manual steps or actions, and then continue with the pipeline. For example, the user may
-need to manually validate  certain deployment configurations before the pipeline starts a long running computational intensive job.
+The **Manual Validation** task allows you to pause a pipeline run within a stage, typically to perform some manual steps or actions, and then continue with the pipeline. For example, the user may need to manually validate certain deployment configurations before the pipeline starts a long running computational intensive job.
 
-The **Manual Validation** task configuration includes an **instructions** parameter that
-can be used to provide related information, or to specify the manual steps
-the user should execute during the pause. You can configure the task to
-send email notifications to users and user groups when it is awaiting a review,
-and specify the automatic response (reject or resume) after a configurable
-timeout occurs.
+The **Manual Validation** task configuration includes an **instructions** parameter that is used to provide related information or to specify the manual steps the user executes during the pause. You can configure the task to send email notifications to users and user groups when it is awaiting a review and specify the automatic response (reject or resume) after a configurable timeout occurs.
 
-You can specify the timeout value for the task using the `timeoutInMinutes` parameter available in control options. This parameter is optional.
+You can specify the timeout value for the task using the optional `timeoutInMinutes` parameter, available in the control options.
 
 > [!NOTE]
 > For the task to run completely, the timeout value of the job should be higher than the timeout value of the task. See [default job timeout values](/azure/devops/pipelines/process/phases#timeouts).
@@ -118,10 +111,8 @@ You can specify the timeout value for the task using the `timeoutInMinutes` para
 > [!TIP]
 > You can use variables to specify email addresses in the `notifyUsers` parameter.
 
-When the Manual validation task is activated during a pipeline, it displays
-a message bar containing  a link that opens the Manual validation dialog containing the instructions.
-After carrying out the manual steps, the administrator or user can choose to resume the run, or reject it.
-Users with 'Queue builds' permission on the pipeline can resume or reject the run.
+When the Manual Validation task is activated during a pipeline, it displays
+a message bar with a link that opens the Manual validation dialog, which contains the instructions. After carrying out the manual steps, the administrator or user can choose to resume the run or reject it. Users with **Queue builds** permission on the pipeline can resume or reject the run.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
