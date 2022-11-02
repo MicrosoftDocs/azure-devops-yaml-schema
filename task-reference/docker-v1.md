@@ -1,7 +1,7 @@
 ---
 title: Docker@1 - Docker v1 task
 description: Build, tag, push, or run Docker images, or run a Docker command.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -19,7 +19,7 @@ Build, tag, push, or run Docker images, or run a Docker command.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Build, tag, push, or run Docker images, or run a Docker command. Task can be used with Docker or Azure Container registry.
+Build, tag, push, or run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -221,7 +221,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Task can be use
 **`containerregistrytype`** - **Container registry type**<br>
 `string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select 'Azure Container Registry' to connect to it by using an Azure Service Connection. Select 'Container registry' to connect to Docker Hub or any other private container registry.
+Specifies the Azure Container Registry to connect using an Azure Service Connection. Select an Azure Container Registry to connect to a Docker Hub or any other private container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +233,7 @@ Select 'Azure Container Registry' to connect to it by using an Azure Service Con
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default base image data like base image name and digest are added which helps with traceability. You can opt out of this default behavior by using this input.
+The default value adds base image data, such as the base image name and digest, to help with traceability. You can opt out of this default behavior by setting this value to `false`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -245,7 +245,7 @@ By default base image data like base image name and digest are added which helps
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
 `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required for commands that authenticate using a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -257,7 +257,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
 `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription.
+Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -269,7 +269,7 @@ Select an Azure subscription.
 **`azureContainerRegistry`** - **Azure container registry**<br>
 `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Container Registry in the selected Azure Subscription. The container image will be built and pushed to this container registry.
+Specifies an Azure Container Registry in the selected Azure Subscription. The container image is built and pushed to this container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -281,7 +281,7 @@ Select an Azure Container Registry in the selected Azure Subscription. The conta
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `Build an image` (build), `Tag image` (tag), `Push an image` (push), `Run an image` (run), `login`, `logout`. Default value: `Build an image`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The docker command to run.
+Specifies the docker command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -293,7 +293,7 @@ The docker command to run.
 **`dockerFile`** - **Dockerfile**<br>
 `string`. Required when `command = Build an image || command = build`. Default value: `**/Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the Dockerfile. The task will use the first dockerfile it finds to build the image.
+Specifies the path to the Docker file. The task uses the first docker file it finds to build the image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -305,8 +305,7 @@ Path to the Dockerfile. The task will use the first dockerfile it finds to build
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments to be passed onto the docker client
-Be aware that if you use value `buildAndPush` for the command parameter, the arguments property is ignored.
+Specifies additional arguments to pass to the docker client. Using the value `buildAndPush` in the command parameter ignores the arguments property.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -317,8 +316,7 @@ Be aware that if you use value `buildAndPush` for the command parameter, the arg
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != Run an image && command != run && command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments to be passed onto the docker client
-Be aware that if you use value `buildAndPush` for the command parameter, the arguments property is ignored.
+Specifies additional arguments to pass to the docker client. Using the value `buildAndPush` in the command parameter ignores the arguments property.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -330,7 +328,7 @@ Be aware that if you use value `buildAndPush` for the command parameter, the arg
 **`pushMultipleImages`** - **Push multiple images**<br>
 `boolean`. Optional. Use when `command = Push an image || command = push`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Push multiple images by using a text file that contains the names of the Docker images to push. Each image name is contained on its own line.<br>For example:<br>  Imagename1:tag1<br>  Imagename2:tag2<br>  Imagename3<br>In case only image name is provided,  all tags of the ImageName3 container image will be pushed.
+Specifies a list in a text file of Docker images to push. List each image name in the format `Imagename1:tag1` on a separate line. Listing an image name without tags, for example `Imagename2`, pushes all tags in the `Imagename2` container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -342,7 +340,7 @@ Push multiple images by using a text file that contains the names of the Docker 
 **`tagMultipleImages`** - **Tag multiple images**<br>
 `boolean`. Optional. Use when `command = Tag image || command = tag`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tag multiple images by using a text file that contains the names of the Docker images to tag. Each image name is contained on its own line.<br>For example:<br>  Imagename1:tag1<br>  Imagename2:tag2<br>  Imagename3<br>In case only image name is provided, that image will be tagged as 'latest'.
+Specifies a list of multiple image tags and Docker images to tag in a text file. List each image name in the format `Imagename1:tag1` on a separate line. Images listed without a tag as `Imagename2` are tagged as *latest* by default.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -354,7 +352,7 @@ Tag multiple images by using a text file that contains the names of the Docker i
 **`imageName`** - **Image name**<br>
 `string`. Required when `command = Build an image || command = build || command = Run an image || command = run || pushMultipleImages = false || tagMultipleImages = false`. Default value: `$(Build.Repository.Name):$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Docker image to build, push, or run.
+Specifies the name of the Docker image to build, push, or run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -366,7 +364,7 @@ Name of the Docker image to build, push, or run.
 **`imageNamesPath`** - **Image names path**<br>
 `string`. Required when `tagMultipleImages = true || pushMultipleImages = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a text file that contains the names of the Docker images to tag or push. Each image name is contained on its own line.
+Specifies the path to a text file that contains the names of the Docker images to tag or push. List each image name on a separate line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -378,7 +376,7 @@ Path to a text file that contains the names of the Docker images to tag or push.
 **`qualifyImageName`** - **Qualify image name**<br>
 `boolean`. Optional. Use when `command = Build an image || command = build || command = Tag image || command = tag || command = Push an image || command = push || command = Run an image || command = run`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Qualify the image name with the Docker registry service connection's hostname if not otherwise specified.
+Specifies a qualify image name with the Docker registry service connection's hostname.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -390,7 +388,7 @@ Qualify the image name with the Docker registry service connection's hostname if
 **`qualifySourceImageName`** - **Qualify source image name**<br>
 `boolean`. Optional. Use when `command = Tag image || command = tag`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Qualify the source image name with the Docker registry service connection's hostname if not otherwise specified.
+Specifies a qualify image name with the Docker registry service connection's hostname.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -402,7 +400,7 @@ Qualify the source image name with the Docker registry service connection's host
 **`includeSourceTags`** - **Include source tags**<br>
 `boolean`. Optional. Use when `command = Build an image || command = build || command = Tag image || command = tag  || command = Push an image || command = push`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include Git tags when building or pushing the Docker image.
+Specifies Git tags to include when building or pushing the Docker image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -414,7 +412,7 @@ Include Git tags when building or pushing the Docker image.
 **`includeLatestTag`** - **Include latest tag**<br>
 `boolean`. Optional. Use when `command = Build an image || command = build`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the 'latest' tag when building the Docker image.
+Specifies whether to use the *latest* tag when building the Docker image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -426,7 +424,7 @@ Include the 'latest' tag when building the Docker image.
 **`addDefaultLabels`** - **Add default labels**<br>
 `boolean`. Optional. Use when `addDefaultLabels = false`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add CI/CD metadata like repository, commit, build and release information to the container image by using Docker labels.
+Specifies whether to add CI/CD metadata to the container image by using Docker labels, like repository, commit, build and release information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -437,7 +435,7 @@ Add CI/CD metadata like repository, commit, build and release information to the
 **`addDefaultLabels`** - **Add default labels**<br>
 `boolean`. Optional. Use when `command = Build an image || command = build`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add CI/CD metadata like repository, commit, build and release information to the container image by using Docker labels.
+Specifies whether to add CI/CD metadata to the container image by using Docker labels, like repository, commit, build and release information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -449,7 +447,7 @@ Add CI/CD metadata like repository, commit, build and release information to the
 **`useDefaultContext`** - **Use default build context**<br>
 `boolean`. Optional. Use when `command = Build an image || command = build`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set the build context to the directory that contains the Dockerfile.
+Specifies adding or removing build context to the directory that contains the Docker file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -461,7 +459,7 @@ Set the build context to the directory that contains the Dockerfile.
 **`buildContext`** - **Build context**<br>
 `string`. Optional. Use when `useDefaultContext = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the build context.
+Specifies the path to the build context.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -473,7 +471,7 @@ Path to the build context.
 **`imageDigestFile`** - **Image digest file**<br>
 `string`. Optional. Use when `command = Push an image || command = push`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a file that is created and populated with the full image repository digest of the Docker image that was pushed.
+Specifies the path to a file that is created and populated with the full image repository digest of the Docker image that was pushed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -485,7 +483,7 @@ Path to a file that is created and populated with the full image repository dige
 **`containerName`** - **Container name**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Docker container to run.
+Specifies the name of the Docker container to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -497,7 +495,7 @@ Name of the Docker container to run.
 **`ports`** - **Ports**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Ports in the Docker container to publish to the host. Specify each host-port:container-port binding on a new line.
+Specifies the ports in the Docker container to publish to the host. List each `host-port:container-port` binding on a separate line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -509,7 +507,7 @@ Ports in the Docker container to publish to the host. Specify each host-port:con
 **`volumes`** - **Volumes**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Volumes to mount from the host. Specify each host-dir:container-dir on a new line.
+Specifies the volumes to mount from the host. List each `host-dir:container-dir` on a separate line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -521,7 +519,7 @@ Volumes to mount from the host. Specify each host-dir:container-dir on a new lin
 **`envVars`** - **Environment variables**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Environment variables for the Docker container. Specify each name=value pair on a new line.
+Specifies environment variables for the Docker container. List each `name=value` pair on a separate line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -533,7 +531,7 @@ Environment variables for the Docker container. Specify each name=value pair on 
 **`workingDirectory`** - **Working directory**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory for the Docker container.
+Specifies the working directory for the Docker container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -545,7 +543,7 @@ The working directory for the Docker container.
 **`entrypointOverride`** - **Entry point override**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override the default entry point for the Docker container.
+Specifies whether to override the default entry point for the Docker container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -557,7 +555,7 @@ Override the default entry point for the Docker container.
 **`containerCommand`** - **Container command**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify 'python app.py' to launch the web application.
+Specifies a Docker run command. The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify `python app.py` to launch the web application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -568,7 +566,7 @@ The docker run command first creates a writeable container layer over the specif
 **`containerCommand`** - **Command**<br>
 `string`. Optional. Use when `command = Run an image || command = run`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify 'python app.py' to launch the web application.
+Specifies a Docker run command. The docker run command first creates a writeable container layer over the specified image, and then starts it by using the specified run command. For example, if the image contains a simple Python Flask web application you can specify `python app.py` to launch the web application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -580,7 +578,7 @@ The docker run command first creates a writeable container layer over the specif
 **`runInBackground`** - **Run in background**<br>
 `boolean`. Optional. Use when `command = Run an image || command = run`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the Docker container in the background.
+Specifies whether to run the Docker container in the background.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -592,7 +590,7 @@ Run the Docker container in the background.
 **`restartPolicy`** - **Restart policy**<br>
 `string`. Required when `runInBackground = true`. Allowed values: `no`, `onFailure` (On failure), `always`, `unlessStopped` (Unless stopped). Default value: `no`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a restart policy.
+Specifies when to run a restart policy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -604,7 +602,7 @@ Select a restart policy.
 **`maxRestartRetries`** - **Maximum restart retries**<br>
 `string`. Optional. Use when `runInBackground = true && restartPolicy = onFailure`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The maximum number of restart retries the Docker daemon attempts.
+Specifies the maximum number of restart retries the Docker daemon attempts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -616,7 +614,7 @@ The maximum number of restart retries the Docker daemon attempts.
 **`dockerHostEndpoint`** - **Docker host service connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker host service connection. Defaults to the agent's host.
+Specifies a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -628,7 +626,7 @@ Select a Docker host service connection. Defaults to the agent's host.
 **`enforceDockerNamingConvention`** - **Force image name to follow Docker naming convention**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If enabled Docker image name will be modified to follow Docker naming convention. Converts upper case character to lower case and removes spaces in image name.
+The default value modifies the Docker image name according to Docker naming conventions. For example, convert upper case characters to lower case and remove spaces.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -640,7 +638,7 @@ If enabled Docker image name will be modified to follow Docker naming convention
 **`memoryLimit`** - **Memory limit**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The maximum amount of memory available to the container as a integer with optional suffixes like '2GB'.
+Specifies the maximum amount of memory available to the container as an integer with optional suffixes like `2GB`.
 <!-- :::editable-content-end::: -->
 <br>
 
