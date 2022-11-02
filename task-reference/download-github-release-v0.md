@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Downloads a GitHub Release from a repository.
+Use this task to download a GitHub release from a repository.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -47,7 +47,7 @@ Downloads a GitHub Release from a repository.
 **`connection`** - **GitHub Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the service connection name for your GitHub service connection. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints).
+Specifies the GitHub service connection name. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -59,7 +59,7 @@ Specify the service connection name for your GitHub service connection. Learn mo
 **`userRepository`** - **Repository**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the GitHub repository that GitHub releases will be downloaded from.
+Specifies the name of the GitHub repository that GitHub releases are downloaded from.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Defines the GitHub release version/tag to download. This option appears if `spec
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Minimatch pattern to filter files to be downloaded. To download all files within a release, use `**`.
+The minimatch pattern that filters files to be downloaded. To download all files within a release, use the default value `**`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +107,7 @@ Minimatch pattern to filter files to be downloaded. To download all files within
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path on the agent machine where the release assets will be downloaded.
+The path on the agent machine where the release assets are downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
