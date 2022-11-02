@@ -190,9 +190,11 @@ If the result isn't an integer, the mathematical floor of the result is used whe
 
 For example, assume the deployment `hello-world` is in the input manifest file and that the following lines are in the task input:
 
-`replicas: 4`
-`strategy: canary`
-`percentage: 25`
+```
+replicas: 4
+strategy: canary
+percentage: 25
+```
 
 In this case, the deployments `hello-world-baseline` and `hello-world-canary` are created with one replica each. The baseline variant is created with the same image and tag as the stable version, which is the four-replica variant before deployment. The canary variant is created with the image and tag corresponding to the newly deployed changes.
 <!-- :::editable-content-end::: -->
@@ -210,10 +212,12 @@ When you set `trafficSplitMethod` to `smi`, the percentage traffic split is cont
 
 For example, assume that the input deployment manifest specifies 30 replicas for the stable variant. Also assume that you specify the following input for the task:
 
-`strategy: canary`
-`trafficSplitMethod: smi`
-`percentage: 20`
-`baselineAndCanaryReplicas: 1`
+```
+strategy: canary
+trafficSplitMethod: smi
+percentage: 20
+baselineAndCanaryReplicas: 1
+```
 
 In this case, the stable variant receives 80% of the traffic, while the baseline and canary variants each receive half of the specified 20%. Baseline and canary variants don't receive three replicas each. They instead receive the specified number of replicas, which means they each receive one replica.
 <!-- :::editable-content-end::: -->
@@ -252,9 +256,11 @@ Specifies the fully qualified resource URL of the image to be used for substitut
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the fully qualified URL of the image to be used for substitutions on the manifest files. This input accepts the specification of multiple artifact substitutions in a newline-separated form. Here's an example:
 
-`containers:` |
-  `contosodemo.azurecr.io/foo:test1`
-  `contosodemo.azurecr.io/bar:test2`
+```
+containers: |
+  contosodemo.azurecr.io/foo:test1
+  contosodemo.azurecr.io/bar:test2
+```
 
 In this example, all references to `contosodemo.azurecr.io/foo` and `contosodemo.azurecr.io/bar` are searched for in the image field of the input manifest files. For each match found, the tag `test1` or `test2` replaces the matched reference.
 <!-- :::editable-content-end::: -->
