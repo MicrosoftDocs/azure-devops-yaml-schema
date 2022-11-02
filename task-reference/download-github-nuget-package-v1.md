@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Restore your nuget packages using dotnet CLI.
+Use this task to restore your NuGet packages using dotnet CLI.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -47,7 +47,7 @@ Restore your nuget packages using dotnet CLI.
 **`packageName`** - **Package Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the package to download from github.
+Specifies the name of the package to download from GitHub.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -59,7 +59,7 @@ Name of the package to download from github.
 **`version`** - **Package Version**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version of the package to download from github.
+Specifies the version of the package to download from GitHub.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -71,7 +71,7 @@ Version of the package to download from github.
 **`externalFeedCredentials`** - **Credentials for feed from GitHub**<br>
 Input alias: `externalEndpoints`. `string`. Required when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registry from GitHub.
+Specifies the credentials to use for external registry from GitHub.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +83,7 @@ Credentials to use for external registry from GitHub.
 **`restoreDirectory`** - **Destination directory**<br>
 Input alias: `packagesDirectory`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder in which packages are installed. If no folder is specified, packages are restored into the default system working directory.
+Specifies the folder where packages are installed. If no folder is specified, packages are restored into the default system working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
