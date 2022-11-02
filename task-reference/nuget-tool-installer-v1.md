@@ -46,11 +46,9 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
-If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above.
+If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 
-Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0
-
-If unspecified, a version will be chosen automatically.
+Examples: `4.x`, `3.3.x`, `2.8.6`, `>=4.0.0-0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -62,7 +60,7 @@ If unspecified, a version will be chosen automatically.
 **`checkLatest`** - **Always check for new versions**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always check for and download the latest available version of NuGet.exe which satisfies the version spec.
+When this boolean is set to `true`, the task always checks for and downloads the latest available version of `NuGet.exe` that satisfies the version spec. This option will also always incur download time, even if the selected version of NuGet is already cached.
 
 Enabling this option could cause unexpected build breaks when a new version of NuGet is released.
 

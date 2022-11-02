@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
+Use this task to find, download, and cache a specified version of [NuGet](https://nuget.org/) and add it to the PATH. For information on the tools cache, see the [azure-pipelines-tool-lib](https://github.com/microsoft/azure-pipelines-tool-lib/blob/master/docs/overview.md#tool-cache) repo.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -81,9 +81,9 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
-If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above.
+If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 
-Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
+Examples: `4.x`, `3.3.x`, `2.8.6`, `>=4.0.0-0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,9 +96,9 @@ Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
-If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above.
+If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 
-Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
+Examples: `4.x`, `3.3.x`, `2.8.6`, `>=4.0.0-0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -110,9 +110,12 @@ Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0.
 **`checkLatest`** - **Always download the latest matching version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always check for and download the latest available version of NuGet.exe which satisfies the version spec. This option will also always incur download time, even if the selected version of NuGet is already cached.
+When this boolean is set to `true`, the task always checks for and downloads the latest available version of `NuGet.exe` that satisfies the version spec. This option will also always incur download time, even if the selected version of NuGet is already cached.
 
 Enabling this option could cause unexpected build breaks when a new version of NuGet is released.
+
+> [!TIP]
+> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to false. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
 <!-- :::editable-content-end::: -->
 <br>
 
