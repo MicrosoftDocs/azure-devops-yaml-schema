@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use cURL's supported protocols to upload files.
+Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,7 +27,7 @@ Use cURL to upload files.
 :::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
-Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
+Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -110,6 +110,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all Z
 **`authType`** - **Authentication Method**<br>
 `string`. Allowed values: `ServiceEndpoint` (Service connection), `UserAndPass` (Username and password). Default value: `ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the authentication method for server authentication.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,6 +121,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all Z
 **`authType`** - **Authentication Method**<br>
 `string`. Allowed values: `ServiceEndpoint` (Service Endpoint), `UserAndPass` (Username and Password). Default value: `ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the authentication method for the server authentication.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +133,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all Z
 **`serviceEndpoint`** - **Service Connection**<br>
 `string`. Required when `authType = ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
+Specifies the service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,7 +144,7 @@ The service connection with the credentials for the server authentication. Use t
 **`serviceEndpoint`** - **Service Endpoint**<br>
 `string`. Required when `authType = ServiceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
+Specifies the service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -154,7 +156,7 @@ The service connection with the credentials for the server authentication. Use t
 **`username`** - **Username**<br>
 `string`. Optional. Use when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the username for server authentication.
+Specifies the username for server authentication.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,7 +168,7 @@ Specify the username for server authentication.
 **`password`** - **Password**<br>
 `string`. Optional. Use when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value. Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing ths value.
+Specifies the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value. Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing ths value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +180,7 @@ Specify the password for server authentication. Use a new build variable with it
 **`url`** - **URL**<br>
 `string`. Required when `authType = UserAndPass`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
+Specifies the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -190,7 +192,7 @@ Specify the URL to where the file(s) will be uploaded. The directory should end 
 **`remotePath`** - **Remote Directory**<br>
 `string`. Default value: `upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If supplied, this is the sub-folder on the remote server for the URL supplied in the credentials.
+Optional. Specifies the sub-folder on the remote server for the URL supplied in the credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +203,7 @@ If supplied, this is the sub-folder on the remote server for the URL supplied in
 **`remotePath`** - **Remote Directory**<br>
 `string`. Default value: `/upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If supplied, this is the sub-folder on the remote server for the URL supplied in the credentials.
+Optional. Specifies the sub-folder on the remote server for the URL supplied in the credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +215,7 @@ If supplied, this is the sub-folder on the remote server for the URL supplied in
 **`options`** - **Optional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments that will be passed to cURL.
+Optional. The additional arguments that will be passed to cURL.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +227,7 @@ Additional arguments that will be passed to cURL.
 **`redirectStderr`** - **Redirect Standard Error to Standard Out**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds `--stderr -` as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
+Adds `--stderr -` as an argument to cURL. By default, cURL writes its progress bar to `stderr`, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
 <!-- :::editable-content-end::: -->
 <br>
 
