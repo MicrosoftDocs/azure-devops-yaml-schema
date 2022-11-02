@@ -129,7 +129,7 @@ Download Build Artifacts.
 **`buildType`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `current` (Current build), `specific` (Specific build). Default value: `current`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Downloads artifacts produced by the current build or from a specific build.
+Whether to download artifacts produced by the current build or from a specific build.
 <!-- :::editable-content-end::: -->
 <br>
 
