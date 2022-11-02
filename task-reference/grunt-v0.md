@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run the Grunt JavaScript task runner.
+Use this task to run the Grunt JavaScript task runner.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run the Grunt JavaScript task runner.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-The JavaScript Task Runner.
+Use this task to run the Grunt JavaScript task runner.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -100,7 +100,7 @@ The JavaScript Task Runner.
 **`gruntFile`** - **Grunt File Path**<br>
 `string`. Required. Default value: `gruntfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the Grunt script.
+Specifies the relative path from the repo root to the Grunt script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +112,7 @@ Relative path from the repo root to the Grunt script.
 **`targets`** - **Grunt Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional.  Space delimited list of tasks to run.  If not specified, the default task will run.
+Optional.  Specifies the space-delimited list of tasks to run.  If not specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,9 +124,9 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to Grunt. See [Using the CLI](http://gruntjs.com/using-the-cli).
+Specifies the additional arguments passed to Grunt. See [Using the CLI](http://gruntjs.com/using-the-cli) for more information.
 
-*Note:* `--gruntfile` is not needed because it was already added via gruntFile input above.
+*Note:* `--gruntfile` is not needed because it was already added via the gruntFile input above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -138,7 +138,7 @@ Additional arguments passed to Grunt. See [Using the CLI](http://gruntjs.com/usi
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Current working directory when the script is run.  If not specified, working directory defaults to the folder where the script is located.
+Optional. Specifies the current working directory when the script is run. If not specified, the working directory defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -150,7 +150,7 @@ Optional. Current working directory when the script is run.  If not specified, w
 **`gruntCli`** - **grunt-cli location**<br>
 `string`. Required. Default value: `node_modules/grunt-cli/bin/grunt`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Grunt-cli to run when the agent can't find the globally installed grunt-cli. Defaults to the grunt-cli under the `node_modules` folder of the working directory.
+Specifies the grunt-cli to run when the agent can't find the globally installed grunt-cli. Defaults to the grunt-cli under the `node_modules` folder of the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +162,7 @@ Grunt-cli to run when the agent can't find the globally installed grunt-cli. Def
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
+Select this option to publish the JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +173,7 @@ Select this option to publish JUnit test results produced by the Grunt build to 
 **`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
+Select this option to publish the JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -184,7 +184,7 @@ Select this option to publish JUnit test results produced by the Grunt build to 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Grunt build to TFS/Team Services.
+Select this option to publish the JUnit test results produced by the Grunt build to TFS/Team Services.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,9 +196,9 @@ Select this option to publish JUnit test results produced by the Grunt build to 
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used.
+Specifies the test results files path. Wildcards can be used.
 
-For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
+For example, `**/TEST-*.xml` for all XML file names that start with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -210,7 +210,7 @@ For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 **`testRunTitle`** - **Test Run Title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Specifies a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -234,7 +234,7 @@ Select this option to enable code coverage using Istanbul.
 **`testFramework`** - **Test Framework**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`. Allowed values: `Mocha`, `Jasmine`. Default value: `Mocha`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select your test framework.
+Specifies your test framework.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -246,7 +246,7 @@ Select your test framework.
 **`srcFiles`** - **Source Files**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your source files which you want to `hookRequire()`.
+Specifies the path to your source files which you want to `hookRequire()`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -258,7 +258,7 @@ Provide the path to your source files which you want to `hookRequire()`.
 **`testFiles`** - **Test Script Files**<br>
 `string`. Required when `enableCodeCoverage = true`. Default value: `test/*.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your test script files.
+Specifies the path to your test script files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -292,7 +292,7 @@ Use this task to run Grunt tasks using the JavaScript Task Runner.
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-See [Sample Gruntfile](https://gruntjs.com/sample-gruntfile).
+See a [Sample Gruntfile](https://gruntjs.com/sample-gruntfile).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
