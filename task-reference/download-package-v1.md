@@ -61,7 +61,7 @@ Use this task to download a package from a package management feed in Azure Arti
 **`feed`** - **Feed**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For project-scoped feeds, the format is `projectID/feedID`. See our [FAQ](/azure/devops/pipelines/tasks/utility/download-package) below to learn how to get a feed or project ID, or learn how to use a project and feed name instead.
+For project-scoped feeds, the format is `projectID/feedID`. See the following [remarks](#remarks) to learn how to get a feed or project ID, or learn how to use a project and feed name instead.
 <!-- :::editable-content-end::: -->
 <br>
 
