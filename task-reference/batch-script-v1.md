@@ -170,8 +170,6 @@ Optionally, allow it to permanently modify environment variables.
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-## Example
-
 Create `test.bat` at the root of your repo:
 
 ```bat
