@@ -1,7 +1,7 @@
 ---
 title: PublishSymbols@1 - Index sources and publish symbols v1 task
 description: Index your source code and publish symbols to a file share.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -112,6 +112,7 @@ Specifies whether to skip injecting source server information into the PDB files
 
 **`TreatNotIndexedAsWarning`** - **Warn if not indexed**<br>
 `boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether to warn if sources are not indexed for a PDB file. Otherwise, the messages are logged as normal output.
 <!-- :::editable-content-end::: -->
 <br>

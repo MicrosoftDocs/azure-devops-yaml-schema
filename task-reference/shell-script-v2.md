@@ -1,22 +1,14 @@
 ---
 title: ShellScript@2 - Shell script v2 task
 description: Run a shell script using Bash.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # ShellScript@2 - Shell script v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to run a shell script using `bash`.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a shell script using `bash`.

@@ -1,22 +1,14 @@
 ---
 title: WindowsMachineFileCopy@1 - Windows machine file copy v1 task
 description: Copy files to remote Windows machines (task version 1).
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # WindowsMachineFileCopy@1 - Windows machine file copy v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to copy files to remote Windows machines.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to copy files to remote Windows machines.

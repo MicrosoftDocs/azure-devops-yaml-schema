@@ -1,22 +1,14 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # UsePythonVersion@0 - Use Python version v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to select a version of Python to run on an agent, and optionally add it to PATH.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to select a version of Python to run on an agent, and optionally add it to PATH.

@@ -1,22 +1,14 @@
 ---
 title: PythonScript@0 - Python script v0 task
 description: Run a Python file or inline script.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # PythonScript@0 - Python script v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to run a Python file or inline script.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a Python file or inline script.

@@ -1,22 +1,14 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to provide `npm` credentials to an `.npmrc` file in your repository for the scope of the build. This enables `npm`, as well as `npm` task runners like gulp and Grunt, to authenticate with private registries.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to provide `npm` credentials to an `.npmrc` file in your repository for the scope of the build. This enables `npm`, as well as `npm` task runners like gulp and Grunt, to authenticate with private registries.

@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
-ms.date: 10/21/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 

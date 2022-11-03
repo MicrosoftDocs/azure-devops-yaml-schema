@@ -1,22 +1,14 @@
 ---
 title: VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 description: Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/) from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the `vstest` demand, and a subsequent Visual Studio Test task in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/) from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the `vstest` demand, and a subsequent Visual Studio Test task in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.

@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubRelease@0 - Download GitHub Release v0 task
 description: Downloads a GitHub Release from a repository.
-ms.date: 10/13/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

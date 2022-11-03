@@ -1,7 +1,7 @@
 ---
 title: PyPIPublisher@0 - PyPI publisher v0 task
 description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-ms.date: 10/21/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -111,7 +111,8 @@ Specifies the generic service endpoint where the following PyPI server details a
 - User Name – PyPI registered username.
 - Password – password for your PyPI account.
 
-*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.<!-- :::editable-content-end::: -->
+*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
+<!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end

@@ -1,22 +1,14 @@
 ---
 title: DownloadFileshareArtifacts@1 - Download artifacts from file share v1 task
 description: Download artifacts from a file share, like \\share\drop.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # DownloadFileshareArtifacts@1 - Download artifacts from file share v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download artifacts from a file share, like `\\share\drop`.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download artifacts from a file share, like `\\share\drop`.

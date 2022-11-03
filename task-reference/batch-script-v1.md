@@ -1,22 +1,14 @@
 ---
 title: BatchScript@1 - Batch script v1 task
 description: Run a Windows command or batch script and optionally allow it to change the environment.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # BatchScript@1 - Batch script v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` or `.cmd` script can permanently modify environment variables.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` or `.cmd` script can permanently modify environment variables.

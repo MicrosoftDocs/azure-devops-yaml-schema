@@ -1,22 +1,14 @@
 ---
 title: SqlDacpacDeploymentOnMachineGroup@0 - SQL Server database deploy v0 task
 description: Deploy a SQL Server database using DACPAC or SQL scripts.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # SqlDacpacDeploymentOnMachineGroup@0 - SQL Server database deploy v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to deploy a SQL Server database using DACPAC or SQL scripts.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a SQL Server database using DACPAC or SQL scripts.

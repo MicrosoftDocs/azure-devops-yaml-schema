@@ -1,24 +1,14 @@
 ---
 title: IISWebAppDeployment@1 - IIS Web App deployment (Deprecated) v1 task
 description: Deploy using MSDeploy, then create/update websites and app pools.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # IISWebAppDeployment@1 - IIS Web App deployment (Deprecated) v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
-<!-- :::editable-content-end::: -->
-
-This task is deprecated.
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.

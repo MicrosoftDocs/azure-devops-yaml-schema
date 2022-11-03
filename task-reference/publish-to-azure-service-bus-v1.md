@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection (no agent is required).
-ms.date: 10/21/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -157,7 +157,6 @@ Specifies the secret variable that contains the certificate content. This can al
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 In Message Properties, specifies the key where the signature is. If left empty, the default value is `signature`.
-
 <!-- :::editable-content-end::: -->
 <br>
 

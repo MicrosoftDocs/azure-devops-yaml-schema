@@ -1,7 +1,7 @@
 ---
 title: ExtractFiles@1 - Extract files v1 task
 description: Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@1 - Xamarin.iOS v1 task
 description: Build an iOS app with Xamarin on macOS (task version 1).
-ms.date: 10/21/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 

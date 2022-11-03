@@ -1,24 +1,14 @@
 ---
 title: queryWorkItems@0 - Query work items v0 task
 description: Execute a work item query and check the number of items returned.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # queryWorkItems@0 - Query work items v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task in an [agentless](/azure/devops/pipelines/process/phases) job of a release pipeline to ensure the number of matching items returned by a work item query is within the configured thresholds.
-
-Can only be used in an [agentless](/azure/devops/pipelines/process/phases) job of a release pipeline.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task in an [agentless](/azure/devops/pipelines/process/phases) job of a release pipeline to ensure the number of matching items returned by a work item query is within the configured thresholds.

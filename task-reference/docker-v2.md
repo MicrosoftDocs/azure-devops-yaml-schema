@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 10/13/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -241,7 +241,7 @@ By default, pipeline data like source branch name, or build ID are added and hel
 <!-- :::item name="addBaseImageData"::: -->
 :::moniker range=">=azure-pipelines-2022"
 
-**`addBaseImageData`** - **Add base image metadata to image(s)**<br>.
+**`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default, base image data like base image name, or digest are added and help with traceability. You can opt out of this default behavior.

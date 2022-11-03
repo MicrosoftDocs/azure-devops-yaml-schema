@@ -1,7 +1,7 @@
 ---
 title: Xcode@2 - Xcode Build v2 task
 description: Build an Xcode workspace on Mac OS.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -95,6 +95,7 @@ Specifies a space-delimited list of actions. Valid options are `build`, `clean`,
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
 :::moniker range="<=azure-pipelines"
+
 **`configuration`** - **Configuration**<br>
 `string`. Default value: `$(Configuration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
@@ -364,7 +365,6 @@ Specifies the relative path to a file containing a provisioning profile override
 `boolean`. Optional. Use when `signMethod = file`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Removes the contents of the provisioning profile file from the build agent after the build is complete. **Only check if you are running one agent per user.**
-
 <!-- :::editable-content-end::: -->
 <br>
 

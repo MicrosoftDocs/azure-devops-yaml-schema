@@ -1,38 +1,14 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # PublishSymbols@2 - Index sources and publish symbols v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to index your source code and publish your symbols to a file share or Azure Artifacts symbol server.
-
-Indexing your source code allows you to use your symbol files to debug your application on a machine other than the one you used to build your application. For example, you can debug an application built by a build agent from a dev machine that does not have the source code.
-
-Symbol servers enable your debugger to automatically retrieve the correct symbol files without knowing product names, build numbers, or package names.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to index your source code and publish your symbols to a file share or Azure Artifacts symbol server.
-
-Indexing your source code allows you to use your symbol files to debug your application on a machine other than the one you used to build your application. For example, you can debug an application built by a build agent from a dev machine that does not have the source code.
-
-Symbol servers enable your debugger to automatically retrieve the correct symbol files without knowing product names, build numbers, or package names.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2018"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to index your source code and publish your symbols to a file share or Azure Artifacts symbol server.

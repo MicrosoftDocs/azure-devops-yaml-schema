@@ -1,22 +1,14 @@
 ---
 title: Maven@3 - Maven v3 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 10/21/2022
+ms.date: 11/03/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # Maven@3 - Maven v3 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to build, test, and deploy with Apache Maven.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build, test, and deploy with Apache Maven.

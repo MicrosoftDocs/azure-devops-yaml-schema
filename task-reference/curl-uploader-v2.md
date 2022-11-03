@@ -1,21 +1,13 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 09/26/2022
+ms.date: 11/03/2022
 monikerRange: "<=azure-pipelines"
 ---
 
 # cURLUploader@2 - cURL Upload Files v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
@@ -24,7 +16,7 @@ Use cURL to upload files.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
+:::moniker range="=azure-pipelines-2018 || >=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
