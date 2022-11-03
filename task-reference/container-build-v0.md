@@ -46,7 +46,7 @@ Container Build Task.
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection.
+Specifies a Docker registry service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -58,7 +58,7 @@ Select a Docker registry service connection.
 **`repository`** - **Container repository**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the repository within the container registry.
+The name of the repository within the container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ Name of the repository within the container registry.
 **`Dockerfile`** - **Dockerfile**<br>
 `string`. Required. Default value: `Dockerfile`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to Dockerfile.
+The path to the Dockerfile.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ Path to Dockerfile.
 **`buildContext`** - **Build context**<br>
 `string`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to Build context.
+The path to the build context.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Path to Build context.
 **`tags`** - **Tags**<br>
 `string`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A list of tags in separate lines. Tags are used while building and pushing the image to container registry.
+The list of tags in separate lines. Tags are used while building and pushing the image to container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
