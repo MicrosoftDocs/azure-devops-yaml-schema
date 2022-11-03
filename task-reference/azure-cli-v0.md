@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run a Shell or Batch script with Azure CLI commands against an azure subscription.
+Run a shell or batch script with Azure CLI commands against an Azure subscription.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -61,7 +61,7 @@ Run a Shell or Batch script with Azure CLI commands against an azure subscriptio
 **`connectedServiceNameSelector`** - **Azure Connection Type**<br>
 `string`. Required. Allowed values: `connectedServiceName` (Azure Classic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure connection type for the Deployment.
+Selects the Azure connection type for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -73,7 +73,7 @@ Select the Azure connection type for the Deployment.
 **`connectedServiceNameARM`** - **AzureRM Subscription**<br>
 `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Selects the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -85,7 +85,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`connectedServiceName`** - **Azure Classic Subscription**<br>
 `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Classic subscription for the deployment.
+Selects the Azure Classic subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -97,7 +97,7 @@ Select the Azure Classic subscription for the deployment.
 **`scriptLocation`** - **Script Location**<br>
 `string`. Required. Allowed values: `inlineScript` (Inline Script), `scriptPath` (Script Path). Default value: `scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of script: File path or Inline script.
+Selects the script location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,11 +121,16 @@ Fully qualified path of the script or a path relative to the the default working
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can write your scripts inline here. For batch files use the prefix "call" before every azure command. You can also pass predefined and custom variables to this script using arguments 
+You can write your scripts inline here. For batch files, use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script using arguments. 
 
- example for shell: azure --version || azure account show 
+See the following examples. The first is a shell example and the second is a batch example:
 
- example for batch: call  azure --version || call azure account show.
+```
+azure --version || azure account show 
+```
+```
+call  azure --version || call azure account show
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +154,7 @@ Arguments passed to the script.
 **`cwd`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 

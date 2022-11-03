@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
+Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -58,7 +58,7 @@ Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
 **`files`** - **Files**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File(s) to be uploaded. Wildcards can be used. For example, `**\*.zip` for all ZIP files in all subfolders.
+The file(s) to be uploaded. Wildcards can be used. For example, `**\*.zip` for all ZIP files in all subfolders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**\*.zip` for all Z
 **`username`** - **Username**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the username for server authentication.
+Optional. Specifies the username for server authentication.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ Specify the username for server authentication.
 **`password`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+Optional. Specifies the password for server authentication. Use a new build variable with its lock enabled on the Variables tab to encrypt this value. Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing ths value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Specify the password for server authentication. Use a new build variable with it
 **`url`** - **URL**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
+Specifies the URL to where the file(s) will be uploaded. The directory should end with a trailing slash. Possible URL protocols include `DICT://`, `FILE://`, `FTP://`, `FTPS://`, `GOPHER://`, `HTTP://`, `HTTPS://`, `IMAP://`, `IMAPS://`, `LDAP://`, `LDAPS://`, `POP3://`, `POP3S://`, `RTMP://`, `RTSP://`, `SCP://`, `SFTP://`, `SMTP://`, `SMTPS://`, `TELNET://` and `TFTP://`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +106,7 @@ Specify the URL to where the file(s) will be uploaded. The directory should end 
 **`options`** - **Optional Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments that will be passed to cURL.
+Optional. The additional arguments that will be passed to cURL.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ Additional arguments that will be passed to cURL.
 **`redirectStderr`** - **Redirect Standard Error to Standard Out**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds '--stderr -' as an argument to cURL. By default, cURL writes its progress bar to stderr, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
+Adds `--stderr -` as an argument to cURL. By default, cURL writes its progress bar to `stderr`, which is interpreted by the build as error output. Enabling this checkbox suppresses that behavior.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -142,6 +142,11 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+### Where can I learn FTP commands?
+
+See the [list of raw FTP commands](https://www.nsftools.com/tips/RawFTP.htm).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

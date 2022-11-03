@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Download a package from a package management feed in Azure Artifacts.
+Use this task to download a package from a package management feed in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -61,7 +61,7 @@ Download a package from a package management feed in Azure Artifacts.
 **`feed`** - **Feed**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For project-scoped feeds, the format is projectID/feedID. See our [FAQ](/azure/devops/pipelines/tasks/utility/download-package) below for information on how to get a feed or project ID, or information on using project and feed name instead.
+For project-scoped feeds, the format is `projectID/feedID`. See the following [remarks](#remarks) to learn how to get a feed or project ID, or learn how to use a project and feed name instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -73,7 +73,7 @@ For project-scoped feeds, the format is projectID/feedID. See our [FAQ](/azure/d
 **`view`** - **View**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a view to use only versions promoted to that view.
+Specifies a view that only uses versions promoted to that specific view.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -97,7 +97,7 @@ If you don't find the package in the list, you can provide the package ID, which
 **`version`** - **Version**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version of the package. Use `latest` to download the latest version of the package at runtime.
+Specifies the version of the package. Use `latest` to download the latest version of the package at runtime.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ Version of the package. Use `latest` to download the latest version of the packa
 **`files`** - **Files**<br>
 `string`. Optional. Use when `packageType = maven || packageType = pypi || packageType = upack`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify which files to download using [file matching patterns](https://go.microsoft.com/fwlink/?linkid=2086953).
+Specifies which files to download using [file matching patterns](https://go.microsoft.com/fwlink/?linkid=2086953).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ Specify which files to download using [file matching patterns](https://go.micros
 **`extract`** - **Extract package contents**<br>
 `boolean`. Optional. Use when `packageType = nuget || packageType = npm`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Instead of extracting the package contents and removing the archive, the artifact folder will contain the package archive.
+Extracts the package contents and contains the package archive in the artifact folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +133,7 @@ Instead of extracting the package contents and removing the archive, the artifac
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the package will be downloaded.
+Specifies the path on the agent machine where the package is downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -166,11 +166,11 @@ Use this task to download a package from a package management feed in Azure Arti
 
 ### How do I find the ID of the feed (or project) I want to download my artifact from
 
-The get feed api can be used to retrieve the feed and project ID for your feed. The api is documented [here](/rest/api/azure/devops/artifacts/feed-management/get-feed).
+The get feed API can be used to retrieve the feed and project ID for your feed. The API is documented [here](/rest/api/azure/devops/artifacts/feed-management/get-feed).
 
 ### Can I use the project or feed name instead of IDs
 
-Yes, you can use the project or feed name in your definition, however if your project or feed is renamed in the future, your task will also have to be updated or it might fail.
+Yes, you can use the project or feed name in your definition. However, if your project or feed is renamed in the future, your task will also have to be updated, or it might fail.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

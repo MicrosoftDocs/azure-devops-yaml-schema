@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -38,7 +38,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -64,7 +64,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -90,7 +90,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -116,7 +116,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -142,7 +142,7 @@ Deploy an Azure Function for Linux or Windows.
     azureSubscription: # string. Required. Azure subscription. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
@@ -168,7 +168,7 @@ Deploy an Azure Function for Linux or Windows.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Selects the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +191,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`appName`** - **Azure Functions App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
+Enters or selects the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -202,7 +202,7 @@ Enter or Select the name of an existing Azure Functions App. The Function Apps l
 **`appName`** - **App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
+Enters or selects the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,9 +212,13 @@ Enter or Select the name of an existing Azure Functions App. The Function Apps l
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
-`boolean`. Optional. Use when `appType != ""`. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
+Deploys to an existing deployment slot or Azure App Service Environment. For both targets, the task needs a Resource group name.
+
+If the deployment target is a slot, it will default to the **production** slot. Any other existing slot name can also be provided.
+
+If the deployment target is an Azure App Service Environment, leave the slot name as **production** and specify the Resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +230,9 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment. 
+
+Enters or selects the Azure Resource group that contains the Azure App Service specified above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +244,7 @@ The Resource group name is required when the deployment target is either a deplo
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Enters or selects an existing slot, excluding the Production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -250,7 +256,7 @@ Enter or Select an existing Slot other than the Production slot.
 **`package`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder containing app service contents generated by MSBuild or a compressed zip or war file.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip or $(System.DefaultWorkingDirectory)/\*\*/\*.war.
+The file path to the package or folder that contains App Service content generated by MSBuild, a compressed zip file, or a war file. Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported. For example, `$(System.DefaultWorkingDirectory)/**/*.zip or $(System.DefaultWorkingDirectory)/**/*.war`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +268,7 @@ File path to the package or a folder containing app service contents generated b
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `DOTNET|6.0` (DOTNET|6.0 (functionapp v4)), `JAVA|8` (JAVA|8 (functionapp v2/v3/v4)), `JAVA|11` (JAVA|11  (functionapp v3/v4)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3/v4)), `NODE|16` (NODE|16 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3/v4)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3/v4)), `PYTHON|3.9` (PYTHON|3.9 (functionapp v3/v4)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions.  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
+Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the dropdown menu.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -273,7 +279,7 @@ Refer [this doc](/azure/azure-functions/functions-versions#languages) for suppor
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions.  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
+Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values, like `DOCKER|microsoft/azure-functions-*`, are deprecated. New values are listed in the dropdown menu.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +290,7 @@ Refer [this doc](/azure/azure-functions/functions-versions#languages) for suppor
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Refer [this doc](/azure/azure-functions/functions-versions#languages) for supported runtime versions.  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated, please use the new values from dropdown.
+Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values, like `DOCKER|microsoft/azure-functions-*`, are deprecated. New values are listed in the dropdown menu.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +302,10 @@ Refer [this doc](/azure/azure-functions/functions-versions#languages) for suppor
 **`startUpCommand`** - **Startup command**<br>
 `string`. Optional. Use when `appType = functionAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
+Enters the start up command. For example:
+
+`dotnet run`  
+`dotnet filename.dll`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +317,7 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 **`customWebConfig`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`. Optional. Use when `appType != functionAppLinux && package NotEndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config can be edited and vary based on the application framework. For example for node.js application, web.config will have startup file and iis_node module values. This edit feature is only for the generated web.config. [Learn more](https://go.microsoft.com/fwlink/?linkid=843469).
+A standard Web.config will be generated and deployed to Azure App Service if the application does not have one. The values in web.config vary based on the application framework, and they can be edited. For example, for the node.js application, web.config will have a startup file and iis_node module values. This edit feature is only for the [generated web.config](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureRmWebAppDeploymentV4/README.md#parameters-of-the-task).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -320,7 +329,7 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Enter the application settings using the syntax `-key value` (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). Enclose values that contain spaces in double quotes (for example: `"Eastern Standard Time"`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -332,7 +341,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Enter the configuration strings using the syntax `-key value` (for example: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`). Enclose values that contain spaces in double quotes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +353,7 @@ Edit web app configuration settings following the syntax -key value. Value conta
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -355,7 +364,7 @@ Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-functi
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -376,7 +385,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="AppServiceApplicationUrl"::: -->
 **`AppServiceApplicationUrl`**<br><!-- :::editable-content name="Value"::: -->
-Application URL of the selected App Service.
+The application URL of the selected App Service.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -391,9 +400,9 @@ Use the Azure Function App task to deploy [functions](/azure/azure-functions/) t
 
 ### Deployment methods
 
-Several deployment methods are available in this task. The default value is `auto`. 
+Several deployment methods are available in this task. The default value is `auto`.
 
-To change the deployment option in a designer task, expand **Additional Deployment Options** and enable **Select deployment method** to choose from other package-based deployment options.
+To change the package-based deployment option in a designer task, expand **Additional Deployment Options** and enable **Select Deployment Method**.
 
 Based on the type of Azure App Service and Azure Pipelines agent, the task uses a suitable deployment technology. The deployment technologies used by tasks are as follows:
 
@@ -403,11 +412,11 @@ Based on the type of Azure App Service and Azure Pipelines agent, the task uses 
 
 By default, the task attempts to select the appropriate deployment technology based on the input package, App Service type, and agent OS.
 
-* If a post-deployment script is provided, use Zip Deploy. 
-* If the App Service type is Web App on Linux, use Zip Deploy. 
-* If a .war file is provided, use War Deploy. 
-* If a .jar file is provided, use Run-From-Zip. 
-* For all other tasks, use Run From Package (via Zip Deploy). 
+* If a post-deployment script is provided, use Zip Deploy.
+* If the App Service type is Web App on Linux, use Zip Deploy.
+* If a .war file is provided, use War Deploy.
+* If a .jar file is provided, use Run-From-Zip.
+* For all other tasks, use Run From Package (via Zip Deploy).
 
 On a non-Windows agent (for any App Service type), the task relies on the [Kudu REST API](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the web app.
 
@@ -449,9 +458,9 @@ This problem could occur if a web.config file isn't present in your app. You can
 
 [!INCLUDE [rm-app-service-FAQs-shared](./includes/rm-app-service-faqs-shared.md)]
 
-#### I can't deploy to an internal App Service environment by using an Azure Resource Manager service connection and a Microsoft-hosted agent
+#### I can't deploy to an internal App Service Environment by using an Azure Resource Manager service connection and a Microsoft-hosted agent
 
-By design, a Microsoft-hosted agent won't work with an App Service environment. Instead, you need to configure a private agent on a virtual machine that's in the same virtual network as the App Service environment. Also, set a private DNS zone to enable communication between the resources.
+By design, a Microsoft-hosted agent won't work with an App Service Environment. Instead, you need to configure a private agent on a virtual machine that's in the same virtual network as the App Service Environment. Also, set a private DNS zone to enable communication between the resources.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -459,7 +468,7 @@ By design, a Microsoft-hosted agent won't work with an App Service environment. 
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-Here's a sample YAML snippet that deploys Azure functions on Windows: 
+Here's a sample YAML snippet that deploys Azure functions on Windows:
 ```YAML
 
 variables:
@@ -476,10 +485,10 @@ steps:
     appType: functionApp
     package: $(System.DefaultWorkingDirectory)/**/*.zip
 ```
-To deploy a function on Linux, add the `appType` parameter and set it to <code>appType: functionAppLinux</code>. If you don't specify a value,  <code>functionApp</code> is the default.
+To deploy a function on Linux, add the `appType` parameter and set it to `appType: functionAppLinux`. If you don't specify a value, `functionApp` is the default.
 
-To explicitly specify the deployment method as Zip Deploy, add the parameter <code>deploymentMethod: zipDeploy</code>. Another supported value for this parameter is <code>runFromPackage</code>. 
-If you don't specify a value, <code>auto</code> is the default.
+To explicitly specify the deployment method as Zip Deploy, add the parameter `deploymentMethod: zipDeploy`. Another supported value for this parameter is `runFromPackage`.
+If you don't specify a value, `auto` is the default.
 
 For a walkthrough that shows how to create a CI/CD pipeline, see [Build and deploy Java to Azure Functions](/azure/azure-functions/functions-how-to-azure-devops).
 <!-- :::editable-content-end::: -->

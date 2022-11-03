@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy containers to Azure App Service.
+This task deploys containers to Azure App Service.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -32,7 +32,7 @@ Deploy containers to Azure App Service.
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    #containers: # string. Image name. 
+    #containers: # string. Alias: imageName. Image name. 
     #multicontainerConfigFile: # string. Configuration File. 
     #containerCommand: # string. Startup command. 
   # Application and Configuration Settings
@@ -52,7 +52,7 @@ Deploy containers to Azure App Service.
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+The name of the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -64,7 +64,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`appName`** - **App name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure App Service. App services based on selected app type will only be listed.
+Specifies the name of an existing Azure App Service. Only app services based on the selected app type will be listed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -76,7 +76,10 @@ Enter or Select the name of an existing Azure App Service. App services based on
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to deploy to an existing deployment slot or Azure App Service Environment.<br />For both the targets, the task needs Resource group name.<br />In case the deployment target is a slot, by default the deployment is done to the production slot. Any other existing slot name can also be provided.<br />In case the deployment target is an Azure App Service environment, leave the slot name as ‘production’ and just specify the Resource group name.
+Selects the option to deploy to an existing deployment slot or an Azure App Service Environment.  
+For both targets, the task needs a resource group name.  
+If the deployment target is a slot, the default is the production slot. Any other existing slot name can also be provided.  
+If the deployment target is an Azure App Service Environment, leave the slot name as `production`, and specify the resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +91,8 @@ Select the option to deploy to an existing deployment slot or Azure App Service 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Resource group name is required when the deployment target is either a deployment slot or an App Service Environment.<br />Enter or Select the Azure Resource group that contains the Azure App Service specified above.
+The resource group name is required when the deployment target is either a deployment slot or an Azure App Service Environment.  
+Specifies the Azure resource group that contains the Azure App Service indicated above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +104,7 @@ The Resource group name is required when the deployment target is either a deplo
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select an existing Slot other than the Production slot.
+Specifies an existing slot, excluding the production slot.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +116,8 @@ Enter or Select an existing Slot other than the Production slot.
 **`containers`** - **Image name**<br>
 Input alias: `imageName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the fully qualified container image name. For example, '<b>myregistry.azurecr.io</b>/nginx:latest' or '<b>python:3.7.2-alpine</b>/'. For multi-container scenario multiple container image names can be provided.
+Specifies the fully qualified container image name. For example, **myregistry.azurecr.io**/nginx:latest or **python:3.7.2-alpine**/.  
+For a multi-container scenario, multiple container image names can be provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +129,7 @@ Specify the fully qualified container image name. For example, '<b>myregistry.az
 **`multicontainerConfigFile`** - **Configuration File**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory.
+The path of the Docker-Compose file. Must be a fully qualified path or a path relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +141,10 @@ Path of the Docker-Compose file. Should be a fully qualified path or relative to
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
+Specifies the start up command.  
+For example:  
+`dotnet run`  
+`dotnet filename.dll`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +156,7 @@ Enter the start up command. For ex.<br/>dotnet run<br/>dotnet filename.dll.
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app application settings following the syntax -key value . Value containing spaces should be enclosed in double quotes.<br /> <b>Example</b> : -Port 5000 -RequestTimeout 5000 <br /> -WEBSITE_TIME_ZONE "Eastern Standard Time".
+Edits the web app application settings using the syntax -key value (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). A value containing spaces should be enclosed in double quotes (for example: `"Eastern Standard Time"`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +168,7 @@ Edit web app application settings following the syntax -key value . Value contai
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Edit web app configuration settings following the syntax -key value. Value containing spaces should be enclosed in double quotes.<br /> Example : -phpVersion 5.6 -linuxFxVersion: node|6.11.
+Edits the web app application settings using the syntax -key value (for example: `-phpVersion 5.6 -linuxFxVersion: node|6.11`). A value containing spaces should be enclosed in double quotes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +189,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="AppServiceApplicationUrl"::: -->
 **`AppServiceApplicationUrl`**<br><!-- :::editable-content name="Value"::: -->
-Application URL of the selected App Service.
+The application URL of the selected Azure App Service.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 

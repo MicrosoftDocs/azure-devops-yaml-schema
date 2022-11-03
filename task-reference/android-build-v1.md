@@ -11,7 +11,9 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-AndroidBuild@1 is deprecated. Use Gradle.
+Use this task to build an Android app using Gradle and (optionally) start the emulator for unit tests.
+
+The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipelines/tasks/reference/gradle-v3) instead.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -70,6 +72,7 @@ This task is deprecated.
 **`gradleWrapper`** - **Location of Gradle Wrapper**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The location of the `gradlew` wrapper that is used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about [the Gradle Wrapper](/azure/devops/pipelines/tasks/reference/gradle-v3).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,6 +84,7 @@ This task is deprecated.
 **`gradleProj`** - **Project Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The relative path from the repo root to the root directory of the application. This is most likely to be where the `build.gradle` file is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,6 +96,7 @@ This task is deprecated.
 **`gradleArguments`** - **Gradle Arguments**<br>
 `string`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Provides any options to pass to the Gradle command line. Learn more about the [Gradle command line](https://docs.gradle.org/current/userguide/command_line_interface.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +108,9 @@ This task is deprecated.
 **`avdName`** - **Name**<br>
 `string`. Required. Default value: `AndroidBuildEmulator`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Android Virtual Device (AVD) to be started or created.
+The name of the Android Virtual Device (AVD) to be started or created.
+
+You must deploy your own agent to use this string. You cannot use a Microsoft-hosted pool if you want to create an AVD.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +122,7 @@ Name of the Android Virtual Device (AVD) to be started or created.
 **`createAvd`** - **Create AVD**<br>
 `boolean`. Default value: `AndroidBuildEmulator`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Create the named Android Virtual Device (AVD).
+Creates the named Android Virtual Device (AVD).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -127,7 +134,7 @@ Create the named Android Virtual Device (AVD).
 **`emulatorTarget`** - **AVD Target SDK**<br>
 `string`. Required when `createAvd = true`. Default value: `android-19`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target ID of the new Android Virtual Device (AVD).
+The Android SDK version that the Android Virtual Device (AVD) targets.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -139,7 +146,7 @@ Target ID of the new Android Virtual Device (AVD).
 **`emulatorDevice`** - **AVD Device**<br>
 `string`. Optional. Use when `createAvd = true`. Default value: `Nexus 5`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The optional device definition to use. Can be a device index or ID.
+The device pipeline that may be used. This can be a device index or an Id.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -151,7 +158,7 @@ The optional device definition to use. Can be a device index or ID.
 **`avdAbi`** - **AVD ABI**<br>
 `string`. Required when `createAvd = true`. Default value: `default/armeabi-v7a`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ABI to use for the Android Virtual Device (AVD).
+The Application Binary Interface (ABI) to use for the Android Virtual Device (AVD). Learn more about [ABI Management](https://developer.android.com/ndk/guides/abis.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -163,7 +170,7 @@ The ABI to use for the Android Virtual Device (AVD).
 **`avdForce`** - **Overwrite Existing AVD**<br>
 `boolean`. Optional. Use when `createAvd = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passing --force to 'android create avd' command.
+Overwrites an existing AVD by passing `--force` to the `android create avd` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -175,7 +182,7 @@ Passing --force to 'android create avd' command.
 **`avdOptionalArgs`** - **Create AVD Optional Arguments**<br>
 `string`. Optional. Use when `createAvd = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to 'android create avd'.
+Creates additional arguments to pass to `android create avd`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -187,7 +194,9 @@ Additional arguments passed to 'android create avd'.
 **`startEmulator`** - **Start and Stop Android Emulator**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Start Android emulator and stop emulator after this task finishes.
+Starts and stops the Android emulator after the Android Build task finishes.
+
+You must deploy your own agent to use this boolean. You cannot use a Microsoft-hosted pool if you want to use an emulator. Learn more about [Azure Pipeline agents](/azure/devops/pipelines/agents/agents).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -199,7 +208,7 @@ Start Android emulator and stop emulator after this task finishes.
 **`emulatorTimeout`** - **Timeout in Seconds**<br>
 `string`. Required when `startEmulator = true`. Default value: `300`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-How long build will wait for the emulator to start.
+Defines how long (in seconds) the build will wait for the emulator to start.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -211,7 +220,7 @@ How long build will wait for the emulator to start.
 **`emulatorHeadless`** - **Headless Display**<br>
 `boolean`. Optional. Use when `startEmulator = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use '-no-skin -no-audio -no-window' when start the emulator.
+Starts the emulator with no GUI (headless mode) by using the `-no-skin -no-audio -no-window` value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -223,7 +232,7 @@ Use '-no-skin -no-audio -no-window' when start the emulator.
 **`emulatorOptionalArgs`** - **Emulator Optional Arguments**<br>
 `string`. Optional. Use when `startEmulator = true`. Default value: `-no-snapshot-load -no-snapshot-save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to Android 'tools\emulator'.
+Provides additional arguments to pass to the `emulator` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -235,6 +244,7 @@ Additional arguments passed to Android 'tools\emulator'.
 **`deleteAvd`** - **Delete AVD**<br>
 `boolean`. Optional. Use when `startEmulator = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Deletes the AVD upon task completion.
 <!-- :::editable-content-end::: -->
 <br>
 

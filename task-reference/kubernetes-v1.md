@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -70,7 +70,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml' | 'none'. Output format. Default: json.
 ```
 
@@ -118,7 +118,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 
@@ -166,7 +166,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 
@@ -211,7 +211,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
     #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
     #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Working directory. Default: $(System.DefaultWorkingDirectory).
+    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 
@@ -227,7 +227,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a service connection type. Azure Resource Manager when using Azure Kubernetes Service, or Kubernetes Service Connection for any other cluster.
+Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +238,7 @@ Select a service connection type. Azure Resource Manager when using Azure Kubern
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a service connection type. Azure Resource Manager when using Azure Kubernetes Service, or Kubernetes Service Connection for any other cluster.
+Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +262,9 @@ Select a Kubernetes service connection.
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
 `string`. Required when `connectionType = Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription, which contains Azure Container Registry.Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
+Specifies the Azure Resource Manager subscription, which contains the Azure Container Registry. 
+>[!NOTE]
+>To configure a new service connection, specify the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -345,7 +347,7 @@ Select or specify a kubectl command to run.
 **`useConfigurationFile`** - **Use configuration**<br>
 `boolean`. Optional. Use when `command != login && command != logout`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use Kubernetes configuration with the kubectl command. An inline script, filename, directory, or URL to Kubernetes configuration files can be provided.
+Specifies the Kubernetes configuration to use with the `kubectl` command. The inline script, filename, directory, or URL to Kubernetes configuration files can be provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,7 +358,7 @@ Use Kubernetes configuration with the kubectl command. An inline script, filenam
 **`useConfigurationFile`** - **Use configuration files**<br>
 `boolean`. Optional. Use when `command != login && command != logout`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use Kubernetes configuration with the kubectl command. An inline script, filename, directory, or URL to Kubernetes configuration files can be provided.
+Specifies the Kubernetes configuration to use with the `kubectl` command. The inline script, filename, directory, or URL to Kubernetes configuration files can be provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -368,7 +370,7 @@ Use Kubernetes configuration with the kubectl command. An inline script, filenam
 **`configurationType`** - **Configuration type**<br>
 `string`. Optional. Use when `useConfigurationFile = true`. Allowed values: `configuration` (File path), `inline` (Inline configuration). Default value: `configuration`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of Kubernetes configuration for kubectl command. It can be a file path or an inline script.
+Specifies the type of Kubernetes configuration for the `kubectl` command. It can be a file path or an inline script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +382,7 @@ Type of Kubernetes configuration for kubectl command. It can be a file path or a
 **`configuration`** - **File path**<br>
 `string`. Required when `configurationType = configuration`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filename, directory, or URL to kubernetes configuration files that will be used with the commands.
+Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -391,7 +393,7 @@ Filename, directory, or URL to kubernetes configuration files that will be used 
 **`configuration`** - **Configuration file**<br>
 `string`. Required when `useConfigurationFile = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Filename, directory, or URL to kubernetes configuration files that will be used with the commands.
+Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -403,7 +405,7 @@ Filename, directory, or URL to kubernetes configuration files that will be used 
 **`inline`** - **Inline configuration**<br>
 `string`. Required when `configurationType = inline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Inline deployment configuration for kubectl command.
+Specifies the inline deployment configuration for the `kubectl` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -439,7 +441,7 @@ Create/update a generic or docker imagepullsecret. Select dockerRegistry to crea
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `secretType = generic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify keys and literal values to insert in secret.For example, --from-literal=key1=value1 --from-literal=key2="top secret".
+Specifies the keys and literal values to insert in secret. For example, `--from-literal=key1=value1`or `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -475,7 +477,9 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscriptionEndpointForSecrets`** - **Azure subscription**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription, which contains Azure Container Registry. Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
+Specifies the Azure Resource Manager subscription, which contains Azure Container Registry. 
+>[!NOTE]
+>To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -487,7 +491,7 @@ Select the Azure Resource Manager subscription, which contains Azure Container R
 **`azureContainerRegistry`** - **Azure container registry**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Container Registry which will be used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
+Specifies an Azure Container Registry which is used for pulling container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -547,7 +551,7 @@ Delete the configmap if it exists and create a new one with updated values.
 **`useConfigMapFile`** - **Use file**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Create a ConfigMap from an individual file, or from multiple files by specifying a directory.
+Creates a `ConfigMap` from an individual file or from multiple files by specifying a directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -571,7 +575,7 @@ Specify a file or directory that contains the configMaps.
 **`configMapArguments`** - **Arguments**<br>
 `string`. Optional. Use when `useConfigMapFile = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify keys and literal values to insert in configMap.For example, --from-literal=key1=value1 --from-literal=key2="top secret".
+Specifies the keys and literal values to insert in `configMap`. For example, `--from-literal=key1=value1` or `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -595,7 +599,7 @@ kubectl is a command line interface for running commands against Kubernetes clus
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.13.2`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version Spec of version to get.  Examples: 1.7.0, 1.x.0, 4.x.0, 6.10.0, >=6.10.0.
+Specifies the version spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -606,7 +610,8 @@ Version Spec of version to get.  Examples: 1.7.0, 1.x.0, 4.x.0, 6.10.0, >=6.10.0
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.7.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version Spec of version to get.  Examples: 1.7.0, 1.x.0, 4.x.0, 6.10.0, >=6.10.0.
+-18-2
+Specifies the version spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -630,7 +635,7 @@ Always checks online for the latest available version (stable.txt) that satisfie
 **`specifyLocation`** - **Path to kubectl**<br>
 `string`. Required when `versionOrLocation = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Full path to the kubectl.exe.
+Specifies the full path to the `kubectl.exe` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -686,7 +691,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="KubectlOutput"::: -->
 **`KubectlOutput`**<br><!-- :::editable-content name="Value"::: -->
-Stores the output of the kubectl command
+Stores the output of the `kubectl` command.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -699,8 +704,8 @@ Stores the output of the kubectl command
 
 What's new in Version 1.0.
 
-* Added new service connection type input for easy selection of Azure AKS cluster.
-* Replaced output variable input with output variables section that we had added in all tasks.
+* Added a new service connection type input for easy selection of Azure AKS clusters.
+* Replaced the output variable input with an output variables section that we added in all tasks.
 
 Use this task to deploy, configure, or update a Kubernetes cluster by running kubectl commands.
 
@@ -783,10 +788,7 @@ This YAML example demonstrates the use of a configuration file with the **apply*
 
 ### Secrets
 
-Kubernetes objects of type **secret** are intended to hold sensitive information such as passwords,
-OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than
-putting it verbatim in a pod definition or in a Docker image. Azure Pipelines simplifies the
-addition of **ImagePullSecrets** to a service account, or setting up of any generic secret, as described below.
+Kubernetes objects of type **secret** are intended to hold sensitive information such as passwords, OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than putting it verbatim in a pod definition or in a Docker image. Azure Pipelines simplifies the addition of `ImagePullSecrets` to a service account, or setting up of any generic secret, as described below.
 
 #### ImagePullSecret
 

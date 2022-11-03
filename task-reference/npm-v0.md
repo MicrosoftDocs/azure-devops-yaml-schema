@@ -11,7 +11,10 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Run an npm command. Use NpmAuthenticate@0 task for latest capabilities.
+Use this task to install and publish npm packages or to run an `npm` command. Supports `npmjs.com` and authenticated registries like Azure Artifacts.
+
+>[!NOTE]
+> The [npm Authenticate task](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) is the recommended way to authenticate with Azure Artifacts. This task no longer takes new features and only critical bugs are addressed.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +22,10 @@ Run an npm command. Use NpmAuthenticate@0 task for latest capabilities.
 :::moniker range="<=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run an npm command.
+Use this task to install and publish npm packages or to run an `npm` command. Supports `npmjs.com` and authenticated registries like Azure Artifacts.
+
+>[!NOTE]
+> The [npm Authenticate task](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) is the recommended way to authenticate with Azure Artifacts. This task no longer takes new features and only critical bugs are addressed.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -76,7 +82,7 @@ Run an npm command.
 **`cwd`** - **working folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory where the npm command is run. Defaults to the root of the repo.
+Specifies the working directory where the `npm` command is run. Defaults to the root of the repo.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,9 +94,9 @@ Working directory where the npm command is run. Defaults to the root of the repo
 **`command`** - **npm command**<br>
 `string`. Required. Default value: `install`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The command and arguments which will be passed to npm for execution.
+Specifies the command and arguments, which are passed to `npm` for execution.
 
-If your arguments contain double quotes ("), escape them with a slash (\\), and surround the escaped string with double quotes (").
+If your arguments contain double quotes (`"`), escape them with a slash (`\`), and surround the escaped string with double quotes (`"`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +108,7 @@ If your arguments contain double quotes ("), escape them with a slash (\\), and 
 **`arguments`** - **arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to npm.
+The additional arguments that are passed to `npm`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,6 +132,14 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+> [!IMPORTANT]
+> The [npm Authenticate](npm-authenticate-v0.md) task is the recommended way to authenticate with Azure Artifacts. This npm no longer takes new features and only critical bugs are addressed.
+
+### Where can I learn npm commands and arguments?
+
+* [npm docs](https://docs.npmjs.com/)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

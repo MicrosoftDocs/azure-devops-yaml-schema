@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020.1"
 
 <!-- :::editable-content name="description"::: -->
-Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
+Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell script when running on Linux agent. Or, run Azure CLI commands against an Azure subscription in a PowerShell/PowerShell Core/batch script when running on Windows agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
 :::moniker range="=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/Powershell Core/Batch script when running on Windows agent.
+Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell script when running on Linux agent. Or, run Azure CLI commands against an Azure subscription in a PowerShell/Powershell Core/batch script when running on Windows agent.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -35,17 +35,17 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
 # Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
 - task: AzureCLI@2
   inputs:
-    azureSubscription: # string. Required. Azure Resource Manager connection. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure Resource Manager connection. 
     scriptType: # 'ps' | 'pscore' | 'batch' | 'bash'. Required. Script Type. 
     scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
-    #arguments: # string. Script Arguments. 
+    #arguments: # string. Alias: scriptArguments. Script Arguments. 
     #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: stop.
   # Advanced
     #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
     #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
     #powerShellIgnoreLASTEXITCODE: false # boolean. Optional. Use when scriptType = ps || scriptType = pscore. Ignore $LASTEXITCODE. Default: false.
 ```
@@ -59,17 +59,17 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell 
 # Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/Powershell Core/Batch script when running on Windows agent.
 - task: AzureCLI@2
   inputs:
-    azureSubscription: # string. Required. Azure Resource Manager connection. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure Resource Manager connection. 
     scriptType: # 'ps' | 'pscore' | 'batch' | 'bash'. Required. Script Type. 
     scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
     scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
     #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
-    #arguments: # string. Script Arguments. 
+    #arguments: # string. Alias: scriptArguments. Script Arguments. 
     #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: stop.
   # Advanced
     #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
     #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
-    #workingDirectory: # string. Working Directory. 
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
     #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
     #powerShellIgnoreLASTEXITCODE: false # boolean. Optional. Use when scriptType = ps || scriptType = pscore. Ignore $LASTEXITCODE. Default: false.
 ```
@@ -98,7 +98,7 @@ Select an Azure Resource Manager service connection for the deployment.
 **`scriptType`** - **Script Type**<br>
 `string`. Required. Allowed values: `ps` (PowerShell), `pscore` (PowerShell Core), `batch`, `bash` (Shell).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerShell Core script when running on Linux agent or Batch/PowerShell/PowerShell Core script when running on Windows agent. PowerShell Core script can run on cross-platform agents (Linux, macOS, or Windows).
+Type of script. Select a `bash` or `pscore` script when running on Linux agent. Or, select a `batch`, `ps`, or `pscore` script when running on Windows agent. A `pscore` script can run on cross-platform agents (Linux, macOS, or Windows).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerS
 **`scriptType`** - **Script Type**<br>
 `string`. Required. Allowed values: `ps` (Powershell), `pscore` (Powershell Core), `batch`, `bash` (Shell).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerShell Core script when running on Linux agent or Batch/PowerShell/PowerShell Core script when running on Windows agent. PowerShell Core script can run on cross-platform agents (Linux, macOS, or Windows).
+Type of script. Select a `bash` or `pscore` script when running on Linux agent. Or, select a `batch`, `ps`, or `pscore` script when running on Windows agent. A `pscore` script can run on cross-platform agents (Linux, macOS, or Windows).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ Type of script: PowerShell/PowerShell Core/Bat/Shell script. Select Shell/PowerS
 **`scriptLocation`** - **Script Location**<br>
 `string`. Required. Allowed values: `inlineScript` (Inline script), `scriptPath` (Script path). Default value: `scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to script: File path or Inline script.
+Path to the script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +133,7 @@ Path to script: File path or Inline script.
 **`scriptPath`** - **Script Path**<br>
 `string`. Required when `scriptLocation = scriptPath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows based agent else .ps1 or .sh when using linux based agent) or a path relative to the the default working directory.
+Fully qualified path of the script. Use `.ps1`, `.bat`, or `.cmd` when using Windows-based agent. Use `.ps1` or `.sh` when using Linux-based agent or a path relative to the the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,15 +145,21 @@ Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows based
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptLocation = inlineScript`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux based agents. For batch files use the prefix "call" before every azure command. You can also pass predefined and custom variables to this script using arguments 
+You can write your scripts inline here. When using Windows agent, use PowerShell,  PowerShell Core, or batch scripting. Use PowerShell Core or shell scripting when using Linux-based agents. For batch files, use the prefix `call` before every Azure command. You can also pass predefined and custom variables to this script by using arguments. 
 
- example for PowerShell/PowerShellCore/shell: 
+The following is an example for PowerShell/PowerShellCore/shell. 
+
+```
 az --version 
 az account show 
+```
 
- example for batch:
+The following is an example for batch.
+
+```
 call  az --version 
-call az account show.
+call az account show
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +183,7 @@ Arguments passed to the script.
 **`powerShellErrorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Optional. Use when `scriptType = ps || scriptType = pscore`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your powershell/powershell core script.
+Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your PowerShell/PowerShell Core script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,17 +195,17 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your powershe
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds service principal id, service principal key and tenant id of the Azure endpoint you chose to the script's execution environment. You can use variables: `servicePrincipalId`, `servicePrincipalKey` and `tenantId` in your script.
+Adds the service principal ID, service principal key, and tenant ID of the Azure endpoint you chose to the script's execution environment. You can use the `servicePrincipalId`, `servicePrincipalKey` and `tenantId` variables in your script.
 
-This is honored only when the Azure endpoint has Service Principal authentication scheme.
+This is honored only when the Azure endpoint has service principal authentication scheme.
 
-Syntax to access environment variables based on script type.
+The following list shows the syntax to access environment variables based on the script type.
 
-Powershell script: $env:servicePrincipalId
+* PowerShell script syntax: `$env:servicePrincipalId`
 
-Batch script: %servicePrincipalId% 
+* Batch script syntax: `%servicePrincipalId%`
 
-Shell script: $servicePrincipalId.
+* Shell script syntax: `$servicePrincipalId`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -211,7 +217,7 @@ Shell script: $servicePrincipalId.
 **`useGlobalConfig`** - **Use global Azure CLI configuration**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is false, this task will use its own separate [Azure CLI configuration directory](/cli/azure/azure-cli-configuration#cli-configuration-file). This can be used to run Azure CLI tasks in *parallel* releases.
+If this input is false, this task will use its own [Azure CLI configuration directory](/cli/azure/azure-cli-configuration#cli-configuration-file). Use this task to run Azure CLI tasks in *parallel* releases.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -223,7 +229,7 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -235,7 +241,7 @@ Current working directory where the script is run.  Empty is the root of the rep
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status.
+If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -247,7 +253,7 @@ If this is true, this task will fail when any errors are written to the Standard
 **`powerShellIgnoreLASTEXITCODE`** - **Ignore $LASTEXITCODE**<br>
 `boolean`. Optional. Use when `scriptType = ps || scriptType = pscore`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will cause the last exit code from an external command to be propagated as the exit code of powershell. Otherwise the line is not appended to the end of your script.
+If this input is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will propagate the last exit code from an external command as the exit code of PowerShell. Otherwise, the line is not appended to the end of your script.
 <!-- :::editable-content-end::: -->
 <br>
 

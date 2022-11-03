@@ -1,7 +1,7 @@
 ---
 title: NuGetToolInstaller@1 - NuGet tool installer v1 task
 description: Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -46,11 +46,9 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 <!-- :::editable-content name="helpMarkDown"::: -->
 A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
 
-If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above.
+If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 
-Examples: 4.x, 3.3.x, 2.8.6, >=4.0.0-0
-
-If unspecified, a version will be chosen automatically.
+Examples: `4.x`, `3.3.x`, `2.8.6`, `>=4.0.0-0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -62,7 +60,7 @@ If unspecified, a version will be chosen automatically.
 **`checkLatest`** - **Always check for new versions**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always check for and download the latest available version of NuGet.exe which satisfies the version spec.
+When this boolean is set to `true`, the task always checks for and downloads the latest available version of `NuGet.exe` that satisfies the version spec. This option will also always incur download time, even if the selected version of NuGet is already cached.
 
 Enabling this option could cause unexpected build breaks when a new version of NuGet is released.
 
@@ -105,7 +103,22 @@ Use this task to find, download, and cache a specified version of [NuGet](https:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: NuGet |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Tool |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

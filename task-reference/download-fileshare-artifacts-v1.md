@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Download artifacts from a file share, like \\share\drop.
+Use this task to download artifacts from a file share, like `\\share\drop`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Download artifacts from a file share, like \\share\drop.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Download artifacts from a file share e.g \\share\drop.
+Use this task to download artifacts from a file share, like `\\share\drop`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -72,7 +72,7 @@ Download artifacts from a file share e.g \\share\drop.
 **`filesharePath`** - **File share path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path e.g \\server\folder.
+Specifies the file share path (for example: `\\server\folder`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +83,7 @@ Fileshare path e.g \\server\folder.
 **`filesharePath`** - **Fileshare path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fileshare path e.g \\server\folder.
+Specifies the file share path (for example: `\\server\folder`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Fileshare path e.g \\server\folder.
 **`artifactName`** - **Artifact name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download e.g drop.
+Specifies the name of the artifact to download (for example: `drop`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +107,9 @@ The name of the artifact to download e.g drop.
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples) <p>The default pattern (\*\*) will download all files within the artifact.</p>.
+Specifies the files to be downloaded as a multi line minimatch pattern. Learn more about [file matching patterns](https://aka.ms/minimatchexamples).
+
+The default pattern (`**`) downloads all files within the artifact.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,7 +121,7 @@ Specify files to be downloaded as multi line minimatch pattern. [More Informatio
 **`downloadPath`** - **Download path**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the artifacts will be downloaded.
+Specifies the path on the agent machine where the artifacts are downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +133,7 @@ Path on the agent machine where the artifacts will be downloaded.
 **`parallelizationLimit`** - **Parallelization limit**<br>
 `string`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Number of files to download simultaneously.
+Specifies the number of files to download simultaneously.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +159,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to download fileshare artifacts.
+Use this task to download file share artifacts.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

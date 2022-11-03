@@ -1,7 +1,7 @@
 ---
 title: DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 description: Decrypt a file using OpenSSL.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Decrypt a file using OpenSSL.
+Use this task to decrypt files using OpenSSL.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -40,7 +40,7 @@ A thin utility task for file decryption using OpenSSL.
     passphrase: # string. Required. Passphrase. 
     #outFile: # string. Decrypted file path. 
   # Advanced
-    #workingDirectory: # string. Working directory.
+    #workingDirectory: # string. Alias: cwd. Working directory.
 ```
 
 :::moniker-end
@@ -57,7 +57,7 @@ A thin utility task for file decryption using OpenSSL.
     passphrase: # string. Required. Passphrase. 
     #outFile: # string. Decrypted file path. 
   # Advanced
-    #workingDirectory: # string. Working directory.
+    #workingDirectory: # string. Alias: cwd. Working directory.
 ```
 
 :::moniker-end
@@ -82,7 +82,7 @@ A thin utility task for file decryption using OpenSSL.
 **`cipher`** - **Cypher**<br>
 `string`. Required. Default value: `des3`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Encryption cypher to use. See [cypher suite names](https://go.microsoft.com/fwlink/?LinkID=627129) for a complete list of possible values.
+The encryption cypher to use. See [cypher suite names](https://go.microsoft.com/fwlink/?LinkID=627129) for a complete list of possible values.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Encryption cypher to use. See [cypher suite names](https://go.microsoft.com/fwli
 **`inFile`** - **Encrypted file**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path of file to decrypt.
+The relative path of the file to decrypt.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,7 +106,7 @@ Relative path of file to decrypt.
 **`passphrase`** - **Passphrase**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Passphrase to use for decryption. **Use a Variable to encrypt the passphrase.**.
+The passphrase to use for decryption. **Use a variable to encrypt the passphrase.**
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ Passphrase to use for decryption. **Use a Variable to encrypt the passphrase.**.
 **`outFile`** - **Decrypted file path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional filename for decrypted file. Defaults to the Encrypted File with a ".out" extension.
+The optional filename for the decrypted file. Defaults to the encrypted file with an `.out` extension.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +130,7 @@ Optional filename for decrypted file. Defaults to the Encrypted File with a ".ou
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory for decryption. Defaults to the root of the repository.
+The optional working directory for decryption. Defaults to the root of the repository.
 <!-- :::editable-content-end::: -->
 <br>
 

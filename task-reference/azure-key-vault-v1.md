@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Download Azure Key Vault Secrets.
 # Download Azure Key Vault secrets.
 - task: AzureKeyVault@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # string. Required. Secrets filter. Default: *.
     RunAsPreJob: false # boolean. Required. Make secrets available to whole job. Default: false.
@@ -50,7 +50,7 @@ Download Azure Key Vault Secrets.
 # Download Azure Key Vault secrets.
 - task: AzureKeyVault@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
     RunAsPreJob: false # 'EditableOptions'. Required. Make secrets available to whole job. Default: false.
@@ -65,7 +65,7 @@ Download Azure Key Vault Secrets.
 # Download Azure Key Vault secrets.
 - task: AzureKeyVault@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
 ```
@@ -79,7 +79,7 @@ Download Azure Key Vault Secrets.
 # Download Azure Key Vault Secrets.
 - task: AzureKeyVault@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
 ```

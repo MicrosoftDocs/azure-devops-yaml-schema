@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubRelease@0 - Download GitHub Release v0 task
 description: Downloads a GitHub Release from a repository.
-ms.date: 09/26/2022
+ms.date: 10/13/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Downloads a GitHub Release from a repository.
+Use this task to download a GitHub release from a repository.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -47,7 +47,7 @@ Downloads a GitHub Release from a repository.
 **`connection`** - **GitHub Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-GitHub service connection.
+Specifies the GitHub service connection name. Learn more about [service connections](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -59,7 +59,7 @@ GitHub service connection.
 **`userRepository`** - **Repository**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-GitHub repository full name.
+Specifies the name of the GitHub repository that GitHub releases are downloaded from.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -71,7 +71,7 @@ GitHub repository full name.
 **`defaultVersionType`** - **Default version**<br>
 `string`. Required. Allowed values: `latest` (Latest Release), `specificVersion` (Specific Version), `specificTag` (Specific Tag). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download assets from latest release or specific release version/tag.
+Downloads assets from the latest GitHub release or a specific GitHub release version/tag.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +83,7 @@ Download assets from latest release or specific release version/tag.
 **`version`** - **Release**<br>
 `string`. Required when `defaultVersionType != latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Release version/tag to download.
+Defines the GitHub release version/tag to download. This option appears if `specificVersion` or `specificTag` is selected as the value for `defaultVersionType`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Release version/tag to download.
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Minimatch pattern to filter files to be downloaded. To download all files within release use **.
+The minimatch pattern that filters files to be downloaded. To download all files within a release, use the default value `**`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +107,7 @@ Minimatch pattern to filter files to be downloaded. To download all files within
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the release assets will be downloaded.
+The path on the agent machine where the release assets are downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +148,22 @@ This task requires a [GitHub service connection](/azure/devops/pipelines/library
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

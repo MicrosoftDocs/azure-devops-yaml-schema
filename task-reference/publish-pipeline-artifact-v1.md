@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Publish (upload) a file or directory as a named artifact for the current run.
+Use this task to publish (upload) a file or directory as a named artifact for the current run.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,9 +27,9 @@ Publish (upload) a file or directory as a named artifact for the current run.
 # Publish (upload) a file or directory as a named artifact for the current run.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: $(Pipeline.Workspace).
-    #artifact: # string. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: pipeline.
+    targetPath: '$(Pipeline.Workspace)' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
+    #artifact: # string. Alias: artifactName. Artifact name. 
+    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
     #fileSharePath: # string. Required when artifactType = filepath. File share path. 
     #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
     #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
@@ -45,9 +45,9 @@ Publish (upload) a file or directory as a named artifact for the current run.
 # Publish (upload) a file or directory as a named artifact for the current run.
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Required. File or directory path. Default: $(Pipeline.Workspace).
-    #artifact: # string. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Required. Artifact publish location. Default: pipeline.
+    targetPath: '$(Pipeline.Workspace)' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
+    #artifact: # string. Alias: artifactName. Artifact name. 
+    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
     #fileSharePath: # string. Required when artifactType = filepath. File share path. 
     #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
     #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
@@ -65,7 +65,7 @@ Publish (upload) a file or directory as a named artifact for the current run.
 **`targetPath`** - **File or directory path**<br>
 Input alias: `path`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
+Specifies the path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -77,7 +77,7 @@ The path of the file or directory to publish. Can be absolute or relative to the
 **`artifact`** - **Artifact name**<br>
 Input alias: `artifactName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the artifact to publish. If not set, defaults to a unique ID scoped to the job. It can be whatever you want. For example: drop
+Specifies the name of the artifact to publish. It can be any name you choose, for example `drop`. If not set, the default is a unique ID scoped to the job.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -89,7 +89,7 @@ Name of the artifact to publish. If not set, defaults to a unique ID scoped to t
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `artifactType`. `string`. Required. Allowed values: `pipeline` (Azure Pipelines), `filepath` (A file share). Default value: `pipeline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose whether to store the artifact in Azure Pipelines, or to copy it to a file share that must be accessible from the pipeline agent. Options: pipeline, filepath. Default value: pipeline
+Specifies whether to store the artifact in Azure Pipelines or to copy it to a file share that must be accessible from the pipeline agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -101,7 +101,7 @@ Choose whether to store the artifact in Azure Pipelines, or to copy it to a file
 **`fileSharePath`** - **File share path**<br>
 `string`. Required when `artifactType = filepath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file share to which the artifact files will be copied. This can include variables. Example: \\\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber). Publishing artifacts from a Linux or macOS agent to a file share is not supported. For example: \server\folderName
+Specifies the file share where the artifact files are copied. This can include variables, for example `\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber)`. Publishing artifacts from a Linux or macOS agent to a file share is not supported, for example `\server\folderName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,7 +113,7 @@ The file share to which the artifact files will be copied. This can include vari
 **`parallel`** - **Parallel copy**<br>
 `boolean`. Optional. Use when `artifactType = filepath`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, one thread will be used.
+Specifies whether to copy files in parallel using multiple threads for greater potential throughput. If this setting is not enabled, one thread will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,7 +125,7 @@ Select whether to copy files in parallel using multiple threads for greater pote
 **`parallelCount`** - **Parallel count**<br>
 `string`. Optional. Use when `artifactType = filepath && parallel = true`. Default value: `8`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the degree of parallelism, or number of threads used, to perform the copy. The value must be at least 1 and not greater than 128.
+Specifies the degree of parallelism, or the number of threads used, to perform the copy. The value must be between 1 and 128.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +137,7 @@ Enter the degree of parallelism, or number of threads used, to perform the copy.
 **`properties`** - **Custom properties**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter custom properties to associate with the artifact. Valid JSON string expected with all keys having the prefix 'user-'.
+Specifies the custom properties to associate with the artifact. Use a valid JSON string with the prefix `user-` on all keys.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +168,7 @@ Publishing is not supported in classic release pipelines.
 The `publish` and `download` keywords are shortcuts for the PublishPipelineArtifact@1 and DownloadPipelineArtifact@2 tasks. See [steps.publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [steps.download](/azure/devops/pipelines/yaml-schema/steps-download) for more details.
 
 > [!TIP]
-> You can use the [.artifactignore](/azure/devops/artifacts/reference/artifactignore) file to to control which files will be published.
+> You can use the [.artifactignore](/azure/devops/artifacts/reference/artifactignore) file to control which files will be published.
 
 [!INCLUDE [temp](includes/build-step-common-qa.md)]
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 description: Configure alerts on available metrics for an Azure resource (Deprecated).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Configure alerts on available metrics for an Azure resource.
 # Configure alerts on available metrics for an Azure resource (Deprecated).
 - task: AzureMonitorAlerts@0
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
@@ -54,7 +54,7 @@ Configure alerts on available metrics for an Azure resource.
 # Configure alerts on available metrics for an Azure resource.
 - task: AzureMonitorAlerts@0
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
@@ -73,7 +73,7 @@ Configure alerts on available metrics for an Azure resource.
 # Configure alerts on available metrics for an Azure resource.
 - task: AzureMonitorAlerts@0
   inputs:
-    azureSubscription: # string. Required. Azure Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
     ResourceGroupName: # string. Required. Resource Group. 
     ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
     ResourceName: # string. Required. Resource name. 
@@ -105,11 +105,11 @@ Configure alerts on available metrics for an Azure resource.
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription. 
+Selects the Azure Resource Manager subscription.
 
-Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. 
+**Note:** To configure new service connection, select the Azure subscription from the list and click `Authorize`.
 
-If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
+If your subscription is not listed or if you want to use an existing service principal, you can setup an Azure service connection using the `Add` or `Manage` button.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ If your subscription is not listed or if you want to use an existing Service Pri
 **`ResourceGroupName`** - **Resource Group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Group that contains the Azure resource where you want to configure an alert.
+Selects the Azure Resource Group that contains the Azure resource where you want to configure an alert.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +133,7 @@ Select the Azure Resource Group that contains the Azure resource where you want 
 **`ResourceType`** - **Resource Type**<br>
 `string`. Required. Allowed values: `Microsoft.Insights/components` (Application Insights), `Microsoft.Web/sites` (App Services), `Microsoft.Storage/storageAccounts` (Storage Account), `Microsoft.Compute/virtualMachines` (Virtual Machines). Default value: `Microsoft.Insights/components`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure resource type.
+Selects the Azure resource type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +145,7 @@ Select the Azure resource type.
 **`ResourceName`** - **Resource name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select name of Azure resource where you want to configure an alert.
+Selects the name of the Azure resource where you want to configure an alert.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,9 +157,9 @@ Select name of Azure resource where you want to configure an alert.
 **`AlertRules`** - **Alert rules**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-List of Azure monitor alerts configured on selected Azure resource. 
+The list of Azure monitor alerts that are configured on the selected Azure resource.
 
-To add or modify alerts, click on […] button.
+To add or modify alerts, click the `…` button.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -171,7 +171,7 @@ To add or modify alerts, click on […] button.
 **`NotifyServiceOwners`** - **Subscription owners, contributors and readers**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send email notification to everyone who has access to this resource group.
+Optional. Sends an email notification to everyone who has access to the specified resource group.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +183,7 @@ Send email notification to everyone who has access to this resource group.
 **`NotifyEmails`** - **Additional administrator emails**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add additional email addresses separated by semicolons(;) if you want to send email notification to additional people (whether or not you checked the "subscription owners..." box).
+Optional. Add email addresses separated by semicolons (;) if you want to include additional email notification recipients. This feature can be incorporated whether or not the "subscription owners..." box is checked.
 <!-- :::editable-content-end::: -->
 <br>
 

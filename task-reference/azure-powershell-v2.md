@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@2 - Azure PowerShell v2 task
 description: Run a PowerShell script within an Azure environment (task version 2).
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run a PowerShell script within an Azure environment.
+Use this task to run a PowerShell script within an Azure environment. The Azure context is authenticated with the provided Azure Resource Manager service connection.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -27,15 +27,15 @@ Run a PowerShell script within an Azure environment.
 # Run a PowerShell script within an Azure environment.
 - task: AzurePowerShell@2
   inputs:
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Azure Connection Type. Default: ConnectedServiceNameARM.
-    #azureClassicSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
-    azureSubscription: # string. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Alias: ConnectedServiceNameSelector. Azure Connection Type. Default: ConnectedServiceNameARM.
+    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
     ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Required. Script Type. Default: FilePath.
     #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
     #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
     #ScriptArguments: # string. Script Arguments. 
-    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Azure PowerShell Version. Default: OtherVersion.
-    preferredAzurePowerShellVersion: # string. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version.
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
+    preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version.
 ```
 
 :::moniker-end
@@ -71,7 +71,7 @@ Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `Connecte
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Classic subscription to configure before running PowerShell.
+The Azure Classic subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +83,7 @@ Azure Classic subscription to configure before running PowerShell.
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Resource Manager subscription to configure before running PowerShell.
+The Azure Resource Manager subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +95,7 @@ Azure Resource Manager subscription to configure before running PowerShell.
 **`ScriptType`** - **Script Type**<br>
 `string`. Required. Allowed values: `FilePath` (Script File Path), `InlineScript` (Inline Script). Default value: `FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of the script: File Path or Inline Script.
+The type of script: file path or inline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +107,7 @@ Type of the script: File Path or Inline Script.
 **`ScriptPath`** - **Script Path**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script. Should be fully qualified path or relative to the default working directory.
+The path of the script. This should be a fully qualified path or one relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,7 +119,7 @@ Path of the script. Should be fully qualified path or relative to the default wo
 **`Inline`** - **Inline Script**<br>
 `string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the script to execute.
+Enters the script to execute.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +131,7 @@ Enter the script to execute.
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional parameters to pass to PowerShell.  Can be either ordinal or named parameters.
+The additional parameters to pass to PowerShell. These can be either ordinal or named parameters.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,10 +143,10 @@ Additional parameters to pass to PowerShell.  Can be either ordinal or named par
 **`azurePowerShellVersion`** - **Azure PowerShell Version**<br>
 Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In case of hosted agents, the supported Azure PowerShell Versions are: 2.1.0, 3.8.0, 4.2.1, 5.1.1 and 6.7.0(Hosted VS2017 Queue).
-To pick the latest version available on the agent, select "Latest installed version".
+In case of hosted agents, the supported Azure PowerShell Versions are `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and `6.7.0` (Hosted VS2017 Queue).
+To pick the latest version available on the agent, select `LatestVersion` (Latest installed version).
 
-For private agents you can specify preferred version of Azure PowerShell using "Specify version".
+For private agents you can specify a preferred version of Azure PowerShell using `OtherVersion` (Specify other version).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ For private agents you can specify preferred version of Azure PowerShell using "
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
 Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Preferred Azure PowerShell Version needs to be a proper semantic version eg. 1.2.3. Regex like 2.\*,2.3.\* is not supported. The Hosted VS2017 Pool currently supports Azure module versions: 2.1.0, 3.8.0, 4.2.1, 5.1.1 and AzureRM module versions: 2.1.0, 3.8.0, 4.2.1, 5.1.1, 6.7.0.
+The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3.`. Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Azure module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and AzureRM module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1`, `6.7.0`.
 <!-- :::editable-content-end::: -->
 <br>
 

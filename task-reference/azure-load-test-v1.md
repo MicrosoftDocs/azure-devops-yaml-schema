@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 09/26/2022
+ms.date: 10/21/2022
 monikerRange: "=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Automate performance regression testing with Azure Load Testing.
 # Automate performance regression testing with Azure Load Testing.
 - task: AzureLoadTest@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure subscription. 
     loadTestConfigFile: # string. Required. Load Test File. 
     resourceGroup: # string. Required. Load Test Resource Group. 
     loadTestResource: # string. Required. Load Test Resource Name. 
@@ -47,7 +47,7 @@ Automate performance regression testing with Azure Load Testing.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Manager subscription to run the load test.
+Selects an Azure Resource Manager subscription to run the load test.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -59,7 +59,8 @@ Select an Azure Resource Manager subscription to run the load test.
 **`loadTestConfigFile`** - **Load Test File**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the YAML file. Should be fully qualified path or relative to the default working directory.
+The path to the load test YAML configuration file relative from the repo root.
+See [Test configuration YAML reference](/azure/load-testing/reference-test-config-yaml). The path must be fully qualified or relative to the default working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -71,7 +72,7 @@ Path of the YAML file. Should be fully qualified path or relative to the default
 **`resourceGroup`** - **Load Test Resource Group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the Azure Resource Group that contains the Load test resource.
+Enters or selects the Azure Resource Group that contains the Load test resource.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -83,7 +84,7 @@ Enter or Select the Azure Resource Group that contains the Load test resource.
 **`loadTestResource`** - **Load Test Resource Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter or Select the name of an existing Azure Load Testing resource.
+Enters or selects the name of an existing Azure Load Testing resource.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -95,7 +96,7 @@ Enter or Select the name of an existing Azure Load Testing resource.
 **`secrets`** - **Secrets**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add/Update secret parameters using the json syntax as shown in the following example.
+An array of JSON objects that consist of the name and value for each secret. The name should match the secret name used in the Apache JMeter test script. Add or update the secret parameters using the json syntax as shown in the following example.
 
 ```json
 [
@@ -120,7 +121,7 @@ Add/Update secret parameters using the json syntax as shown in the following exa
 **`env`** - **env**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add/Update environment variables using the json syntax as shown in the following example.
+An array of JSON objects that consist of the name and value for each environment variable. The name should match the variable name used in the Apache JMeter test script. Add or update the environment variables using the JSON syntax as shown in the following example.
 
 ```json
 [
@@ -161,7 +162,7 @@ None.
 
 Use this task to run an Apache JMeter script by using Azure Load Testing Preview. Azure Load Testing is a fully managed load testing service that enables you to generate high-scale load.
 
-The task succeeds if the load test finishes successfully and all [test pass/fail criteria](/azure/load-testing/how-to-define-test-criteria) pass.
+The task succeeds if the load test finishes successfully and all [test criteria](/azure/load-testing/how-to-define-test-criteria) pass.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
