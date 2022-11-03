@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Download Azure Key Vault secrets.
+Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords from an [Azure Key Vault](/rest/api/keyvault/about-keys--secrets-and-certificates) instance. The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline. The task is Node-based and works with agents on Linux, macOS, and Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Download Azure Key Vault secrets.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Download Azure Key Vault Secrets.
+Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords from an Azure Key Vault instance. The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline. The task is Node-based and works with agents on Linux, macOS, and Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -106,7 +106,7 @@ Download Azure Key Vault Secrets.
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure subscription for the key vault.
+The service connection for the Azure subscription that either contains the Azure Key Vault instance or creates a new connection. Learn more about [connecting to Azure](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ Select the Azure subscription for the key vault.
 **`KeyVaultName`** - **Key vault**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the name of an existing key vault.
+The name of the Azure Key Vault that contains the secrets to download.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +130,7 @@ Provide the name of an existing key vault.
 **`SecretsFilter`** - **Secrets filter**<br>
 `string`. Required. Default value: `*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma separated list of secret names or leave * to download all secrets from the selected key vault.
+Downloads secret names according to the entered value. The value can be the default value to download all secrets from the selected key vault, or a comma-separated list of secret names.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -141,7 +141,7 @@ Comma separated list of secret names or leave * to download all secrets from the
 **`SecretsFilter`** - **Secrets filter**<br>
 `string`. Required. Allowed values: `EditableOptions` (True). Default value: `*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma separated list of secret names or leave * to download all secrets from the selected key vault.
+Downloads secret names according to the entered value. The value can be the default value to download all secrets from the selected key vault, or a comma-separated list of secret names.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,7 +153,7 @@ Comma separated list of secret names or leave * to download all secrets from the
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the task before job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
+Runs the task before the job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ Run the task before job execution begins. Exposes secrets to all tasks in the jo
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
 `boolean`. Required. Allowed values: `EditableOptions` (True). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the task before job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
+Runs the task before the job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,6 +195,10 @@ Works with cross-platform agents (Linux, macOS, or Windows).
 There is a newer version of the Archive Files task available.
 
 * [Azure Key Vault v2](azure-key-vault-v2.md)
+
+### I get a `forbidden` error on pipelines at the point of getting credentials from Azure Key Vault
+
+This occurs if the required permissions are missing in the Azure key vault. To resolve the issue, [add an access policy with the correct permissions](/azure/key-vault/general/assign-access-policy-portal).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

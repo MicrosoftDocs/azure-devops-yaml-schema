@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2022"
 :::moniker range=">=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
-Download Azure Key Vault secrets.
+Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords from an [Azure Key Vault](/rest/api/keyvault/about-keys--secrets-and-certificates) instance. The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline. The task is Node-based and works with agents on Linux, macOS, and Windows.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -57,7 +57,7 @@ Select the service connection for the Azure subscription containing the Azure Ke
 **`KeyVaultName`** - **Key vault**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the name of the Azure Key Vault from which the secrets will be downloaded.
+The name of the Azure Key Vault that contains the secrets to download.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -69,7 +69,7 @@ Select the name of the Azure Key Vault from which the secrets will be downloaded
 **`SecretsFilter`** - **Secrets filter**<br>
 `string`. Required. Default value: `*`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma separated list of secret names or leave * to download all secrets from the selected key vault.
+Downloads secret names according to the entered value. The value can be the default value to download all secrets from the selected key vault, or a comma-separated list of secret names.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Comma separated list of secret names or leave * to download all secrets from the
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
 `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the task before job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
+Runs the task before the job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,13 +107,17 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in Version 2.0: 
+What's new in Version 2.0:
    Added support for %3B, %5D in secrets.
 
-Use this task to download secrets such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords
+Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords
 from an [Azure Key Vault](/rest/api/keyvault/about-keys--secrets-and-certificates) instance.
-The task can be used to fetch the latest values of all or a subset of secrets from the vault, and set them as variables that can be used in subsequent tasks of a pipeline.
-The task is Node-based, and works with agents on Linux, macOS, and Windows.
+The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline.
+The task is Node-based and works with agents on Linux, macOS, and Windows.
+
+### I get a `forbidden` error on pipelines at the point of getting credentials from Azure Key Vault
+
+This occurs if the required permissions are missing in the Azure key vault. To resolve the issue, [add an access policy with the correct permissions](/azure/key-vault/general/assign-access-policy-portal).
 
 ### Prerequisites
 
