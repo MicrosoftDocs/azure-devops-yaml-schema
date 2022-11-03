@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Run a Windows command or batch script and optionally allow it to change the environment.
+Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` or `.cmd` script can permanently modify environment variables.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Run a Windows command or batch script and optionally allow it to change the envi
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Run a windows cmd or bat script and optionally allow it to change the environment.
+Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` or `.cmd` script can permanently modify environment variables.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -82,7 +82,7 @@ Run a windows cmd or bat script and optionally allow it to change the environmen
 **`filename`** - **Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the cmd or bat script to execute. Should be fully qualified path or relative to the default working directory (please note that working directory could differ from 'workingFolder' which could be specified for this task).
+The path of the `.cmd` or `.bat` script to execute. This should be a fully qualified path or one relative to the default working directory. (Please note that the working directory could differ from `workingFolder`, which could be specified for this task.)
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ Path of the cmd or bat script to execute. Should be fully qualified path or rela
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the cmd or bat script.
+The arguments passed to the `.cmd` or `.bat` script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ Determines whether environment variable modifications will affect subsequent tas
 **`workingFolder`** - **Working folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when script is run.  Defaults to the folder where the script is located.
+The current working directory when a script is run.  This defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,7 +130,7 @@ Current working directory when script is run.  Defaults to the folder where the 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the StandardError stream.
+If this is true, this task will fail if any errors are written to the `StandardError` stream.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,8 +169,6 @@ Optionally, allow it to permanently modify environment variables.
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
-
-## Example
 
 Create `test.bat` at the root of your repo:
 
