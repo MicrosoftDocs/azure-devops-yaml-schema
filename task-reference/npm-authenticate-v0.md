@@ -193,7 +193,7 @@ If the pipeline is running in a different project than the project hosting the f
 
 * [Restore `npm` packages for your project from a registry within your organization](#restore-npm-packages-for-your-project-from-a-registry-within-your-organization)
 * [Restore and publish `npm` packages outside your organization](#restore-and-publish-npm-packages-outside-your-organization)
-* [npmrc`](#npmrc)
+* [npmrc](#npmrc)
 * [npm](#npm)
 
 ### Restore `npm` packages for your project from a registry within your organization
