@@ -83,6 +83,10 @@ None.
 
 Specifies the credentials for Azure Artifacts feeds and external Maven repositories in the current user's `settings.xml` file.
 
+* [Where is the `settings.xml` file containing the authenticated repositories located?](#where-is-the-settingsxml-file-containing-the-authenticated-repositories-located)
+* [We use the `mvn -s` switch to specify our own `settings.xml` file. How do we authenticate Azure Artifacts feeds there?](#we-use-the-mvn--s-switch-to-specify-our-own-settingsxml-file-how-do-we-authenticate-azure-artifacts-feeds-there)
+* [My Pipeline needs to access a feed in a different project](#my-pipeline-needs-to-access-a-feed-in-a-different-project)
+
 ### Where is the `settings.xml` file containing the authenticated repositories located?
 
 The Maven Authenticate task searches for the `settings.xml` file in the current user's home directory. For Linux and Mac, the path is `$HOME/.m2/settings.xml`. For Windows, the path is `%USERPROFILE%\.m2\settings.xml`. If the `settings.xml` file doesn't exist, a new one will be created at that path.
@@ -110,6 +114,9 @@ If the pipeline is running in a different project than the project hosting the f
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
+
+* [Authenticate Maven feeds inside your organization](#authenticate-maven-feeds-inside-your-organization)
+* [Authenticate Maven feeds outside your organization](#authenticate-maven-feeds-outside-your-organization)
 
 ### Authenticate Maven feeds inside your organization
 

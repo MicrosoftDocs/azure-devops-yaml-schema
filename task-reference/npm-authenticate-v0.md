@@ -128,6 +128,12 @@ None.
 
 Use this task to provide `npm` credentials to an `.npmrc` file in your repository for the scope of the build. This enables `npm`, as well as `npm` task runners like gulp and Grunt, to authenticate with private registries.
 
+* [How does this task work?](#how-does-this-task-work)
+* [When in my pipeline should I run this task?](#when-in-my-pipeline-should-i-run-this-task)
+* [I have multiple npm projects. Do I need to run this task for each .npmrc file?](#i-have-multiple-npm-projects-do-i-need-to-run-this-task-for-each-npmrc-file)
+* [My agent is behind a web proxy. Will `npmAuthenticate` set up `npm/gulp/Grunt` to use my proxy?](#my-agent-is-behind-a-web-proxy-will-npmauthenticate-set-up-npmgulpgrunt-to-use-my-proxy)
+* [My Pipeline needs to access a feed in a different project](#my-pipeline-needs-to-access-a-feed-in-a-different-project)
+
 ### How does this task work?
 
 This task searches the specified `.npmrc` file for registry entries, then appends authentication details for the discovered registries to the end of the file. For all registries in the current organization/collection, the build's credentials are used. For  registries in a different organization or hosted by a third-party, the registry URIs will be compared to the URIs of the [npm service connections](/azure/devops/pipelines/library/service-endpoints#npm-service-connection) specified by the `customEndpoint` input, and the corresponding credentials will be used. The `.npmrc` file will be reverted to its original state at the end of the pipeline execution.
@@ -184,6 +190,11 @@ If the pipeline is running in a different project than the project hosting the f
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
+
+* [Restore `npm` packages for your project from a registry within your organization](#restore-npm-packages-for-your-project-from-a-registry-within-your-organization)
+* [Restore and publish `npm` packages outside your organization](#restore-and-publish-npm-packages-outside-your-organization)
+* [npmrc`](#npmrc)
+* [npm](#npm)
 
 ### Restore `npm` packages for your project from a registry within your organization
 

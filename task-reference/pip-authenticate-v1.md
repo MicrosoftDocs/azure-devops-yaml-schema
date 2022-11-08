@@ -45,7 +45,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 **`artifactFeeds`** - **My feeds (select below)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the feeds to authenticate as present in the organization.
+Specifies a comma-separated list of Azure Artifacts feeds to authenticate with pip.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,6 +96,10 @@ None.
 ## Remarks
 
 Provides authentication for the `pip` client that is used to install Python distributions.
+
+* [When in my pipeline should I run this task?](#when-in-my-pipeline-should-i-run-this-task)
+* [My agent is behind a web proxy. Will PipAuthenticate set up pip to use my proxy?](#my-agent-is-behind-a-web-proxy-will-pipauthenticate-set-up-pip-to-use-my-proxy)
+* [My Pipeline needs to access a feed in a different project](#my-pipeline-needs-to-access-a-feed-in-a-different-project)
 
 ### When in my pipeline should I run this task?
 
