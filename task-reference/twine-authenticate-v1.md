@@ -84,6 +84,10 @@ None.
 
 Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the scope of the build. This enables you to publish Python packages to feeds with `twine` from your build.
 
+* [When in my pipeline should I run this task?](#when-in-my-pipeline-should-i-run-this-task)
+* [My agent is behind a web proxy. Will TwineAuthenticate set up twine to use my proxy?](#my-agent-is-behind-a-web-proxy-will-twineauthenticate-set-up-twine-to-use-my-proxy)
+* [My Pipeline needs to access a feed in a different project](#my-pipeline-needs-to-access-a-feed-in-a-different-project)
+
 ### When in my pipeline should I run this task?
 
 This task must run before you use twine to upload Python distributions to an authenticated package source, such as Azure Artifacts. There are no other ordering requirements. Multiple invocations of this task will not stack credentials. Every task run will erase any previously stored credentials.
@@ -103,6 +107,9 @@ If the pipeline is running in a different project than the project hosting the f
 ## Examples
 
 The following examples demonstrate how to publish python distribution to Azure Artifacts feed and the official python registry.
+
+* [Publish Python distribution to Azure Artifacts feed](#publish-python-distribution-to-azure-artifacts-feed)
+* [Publish Python distribution to the official Python registry](#publish-python-distribution-to-the-official-python-registry)
 
 ### Publish Python distribution to Azure Artifacts feed
 
