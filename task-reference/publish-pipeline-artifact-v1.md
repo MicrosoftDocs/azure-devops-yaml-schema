@@ -165,6 +165,9 @@ None.
 
 Publishing is not supported in classic release pipelines.
 
+> [!NOTE]
+> Publish Pipeline Artifacts is not supported in on-premises. Please use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
+
 The `publish` and `download` keywords are shortcuts for the PublishPipelineArtifact@1 and DownloadPipelineArtifact@2 tasks. See [steps.publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [steps.download](/azure/devops/pipelines/yaml-schema/steps-download) for more details.
 
 > [!TIP]
