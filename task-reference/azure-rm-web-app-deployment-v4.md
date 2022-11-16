@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 11/03/2022
+ms.date: 11/10/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -28,7 +28,56 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure App Service deploy v4
+# Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM' # 'AzureRM' | 'PublishProfile'. Required. Connection type. Default: AzureRM.
+    azureSubscription: # string. Alias: ConnectedServiceName. Required when ConnectionType = AzureRM. Azure subscription. 
+    #PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml' # string. Required when ConnectionType = PublishProfile. Publish profile path. Default: $(System.DefaultWorkingDirectory)/**/*.pubxml.
+    #PublishProfilePassword: # string. Required when ConnectionType = PublishProfile. Publish profile password. 
+    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'webAppHyperVContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Alias: WebAppKind. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
+    WebAppName: # string. Required when ConnectionType = AzureRM. App Service name. 
+    #deployToSlotOrASE: false # boolean. Alias: DeployToSlotOrASEFlag. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
+    #ResourceGroupName: # string. Required when DeployToSlotOrASEFlag = true. Resource group. 
+    #SlotName: 'production' # string. Required when DeployToSlotOrASEFlag = true. Slot. Default: production.
+    #DockerNamespace: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer. Registry or Namespace. 
+    #DockerRepository: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer. Image. 
+    #DockerImageTag: # string. Optional. Use when WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer. Tag. 
+    #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #RuntimeStack: # string. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
+    #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
+    #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer. Startup command. 
+  # Post Deployment Action
+    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+  # File Transforms & Variable Substitution Options
+    #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
+    #JSONFiles: # string. JSON variable substitution. 
+  # Application and Configuration Settings
+    #AppSettings: # string. App settings. 
+    #ConfigurationSettings: # string. Configuration settings. 
+  # Additional Deployment Options
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
+    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
+    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Exclude files from the App_Data folder. Default: true.
+    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
+    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Rename locked files. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
 # Azure App Service deploy v4
@@ -241,7 +290,18 @@ It is recommended to store a password in a secret variable and use that variable
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+**`appType`** - **App Service type**<br>
+Input alias: `WebAppKind`. `string`. Required when `ConnectionType = AzureRM`. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux), `webAppContainer` (Web App for Containers (Linux)), `webAppHyperVContainer` (Web App for Containers (Windows)), `functionApp` (Function App on Windows), `functionAppLinux` (Function App on Linux), `functionAppContainer` (Function App for Containers (Linux)), `apiApp` (API App), `mobileApp` (Mobile App). Default value: `webApp`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Choose from Web App On Windows, Web App On Linux, Web App for Containers, Function App, Function App on Linux, Function App for Containers and Mobile App.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`appType`** - **App Service type**<br>
 Input alias: `WebAppKind`. `string`. Required when `ConnectionType = AzureRM`. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux), `webAppContainer` (Web App for Containers (Linux)), `functionApp` (Function App on Windows), `functionAppLinux` (Function App on Linux), `functionAppContainer` (Function App for Containers (Linux)), `apiApp` (API App), `mobileApp` (Mobile App). Default value: `webApp`.<br>
@@ -305,7 +365,18 @@ Specify an existing slot other than the Production slot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DockerNamespace"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+**`DockerNamespace`** - **Registry or Namespace**<br>
+`string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A globally unique top-level domain name for your specific registry or namespace. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`DockerNamespace`** - **Registry or Namespace**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
@@ -317,7 +388,18 @@ A globally unique top-level domain name for your specific registry or namespace.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DockerRepository"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+**`DockerRepository`** - **Image**<br>
+`string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The name of the repository where the container images are stored. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`DockerRepository`** - **Image**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
@@ -329,7 +411,18 @@ The name of the repository where the container images are stored. Note: The full
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DockerImageTag"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+**`DockerImageTag`** - **Tag**<br>
+`string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Tags are the mechanism that registries use to apply version information to Docker images. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
@@ -404,7 +497,22 @@ Specify the framework and version.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StartupCommand"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+**`StartupCommand`** - **Startup command**<br>
+`string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the Startup command. For example:
+
+dotnet exec `filename.dll`
+
+dotnet `filename.dll`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>

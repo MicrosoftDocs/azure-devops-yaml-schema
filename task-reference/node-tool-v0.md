@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 11/03/2022
+ms.date: 11/10/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,23 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Node.js tool installer v0
+# Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec' # 'spec' | 'fromFile'. Required. Source of version. Default: spec.
+    #versionSpec: '6.x' # string. Optional. Use when versionSource = spec. Version Spec. Default: 6.x.
+    #versionFilePath: # string. Optional. Use when versionSource = fromFile. Path to the .nvmrc file. 
+    #checkLatest: false # boolean. Check for Latest Version. Default: false.
+    #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
 # Node.js tool installer v0
@@ -74,13 +90,47 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="versionSource"::: -->
+:::moniker range="=azure-pipelines"
+
+**`versionSource`** - **Source of version**<br>
+`string`. Required. Allowed values: `spec` (Specify Node version), `fromFile` (Get version from file). Default value: `spec`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+**`versionSpec`** - **Version Spec**<br>
+`string`. Optional. Use when `versionSource = spec`. Default value: `6.x`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022"
 
 **`versionSpec`** - **Version Spec**<br>
 `string`. Required. Default value: `6.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="versionFilePath"::: -->
+:::moniker range="=azure-pipelines"
+
+**`versionFilePath`** - **Path to the .nvmrc file**<br>
+`string`. Optional. Use when `versionSource = fromFile`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+File path to get version.  Example: src/.nvmrc.
 <!-- :::editable-content-end::: -->
 <br>
 

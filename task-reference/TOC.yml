@@ -630,6 +630,9 @@ items:
     displayName: Manual validation v0
 - name: Maven
   items:
+  - name: Maven@4
+    href: maven-v4.md
+    displayName: Maven v4
   - name: Maven@3
     href: maven-v3.md
     displayName: Maven v3

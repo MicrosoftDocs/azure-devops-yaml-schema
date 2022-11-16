@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 11/03/2022
+ms.date: 11/10/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -56,7 +56,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Index sources and publish symbols**<br>[PublishSymbols@2](publish-symbols-v2.md)<br>[PublishSymbols@1](publish-symbols-v1.md) | Index your source code and publish symbols to a file share or Azure Artifacts symbol server. |
 | **Jenkins queue job**<br>[JenkinsQueueJob@2](jenkins-queue-job-v2.md) | Queue a job on a Jenkins server. |
 | **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
-| **Maven**<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
+| **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Prepare Analysis Configuration**<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube analysis configuration. |
 | **Publish Quality Gate Result**<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
