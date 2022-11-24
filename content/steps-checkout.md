@@ -2062,7 +2062,7 @@ To configure the fetch depth for a pipeline, you can either set the `fetchDepth`
 
 ### Clean property
 
-The default value if the `clean` property is unset is configured by the **clean** setting in the UI settings for YAML pipelines, which is set to false by default. In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces and clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+If the `clean` property is unset, then its default value is configured by the **clean** setting in the UI settings for YAML pipelines, which is set to true by default. In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces and clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 
 ::: moniker range="= azure-pipelines"
 
