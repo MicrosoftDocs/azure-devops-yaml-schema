@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 11/10/2022
+ms.date: 11/28/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -10,17 +10,6 @@ monikerRange: "<=azure-pipelines"
 A task performs an action in a pipeline. For example, a task can build an app, interact with Azure resources, install a tool, or run a test. Tasks are the building blocks for defining automation in a pipeline. The articles in this section describe the built-in tasks for Azure Pipelines.
 
 For how-tos and tutorials about authoring pipelines using tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks) and [Azure Pipelines documentation](/azure/devops/pipelines/).
-
-> [!NOTE]
-> This is a preview of the new task reference experience with the following improvements.
-> * Task articles are generated using the task source code from the [Azure Pipelines tasks open source repository](https://github.com/microsoft/azure-pipelines-tasks).
-> * Task input names and aliases are generated from the task source so they are always up to date.
-> * YAML syntax blocks are generated from the task source so they are up to date.
-> * Supports community contributions with integrated user content such as enhanced task input descriptions, remarks and examples.
-> * Provides task coverage for all supported Azure DevOps versions.
-> * Updated every sprint to cover the latest updates.
->
-> To view the current version of the Azure Pipelines task reference, see [Azure Pipelines task index](/azure/devops/pipelines/tasks).
 
 > [!IMPORTANT]  
 > :::row:::
@@ -1286,7 +1275,18 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 These tasks are open source [on GitHub](https://github.com/Microsoft/azure-pipelines-tasks). Feedback and contributions are welcome.
 
-## FAQ  
+## FAQ
+
+### Why did the task reference change?
+
+The Azure Pipelines tasks reference documentation moved to its current location to support the following improvements.
+
+ * Task articles are generated using the task source code from the [Azure Pipelines tasks open source repository](https://github.com/microsoft/azure-pipelines-tasks).
+ * Task input names and aliases are generated from the task source so they are always up to date.
+ * YAML syntax blocks are generated from the task source so they are up to date.
+ * Supports community contributions with integrated user content such as enhanced task input descriptions, remarks and examples.
+ * Provides task coverage for all supported Azure DevOps versions.
+ * Updated every sprint to cover the latest updates.
 
 ### Where can I learn step-by-step how to build my app?
 
