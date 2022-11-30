@@ -797,30 +797,9 @@ However, for situations where a team of developers works on a large range of pro
 
 ### Troubleshooting
 
-#### File structure for output files is different from previous builds
-
-Azure DevOps hosted agents are configured with .NET Core 3.0, 2.1 and 2.2.
-CLI for .NET Core 3.0 has a different behavior while publishing projects using output folder argument. When publishing projects with the output folder argument (-o), the output folder is created in the root directory and not in the project file’s directory. Hence while publishing more than one project, all the files are published to the same directory, which causes an issue.
-
-To resolve this issue, use the `Add project name to publish path` parameter (`modifyOutputPath` in YAML) in the .NET Core CLI task. This creates a sub folder with the project file’s name inside the output folder. All of your projects will then be published under different subfolders inside the main output folder.
-
-```YAML
-steps:
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet publish'
-  inputs:
-    command: publish
-    publishWebProjects: false
-    projects: '**/*.csproj'
-    arguments: '-o testpath'
-    zipAfterPublish: false
-    modifyOutputPath: true
-```
-
 #### Project using Entity Framework has stopped working on Hosted Agents
 
-The latest .NET Core: 3.0 does not have Entity Framework(EF) built-in. You will have to either install EF before beginning execution or add `global.json` to the project with required .NET Core SDK version. This will ensure that correct SDK is used to build EF project. If the required version is not present on the machine, add the `UseDotNetV2` task to your pipeline to install the required version.
-Learn more about [EF with .NET Core 3.0](https://devblogs.microsoft.com/dotnet/announcing-entity-framework-core-3-0-preview-4/)
+.NET Core does not have Entity Framework(EF) built-in. You will have to either install EF before beginning execution or add `global.json` to the project with required .NET Core SDK version. This will ensure that correct SDK is used to build EF project. If the required version is not present on the machine, add the `UseDotNetV2` task to your pipeline to install the required version. For more information, see [Get the Entity Framework Core runtime](/ef/core/get-started/overview/install#get-the-entity-framework-core-runtime).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
