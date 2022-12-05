@@ -278,7 +278,7 @@ Specifies the option to clean the destination directory before JDK is extracted 
 **`createExtractDirectory`** - **Create directory for extracting**<br>
 `boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default, the task creates a directory similar to `JAVA_HOME_8_X64_OpenJDK_zip` for extracting JDK. This option disables the creation of that folder and, if set to `true`, JDK is located in the root of `jdkDestinationDirectory` instead.
+By default, the task creates a directory similar to `JAVA_HOME_8_X64_OpenJDK_zip` for extracting JDK. This option disables the creation of that folder and, if set to `false`, JDK is located in the root of `jdkDestinationDirectory` instead.
 <!-- :::editable-content-end::: -->
 <br>
 
