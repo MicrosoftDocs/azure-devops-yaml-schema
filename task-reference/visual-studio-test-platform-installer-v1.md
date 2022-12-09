@@ -193,6 +193,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+> [!NOTE]
+> If you are using a hosted agent, check the software table for the agent you are using to see if Visual Studio is installed. If Visual Studio is installed, you don't need to run the Visual Studio test platform installer task.
+
 Use this task to acquire the [Microsoft test platform](https://www.nuget.org/packages/Microsoft.TestPlatform/) from nuget.org or a specified feed, and add it to the tools cache. The installer task satisfies the `vstest` demand, and a subsequent [Visual Studio Test task](vstest-v2.md) in a build or release pipeline can run without needing a full Visual Studio install on the agent machine.
 
 > [!NOTE]
