@@ -505,6 +505,8 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+There is a new version of this task available at [AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task](azure-resource-manager-template-deployment-v3.md).
+
 ### What's new in task version 2
 
 * Works with cross-platform agents (Linux, macOS, or Windows)
