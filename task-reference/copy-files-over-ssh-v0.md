@@ -125,7 +125,7 @@ Copy files or build artifacts to a remote machine over SSH.
 **`sshEndpoint`** - **SSH service connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of an SSH service connection containing connection details for the remote machine.
+The name of an [SSH service connection](/azure/devops/pipelines/library/service-endpoints#ssh-service-connection) containing connection details for the remote machine.
 
 - The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
 - The private key and the passphrase must be specified for authentication.

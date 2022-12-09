@@ -138,7 +138,7 @@ Specifies the name of an SSH service connection containing connection details fo
 **`sshEndpoint`** - **SSH endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of an SSH service connection containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
+Specifies the name of an [SSH service connection](/azure/devops/pipelines/library/service-endpoints#ssh-service-connection) containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
 
 - The private key and the passphrase must be specified for authentication.
 - A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
