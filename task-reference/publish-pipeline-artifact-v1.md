@@ -80,7 +80,7 @@ Input alias: `artifactName`. `string`.<br>
 Specifies the name of the artifact to publish. It can be any name you choose, for example `drop`. If not set, the default is a unique ID scoped to the job.
 
 > [!IMPORTANT]
-> Artifact name cannot contain `\`, /`, `"`, `:`, `<`, `>`, `|`, `*`, or `?`.
+> Artifact name cannot contain `\`, `/`, `"`, `:`, `<`, `>`, `|`, `*`, or `?`.
 <!-- :::editable-content-end::: -->
 <br>
 
