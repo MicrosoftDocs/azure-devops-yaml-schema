@@ -171,6 +171,9 @@ A comma-delimited list of tags. Only builds with these tags are returned.
 `string`. Required. Allowed values: `single` (Specific artifact), `specific` (Specific files). Default value: `single`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Downloads a specific artifact or specific files from the build.
+
+* Choose `single` (Specific artifact) when you want only one specific artifact specified by `artifactName`
+* Choose `specific` (Specific files) when you want all artifacts of the selected build
 <!-- :::editable-content-end::: -->
 <br>
 
