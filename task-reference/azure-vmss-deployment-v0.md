@@ -246,7 +246,7 @@ None.
 
 Use this task to deploy a Virtual Machine scale set image.
 
-### ### The script execution is reported as successful, however the VMSS instances are not updated
+### The script execution is reported as successful, however the VMSS instances are not updated
 
 Scale sets have an upgrade policy that determine how VMs are brought up-to-date with the latest scale set model, and if the upgrade policy is set to manual you must manually upgrade each VM. For more information, see [How to bring VMs up-to-date with the latest scale set model](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). You can change the update policy or manually upgrade each VM. For example, to upgrade the policy to `Automatic`, use the following Az CLI command: 
 ```az vmss update --set upgradePolicy.mode=Automatic -g <resource group name> -n <vmss name>```
