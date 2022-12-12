@@ -85,7 +85,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 **`azureSubscription`** - **Azure Service Bus service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Service Bus service connection.
+Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/library/service-endpoints#azure-service-bus-service-connection).
 <!-- :::editable-content-end::: -->
 <br>
 
