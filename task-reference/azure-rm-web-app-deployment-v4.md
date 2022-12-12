@@ -1028,7 +1028,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
+stages:
  - stage: DeployDevStage
     displayName: 'Deploy App to Dev Slot'
     jobs:
