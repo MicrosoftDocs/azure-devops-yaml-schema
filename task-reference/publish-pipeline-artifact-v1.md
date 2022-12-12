@@ -78,6 +78,9 @@ Specifies the path of the file or directory to publish. Can be absolute or relat
 Input alias: `artifactName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the artifact to publish. It can be any name you choose, for example `drop`. If not set, the default is a unique ID scoped to the job.
+
+> [!IMPORTANT]
+> Artifact name cannot contain `\`, `/`, `"`, `:`, `<`, `>`, `|`, `*`, or `?`.
 <!-- :::editable-content-end::: -->
 <br>
 
