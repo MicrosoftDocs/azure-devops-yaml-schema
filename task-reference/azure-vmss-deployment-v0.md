@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

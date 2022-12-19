@@ -1,7 +1,7 @@
 ---
 title: Go@0 - Go v0 task
 description: Get, build, or test a Go application, or run a custom Go command.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 

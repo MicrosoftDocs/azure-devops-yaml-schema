@@ -1,7 +1,7 @@
 ---
 title: GitHubRelease@1 - GitHub Release v1 task
 description: Create, edit, or delete a GitHub release.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 

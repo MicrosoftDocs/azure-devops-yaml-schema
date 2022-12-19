@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@1 - cURL Upload Files v1 task
 description: Use cURL to upload files with FTP, FTPS, SFTP, HTTP, and more.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

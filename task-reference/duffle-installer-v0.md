@@ -1,7 +1,7 @@
 ---
 title: DuffleInstaller@0 - Duffle tool installer v0 task
 description: Install a specified version of Duffle for installing and managing CNAB bundles.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

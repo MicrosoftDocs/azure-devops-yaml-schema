@@ -1,7 +1,7 @@
 ---
 title: PublishSymbols@1 - Index sources and publish symbols v1 task
 description: Index your source code and publish symbols to a file share.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

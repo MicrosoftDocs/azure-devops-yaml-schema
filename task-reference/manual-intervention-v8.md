@@ -1,7 +1,7 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

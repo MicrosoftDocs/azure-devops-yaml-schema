@@ -1,7 +1,7 @@
 ---
 title: HelmInstaller@0 - Helm tool installer v0 task
 description: Install Helm and Kubernetes on an agent machine (task version 0).
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 

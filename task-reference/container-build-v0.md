@@ -1,7 +1,7 @@
 ---
 title: ContainerBuild@0 - Container Build v0 task
 description: Container Build Task.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2020"
 ---
 

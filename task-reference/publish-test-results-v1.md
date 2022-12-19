@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@1 - Publish test results v1 task
 description: Publish test results to Azure Pipelines (task version 1).
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

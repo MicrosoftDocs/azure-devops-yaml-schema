@@ -1,7 +1,7 @@
 ---
 title: PowerShellOnTargetMachines@2 - PowerShell on Target Machines v2 task
 description: Execute PowerShell scripts on remote machine(s) (task version 2).
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

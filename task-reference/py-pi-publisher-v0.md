@@ -1,7 +1,7 @@
 ---
 title: PyPIPublisher@0 - PyPI publisher v0 task
 description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 

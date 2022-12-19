@@ -1,7 +1,7 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 11/10/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 
