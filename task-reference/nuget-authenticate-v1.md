@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -280,7 +280,22 @@ The package source URL pointing to an Azure Artifacts feed may or may not contai
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Package |
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

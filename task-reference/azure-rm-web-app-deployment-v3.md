@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 11/03/2022
+ms.date: 12/19/2022
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -177,7 +177,20 @@ Specify the Azure Resource Manager subscription for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appType"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+**`appType`** - **App type**<br>
+Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), `applinux` (Linux Web App), `functionapp` (Function App (Not Recommended, Use Azure Functions Task)), `api` (API App), `mobileapp` (Mobile App). Default value: `app`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the type of web app to deploy.
+
+Note: Specify Linux Web App for built-in platform images or custom container image deployments.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022"
 
 **`appType`** - **App type**<br>
 Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), `applinux` (Linux Web App), `functionapp` (Function App), `api` (API App), `mobileapp` (Mobile App). Default value: `app`.<br>
