@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
+
+> [!NOTE]
+> Use [AzureFunctionApp@1](azure-function-app-v1.md) to deploy Azure Functions apps.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
