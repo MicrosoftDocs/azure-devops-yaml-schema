@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 11/10/2022
+ms.date: 12/19/2022
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -12,6 +12,9 @@ monikerRange: ">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
+
+> [!NOTE]
+> Use [AzureFunctionApp@1](azure-function-app-v1.md) to deploy Azure Functions apps.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -293,7 +296,7 @@ It is recommended to store a password in a secret variable and use that variable
 :::moniker range="=azure-pipelines"
 
 **`appType`** - **App Service type**<br>
-Input alias: `WebAppKind`. `string`. Required when `ConnectionType = AzureRM`. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux), `webAppContainer` (Web App for Containers (Linux)), `webAppHyperVContainer` (Web App for Containers (Windows)), `functionApp` (Function App on Windows), `functionAppLinux` (Function App on Linux), `functionAppContainer` (Function App for Containers (Linux)), `apiApp` (API App), `mobileApp` (Mobile App). Default value: `webApp`.<br>
+Input alias: `WebAppKind`. `string`. Required when `ConnectionType = AzureRM`. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux), `webAppContainer` (Web App for Containers (Linux)), `webAppHyperVContainer` (Web App for Containers (Windows)), `functionApp` (Function App on Windows (Not Recommended, Use Azure Functions Task)), `functionAppLinux` (Function App on Linux (Not Recommended, Use Azure Functions Task)), `functionAppContainer` (Function App for Containers (Linux) (Not Recommended, Use Azure Functions for container Task)), `apiApp` (API App), `mobileApp` (Mobile App). Default value: `webApp`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose from Web App On Windows, Web App On Linux, Web App for Containers, Function App, Function App on Linux, Function App for Containers and Mobile App.
 <!-- :::editable-content-end::: -->
