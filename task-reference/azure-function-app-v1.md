@@ -353,7 +353,7 @@ Enter the configuration strings using the syntax `-key value` (for example: `-ph
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -364,7 +364,7 @@ Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-funct
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
