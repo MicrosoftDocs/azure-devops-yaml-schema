@@ -825,8 +825,11 @@ The above limitations are because of how the adapters for these test frameworks 
 
 ### Does the VSTest task support running tests that target multiple target frameworks at a time?
 
-The VSTest task doesn't support running tests that target multiple target frameworks at a time as this is a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
-If you want to run tests that belong to multiple target frameworks, you'll need multiple instances of the VSTest task, one per set of DLLs that target a particular framework.
+Yes, starting from version `17.3` VSTest does support running tests that target multiple target frameworks at a time.
+Prior to that, this wasn't possible due to a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
+
+If you want to run tests that belong to multiple target frameworks, you'll need to install a compatible version of VSTest via **Visual Studio Test Platform Installer** and set `vsTestVersion` to `toolsInstaller` to use it.
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
