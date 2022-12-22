@@ -750,7 +750,7 @@ This YAML example runs services:
     qualifyImageNames: true
     buildImages: true
     abortOnContainerExit: true
-    detached: false
+    detached: true
 ```
 
 ### Run a specific service image
