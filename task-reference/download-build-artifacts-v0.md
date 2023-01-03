@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to download files that were saved as artifacts of a completed build.
 
 > [!NOTE]
-> Disable IIS Basic Authentication if you are using Azure DevOps Server to allow authentication with your Personal Access Token. See [IIS Basic Authentication and PATs](/azure/devops/integrate/get-started/authentication/iis-basic-auth.md) for more details.
+> Disable IIS Basic Authentication if you are using Azure DevOps Server to allow authentication with your Personal Access Token. See [IIS Basic Authentication and PATs](/azure/devops/integrate/get-started/authentication/iis-basic-auth) for more details.
 
 <!-- :::editable-content-end::: -->
 
