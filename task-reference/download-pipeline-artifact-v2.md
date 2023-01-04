@@ -249,12 +249,9 @@ Stores the build number of the pipeline artifact source.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline. By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to downloaded.
 
-> [!NOTE]
-> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts#download-artifacts).
-
-The [publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [download](/azure/devops/pipelines/yaml-schema/steps-download) keywords are shortcuts for the **Publish Pipeline Artifact** task. You can use them in your pipeline to publish and download artifacts. For more information, see [Publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [Download](/azure/devops/pipelines/yaml-schema/steps-download) in the YAML schema.
+The [publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [download](/azure/devops/pipelines/yaml-schema/steps-download) keywords are tasks shortcuts to [publish](/azure/devops/pipelines/artifacts/pipeline-artifacts#publish-artifacts) and [download](/azure/devops/pipelines/artifacts/pipeline-artifacts#download-artifacts) your pipeline artifacts.
 
 ### How can I find the ID of the Pipeline I want to download an artifact from?
 
