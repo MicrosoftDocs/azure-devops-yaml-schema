@@ -249,7 +249,7 @@ Stores the build number of the pipeline artifact source.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline. By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to downloaded.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline. By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to download.
 
 The [publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [download](/azure/devops/pipelines/yaml-schema/steps-download) keywords are tasks shortcuts to [publish](/azure/devops/pipelines/artifacts/pipeline-artifacts#publish-artifacts) and [download](/azure/devops/pipelines/artifacts/pipeline-artifacts#download-artifacts) your pipeline artifacts.
 

@@ -124,7 +124,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to downloaded.
+By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to download.
 
 ### How can I find the ID of the Pipeline I want to download an artifact from?
 
