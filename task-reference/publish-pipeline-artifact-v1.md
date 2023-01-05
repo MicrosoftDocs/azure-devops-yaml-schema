@@ -104,7 +104,7 @@ Specifies whether to store the artifact in Azure Pipelines or to copy it to a fi
 **`fileSharePath`** - **File share path**<br>
 `string`. Required when `artifactType = filepath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the file share where the artifact files are copied. This can include variables, for example `\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber)`. Publishing artifacts from a Linux or macOS agent to a file share is not supported, for example `\server\folderName`.
+Specifies the file share where the artifact files are copied. This can include variables, for example `\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber)`. Publishing artifacts from a Linux or macOS agent to a file share is not supported, for example `\\server\folderName`.
 <!-- :::editable-content-end::: -->
 <br>
 
