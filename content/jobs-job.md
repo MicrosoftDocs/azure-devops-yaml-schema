@@ -21,7 +21,7 @@ jobs:
   displayName: string # Human-readable name for the job. 
   dependsOn: string | [ string ]  # Any jobs which must complete before this one
   condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
+  continueOnError: boolean # Continue running even on failure?. 
   timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
   cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
   variables: variables # Job-specific variables
