@@ -273,7 +273,7 @@ The number of times to retry downloading a build artifact if the download fails.
 **`extractTars`** - **Extract all files that are stored inside tar archives**<br>
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enable this option to extract all downloaded files that have .tar extension. This is helpful because you need to pack your artifact files into tar if you want to preserve Unix file permissions. Enabling `StoreAsTar` option in PublishBuildArtifacts task will store artifacts as .tar files automatically.
+Set to `true` to extract all downloaded files that have the **.tar** extension. This is helpful because you need to pack your artifact files into tar if you want to preserve Unix file permissions. Enabling the `StoreAsTar` option in the [Publish build artifacts](publish-build-artifacts-v1.md) task will store artifacts as **.tar** files automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
