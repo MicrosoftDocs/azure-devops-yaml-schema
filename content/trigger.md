@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: trigger definition reference.
-ms.date: 09/02/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 

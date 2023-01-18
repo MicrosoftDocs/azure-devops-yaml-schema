@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: resources.repositories.repository definition reference.
-ms.date: 09/20/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -708,9 +708,9 @@ repositories:
 - repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
   name: string # repository name (format depends on `type`); does not accept variables. 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
 ```
 
 
@@ -783,6 +783,26 @@ ___
 :::row:::
   :::column:::
    <!-- :::api-property-name::: -->
+   `ref`
+   <!-- :::api-property-name-end::: -->
+  :::column-end:::
+  :::column span="3":::
+<!-- :::api-property-type::: --> 
+string
+<!-- :::api-property-type-end::: -->  
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
+ <!-- :::api-desc-end::: -->
+  :::column-end:::
+:::row-end:::
+<!-- :::api-property-end::: -->
+___
+
+
+
+<!-- :::api-property::: -->
+:::row:::
+  :::column:::
+   <!-- :::api-property-name::: -->
    `name`
    <!-- :::api-property-name-end::: -->
   :::column-end:::
@@ -811,26 +831,6 @@ ___
 string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::

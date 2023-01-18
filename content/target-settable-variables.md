@@ -1,7 +1,7 @@
 ---
 title: target.settableVariables definition
 description: target.settableVariables definition reference.
-ms.date: 08/08/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2022"
 ---
 
