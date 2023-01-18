@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook.filters list definition
 description: resources.webhooks.webhook.filters list definition reference.
-ms.date: 08/08/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
