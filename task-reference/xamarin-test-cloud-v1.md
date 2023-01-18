@@ -1,7 +1,7 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 

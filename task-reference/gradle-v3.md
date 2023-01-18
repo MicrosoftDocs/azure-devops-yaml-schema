@@ -1,7 +1,7 @@
 ---
 title: Gradle@3 - Gradle v3 task
 description: Build using a Gradle wrapper script.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 

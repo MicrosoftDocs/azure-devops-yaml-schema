@@ -1,7 +1,7 @@
 ---
 title: ShellScript@2 - Shell script v2 task
 description: Run a shell script using Bash.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 

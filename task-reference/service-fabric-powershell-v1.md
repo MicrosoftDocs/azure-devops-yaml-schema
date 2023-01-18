@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 
