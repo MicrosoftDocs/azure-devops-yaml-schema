@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@1 - Download build artifacts v1 task
 description: Download files that were saved as artifacts of a completed build.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -40,10 +40,12 @@ Use this task to download files that were saved as artifacts of a completed buil
     artifactName: # string. Required when downloadType == single. Artifact name. 
     #itemPattern: '**' # string. Matching pattern. Default: **.
     downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
+    #cleanDestinationFolder: false # boolean. Clean destination folder. Default: false.
   # Advanced
     #parallelizationLimit: '8' # string. Parallelization limit. Default: 8.
     #checkDownloadedFiles: false # boolean. Check downloaded files. Default: false.
     #retryDownloadCount: '4' # string. Retry count. Default: 4.
+    #extractTars: # boolean. Extract all files that are stored inside tar archives.
 ```
 
 :::moniker-end
@@ -217,6 +219,18 @@ The path on the agent machine where the artifacts are downloaded.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="cleanDestinationFolder"::: -->
+:::moniker range="=azure-pipelines"
+
+**`cleanDestinationFolder`** - **Clean destination folder**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Delete all existing files in destination folder before artifact download.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="parallelizationLimit"::: -->
 :::moniker range="=azure-pipelines"
 
@@ -248,6 +262,18 @@ If `true`, this build task checks that all files are fully downloaded.
 `string`. Default value: `4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The number of times to retry downloading a build artifact if the download fails.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="extractTars"::: -->
+:::moniker range="=azure-pipelines"
+
+**`extractTars`** - **Extract all files that are stored inside tar archives**<br>
+`boolean`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Enable this option to extract all downloaded files that have .tar extension. This is helpful because you need to pack your artifact files into tar if you want to preserve Unix file permissions. Enabling `StoreAsTar` option in PublishBuildArtifacts task will store artifacts as .tar files automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -304,7 +330,7 @@ Please note that this input returns **BuildId** due to backward compatibility. F
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.188.2 or greater |
+| Agent version |  2.191.1 or greater |
 | Task category | Utility |
 
 :::moniker-end

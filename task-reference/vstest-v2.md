@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -829,7 +829,6 @@ Yes, starting from version `17.3` VSTest does support running tests that target 
 Prior to that, this wasn't possible due to a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
 
 If you want to run tests that belong to multiple target frameworks, you'll need to install a compatible version of VSTest via **Visual Studio Test Platform Installer** and set `vsTestVersion` to `toolsInstaller` to use it.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
