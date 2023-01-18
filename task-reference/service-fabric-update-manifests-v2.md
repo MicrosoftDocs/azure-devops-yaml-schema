@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateManifests@2 - Update Service Fabric manifests v2 task
 description: Automatically update portions of application and service manifests in a packaged Azure Service Fabric application.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 

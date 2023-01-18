@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineMetadata@0 - Publish Pipeline Metadata v0 task
 description: Publish Pipeline Metadata to Evidence store.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

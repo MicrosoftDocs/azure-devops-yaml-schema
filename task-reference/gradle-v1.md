@@ -1,7 +1,7 @@
 ---
 title: Gradle@1 - Gradle v1 task
 description: Build using a Gradle wrapper script (task version 1).
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 

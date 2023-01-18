@@ -1,7 +1,7 @@
 ---
 title: ContainerStructureTest@0 - Container Structure Test v0 task
 description: Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

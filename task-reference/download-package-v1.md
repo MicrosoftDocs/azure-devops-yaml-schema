@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
