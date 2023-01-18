@@ -263,11 +263,6 @@ items:
   - name: CacheBeta@0
     href: cache-beta-v0.md
     displayName: Cache (Beta) v0
-- name: Cargo authenticate (for task runners)
-  items:
-  - name: CargoAuthenticate@0
-    href: cargo-authenticate-v0.md
-    displayName: Cargo authenticate (for task runners) v0
 - name: Check Azure Policy compliance
   items:
   - name: AzurePolicyCheckGate@0
