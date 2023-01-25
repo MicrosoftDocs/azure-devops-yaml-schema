@@ -136,7 +136,7 @@ Specifies the path to the folder that is searched for with symbol files. The def
 **`SearchPattern`** - **Search pattern**<br>
 `string`. Required. Default value: `**/bin/**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the pattern used to discover the PDB files to publish.
+Specifies the pattern used to discover the PDB files to publish. See [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
