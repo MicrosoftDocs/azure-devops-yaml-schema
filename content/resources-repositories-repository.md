@@ -708,7 +708,7 @@ repositories:
 - repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
   endpoint: string # ID of the service endpoint connecting to this repository. 
   trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Accepts variables (since nov 2022). 
   name: string # repository name (format depends on `type`); does not accept variables. 
   type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
 ```
@@ -790,7 +790,7 @@ ___
 <!-- :::api-property-type::: --> 
 string
 <!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
+<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Accepts variables (<a href="https://learn.microsoft.com/en-us/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition">since nov 2022</a>).
  <!-- :::api-desc-end::: -->
   :::column-end:::
 :::row-end:::
@@ -907,6 +907,5 @@ resources:
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
-
 
 
