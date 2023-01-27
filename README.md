@@ -60,6 +60,7 @@ The following task article sections contain `editable-content` tags.
 
 * Task description
 * Task input descriptions
+* Output parameter descriptions
 * Remarks
 * Examples
 * See also
