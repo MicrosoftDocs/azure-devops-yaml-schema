@@ -6,7 +6,7 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 
 The [Azure Pipelines tasks reference](https://learn.microsoft.com/azure/devops/pipelines/tasks/reference/) content is built from the articles in the [task-reference](./task-reference/) folder.
 
-Task articles are created and updated using an automated process when Azure DevOps sprints that contain new or updated tasks are deployed.
+Task articles are created and updated using an automated process that runs when Azure DevOps sprints are deployed.
 
 The task articles in the tasks reference contain a combination of read-only auto-generated content based on the metadata from the [open source tasks repo](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks), and editable content that can be modified and updated.
 
@@ -66,6 +66,6 @@ The following task article sections contain `editable-content` tags.
 
 Article sections that do not combine auto-generated content with editable content, like remarks, examples, and see also, can contain monikers within their `editable-content` tags.
 
-Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests that contain edits outside of an `editable-content` tag can't be merged and will be closed.
+Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new task articles can't be merged and will be closed. New task articles are created automatically when the Azure DevOps sprint containing the new task is deployed.
 
 To file issues with the tasks themselves, submit feedback to [the Azure Pipeline tasks open source repository](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks).
