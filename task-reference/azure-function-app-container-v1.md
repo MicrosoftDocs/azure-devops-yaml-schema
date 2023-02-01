@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionAppContainer@1 - Azure Functions for container v1 task
 description: Update a function app with a Docker container.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

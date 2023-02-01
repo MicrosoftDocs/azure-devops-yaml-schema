@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

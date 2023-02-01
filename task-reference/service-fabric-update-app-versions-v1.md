@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateAppVersions@1 - Update Service Fabric App Versions v1 task
 description: Automatically updates the versions of a packaged Service Fabric application.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

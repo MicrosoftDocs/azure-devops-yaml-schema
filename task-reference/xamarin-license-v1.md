@@ -1,7 +1,7 @@
 ---
 title: XamarinLicense@1 - Xamarin License v1 task
 description: XamarinLicense@1 is deprecated.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

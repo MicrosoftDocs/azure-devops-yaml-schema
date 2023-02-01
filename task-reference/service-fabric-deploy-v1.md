@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

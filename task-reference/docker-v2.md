@@ -1,7 +1,7 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

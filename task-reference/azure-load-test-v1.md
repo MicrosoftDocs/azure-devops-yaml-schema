@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: "=azure-pipelines"
 ---
 
