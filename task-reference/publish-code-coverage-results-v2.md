@@ -1,6 +1,6 @@
 ---
 title: PublishCodeCoverageResults@2 - Publish code coverage results v2 task
-description: Publish code coverage results from a build and generated cjson.
+description: Publish code coverage results from a build and generates cjson.
 ms.date: 01/18/2023
 monikerRange: "<=azure-pipelines"
 ---
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to  code coverage results from a build.
+Use this task to get code coverage results from a build.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -29,8 +29,6 @@ Use this task to  code coverage results from a build.
   inputs:
     summaryFileLocation: # string. Required. Summary file. 
     #pathToSources: # string. Path to Source files. 
-    #reportDirectory: # string. Report directory. 
-    #additionalCodeCoverageFiles: # string. Additional files. 
     #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
 ```
 
@@ -40,12 +38,10 @@ Use this task to  code coverage results from a build.
 
 ```yaml
 # Publish Code Coverage Results v2
-# Publish  code coverage results from a build.
+# Publish code coverage results from a build.
 - task: PublishCodeCoverageResults@2
   inputs:
     summaryFileLocation: # string. Required. Summary file. 
-    #reportDirectory: # string. Report directory. 
-    #additionalCodeCoverageFiles: # string. Additional files. 
     #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
 ```
 
@@ -143,9 +139,9 @@ This task is only supported in build pipelines, not release pipelines.
 
 Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dotnet-core-cli-v2.md), [Ant](ant-v1.md), [Maven](maven-v2.md), [Gulp](gulp-v1.md), and [Grunt](grunt-v0.md) also provide the option to publish code coverage data to the pipeline. If you are using these tasks, you do not need a separate Publish Code Coverage Results task in the pipeline.
 
-Prerequisite- To generate the Code coverage view under the Code coverage tab use the [dotnet 2.1.x] (https://learn.microsoft.com/en-gb/azure/devops/pipelines/tasks/reference/use-dotnet-v2?view=azure-pipelines&viewFallbackFrom=azure-devops)  task as a pre-requisite in the pipeline. 
+Prerequisite- To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 2.1.x] (https://learn.microsoft.com/en-gb/azure/devops/pipelines/tasks/reference/use-dotnet-v2?view=azure-pipelines&viewFallbackFrom=azure-devops) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task. 
 
-1) Following is the configuration of the .Net code sdk task in the azure pipelines that is used before the Publish Code Coverage Results v2 task:
+1) Following is the configuration of the .Net core sdk task in the azure pipelines that is used before the Publish Code Coverage Results v2 task:
 
 :::image type="content" source="media/dotnet-core-sdk.png" alt-text="Screenshot that shows the .Net Core Sdk task in the pipeline.":::
 
