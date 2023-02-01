@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to azure service bus using a service connection (no agent required).
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

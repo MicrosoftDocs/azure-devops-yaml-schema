@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

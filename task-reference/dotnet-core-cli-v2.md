@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -293,7 +293,7 @@ Enabling this option will generate a `test results` TRX file in `$(Agent.TempDir
 This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
 
-Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
+Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -309,7 +309,7 @@ Enabling this option will generate a `test results` TRX file in `$(Agent.TempDir
 This option appends the `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
 
-Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
+Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -932,7 +932,22 @@ However, for situations where a team of developers works on a large range of pro
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Build |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

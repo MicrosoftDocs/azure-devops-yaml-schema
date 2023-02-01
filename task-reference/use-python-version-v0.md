@@ -1,7 +1,7 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 ms.custom: py-fresh-zinc
 monikerRange: ">=azure-pipelines-2019"
 ---
@@ -185,6 +185,8 @@ This task will fail if no Python versions are found in `Agent.ToolsDirectory`. A
 ::: moniker range="> azure-pipelines-2019"
 
 As of version 0.150 of the task, version spec will also accept `pypy2` or `pypy3`.
+
+As of version 0.213.1 of the task, version spec will also accept `pypy2.x` or `pypy3.x`.
 
 ::: moniker-end
 

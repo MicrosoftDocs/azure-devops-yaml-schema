@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -278,7 +278,7 @@ Specifies the option to clean the destination directory before JDK is extracted 
 **`createExtractDirectory`** - **Create directory for extracting**<br>
 `boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-By default, the task creates a directory similar to `JAVA_HOME_8_X64_OpenJDK_zip` for extracting JDK. This option disables the creation of that folder and, if set to `true`, JDK is located in the root of `jdkDestinationDirectory` instead.
+By default, the task creates a directory similar to `JAVA_HOME_8_X64_OpenJDK_zip` for extracting JDK. This option disables the creation of that folder and, if set to `false`, JDK is located in the root of `jdkDestinationDirectory` instead.
 <!-- :::editable-content-end::: -->
 <br>
 

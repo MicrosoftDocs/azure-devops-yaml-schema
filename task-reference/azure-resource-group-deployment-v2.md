@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -504,6 +504,8 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+There is a new version of this task available at [AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task](azure-resource-manager-template-deployment-v3.md).
 
 ### What's new in task version 2
 

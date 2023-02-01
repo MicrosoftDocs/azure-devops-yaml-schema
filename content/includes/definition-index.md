@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 09/30/2022
+ms.date: 01/18/2023
 ---
 
 :::moniker range=" = azure-pipelines-2019"
@@ -213,7 +213,7 @@ ___
 [steps.powershell](../steps-powershell.md)
 :::column-end:::
 :::column span="3":::
-The `powershell` step runs a script in Windows PowerShell.
+The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
 
 :::column-end:::
 :::row-end:::
@@ -541,7 +541,7 @@ ___
 [steps.powershell](../steps-powershell.md)
 :::column-end:::
 :::column span="3":::
-The `powershell` step runs a script in Windows PowerShell.
+The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
 
 :::column-end:::
 :::row-end:::
@@ -1051,7 +1051,7 @@ ___
 [steps.powershell](../steps-powershell.md)
 :::column-end:::
 :::column span="3":::
-The `powershell` step runs a script in Windows PowerShell.
+The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
 
 :::column-end:::
 :::row-end:::
@@ -1621,7 +1621,7 @@ ___
 [steps.powershell](../steps-powershell.md)
 :::column-end:::
 :::column span="3":::
-The `powershell` step runs a script in Windows PowerShell.
+The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
 
 :::column-end:::
 :::row-end:::
@@ -2191,7 +2191,7 @@ ___
 [steps.powershell](../steps-powershell.md)
 :::column-end:::
 :::column span="3":::
-The `powershell` step runs a script in Windows PowerShell.
+The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
 
 :::column-end:::
 :::row-end:::
@@ -2771,7 +2771,7 @@ ___
 [steps.powershell](../steps-powershell.md)
 :::column-end:::
 :::column span="3":::
-The `powershell` step runs a script in Windows PowerShell.
+The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
 
 :::column-end:::
 :::row-end:::

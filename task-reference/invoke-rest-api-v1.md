@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -279,7 +279,7 @@ For more information about using this task, see [Approvals and gates overview](/
 
 ### What base URLs are used when invoking Azure Management APIs?
 
-Azure management APIs are invoked using *ResourceManagerEndpoint* of the selected environment. For example `https://management.Azure.com` is used when the subscription is in an **AzureCloud** environment.
+Azure management APIs are invoked using *ResourceManagerEndpoint* of the selected environment. For example `https://management.azure.com` is used when the subscription is in an **AzureCloud** environment.
 
 ### Where should a task signal completion when **Callback** is chosen as the completion event?
 

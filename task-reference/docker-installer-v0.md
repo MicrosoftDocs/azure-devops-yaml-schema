@@ -1,7 +1,7 @@
 ---
 title: DockerInstaller@0 - Docker CLI installer v0 task
 description: Install Docker CLI on agent machine.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

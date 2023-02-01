@@ -1,14 +1,24 @@
 ---
 title: AppCenterDistribute@2 - App Center distribute v2 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 2).
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # AppCenterDistribute@2 - App Center distribute v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to distribute app builds to testers and users via Visual Studio App Center.
+<!-- :::editable-content-end::: -->
+
+This task is deprecated.
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to distribute app builds to testers and users via Visual Studio App Center.

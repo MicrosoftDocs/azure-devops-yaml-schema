@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: pipeline definition reference.
-ms.date: 09/20/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -241,7 +241,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -410,7 +410,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -601,7 +601,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -813,7 +813,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -1026,7 +1026,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -1260,7 +1260,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -1630,7 +1630,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -1927,7 +1927,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -2225,7 +2225,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -2544,7 +2544,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -2864,7 +2864,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -3205,7 +3205,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -3483,7 +3483,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -3695,7 +3695,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -3908,7 +3908,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -4142,7 +4142,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -4433,7 +4433,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -4648,7 +4648,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -4864,7 +4864,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->
@@ -5101,7 +5101,7 @@ ___
   :::column-end:::
   :::column span="3":::
 <!-- :::api-property-type::: --> 
-string_allowExpressions
+string
 <!-- :::api-property-type-end::: -->  
 <!-- :::api-desc type="property"::: -->Pipeline run number. 
  <!-- :::api-desc-end::: -->

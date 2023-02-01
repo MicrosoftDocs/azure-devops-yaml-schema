@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: steps.powershell definition reference.
-ms.date: 09/01/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 
@@ -9,6 +9,7 @@ monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-
 
 
 The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
+
 
 :::moniker range="= azure-pipelines-2019"
 

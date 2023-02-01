@@ -1,14 +1,14 @@
 ---
 title: PublishCodeCoverageResults@2 - Publish code coverage results v2 task
-description: Publish code coverage results from a build and generates cjson.
-ms.date: 01/18/2023
-monikerRange: "<=azure-pipelines"
+description: Publish code coverage results from a build.
+ms.date: 02/01/2023
+monikerRange: "=azure-pipelines"
 ---
 
 # PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to get code coverage results from a build.
@@ -20,39 +20,16 @@ Use this task to get code coverage results from a build.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 # Publish code coverage results v2
-# Publish code coverage results from a build.
+# Publish any of the code coverage results from a build.
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: # string. Required. Summary file. 
+    summaryFileLocation: # string. Required. Path to summary files. 
     #pathToSources: # string. Path to Source files. 
-    #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Publish Code Coverage Results v2
-# Publish code coverage results from a build.
-- task: PublishCodeCoverageResults@2
-  inputs:
-    summaryFileLocation: # string. Required. Summary file. 
-    #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2018"
-
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
+    #failIfCoverageEmpty: false # boolean. Fail if code coverage results are missing. Default: false.
 ```
 
 :::moniker-end
@@ -61,27 +38,20 @@ Use this task to get code coverage results from a build.
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="codeCoverageTool"::: -->
-:::moniker range="<=azure-pipelines"
-
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
 <!-- :::item name="summaryFileLocation"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
-**`summaryFileLocation`** - **Summary file**<br>
+**`summaryFileLocation`** - **Path to summary files**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path of the summary file containing code coverage statistics, such as line, method, and class coverage. Multiple summary files are merged into a single report. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml`.
+Specifies the path of the summary file containing code coverage statistics, such as line, method, and class coverage. Multiple summary files are merged into a single report. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml`. [More information on minimatch patterns](https://aka.ms/minimatchexamples).
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pathToSources"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 **`pathToSources`** - **Path to Source files**<br>
 `string`.<br>
@@ -94,16 +64,10 @@ This input can be used if tests are run in a Docker container.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<!-- :::item name="reportDirectory"::: -->
-:::moniker range="<=azure-pipelines"
+<!-- :::item name="failIfCoverageEmpty"::: -->
+:::moniker range="=azure-pipelines"
 
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="additionalCodeCoverageFiles"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`failIfCoverageEmpty`** - **Fail when code coverage results are missing**<br>
+**`failIfCoverageEmpty`** - **Fail if code coverage results are missing**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fails the task if code coverage did not produce any results to publish.
@@ -121,25 +85,24 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 None.
 
 :::moniker-end
-
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS and after generating the coverage xml files in order to obtain code coverage tab and coverage reporting details in the pipeline. The task supports code coverage generated xml formats. This task generates a cjson file which contains the code coverage details. It will also produce a code coverage HTML report under the build artifacts. 
+Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS and after generating the coverage xml files in order to obtain code coverage tab and coverage reporting details in the pipeline. The task supports code coverage generated xml formats. This task generates a cjson file which contains the code coverage details. It will also produce a code coverage HTML report under the build artifacts.
 
 This task is only supported in build pipelines, not release pipelines.
 
 Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dotnet-core-cli-v2.md), [Ant](ant-v1.md), [Maven](maven-v2.md), [Gulp](gulp-v1.md), and [Grunt](grunt-v0.md) also provide the option to publish code coverage data to the pipeline. If you are using these tasks, you do not need a separate Publish Code Coverage Results task in the pipeline.
 
-Prerequisite- To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 2.1.x] (https://learn.microsoft.com/en-gb/azure/devops/pipelines/tasks/reference/use-dotnet-v2?view=azure-pipelines&viewFallbackFrom=azure-devops) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task. 
+Prerequisite - To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 2.1.x] (use-dotnet-v2.md) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task.
 
 1) Following is the configuration of the .Net core sdk task in the azure pipelines that is used before the Publish Code Coverage Results v2 task:
 
@@ -159,11 +122,11 @@ To publish code coverage results for JavaScript with Istanbul using YAML, see [J
 
 See an [example of publishing code coverage using Cobertura](/azure/devops/pipelines/ecosystems/javascript#publish-code-coverage-results).
 
-## Docker
+### Docker
 
 For apps using Docker, build and tests may run inside the container and generate code coverage results within the container. In order to publish the results to the pipeline, the resulting artifacts should be made available to the **Publish Code Coverage Results** task. For reference, you can see a similar example for publishing test results under the [Build, test, and publish results with a Docker file](publish-test-results-v2.md#docker) section for **Docker**.
 
-## View results
+### View results
 
 In order to view the code coverage results in the pipeline, see [Review code coverage results](/azure/devops/pipelines/test/review-code-coverage-results).
 
@@ -187,27 +150,12 @@ The publish code coverage results v2 task generates a cjson file and publishes t
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
 | Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task has permission to [set the following variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): Setting variables is disabled |
-| Agent version |  2.182.1 or greater |
-| Task category | Test |
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
+| Runs on | Agent |
 | [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |

@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@2 - Azure Key Vault v2 task
 description: Download Azure Key Vault secrets.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -166,7 +166,7 @@ will contain the contents of the PFX in string format. You can use the following
 to retrieve the PFX file from the task variable:
  
 ```powershell
-$kvSecretBytes = [System.Convert]::FromBase64String($(PfxSecret))
+$kvSecretBytes = [System.Convert]::FromBase64String("$(PfxSecret)")
 $certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
 $certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
 ```

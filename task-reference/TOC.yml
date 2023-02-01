@@ -765,6 +765,9 @@ items:
     displayName: Publish build artifacts v1
 - name: Publish code coverage results
   items:
+  - name: PublishCodeCoverageResults@2
+    href: publish-code-coverage-results-v2.md
+    displayName: Publish code coverage results v2
   - name: PublishCodeCoverageResults@1
     href: publish-code-coverage-results-v1.md
     displayName: Publish code coverage results v1

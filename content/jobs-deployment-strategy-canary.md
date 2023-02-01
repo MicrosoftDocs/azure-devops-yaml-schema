@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.canary definition
 description: jobs.deployment.strategy.canary definition reference.
-ms.date: 08/08/2022
+ms.date: 01/18/2023
 monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
 ---
 

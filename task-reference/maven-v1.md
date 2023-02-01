@@ -1,7 +1,7 @@
 ---
 title: Maven@1 - Maven v1 task
 description: Build with Apache Maven (task version 1).
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 

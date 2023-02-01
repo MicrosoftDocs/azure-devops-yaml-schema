@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 description: Update/Add App settings an Azure Web App for Linux or Windows.
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -97,7 +97,9 @@ Enters or selects an existing slot. If you don't select a slot, changes are made
 **`appSettings`** - **App settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Application settings in JSON syntax. Enclose values containing spaces in double quotes. The following is an example of the JSON syntax:
+Application settings in JSON syntax. Enclose values containing spaces in double quotes. For more information, see [Configure app settings](/azure/app-service/configure-common?tabs=portal#configure-app-settings).
+
+The following is an example of the JSON syntax:
 
 ```json
 [
@@ -124,7 +126,9 @@ Application settings in JSON syntax. Enclose values containing spaces in double 
 **`generalSettings`** - **General settings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-General settings in JSON syntax. Enclose values containing spaces in double quotes. For a list of the available properties, see the [App Service SiteConfig object documentation](/azure/templates/microsoft.web/sites). The following is an example of the JSON syntax:
+General settings in JSON syntax. Enclose values containing spaces in double quotes. For a list of the available properties, see the [App Service SiteConfig object documentation](/azure/templates/microsoft.web/sites). For more information, see [Configure general settings](/azure/app-service/configure-common#configure-general-settings).
+
+The following is an example of the JSON syntax:
 
 ```json
 [
@@ -145,7 +149,9 @@ General settings in JSON syntax. Enclose values containing spaces in double quot
 **`connectionStrings`** - **Connection Strings**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Connection strings in JSON syntax. Enclose values containing spaces in double quotes. The following is an example of the JSON syntax:
+Connection strings in JSON syntax. Enclose values containing spaces in double quotes. For more information, see [Configure connection strings](/azure/app-service/configure-common#configure-connection-strings).
+
+The following is an example of the JSON syntax:
 
 ```json
 [

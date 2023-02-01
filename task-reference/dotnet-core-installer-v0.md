@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreInstaller@0 - .NET Core SDK/runtime installer v0 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH (task version 0).
-ms.date: 12/19/2022
+ms.date: 02/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
