@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
-ms.date: 01/18/2023
+ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,27 @@ Use this task to download a package from a package management feed in Azure Arti
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Download package v1
+# Download a package from a package management feed in Azure Artifacts.
+- task: DownloadPackage@1
+  inputs:
+    packageType: 'nuget' # 'maven' | 'npm' | 'nuget' | 'pypi' | 'upack' | 'cargo'. Required. Package Type. Default: nuget.
+    feed: # string. Required. Feed. 
+    #view: # string. View. 
+    definition: # string. Required. Package. 
+    version: # string. Required. Version. 
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
+  # Advanced
+    #files: '**' # string. Optional. Use when packageType = maven || packageType = pypi || packageType = upack. Files. Default: **.
+    #extract: true # boolean. Optional. Use when packageType = nuget || packageType = npm. Extract package contents. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 ```yaml
 # Download package v1
@@ -45,7 +65,17 @@ Use this task to download a package from a package management feed in Azure Arti
 ## Inputs
 
 <!-- :::item name="packageType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+**`packageType`** - **Package Type**<br>
+`string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal), `cargo`. Default value: `nuget`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 **`packageType`** - **Package Type**<br>
 `string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal). Default value: `nuget`.<br>
@@ -211,7 +241,22 @@ Yes, you can use the project or feed name in your definition. However, if your p
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|
