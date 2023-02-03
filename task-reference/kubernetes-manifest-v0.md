@@ -833,7 +833,7 @@ steps:
 
 You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges).
 
-### How do requests work to stable and variant service routes with canary deployments?
+#### How do requests work to stable and variant service routes with canary deployments?
 
 The label selector relationship between pods and services in Kubernetes allows for setting up deployments so that a single service routes requests to both the stable and the canary variants. The Kubernetes manifest task uses this for canary deployments.
 
