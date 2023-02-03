@@ -731,6 +731,52 @@ steps:
       nginx: 1.7.9
 ```
 
+> [!NOTE]
+> To use Helm directly for managing releases and rollbacks, see the [Package and deploy Helm charts task](helm-deploy-v0.md). 
+
+## Kustomize example
+
+The following YAML code is an example of baking manifest files generated with Kustomize that contain a `kustomization.yaml` file. 
+
+```yaml
+steps:
+- task: KubernetesManifest@0
+  name: bake
+  displayName: Bake K8s manifests from kustomization path
+  inputs:
+    action: bake
+    renderType: kustomize
+    kustomizationPath: folderContainingKustomizationFile
+
+- task: KubernetesManifest@0
+  displayName: Deploy K8s manifests
+  inputs:
+    kubernetesServiceConnection: k8sSC1
+    manifests: $(bake.manifestsBundle)
+```
+
+## Kompose example
+
+The following YAML code is an example of baking manifest files generated with Kompose, a conversion tool for Docker Compose.
+
+```yaml
+steps:
+- task: KubernetesManifest@0
+  name: bake
+  displayName: Bake K8s manifests from Docker Compose
+  inputs:
+    action: bake
+    renderType: kompose
+    dockerComposeFile: docker-compose.yaml
+
+- task: KubernetesManifest@0
+  displayName: Deploy K8s manifests
+  inputs:
+    kubernetesServiceConnection: k8sSC1
+    manifests: $(bake.manifestsBundle)
+```
+
+
 ### Scale action
 
 The following YAML code shows an example of scaling objects:
