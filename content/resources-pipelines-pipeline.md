@@ -1106,7 +1106,7 @@ When a pipeline is triggered by one of its pipeline resources, the following var
 |----------|-------------|
 | `Build.Reason` | `ResourceTrigger` |
 | `Resources.TriggeringAlias` | The name of the pipeline resource, such as `source-pipeline` from the previous example. |
-| `Resource.TriggeringCategory` | `pipeline` |
+| `Resources.TriggeringCategory` | `pipeline` |
 
 :::moniker-end
 
