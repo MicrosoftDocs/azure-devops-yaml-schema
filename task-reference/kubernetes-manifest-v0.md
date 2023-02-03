@@ -734,7 +734,7 @@ steps:
 > [!NOTE]
 > To use Helm directly for managing releases and rollbacks, see the [Package and deploy Helm charts task](helm-deploy-v0.md). 
 
-## Kustomize example
+### Kustomize example
 
 The following YAML code is an example of baking manifest files generated with Kustomize that contain a `kustomization.yaml` file. 
 
@@ -755,7 +755,7 @@ steps:
     manifests: $(bake.manifestsBundle)
 ```
 
-## Kompose example
+### Kompose example
 
 The following YAML code is an example of baking manifest files generated with Kompose, a conversion tool for Docker Compose.
 
