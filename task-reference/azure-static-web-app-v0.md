@@ -93,7 +93,7 @@ The custom command used to run Oryx when building application source code.
 **`output_location`** - **Output location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the compiled application code after building is complete.
+The directory location of the compiled application code after building is complete, relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
