@@ -28,13 +28,13 @@ This task builds and deploys an Azure Static Web app.
 - task: AzureStaticWebApp@0
   inputs:
     #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd | rootDirectory. Working directory. Default: $(System.DefaultWorkingDirectory).
-    #app_location: # string. App location, relative to the working directory. 
+    #app_location: # string. App location. 
     #app_build_command: # string. App build command. 
-    #output_location: # string. Output location, relative to the working directory. 
-    #api_location: # string. Api location, relative to the working directory. 
+    #output_location: # string. Output location. 
+    #api_location: # string. Api location. 
     #api_build_command: # string. Api build command. 
-    #routes_location: # string. Routes location, relative to the working directory. 
-    #config_file_location: # string. Config file location, relative to the working directory. 
+    #routes_location: # string. Routes location. 
+    #config_file_location: # string. Config file location. 
     #skip_app_build: # boolean. Skip app build. 
     #skip_api_build: # boolean. Skip api build. 
     #is_static_export: # boolean. Set static export. 
