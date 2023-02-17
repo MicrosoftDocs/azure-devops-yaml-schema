@@ -69,7 +69,7 @@ Specifies the absolute working directory in which to execute this task. If left 
 **`app_location`** - **App location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the application source code relative to the working directory.
+The directory location of the application source code, relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -93,7 +93,7 @@ The custom command used to run Oryx when building application source code.
 **`output_location`** - **Output location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the compiled application code after building is complete.
+The directory location of the compiled application code after building is complete, relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -105,7 +105,7 @@ The directory location of the compiled application code after building is comple
 **`api_location`** - **Api location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the Azure Functions source code relative to the working directory.
+The directory location of the Azure Functions source code, relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -129,7 +129,7 @@ The custom command used to run Oryx when building Azure Functions source code.
 **`routes_location`** - **Routes location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the routes.json file relative to the working directory.  
+The directory location of the routes.json file, relative to the working directory.  
 *Note:* Routes.json is deprecated. Use staticwebapp.config.json.
 <!-- :::editable-content-end::: -->
 <br>
@@ -142,7 +142,7 @@ The directory location of the routes.json file relative to the working directory
 **`config_file_location`** - **Config file location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the staticwebapp.config.json file relative to the working directory.
+The directory location of the staticwebapp.config.json file, relative to the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
