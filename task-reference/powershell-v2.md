@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a PowerShell script on Linux, macOS, or Windows.
+
+>[!NOTE]
+> By default, Azure PowerShell v5 uses PowerShell Core for Linux agents and Windows PowerShell for Windows agents. To use the latest version of PowerShell on Windows agents, set the `pwsh` parameter to `true`. PowerShell Core will then be used instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -42,7 +45,7 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
     #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
+    #pwsh: false # boolean. Use PowerShell Core instead of Windows PowerShell (Windows agents only). Default: false.
     #workingDirectory: # string. Working Directory. 
     #runScriptInSeparateScope: false # boolean. Run script in the separate scope. Default: false.
 ```
@@ -352,7 +355,7 @@ If the value is set to `false`, the line `if ((Test-Path -LiteralPath variable:\
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the value is set to `true`, the task will use `pwsh.exe` from your PATH instead of `powershell.exe` on a Windows agent.
+If this is true, then tasks running on Windows agents will use `pwsh.exe` from your path instead of `powershell.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
