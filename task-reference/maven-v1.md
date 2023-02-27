@@ -541,5 +541,11 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+- [Maven authenticate](maven-authenticate-v0.md)
+- [Publish Maven artifacts with Azure Pipelines](/azure/devops/pipelines/artifacts/publish-maven-artifacts)
+- [Java Tool Installer](java-tool-installer-v0.md)
+- [Build Java apps](/azure/devops/pipelines/ecosystems/java)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
