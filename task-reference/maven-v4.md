@@ -333,10 +333,10 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range="=azure-pipelines"
 
-**`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
+**`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Automatically authenticates built-in Maven feeds from the Azure Artifacts/TFS [Package Management](https://marketplace.visualstudio.com/items?itemName=ms.feed) extension. If built-in Maven feeds are not in use, deselect this option for faster builds.
+Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are not in use, deselect this option for faster builds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -345,10 +345,10 @@ Automatically authenticates built-in Maven feeds from the Azure Artifacts/TFS [P
 <!-- :::item name="effectivePomSkip"::: -->
 :::moniker range="=azure-pipelines"
 
-**`effectivePomSkip`** - **Skip generating effective POM while authenticating built-in feeds**<br>
+**`effectivePomSkip`** - **Skip generating effective POM while authenticating with Artifacts feeds**<br>
 Input alias: `skipEffectivePom`. `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Authenticates built-in Maven feeds using the POM only, which allows parent POMs in Azure Artifacts/Azure DevOps Server [Package Management] feeds.
+Authenticates with Artifacts feeds using the POM only.
 <!-- :::editable-content-end::: -->
 <br>
 

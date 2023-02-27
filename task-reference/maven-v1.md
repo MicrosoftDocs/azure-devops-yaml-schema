@@ -314,10 +314,10 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range="<=azure-pipelines"
 
-**`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
+**`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Required. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Automatically authenticates the built-in Maven feeds from the TFS/VSTS [Package Management](https://marketplace.visualstudio.com/items?itemName=ms.feed) extension. If built-in Maven feeds are not in use, deselect this option for faster builds.
+Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are not in use, deselect this option for faster builds.
 <!-- :::editable-content-end::: -->
 <br>
 
