@@ -108,7 +108,7 @@ schedules:
   always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
 ```
 
-This section is fully auto-generated and can't be modified by making a pull request into this YAML schema reference articles repo. If you find a typo or mistake in the comments in a YAML syntax block, please file an issue and we can fix it. The primary purpose of the YAML syntax block is to show the syntax, with greater details for each property in the property section of the article.
+This section is fully auto-generated and can't be modified by making a pull request into this YAML schema reference articles repo (but if you find a typo or mistake in the comments in a YAML syntax block, please file an issue and we can fix it). The primary purpose of the YAML syntax block is to show the syntax, with greater details for each property in the property section of the article. One of the features of this format for the YAML schema reference is that property descriptions support community contributions, and aren't merely copies of the short descriptions in the YAML syntax block.
 
 ### Editable content
 
