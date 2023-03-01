@@ -1,0 +1,4 @@
+Thank you for your contribution. Please see the README.MD in this repo for details on how to contribute.
+
+[] - Are you creating a new task article? If yes, STOP. New task articles are auto-generated when the new task is deployed to an Azure DevOps sprint, including all task inputs, aliases, defaults, and allowed values. Once the task deploys and the article is generated, you can make a PR to add examples, remarks, and descriptions. If you have a readme.md file in the tasks repo for your new tasks, that content will be picked up as well.
+[] - Are you editing a task or YAML schema definition article? We welcome your contributions to content that is contained within "editable-content" tags. Any contributions outside of an "editable-content" tag won't be merged as these articles are auto-generated (and auto-updated when new properties or inputs are deployed), with the exception of the content inside "editable-content" tags.
