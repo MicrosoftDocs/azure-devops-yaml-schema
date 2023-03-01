@@ -2,6 +2,8 @@
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
+## Contributing to tasks or YAML schema reference content
+
 * [Contributing to the tasks content](#contributing-to-the-tasks-content)
 * [Contributing to the YAML schema content](##contributing-to-the-yaml-schema-content)
 
