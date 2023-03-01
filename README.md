@@ -5,6 +5,7 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 ## Contributing to tasks or YAML schema reference content
 
 * [Contributing to the tasks content](#contributing-to-the-tasks-content)
+* [Creating documentation for a new task](#creating-documentation-for-a-new-task)
 * [Contributing to the YAML schema content](##contributing-to-the-yaml-schema-content)
 
 ## Contributing to the tasks content
@@ -76,9 +77,13 @@ The following task article sections contain `editable-content` tags.
 
 Article sections that do not combine auto-generated content with editable content, like remarks, examples, and see also, can contain monikers within their `editable-content` tags.
 
-Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new task articles can't be merged and will be closed. New task articles are created automatically when the Azure DevOps sprint containing the new task is deployed.
+Contributions cannot be made to any article text that is outside of an `editable-content` tag. Pull requests that contain edits outside of an `editable-content` tag can't be merged and will be closed. Pull requests that contain new task articles can't be merged and will be closed.
 
 To file issues with the tasks themselves, submit feedback to [the Azure Pipeline tasks open source repository](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks).
+
+## Creating documentation for a new task
+
+New task articles are created automatically when the Azure DevOps sprint containing the new task is deployed, including all task inputs, aliases, defaults, and allowed values. Once the task deploys and the article is generated, you can make a PR to add examples, remarks, and descriptions. If you have a readme.md file in the tasks repo for your new tasks, that content will be picked up as well.
 
 ## Contributing to the YAML schema content
 
