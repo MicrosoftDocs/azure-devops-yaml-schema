@@ -83,7 +83,7 @@ To file issues with the tasks themselves, submit feedback to [the Azure Pipeline
 
 ## Creating documentation for a new task
 
-New task articles are created automatically when the Azure DevOps sprint containing the new task is deployed, including all task inputs, aliases, defaults, and allowed values. Once the task deploys and the article is generated, you can make a PR to add examples, remarks, and descriptions. If you have a readme.md file in the tasks repo for your new tasks, that content will be picked up as well.
+New task articles are created automatically when the Azure DevOps sprint containing the new task is deployed, including all task inputs, aliases, defaults, and allowed values. Once the task deploys and the article is generated, you can make a PR to add examples, remarks, and descriptions. If you have a readme.md file in the tasks repo for your new task, that content will be picked up as well.
 
 ## Contributing to the YAML schema content
 
