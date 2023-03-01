@@ -6,7 +6,7 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 
 * [Contributing to the tasks content](#contributing-to-the-tasks-content)
 * [Creating documentation for a new task](#creating-documentation-for-a-new-task)
-* [Contributing to the YAML schema content](##contributing-to-the-yaml-schema-content)
+* [Contributing to the YAML schema content](#contributing-to-the-yaml-schema-content)
 
 ## Contributing to the tasks content
 
