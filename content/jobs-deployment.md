@@ -1,1407 +1,417 @@
 ---
 title: jobs.deployment definition
-description: jobs.deployment definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
 # jobs.deployment definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-
+<!-- :::editable-content name="description"::: -->
 A [deployment job](/azure/devops/pipelines/process/deployment-jobs) is a special type of job.
 It's a collection of steps to run sequentially against the environment.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="job{deployment}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2022"
 
 ```yaml
 jobs:
-- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.. 
-  displayName: string # Human-readable name for the deployment. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this deployment. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Deployment-specific variables
-  pool: pool # Pool where this job will run
-  environment: deploymentEnvironment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
-  strategy: deploymentStrategy # Execution strategy for this deployment
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
+- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
+  displayName: string # Human-readable name for the deployment.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this deployment.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Deployment-specific variables.
+  pool: string | pool # Pool where this job will run.
+  environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+  strategy: strategy # Execution strategy for this deployment.
+  workspace: # Workspace options on the agent.
+    clean: string # Which parts of the workspace should be scorched before fetching.
+  uses: # Any resources required by this job that are not already referenced.
+    repositories: [ string ] # Repository references.
+    pools: [ string ] # Pool references.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
+  templateContext: # Deployment related information passed from a pipeline when extending a template.
 ```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `deployment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `environment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.environment](jobs-deployment-environment.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.strategy](jobs-deployment-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="job{deployment}" version="azure-pipelines-2020.1"::: -->
+:::moniker range="=azure-pipelines-2020.1"
 
 ```yaml
 jobs:
-- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.. 
-  displayName: string # Human-readable name for the deployment. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this deployment. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Deployment-specific variables
-  pool: pool # Pool where this job will run
-  environment: deploymentEnvironment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
-  strategy: deploymentStrategy # Execution strategy for this deployment
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  uses:  # Any resources required by this job that are not already referenced
-    repositories: [ string ] # Repository references 
-    pools: [ string ] # Pool references 
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
+- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
+  displayName: string # Human-readable name for the deployment.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this deployment.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Deployment-specific variables.
+  pool: string | pool # Pool where this job will run.
+  environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+  strategy: strategy # Execution strategy for this deployment.
+  workspace: # Workspace options on the agent.
+    clean: string # Which parts of the workspace should be scorched before fetching.
+  uses: # Any resources required by this job that are not already referenced.
+    repositories: [ string ] # Repository references.
+    pools: [ string ] # Pool references.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
 ```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `deployment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `environment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.environment](jobs-deployment-environment.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.strategy](jobs-deployment-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `uses`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-pools and repositories
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any resources required by this job that are not already referenced. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="job{deployment}" version="azure-pipelines-2022"::: -->
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 jobs:
-- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.. 
-  displayName: string # Human-readable name for the deployment. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this deployment. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Deployment-specific variables
-  pool: pool # Pool where this job will run
-  environment: deploymentEnvironment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
-  strategy: deploymentStrategy # Execution strategy for this deployment
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  uses:  # Any resources required by this job that are not already referenced
-    repositories: [ string ] # Repository references 
-    pools: [ string ] # Pool references 
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  templateContext:  # Deployment related information passed from a pipeline when extending a template. See remarks for more information.
-    
+- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
+  displayName: string # Human-readable name for the deployment.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this deployment.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Deployment-specific variables.
+  pool: string | pool # Pool where this job will run.
+  environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+  strategy: strategy # Execution strategy for this deployment.
+  workspace: # Workspace options on the agent.
+    clean: string # Which parts of the workspace should be scorched before fetching.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [jobs](jobs.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [jobs](jobs.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range=">=azure-pipelines-2022"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `deployment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `environment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.environment](jobs-deployment-environment.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.strategy](jobs-deployment-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `uses`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-pools and repositories
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any resources required by this job that are not already referenced. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `templateContext`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-templateContext
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment related information passed from a pipeline when extending a template. See remarks for more information. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="deployment"::: -->
+**`deployment`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Deployment-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="environment"::: -->
+**`environment`** [jobs.deployment.environment](jobs-deployment-environment.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.deployment.strategy](jobs-deployment-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="uses"::: -->
+**`uses`** [jobs.job.uses](jobs-job-uses.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any resources required by this job that are not already referenced.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="templateContext"::: -->
+**`templateContext`** templateContext.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Deployment related information passed from a pipeline when extending a template. See remarks for more information.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines"
+:::moniker range="=azure-pipelines-2020.1"
 
-<!-- :::api-definition signature="job{deployment}" version="azure-pipelines"::: -->
-
-```yaml
-jobs:
-- deployment: string # Required as first property. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.. 
-  displayName: string # Human-readable name for the deployment. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this deployment. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Deployment-specific variables
-  pool: pool # Pool where this job will run
-  environment: deploymentEnvironment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
-  strategy: deploymentStrategy # Execution strategy for this deployment
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  uses:  # Any resources required by this job that are not already referenced
-    repositories: [ string ] # Repository references 
-    pools: [ string ] # Pool references 
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  templateContext:  # Deployment related information passed from a pipeline when extending a template. See remarks for more information.
-    
-```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `deployment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `environment`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.environment](jobs-deployment-environment.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.deployment.strategy](jobs-deployment-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `uses`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-pools and repositories
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any resources required by this job that are not already referenced. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `templateContext`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-templateContext
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Deployment related information passed from a pipeline when extending a template. See remarks for more information. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="deployment"::: -->
+**`deployment`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Deployment-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="environment"::: -->
+**`environment`** [jobs.deployment.environment](jobs-deployment-environment.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.deployment.strategy](jobs-deployment-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="uses"::: -->
+**`uses`** [jobs.job.uses](jobs-job-uses.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any resources required by this job that are not already referenced.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
+:::moniker range="=azure-pipelines-2020"
 
+<!-- :::item name="deployment"::: -->
+**`deployment`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Name of the deployment job, A-Z, a-z, 0-9, and underscore. The word deploy is a keyword and is unsupported as the deployment name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Deployment-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="environment"::: -->
+**`environment`** [jobs.deployment.environment](jobs-deployment-environment.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.deployment.strategy](jobs-deployment-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-In YAML pipelines, we recommend that you put your deployment steps in a deployment job.
+In YAML pipelines, the pipelines team recommends that you put your deployment steps in a deployment job.
 
 :::moniker range="azure-pipelines"
 
 For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
 
 :::moniker-end
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 ```YAML
@@ -1420,6 +430,10 @@ jobs:
         steps:
         - script: echo my first deployment
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
-<!-- See also -->
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

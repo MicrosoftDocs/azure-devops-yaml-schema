@@ -1,1517 +1,285 @@
 ---
 title: resources.containers.container definition
-description: resources.containers.container definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A container resource used to reference a container image.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # resources.containers.container definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 A container resource references a container image.
-
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="containerResource{container}" version="azure-pipelines-2019"::: -->
-
-```yaml
-containers:
-- container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
-  resourceGroup: string # Resource group for your ACR. 
-  registry: string # Registry for container images. 
-  repository: string # Name of the container image repository in ACR. 
-```
-
-
-Properties that use this definition: [resources.containers](resources-containers.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID for the container. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `azureSubscription`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Azure subscription (ARM service connection) for container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resourceGroup`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Resource group for your ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `registry`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Registry for container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the container image repository in ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="containerResource{container}" version="azure-pipelines-2019.1"::: -->
-
-```yaml
-containers:
-- container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
-  resourceGroup: string # Resource group for your ACR. 
-  registry: string # Registry for container images. 
-  repository: string # Name of the container image repository in ACR. 
-```
-
-
-Properties that use this definition: [resources.containers](resources-containers.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID for the container. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `azureSubscription`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Azure subscription (ARM service connection) for container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resourceGroup`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Resource group for your ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `registry`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Registry for container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the container image repository in ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="containerResource{container}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
 ```yaml
 containers:
-- container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
+- container: string # Required as first property. ID for the container.
+  image: string # Required. Container image tag.
   type: string # Type of the registry like ACR or GCR.
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  trigger: # none to disable, true to trigger on all image tags, or full syntax (see the following examples).
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
-  resourceGroup: string # Resource group for your ACR. 
-  registry: string # Registry for container images. 
-  repository: string # Name of the container image repository in ACR. 
+  trigger: trigger | none | true # Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  env: # Variables to map into the container's environment.
+    string: string # Name/value pairs
+  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+  options: string # Options to pass into container host.
+  ports: [ string ] # Ports to expose on the container.
+  volumes: [ string ] # Volumes to mount on the container.
+  mountReadOnly: # Volumes to mount read-only, the default is all false.
+    work: boolean # Mount the work directory as readonly.
+    externals: boolean # Mount the externals directory as readonly.
+    tools: boolean # Mount the tools directory as readonly.
+    tasks: boolean # Mount the tasks directory as readonly.
+  azureSubscription: string # Azure subscription (ARM service connection) for container registry.
+  resourceGroup: string # Resource group for your ACR.
+  registry: string # Registry for container images.
+  repository: string # Name of the container image repository in ACR.
 ```
-
-
-Properties that use this definition: [resources.containers](resources-containers.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID for the container. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `azureSubscription`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Azure subscription (ARM service connection) for container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resourceGroup`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Resource group for your ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `registry`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Registry for container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the container image repository in ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="containerResource{container,image}" version="azure-pipelines-2020.1"::: -->
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 containers:
-- container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
-  image: string # Required. Container image tag. 
+- container: string # Required as first property. ID for the container.
   type: string # Type of the registry like ACR or GCR.
-  trigger: # none to disable, true to trigger on all image tags, or full syntax (see the following examples).
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
-  mountReadOnly:  # Volumes to mount read-only, the default is all false.
-    work: boolean # Mount the work directory as readonly.  (false,n,no,off,on,true,y,yes)
-    externals: boolean # Mount the externals directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tools: boolean # Mount the tools directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tasks: boolean # Mount the tasks directory as readonly.  (false,n,no,off,on,true,y,yes)
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
-  resourceGroup: string # Resource group for your ACR. 
-  registry: string # Registry for container images. 
-  repository: string # Name of the container image repository in ACR. 
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  trigger: trigger | none | true # Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
+  azureSubscription: string # Azure subscription (ARM service connection) for container registry.
+  resourceGroup: string # Resource group for your ACR.
+  registry: string # Registry for container images.
+  repository: string # Name of the container image repository in ACR.
 ```
-
-
-Properties that use this definition: [resources.containers](resources-containers.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID for the container. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mountReadOnly`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string/boolean pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount read-only, the default is all false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `azureSubscription`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Azure subscription (ARM service connection) for container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resourceGroup`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Resource group for your ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `registry`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Registry for container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the container image repository in ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="containerResource{container,image}" version="azure-pipelines-2022"::: -->
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 ```yaml
 containers:
-- container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
-  image: string # Required. Container image tag. 
-  type: string # Type of the registry like ACR or GCR.
-  trigger: # none to disable, true to trigger on all image tags, or full syntax (see the following examples).
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
-  mountReadOnly:  # Volumes to mount read-only, the default is all false.
-    work: boolean # Mount the work directory as readonly.  (false,n,no,off,on,true,y,yes)
-    externals: boolean # Mount the externals directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tools: boolean # Mount the tools directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tasks: boolean # Mount the tasks directory as readonly.  (false,n,no,off,on,true,y,yes)
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
-  resourceGroup: string # Resource group for your ACR. 
-  registry: string # Registry for container images. 
-  repository: string # Name of the container image repository in ACR. 
+- container: string # Required as first property. ID for the container.
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  azureSubscription: string # Azure subscription (ARM service connection) for container registry.
+  resourceGroup: string # Resource group for your ACR.
+  registry: string # Registry for container images.
+  repository: string # Name of the container image repository in ACR.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.containers](resources-containers.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources.containers](resources-containers.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID for the container. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mountReadOnly`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string/boolean pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount read-only, the default is all false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `azureSubscription`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Azure subscription (ARM service connection) for container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resourceGroup`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Resource group for your ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `registry`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Registry for container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the container image repository in ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID for the container. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="image"::: -->
+**`image`** string. Required.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container image tag.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+**`type`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Type of the registry like ACR or GCR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="env"::: -->
+**`env`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Variables to map into the container's environment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="mapDockerSocket"::: -->
+**`mapDockerSocket`** [boolean](boolean.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="options"::: -->
+**`options`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Options to pass into container host.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ports"::: -->
+**`ports`** string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Ports to expose on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="volumes"::: -->
+**`volumes`** string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Volumes to mount on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="mountReadOnly"::: -->
+**`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Volumes to mount read-only, the default is all false.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="azureSubscription"::: -->
+**`azureSubscription`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Azure subscription (ARM service connection) for container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resourceGroup"::: -->
+**`resourceGroup`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Resource group for your ACR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="registry"::: -->
+**`registry`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Registry for container images.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="repository"::: -->
+**`repository`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Name of the container image repository in ACR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines"
+:::moniker range="=azure-pipelines-2020"
 
-<!-- :::api-definition signature="containerResource{container,image}" version="azure-pipelines"::: -->
-
-```yaml
-containers:
-- container: string # Required as first property. ID for the container.  ([-_A-Za-z0-9]*)
-  image: string # Required. Container image tag. 
-  type: string # Type of the registry like ACR or GCR.
-  trigger: # none to disable, true to trigger on all image tags, or full syntax (see the following examples).
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
-  mountReadOnly:  # Volumes to mount read-only, the default is all false.
-    work: boolean # Mount the work directory as readonly.  (false,n,no,off,on,true,y,yes)
-    externals: boolean # Mount the externals directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tools: boolean # Mount the tools directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tasks: boolean # Mount the tasks directory as readonly.  (false,n,no,off,on,true,y,yes)
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry. 
-  resourceGroup: string # Resource group for your ACR. 
-  registry: string # Registry for container images. 
-  repository: string # Name of the container image repository in ACR. 
-```
-
-
-Properties that use this definition: [resources.containers](resources-containers.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID for the container. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mountReadOnly`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string/boolean pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount read-only, the default is all false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `azureSubscription`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Azure subscription (ARM service connection) for container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resourceGroup`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Resource group for your ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `registry`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Registry for container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the container image repository in ACR. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID for the container. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+**`type`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Type of the registry like ACR or GCR. ACR
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="azureSubscription"::: -->
+**`azureSubscription`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Azure subscription (ARM service connection) for container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resourceGroup"::: -->
+**`resourceGroup`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Resource group for your ACR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="registry"::: -->
+**`registry`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Registry for container images.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="repository"::: -->
+**`repository`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Name of the container image repository in ACR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
+<!-- :::item name="container"::: -->
+**`container`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID for the container. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="azureSubscription"::: -->
+**`azureSubscription`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Azure subscription (ARM service connection) for container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resourceGroup"::: -->
+**`resourceGroup`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Resource group for your ACR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="registry"::: -->
+**`registry`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Registry for container images.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="repository"::: -->
+**`repository`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Name of the container image repository in ACR.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 [Container jobs](/azure/devops/pipelines/process/container-phases) let you isolate your tools and dependencies inside a container.
@@ -1520,8 +288,11 @@ The agent launches an instance of your specified container then runs steps insid
 The `container` keyword lets you specify your container images.
 
 [Service containers](/azure/devops/pipelines/process/service-containers) run alongside a job to provide various dependencies like databases.
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 ::: moniker range="azure-pipelines"
@@ -1595,10 +366,13 @@ resources:
     volumes:
     - /src/dir:/dst/dir # mount /src/dir on the host into /dst/dir in the container
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 [Define resources in YAML](/azure/devops/pipelines/process/resources)
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

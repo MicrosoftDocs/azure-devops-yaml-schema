@@ -1,2005 +1,534 @@
 ---
 title: jobs.job definition
-description: jobs.job definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A job is a collection of steps run by an agent or on a server.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # jobs.job definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 A [job](/azure/devops/pipelines/process/phases) is a collection of steps run by an [agent](/azure/devops/pipelines/agents/agents) or on a [server](/azure/devops/pipelines/process/phases#server-jobs).
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="job{job}" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2022"
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-  displayName: string # Human-readable name for the job. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Job-specific variables
-  strategy: jobStrategy # Execution strategy for this job
-  pool: pool # Pool where this job will run
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  workspace:  # Workspace options on the agent.
-    clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template | restoreCache | saveCache ]
+- job: string # Required as first property. ID of the job.
+  displayName: string # Human-readable name for the job.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this job.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Job-specific variables.
+  strategy: strategy # Execution strategy for this job.
+  pool: string | pool # Pool where this job will run.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
+  workspace: # Workspace options on the agent.
+    clean: string # Which parts of the workspace should be scorched before fetching.
+  uses: # Any resources required by this job that are not already referenced.
+    repositories: [ string ] # Repository references.
+    pools: [ string ] # Pool references.
+  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
+  templateContext: # Job related information passed from a pipeline when extending a template.
 ```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `job`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->A list of steps to run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="job{job}" version="azure-pipelines-2019.1"::: -->
+:::moniker range="=azure-pipelines-2020.1"
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-  displayName: string # Human-readable name for the job. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Job-specific variables
-  strategy: jobStrategy # Execution strategy for this job
-  pool: pool # Pool where this job will run
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  workspace:  # Workspace options on the agent.
-    clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template | restoreCache | saveCache ]
+- job: string # Required as first property. ID of the job.
+  displayName: string # Human-readable name for the job.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this job.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Job-specific variables.
+  strategy: strategy # Execution strategy for this job.
+  pool: string | pool # Pool where this job will run.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
+  workspace: # Workspace options on the agent.
+    clean: string # Which parts of the workspace should be scorched before fetching.
+  uses: # Any resources required by this job that are not already referenced.
+    repositories: [ string ] # Repository references.
+    pools: [ string ] # Pool references.
+  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
 ```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `job`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->A list of steps to run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="job{job}" version="azure-pipelines-2020"::: -->
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-  displayName: string # Human-readable name for the job. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Job-specific variables
-  strategy: jobStrategy # Execution strategy for this job
-  pool: pool # Pool where this job will run
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+- job: string # Required as first property. ID of the job.
+  displayName: string # Human-readable name for the job.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this job.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Job-specific variables.
+  strategy: strategy # Execution strategy for this job.
+  pool: string | pool # Pool where this job will run.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
+  workspace: # Workspace options on the agent.
+    clean: string # Which parts of the workspace should be scorched before fetching.
+  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
 ```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `job`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->A list of steps to run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="job{job}" version="azure-pipelines-2020.1"::: -->
+:::moniker range="=azure-pipelines-2019.1"
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-  displayName: string # Human-readable name for the job. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Job-specific variables
-  strategy: jobStrategy # Execution strategy for this job
-  pool: pool # Pool where this job will run
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  uses:  # Any resources required by this job that are not already referenced
-    repositories: [ string ] # Repository references 
-    pools: [ string ] # Pool references 
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
+- job: string # Required as first property. ID of the job.
+  displayName: string # Human-readable name for the job.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this job.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Job-specific variables.
+  strategy: strategy # Execution strategy for this job.
+  pool: string | pool # Pool where this job will run.
+  container: string | container # Container resource name.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
+  workspace: # Workspace options on the agent.
+    clean: string # Scorch the repo before fetching?
+  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # A list of steps to run.
 ```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `job`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `uses`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-pools and repositories
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any resources required by this job that are not already referenced. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->A list of steps to run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="job{job}" version="azure-pipelines-2022"::: -->
+:::moniker range="=azure-pipelines-2019"
 
 ```yaml
 jobs:
-- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-  displayName: string # Human-readable name for the job. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Job-specific variables
-  strategy: jobStrategy # Execution strategy for this job
-  pool: pool # Pool where this job will run
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  uses:  # Any resources required by this job that are not already referenced
-    repositories: [ string ] # Repository references 
-    pools: [ string ] # Pool references 
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-  templateContext:  # Job related information passed from a pipeline when extending a template. See remarks for more information.
-    
+- job: string # Required as first property. ID of the job.
+  displayName: string # Human-readable name for the job.
+  dependsOn: string | [ string ] # Any jobs which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this job.
+  continueOnError: string # Continue running even on failure?
+  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
+  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
+  variables: variables | [ variable ] # Job-specific variables.
+  strategy: strategy # Execution strategy for this job.
+  pool: string | pool # Pool where this job will run.
+  services: # Container resources to run as a service container.
+    string: string # Name/value pairs
+  workspace: # Workspace options on the agent.
+    clean: string # Scorch the repo before fetching?
+  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # A list of steps to run.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [jobs](jobs.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [jobs](jobs.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range=">=azure-pipelines-2022"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `job`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `uses`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-pools and repositories
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any resources required by this job that are not already referenced. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->A list of steps to run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `templateContext`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-templateContext
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job related information passed from a pipeline when extending a template. See remarks for more information. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="job"::: -->
+**`job`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Job-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="uses"::: -->
+**`uses`** [jobs.job.uses](jobs-job-uses.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any resources required by this job that are not already referenced. For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+A list of steps to run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="templateContext"::: -->
+**`templateContext`** templateContext.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Job related information passed from a pipeline when extending a template. See remarks for more information. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines"
+:::moniker range="=azure-pipelines-2020.1"
 
-<!-- :::api-definition signature="job{job}" version="azure-pipelines"::: -->
+<!-- :::item name="job"::: -->
+**`job`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Job-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="uses"::: -->
+**`uses`** [jobs.job.uses](jobs-job-uses.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any resources required by this job that are not already referenced.
 
-```yaml
-jobs:
-- job: string # Required as first property. ID of the job. Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-  displayName: string # Human-readable name for the job. 
-  dependsOn: string | [ string ]  # Any jobs which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this job. 
-  continueOnError: string # Continue running even on failure?. 
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it. 
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it. 
-  variables: variables # Job-specific variables
-  strategy: jobStrategy # Execution strategy for this job
-  pool: pool # Pool where this job will run
-  container: jobContainer # Container resource name
-  services:  # Container resources to run as a service container.
-    string: string # Name/value pairs.
-  workspace:  # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-  uses:  # Any resources required by this job that are not already referenced
-    repositories: [ string ] # Repository references 
-    pools: [ string ] # Pool references 
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-  templateContext:  # Job related information passed from a pipeline when extending a template. See remarks for more information.
-    
-```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `job`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any jobs which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this job to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cancelTimeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for the job to cancel before forcibly terminating it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `uses`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-pools and repositories
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any resources required by this job that are not already referenced. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->A list of steps to run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `templateContext`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-templateContext
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Job related information passed from a pipeline when extending a template. See remarks for more information. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+A list of steps to run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
+<!-- :::item name="job"::: -->
+**`job`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Job-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+A list of steps to run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+<!-- :::item name="job"::: -->
+**`job`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any jobs which must complete before this one.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+**`timeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for this job to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="cancelTimeoutInMinutes"::: -->
+**`cancelTimeoutInMinutes`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Time to wait for the job to cancel before forcibly terminating it.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Job-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where this job will run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+A list of steps to run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 The default `timeoutInMinutes` is set to 60 minutes. For more information, see [Timeouts](/azure/devops/pipelines/process/phases#timeouts).
@@ -2014,8 +543,11 @@ Jobs can run [conditionally](/azure/devops/pipelines/process/phases#conditions) 
 For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
 
 :::moniker-end
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 ```yaml
@@ -2028,14 +560,15 @@ jobs:
   steps:
   - script: echo My first job
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-- For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories). For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
+- For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories).
+- For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 - Learn more about [variables](/azure/devops/pipelines/process/variables), [steps](steps.md), [pools](pool.md), and [server jobs](/azure/devops/pipelines/process/phases#server).
-
-
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

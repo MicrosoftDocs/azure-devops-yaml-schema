@@ -1,116 +1,62 @@
 ---
 title: trigger definition
-description: trigger definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: Continuous integration (push) trigger.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # trigger definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-
+<!-- :::editable-content name="description"::: -->
 A push trigger specifies which branches cause a continuous integration build to run.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-Properties that use this definition: [pipeline.trigger](pipeline.md)
+Definitions that that reference this definition: [pipeline](pipeline.md), [resources.repositories.repository](resources-repositories-repository.md)
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-Properties that use this definition: [pipeline.trigger](pipeline.md)
+Definitions that that reference this definition: [pipeline](pipeline.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
+
+## Implementations
+
+<!-- :::implementations-list::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+| Implementation | Description |
+|---|---|
+| [trigger: none](#triggerstring) | Disable CI triggers. |
+| [trigger: string list](#triggerstringlist) | List of branches that trigger a run. |
+| [trigger: batch, branches, paths, tags](#triggerobjectproperties) | Full syntax for complete control. |
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2019"
 
-Properties that use this definition: [pipeline.trigger](pipeline.md), [resources.repositories.repository.trigger](resources-repositories-repository.md)
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-Properties that use this definition: [pipeline.trigger](pipeline.md), [resources.repositories.repository.trigger](resources-repositories-repository.md)
+| Implementation | Description |
+|---|---|
+| [trigger: none](#triggerstring) | Disable CI triggers. |
+| [trigger: string list](#triggerstringlist) | List of branches that trigger a run. |
+| [trigger: batch, branches, paths](#triggerobjectproperties) | Full syntax for complete control. |
 
 :::moniker-end
+<!-- :::implementations-list-end::: -->
 
-:::moniker range="= azure-pipelines-2022"
-
-Properties that use this definition: [pipeline.trigger](pipeline.md), [resources.repositories.repository.trigger](resources-repositories-repository.md)
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-Properties that use this definition: [pipeline.trigger](pipeline.md), [resources.repositories.repository.trigger](resources-repositories-repository.md)
-
-:::moniker-end
-
-## Overloads
-
-:::moniker range="= azure-pipelines-2019" 
-
-| Overload | Description |
-|----------|-------------|
-| [trigger: none](#trigger-none) |  |
-| [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths](#trigger-batch-branches-paths) | Full syntax for complete control. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [trigger: none](#trigger-none) |  |
-| [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020" 
-
-| Overload | Description |
-|----------|-------------|
-| [trigger: none](#trigger-none) |  |
-| [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [trigger: none](#trigger-none) |  |
-| [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022" 
-
-| Overload | Description |
-|----------|-------------|
-| [trigger: none](#trigger-none) |  |
-| [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines" 
-
-| Overload | Description |
-|----------|-------------|
-| [trigger: none](#trigger-none) |  |
-| [trigger: branchFilter list](#trigger-branchfilter-list) | List of branches that trigger a run. |
-| [trigger: batch, branches, paths, tags](#trigger-batch-branches-paths-tags) | Full syntax for complete control. |
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 For more information about using triggers with a specific repository type, see [Supported source repositories](/azure/devops/pipelines/repos).
@@ -133,497 +79,100 @@ If you specify an `exclude` clause without an `include` clause for `branches`, `
 > If you specify an exclusion but no inclusions, nothing triggers.
 
 ::: moniker-end
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+<!-- :::implementations::: -->
+<!-- :::implementation-item name="trigger: string"::: -->
+<a name="triggerstring"></a>
+<!-- :::stringAnyOf::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::implementation-signature::: -->
 ## trigger: none
+<!-- :::implementation-signature-end::: -->
 
-Disablement syntax.
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Disable CI triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="trigger(none)" version="azure-pipelines-2019"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
 trigger: none # Disable CI triggers.
 ```
+<!-- :::implementation-syntax-end::: -->
 
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::implementation-string-item::: -->
+**`trigger`** string. Allowed values: none.<br>
+<!-- :::editable-content name="description"::: -->
+Disable CI triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-string-item-end::: -->
 
 :::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="trigger(none)" version="azure-pipelines-2019.1"::: -->
-
-
-```yaml
-trigger: none # Disable CI triggers.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="trigger(none)" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-trigger: none # Disable CI triggers.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="trigger(none)" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-trigger: none # Disable CI triggers.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="trigger(none)" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-trigger: none # Disable CI triggers.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="trigger(none)" version="azure-pipelines"::: -->
-
-
-```yaml
-trigger: none # Disable CI triggers.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: none
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
+<!-- :::stringAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 ```yaml
 trigger: none # will disable CI builds entirely
 ```
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="trigger: string list"::: -->
+<a name="triggerstringlist"></a>
+<!-- :::arrayAnyOf::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-## trigger: branchFilter list
+<!-- :::implementation-signature::: -->
+## trigger: string list
+<!-- :::implementation-signature-end::: -->
 
-List syntax specifies a list of branches for which a push triggers a run.
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+List of branches that trigger a run.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="trigger[branchFilter]" version="azure-pipelines-2019"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
-trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
+trigger: [ string ] # List of branches that trigger a run.
 ```
+<!-- :::implementation-syntax-end::: -->
 
-### Properties
+### List types
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::implementation-list-types::: -->
+| Type | Description |
+|---|---|
+| string | List of branches that trigger a run. |
+<!-- :::implementation-list-types-end::: -->
 
 :::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="trigger[branchFilter]" version="azure-pipelines-2019.1"::: -->
-
-
-```yaml
-trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="trigger[branchFilter]" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="trigger[branchFilter]" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="trigger[branchFilter]" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="trigger[branchFilter]" version="azure-pipelines"::: -->
-
-
-```yaml
-trigger: [ branchFilter ] # List of branches that trigger a run. [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Disable CI triggers. Acceptable values: [^\/~\^\: \[\]\\]+(\/[^\/~\^\: \[\]\\]+)*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
+<!-- :::arrayAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 ```yaml
@@ -631,657 +180,124 @@ trigger:
 - main
 - develop
 ```
-:::moniker range="= azure-pipelines-2019"
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="trigger: object properties"::: -->
+<a name="triggerobjectproperties"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range=">=azure-pipelines-2019.1"
 
-## trigger: batch, branches, paths
-
-Full syntax for complete control.
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="trigger{batch,branches,paths}" version="azure-pipelines-2019"::: -->
-
-
-```yaml
-trigger:
-  batch: boolean # Whether to batch changes per branch.  (false,n,no,off,on,true,y,yes)
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  paths:  # File paths to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to batch changes per branch. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `paths`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-:::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
+<!-- :::implementation-signature::: -->
 ## trigger: batch, branches, paths, tags
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
 Use the full syntax control for full control over the CI trigger.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="trigger{batch,branches,paths,tags}" version="azure-pipelines-2019.1"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
 trigger:
-  batch: boolean # Whether to batch changes per branch.  (false,n,no,off,on,true,y,yes)
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  paths:  # File paths to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  tags:  # Tag names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
+  batch: boolean # Whether to batch changes per branch.
+  branches: # Branch names to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
+  paths: # File paths to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
+  tags: # Tag names to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to batch changes per branch. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `paths`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Tag names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="batch"::: -->
+**`batch`** [boolean](boolean.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Whether to batch changes per branch.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="branches"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Branch names to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="paths"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+File paths to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="tags"::: -->
+**`tags`** [includeExcludeFilters](include-exclude-filters.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Tag names to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2019"
 
-<!-- :::api-definition signature="trigger{batch,branches,paths,tags}" version="azure-pipelines-2020"::: -->
+<!-- :::implementation-signature::: -->
+## trigger: batch, branches, paths
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Use the full syntax control for full control over the CI trigger.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
 trigger:
-  batch: boolean # Whether to batch changes per branch.  (false,n,no,off,on,true,y,yes)
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  paths:  # File paths to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  tags:  # Tag names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
+  batch: boolean # Whether to batch changes per branch.
+  branches: # Branch names to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
+  paths: # File paths to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to batch changes per branch. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `paths`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Tag names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="batch"::: -->
+**`batch`** [boolean](boolean.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Whether to batch changes per branch.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="branches"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Branch names to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="paths"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+File paths to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
+<!-- :::objectAnyOf-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="trigger{batch,branches,paths,tags}" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-trigger:
-  batch: boolean # Whether to batch changes per branch.  (false,n,no,off,on,true,y,yes)
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  paths:  # File paths to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  tags:  # Tag names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to batch changes per branch. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `paths`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Tag names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="trigger{batch,branches,paths,tags}" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-trigger:
-  batch: boolean # Whether to batch changes per branch.  (false,n,no,off,on,true,y,yes)
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  paths:  # File paths to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  tags:  # Tag names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to batch changes per branch. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `paths`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Tag names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="trigger{batch,branches,paths,tags}" version="azure-pipelines"::: -->
-
-
-```yaml
-trigger:
-  batch: boolean # Whether to batch changes per branch.  (false,n,no,off,on,true,y,yes)
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  paths:  # File paths to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  tags:  # Tag names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to batch changes per branch. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `paths`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->File paths to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Tag names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ### Remarks
 
 If you have many team members uploading changes often, you may want to reduce the number of runs you start. If you set `batch` to `true`, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. By default, `batch` is `false`.
@@ -1296,15 +312,18 @@ If you have many team members uploading changes often, you may want to reduce th
 For more information, see [Triggers - CI triggers](/azure/devops/pipelines/build/triggers#ci-triggers) and choose your repository type.
 
 ```yaml
-## specific branch build with batching
+# specific branch build with batching
 trigger:
   batch: true
   branches:
     include:
     - main
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 ```yaml
@@ -1319,7 +338,15 @@ trigger:
     exclude:
     - README.md
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementations-end::: -->
 
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 Learn more about [triggers](/azure/devops/pipelines/build/triggers#ci-triggers) and how to specify them.
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

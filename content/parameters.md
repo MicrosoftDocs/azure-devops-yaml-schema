@@ -1,108 +1,67 @@
 ---
-title: parameters list definition
-description: parameters list definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: pipeline.parameters definition
+description: Pipeline template parameters.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
-# parameters list definition
+# pipeline.parameters definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
+<!-- :::editable-content name="description"::: -->
 The parameters list specifies the runtime parameters passed to a pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipelineTemplateParameters[pipelineTemplateParameter]" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
 
 ```yaml
-parameters: [ name ] # 
+parameters: [ parameter ] # Specifies the runtime parameters passed to a pipeline.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [pipeline.parameters](pipeline.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [pipeline](pipeline.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
-| [parameters.name](parameters-name.md) |  |
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="pipelineTemplateParameters[pipelineTemplateParameter]" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-parameters: [ name ] # 
-```
-
-
-Properties that use this definition: [pipeline.parameters](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [parameters.name](parameters-name.md) |  |
-
-<!-- :::api-definition-end::: -->
+| Type | Description |
+|---|---|
+| [parameters.parameter](parameters-parameter.md) | Pipeline template parameters. |
 
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2022"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="pipelineTemplateParameters[pipelineTemplateParameter]" version="azure-pipelines-2022"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-parameters: [ name ] # 
-```
-
-
-Properties that use this definition: [pipeline.parameters](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [parameters.name](parameters-name.md) |  |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="pipelineTemplateParameters[pipelineTemplateParameter]" version="azure-pipelines"::: -->
-
-```yaml
-parameters: [ name ] # 
-```
-
-
-Properties that use this definition: [pipeline.parameters](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [parameters.name](parameters-name.md) |  |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-- [parameters.name](parameters.md)
+- [parameters.parameter](parameters-parameter.md)
 - See [templates](/azure/devops/pipelines/process/templates) for more about working with templates.
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

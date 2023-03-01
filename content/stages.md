@@ -1,105 +1,55 @@
 ---
-title: stages list definition
-description: stages list definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: stages definition
+description: Stages are a collection of related jobs.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
-# stages list definition
+# stages definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-Stages are a collection of related jobs. 
+<!-- :::editable-content name="description"::: -->
+Stages are a collection of related jobs.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="stages[stage]" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
 
 ```yaml
-stages: [ stage | template ] # 
+stages: [ stage | template ] # Stages are a collection of related jobs.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [pipeline.stages](pipeline.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [pipeline](pipeline.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
-| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
-| [stages.template](stages-template.md) | Stages defined in a template file. |
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="stages[stage]" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-stages: [ stage | template ] # 
-```
-
-
-Properties that use this definition: [pipeline.stages](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
-| [stages.template](stages-template.md) | Stages defined in a template file. |
-
-<!-- :::api-definition-end::: -->
+| Type | Description |
+|---|---|
+| [stages.stage](stages-stage.md) | A stage is a collection of related jobs. |
+| [stages.template](stages-template.md) | You can define a set of stages in one file and use it multiple times in other files. |
 
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="stages[stage]" version="azure-pipelines-2022"::: -->
-
-```yaml
-stages: [ stage | template ] # 
-```
-
-
-Properties that use this definition: [pipeline.stages](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
-| [stages.template](stages-template.md) | Stages defined in a template file. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="stages[stage]" version="azure-pipelines"::: -->
-
-```yaml
-stages: [ stage | template ] # 
-```
-
-
-Properties that use this definition: [pipeline.stages](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [stages.stage](stages-stage.md) | Stages defined in a pipeline. |
-| [stages.template](stages-template.md) | Stages defined in a template file. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 By default, stages run sequentially. Each stage starts only after the preceding stage is complete unless otherwise specified via the `dependsOn` property.
@@ -113,8 +63,11 @@ As an owner of a resource like an environment, you can define checks that are re
 
 Currently, manual approval checks are supported on [environments](/azure/devops/pipelines/process/environments).
 For more information, see [Approvals](/azure/devops/pipelines/process/approvals).
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 This example runs three stages, one after another.
@@ -153,11 +106,13 @@ stages:
   displayName: Build for Mac
   dependsOn: [] # by specifying an empty array, this stage doesn't depend on the stage before it
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 Learn more about [stages](/azure/devops/pipelines/process/stages), [conditions](/azure/devops/pipelines/process/conditions), and [variables](/azure/devops/pipelines/process/variables).
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

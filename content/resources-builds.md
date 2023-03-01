@@ -1,149 +1,66 @@
 ---
-title: resources.builds list definition
-description: resources.builds list definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.builds definition
+description: List of build resources referenced by the pipeline.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
-# resources.builds list definition
+# resources.builds definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 List of build resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="buildResources[buildResource]" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-builds: [ build ] # 
+builds: [ build ] # List of build resources referenced by the pipeline.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.builds](resources.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources](resources.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+| Type | Description |
+|---|---|
 | [resources.builds.build](resources-builds-build.md) | A build resource used to reference artifacts from a run. |
 
-<!-- :::api-definition-end::: -->
-
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="buildResources[buildResource]" version="azure-pipelines-2019.1"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-builds: [ build ] # 
-```
-
-
-Properties that use this definition: [resources.builds](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.builds.build](resources-builds-build.md) | A build resource used to reference artifacts from a run. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="buildResources[buildResource]" version="azure-pipelines-2020"::: -->
-
-```yaml
-builds: [ build ] # 
-```
-
-
-Properties that use this definition: [resources.builds](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.builds.build](resources-builds-build.md) | A build resource used to reference artifacts from a run. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="buildResources[buildResource]" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-builds: [ build ] # 
-```
-
-
-Properties that use this definition: [resources.builds](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.builds.build](resources-builds-build.md) | A build resource used to reference artifacts from a run. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="buildResources[buildResource]" version="azure-pipelines-2022"::: -->
-
-```yaml
-builds: [ build ] # 
-```
-
-
-Properties that use this definition: [resources.builds](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.builds.build](resources-builds-build.md) | A build resource used to reference artifacts from a run. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="buildResources[buildResource]" version="azure-pipelines"::: -->
-
-```yaml
-builds: [ build ] # 
-```
-
-
-Properties that use this definition: [resources.builds](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.builds.build](resources-builds-build.md) | A build resource used to reference artifacts from a run. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

@@ -1,794 +1,194 @@
 ---
 title: resources definition
-description: resources definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # resources definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="resources{builds,containers,pipelines,repositories}" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
 ```yaml
 resources:
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
 ```
-
-
-Properties that use this definition: [pipeline.resources](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `builds`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.builds](resources-builds.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of build resources referenced by the pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `containers`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.containers](resources-containers.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipelines`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.pipelines](resources-pipelines.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of pipeline resources. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repositories`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.repositories](resources-repositories.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external repositories. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="resources{builds,containers,pipelines,repositories}" version="azure-pipelines-2019.1"::: -->
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 resources:
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  packages: [ package ] # List of package resources.
 ```
-
-
-Properties that use this definition: [pipeline.resources](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `builds`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.builds](resources-builds.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of build resources referenced by the pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `containers`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.containers](resources-containers.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipelines`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.pipelines](resources-pipelines.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of pipeline resources. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repositories`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.repositories](resources-repositories.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external repositories. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="resources{builds,containers,pipelines,repositories,packages}" version="azure-pipelines-2020"::: -->
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 ```yaml
 resources:
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  packages: [ package ]
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [pipeline.resources](pipeline.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [pipeline](pipeline.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `builds`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.builds](resources-builds.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of build resources referenced by the pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `containers`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.containers](resources-containers.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipelines`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.pipelines](resources-pipelines.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of pipeline resources. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repositories`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.repositories](resources-repositories.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external repositories. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `packages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.packages](resources-packages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external packages. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="builds"::: -->
+**`builds`** [resources.builds](resources-builds.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of build resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="containers"::: -->
+**`containers`** [resources.containers](resources-containers.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of container images.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pipelines"::: -->
+**`pipelines`** [resources.pipelines](resources-pipelines.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of pipeline resources.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="repositories"::: -->
+**`repositories`** [resources.repositories](resources-repositories.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of external repositories.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="webhooks"::: -->
+**`webhooks`** [resources.webhooks](resources-webhooks.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of webhooks.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="packages"::: -->
+**`packages`** [resources.packages](resources-packages.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of external packages.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines-2020"
 
-<!-- :::api-definition signature="resources{builds,containers,pipelines,repositories,webhooks,packages}" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-resources:
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-```
-
-
-Properties that use this definition: [pipeline.resources](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `builds`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.builds](resources-builds.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of build resources referenced by the pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `containers`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.containers](resources-containers.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipelines`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.pipelines](resources-pipelines.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of pipeline resources. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repositories`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.repositories](resources-repositories.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external repositories. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `webhooks`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.webhooks](resources-webhooks.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of webhooks. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `packages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.packages](resources-packages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external packages. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="builds"::: -->
+**`builds`** [resources.builds](resources-builds.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of build resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="containers"::: -->
+**`containers`** [resources.containers](resources-containers.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of container images.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pipelines"::: -->
+**`pipelines`** [resources.pipelines](resources-pipelines.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of pipeline resources.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="repositories"::: -->
+**`repositories`** [resources.repositories](resources-repositories.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of external repositories.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="packages"::: -->
+**`packages`** [resources.packages](resources-packages.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of external packages.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-<!-- :::api-definition signature="resources{builds,containers,pipelines,repositories,webhooks,packages}" version="azure-pipelines-2022"::: -->
-
-```yaml
-resources:
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-```
-
-
-Properties that use this definition: [pipeline.resources](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `builds`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.builds](resources-builds.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of build resources referenced by the pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `containers`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.containers](resources-containers.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipelines`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.pipelines](resources-pipelines.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of pipeline resources. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repositories`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.repositories](resources-repositories.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external repositories. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `webhooks`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.webhooks](resources-webhooks.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of webhooks. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `packages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.packages](resources-packages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external packages. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="builds"::: -->
+**`builds`** [resources.builds](resources-builds.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of build resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="containers"::: -->
+**`containers`** [resources.containers](resources-containers.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of container images.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pipelines"::: -->
+**`pipelines`** [resources.pipelines](resources-pipelines.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of pipeline resources.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="repositories"::: -->
+**`repositories`** [resources.repositories](resources-repositories.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+List of external repositories.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::properties-end::: -->
 
-:::moniker range="= azure-pipelines"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="resources{builds,containers,pipelines,repositories,webhooks,packages}" version="azure-pipelines"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-resources:
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-```
-
-
-Properties that use this definition: [pipeline.resources](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `builds`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.builds](resources-builds.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of build resources referenced by the pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `containers`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.containers](resources-containers.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of container images. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipelines`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.pipelines](resources-pipelines.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of pipeline resources. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repositories`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.repositories](resources-repositories.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external repositories. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `webhooks`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.webhooks](resources-webhooks.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of webhooks. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `packages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.packages](resources-packages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of external packages. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

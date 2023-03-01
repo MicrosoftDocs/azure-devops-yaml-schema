@@ -1,0 +1,14 @@
+{
+    "redirections": [
+      {
+        "source_path": "content/parameters-name.md",
+        "redirect_url": "/azure/devops/pipelines/yaml-schema/parameters-parameter"
+      },
+      {
+        "source_path": "content/resources-webhooks-webhook-filters-path.md",
+        "redirect_url": "/azure/devops/pipelines/yaml-schema/resources-webhooks-webhook-filters-filter"
+      }
+    ]
+  }
+  
+  

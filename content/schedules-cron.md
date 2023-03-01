@@ -1,525 +1,88 @@
 ---
 title: schedules.cron definition
-description: schedules.cron definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A scheduled trigger specifies a schedule on which branches are built.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
 # schedules.cron definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
+<!-- :::editable-content name="description"::: -->
 A scheduled trigger specifies a schedule on which branches are built.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="schedule{cron}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
 
 ```yaml
 schedules:
-- cron: string # Required as first property. Cron syntax defining a schedule in UTC time.. 
-  displayName: string # Optional friendly name given to a specific schedule.. 
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false..  (false,n,no,off,on,true,y,yes)
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false..  (false,n,no,off,on,true,y,yes)
+- cron: string # Required as first property. Cron syntax defining a schedule in UTC time.
+  displayName: string # Optional friendly name given to a specific schedule.
+  branches: # Branch names to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
+  batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false.
+  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [schedules](schedules.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [schedules](schedules.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cron`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Cron syntax defining a schedule in UTC time. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Optional friendly name given to a specific schedule. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to run the pipeline if the previously scheduled run is in-progress; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `always`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="cron"::: -->
+**`cron`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Cron syntax defining a schedule in UTC time.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Optional friendly name given to a specific schedule.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="branches"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Branch names to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="batch"::: -->
+**`batch`** [boolean](boolean.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Whether to run the pipeline if the previously scheduled run is in-progress; the default is false.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="always"::: -->
+**`always`** [boolean](boolean.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::properties-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="schedule{cron}" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-schedules:
-- cron: string # Required as first property. Cron syntax defining a schedule in UTC time.. 
-  displayName: string # Optional friendly name given to a specific schedule.. 
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false..  (false,n,no,off,on,true,y,yes)
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false..  (false,n,no,off,on,true,y,yes)
-```
-
-
-Properties that use this definition: [schedules](schedules.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cron`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Cron syntax defining a schedule in UTC time. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Optional friendly name given to a specific schedule. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to run the pipeline if the previously scheduled run is in-progress; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `always`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="schedule{cron}" version="azure-pipelines-2022"::: -->
-
-```yaml
-schedules:
-- cron: string # Required as first property. Cron syntax defining a schedule in UTC time.. 
-  displayName: string # Optional friendly name given to a specific schedule.. 
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false..  (false,n,no,off,on,true,y,yes)
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false..  (false,n,no,off,on,true,y,yes)
-```
-
-
-Properties that use this definition: [schedules](schedules.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cron`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Cron syntax defining a schedule in UTC time. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Optional friendly name given to a specific schedule. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to run the pipeline if the previously scheduled run is in-progress; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `always`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="schedule{cron}" version="azure-pipelines"::: -->
-
-```yaml
-schedules:
-- cron: string # Required as first property. Cron syntax defining a schedule in UTC time.. 
-  displayName: string # Optional friendly name given to a specific schedule.. 
-  branches:  # Branch names to include or exclude for triggering a run.
-    include: [ branchFilter ] # List of items to include. 
-    exclude: [ branchFilter ] # List of items to exclude. 
-  batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false..  (false,n,no,off,on,true,y,yes)
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false..  (false,n,no,off,on,true,y,yes)
-```
-
-
-Properties that use this definition: [schedules](schedules.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `cron`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Cron syntax defining a schedule in UTC time. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Optional friendly name given to a specific schedule. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branches`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-include/exclude string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch names to include or exclude for triggering a run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `batch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to run the pipeline if the previously scheduled run is in-progress; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `always`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 If you specify no scheduled trigger, no scheduled builds occur.
@@ -527,7 +90,22 @@ If you specify no scheduled trigger, no scheduled builds occur.
 > [!NOTE]
 > If you specify an `exclude` clause without an `include` clause for `branches`, it is equivalent to specifying `*` in the `include` clause.
 
+> [!IMPORTANT]
+> Scheduled triggers defined using the pipeline settings UI take precedence over YAML scheduled triggers.
+> 
+> If your YAML pipeline has both YAML scheduled triggers and UI defined scheduled triggers, 
+> only the UI defined scheduled triggers are run. 
+> To run the YAML defined scheduled triggers in your YAML pipeline,
+> you must remove the scheduled triggers defined in the pipeline settings UI.
+> Once all UI scheduled triggers are removed, a push must be made in order for the YAML 
+> scheduled triggers to start being evaluated.
+>
+> To delete UI scheduled triggers from a YAML pipeline, see [UI settings override YAML scheduled triggers](/azure/devops/pipelines/troubleshooting/troubleshooting#ui-settings-override-yaml-scheduled-triggers).
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 ```yaml
@@ -555,12 +133,14 @@ It runs the pipeline for `main` and all `releases/*` branches, except for those 
 
 The second schedule, **Weekly Sunday build**, runs a pipeline at noon on Sundays for all `releases/*` branches.
 It does so regardless of whether the code has changed since the last run.
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - Learn more about [scheduled triggers](/azure/devops/pipelines/process/scheduled-triggers).
 - Learn more about [triggers](/azure/devops/pipelines/build/triggers#pr-triggers) in general and how to specify them.
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

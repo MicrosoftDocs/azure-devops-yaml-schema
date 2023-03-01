@@ -1,771 +1,176 @@
 ---
 title: stages.stage definition
-description: stages.stage definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A stage is a collection of related jobs.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
 # stages.stage definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
+<!-- :::editable-content name="description"::: -->
 Stages are a collection of related jobs. By default, stages run sequentially. Each stage starts only after the preceding stage is complete unless otherwise specified via the `dependsOn` property.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="stage{stage}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2022"
 
 ```yaml
 stages:
-- stage: string # Required as first property. ID of the stage. 
-  displayName: string # Human-readable name for the stage. 
-  pool: pool # Pool where jobs in this stage will run unless otherwise specified
-  dependsOn: string | [ string ]  # Any stages which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this stage. 
-  variables: variables # Stage-specific variables
-  jobs: [ job | deployment | template ]
+- stage: string # Required as first property. ID of the stage.
+  displayName: string # Human-readable name for the stage.
+  pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
+  dependsOn: string | [ string ] # Any stages which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this stage.
+  variables: variables | [ variable ] # Stage-specific variables.
+  jobs: [ job | deployment | template ] # Jobs which make up the stage.
+  lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+  templateContext: # Stage related information passed from a pipeline when extending a template.
 ```
-
-
-Properties that use this definition: [stages](stages.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stage`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this stage will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any stages which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Jobs which make up the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="stage{stage}" version="azure-pipelines-2020.1"::: -->
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
 
 ```yaml
 stages:
-- stage: string # Required as first property. ID of the stage. 
-  displayName: string # Human-readable name for the stage. 
-  pool: pool # Pool where jobs in this stage will run unless otherwise specified
-  dependsOn: string | [ string ]  # Any stages which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this stage. 
-  variables: variables # Stage-specific variables
-  jobs: [ job | deployment | template ]
+- stage: string # Required as first property. ID of the stage.
+  displayName: string # Human-readable name for the stage.
+  pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
+  dependsOn: string | [ string ] # Any stages which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this stage.
+  variables: variables | [ variable ] # Stage-specific variables.
+  jobs: [ job | deployment | template ] # Jobs which make up the stage.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [stages](stages.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [stages](stages.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range=">=azure-pipelines-2022"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stage`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this stage will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any stages which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Jobs which make up the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="stage"::: -->
+**`stage`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this stage will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any stages which must complete before this one. By default stages are run sequentially in the order defined in the pipeline. Specify `dependsOn: []` for a stage if it shouldn't depend on the previous stage in the pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Stage-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Jobs which make up the stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="templateContext"::: -->
+**`templateContext`** templateContext.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Stage related information passed from a pipeline when extending a template. See remarks for more information.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
 
-<!-- :::api-definition signature="stage{stage}" version="azure-pipelines-2022"::: -->
-
-```yaml
-stages:
-- stage: string # Required as first property. ID of the stage. 
-  displayName: string # Human-readable name for the stage. 
-  pool: pool # Pool where jobs in this stage will run unless otherwise specified
-  dependsOn: string | [ string ]  # Any stages which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this stage. 
-  variables: variables # Stage-specific variables
-  jobs: [ job | deployment | template ]
-  lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-  templateContext:  # Stage related information passed from a pipeline when extending a template. See remarks for more information.
-    
-```
-
-
-Properties that use this definition: [stages](stages.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stage`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this stage will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any stages which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Jobs which make up the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `templateContext`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-templateContext
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage related information passed from a pipeline when extending a template. See remarks for more information. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="stage"::: -->
+**`stage`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+**`displayName`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this stage will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="dependsOn"::: -->
+**`dependsOn`** string | string list.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Any stages which must complete before this one. By default stages are run sequentially in the order defined in the pipeline. Specify `dependsOn: []` for a stage if it shouldn't depend on the previous stage in the pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+**`condition`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Stage-specific variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+Jobs which make up the stage.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::properties-end::: -->
 
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="stage{stage}" version="azure-pipelines"::: -->
-
-```yaml
-stages:
-- stage: string # Required as first property. ID of the stage. 
-  displayName: string # Human-readable name for the stage. 
-  pool: pool # Pool where jobs in this stage will run unless otherwise specified
-  dependsOn: string | [ string ]  # Any stages which must complete before this one
-  condition: string # Evaluate this condition expression to determine whether to run this stage. 
-  variables: variables # Stage-specific variables
-  jobs: [ job | deployment | template ]
-  lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-  templateContext:  # Stage related information passed from a pipeline when extending a template. See remarks for more information.
-    
-```
-
-
-Properties that use this definition: [stages](stages.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stage`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this stage will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `dependsOn`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Any stages which must complete before this one. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage-specific variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Jobs which make up the stage. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `templateContext`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-templateContext
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Stage related information passed from a pipeline when extending a template. See remarks for more information. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 :::moniker range="azure-pipelines"
@@ -826,8 +231,11 @@ stages:
 ```
 
 :::moniker-end
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 This example runs three stages, one after another.
@@ -866,11 +274,13 @@ stages:
   displayName: Build for Mac
   dependsOn: [] # by specifying an empty array, this stage doesn't depend on the stage before it
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 Learn more about [stages](/azure/devops/pipelines/process/stages), [conditions](/azure/devops/pipelines/process/conditions), and [variables](/azure/devops/pipelines/process/variables).
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

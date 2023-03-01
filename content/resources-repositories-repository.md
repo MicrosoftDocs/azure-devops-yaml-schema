@@ -1,855 +1,204 @@
 ---
 title: resources.repositories.repository definition
-description: resources.repositories.repository definition reference.
-ms.date: 01/18/2023
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A repository resource is used to reference an additional repository in your pipeline.
+ms.date: 03/01/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # resources.repositories.repository definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-The `repository` keyword lets you specify an external repository.
+<!-- :::editable-content name="description"::: -->
+The `repository` keyword lets you specify an external repository. Use a repository resource to reference an additional repository in your pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range="=azure-pipelines"
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to this repository. 
-  name: string # repository name (format depends on `type`); does not accept variables. 
-  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
+- repository: string # Required as first property. Alias for the specified repository.
+  endpoint: string # ID of the service endpoint connecting to this repository.
+  trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # repository name (format depends on 'type'; does not accept variables.
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
+  type: string # Type of repository: git, github, githubenterprise, and bitbucket.
 ```
-
-
-Properties that use this definition: [resources.repositories](resources-repositories.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->repository name (format depends on `type`); does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2019.1"::: -->
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to this repository. 
-  name: string # repository name (format depends on `type`); does not accept variables. 
-  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
+- repository: string # Required as first property. Alias for the specified repository.
+  endpoint: string # ID of the service endpoint connecting to this repository.
+  trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # repository name (format depends on 'type'; does not accept variables.
+  type: string # Type of repository: git, github, githubenterprise, and bitbucket.
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
-
-
-Properties that use this definition: [resources.repositories](resources-repositories.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->repository name (format depends on `type`); does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2020"::: -->
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to this repository. 
-  trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # repository name (format depends on `type`); does not accept variables. 
-  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
+- repository: string # Required as first property. Alias for the specified repository.
+  endpoint: string # ID of the service endpoint connecting to this repository.
+  name: string # repository name (format depends on 'type'; does not accept variables.
+  type: string # Type of repository: git, github, githubenterprise, and bitbucket.
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.repositories](resources-repositories.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources.repositories](resources-repositories.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+:::moniker range="=azure-pipelines"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos). 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->repository name (format depends on `type`); does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="repository"::: -->
+**`repository`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to this repository.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+repository name (format depends on 'type'; does not accept variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ref"::: -->
+**`ref`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+**`type`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Type of repository: git, github, githubenterprise, and bitbucket.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
-<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-repositories:
-- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to this repository. 
-  trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # repository name (format depends on `type`); does not accept variables. 
-  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
-```
-
-
-Properties that use this definition: [resources.repositories](resources-repositories.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos). 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->repository name (format depends on `type`); does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="repository"::: -->
+**`repository`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to this repository.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br>
+<!-- :::editable-content name="propDescription"::: -->
+CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+repository name (format depends on 'type'; does not accept variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+**`type`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Type of repository: git, github, githubenterprise, and bitbucket.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ref"::: -->
+**`ref`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines-2022"::: -->
-
-```yaml
-repositories:
-- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to this repository. 
-  trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # repository name (format depends on `type`); does not accept variables. 
-  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
-```
-
-
-Properties that use this definition: [resources.repositories](resources-repositories.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos). 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->repository name (format depends on `type`); does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="repository"::: -->
+**`repository`** string. Required as first property.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to this repository.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+repository name (format depends on 'type'; does not accept variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+**`type`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+Type of repository: git, github, githubenterprise, and bitbucket.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ref"::: -->
+**`ref`** string.<br>
+<!-- :::editable-content name="propDescription"::: -->
+ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::properties-end::: -->
 
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="repositoryResource{repository}" version="azure-pipelines"::: -->
-
-```yaml
-repositories:
-- repository: string # Required as first property. Alias for the specified repository.  ([-_A-Za-z0-9]*)
-  endpoint: string # ID of the service endpoint connecting to this repository. 
-  trigger: trigger # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
-  name: string # repository name (format depends on `type`); does not accept variables. 
-  type: string # Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
-```
-
-
-Properties that use this definition: [resources.repositories](resources-repositories.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `repository`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to this repository. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos). 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ref`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->repository name (format depends on `type`); does not accept variables. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Type of repository: `git`, `github`, `githubenterprise`, and `bitbucket`. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+::: moniker range="<= azure-pipelines-2022"
 
 > [!IMPORTANT]
 > Repository resource does not allow pipeline variables in `name` and `ref`. Wildcards are supported in triggers.
+
+::: moniker-end
 
 ::: moniker range=">= azure-pipelines-2020"
 
@@ -890,8 +239,11 @@ The `git` type refers to Azure Repos Git repos.
   Bitbucket Cloud repos require a [Bitbucket Cloud service connection](/azure/devops/pipelines/library/service-endpoints#bitbucket-cloud-service-connection) for authorization.
 
 For more information about these types, see [Check out multiple repositories in your pipeline - Repository resource definition](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition).
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 ```yaml
@@ -902,11 +254,13 @@ resources:
     name: Contoso/CommonTools
     endpoint: MyContosoServiceConnection
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

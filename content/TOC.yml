@@ -1,116 +1,191 @@
+items:
 - name: YAML schema
   href: index.md
 - name: pipeline
   href: pipeline.md
+  displayName: pipeline
 - name: extends
   href: extends.md
+  displayName: extends
 - name: jobs
   href: jobs.md
+  displayName: jobs
 - name: jobs.deployment
   href: jobs-deployment.md
+  displayName: job
 - name: jobs.deployment.environment
   href: jobs-deployment-environment.md
+  displayName: deploymentEnvironment
 - name: jobs.deployment.strategy
   href: jobs-deployment-strategy.md
+  displayName: deploymentStrategy
 - name: jobs.deployment.strategy.canary
   href: jobs-deployment-strategy-canary.md
+  displayName: canaryDeploymentStrategy
 - name: jobs.deployment.strategy.rolling
   href: jobs-deployment-strategy-rolling.md
+  displayName: rollingDeploymentStrategy
 - name: jobs.deployment.strategy.runOnce
   href: jobs-deployment-strategy-run-once.md
+  displayName: runOnceDeploymentStrategy
 - name: jobs.job
   href: jobs-job.md
+  displayName: job
 - name: jobs.job.container
   href: jobs-job-container.md
+  displayName: jobContainer
 - name: jobs.job.strategy
   href: jobs-job-strategy.md
+  displayName: jobStrategy
+- name: jobs.job.uses
+  href: jobs-job-uses.md
+  displayName: explicitResources
 - name: jobs.template
   href: jobs-template.md
+  displayName: job
 - name: parameters
   href: parameters.md
-- name: parameters.name
-  href: parameters-name.md
+  displayName: pipelineTemplateParameters
+- name: parameters.parameter
+  href: parameters-parameter.md
+  displayName: pipelineTemplateParameter
 - name: pool
   href: pool.md
+  displayName: pool
+- name: pool.demands
+  href: pool-demands.md
+  displayName: poolDemands
 - name: pr
   href: pr.md
+  displayName: pr
 - name: resources
   href: resources.md
+  displayName: resources
 - name: resources.builds
   href: resources-builds.md
+  displayName: buildResources
 - name: resources.builds.build
   href: resources-builds-build.md
+  displayName: buildResource
 - name: resources.containers
   href: resources-containers.md
+  displayName: containerResources
 - name: resources.containers.container
   href: resources-containers-container.md
+  displayName: containerResource
+- name: resources.containers.container.trigger
+  href: resources-containers-container-trigger.md
+  displayName: containerResourceTrigger
 - name: resources.packages
   href: resources-packages.md
+  displayName: packageResources
 - name: resources.packages.package
   href: resources-packages-package.md
+  displayName: packageResource
 - name: resources.pipelines
   href: resources-pipelines.md
+  displayName: pipelineResources
 - name: resources.pipelines.pipeline
   href: resources-pipelines-pipeline.md
+  displayName: pipelineResource
+- name: resources.pipelines.pipeline.trigger
+  href: resources-pipelines-pipeline-trigger.md
+  displayName: pipelineResourceTrigger
+- name: resources.pipelines.pipeline.trigger.branches
+  href: resources-pipelines-pipeline-trigger-branches.md
+  displayName: triggerBranchFilter
 - name: resources.repositories
   href: resources-repositories.md
+  displayName: repositoryResources
 - name: resources.repositories.repository
   href: resources-repositories-repository.md
+  displayName: repositoryResource
 - name: resources.webhooks
   href: resources-webhooks.md
+  displayName: webhookResources
 - name: resources.webhooks.webhook
   href: resources-webhooks-webhook.md
+  displayName: webhookResource
 - name: resources.webhooks.webhook.filters
   href: resources-webhooks-webhook-filters.md
-- name: resources.webhooks.webhook.filters.path
-  href: resources-webhooks-webhook-filters-path.md
+  displayName: webhookFilters
+- name: resources.webhooks.webhook.filters.filter
+  href: resources-webhooks-webhook-filters-filter.md
+  displayName: webhookFilter
 - name: schedules
   href: schedules.md
+  displayName: schedules
 - name: schedules.cron
   href: schedules-cron.md
+  displayName: schedule
 - name: stages
   href: stages.md
+  displayName: stages
 - name: stages.stage
   href: stages-stage.md
+  displayName: stage
 - name: stages.template
   href: stages-template.md
+  displayName: stage
 - name: steps
   href: steps.md
+  displayName: steps
 - name: steps.bash
   href: steps-bash.md
+  displayName: step
 - name: steps.checkout
   href: steps-checkout.md
+  displayName: step
 - name: steps.download
   href: steps-download.md
+  displayName: step
 - name: steps.downloadBuild
   href: steps-download-build.md
+  displayName: step
 - name: steps.getPackage
   href: steps-get-package.md
+  displayName: step
 - name: steps.powershell
   href: steps-powershell.md
+  displayName: step
 - name: steps.publish
   href: steps-publish.md
+  displayName: step
 - name: steps.pwsh
   href: steps-pwsh.md
+  displayName: step
 - name: steps.reviewApp
   href: steps-review-app.md
+  displayName: step
 - name: steps.script
   href: steps-script.md
+  displayName: step
 - name: steps.task
   href: steps-task.md
+  displayName: step
 - name: steps.template
   href: steps-template.md
+  displayName: step
 - name: target
   href: target.md
+  displayName: stepTarget
 - name: target.settableVariables
   href: target-settable-variables.md
+  displayName: variableRestrictions
 - name: trigger
   href: trigger.md
+  displayName: trigger
 - name: variables
   href: variables.md
+  displayName: variables
 - name: variables.group
   href: variables-group.md
+  displayName: variable
 - name: variables.name
   href: variables-name.md
+  displayName: variable
 - name: variables.template
   href: variables-template.md
+  displayName: variable
+- name: Supporting definitions
+  href: primitives-toc/toc.yml
