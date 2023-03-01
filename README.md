@@ -91,7 +91,7 @@ The [YAML schema reference for Azure Pipelines](https://learn.microsoft.com/en-u
 
 YAML schema definition articles are created and updated using an automated process that runs when Azure DevOps sprints are deployed.
 
-The definition articles in the YAML schema reference contain a combination of read-only auto-generated content based on the metadata from the [schema used to validate the YAML pipeline editor, including VS Code)](https://github.com/Microsoft/azure-pipelines-vscode#validation), and editable content that can be modified and updated.
+The definition articles in the YAML schema reference contain a combination of read-only auto-generated content based on the metadata from the [schema used to validate the YAML pipeline editor, including VS Code](https://github.com/Microsoft/azure-pipelines-vscode#validation), and editable content that can be modified and updated.
 
 ### Read-only auto-generated content
 
