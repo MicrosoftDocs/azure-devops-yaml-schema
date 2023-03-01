@@ -3,7 +3,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 * [Contributing to the tasks content](#contributing-to-the-tasks-content)
-* [](##contributing-to-the-yaml-schema-content)
+* [Contributing to the YAML schema content](##contributing-to-the-yaml-schema-content)
 
 ## Contributing to the tasks content
 
@@ -12,6 +12,8 @@ The [Azure Pipelines tasks reference](https://learn.microsoft.com/azure/devops/p
 Task articles are created and updated using an automated process that runs when Azure DevOps sprints are deployed.
 
 The task articles in the tasks reference contain a combination of read-only auto-generated content based on the metadata from the [open source tasks repo](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks), and editable content that can be modified and updated.
+
+### Read-only auto-generated content
 
 An example of read-only auto-generated content for a task is the YAML syntax section for a task.
 
@@ -31,6 +33,8 @@ An example of read-only auto-generated content for a task is the YAML syntax sec
 ```
 
 This section is fully auto-generated from the task source code and can't be modified by making a pull request into this task reference articles repo.
+
+### Editable content
 
 An example of editable content is the description for a task input. The following example shows the markdown for the `targetType` input of the `Bash@3` task.
 
@@ -80,9 +84,11 @@ The [YAML schema reference for Azure Pipelines](https://learn.microsoft.com/en-u
 
 YAML schema definition articles are created and updated using an automated process that runs when Azure DevOps sprints are deployed.
 
-The definition articles in the YAML schema reference contain a combination of read-only auto-generated content based on the metadata from the [schema used to validate the YAML pipeline editor, and VS Code)](https://github.com/Microsoft/azure-pipelines-vscode#validation), and editable content that can be modified and updated.
+The definition articles in the YAML schema reference contain a combination of read-only auto-generated content based on the metadata from the [schema used to validate the YAML pipeline editor, including VS Code)](https://github.com/Microsoft/azure-pipelines-vscode#validation), and editable content that can be modified and updated.
 
-An example of read-only auto-generated content for a task is the YAML syntax section for a definition.
+### Read-only auto-generated content
+
+An example of read-only auto-generated content for a definition is the YAML syntax section.
 
 ```yml
 schedules:
@@ -95,7 +101,9 @@ schedules:
   always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
 ```
 
-This section is fully auto-generated and can't be modified by making a pull request into this YAML schema reference articles repo.
+This section is fully auto-generated and can't be modified by making a pull request into this YAML schema reference articles repo. If you find a typo or mistake in the comments in a YAML syntax block, please file an issue. The primary purpose of the YAML syntax block is to show the syntax, with greater details for each property in the property section of the article.
+
+### Editable content
 
 An example of editable content is the description for a property. The following example shows the markdown for the `cron` property.
 
