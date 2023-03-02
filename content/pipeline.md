@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: A pipeline is one or more stages that describe a CI/CD process.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -196,68 +196,57 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="stages"::: -->
-**`stages`** [stages](stages.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Stages are groups of jobs that can run without human intervention.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="appendCommitMessageToRunName"::: -->
-**`appendCommitMessageToRunName`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Append the commit message to the build number. The default is true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -302,62 +291,52 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="stages"::: -->
-**`stages`** [stages](stages.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Stages are groups of jobs that can run without human intervention.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -401,56 +380,47 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="stages"::: -->
-**`stages`** [stages](stages.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Stages are groups of jobs that can run without human intervention.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -493,56 +463,47 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="stages"::: -->
-**`stages`** [stages](stages.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Stages are groups of jobs that can run without human intervention.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -626,68 +587,57 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="extends"::: -->
-**`extends`** [extends](extends.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Extends a template.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="appendCommitMessageToRunName"::: -->
-**`appendCommitMessageToRunName`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Append the commit message to the build number. The default is true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -734,62 +684,52 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="extends"::: -->
-**`extends`** [extends](extends.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Extends a template.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -835,56 +775,47 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="extends"::: -->
-**`extends`** [extends](extends.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Extends a template.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -929,56 +860,47 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="extends"::: -->
-**`extends`** [extends](extends.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Extends a template.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1038,68 +960,57 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Jobs represent units of work which can be assigned to a single agent or server.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="appendCommitMessageToRunName"::: -->
-**`appendCommitMessageToRunName`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Append the commit message to the build number. The default is true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1144,62 +1055,52 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Jobs represent units of work which can be assigned to a single agent or server.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1243,56 +1144,47 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Jobs represent units of work which can be assigned to a single agent or server.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1335,56 +1227,47 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Jobs represent units of work which can be assigned to a single agent or server.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1424,44 +1307,37 @@ parameters: # Pipeline template parameters.
 ### Properties
 
 <!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 Jobs represent units of work which can be assigned to a single agent or server.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1547,98 +1423,82 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run in this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="appendCommitMessageToRunName"::: -->
-**`appendCommitMessageToRunName`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Append the commit message to the build number. The default is true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1690,92 +1550,77 @@ lockBehavior: string # Behavior lock requests from this stage should exhibit in 
 ### Properties
 
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run in this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1826,86 +1671,72 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run in this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -1955,86 +1786,72 @@ variables: variables | [ variable ] # Variables for this pipeline.
 ### Properties
 
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run in this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** [parameters](parameters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-**`schedules`** [schedules](schedules.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
 Scheduled triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -2082,80 +1899,67 @@ parameters: # Pipeline template parameters.
 ### Properties
 
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run in this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -2202,74 +2006,62 @@ parameters: # Pipeline template parameters.
 ### Properties
 
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md). Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run in this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this pipeline will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continuous integration triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-**`pr`** [pr](pr.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pull request triggers.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-**`resources`** [resources](resources.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
 Containers and repositories used in the build.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Variables for this pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline template parameters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

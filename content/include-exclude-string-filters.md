@@ -1,7 +1,7 @@
 ---
 title: includeExcludeStringFilters definition
 description: Items to include or exclude.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -121,13 +121,11 @@ includeExcludeStringFilters:
 ### Properties
 
 <!-- :::item name="include"::: -->
-**`include`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="exclude"::: -->
-**`exclude`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::implementation-properties-end::: -->

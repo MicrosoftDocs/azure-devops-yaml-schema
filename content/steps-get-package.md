@@ -1,7 +1,7 @@
 ---
 title: steps.getPackage definition
 description: Downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -69,141 +69,105 @@ Definitions that that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2022"
-
 <!-- :::item name="getPackage"::: -->
-**`getPackage`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`getPackage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID for the package resource.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-**`path`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Path to download the package into.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-**`retryCountOnTaskFailure`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-<!-- :::item name="getPackage"::: -->
-**`getPackage`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID for the package resource.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="path"::: -->
-**`path`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Path to download the package into.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Environment in which to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

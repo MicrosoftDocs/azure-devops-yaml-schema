@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -96,254 +96,132 @@ Definitions that that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2022"
-
 <!-- :::item name="powershell"::: -->
-**`powershell`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`powershell`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Inline PowerShell or reference to a PowerShell file.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorActionPreference"::: -->
-**`errorActionPreference`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`errorActionPreference`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStderr"::: -->
-**`failOnStderr`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`failOnStderr`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Fail the task if output is sent to Stderr?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ignoreLASTEXITCODE"::: -->
-**`ignoreLASTEXITCODE`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`ignoreLASTEXITCODE`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Check the final exit code of the script to determine whether the step succeeded?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-**`workingDirectory`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`workingDirectory`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Start the script with this working directory.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-**`retryCountOnTaskFailure`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-<!-- :::item name="powershell"::: -->
-**`powershell`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Inline PowerShell or reference to a PowerShell file.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="errorActionPreference"::: -->
-**`errorActionPreference`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="failOnStderr"::: -->
-**`failOnStderr`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Fail the task if output is sent to Stderr?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ignoreLASTEXITCODE"::: -->
-**`ignoreLASTEXITCODE`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Check the final exit code of the script to determine whether the step succeeded?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workingDirectory"::: -->
-**`workingDirectory`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Start the script with this working directory.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Environment in which to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="powershell"::: -->
-**`powershell`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Inline PowerShell or reference to a PowerShell file.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="errorActionPreference"::: -->
-**`errorActionPreference`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="failOnStderr"::: -->
-**`failOnStderr`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Fail the task if output is sent to Stderr?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ignoreLASTEXITCODE"::: -->
-**`ignoreLASTEXITCODE`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Check the final exit code of the script to determine whether the step succeeded?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workingDirectory"::: -->
-**`workingDirectory`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Start the script with this working directory.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

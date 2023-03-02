@@ -1,7 +1,7 @@
 ---
 title: onSuccessOrFailureHook definition
 description: Used to run steps for rollback actions or clean-up.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -47,22 +47,24 @@ Definitions that that reference this definition: [jobs.deployment.strategy.runOn
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="failure"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="failure"::: -->
-**`failure`** [onFailureHook](on-failure-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`failure`** [onFailureHook](on-failure-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Runs on failure of any step.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="success"::: -->
-**`success`** [onSuccessHook](on-success-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Runs on success of all of the steps.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="success"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`success`** [onSuccessHook](on-success-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
+Runs on success of all of the steps.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

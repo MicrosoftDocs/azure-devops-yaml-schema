@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -43,69 +43,56 @@ Definitions that that reference this definition: [parameters](parameters.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2020.1"
-
 <!-- :::item name="name"::: -->
-**`name`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`name`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the parameter.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 boolean | container | containerList | deployment | deploymentList | environment | filePath | job | jobList | number | object | pool | secureFile | serviceConnection | stage | stageList | step | stepList | string.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="default"::: -->
-**`default`** parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="values"::: -->
-**`values`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
 
 :::moniker range="=azure-pipelines-2020"
 
-<!-- :::item name="name"::: -->
-**`name`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the parameter.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 boolean | deployment | deploymentList | environment | filePath | job | jobList | number | object | pool | secureFile | serviceConnection | stage | stageList | step | stepList | string.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="default"::: -->
-**`default`** parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="values"::: -->
-**`values`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="default"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`default`** parameters.<br><!-- :::editable-content name="propDescription"::: -->
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="values"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`values`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

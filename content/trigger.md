@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -218,26 +218,22 @@ trigger:
 ### Properties
 
 <!-- :::item name="batch"::: -->
-**`batch`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to batch changes per branch.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 File paths to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-**`tags`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`tags`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Tag names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -274,20 +270,17 @@ trigger:
 ### Properties
 
 <!-- :::item name="batch"::: -->
-**`batch`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to batch changes per branch.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 File paths to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

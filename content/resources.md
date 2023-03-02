@@ -1,7 +1,7 @@
 ---
 title: resources definition
 description: Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -69,110 +69,60 @@ Definitions that that reference this definition: [pipeline](pipeline.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2020.1"
-
 <!-- :::item name="builds"::: -->
-**`builds`** [resources.builds](resources-builds.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`builds`** [resources.builds](resources-builds.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of build resources referenced by the pipeline.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containers"::: -->
-**`containers`** [resources.containers](resources-containers.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`containers`** [resources.containers](resources-containers.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of container images.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pipelines"::: -->
-**`pipelines`** [resources.pipelines](resources-pipelines.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`pipelines`** [resources.pipelines](resources-pipelines.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of pipeline resources.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repositories"::: -->
-**`repositories`** [resources.repositories](resources-repositories.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of external repositories.
+:::moniker range=">=azure-pipelines-2019"
+
+**`repositories`** [resources.repositories](resources-repositories.md).<br><!-- :::editable-content name="propDescription"::: -->
+List of repository resources.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="webhooks"::: -->
-**`webhooks`** [resources.webhooks](resources-webhooks.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`webhooks`** [resources.webhooks](resources-webhooks.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of webhooks.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packages"::: -->
-**`packages`** [resources.packages](resources-packages.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of external packages.
+:::moniker range=">=azure-pipelines-2020"
+
+**`packages`** [resources.packages](resources-packages.md).<br><!-- :::editable-content name="propDescription"::: -->
+List of package resources.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::item name="builds"::: -->
-**`builds`** [resources.builds](resources-builds.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of build resources referenced by the pipeline.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="containers"::: -->
-**`containers`** [resources.containers](resources-containers.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of container images.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pipelines"::: -->
-**`pipelines`** [resources.pipelines](resources-pipelines.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of pipeline resources.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="repositories"::: -->
-**`repositories`** [resources.repositories](resources-repositories.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of external repositories.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="packages"::: -->
-**`packages`** [resources.packages](resources-packages.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of external packages.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="builds"::: -->
-**`builds`** [resources.builds](resources-builds.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of build resources referenced by the pipeline.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="containers"::: -->
-**`containers`** [resources.containers](resources-containers.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of container images.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pipelines"::: -->
-**`pipelines`** [resources.pipelines](resources-pipelines.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of pipeline resources.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="repositories"::: -->
-**`repositories`** [resources.repositories](resources-repositories.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of external repositories.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

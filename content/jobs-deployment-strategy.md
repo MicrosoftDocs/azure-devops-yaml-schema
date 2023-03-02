@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy definition
 description: Execution strategy for this deployment.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -120,8 +120,7 @@ strategy:
 ### Properties
 
 <!-- :::item name="runOnce"::: -->
-**`runOnce`** [jobs.deployment.strategy.runOnce](jobs-deployment-strategy-run-once.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`runOnce`** [jobs.deployment.strategy.runOnce](jobs-deployment-strategy-run-once.md).<br><!-- :::editable-content name="propDescription"::: -->
 RunOnce Deployment strategy.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -189,8 +188,7 @@ strategy:
 ### Properties
 
 <!-- :::item name="rolling"::: -->
-**`rolling`** [jobs.deployment.strategy.rolling](jobs-deployment-strategy-rolling.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`rolling`** [jobs.deployment.strategy.rolling](jobs-deployment-strategy-rolling.md).<br><!-- :::editable-content name="propDescription"::: -->
 Rolling Deployment strategy.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -255,8 +253,7 @@ strategy:
 ### Properties
 
 <!-- :::item name="canary"::: -->
-**`canary`** [jobs.deployment.strategy.canary](jobs-deployment-strategy-canary.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`canary`** [jobs.deployment.strategy.canary](jobs-deployment-strategy-canary.md).<br><!-- :::editable-content name="propDescription"::: -->
 Canary Deployment strategy.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

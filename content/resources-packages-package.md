@@ -1,7 +1,7 @@
 ---
 title: resources.packages.package definition
 description: A package resource used to reference a NuGet or npm GitHub package.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -45,50 +45,67 @@ Definitions that that reference this definition: [resources.packages](resources-
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="package"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="package"::: -->
-**`package`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`package`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Alias of package artifact. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Type of the package. Ex - NuGet, NPM etc.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="connection"::: -->
-**`connection`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the connection. This connection will be used for all the communication related to this artifact.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the package.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="version"::: -->
-**`version`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="tag"::: -->
-**`tag`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="trigger"::: -->
-**`trigger`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Trigger a new pipeline run when a new version of this package is available. none | true.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`type`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Type of the package. Ex - NuGet, NPM etc.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="connection"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the connection. This connection will be used for all the communication related to this artifact.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`name`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the package.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="version"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="tag"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`tag`** string.<br><!-- :::editable-content name="propDescription"::: -->
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`trigger`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Trigger a new pipeline run when a new version of this package is available. none | true.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

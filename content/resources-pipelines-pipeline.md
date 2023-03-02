@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -79,87 +79,69 @@ Definitions that that reference this definition: [resources.pipelines](resources
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2020"
-
 <!-- :::item name="pipeline"::: -->
-**`pipeline`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the pipeline resource. [-_A-Za-z0-9]*.
+:::moniker range=">=azure-pipelines-2019"
+
+**`pipeline`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="project"::: -->
-**`project`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`project`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Project for the source; defaults to current project.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="source"::: -->
-**`source`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`source`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the pipeline that produces the artifact.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-**`version`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
 The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branch"::: -->
-**`branch`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`branch`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-**`tags`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`tags`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`trigger`** [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="pipeline"::: -->
-**`pipeline`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the pipeline resource. [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="project"::: -->
-**`project`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Project for the source; defaults to current project.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="source"::: -->
-**`source`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the pipeline that produces the artifact.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="version"::: -->
-**`version`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branch"::: -->
-**`branch`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

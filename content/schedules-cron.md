@@ -1,7 +1,7 @@
 ---
 title: schedules.cron definition
 description: A scheduled trigger specifies a schedule on which branches are built.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -45,40 +45,51 @@ Definitions that that reference this definition: [schedules](schedules.md)
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="cron"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="cron"::: -->
-**`cron`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`cron`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Cron syntax defining a schedule in UTC time.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Optional friendly name given to a specific schedule.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Branch names to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="batch"::: -->
-**`batch`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether to run the pipeline if the previously scheduled run is in-progress; the default is false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="always"::: -->
-**`always`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Optional friendly name given to a specific schedule.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="branches"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Branch names to include or exclude for triggering a run.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="batch"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Whether to run the pipeline if the previously scheduled run is in-progress; the default is false.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="always"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`always`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

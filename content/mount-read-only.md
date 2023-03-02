@@ -1,7 +1,7 @@
 ---
 title: mountReadOnly definition
 description: Volumes to mount read-only.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -45,34 +45,42 @@ Definitions that that reference this definition: [jobs.job.container](jobs-job-c
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="work"::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::item name="work"::: -->
-**`work`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`work`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Mount the work directory as readonly.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="externals"::: -->
-**`externals`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Mount the externals directory as readonly.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="tools"::: -->
-**`tools`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Mount the tools directory as readonly.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="tasks"::: -->
-**`tasks`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Mount the tasks directory as readonly.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="externals"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`externals`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Mount the externals directory as readonly.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="tools"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`tools`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Mount the tools directory as readonly.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="tasks"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`tasks`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Mount the tasks directory as readonly.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

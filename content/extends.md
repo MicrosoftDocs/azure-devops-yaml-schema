@@ -1,7 +1,7 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -40,22 +40,24 @@ Definitions that that reference this definition: [pipeline](pipeline.md)
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="template"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="template"::: -->
-**`template`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`template`** string.<br><!-- :::editable-content name="propDescription"::: -->
 The template referenced by the pipeline to extend.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Parameters used in the extend.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Parameters used in the extend.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

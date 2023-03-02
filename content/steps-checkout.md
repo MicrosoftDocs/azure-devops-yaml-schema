@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,7 +22,7 @@ Use `checkout` to configure how the pipeline checks out source code.
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
+- checkout: string # Required as first property. Configures checkout for the specified repository.
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   fetchTags: string # Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior.
@@ -48,7 +48,7 @@ steps:
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
+- checkout: string # Required as first property. Configures checkout for the specified repository.
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
@@ -73,7 +73,7 @@ steps:
 
 ```yaml
 steps:
-- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
+- checkout: string # Required as first property. Configures checkout for the specified repository.
   clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
@@ -150,480 +150,167 @@ Definitions that that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range="=azure-pipelines"
-
 <!-- :::item name="checkout"::: -->
-**`checkout`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether or not to check out the repository containing this pipeline definition.
+:::moniker range=">=azure-pipelines-2020"
+
+**`checkout`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+Configures checkout for the specified repository. Specify `self`, `none`, [repository name](/azure/devops/pipelines/repos/multi-repo-checkout#inline-syntax-checkout), or [repository resource](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition). For more information, see [Check out multiple repositories in your pipeline](/azure/devops/pipelines/repos/multi-repo-checkout).
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+
+**`checkout`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+Whether or not to check out the repository containing this pipeline definition. Specify `self` or `none`.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
 If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. true | false.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fetchDepth"::: -->
-**`fetchDepth`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`fetchDepth`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Depth of Git graph to fetch.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fetchTags"::: -->
-**`fetchTags`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range="=azure-pipelines"
+
+**`fetchTags`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="lfs"::: -->
-**`lfs`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`lfs`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' to download Git-LFS files. Default is not to download them.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="persistCredentials"::: -->
-**`persistCredentials`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`persistCredentials`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="submodules"::: -->
-**`submodules`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`submodules`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-**`path`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+**`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Where to put the repository. The root directory is $(Pipeline.Workspace).
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-**`retryCountOnTaskFailure`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2022"
-
-<!-- :::item name="checkout"::: -->
-**`checkout`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether or not to check out the repository containing this pipeline definition.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. true | false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="fetchDepth"::: -->
-**`fetchDepth`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Depth of Git graph to fetch.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="lfs"::: -->
-**`lfs`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to download Git-LFS files. Default is not to download them.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="persistCredentials"::: -->
-**`persistCredentials`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="submodules"::: -->
-**`submodules`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="path"::: -->
-**`path`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Where to put the repository. The root directory is $(Pipeline.Workspace).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Environment in which to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="retryCountOnTaskFailure"::: -->
-**`retryCountOnTaskFailure`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Number of retries if the task fails.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-<!-- :::item name="checkout"::: -->
-**`checkout`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether or not to check out the repository containing this pipeline definition.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. true | false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="fetchDepth"::: -->
-**`fetchDepth`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Depth of Git graph to fetch.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="lfs"::: -->
-**`lfs`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to download Git-LFS files. Default is not to download them.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="persistCredentials"::: -->
-**`persistCredentials`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="submodules"::: -->
-**`submodules`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="path"::: -->
-**`path`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Where to put the repository. The root directory is $(Pipeline.Workspace).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="target"::: -->
-**`target`** [target](target.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Environment in which to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::item name="checkout"::: -->
-**`checkout`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether or not to check out the repository containing this pipeline definition.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. true | false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="fetchDepth"::: -->
-**`fetchDepth`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Depth of Git graph to fetch.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="lfs"::: -->
-**`lfs`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to download Git-LFS files. Default is not to download them.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="persistCredentials"::: -->
-**`persistCredentials`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="submodules"::: -->
-**`submodules`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="path"::: -->
-**`path`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Where to put the repository. The root directory is $(Pipeline.Workspace).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::item name="checkout"::: -->
-**`checkout`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Whether or not to check out the repository containing this pipeline definition.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. true | false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="fetchDepth"::: -->
-**`fetchDepth`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Depth of Git graph to fetch.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="lfs"::: -->
-**`lfs`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to download Git-LFS files. Default is not to download them.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="persistCredentials"::: -->
-**`persistCredentials`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="submodules"::: -->
-**`submodules`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the task.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Run this task when the job runs?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variables to map into the process's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the step. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

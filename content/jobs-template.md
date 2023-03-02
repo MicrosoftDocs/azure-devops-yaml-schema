@@ -1,7 +1,7 @@
 ---
 title: jobs.template definition
 description: A set of jobs defined in a template.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -40,22 +40,24 @@ Definitions that that reference this definition: [jobs](jobs.md)
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="template"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="template"::: -->
-**`template`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Reference to a template for this deployment.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Parameters used in a deployment template.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Parameters used in a deployment template.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

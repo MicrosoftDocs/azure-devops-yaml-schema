@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -62,111 +62,87 @@ Definitions that that reference this definition: [stages](stages.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2022"
-
 <!-- :::item name="stage"::: -->
-**`stage`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`stage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the stage.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the stage.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this stage will run unless otherwise specified.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dependsOn"::: -->
-**`dependsOn`** string | string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`dependsOn`** string | string list.<br><!-- :::editable-content name="propDescription"::: -->
 Any stages which must complete before this one. By default stages are run sequentially in the order defined in the pipeline. Specify `dependsOn: []` for a stage if it shouldn't depend on the previous stage in the pipeline.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this stage.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Stage-specific variables.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`jobs`** [jobs](jobs.md).<br><!-- :::editable-content name="propDescription"::: -->
 Jobs which make up the stage.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="lockBehavior"::: -->
-**`lockBehavior`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-**`templateContext`** templateContext.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Stage related information passed from a pipeline when extending a template. See remarks for more information.
+:::moniker range=">=azure-pipelines-2022"
+
+**`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
+Stage related information passed from a pipeline when extending a template. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
-
-<!-- :::item name="stage"::: -->
-**`stage`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the stage.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the stage.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pool where jobs in this stage will run unless otherwise specified.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="dependsOn"::: -->
-**`dependsOn`** string | string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Any stages which must complete before this one. By default stages are run sequentially in the order defined in the pipeline. Specify `dependsOn: []` for a stage if it shouldn't depend on the previous stage in the pipeline.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this stage.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Stage-specific variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="jobs"::: -->
-**`jobs`** [jobs](jobs.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Jobs which make up the stage.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

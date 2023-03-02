@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.rolling definition
 description: Rolling Deployment strategy.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -58,46 +58,60 @@ Definitions that that reference this definition: [jobs.deployment.strategy](jobs
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="maxParallel"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="maxParallel"::: -->
-**`maxParallel`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`maxParallel`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Maximum number of jobs running in parallel.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="preDeploy"::: -->
-**`preDeploy`** [preDeployHook](pre-deploy-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pre deploy hook for rolling deployment strategy.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="deploy"::: -->
-**`deploy`** [deployHook](deploy-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Deploy hook for rolling deployment strategy.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="routeTraffic"::: -->
-**`routeTraffic`** [routeTrafficHook](route-traffic-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Route traffic hook for rolling deployment strategy.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="postRouteTraffic"::: -->
-**`postRouteTraffic`** [postRouteTrafficHook](post-route-traffic-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Post route traffic hook for rolling deployment strategy.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="on"::: -->
-**`on`** [onSuccessOrFailureHook](on-success-or-failure-hook.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-On success or failure hook for rolling deployment strategy.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="preDeploy"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`preDeploy`** [preDeployHook](pre-deploy-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pre deploy hook for rolling deployment strategy.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="deploy"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`deploy`** [deployHook](deploy-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
+Deploy hook for rolling deployment strategy.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="routeTraffic"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`routeTraffic`** [routeTrafficHook](route-traffic-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
+Route traffic hook for rolling deployment strategy.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="postRouteTraffic"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`postRouteTraffic`** [postRouteTrafficHook](post-route-traffic-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
+Post route traffic hook for rolling deployment strategy.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="on"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`on`** [onSuccessOrFailureHook](on-success-or-failure-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
+On success or failure hook for rolling deployment strategy.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

@@ -1,7 +1,7 @@
 ---
 title: variables.template definition
 description: Define variables in a template.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -40,22 +40,24 @@ Definitions that that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="template"::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-<!-- :::item name="template"::: -->
-**`template`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Template file with variables.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Parameters to map into the template.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Parameters to map into the template.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

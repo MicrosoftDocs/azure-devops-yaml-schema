@@ -1,7 +1,7 @@
 ---
 title: variables.name definition
 description: Define variables using name and full syntax.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -51,45 +51,33 @@ Definitions that that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2020"
-
 <!-- :::item name="name"::: -->
-**`name`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`name`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Variable name.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="value"::: -->
-**`value`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`value`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Variable value.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="readonly"::: -->
-**`readonly`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`readonly`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether a YAML variable is read-only; default is false.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="name"::: -->
-**`name`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variable name.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="value"::: -->
-**`value`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Variable value.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

@@ -1,7 +1,7 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -130,20 +130,17 @@ target:
 ### Properties
 
 <!-- :::item name="container"::: -->
-**`container`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Container to target (or 'host' for host machine).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="commands"::: -->
-**`commands`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`commands`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set of allowed logging commands ('any' or 'restricted'). any | restricted.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="settableVariables"::: -->
-**`settableVariables`** [target.settableVariables](target-settable-variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`settableVariables`** [target.settableVariables](target-settable-variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Restrictions on which variables that can be set.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -175,14 +172,12 @@ target:
 ### Properties
 
 <!-- :::item name="container"::: -->
-**`container`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`container`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Container to target (or 'host' for host machine).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="commands"::: -->
-**`commands`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`commands`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set of allowed logging commands ('any' or 'restricted'). any | restricted.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

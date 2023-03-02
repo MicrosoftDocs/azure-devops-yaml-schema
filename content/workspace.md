@@ -1,7 +1,7 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -60,27 +60,23 @@ Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="clean"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Which parts of the workspace should be scorched before fetching. outputs | resources | all.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-<!-- :::item name="clean"::: -->
-**`clean`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Scorch the repo before fetching? outputs | resources | all.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

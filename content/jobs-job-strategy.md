@@ -1,7 +1,7 @@
 ---
 title: jobs.job.strategy definition
 description: Execution strategy for this job.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -78,14 +78,12 @@ strategy:
 ### Properties
 
 <!-- :::item name="matrix"::: -->
-**`matrix`** { string1: { string2: string3 }.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`matrix`** { string1: { string2: string3 }.<br><!-- :::editable-content name="propDescription"::: -->
 Matrix defining the job strategy; see the following examples.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="maxParallel"::: -->
-**`maxParallel`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`maxParallel`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Maximum number of jobs running in parallel.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -185,8 +183,7 @@ strategy:
 ### Properties
 
 <!-- :::item name="parallel"::: -->
-**`parallel`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`parallel`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Run the job this many times.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

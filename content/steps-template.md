@@ -1,7 +1,7 @@
 ---
 title: steps.template definition
 description: Define a set of steps in one file and use it multiple times in another file.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -40,22 +40,24 @@ Definitions that that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="template"::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-<!-- :::item name="template"::: -->
-**`template`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Reference to a template for this step.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="parameters"::: -->
-**`parameters`** template parameters.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Parameters used in a step template.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Parameters used in a step template.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.environment definition
 description: Target environment name and optionally a resource name to record the deployment history.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -152,32 +152,27 @@ environment:
 ### Properties
 
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of environment.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resourceName"::: -->
-**`resourceName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resourceName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of resource.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resourceId"::: -->
-**`resourceId`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resourceId`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Id of resource.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resourceType"::: -->
-**`resourceType`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`resourceType`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Type of environment resource.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-**`tags`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`tags`** string.<br><!-- :::editable-content name="propDescription"::: -->
 List of tag filters.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

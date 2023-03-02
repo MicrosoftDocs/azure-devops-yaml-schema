@@ -1,7 +1,7 @@
 ---
 title: pr definition
 description: Pull request trigger.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -243,26 +243,22 @@ pr:
 ### Properties
 
 <!-- :::item name="autoCancel"::: -->
-**`autoCancel`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`autoCancel`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to cancel running PR builds when a new commit lands in the branch. Default: true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 File paths to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="drafts"::: -->
-**`drafts`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`drafts`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to start a run when a draft PR is created. Default: true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -299,20 +295,17 @@ pr:
 ### Properties
 
 <!-- :::item name="autoCancel"::: -->
-**`autoCancel`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`autoCancel`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to cancel running PR builds when a new commit lands in the branch. Default: true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 File paths to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -348,14 +341,12 @@ pr:
 ### Properties
 
 <!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 File paths to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

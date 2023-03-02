@@ -1,7 +1,7 @@
 ---
 title: includeExcludeFilters definition
 description: Lists of items to include or exclude.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -52,22 +52,24 @@ Definitions that that reference this definition: [trigger](trigger.md), [pr](pr.
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="include"::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-<!-- :::item name="include"::: -->
-**`include`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of items to include.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="exclude"::: -->
-**`exclude`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of items to exclude.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="exclude"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+List of items to exclude.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

@@ -1,7 +1,7 @@
 ---
 title: jobs.job.uses definition
 description: Any resources required by this job that are not already referenced.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -40,22 +40,24 @@ Definitions that that reference this definition: [jobs.job](jobs-job.md), [jobs.
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="repositories"::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::item name="repositories"::: -->
-**`repositories`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`repositories`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Repository references.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pools"::: -->
-**`pools`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pool references.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="pools"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`pools`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Pool references.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

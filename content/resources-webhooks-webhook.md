@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook definition
 description: A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -42,34 +42,42 @@ Definitions that that reference this definition: [resources.webhooks](resources-
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="webhook"::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::item name="webhook"::: -->
-**`webhook`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`webhook`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the webhook. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="connection"::: -->
-**`connection`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the webhook extension. Leave this empty if it is an offline webhook.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="filters"::: -->
-**`filters`** [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-List of trigger filters.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="connection"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the webhook extension. Leave this empty if it is an offline webhook.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="filters"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`filters`** [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
+List of trigger filters.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

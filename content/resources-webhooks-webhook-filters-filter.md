@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook.filters.filter definition
 description: Filters used to customize the triggers for a webhook event.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -40,22 +40,24 @@ Definitions that that reference this definition: [resources.webhooks.webhook.fil
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="path"::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::item name="path"::: -->
-**`path`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`path`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 json path to select data from event payload.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="value"::: -->
-**`value`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Expected value for the filter to match.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="value"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`value`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Expected value for the filter to match.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: A job is a collection of steps run by an agent or on a server.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -156,375 +156,150 @@ Definitions that that reference this definition: [jobs](jobs.md)
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2022"
-
 <!-- :::item name="job"::: -->
-**`job`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`job`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the job.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dependsOn"::: -->
-**`dependsOn`** string | string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`dependsOn`** string | string list.<br><!-- :::editable-content name="propDescription"::: -->
 Any jobs which must complete before this one.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this job.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this job to complete before the server kills it.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cancelTimeoutInMinutes"::: -->
-**`cancelTimeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`cancelTimeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for the job to cancel before forcibly terminating it.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Job-specific variables.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where this job will run.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="uses"::: -->
-**`uses`** [jobs.job.uses](jobs-job-uses.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`uses`** [jobs.job.uses](jobs-job-uses.md).<br><!-- :::editable-content name="propDescription"::: -->
 Any resources required by this job that are not already referenced. For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories).
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`steps`** [steps](steps.md).<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-**`templateContext`** templateContext.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
 Job related information passed from a pipeline when extending a template. See remarks for more information. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020.1"
-
-<!-- :::item name="job"::: -->
-**`job`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="dependsOn"::: -->
-**`dependsOn`** string | string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Any jobs which must complete before this one.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this job to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="cancelTimeoutInMinutes"::: -->
-**`cancelTimeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for the job to cancel before forcibly terminating it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Job-specific variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Execution strategy for this job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pool where this job will run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Container resource name.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Container resources to run as a service container.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="uses"::: -->
-**`uses`** [jobs.job.uses](jobs-job-uses.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Any resources required by this job that are not already referenced.
-
-For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-A list of steps to run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
-
-<!-- :::item name="job"::: -->
-**`job`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="dependsOn"::: -->
-**`dependsOn`** string | string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Any jobs which must complete before this one.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this job to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="cancelTimeoutInMinutes"::: -->
-**`cancelTimeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for the job to cancel before forcibly terminating it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Job-specific variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Execution strategy for this job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pool where this job will run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="container"::: -->
-**`container`** [jobs.job.container](jobs-job-container.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Container resource name.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Container resources to run as a service container.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-A list of steps to run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::item name="job"::: -->
-**`job`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="displayName"::: -->
-**`displayName`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Human-readable name for the job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="dependsOn"::: -->
-**`dependsOn`** string | string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Any jobs which must complete before this one.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="condition"::: -->
-**`condition`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Evaluate this condition expression to determine whether to run this job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="continueOnError"::: -->
-**`continueOnError`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Continue running even on failure?
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="timeoutInMinutes"::: -->
-**`timeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for this job to complete before the server kills it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="cancelTimeoutInMinutes"::: -->
-**`cancelTimeoutInMinutes`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Time to wait for the job to cancel before forcibly terminating it.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="variables"::: -->
-**`variables`** [variables](variables.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Job-specific variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="strategy"::: -->
-**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Execution strategy for this job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pool where this job will run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="services"::: -->
-**`services`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Container resources to run as a service container.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workspace"::: -->
-**`workspace`** [workspace](workspace.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-A list of steps to run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -159,20 +159,17 @@ pool:
 ### Properties
 
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of a pool.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="demands"::: -->
-**`demands`** [pool.demands](pool-demands.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`demands`** [pool.demands](pool-demands.md).<br><!-- :::editable-content name="propDescription"::: -->
 Demands (for a private pool).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="vmImage"::: -->
-**`vmImage`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`vmImage`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the VM image you want to use; valid only in the Microsoft-hosted pool.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -204,14 +201,12 @@ pool:
 ### Properties
 
 <!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of a pool.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="demands"::: -->
-**`demands`** [pool.demands](pool-demands.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`demands`** [pool.demands](pool-demands.md).<br><!-- :::editable-content name="propDescription"::: -->
 Demands (for a private pool).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

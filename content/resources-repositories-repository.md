@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -71,122 +71,68 @@ Definitions that that reference this definition: [resources.repositories](resour
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="repository"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`repository`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to this repository.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+repository name (format depends on 'type'; does not accept variables.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ref"::: -->
 :::moniker range="=azure-pipelines"
 
-<!-- :::item name="repository"::: -->
-**`repository`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to this repository.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-repository name (format depends on 'type'; does not accept variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ref"::: -->
-**`ref`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Type of repository: git, github, githubenterprise, and bitbucket.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
-<!-- :::item name="repository"::: -->
-**`repository`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to this repository.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="trigger"::: -->
-**`trigger`** [trigger](trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-repository name (format depends on 'type'; does not accept variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Type of repository: git, github, githubenterprise, and bitbucket.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ref"::: -->
-**`ref`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="repository"::: -->
-**`repository`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to this repository.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="name"::: -->
-**`name`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-repository name (format depends on 'type'; does not accept variables.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Type of repository: git, github, githubenterprise, and bitbucket.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ref"::: -->
-**`ref`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

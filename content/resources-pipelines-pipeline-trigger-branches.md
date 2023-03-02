@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline.trigger.branches definition
 description: Branches to include or exclude for triggering a run using a pipeline resource.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -76,13 +76,11 @@ branches:
 ### Properties
 
 <!-- :::item name="include"::: -->
-**`include`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="exclude"::: -->
-**`exclude`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::implementation-properties-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -88,194 +88,141 @@ Definitions that that reference this definition: [resources.containers](resource
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2020.1"
-
 <!-- :::item name="container"::: -->
-**`container`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`container`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID for the container. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="image"::: -->
-**`image`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Container image tag.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Type of the registry like ACR or GCR.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the container's environment.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mapDockerSocket"::: -->
-**`mapDockerSocket`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-**`options`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Options to pass into container host.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ports"::: -->
-**`ports`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Ports to expose on the container.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="volumes"::: -->
-**`volumes`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount on the container.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
-**`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+**`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount read-only, the default is all false.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="azureSubscription"::: -->
-**`azureSubscription`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Azure subscription (ARM service connection) for container registry.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="resourceGroup"::: -->
-**`resourceGroup`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Resource group for your ACR.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="registry"::: -->
-**`registry`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Registry for container images.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="repository"::: -->
-**`repository`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the container image repository in ACR.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::item name="container"::: -->
-**`container`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID for the container. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Type of the registry like ACR or GCR. ACR
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to a private container registry.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="trigger"::: -->
-**`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-**`azureSubscription`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`azureSubscription`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Azure subscription (ARM service connection) for container registry.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="resourceGroup"::: -->
-**`resourceGroup`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Resource group for your ACR.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="registry"::: -->
-**`registry`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Registry for container images.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="repository"::: -->
-**`repository`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the container image repository in ACR.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="container"::: -->
-**`container`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID for the container. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to a private container registry.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="azureSubscription"::: -->
-**`azureSubscription`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Azure subscription (ARM service connection) for container registry.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-**`resourceGroup`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`resourceGroup`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Resource group for your ACR.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="registry"::: -->
-**`registry`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Registry for container images.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="repository"::: -->
-**`repository`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the container image repository in ACR.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="registry"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`registry`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Registry for container images.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="repository"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`repository`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the container image repository in ACR.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

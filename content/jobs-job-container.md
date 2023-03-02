@@ -1,7 +1,7 @@
 ---
 title: jobs.job.container definition
 description: Container resource name.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -150,50 +150,42 @@ container:
 ### Properties
 
 <!-- :::item name="image"::: -->
-**`image`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Container image tag.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the container's environment.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="mapDockerSocket"::: -->
-**`mapDockerSocket`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-**`options`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Options to pass into container host.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="ports"::: -->
-**`ports`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Ports to expose on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="volumes"::: -->
-**`volumes`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
-**`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount read-only, the default is all false.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -231,44 +223,37 @@ container:
 ### Properties
 
 <!-- :::item name="image"::: -->
-**`image`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Container image tag.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the container's environment.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="mapDockerSocket"::: -->
-**`mapDockerSocket`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-**`options`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Options to pass into container host.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="ports"::: -->
-**`ports`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Ports to expose on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="volumes"::: -->
-**`volumes`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -305,38 +290,32 @@ container:
 ### Properties
 
 <!-- :::item name="image"::: -->
-**`image`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Container image tag.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-**`env`** string dictionary.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the container's environment.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-**`options`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Options to pass into container host.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="ports"::: -->
-**`ports`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Ports to expose on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="volumes"::: -->
-**`volumes`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

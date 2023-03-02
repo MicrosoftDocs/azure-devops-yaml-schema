@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container.trigger definition
 description: Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -79,14 +79,12 @@ trigger:
 ### Properties
 
 <!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether the trigger is enabled; defaults to true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-**`tags`** [includeExcludeStringFilters](include-exclude-string-filters.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`tags`** [includeExcludeStringFilters](include-exclude-string-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Tag names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

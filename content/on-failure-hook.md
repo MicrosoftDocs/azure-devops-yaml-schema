@@ -1,7 +1,7 @@
 ---
 title: onFailureHook definition
 description: Used to run steps for rollback actions.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -43,22 +43,24 @@ Definitions that that reference this definition: [onSuccessOrFailureHook](on-suc
 ## Properties
 
 <!-- :::properties::: -->
+<!-- :::item name="steps"::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-<!-- :::item name="steps"::: -->
-**`steps`** [steps](steps.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`steps`** [steps](steps.md).<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="pool"::: -->
-**`pool`** [pool](pool.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
-Pool where post on failure steps will run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where post on failure steps will run.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->

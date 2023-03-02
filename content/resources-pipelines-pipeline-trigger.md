@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline.trigger definition
 description: Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -165,26 +165,22 @@ trigger:
 ### Properties
 
 <!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether the trigger is enabled; defaults to true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-**`branches`** [resources.pipelines.pipeline.trigger.branches](resources-pipelines-pipeline-trigger-branches.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [resources.pipelines.pipeline.trigger.branches](resources-pipelines-pipeline-trigger-branches.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="stages"::: -->
-**`stages`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`stages`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of stages that when matched will trigger the pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-**`tags`** string list.<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`tags`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of tags that when matched will trigger the pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
@@ -216,14 +212,12 @@ trigger:
 ### Properties
 
 <!-- :::item name="enabled"::: -->
-**`enabled`** [boolean](boolean.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether the trigger is enabled; defaults to true.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-**`branches`** [resources.pipelines.pipeline.trigger.branches](resources-pipelines-pipeline-trigger-branches.md).<br>
-<!-- :::editable-content name="propDescription"::: -->
+**`branches`** [resources.pipelines.pipeline.trigger.branches](resources-pipelines-pipeline-trigger-branches.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: resources.builds.build definition
 description: A build resource used to reference artifacts from a run.
-ms.date: 03/01/2023
+ms.date: 03/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -59,89 +59,67 @@ Definitions that that reference this definition: [resources.builds](resources-bu
 ## Properties
 
 <!-- :::properties::: -->
-:::moniker range=">=azure-pipelines-2020"
-
 <!-- :::item name="build"::: -->
-**`build`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`build`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Alias or name of build artifact. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-**`type`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`type`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the artifact type.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connection"::: -->
-**`connection`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the connection. This connection will be used for all the communication related to this artifact.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="source"::: -->
-**`source`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`source`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the source definition/build/job.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-**`version`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branch"::: -->
-**`branch`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`branch`** string.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-**`trigger`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`trigger`** string.<br><!-- :::editable-content name="propDescription"::: -->
 When the artifact mentioned in this build resource completes a build, it is allowed to trigger this pipeline. none | true.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="build"::: -->
-**`build`** string. Required as first property.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Alias or name of build artifact. Acceptable values: [-_A-Za-z0-9]*.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="type"::: -->
-**`type`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the artifact type.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="connection"::: -->
-**`connection`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the connection. This connection will be used for all the communication related to this artifact.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="source"::: -->
-**`source`** string. Required.<br>
-<!-- :::editable-content name="propDescription"::: -->
-Name of the source definition/build/job.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="version"::: -->
-**`version`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branch"::: -->
-**`branch`** string.<br>
-<!-- :::editable-content name="propDescription"::: -->
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->
