@@ -155,6 +155,9 @@ Definitions that that reference this definition: [steps](steps.md)
 
 **`checkout`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Configures checkout for the specified repository. Specify `self`, `none`, [repository name](/azure/devops/pipelines/repos/multi-repo-checkout#inline-syntax-checkout), or [repository resource](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition). For more information, see [Check out multiple repositories in your pipeline](/azure/devops/pipelines/repos/multi-repo-checkout).
+
+> [!NOTE]
+> If no `checkout` step is present, it defaults to `self` for `jobs.job.step.checkout` and `none` for `jobs.deployment.steps.checkout`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
