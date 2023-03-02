@@ -2,7 +2,6 @@
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
 ms.date: 02/01/2023
-ms.custom: py-fresh-zinc
 monikerRange: ">=azure-pipelines-2019"
 ---
 
