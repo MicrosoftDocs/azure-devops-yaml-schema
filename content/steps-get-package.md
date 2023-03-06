@@ -1,7 +1,7 @@
 ---
 title: steps.getPackage definition
 description: Downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -22,7 +22,7 @@ The `getPackage` step downloads a package from a package management feed in Azur
 
 ```yaml
 steps:
-- getPackage: string # Required as first property. ID for the package resource.
+- getPackage: string # Required as first property. Alias of the package resource.
   path: string # Path to download the package into.
   condition: string # Evaluate this condition expression to determine whether to run this task.
   continueOnError: boolean # Continue running even on failure?
@@ -42,7 +42,7 @@ steps:
 
 ```yaml
 steps:
-- getPackage: string # Required as first property. ID for the package resource.
+- getPackage: string # Required as first property. Alias of the package resource.
   path: string # Path to download the package into.
   condition: string # Evaluate this condition expression to determine whether to run this task.
   continueOnError: boolean # Continue running even on failure?

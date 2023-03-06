@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,10 +22,10 @@ The `repository` keyword lets you specify an external repository. Use a reposito
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.
+- repository: string # Required as first property. Alias for the repository.
   endpoint: string # ID of the service endpoint connecting to this repository.
   trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # repository name (format depends on 'type'; does not accept variables.
+  name: string # repository name (format depends on 'type'; does not accept variables).
   ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
   type: string # Type of repository: git, github, githubenterprise, and bitbucket.
 ```
@@ -36,10 +36,10 @@ repositories:
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.
+- repository: string # Required as first property. Alias for the repository.
   endpoint: string # ID of the service endpoint connecting to this repository.
   trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
-  name: string # repository name (format depends on 'type'; does not accept variables.
+  name: string # repository name (format depends on 'type'; does not accept variables).
   type: string # Type of repository: git, github, githubenterprise, and bitbucket.
   ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
@@ -50,9 +50,9 @@ repositories:
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.
+- repository: string # Required as first property. Alias for the repository.
   endpoint: string # ID of the service endpoint connecting to this repository.
-  name: string # repository name (format depends on 'type'; does not accept variables.
+  name: string # repository name (format depends on 'type'; does not accept variables).
   type: string # Type of repository: git, github, githubenterprise, and bitbucket.
   ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
 ```
@@ -102,7 +102,7 @@ CI trigger for this repository, no CI trigger if skipped (only works for Azure R
 :::moniker range=">=azure-pipelines-2019"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
-repository name (format depends on 'type'; does not accept variables.
+Repository name. Format depends on 'type'; does not accept variables.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -111,7 +111,7 @@ repository name (format depends on 'type'; does not accept variables.
 :::moniker range="=azure-pipelines"
 
 **`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
-ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
+ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -148,9 +148,12 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 
 ::: moniker range=">= azure-pipelines-2020"
 
+[Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition) for the `ref` property (but not the `name` property). Wildcards are supported in triggers.
+
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
->
+
+> [!IMPORTANT]
 > `batch` is not supported in repository resource triggers.
 
 ::: moniker-end
