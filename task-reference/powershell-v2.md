@@ -45,7 +45,7 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
     #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core instead of Windows PowerShell (Windows agents only). Default: false.
+    #pwsh: false # boolean. Use PowerShell Core. Default: false.
     #workingDirectory: # string. Working Directory. 
     #runScriptInSeparateScope: false # boolean. Run script in the separate scope. Default: false.
 ```
