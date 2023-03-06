@@ -41,7 +41,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
     #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
   # Advanced
-    #pwsh: false # boolean. Use PowerShell Core instead of Windows PowerShell (Windows agents only). Default: false.
+    #pwsh: false # boolean. Use PowerShell Core. Default: false.
     #workingDirectory: # string. Working Directory.
 ```
 
