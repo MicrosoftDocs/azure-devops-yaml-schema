@@ -22,7 +22,7 @@ The `repository` keyword lets you specify an external repository. Use a reposito
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.
+- repository: string # Required as first property. Alias for the repository.
   endpoint: string # ID of the service endpoint connecting to this repository.
   trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
   name: string # repository name (format depends on 'type'; does not accept variables).
@@ -36,7 +36,7 @@ repositories:
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.
+- repository: string # Required as first property. Alias for the repository.
   endpoint: string # ID of the service endpoint connecting to this repository.
   trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
   name: string # repository name (format depends on 'type'; does not accept variables).
@@ -50,7 +50,7 @@ repositories:
 
 ```yaml
 repositories:
-- repository: string # Required as first property. Alias for the specified repository.
+- repository: string # Required as first property. Alias for the repository.
   endpoint: string # ID of the service endpoint connecting to this repository.
   name: string # repository name (format depends on 'type'; does not accept variables).
   type: string # Type of repository: git, github, githubenterprise, and bitbucket.
