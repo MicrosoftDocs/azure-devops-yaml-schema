@@ -12,6 +12,9 @@ monikerRange: ">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a PowerShell script within an Azure environment. The Azure context is authenticated with the provided Azure Resource Manager service connection.
+
+>[!NOTE]
+> By default, Azure PowerShell v5 uses PowerShell Core for Linux agents and Windows PowerShell for Windows agents. To use the latest version of PowerShell on Windows agents, set the `pwsh` parameter to `true`. PowerShell Core will then be used instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -165,7 +168,7 @@ The preferred Azure PowerShell Version needs to be a proper semantic version eg.
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, then on Windows the task will use `pwsh.exe` from your path instead of `powershell.exe`.
+If this is true, then tasks running on Windows agents will use `pwsh.exe` from your path instead of `powershell.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
