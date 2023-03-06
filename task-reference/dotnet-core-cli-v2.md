@@ -20,13 +20,13 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 <!-- :::editable-content name="description"::: -->
 Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::description-end::: -->
-
-> [!IMPORTANT]
-> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 
 <!-- :::syntax::: -->
 ## Syntax
@@ -207,6 +207,9 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 `string`. Required. Allowed values: `build`, `push` (nuget push), `pack`, `publish`, `restore`, `run`, `test`, `custom`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The dotnet command to run. Specify `custom` to add arguments or use a command not listed here.
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -780,6 +783,9 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed.
 
 ### Why is my build, publish, or test step failing to restore packages?
 
