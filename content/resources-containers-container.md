@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,7 +22,7 @@ A container resource references a container image.
 
 ```yaml
 containers:
-- container: string # Required as first property. ID for the container.
+- container: string # Required as first property. Alias of the container.
   image: string # Required. Container image tag.
   type: string # Type of the registry like ACR or GCR.
   trigger: trigger | none | true # Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
@@ -50,7 +50,7 @@ containers:
 
 ```yaml
 containers:
-- container: string # Required as first property. ID for the container.
+- container: string # Required as first property. Alias of the container.
   type: string # Type of the registry like ACR or GCR.
   endpoint: string # ID of the service endpoint connecting to a private container registry.
   trigger: trigger | none | true # Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
@@ -66,7 +66,7 @@ containers:
 
 ```yaml
 containers:
-- container: string # Required as first property. ID for the container.
+- container: string # Required as first property. Alias of the container.
   endpoint: string # ID of the service endpoint connecting to a private container registry.
   azureSubscription: string # Azure subscription (ARM service connection) for container registry.
   resourceGroup: string # Resource group for your ACR.
@@ -235,6 +235,12 @@ The agent launches an instance of your specified container then runs steps insid
 The `container` keyword lets you specify your container images.
 
 [Service containers](/azure/devops/pipelines/process/service-containers) run alongside a job to provide various dependencies like databases.
+
+::: moniker range>"azure-pipelines-2022"
+
+[Template expressions](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition) are supported for `endpoint`, `volumes`, `ports`, and `options` properties of a container resource in a YAML pipeline.
+
+::: moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

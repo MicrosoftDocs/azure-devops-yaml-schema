@@ -1,7 +1,7 @@
 ---
 title: steps.downloadBuild definition
 description: Downloads build artifacts.
-ms.date: 03/02/2023
+ms.date: 03/06/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,7 +22,7 @@ The `downloadBuild` step downloads build artifacts.
 
 ```yaml
 steps:
-- downloadBuild: string # Required as first property. ID for the build resource.
+- downloadBuild: string # Required as first property. Alias of the build resource.
   artifact: string # Artifact name.
   path: string # Path to download the artifact into.
   patterns: string # Downloads the files which matches the patterns.
@@ -44,7 +44,7 @@ steps:
 
 ```yaml
 steps:
-- downloadBuild: string # Required as first property. ID for the build resource.
+- downloadBuild: string # Required as first property. Alias of the build resource.
   artifact: string # Artifact name.
   path: string # Path to download the artifact into.
   patterns: string # Downloads the files which matches the patterns.
@@ -65,7 +65,7 @@ steps:
 
 ```yaml
 steps:
-- downloadBuild: string # Required as first property. ID for the build resource.
+- downloadBuild: string # Required as first property. Alias of the build resource.
   artifact: string # Artifact name.
   path: string # Path to download the artifact into.
   patterns: string # Downloads the files which matches the patterns.
