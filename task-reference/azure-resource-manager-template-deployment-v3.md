@@ -85,6 +85,9 @@ Specifies the Azure Resource Manager service connection with access to the selec
 Input alias: `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure subscription.
+
+> [!IMPORTANT]
+> The specified value must be the subscription ID and not the subscription name.
 <!-- :::editable-content-end::: -->
 <br>
 
