@@ -1288,6 +1288,7 @@ Items to include or exclude.
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
 [**mountReadOnly**](mount-read-only.md)<br><!-- :::editable-content name="description"::: -->
+Volumes to mount read-only, the default is all false.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="onFailureHook"::: -->
