@@ -20,6 +20,9 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 <!-- :::editable-content name="description"::: -->
 Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -204,6 +207,9 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 `string`. Required. Allowed values: `build`, `push` (nuget push), `pack`, `publish`, `restore`, `run`, `test`, `custom`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The dotnet command to run. Specify `custom` to add arguments or use a command not listed here.
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -788,6 +794,30 @@ Most `dotnet` commands, including `build`, `publish`, and `test` include an impl
 To fix this issue, add the `--no-restore` flag to the `Arguments` textbox.
 
 In addition, the `test` command does not recognize the `feedRestore` or `vstsFeed` arguments, and feeds specified in this manner will not be included in the generated `NuGet.config` file when the implicit `restore` step runs.  It's recommended that an explicit `dotnet restore` step be used to restore packages.  The `restore` command respects the `feedRestore` and `vstsFeed` arguments.
+
+### Why am I getting NU1507 warnings with [Package Source Mapping](/nuget/consume-packages/package-source-mapping) although when building on my machine it has no warnings?
+
+The the various commands that do a NuGet restore or access a NuGet feed build a special temporary `NuGet.config` file that add NuGet authentication for azure artifacts NuGet feeds. The way this is done is in conflict with the schema that Package Source Mapping uses to map the packages to the sources and breaks the Package Source Mappin configuration in the `NuGet.config` file in your repository.
+To work around this conflict you can use the [NuGet Authenticate](nuget-authenticate-v1.md) task to authenticate and afterwards the custom command to invoke the desired dotnet command without the `NuGet.config` modification.
+
+```YAML
+# Authenticate Azure DevOps NuGet feed
+- task: NuGetAuthenticate@1
+  displayName: 'Authenticate Azure DevOps NuGet feed'
+
+# Restore project
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'restore'
+
+# Build project
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'build'
+    arguments: '--no-restore'
+```
 
 ### Why should I check in a NuGet.config?
 
