@@ -111,7 +111,7 @@ Repository name. Format depends on 'type'; does not accept variables.
 :::moniker range="=azure-pipelines"
 
 **`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
-ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
+ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. [Template expressions are supporrted](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
