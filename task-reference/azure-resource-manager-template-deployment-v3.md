@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 02/01/2023
+ms.date: 03/06/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -189,11 +189,7 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 **`csmParametersFile`** - **Template parameters**<br>
 `string`. Optional. Use when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
-
-To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>`. To upload a parameters file to a storage account and generate a SAS token, use the [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
-
-To view the template parameters in a grid, click on `…` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [Cross-Origin Resource Sharing](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template. Supports Bicep files when the Azure CLI version > 2.20.0.
 <!-- :::editable-content-end::: -->
 <br>
 
