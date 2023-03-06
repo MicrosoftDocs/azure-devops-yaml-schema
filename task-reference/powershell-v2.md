@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to run a PowerShell script on Linux, macOS, or Windows.
 
 >[!NOTE]
-> By default, Azure PowerShell v5 uses PowerShell Core for Linux agents and Windows PowerShell for Windows agents. To use the latest version of PowerShell on Windows agents, set the `pwsh` parameter to `true`. PowerShell Core will then be used instead.
+> By default, PowerShell v2 uses PowerShell Core for Linux agents and Windows PowerShell for Windows agents. To use the latest version of PowerShell on Windows agents, set the `pwsh` parameter to `true`. PowerShell Core will then be used instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
