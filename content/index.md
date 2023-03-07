@@ -24,7 +24,8 @@ A pipeline is one or more stages that describe a CI/CD process.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1>"
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 [**pipeline**](pipeline.md)<br><!-- :::editable-content name="description"::: -->
 A pipeline is one or more jobs that describe a CI/CD process.
