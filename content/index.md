@@ -17,7 +17,7 @@ The YAML schema reference does not cover tasks. For more information about tasks
 
 <!-- :::definitionIndex::: -->
 <!-- :::item name="pipeline"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-2019.1"
 
 [**pipeline**](pipeline.md)<br><!-- :::editable-content name="description"::: -->
 A pipeline is one or more stages that describe a CI/CD process.
@@ -599,135 +599,105 @@ Define variables in a template.
 
 
 <!-- :::supportingDefinitionIndex::: -->
-:::moniker range=">=azure-pipelines-2020.1"
-
 <!-- :::item name="deployHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**deployHook**](deploy-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps that deploy your application.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeExcludeFilters"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
 [**includeExcludeFilters**](include-exclude-filters.md)<br><!-- :::editable-content name="description"::: -->
 Lists of items to include or exclude.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeExcludeStringFilters"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**includeExcludeStringFilters**](include-exclude-string-filters.md)<br><!-- :::editable-content name="description"::: -->
 Items to include or exclude.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
 [**mountReadOnly**](mount-read-only.md)<br><!-- :::editable-content name="description"::: -->
 Volumes to mount read-only, the default is all false.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onFailureHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**onFailureHook**](on-failure-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onSuccessHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**onSuccessHook**](on-success-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onSuccessOrFailureHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**onSuccessOrFailureHook**](on-success-or-failure-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="postRouteTrafficHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**postRouteTrafficHook**](post-route-traffic-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run the steps after the traffic is routed. Typically, these tasks monitor the health of the updated version for defined interval.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="preDeployHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**preDeployHook**](pre-deploy-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps that initialize resources before application deployment starts.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="routeTrafficHook"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
 [**routeTrafficHook**](route-traffic-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps that serve the traffic to the updated version.
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
 [**workspace**](workspace.md)<br><!-- :::editable-content name="description"::: -->
 Workspace options on the agent.
 <!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::item name="deployHook"::: -->
-[**deployHook**](deploy-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run steps that deploy your application.
-<!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
-<!-- :::item name="includeExcludeFilters"::: -->
-[**includeExcludeFilters**](include-exclude-filters.md)<br><!-- :::editable-content name="description"::: -->
-Lists of items to include or exclude.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="includeExcludeStringFilters"::: -->
-[**includeExcludeStringFilters**](include-exclude-string-filters.md)<br><!-- :::editable-content name="description"::: -->
-Items to include or exclude.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="onFailureHook"::: -->
-[**onFailureHook**](on-failure-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run steps for rollback actions or clean-up.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="onSuccessHook"::: -->
-[**onSuccessHook**](on-success-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run steps for rollback actions or clean-up.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="onSuccessOrFailureHook"::: -->
-[**onSuccessOrFailureHook**](on-success-or-failure-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run steps for rollback actions or clean-up.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="postRouteTrafficHook"::: -->
-[**postRouteTrafficHook**](post-route-traffic-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run the steps after the traffic is routed. Typically, these tasks monitor the health of the updated version for defined interval.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="preDeployHook"::: -->
-[**preDeployHook**](pre-deploy-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run steps that initialize resources before application deployment starts.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="routeTrafficHook"::: -->
-[**routeTrafficHook**](route-traffic-hook.md)<br><!-- :::editable-content name="description"::: -->
-Used to run steps that serve the traffic to the updated version.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workspace"::: -->
-[**workspace**](workspace.md)<br><!-- :::editable-content name="description"::: -->
-Workspace options on the agent.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-<!-- :::item name="includeExcludeFilters"::: -->
-[**includeExcludeFilters**](include-exclude-filters.md)<br><!-- :::editable-content name="description"::: -->
-Lists of items to include or exclude.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="workspace"::: -->
-[**workspace**](workspace.md)<br><!-- :::editable-content name="description"::: -->
-Workspace options on the agent.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::supportingDefinitionIndex-end::: -->
 
 ## YAML schema documentation conventions
