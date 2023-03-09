@@ -132,11 +132,6 @@ For apps using Docker, build and tests may run inside the container and generate
 
 In order to view the code coverage results in the pipeline, see [Review code coverage results](/azure/devops/pipelines/test/review-code-coverage-results).
 
-### Is code coverage data merged when multiple files are provided as input to the task or multiple tasks are used in the pipeline?
-
-At present, the code coverage reporting functionality provided by this task is limited, and it does not merge coverage data. If you provide multiple files as input to the task, only the first match is considered.
-If you use multiple publish code coverage tasks in the pipeline, the summary and report is shown for the last task. Any previously uploaded data is ignored.
-
 ### Known issues
 
 The publish code coverage results v2 task generates a cjson file and publishes the code coverage report under the code coverage tab. It also produces a build artifacts which is a set of HTML files that are linked from the main *index.html* file. If the code coverage tab fails to show the code coverage report, check whether the input code coverage xml file is in the correct format and has the valid details.
