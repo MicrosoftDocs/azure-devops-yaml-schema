@@ -231,7 +231,7 @@ Specifies how the task reports completion. The allowed values are:
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the task's criteria for success. The response content does not influence the result if no criteria is defined. By default, the task passes when the call returns `200 OK`.
 
-Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions&tabs=yaml).
+Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions).
 <!-- :::editable-content-end::: -->
 <br>
 
