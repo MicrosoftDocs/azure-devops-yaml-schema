@@ -98,7 +98,7 @@ Specifies the type of update that should be made to the manifest files. In order
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the application package. [Variables](http://azure/devops/pipelines/build/variables) and wildcards can be used in the path. `applicationPackagePath` must not have a trailing slash, either `\\` or `/`.
+Specifies the path to the application package. [Variables](http://azure/devops/pipelines/build/variables) and wildcards can be used in the path. `applicationPackagePath` must not have a trailing slash, either `\` or `/`.
 <!-- :::editable-content-end::: -->
 <br>
 
