@@ -24,7 +24,7 @@ Use this task to write a comment to your GitHub entity, for example an issue or 
 
 ```yaml
 # GitHub Comment v0
-# Write a comment to your Github entity i.e. issue or a Pull Request (PR).
+# Write a comment to your GitHub entity i.e. issue or a pull request (PR).
 - task: GitHubComment@0
   inputs:
     gitHubConnection: # string. Required. GitHub connection (OAuth or PAT). 
