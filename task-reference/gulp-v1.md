@@ -1,7 +1,7 @@
 ---
 title: gulp@1 - gulp v1 task
 description: Run the gulp Node.js streaming task-based build system.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -46,7 +46,7 @@ Node.js streaming task based build system.
     #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
-    enableCodeCoverage: false # boolean. Required. Enable code Coverage. Default: false.
+    #enableCodeCoverage: false # boolean. Enable code Coverage. Default: false.
     #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
     #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
     #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
@@ -72,7 +72,7 @@ Node.js streaming task based build system.
     #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
-    enableCodeCoverage: false # boolean. Required. Enable code Coverage. Default: false.
+    #enableCodeCoverage: false # boolean. Enable code Coverage. Default: false.
     #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
     #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
     #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
@@ -217,7 +217,7 @@ Provides a name for the test run.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`enableCodeCoverage`** - **Enable code Coverage**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enables Code Coverage using Istanbul.
 <!-- :::editable-content-end::: -->

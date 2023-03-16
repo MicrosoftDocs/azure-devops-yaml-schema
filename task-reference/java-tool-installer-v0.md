@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,7 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
     #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
     #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
     #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
-    #cleanDestinationDirectory: true # boolean. Required when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
+    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
     #createExtractDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Create directory for extracting. Default: true.
 ```
 
@@ -58,7 +58,7 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
     #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
     #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
     #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
-    #cleanDestinationDirectory: true # boolean. Required when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
+    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
 ```
 
 :::moniker-end
@@ -79,7 +79,7 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
     #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
     #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
     jdkDestinationDirectory: # string. Required. Destination directory. 
-    cleanDestinationDirectory: true # boolean. Required. Clean destination directory. Default: true.
+    #cleanDestinationDirectory: true # boolean. Clean destination directory. Default: true.
 ```
 
 :::moniker-end
@@ -100,7 +100,7 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
     #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
     #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
     jdkDestinationDirectory: # string. Required. Destination directory. 
-    cleanDestinationDirectory: true # boolean. Required. Clean destination directory. Default: true.
+    #cleanDestinationDirectory: true # boolean. Clean destination directory. Default: true.
 ```
 
 :::moniker-end
@@ -253,7 +253,7 @@ Specifies the destination directory where the JDK should be extracted. On Linux 
 :::moniker range=">=azure-pipelines-2020"
 
 **`cleanDestinationDirectory`** - **Clean destination directory**<br>
-`boolean`. Required when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
+`boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to clean the destination directory before JDK is extracted into it.
 <!-- :::editable-content-end::: -->
@@ -264,7 +264,7 @@ Specifies the option to clean the destination directory before JDK is extracted 
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`cleanDestinationDirectory`** - **Clean destination directory**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to clean the destination directory before JDK is extracted into it.
 <!-- :::editable-content-end::: -->

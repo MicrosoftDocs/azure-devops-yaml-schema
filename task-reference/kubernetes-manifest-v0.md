@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -842,7 +842,6 @@ If the task includes the inputs of `action: deploy` and `strategy: canary`, for 
 Excluding the number of replicas, the baseline version has the same configuration as the stable variant while the canary version has the new changes that are being introduced by the current run (in this case, run number 23). If a manual intervention is set up in the pipeline after the above mentioned step, it would allow for an opportunity to pause the pipeline so that the pipeline admin can evaluate key metrics for the baseline and canary versions and take the decision on whether the canary changes are safe and good enough for a complete rollout.
 
 The`action: promote` and `strategy: canary` or `action: reject` and `strategy: canary` inputs of the Kubernetes manifest tasks can be used to promote or reject the canary changes respectively. Note that in either cases, at the end of this step, only the stable variant of the workloads declared in the input manifest files will be remain deployed in the cluster, while the ephemeral baseline and canary versions are cleaned up.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

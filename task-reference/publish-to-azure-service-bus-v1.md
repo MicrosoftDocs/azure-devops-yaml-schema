@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection (no agent is required).
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,10 +37,10 @@ Use this task to send a message to Azure Service Bus using a service connection 
   inputs:
     azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
     #messageBody: # string. Message body. 
-    waitForCompletion: false # boolean. Required. Wait for task completion. Default: false.
+    #waitForCompletion: false # boolean. Wait for task completion. Default: false.
   # Advanced
     #sessionId: # string. Session Id. 
-    signPayload: false # boolean. Required. Sign the Message. Default: false.
+    #signPayload: false # boolean. Sign the Message. Default: false.
     #certificateString: # string. Required when signPayload = true. Certificate Variable. 
     #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
 ```
@@ -56,9 +56,9 @@ Use this task to send a message to Azure Service Bus using a service connection 
   inputs:
     azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
     #messageBody: # string. Message body. 
-    waitForCompletion: false # boolean. Required. Wait for task completion. Default: false.
+    #waitForCompletion: false # boolean. Wait for task completion. Default: false.
   # Signing Properties
-    signPayload: false # boolean. Required. Sign the Message. Default: false.
+    #signPayload: false # boolean. Sign the Message. Default: false.
     #certificateString: # string. Required when signPayload = true. Certificate Variable. 
     #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
 ```
@@ -130,7 +130,7 @@ Specifies the session ID with which the message is published. For session-based 
 :::moniker range="<=azure-pipelines"
 
 **`signPayload`** - **Sign the Message**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set to `true`, a private certificate will be added to the message.
 <!-- :::editable-content-end::: -->
@@ -177,7 +177,7 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 :::moniker range="<=azure-pipelines"
 
 **`waitForCompletion`** - **Wait for task completion**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set to `true`, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,7 +28,7 @@ Deploy an Azure Cloud Service.
 - task: AzureCloudPowerShellDeployment@1
   inputs:
     azureClassicSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription (Classic). 
-    EnableAdvancedStorageOptions: false # boolean. Required. Enable ARM storage support. Default: false.
+    #EnableAdvancedStorageOptions: false # boolean. Enable ARM storage support. Default: false.
     StorageAccount: # string. Required when EnableAdvancedStorageOptions = false. Storage account (Classic). 
     #ARMConnectedServiceName: # string. Required when EnableAdvancedStorageOptions = true. Azure subscription (ARM). 
     #ARMStorageAccount: # string. Required when EnableAdvancedStorageOptions = true. Storage account (ARM). 
@@ -39,7 +39,7 @@ Deploy an Azure Cloud Service.
     slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
     #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
-    AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
+    #AllowUpgrade: true # boolean. Allow upgrade. Default: true.
     #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
     #ForceUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Force upgrade. Default: false.
     #VerifyRoleInstanceStatus: false # boolean. Verify role instance status. Default: false.
@@ -68,7 +68,7 @@ Deploy an Azure Cloud Service.
     slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
     #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
-    AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
+    #AllowUpgrade: true # boolean. Allow upgrade. Default: true.
     #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
     #ForceUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Force upgrade. Default: false.
     #VerifyRoleInstanceStatus: false # boolean. Verify role instance status. Default: false.
@@ -97,7 +97,7 @@ Deploy an Azure Cloud Service.
     slotName: 'Production' # string. Alias: Slot. Required. Environment (Slot). Default: Production.
     #DeploymentLabel: '$(Build.BuildNumber)' # string. Deployment label. Default: $(Build.BuildNumber).
     #AppendDateTimeToLabel: false # boolean. Append current date and time. Default: false.
-    AllowUpgrade: true # boolean. Required. Allow upgrade. Default: true.
+    #AllowUpgrade: true # boolean. Allow upgrade. Default: true.
     #SimultaneousUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Simultaneous upgrade. Default: false.
     #ForceUpgrade: false # boolean. Optional. Use when AllowUpgrade == true. Force upgrade. Default: false.
     #VerifyRoleInstanceStatus: false # boolean. Verify role instance status. Default: false.
@@ -140,7 +140,7 @@ The Azure subscription to target for deployment.
 :::moniker range=">=azure-pipelines-2020"
 
 **`EnableAdvancedStorageOptions`** - **Enable ARM storage support**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enables or disables ARM storage support.
 <!-- :::editable-content-end::: -->
@@ -283,7 +283,7 @@ Appends current date and time to the deployment label.
 :::moniker range="<=azure-pipelines"
 
 **`AllowUpgrade`** - **Allow upgrade**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Allows an upgrade to the Microsoft Azure deployment.
 <!-- :::editable-content-end::: -->
