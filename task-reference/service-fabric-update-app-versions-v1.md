@@ -59,7 +59,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the location of the Service Fabric application package to be deployed to the cluster. Example: `$(system.defaultworkingdirectory)/**/drop/applicationpackage`. [Variables](/azure/devops/pipelines/build/variables&tabs=yaml) and wildcards can be used in the path.
+Specifies the location of the Service Fabric application package to be deployed to the cluster. Example: `$(system.defaultworkingdirectory)/**/drop/applicationpackage`. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
