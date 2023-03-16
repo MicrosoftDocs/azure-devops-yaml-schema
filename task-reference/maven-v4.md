@@ -1,7 +1,7 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -333,7 +333,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range="=azure-pipelines"
 
-**`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
+**`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are not in use, deselect this option for faster builds.
@@ -345,7 +345,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 <!-- :::item name="effectivePomSkip"::: -->
 :::moniker range="=azure-pipelines"
 
-**`effectivePomSkip`** - **Skip generating effective POM while authenticating with Artifacts feeds**<br>
+**`effectivePomSkip`** - **Skip generating effective POM while authenticating built-in feeds**<br>
 Input alias: `skipEffectivePom`. `boolean`. Required. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Authenticates with Artifacts feeds using the POM only.
