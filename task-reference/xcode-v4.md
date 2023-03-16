@@ -1,7 +1,7 @@
 ---
 title: Xcode@4 - Xcode v4 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app (task version 4).
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
     #xcodeVersion: 'default' # '8' | '9' | 'default' | 'specifyPath'. Xcode version. Default: default.
     #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
   # Package options
-    packageApp: false # boolean. Required. Create app package. Default: false.
+    #packageApp: false # boolean. Create app package. Default: false.
     #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
     #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
     #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
@@ -166,7 +166,7 @@ Specifies a path to a specific Xcode developer directory (for example, `/Applica
 :::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create app package**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether an IPA app package file should be generated as a part of the build.
 <!-- :::editable-content-end::: -->

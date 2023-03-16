@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to azure service bus using a service connection (no agent required).
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,7 +29,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
   inputs:
     azureSubscription: # string. Alias: connectedServiceName. Required. Azure service bus connection. 
     messageBody: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Required. Message body. Default: {"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}.
-    waitForCompletion: false # boolean. Required. Wait for task completion. Default: false.
+    #waitForCompletion: false # boolean. Wait for task completion. Default: false.
 ```
 
 :::moniker-end
@@ -76,7 +76,7 @@ Specifies the JSON `messageBody`.
 :::moniker range="<=azure-pipelines"
 
 **`waitForCompletion`** - **Wait for task completion**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set to `true`, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->

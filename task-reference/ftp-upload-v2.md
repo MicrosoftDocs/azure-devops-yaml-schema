@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@2 - FTP upload v2 task
 description: Upload files using FTP.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -37,10 +37,10 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
     remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
   # Advanced
     #enableUtf8: false # boolean. Enable UTF8 support. Default: false.
-    clean: false # boolean. Required. Delete remote directory. Default: false.
-    cleanContents: false # boolean. Required when clean = false. Clear remote directory contents. Default: false.
-    preservePaths: false # boolean. Required. Preserve file paths. Default: false.
-    trustSSL: false # boolean. Required. Trust server certificate. Default: false.
+    #clean: false # boolean. Delete remote directory. Default: false.
+    #cleanContents: false # boolean. Optional. Use when clean = false. Clear remote directory contents. Default: false.
+    #preservePaths: false # boolean. Preserve file paths. Default: false.
+    #trustSSL: false # boolean. Trust server certificate. Default: false.
     #customCmds: # string. FTP Commands.
 ```
 
@@ -62,10 +62,10 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
     filePatterns: '**' # string. Required. File patterns. Default: **.
     remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
   # Advanced
-    clean: false # boolean. Required. Delete remote directory. Default: false.
-    cleanContents: false # boolean. Required when clean = false. Clear remote directory contents. Default: false.
-    preservePaths: false # boolean. Required. Preserve file paths. Default: false.
-    trustSSL: false # boolean. Required. Trust server certificate. Default: false.
+    #clean: false # boolean. Delete remote directory. Default: false.
+    #cleanContents: false # boolean. Optional. Use when clean = false. Clear remote directory contents. Default: false.
+    #preservePaths: false # boolean. Preserve file paths. Default: false.
+    #trustSSL: false # boolean. Trust server certificate. Default: false.
 ```
 
 :::moniker-end
@@ -188,7 +188,7 @@ Enables UTF-8 support for the FTP connection (`OPTS UTF8 ON`).
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`clean`** - **Delete remote directory**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Deletes the remote directory, including its contents, before uploading.
 <!-- :::editable-content-end::: -->
@@ -200,7 +200,7 @@ Deletes the remote directory, including its contents, before uploading.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`cleanContents`** - **Clear remote directory contents**<br>
-`boolean`. Required when `clean = false`. Default value: `false`.<br>
+`boolean`. Optional. Use when `clean = false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Recursively deletes all content in the remote directory before uploading. The existing directory will not be deleted. For better performance, use `clean` instead.
 <!-- :::editable-content-end::: -->
@@ -212,7 +212,7 @@ Recursively deletes all content in the remote directory before uploading. The ex
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`preservePaths`** - **Preserve file paths**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If selected, the relative local directory structure is recreated under the remote directory where files are uploaded. Otherwise, files are uploaded directly to the remote directory without creating additional subdirectories.
 
@@ -226,7 +226,7 @@ For example, suppose your source folder is `/home/user/source/`, which contains 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`trustSSL`** - **Trust server certificate**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Trusts the FTP server's SSL certificate with `ftps://`, even if it is self-signed or cannot be validated by a certificate authority (CA).
 <!-- :::editable-content-end::: -->

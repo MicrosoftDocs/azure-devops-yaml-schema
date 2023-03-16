@@ -31,7 +31,7 @@ Use this task to build with Apache Maven.
     #goals: 'package' # string. Goal(s). Default: package.
     #options: # string. Options. 
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to TFS/Team Services. Default: true.
+    #publishJUnitResults: true # boolean. Publish to TFS/Team Services. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
@@ -47,16 +47,16 @@ Use this task to build with Apache Maven.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
     mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven Version. Default: Default.
     #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven Path. 
-    #mavenSetM2Home: false # boolean. Required when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
+    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
     #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
-    mavenAuthenticateFeed: true # boolean. Alias: mavenFeedAuthenticate. Required. Authenticate built-in Maven feeds. Default: true.
+    #mavenAuthenticateFeed: true # boolean. Alias: mavenFeedAuthenticate. Authenticate built-in Maven feeds. Default: true.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube Analysis. Default: false.
     #sonarQubeServiceEndpoint: # string. Alias: sqConnectedServiceName. Required when sqAnalysisEnabled = true. SonarQube Endpoint. 
     #sonarQubeProjectName: # string. Alias: sqProjectName. Optional. Use when sqAnalysisEnabled = true. SonarQube Project Name. 
     #sonarQubeProjectKey: # string. Alias: sqProjectKey. Optional. Use when sqAnalysisEnabled = true. SonarQube Project Key. 
     #sonarQubeProjectVersion: # string. Alias: sqProjectVersion. Optional. Use when sqAnalysisEnabled = true. SonarQube Project Version. 
-    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Required when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
+    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Optional. Use when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
     #sonarQubeDBUrl: # string. Alias: sqDbUrl. Optional. Use when sqDbDetailsRequired = true. Db Connection String. 
     #sonarQubeDBUsername: # string. Alias: sqDbUsername. Optional. Use when sqDbDetailsRequired = true. Db Username. 
     #sonarQubeDBPassword: # string. Alias: sqDbPassword. Optional. Use when sqDbDetailsRequired = true. Db User Password. 
@@ -121,7 +121,7 @@ Specifies the relative path from the repository root to the Maven POM file.
 :::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to publish the JUnit test results produced by the Maven build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
 <!-- :::editable-content-end::: -->
@@ -291,7 +291,7 @@ Supplies the custom path to the Maven installation (for example: `/usr/share/mav
 :::moniker range="<=azure-pipelines"
 
 **`mavenSetM2Home`** - **Set M2_HOME variable**<br>
-`boolean`. Required when `mavenVersionSelection = Path`. Default value: `false`.<br>
+`boolean`. Optional. Use when `mavenVersionSelection = Path`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the `M2_HOME` variable to a custom Maven installation path.
 <!-- :::editable-content-end::: -->
@@ -315,7 +315,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 :::moniker range="<=azure-pipelines"
 
 **`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
-Input alias: `mavenFeedAuthenticate`. `boolean`. Required. Default value: `true`.<br>
+Input alias: `mavenFeedAuthenticate`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are not in use, deselect this option for faster builds.
 <!-- :::editable-content-end::: -->
@@ -327,7 +327,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube Analysis**<br>
-Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs a [SonarQube analysis](https://go.microsoft.com/fwlink/?LinkID=708598) after executing the current goals. `install` or `package` goals should be executed first.
 <!-- :::editable-content-end::: -->
@@ -387,7 +387,7 @@ Specifies the SonarQube project version, for example `sonar.projectVersion`.
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeSpecifyDB`** - **The SonarQube server version is lower than 5.2**<br>
-Input alias: `sqDbDetailsRequired`. `boolean`. Required when `sqAnalysisEnabled = true`. Default value: `false`.<br>
+Input alias: `sqDbDetailsRequired`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If using a SonarQube server 5.1 or lower, you must specify the database connection details.
 <!-- :::editable-content-end::: -->

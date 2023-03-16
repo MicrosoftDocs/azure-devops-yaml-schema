@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@1 - .NET Core v1 task
 description: Build, test and publish using dotnet core command-line (task version 1).
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,7 +28,7 @@ Build, test and publish using dotnet core command-line.
 - task: DotNetCoreCLI@1
   inputs:
     command: 'build' # 'build' | 'publish' | 'restore' | 'test' | 'run'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Required when command = publish. Publish Web Projects. Default: true.
+    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish Web Projects. Default: true.
     #projects: # string. Optional. Use when command != publish || publishWebProjects = false. Project(s). 
     #arguments: # string. Arguments. 
     #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip Published Projects. Default: true.
@@ -66,7 +66,7 @@ The dotnet command to run. Specify `custom` to add arguments or use a command no
 :::moniker range="<=azure-pipelines"
 
 **`publishWebProjects`** - **Publish Web Projects**<br>
-`boolean`. Required when `command = publish`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: ExtractFiles@1 - Extract files v1 task
 description: Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -29,8 +29,8 @@ Use this task to extract a variety of archive and compression files, such as .7z
   inputs:
     archiveFilePatterns: '**/*.zip' # string. Required. Archive file patterns. Default: **/*.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
-    overwriteExistingFiles: false # boolean. Required. Overwrite existing files. Default: false.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
+    #overwriteExistingFiles: false # boolean. Overwrite existing files. Default: false.
     #pathToSevenZipTool: # string. Path to 7z utility.
 ```
 
@@ -45,8 +45,8 @@ Use this task to extract a variety of archive and compression files, such as .7z
   inputs:
     archiveFilePatterns: '**/*.zip' # string. Required. Archive file patterns. Default: **/*.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
-    overwriteExistingFiles: false # boolean. Required. Overwrite existing files. Default: false.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
+    #overwriteExistingFiles: false # boolean. Overwrite existing files. Default: false.
 ```
 
 :::moniker-end
@@ -60,7 +60,7 @@ Use this task to extract a variety of archive and compression files, such as .7z
   inputs:
     archiveFilePatterns: '*.zip' # string. Required. Archive file patterns. Default: *.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
 ```
 
 :::moniker-end
@@ -74,7 +74,7 @@ Use this task to extract a variety of archive and compression files, such as .7z
   inputs:
     archiveFilePatterns: '*.zip' # string. Required. Archive file patterns. Default: *.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
 ```
 
 :::moniker-end
@@ -140,7 +140,7 @@ Specifies the destination folder into which archive files should be extracted. U
 :::moniker range="<=azure-pipelines"
 
 **`cleanDestinationFolder`** - **Clean destination folder before extracting**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to clean the destination directory before archive contents are extracted into it.
 <!-- :::editable-content-end::: -->
@@ -152,7 +152,7 @@ Specifies the option to clean the destination directory before archive contents 
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`overwriteExistingFiles`** - **Overwrite existing files**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to overwrite existing files in the destination directory if they already exist. If the option is `false`, the script prompts on existing files, asking whether you want to overwrite them.
 <!-- :::editable-content-end::: -->

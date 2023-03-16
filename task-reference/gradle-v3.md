@@ -1,7 +1,7 @@
 ---
 title: Gradle@3 - Gradle v3 task
 description: Build using a Gradle wrapper script.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -32,7 +32,7 @@ Use this task to build using a Gradle wrapper script.
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -48,13 +48,13 @@ Use this task to build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube or SonarCloud Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
     #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
     #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
-    spotBugsAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Required. Run SpotBugs. Default: false.
+    #spotBugsAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs. Default: false.
     #spotBugsGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when spotBugsAnalysisEnabled = true. Spotbugs plugin version. Default: specify.
     #spotbugsGradlePluginVersion: '4.7.0' # string. Required when spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify. Version number. Default: 4.7.0.
 ```
@@ -119,7 +119,7 @@ See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutor
 :::moniker range=">=azure-pipelines-2022"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -275,7 +275,7 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 :::moniker range=">=azure-pipelines-2022"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube or SonarCloud Analysis**<br>
-Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option has changed from version 1 of the **Gradle** task to use the [SonarQube](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarqube) and [SonarCloud](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud) marketplace extensions. Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html) after executing tasks in the **Tasks** field. You must also add a **Prepare Analysis Configuration** task from one of the extensions to the build pipeline before this Gradle task.
 <!-- :::editable-content-end::: -->
@@ -347,7 +347,7 @@ Uses the PMD Java static analysis tool to look for bugs in the code. The results
 :::moniker range=">=azure-pipelines-2022"
 
 **`spotBugsAnalysis`** - **Run SpotBugs**<br>
-Input alias: `spotBugsAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs `spotBugs` when `true`. This plugin works with Gradle v5.6 or later. Learn more about [using the SpotBugs Gradle plugin](https://spotbugs.readthedocs.io/en/stable/gradle.html#use-spotbugs-gradle-plugin). The plugin may work in an unexpected way or may not work at all with an earlier Gradle version.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@1 - Archive Files v1 task
 description: Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,12 +28,12 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 - task: ArchiveFiles@1
   inputs:
     rootFolder: '$(Build.BinariesDirectory)' # string. Required. Root folder (or file) to archive. Default: $(Build.BinariesDirectory).
-    includeRootFolder: true # boolean. Required. Prefix root folder name to archive paths. Default: true.
+    #includeRootFolder: true # boolean. Prefix root folder name to archive paths. Default: true.
   # Archive
     archiveType: 'default' # 'default' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: default.
     #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    replaceExistingArchive: true # boolean. Required. Replace existing archive. Default: true.
+    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
 ```
 
 :::moniker-end
@@ -68,7 +68,7 @@ Name of the root folder or file to archive.  For folders, everything in the name
 :::moniker range="<=azure-pipelines"
 
 **`includeRootFolder`** - **Prefix root folder name to archive paths**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default, prepends the root folder name to file paths within the archive.  When set to `false`, all file paths will start one level lower.
 
@@ -130,7 +130,7 @@ For example, to create `foo.tgz`:
 :::moniker range="<=azure-pipelines"
 
 **`replaceExistingArchive`** - **Replace existing archive**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Overwrites an existing archive.  If not specified, files are added to the archive.
 <!-- :::editable-content-end::: -->

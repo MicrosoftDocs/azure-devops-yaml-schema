@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateManifests@2 - Update Service Fabric manifests v2 task
 description: Automatically update portions of application and service manifests in a packaged Azure Service Fabric application.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,7 +31,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
     applicationPackagePath: # string. Required. Application Package. 
     #versionSuffix: '.$(Build.BuildNumber)' # string. Required when updateType = Manifest versions. Version Value. Default: .$(Build.BuildNumber).
     #versionBehavior: 'Append' # 'Append' | 'Replace'. Optional. Use when updateType = Manifest versions. Version Behavior. Default: Append.
-    #updateOnlyChanged: false # boolean. Required when updateType = Manifest versions. Update only if changed. Default: false.
+    #updateOnlyChanged: false # boolean. Optional. Use when updateType = Manifest versions. Update only if changed. Default: false.
     #pkgArtifactName: # string. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Package Artifact Name. 
     #logAllChanges: true # boolean. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Log all changes. Default: true.
     #compareType: 'LastSuccessful' # 'LastSuccessful' | 'Specific'. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Compare against. Default: LastSuccessful.
@@ -54,7 +54,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
     applicationPackagePath: # string. Required. Application Package. 
     #versionSuffix: '.$(Build.BuildNumber)' # string. Required when updateType = Manifest versions. Version Value. Default: .$(Build.BuildNumber).
     #versionBehavior: 'Append' # 'Append' | 'Replace'. Optional. Use when updateType = Manifest versions. Version Behavior. Default: Append.
-    #updateOnlyChanged: false # boolean. Required when updateType = Manifest versions. Update only if changed. Default: false.
+    #updateOnlyChanged: false # boolean. Optional. Use when updateType = Manifest versions. Update only if changed. Default: false.
     #pkgArtifactName: # string. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Package Artifact Name. 
     #logAllChanges: true # boolean. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Log all changes. Default: true.
     #compareType: 'LastSuccessful' # 'LastSuccessful' | 'Specific'. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Compare against. Default: LastSuccessful.
@@ -140,7 +140,7 @@ Specifies whether to append the version value to existing values in the manifest
 :::moniker range="<=azure-pipelines"
 
 **`updateOnlyChanged`** - **Update only if changed**<br>
-`boolean`. Required when `updateType = Manifest versions`. Default value: `false`.<br>
+`boolean`. Optional. Use when `updateType = Manifest versions`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Appends the new version suffix to only the packages that have changed from a previous build. If no changes are found, the version suffix from the previous build will be appended.
 

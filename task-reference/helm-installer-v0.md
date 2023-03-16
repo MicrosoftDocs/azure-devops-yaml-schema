@@ -1,7 +1,7 @@
 ---
 title: HelmInstaller@0 - Helm tool installer v0 task
 description: Install Helm and Kubernetes on an agent machine (task version 0).
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -30,7 +30,7 @@ Use this task to install Helm and Kubernetes on an agent machine.
     helmVersion: '2.14.1' # string. Required. Helm Version Spec. Default: 2.14.1.
     #checkLatestHelmVersion: true # boolean. Check for latest version of Helm. Default: true.
   # Prerequisite
-    installKubeCtl: true # boolean. Required. Install Kubectl. Default: true.
+    #installKubeCtl: true # boolean. Install Kubectl. Default: true.
     #kubectlVersion: '1.8.9' # string. Optional. Use when installKubeCtl == true. Kubectl Version Spec. Default: 1.8.9.
     #checkLatestKubeCtl: true # boolean. Optional. Use when installKubeCtl == true. Check for latest version of kubectl. Default: true.
 ```
@@ -47,7 +47,7 @@ Use this task to install Helm and Kubernetes on an agent machine.
     helmVersion: '2.9.1' # string. Required. Helm Version Spec. Default: 2.9.1.
     #checkLatestHelmVersion: true # boolean. Check for latest version of Helm. Default: true.
   # Prerequisite
-    installKubeCtl: true # boolean. Required. Install Kubectl. Default: true.
+    #installKubeCtl: true # boolean. Install Kubectl. Default: true.
     #kubectlVersion: '1.8.9' # string. Optional. Use when installKubeCtl == true. Kubectl Version Spec. Default: 1.8.9.
     #checkLatestKubeCtl: true # boolean. Optional. Use when installKubeCtl == true. Check for latest version of kubectl. Default: true.
 ```
@@ -64,7 +64,7 @@ Use this task to install Helm and Kubernetes on an agent machine.
     helmVersion: '2.9.1' # string. Required. Helm Version Spec. Default: 2.9.1.
     #checkLatestHelmVersion: true # boolean. Check for latest version of Helm. Default: true.
   # Prerequisite
-    installKubeCtl: true # boolean. Required. Install Kubectl. Default: true.
+    #installKubeCtl: true # boolean. Install Kubectl. Default: true.
     #kubectlVersion: '1.8.9' # string. Optional. Use when installKubeCtl == true. Kubectl Version Spec. Default: 1.8.9.
     #checkLatestKubeCtl: true # boolean. Optional. Use when installKubeCtl == true. Check for latest version of kubectl. Default: true.
 ```
@@ -114,7 +114,7 @@ Checks for the latest version of Helm.
 :::moniker range=">=azure-pipelines-2019"
 
 **`installKubeCtl`** - **Install Kubectl**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs Kubectl.
 <!-- :::editable-content-end::: -->

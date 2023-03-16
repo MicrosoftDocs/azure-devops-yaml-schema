@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -30,10 +30,10 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
     solutionFile: '**/*.sln' # string. Alias: solution. Required. Solution. Default: **/*.sln.
     configuration: 'Release' # string. Required. Configuration. Default: Release.
     #clean: false # boolean. Clean. Default: false.
-    packageApp: true # boolean. Required. Create app package. Default: true.
+    #packageApp: true # boolean. Create app package. Default: true.
     #buildForSimulator: false # boolean. Alias: forSimulator. Build for iOS Simulator. Default: false.
   # Advanced
-    runNugetRestore: false # boolean. Required. Run NuGet restore. Default: false.
+    #runNugetRestore: false # boolean. Run NuGet restore. Default: false.
     #args: # string. Arguments. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #mdtoolFile: # string. Alias: buildToolLocation | mdtoolLocation. Build tool path. 
@@ -88,7 +88,7 @@ Optional. Runs a clean build (`/t:clean`) prior to the build.
 :::moniker range=">=azure-pipelines-2019"
 
 **`packageApp`** - **Create app package**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set to `true`, generates an IPA as a part of the build.
 <!-- :::editable-content-end::: -->
@@ -112,7 +112,7 @@ Optional. Builds for the iOS Simulator instead of physical iOS devices.
 :::moniker range=">=azure-pipelines-2019"
 
 **`runNugetRestore`** - **Run NuGet restore**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before the build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,7 +31,7 @@ Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/
   inputs:
     #workingDirectory: # string. Alias: cwd. Working directory. 
   # Advanced
-    forceRepoUpdate: false # boolean. Required. Force repo update. Default: false.
+    #forceRepoUpdate: false # boolean. Force repo update. Default: false.
     #projectDirectory: # string. Project directory.
 ```
 
@@ -46,7 +46,7 @@ Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/
   inputs:
     #workingDirectory: # string. Alias: cwd. Working directory. 
   # Advanced
-    forceRepoUpdate: false # boolean. Required. Force repo update. Default: false.
+    #forceRepoUpdate: false # boolean. Force repo update. Default: false.
     #projectDirectory: # string. Project directory.
 ```
 
@@ -82,7 +82,7 @@ Specifies the working directory in which to execute this task. If left empty, th
 :::moniker range="<=azure-pipelines"
 
 **`forceRepoUpdate`** - **Force repo update**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selecting this option will force running `pod repo update` before installation.
 <!-- :::editable-content-end::: -->
