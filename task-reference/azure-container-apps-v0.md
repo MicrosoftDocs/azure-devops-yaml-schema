@@ -242,7 +242,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-This Azure Pipelines Task allows users to easily deploy their application source to an [Azure Container App](https://azure.microsoft.com/en-us/services/container-apps/) in their Azure Pipelines workflow by either providing a previously built image, a Dockerfile that an image can be built from, or using a builder to create a runnable application image for the user.
+This Azure Pipelines Task allows users to easily deploy their application source to an [Azure Container App](https://azure.microsoft.com/services/container-apps/) in their Azure Pipelines workflow by either providing a previously built image, a Dockerfile that an image can be built from, or using a builder to create a runnable application image for the user.
 
 The task has the following two usage patterns.
 
@@ -269,7 +269,7 @@ source is required and the image will be used when creating or updating the Cont
 ### Running this task on Microsoft-hosted agents
 
 If you are running this task on a
-[Microsoft-hosted agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), you may find that this
+[Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted), you may find that this
 task is _not_ able to run successfully with the following operating systems:
 
 - macOS
@@ -308,15 +308,15 @@ To deploy to Azure, an Azure subscription has to be linked to Team Foundation Se
 Services tab in the settings section. Add the Azure subscription to use in the Build or Release Management definition by
 opening the Account Administration screen (gear icon on the top-right of the screen) and then click on the Services Tab.
 
-Create the [ARM](https://azure.microsoft.com/en-in/documentation/articles/resource-group-overview/) service endpoint and
+Create the [ARM](/azure/azure-resource-manager/management/overview) service endpoint and
 use the **'Azure Resource Manager'** endpoint type; for more information on creating service connections, please follow
-[this document](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints).
+[this document](/azure/devops/pipelines/library/service-endpoints).
 
 #### Azure CLI
 
 This task requires that the Azure CLI is installed on the Azure Pipelines agent to execute a variety of commands
 throughout the execution of the task. For more information on how to install the Azure CLI on the agent, please see
-[this document](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli). If an agent is already running on the
+[this document](/cli/azure/install-azure-cli). If an agent is already running on the
 machine on which the Azure CLI is installed, ensure that you restart the agent so that all relevant environment
 variables are updated.
 
