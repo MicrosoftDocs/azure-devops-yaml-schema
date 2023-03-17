@@ -117,6 +117,11 @@ items:
   - name: AzureCloudPowerShellDeployment@1
     href: azure-cloud-powershell-deployment-v1.md
     displayName: Azure Cloud Service deployment v1
+- name: Azure Container Apps Deploy
+  items:
+  - name: AzureContainerApps@0
+    href: azure-container-apps-v0.md
+    displayName: Azure Container Apps Deploy v0
 - name: Azure Database for MySQL deployment
   items:
   - name: AzureMysqlDeployment@1
