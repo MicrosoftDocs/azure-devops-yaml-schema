@@ -99,6 +99,13 @@ Specifies whether to install only the .NET runtime or the SDK.
 `boolean`. Optional. Use when `packageType = sdk`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs all SDKs from `global.json` files. These files are searched from `system.DefaultWorkingDirectory`. You can change the search root path by setting the working directory input.
+
+> [!NOTE]
+> The `6.x` and `6.1.x` format (using `.x` as a wildcard) described in the `UseDotNet@2.version` input is for use in the `version` input in the task, not the `sdk.version` parameter in `global.json`.
+>
+> If you receive an error message like `##[error]Version 6.0 is not allowed. Allowed version types are: majorVersion.x, majorVersion.minorVersion.x, majorVersion.minorVersion.patchVersion. More details: Only explicit versions and accepted, such as: 2.2.301. Version: 6.0 is not valid.` and you are using `global.json`, check the `sdk.version` in your `global.json`.
+>
+> For more information on `global.json`, see [Select the .NET version to use](/dotnet/core/versions/selection).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,6 +228,9 @@ Configures the behavior of the .NET host process when it searches for a suitable
     - `C:\Program Files (x86)\dotnet` (32-bit processes)
 
 Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/multilevel-sharedfx-lookup.md).
+
+> [!NOTE]
+> `performMultiLevelLookup` is only applicable to Windows based agents.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,6 +254,12 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+The Use .NET Core task acquires a specific version of [.NET Core](/dotnet/core/tools) from internet or the tools cache and adds it to the PATH of the Azure Pipelines Agent (hosted or private). Use this task to change the version of .NET Core used in subsequent tasks like [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
+Adding this task before the [DotNetCoreCLI@2](dotnet-core-cli-v2.md) in a build definition ensures that the version would be available at the time of building, testing and publishing your app.
+
+The tool installer approach also allows you to decouple from the agent update cycles. If the .NET Core version you are looking for is missing from the Azure Pipelines agent (Hosted or Private), then you can use this task to get the right version installed on the agent.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
