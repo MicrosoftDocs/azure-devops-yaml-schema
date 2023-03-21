@@ -100,12 +100,11 @@ Specifies whether to install only the .NET runtime or the SDK.
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs all SDKs from `global.json` files. These files are searched from `system.DefaultWorkingDirectory`. You can change the search root path by setting the working directory input.
 
-> [!NOTE]
-> The `6.x` and `6.1.x` format (using `.x` as a wildcard) described in the `UseDotNet@2.version` input is for use in the `version` input in the task, not the `sdk.version` parameter in `global.json`.
->
-> If you receive an error message like `##[error]Version 6.0 is not allowed. Allowed version types are: majorVersion.x, majorVersion.minorVersion.x, majorVersion.minorVersion.patchVersion. More details: Only explicit versions and accepted, such as: 2.2.301. Version: 6.0 is not valid.` and you are using `global.json`, check the `sdk.version` in your `global.json`.
->
-> For more information on `global.json`, see [Select the .NET version to use](/dotnet/core/versions/selection).
+The `6.x` and `6.1.x` format (using `.x` as a wildcard) described in the `UseDotNet@2.version` input is for use in the `version` input in the task, not the `sdk.version` parameter in `global.json`.
+
+If you receive an error message like `##[error]Version 6.0.x is not allowed. Allowed version types are: majorVersion.x, majorVersion.minorVersion.x, majorVersion.minorVersion.patchVersion. More details: Only explicit versions and accepted, such as: 2.2.301. Version: 6.0.x is not valid.` and you are using `global.json`, check the `sdk.version` in your `global.json`.
+
+For more information on `global.json`, see [Select the .NET version to use](/dotnet/core/versions/selection).
 <!-- :::editable-content-end::: -->
 <br>
 
