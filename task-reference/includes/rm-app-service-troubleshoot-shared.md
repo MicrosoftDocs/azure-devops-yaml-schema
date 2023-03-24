@@ -22,4 +22,6 @@ This problem could be the result of insufficient capacity in your App Service pl
 
 If you're seeing a 5*xx* error, [check the status of your Azure service](https://status.azure.com/status).
 
+### Azure Function suddenly stopped working
 
+Azure Functions may suddenly stopped working if more than one year has passed since the last deployment. If you deploy with "RunFromPackage" in "deploymentMethod", a SAS with an expiration date of 1 year is generated and set as the value of "WEBSITE_RUN_FROM_PACKAGE" in the application configuration. Azure Functions uses this SAS to reference the package file for function execution, so if the SAS has expired, the function will not be executed. To resolve this issue, deploy again to generate a SAS with an expiration date of one year.
