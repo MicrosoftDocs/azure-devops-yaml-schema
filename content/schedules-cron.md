@@ -121,7 +121,7 @@ If you specify no scheduled trigger, no scheduled builds occur.
 
 ```yaml
 schedules:
-- cron: "0 0 * * *"
+- cron: '0 0 * * *'
   displayName: Daily midnight build
   branches:
     include:
@@ -129,7 +129,7 @@ schedules:
     - releases/*
     exclude:
     - releases/ancient/*
-- cron: "0 12 * * 0"
+- cron: '0 12 * * 0'
   displayName: Weekly Sunday build
   branches:
     include:
