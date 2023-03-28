@@ -43,6 +43,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
     #signPayload: false # boolean. Sign the Message. Default: false.
     #certificateString: # string. Required when signPayload = true. Certificate Variable. 
     #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
+    #useDataContractSerializer: true # boolean. Default: true. Enable/disable using DataContractSerializer
 ```
 
 :::moniker-end
@@ -180,6 +181,19 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set to `true`, this task will wait for the TaskCompleted event for the specified task timeout.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+
+<!-- :::item name="useDataContractSerializer"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`useDataContractSerializer`** - **Use DataContractSerializer**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Set this to `false` if you want to pass your message as a stream instead of an object.
 <!-- :::editable-content-end::: -->
 <br>
 
