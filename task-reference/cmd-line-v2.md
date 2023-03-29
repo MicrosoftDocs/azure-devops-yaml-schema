@@ -55,7 +55,7 @@ Use this task to run a command line script using Bash on Linux, macOS, and cmd.e
 **`script`** - **Script**<br>
 `string`. Required. Default value: `echo Write your commands here\n\necho Hello world`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The contents of the script you want to run.
+The contents or file path of the script you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
