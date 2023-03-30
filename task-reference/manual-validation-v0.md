@@ -27,7 +27,7 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 # [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
 - task: ManualValidation@0
   inputs:
-    notifyUsers: # string. Required. Notify users. 
+    notifyUsers: # string. Notify users. 
     #instructions: # string. Instructions. 
     #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
@@ -42,7 +42,7 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`notifyUsers`** - **Notify users**<br>
-`string`. Required.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sends a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send an email to a group using the `[org name]\group name` syntax.
 <!-- :::editable-content-end::: -->
