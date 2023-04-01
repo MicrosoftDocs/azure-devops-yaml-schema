@@ -34,7 +34,7 @@ Use this task to run your scripts and make changes to your MySQL Database. There
     #SqlInline: # string. Required when TaskNameSelector = InlineSqlTask. Inline MySQL Script. 
     ServerName: 'localhost' # string. Required. Host Name. Default: localhost.
     #DatabaseName: # string. Database Name. 
-    SqlUsername: # string. Required. Mysql User Name. 
+    SqlUsername: # string. Required. MySQL User Name. 
     SqlPassword: # string. Required. Password. 
     #SqlAdditionalArguments: # string. Additional Arguments.
 ```
@@ -108,7 +108,7 @@ Specifies the name of the database. The script will create a database name if on
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
 
-**`SqlUsername`** - **Mysql User Name**<br>
+**`SqlUsername`** - **MySQL User Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This string is the same value that is used for `Username` in `Parameters` in MySQL Workbench.
