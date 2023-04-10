@@ -43,7 +43,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
     #signPayload: false # boolean. Sign the Message. Default: false.
     #certificateString: # string. Required when signPayload = true. Certificate Variable. 
     #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
-    #useDataContractSerializer: true # boolean. Default: true. Enable/disable using DataContractSerializer
+    #useDataContractSerializer: true # boolean. Required. Default: true. Enable/disable using the .NET data contract serializer.
 ```
 
 :::moniker-end
