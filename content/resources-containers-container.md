@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 03/06/2023
+ms.date: 04/11/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -42,6 +42,7 @@ containers:
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
   repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
 ```
 
 :::moniker-end
@@ -58,6 +59,7 @@ containers:
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
   repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
 ```
 
 :::moniker-end
@@ -72,6 +74,7 @@ containers:
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
   repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
 ```
 
 :::moniker-end
@@ -219,6 +222,17 @@ Registry for container images.
 
 **`repository`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the container image repository in ACR.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="localImage"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`localImage`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
+
+This property is useful only for self-hosted agents where the image is already present on the agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
