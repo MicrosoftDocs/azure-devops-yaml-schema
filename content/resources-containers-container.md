@@ -250,7 +250,7 @@ The `container` keyword lets you specify your container images.
 
 [Service containers](/azure/devops/pipelines/process/service-containers) run alongside a job to provide various dependencies like databases.
 
-::: moniker range>"azure-pipelines-2022"
+::: moniker range=">azure-pipelines-2022"
 
 [Template expressions](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition) are supported for `endpoint`, `volumes`, `ports`, and `options` properties of a container resource in a YAML pipeline.
 
