@@ -38,7 +38,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
     azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
     #messageBody: # string. Message body. 
     #waitForCompletion: false # boolean. Wait for task completion. Default: false.
-    #useDataContractSerializer: true # boolean. Use .NET data contract serailizer. Default: true.
+    #useDataContractSerializer: true # boolean. Use .NET data contract serializer. Default: true.
   # Advanced
     #sessionId: # string. Session Id. 
     #signPayload: false # boolean. Sign the Message. Default: false.
@@ -210,7 +210,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 <!-- :::item name="useDataContractSerializer"::: -->
 :::moniker range="=azure-pipelines"
 
-**`useDataContractSerializer`** - **Use .NET data contract serailizer**<br>
+**`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set `useDataContractSerializer` to `false` if you want to pass your message as a stream instead of an object.
