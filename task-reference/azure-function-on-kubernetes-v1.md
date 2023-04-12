@@ -140,7 +140,7 @@ Kubernetes namespace.
 **`secretName`** - **Secret Name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: <Azure storage connection string>).
+Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: `Azure storage connection string`).
 <!-- :::editable-content-end::: -->
 <br>
 

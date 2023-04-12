@@ -75,7 +75,7 @@ Use Kubernetes manifest files to deploy to clusters or even bake the manifest fi
 **`action`** - **Action**<br>
 `string`. Allowed values: `bake`, `createSecret` (create secret), `delete`, `deploy`, `patch`, `promote`, `scale`, `reject`. Default value: `deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the action to be performed.
+Specifies the action to be performed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -99,7 +99,7 @@ Select a Kubernetes service connection type.
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`. Required when `action != bake && connectionType = kubernetesServiceConnection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection.
+Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -147,7 +147,7 @@ Select an Azure managed cluster.
 **`namespace`** - **Namespace**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Sets the namespace for the commands by using the –namespace flag. If the namespace is not provided, the commands will run in the default namespace.
+Specifies the namespace for the commands by using the `–namespace` flag. If the namespace is not provided, the commands will run in the default namespace.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +159,7 @@ Sets the namespace for the commands by using the –namespace flag. If the names
 **`strategy`** - **Strategy**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = reject`. Allowed values: `canary`, `none`. Default value: `none`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Deployment strategy to be used.
+Specifies the deployment strategy used in the `deploy` action before a `promote` action or `reject` action. Currently, `canary` is the only acceptable deployment strategy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -171,7 +171,9 @@ Deployment strategy to be used.
 **`trafficSplitMethod`** - **Traffic split method**<br>
 `string`. Optional. Use when `strategy = canary`. Allowed values: `pod`, `smi`. Default value: `pod`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Traffic split method to be used.
+For the value `smi`, the percentage traffic split is done at the request level by using a service mesh. A service mesh must be set up by a cluster admin. This task handles orchestration of SMI [TrafficSplit](https://github.com/servicemeshinterface/smi-spec/tree/main/apis/traffic-split) objects.
+
+For the value `pod`, the percentage split isn't possible at the request level in the absence of a service mesh. Instead, the percentage input is used to calculate the replicas for baseline and canary. The calculation is a percentage of replicas that are specified in the input manifests for the stable variant.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +185,23 @@ Traffic split method to be used.
 **`percentage`** - **Percentage**<br>
 `string`. Required when `strategy = Canary && action = deploy`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Percentage of traffic redirect to canary deployment.
+The percentage that is used to compute the number of baseline-variant and canary-variant replicas of the workloads that are contained in manifest files.
+
+For the specified percentage input, calculate:
+
+(*percentage* × *number of replicas*) / 100
+
+If the result isn't an integer, the mathematical floor of the result is used when baseline and canary variants are created.
+
+For example, assume the deployment `hello-world` is in the input manifest file and that the following lines are in the task input:
+
+```
+replicas: 4
+strategy: canary
+percentage: 25
+```
+
+In this case, the deployments `hello-world-baseline` and `hello-world-canary` are created with one replica each. The baseline variant is created with the same image and tag as the stable version, which is the four-replica variant before deployment. The canary variant is created with the image and tag corresponding to the newly deployed changes.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,7 +213,18 @@ Percentage of traffic redirect to canary deployment.
 **`baselineAndCanaryReplicas`** - **Baseline and canary replicas**<br>
 `string`. Required when `strategy = Canary && action = deploy && trafficSplitMethod = SMI`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Baseline and canary replicas count.
+When you set `trafficSplitMethod` to `smi`, the percentage traffic split is controlled in the service mesh plane. You can control the actual number of replicas for canary and baseline variants independently of the traffic split.
+
+For example, assume that the input deployment manifest specifies 30 replicas for the stable variant. Also assume that you specify the following input for the task:
+
+```
+strategy: canary
+trafficSplitMethod: smi
+percentage: 20
+baselineAndCanaryReplicas: 1
+```
+
+In this case, the stable variant receives 80% of the traffic, while the baseline and canary variants each receive half of the specified 20%. Baseline and canary variants don't receive three replicas each. They instead receive the specified number of replicas, which means they each receive one replica.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -207,7 +236,7 @@ Baseline and canary replicas count.
 **`manifests`** - **Manifests**<br>
 `string`. Required when `action = deploy || action = promote || action = reject`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Manifests to deploy.
+Specifies the path to the manifest files to be used for deployment. Each line represents a single path. A [file-matching pattern](/azure/devops/pipelines/tasks/file-matching-patterns) is an acceptable value for each line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +248,7 @@ Manifests to deploy.
 **`containers`** - **Containers**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = bake`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Containers.
+Specifies the fully qualified resource URL of the image to be used for substitutions on the manifest files. The URL `contosodemo.azurecr.io/helloworld:test` is an example.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +260,7 @@ Containers.
 **`imagePullSecrets`** - **ImagePullSecrets**<br>
 `string`. Optional. Use when `action = deploy || action = promote`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-ImagePullSecret to pull image from private registry.
+Specifies a multiline input where each line contains the name of a Docker registry secret that has already been set up within the cluster. Each secret name is added under `imagePullSecrets` for the workloads that are found in the input manifest files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -243,7 +272,7 @@ ImagePullSecret to pull image from private registry.
 **`renderType`** - **Render Engine**<br>
 `string`. Optional. Use when `action = bake`. Allowed values: `helm`, `kompose`, `kustomize`. Default value: `helm`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Tool to use for generating manifest files.
+Specifies the render type used to produce the manifest files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +284,7 @@ Tool to use for generating manifest files.
 **`dockerComposeFile`** - **Path to docker compose file**<br>
 `string`. Required when `action = bake && renderType = kompose`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-docker-compose file path.
+Specifies a docker-compose file path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -267,7 +296,7 @@ docker-compose file path.
 **`helmChart`** - **Helm Chart**<br>
 `string`. Required when `action = bake && renderType = helm`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Helm chart path to bake.
+Specifies the Helm chart path to bake.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -279,7 +308,7 @@ Helm chart path to bake.
 **`releaseName`** - **Helm Release Name**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Helm release name to use.
+Specifies the Helm release name to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -291,7 +320,7 @@ Helm release name to use.
 **`overrideFiles`** - **Override Files**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override files to set.
+Specifies a multiline input that accepts the path to the override files. The files are used when manifest files from Helm charts are baked.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -303,7 +332,7 @@ Override files to set.
 **`overrides`** - **Overrides**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override values to set.
+Specifies the override values to set.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -315,7 +344,7 @@ Override values to set.
 **`kustomizationPath`** - **Kustomization Path**<br>
 `string`. Optional. Use when `action = bake && renderType = kustomize`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The argument must be the path to the directory containing the file, or a git repository URL with a path suffix specifying same with respect to the repository root.
+Specifies the argument that must be the path to the directory containing the file, or a git repository URL with a path suffix specifying `same` with respect to the repository root.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -327,7 +356,12 @@ The argument must be the path to the directory containing the file, or a git rep
 **`resourceToPatch`** - **Resource to patch**<br>
 `string`. Required when `action = patch`. Allowed values: `file`, `name`. Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-to identify the resource.
+Indicates one of the following patch methods:
+
+- A manifest file identifies the objects to be patched.
+- An individual object is identified by kind and name as the patch target.
+
+Acceptable values are **file** and **name**.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -339,7 +373,7 @@ to identify the resource.
 **`resourceFileToPatch`** - **File path**<br>
 `string`. Required when `action = patch && resourceToPatch = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the file used for patch.
+Specifies the path to the file used for a patch.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -351,7 +385,7 @@ Path to the file used for patch.
 **`kind`** - **Kind**<br>
 `string`. Required when `action = scale || resourceToPatch = name`. Allowed values: `deployment`, `replicaset`, `statefulset`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Kind of K8s object; deployment, replicaSet etc.
+Specifies the kind of K8s object, such as `deployment`, `replicaSet` and more.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -363,7 +397,7 @@ Kind of K8s object; deployment, replicaSet etc.
 **`name`** - **Name**<br>
 `string`. Required when `action = scale || resourceToPatch = name`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the k8s object.
+Specifies the name of the K8s object.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -375,7 +409,7 @@ Name of the k8s object.
 **`replicas`** - **Replica count**<br>
 `string`. Required when `action = scale`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Number of replicas to scale to.
+Specifies the number of replicas to scale to.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -387,7 +421,7 @@ Number of replicas to scale to.
 **`mergeStrategy`** - **Merge Strategy**<br>
 `string`. Required when `action = patch`. Allowed values: `json`, `merge`, `strategic`. Default value: `strategic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The type of patch being provided; one of [json merge strategic].
+Specifies the type of patch being provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -399,7 +433,8 @@ The type of patch being provided; one of [json merge strategic].
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = delete`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments for `kubectl delete` command.
+Specifies the arguments for the `kubectl delete` command. An example is:
+`arguments: deployment hello-world foo-bar`
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -411,7 +446,7 @@ Arguments for `kubectl delete` command.
 **`patch`** - **Patch**<br>
 `string`. Required when `action = patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of patch.
+Specifies the contents of the patch.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -423,7 +458,7 @@ Contents of patch.
 **`secretType`** - **Type of secret**<br>
 `string`. Required when `action = createSecret`. Allowed values: `dockerRegistry`, `generic`. Default value: `dockerRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Create/update a generic or docker imagepullsecret. Select dockerRegistry to create/update the imagepullsecret of the selected registry. An imagePullSecret is a way to pass a secret that contains a container registry password to the Kubelet so it can pull a private image on behalf of your Pod.
+Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistry` to create or update the `imagepullsecret` of the selected registry. An `imagePullSecret` is a way to pass a secret that contains a container registry password to the Kubelet, so it can pull a private image on behalf of your Pod.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -435,7 +470,7 @@ Create/update a generic or docker imagepullsecret. Select dockerRegistry to crea
 **`secretName`** - **Secret name**<br>
 `string`. Optional. Use when `action = createSecret`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the secret. You can use this secret name in the Kubernetes YAML configuration file.
+Specifies the name of the secret. You can use this secret name in the Kubernetes YAML configuration file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -447,7 +482,7 @@ Name of the secret. You can use this secret name in the Kubernetes YAML configur
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = createSecret && secretType = generic`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify keys and literal values to insert in secret.For example, --from-literal=key1=value1 --from-literal=key2="top secret".
+Specifies keys and literal values to insert in secret. For example, `--from-literal=key1=value1` `--from-literal=key2="top secret"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -459,7 +494,7 @@ Specify keys and literal values to insert in secret.For example, --from-literal=
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
 `string`. Optional. Use when `action = createSecret && secretType = dockerRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies the credentials of the specified service connection that are used to create a Docker registry secret within the cluster. Manifest files under the `imagePullSecrets` field can then refer to this secret's name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -471,7 +506,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`rolloutStatusTimeout`** - **Timeout for rollout status**<br>
 `string`. Optional. Use when `action = deploy || action = patch || action = scale || action = promote`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The length of time (in seconds) to wait before ending watch on rollout status.
+Specifies the length of time (in seconds) to wait before ending `watch on rollout` status.
 <!-- :::editable-content-end::: -->
 <br>
 
