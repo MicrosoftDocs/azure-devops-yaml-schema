@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -242,9 +242,9 @@ Specifies the package version or uses a variable containing the version to downl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedDownloadExternal"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2022"
 
-**`feedDownloadExternal`** - **Feed**<br>
+**`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed in another organization/collection.
@@ -255,7 +255,7 @@ For project-scoped feeds, the value should be `Project/Feed`, where `Project` is
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1  || =azure-pipelines"
 
 **`feedDownloadExternal`** - **Feed**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
