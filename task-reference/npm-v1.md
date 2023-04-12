@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -198,7 +198,18 @@ Specifies the registries to use. Commit a `.npmrc` file to your source code repo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customFeed"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2022"
+
+**`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
+`string`. Required when `customRegistry = useFeed`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1  || =azure-pipelines"
 
 **`customFeed`** - **Use packages from this Azure Artifacts registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
