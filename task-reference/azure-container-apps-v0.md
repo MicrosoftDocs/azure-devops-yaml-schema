@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps.
-ms.date: 03/17/2023
+ms.date: 04/12/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -31,7 +31,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
     #workingDirectory: # string. Alias: cwd. Working Directory. 
     #appSourcePath: # string. Application source path. 
     azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure Resource Manager connection. 
-    acrName: # string. Required. Azure Container Registry name. 
+    #acrName: # string. Azure Container Registry name. 
     #acrUsername: # string. Azure Container Registry username. 
     #acrPassword: # string. Azure Container Registry password. 
     #dockerfilePath: # string. Dockerfile path. 
@@ -41,7 +41,10 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
     #resourceGroup: # string. Azure resource group name. 
     #containerAppEnvironment: # string. Azure Container App environment. 
     #runtimeStack: # string. Application runtime stack. 
-    #targetPort: # string. Application target port.
+    #targetPort: # string. Application target port. 
+    #location: # string. Location of the Container App. 
+    #environmentVariables: # string. Environment variables. 
+    #disableTelemetry: # boolean. Disable telemetry.
 ```
 
 :::moniker-end
@@ -92,7 +95,7 @@ Specify an Azure Resource Manager service connection for the deployment. This se
 :::moniker range="=azure-pipelines"
 
 **`acrName`** - **Azure Container Registry name**<br>
-`string`. Required.<br>
+`string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure Container Registry that the runnable application image will be pushed to.
 
@@ -217,6 +220,42 @@ The platform version stack used in the final runnable application image that is 
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The target port that the Container App will listen on. If not provided, this value will be "80" for Python applications and "8080" for all other supported platforms.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="location"::: -->
+:::moniker range="=azure-pipelines"
+
+**`location`** - **Location of the Container App**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The location that the Container App (and other created resources) will be deployed to.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="environmentVariables"::: -->
+:::moniker range="=azure-pipelines"
+
+**`environmentVariables`** - **Environment variables**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A list of environment variable(s) for the container. Space-separated values in 'key=value' format. Empty string to clear existing values. Prefix value with 'secretref:' to reference a secret.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="disableTelemetry"::: -->
+:::moniker range="=azure-pipelines"
+
+**`disableTelemetry`** - **Disable telemetry**<br>
+`boolean`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If set to 'true', no telemetry will be collected by this Azure DevOps Task. If set to 'false', or if this argument is not provided, telemetry will be sent to Microsoft about the Container App build and deploy scenario targeted by this Azure DevOps Task.
 <!-- :::editable-content-end::: -->
 <br>
 
