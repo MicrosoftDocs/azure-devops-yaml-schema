@@ -213,7 +213,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 **`useDataContractSerializer`** - **Use .NET data contract serailizer**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For more details go to task documentation.
+Set `useDataContractSerializer` to `false` if you want to pass your message as a stream instead of an object.
 <!-- :::editable-content-end::: -->
 <br>
 
