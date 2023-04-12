@@ -1,6 +1,6 @@
 ---
 title: AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
-description: Deploy Azure function to Kubernetes cluster.
+description: Deploy Azure function to Kubernetes cluster (task version 0).
 ms.date: 02/01/2023
 monikerRange: ">=azure-pipelines-2020"
 ---

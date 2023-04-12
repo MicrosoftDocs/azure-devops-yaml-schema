@@ -1,6 +1,6 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
-description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
+description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts (task version 0).
 ms.date: 03/16/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
