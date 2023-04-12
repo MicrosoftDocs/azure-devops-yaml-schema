@@ -191,11 +191,103 @@ Application URL of the selected Azure Function App.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use the Azure Function App task to deploy [functions](/azure/azure-functions/) to Azure.
+
+### Deployment methods
+
+Several deployment methods are available in this task. The default value is `auto`.
+
+To change the package-based deployment option in a designer task, expand **Additional Deployment Options** and enable **Select Deployment Method**.
+
+Based on the type of Azure App Service and Azure Pipelines agent, the task uses a suitable deployment technology. The deployment technologies used by tasks are as follows:
+
+* [Kudu REST API](#kudu-rest-api)
+* [Zip Deploy](#zip-deploy)
+* [Run From Package](#run-from-package)
+
+By default, the task attempts to select the appropriate deployment technology based on the input package, App Service type, and agent OS.
+
+* If a post-deployment script is provided, use Zip Deploy.
+* If the App Service type is Web App on Linux, use Zip Deploy.
+* If a .war file is provided, use War Deploy.
+* If a .jar file is provided, use Run-From-Zip.
+* For all other tasks, use Run From Package (via Zip Deploy).
+
+On a non-Windows agent (for any App Service type), the task relies on the [Kudu REST API](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the web app.
+
+#### Kudu REST API
+
+The [Kudu REST API](https://github.com/projectkudu/kudu/wiki/REST-API) works on both Windows and Linux automation agents when the target is a Web App on Windows, a Web App on Linux (built-in source), or a function app. The task uses Kudu to copy files to the Azure App Service.
+
+#### Zip Deploy
+
+Zip Deploy creates a .zip deployment package from the chosen package or folder. It then deploys the file contents to the wwwroot folder of the App Service name function app in Azure. This option overwrites all existing content in the wwwroot folder. For more information, see [Zip deployment for Azure Functions](/azure/azure-functions/deployment-zip-push).
+
+#### Run From Package
+
+Run From Package creates the same deployment package as Zip Deploy. Instead of deploying files to the wwwroot folder, the Functions runtime mounts the entire package. When you use this option, files in the wwwroot folder become read-only. For more information, see [Run your Azure Functions from a package file](/azure/azure-functions/run-functions-from-deployment-package).
+
+### Troubleshooting
+
+[!INCLUDE [rm-app-service-troubleshoot-shared](./includes/rm-app-service-troubleshoot-shared.md)]
+
+[!INCLUDE [rm-webapp-functionapp-troubleshoot-shared.md](./includes/rm-webapp-functionapp-troubleshoot-shared.md)]
+
+#### Function app deployment on Windows succeeds but the app doesn't work
+
+This problem could occur if a web.config file isn't present in your app. You can either add a web.config file to your source or automatically generate one by using the **Application and Configuration Settings** of the task.
+
+1. Select the task and go to **Generate web.config parameters for Python, Node.js, Go and Java apps**:
+
+   :::image type="content" source="media/azure-rm-function-app-01.png" alt-text="Screenshot that shows the Generate web.config parameters section.":::
+
+
+1. Select the More button (...) under **Generate web.config parameters for Python, Node.js, Go and Java apps** to edit the parameters:
+
+   :::image type="content" source="media/azure-rm-web-app-deployment-02.png" alt-text="Screenshot that shows the Generate web.config parameters.":::
+
+1. Select your application type in the **Application framework** list.
+1. Select **OK**. Doing so will populate the web.config parameters required to generate the web.config file.
+
+### FAQs
+
+[!INCLUDE [rm-app-service-FAQs-shared](./includes/rm-app-service-faqs-shared.md)]
+
+#### I can't deploy to an internal App Service Environment by using an Azure Resource Manager service connection and a Microsoft-hosted agent
+
+By design, a Microsoft-hosted agent won't work with an App Service Environment. Instead, you need to configure a private agent on a virtual machine that's in the same virtual network as the App Service Environment. Also, set a private DNS zone to enable communication between the resources.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+Here's a sample YAML snippet that deploys Azure functions on Windows:
+```YAML
+
+variables:
+  azureSubscription: Contoso
+  # To ignore SSL error, uncomment the below variable
+  # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
+
+steps:
+- task: AzureFunctionApp@1
+  displayName: Azure Function App Deploy
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: samplefunctionapp
+    appType: functionApp
+    package: $(System.DefaultWorkingDirectory)/**/*.zip
+```
+To deploy a function on Linux, add the `appType` parameter and set it to `appType: functionAppLinux`. If you don't specify a value, `functionApp` is the default.
+
+To explicitly specify the deployment method as Zip Deploy, add the parameter `deploymentMethod: zipDeploy`. Another supported value for this parameter is `runFromPackage`.
+If you don't specify a value, `auto` is the default.
+
+For a walkthrough that shows how to create a CI/CD pipeline, see [Build and deploy Java to Azure Functions](/azure/azure-functions/functions-how-to-azure-devops).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
