@@ -1,0 +1,99 @@
+---
+title: NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
+description: Install specific Node.js version to run node tasks.
+ms.date: 04/12/2023
+monikerRange: "=azure-pipelines"
+---
+
+# NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
+
+<!-- :::description::: -->
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Install specific Node.js version to run node tasks.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+## Syntax
+
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Node.js tasks runner installer v0
+# Install specific Node.js version to run node tasks.
+- task: NodeTaskRunnerInstaller@0
+  inputs:
+    nodeVersion: '6' # '6' | '10'. Alias: runnerVersion | installVersion. Required. Version of runner to install. Default: 6.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::inputs::: -->
+## Inputs
+
+<!-- :::item name="nodeVersion"::: -->
+:::moniker range="=azure-pipelines"
+
+**`nodeVersion`** - **Version of runner to install**<br>
+Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1). Default value: `6`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select the node version to install.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+
+### Task control options
+
+All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
+<!-- :::inputs-end::: -->
+
+<!-- :::outputVariables::: -->
+## Output variables
+
+:::moniker range="=azure-pipelines"
+
+None.
+
+:::moniker-end
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+## Requirements
+
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+<!-- :::properties-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->
