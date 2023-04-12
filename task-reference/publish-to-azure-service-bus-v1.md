@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection (no agent is required).
-ms.date: 03/16/2023
+ms.date: 04/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,7 +28,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 # Publish To Azure Service Bus v1
@@ -38,6 +38,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
     azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
     #messageBody: # string. Message body. 
     #waitForCompletion: false # boolean. Wait for task completion. Default: false.
+    #useDataContractSerializer: true # boolean. Use .NET data contract serailizer. Default: true.
   # Advanced
     #sessionId: # string. Session Id. 
     #signPayload: false # boolean. Sign the Message. Default: false.
@@ -47,7 +48,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 ```yaml
 # Publish To Azure Service Bus v1
@@ -62,7 +63,6 @@ Use this task to send a message to Azure Service Bus using a service connection 
     #signPayload: false # boolean. Sign the Message. Default: false.
     #certificateString: # string. Required when signPayload = true. Certificate Variable. 
     #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
-    #useDataContractSerializer: true # boolean. Required. Default: true. Enable/disable using the .NET data contract serializer.
 ```
 
 :::moniker-end
@@ -94,6 +94,8 @@ Use this task to send a message to Azure Service Bus using a service connection 
 ```
 
 :::moniker-end
+
+
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -205,14 +207,13 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 
 :::moniker-end
 <!-- :::item-end::: -->
-
 <!-- :::item name="useDataContractSerializer"::: -->
-:::moniker range="=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
 
-**`useDataContractSerializer`** - **Use DataContractSerializer**<br>
+**`useDataContractSerializer`** - **Use .NET data contract serailizer**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set this to `false` if you want to pass your message as a stream instead of an object.
+For more details go to task documentation.
 <!-- :::editable-content-end::: -->
 <br>
 
