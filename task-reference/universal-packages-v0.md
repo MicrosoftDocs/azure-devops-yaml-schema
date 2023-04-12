@@ -242,7 +242,7 @@ Specifies the package version or uses a variable containing the version to downl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedDownloadExternal"::: -->
-:::moniker range="=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2020"
 
 **`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
@@ -255,7 +255,7 @@ For project-scoped feeds, the value should be `Project/Feed`, where `Project` is
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1  || =azure-pipelines"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 **`feedDownloadExternal`** - **Feed**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>

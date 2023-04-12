@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -74,7 +74,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@5](azure-file-copy-v5.md)<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@2](azure-function-app-v2.md)<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -195,7 +195,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Extract files**<br>[ExtractFiles@1](extract-files-v1.md) | Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip. |
 | **File transform**<br>[FileTransform@2](file-transform-v2.md)<br>[FileTransform@1](file-transform-v1.md) | Replace tokens with variable values in XML or JSON configuration files. |
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
-| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your Github entity i.e. issue or a Pull Request (PR). |
+| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
 | **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
 | **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
@@ -271,7 +271,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -391,7 +391,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Extract files**<br>[ExtractFiles@1](extract-files-v1.md) | Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip. |
 | **File transform**<br>[FileTransform@2](file-transform-v2.md)<br>[FileTransform@1](file-transform-v1.md) | Replace tokens with variable values in XML or JSON configuration files. |
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
-| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your Github entity i.e. issue or a Pull Request (PR). |
+| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
 | **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
 | **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
@@ -467,7 +467,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -585,7 +585,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Extract files**<br>[ExtractFiles@1](extract-files-v1.md) | Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip. |
 | **File transform**<br>[FileTransform@2](file-transform-v2.md)<br>[FileTransform@1](file-transform-v1.md) | Replace tokens with variable values in XML or JSON configuration files. |
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
-| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your Github entity i.e. issue or a Pull Request (PR). |
+| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
 | **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
 | **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
@@ -661,7 +661,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -778,7 +778,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Extract files**<br>[ExtractFiles@1](extract-files-v1.md) | Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip. |
 | **File transform**<br>[FileTransform@2](file-transform-v2.md)<br>[FileTransform@1](file-transform-v1.md) | Replace tokens with variable values in XML or JSON configuration files. |
 | **FTP upload**<br>[FtpUpload@2](ftp-upload-v2.md)<br>[FtpUpload@1](ftp-upload-v1.md) | Upload files using FTP. |
-| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your Github entity i.e. issue or a Pull Request (PR). |
+| **GitHub Comment**<br>[GitHubComment@0](github-comment-v0.md) | Write a comment to your GitHub entity i.e. issue or a pull request (PR). |
 | **GitHub Release**<br>[GitHubRelease@1](github-release-v1.md)<br>[GitHubRelease@0](github-release-v0.md) | Create, edit, or delete a GitHub release. |
 | **Install Apple certificate**<br>[InstallAppleCertificate@2](install-apple-certificate-v2.md) | Install an Apple certificate required to build on a macOS agent machine. |
 | **Install Apple Certificate**<br>[InstallAppleCertificate@1](install-apple-certificate-v1.md)<br>[InstallAppleCertificate@0](install-apple-certificate-v0.md) | Install an Apple certificate required to build on a macOS agent. |
@@ -849,8 +849,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
-| **Azure Function**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Deploy an Azure Function for Linux or Windows. |
 | **Azure Function for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update Function Apps with Docker containers. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Deploy an Azure Function for Linux or Windows. |
 | **Azure Key Vault**<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource. |
 | **Azure PowerShell**<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |

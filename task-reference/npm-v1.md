@@ -198,7 +198,7 @@ Specifies the registries to use. Commit a `.npmrc` file to your source code repo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customFeed"::: -->
-:::moniker range="=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019"
 
 **`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
@@ -209,20 +209,9 @@ Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1  || =azure-pipelines"
-
-**`customFeed`** - **Use packages from this Azure Artifacts registry**<br>
-`string`. Required when `customRegistry = useFeed`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
 :::moniker range="=azure-pipelines-2018"
 
-**`customFeed`** - **Use packages from this TFS registry**<br>
+**`customFeed`** - **Use packages from this VSTS/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `.npmrc`. You must have Azure Artifacts installed and licensed to select a feed here. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
-description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 02/01/2023
+description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
+ms.date: 04/12/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -31,7 +31,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -57,7 +57,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2022"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -83,7 +83,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2020.1"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -109,7 +109,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2020"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -135,7 +135,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2019.1"
 
 ```yaml
-# Azure Function v1
+# Azure Functions Deploy v1
 # Deploy an Azure Function for Linux or Windows.
 - task: AzureFunctionApp@1
   inputs:

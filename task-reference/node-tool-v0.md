@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -32,6 +32,8 @@ Use this task to find, download, and cache a specified version of [Node.js](http
     #versionFilePath: # string. Optional. Use when versionSource = fromFile. Path to the .nvmrc file. 
     #checkLatest: false # boolean. Check for Latest Version. Default: false.
     #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+  # Advanced
+    #nodejsMirror: 'https://nodejs.org/dist' # string. Set source for Node.js binaries. Default: https://nodejs.org/dist.
 ```
 
 :::moniker-end
@@ -158,6 +160,18 @@ Specifies the agent to check for the latest available version that satisfies the
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs the `x86` version of Node regardless of the CPU architecture of the agent.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="nodejsMirror"::: -->
+:::moniker range="=azure-pipelines"
+
+**`nodejsMirror`** - **Set source for Node.js binaries**<br>
+`string`. Default value: `https://nodejs.org/dist`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use an alternative installation mirror when sourcing the Node.js binaries.
 <!-- :::editable-content-end::: -->
 <br>
 

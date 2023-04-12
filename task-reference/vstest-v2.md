@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,63 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Visual Studio Test v2
+# Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
+- task: VSTest@2
+  inputs:
+  # Test selection
+    testSelector: 'testAssemblies' # 'testAssemblies' | 'testPlan' | 'testRun'. Required. Select tests using. Default: testAssemblies.
+    testAssemblyVer2: # string. Required when testSelector = testAssemblies. Test files. 
+    #testPlan: # string. Required when testSelector = testPlan. Test plan. 
+    #testSuite: # string. Required when testSelector = testPlan. Test suite. 
+    #testConfiguration: # string. Required when testSelector = testPlan. Test configuration. 
+    #tcmTestRun: '$(test.RunId)' # string. Optional. Use when testSelector = testRun. Test Run. Default: $(test.RunId).
+    searchFolder: '$(System.DefaultWorkingDirectory)' # string. Required. Search folder. Default: $(System.DefaultWorkingDirectory).
+    #resultsFolder: '$(Agent.TempDirectory)\TestResults' # string. Test results folder. Default: $(Agent.TempDirectory)\TestResults.
+    #testFiltercriteria: # string. Optional. Use when testSelector = testAssemblies. Test filter criteria. 
+    #runOnlyImpactedTests: False # boolean. Optional. Use when testSelector = testAssemblies. Run only impacted tests. Default: False.
+    #runAllTestsAfterXBuilds: '50' # string. Optional. Use when testSelector = testAssemblies && runOnlyImpactedTests = true. Number of builds after which all tests should be run. Default: 50.
+    #uiTests: false # boolean. Test mix contains UI tests. Default: false.
+  # Execution options
+    #vstestLocationMethod: 'version' # 'version' | 'location'. Select test platform using. Default: version.
+    #vsTestVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | 'toolsInstaller'. Optional. Use when vstestLocationMethod = version. Test platform version. Default: latest.
+    #vstestLocation: # string. Optional. Use when vstestLocationMethod = location. Path to vstest.console.exe. 
+    #runSettingsFile: # string. Settings file. 
+    #overrideTestrunParameters: # string. Override test run parameters. 
+    #pathtoCustomTestAdapters: # string. Path to custom test adapters. 
+    #runInParallel: False # boolean. Run tests in parallel on multi-core machines. Default: False.
+    #runTestsInIsolation: False # boolean. Run tests in isolation. Default: False.
+    #codeCoverageEnabled: False # boolean. Code coverage enabled. Default: False.
+    #otherConsoleOptions: # string. Other console options. 
+    #diagnosticsEnabled: false # boolean. Collect advanced diagnostics in case of catastrophic failures. Default: false.
+    #collectDumpOn: 'onAbortOnly' # 'onAbortOnly' | 'always' | 'never'. Optional. Use when diagnosticsEnabled = true. Collect process dump and attach to test run report. Default: onAbortOnly.
+    #rerunFailedTests: False # boolean. Rerun failed tests. Default: False.
+    #rerunType: 'basedOnTestFailurePercentage' # 'basedOnTestFailurePercentage' | 'basedOnTestFailureCount'. Optional. Use when rerunFailedTests = true. Do not rerun if test failures exceed specified threshold. Default: basedOnTestFailurePercentage.
+    #rerunFailedThreshold: '30' # string. Optional. Use when rerunFailedTests = true && rerunType = basedOnTestFailurePercentage. % failure. Default: 30.
+    #rerunFailedTestCasesMaxLimit: '5' # string. Optional. Use when rerunFailedTests = true && rerunType = basedOnTestFailureCount. # of failed tests. Default: 5.
+    #rerunMaxAttempts: '3' # string. Optional. Use when rerunFailedTests = true. Maximum # of attempts. Default: 3.
+  # Advanced execution options
+    #distributionBatchType: 'basedOnTestCases' # 'basedOnTestCases' | 'basedOnExecutionTime' | 'basedOnAssembly'. Batch tests. Default: basedOnTestCases.
+    #batchingBasedOnAgentsOption: 'autoBatchSize' # 'autoBatchSize' | 'customBatchSize'. Optional. Use when distributionBatchType = basedOnTestCases. Batch options. Default: autoBatchSize.
+    #customBatchSizeValue: '10' # string. Required when distributionBatchType = basedOnTestCases && batchingBasedOnAgentsOption = customBatchSize. Number of tests per batch. Default: 10.
+    #batchingBasedOnExecutionTimeOption: 'autoBatchSize' # 'autoBatchSize' | 'customTimeBatchSize'. Optional. Use when distributionBatchType = basedOnExecutionTime. Batch options. Default: autoBatchSize.
+    #customRunTimePerBatchValue: '60' # string. Required when distributionBatchType = basedOnExecutionTime && batchingBasedOnExecutionTimeOption = customTimeBatchSize. Running time (sec) per batch. Default: 60.
+    #dontDistribute: False # boolean. Replicate tests instead of distributing when multiple agents are used in the job. Default: False.
+  # Reporting options
+    #testRunTitle: # string. Test run title. 
+    #platform: # string. Build platform. 
+    #configuration: # string. Build configuration. 
+    #publishRunAttachments: true # boolean. Upload test attachments. Default: true.
+    #failOnMinTestsNotRun: False # boolean. Fail the task if a minimum number of tests are not run. Default: False.
+    #minimumExpectedTests: '1' # string. Optional. Use when failOnMinTestsNotRun = true. Minimum # of tests. Default: 1.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 ```yaml
 # Visual Studio Test v2
@@ -366,7 +422,18 @@ Specifies which test platform to use.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsTestVersion"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+**`vsTestVersion`** - **Test platform version**<br>
+`string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
