@@ -136,7 +136,7 @@ Other deployment scopes: The location to store deployment metadata.
 **`templateLocation`** - **Template location**<br>
 `string`. Required. Allowed values: `Linked artifact`, `URL of the file`. Default value: `Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The location of the template for deployment.
+The location of the Template and the Parameters JSON files. Choose **Linked artifact** if the files are part of the linked code/build artifacts. For linked artifacts, you can also specify the path to a Bicep file. Choose **URL of the file** if the JSON files are located at any publicly accessible http/https URLs. To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?`. To upload a parameters file to a storage account and generate a SAS token, you could use [Azure file copy task](azure-file-copy-v5.md) or follow the steps using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell#deploy-private-template-with-sas-token) or [Azure CLI](/azure/azure-resource-manager/templates/deploy-cli).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +180,7 @@ To  view the template parameters in a grid, click on `...` next to Override temp
 **`csmFile`** - **Template**<br>
 `string`. Required when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).
+Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).  Supports Bicep files when the Azure CLI version > 2.20.0.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,6 +296,9 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!NOTE]
+> This task supports Bicep files when the Azure CLI version > 2.20.0.
 
 - Added support for deployment at all the deployment scopes.
    - Removed all the VM related actions.
