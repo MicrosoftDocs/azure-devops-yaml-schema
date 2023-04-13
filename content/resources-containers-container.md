@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 03/06/2023
+ms.date: 04/11/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -42,6 +42,7 @@ containers:
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
   repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
 ```
 
 :::moniker-end
@@ -58,6 +59,7 @@ containers:
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
   repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
 ```
 
 :::moniker-end
@@ -72,6 +74,7 @@ containers:
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
   repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
 ```
 
 :::moniker-end
@@ -223,6 +226,17 @@ Name of the container image repository in ACR.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="localImage"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`localImage`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
+
+This property is useful only for self-hosted agents where the image is already present on the agent machine.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::properties-end::: -->
 
 <!-- :::remarks::: -->
@@ -236,7 +250,7 @@ The `container` keyword lets you specify your container images.
 
 [Service containers](/azure/devops/pipelines/process/service-containers) run alongside a job to provide various dependencies like databases.
 
-::: moniker range>"azure-pipelines-2022"
+::: moniker range=">azure-pipelines-2022"
 
 [Template expressions](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition) are supported for `endpoint`, `volumes`, `ports`, and `options` properties of a container resource in a YAML pipeline.
 
@@ -247,61 +261,6 @@ The `container` keyword lets you specify your container images.
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
-
-::: moniker range="azure-pipelines"
-
-```yaml
-resources:
-  containers:
-  - container: string  # identifier (A-Z, a-z, 0-9, and underscore)
-    image: string  # container image name
-    options: string  # arguments to pass to container at startup
-    endpoint: string  # reference to a service connection for the private registry
-    env: { string: string }  # list of environment variables to add
-    ports: [ string ] # ports to expose on the container
-    volumes: [ string ] # volumes to mount on the container
-    mapDockerSocket: bool # whether to map in the Docker daemon socket; defaults to true
-    mountReadOnly:  # volumes to mount read-only - all default to false
-      externals: boolean  # components required to talk to the agent
-      tasks: boolean  # tasks required by the job
-      tools: boolean  # installable tools like Python and Ruby
-      work: boolean # the work directory
-```
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2020 <= azure-pipelines-2020.1"
-
-```yaml
-resources:
-  containers:
-  - container: string  # identifier (A-Z, a-z, 0-9, and underscore)
-    image: string  # container image name
-    options: string  # arguments to pass to container at startup
-    endpoint: string  # reference to a service connection for the private registry
-    env: { string: string }  # list of environment variables to add
-    ports: [ string ] # ports to expose on the container
-    volumes: [ string ] # volumes to mount on the container
-    mapDockerSocket: bool # whether to map in the Docker daemon socket; defaults to true
-```
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-```yaml
-resources:
-  containers:
-  - container: string  # identifier (A-Z, a-z, 0-9, and underscore)
-    image: string  # container image name
-    options: string  # arguments to pass to container at startup
-    endpoint: string  # reference to a service connection for the private registry
-    env: { string: string }  # list of environment variables to add
-    ports: [ string ] # ports to expose on the container
-    volumes: [ string ] # volumes to mount on the container
-```
-
-::: moniker-end
 
 ```yaml
 resources:
