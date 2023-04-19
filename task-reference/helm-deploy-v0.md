@@ -862,6 +862,12 @@ There are some breaking changes between Helm 2 and Helm 3. One of them includes 
 #### When using Helm 3, if System.debug is set to true and Helm upgrade is the command being used, the pipeline fails even though the upgrade was successful.
 
 This is a known issue with Helm 3, as it writes some logs to stderr. Helm Deploy Task is marked as failed if there are logs to stderr or exit code is non-zero. Set the task input failOnStderr: false to ignore the logs printed to stderr.
+
+::: moniker range="> azure-pipelines-2022"
+
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
+
+::: moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

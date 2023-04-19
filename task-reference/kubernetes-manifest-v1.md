@@ -536,6 +536,13 @@ The location of the manifest bundles created by bake action
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+::: moniker range="> azure-pipelines-2022"
+
+## Remarks
+
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
+
+::: moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
