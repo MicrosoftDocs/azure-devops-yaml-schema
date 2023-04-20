@@ -31,7 +31,7 @@ For AKS customers, the Azure Resource Manager Service Connection type provides t
 * A token is created for every task that uses Azure Resource Manager Service Connection. This ensures you are connecting to Kubernetes with a short-lived token, which is the [Kubernetes recommendation](https://kubernetes.io/docs/concepts/configuration/secret/#service-account-token-secrets).
 * AKS can be accessed even when local accounts are disabled.
 
-#### FAQ
+#### Service connection FAQ
 
 ##### I receive the following error message: Could not find any secret associated with the service account. What is happening?
 

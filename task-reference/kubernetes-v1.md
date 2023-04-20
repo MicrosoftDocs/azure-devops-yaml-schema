@@ -752,6 +752,10 @@ This YAML example shows how a Kubernetes Service Connection is used to refer to 
     kubernetesServiceEndpoint: Contoso
 ```
 
+#### Additional service connection details
+
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
+
 ### Commands
 
 The command input accepts one of the following [kubectl commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands):
@@ -905,11 +909,6 @@ You can use pipeline variables to pass literal values when creating ConfigMap, a
 
 You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges)
 
-::: moniker range="> azure-pipelines-2019.1"
-
-[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
-
-::: moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

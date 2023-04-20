@@ -228,6 +228,8 @@ None.
 
 ## Remarks
 
+### Service Connection
+
 [!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
 
 ::: moniker-end
