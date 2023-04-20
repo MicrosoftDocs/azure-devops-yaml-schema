@@ -847,6 +847,8 @@ HelmDeploy@0 works with two service connection types: **Azure Resource Manager**
 > [!NOTE]
 > A service connection isn't required if an environment resource that points to a Kubernetes cluster has already been specified in the pipeline's stage.
 
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
+
 ### Command values
 
 The command input accepts one of the following [helm commands](https://v2-14-0.helm.sh/docs/helm/): create/delete/expose/get/init/install/login/logout/ls/package/rollback/upgrade. Examples are provided in the [Examples](#examples) section.
@@ -862,8 +864,6 @@ There are some breaking changes between Helm 2 and Helm 3. One of them includes 
 #### When using Helm 3, if System.debug is set to true and Helm upgrade is the command being used, the pipeline fails even though the upgrade was successful.
 
 This is a known issue with Helm 3, as it writes some logs to stderr. Helm Deploy Task is marked as failed if there are logs to stderr or exit code is non-zero. Set the task input failOnStderr: false to ignore the logs printed to stderr.
-
-[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
 
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->

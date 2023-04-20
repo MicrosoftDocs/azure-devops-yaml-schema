@@ -3,16 +3,7 @@ ms.topic: include
 ms.date: 04/19/2023
 ---
 
-### Kubernetes tasks and service connections
-
-Azure DevOps supports Kubernetes deployments with a number of included tasks:
-
-* [AzureFunctionOnKubernetes v1](../azure-function-on-kubernetes-v1.md)
-* [HelmDeploy v0](../helm-deploy-v0.md)
-* [Kubernetes v1](../kubernetes-v1.md)
-* [KubernetesManifest v1](../kubernetes-manifest-v1.md)
-
-These tasks can be configured to target a Kubernetes cluster in a number of ways, using the `connectionType` property.
+This task can be configured to target a Kubernetes cluster in a number of ways, using the `connectionType` property.
 
 | Connection type | Description |
 |-----------------|-------------|
@@ -34,29 +25,11 @@ Starting with Kubernetes 1.24, long-lived tokens are [no longer created by defau
 
 #### Use the Azure Resource Manager Service Connection to access AKS
 
-We have added support for the Azure Resource Manager Service Connection type to tasks that did not support it yet:
-
-* [AzureFunctionOnKubernetes v1](../azure-function-on-kubernetes-v1.md)
-* [Kubernetes v1](../kubernetes-v1.md)
-
-With these updated tasks, all included Kubernetes tasks can use an Azure Resource Manager Service Connection. For AKS customers, the Azure Resource Manager Service Connection type provides the best method to connect to a private cluster, or a cluster that has local accounts disabled. This method is not dependent on cluster connectivity at the time you create a Service Connection. Access to AKS is deferred to pipeline runtime, which has the following advantages:
+For AKS customers, the Azure Resource Manager Service Connection type provides the best method to connect to a private cluster, or a cluster that has local accounts disabled. This method is not dependent on cluster connectivity at the time you create a Service Connection. Access to AKS is deferred to pipeline runtime, which has the following advantages:
 
 * Access to a (private) AKS cluster can be performed from a Self-hosted or Scale set agent with line of sight to the cluster.
 * A token is created for every task that uses Azure Resource Manager Service Connection. This ensures you are connecting to Kubernetes with a short-lived token, which is the [Kubernetes recommendation](https://kubernetes.io/docs/concepts/configuration/secret/#service-account-token-secrets).
 * AKS can be accessed even when local accounts are disabled.
-
-The following example demonstrates the use of the Azure Resource Manager Service Connection.
-
-```yml
-- task: AzureFunctionOnKubernetes@1
-  displayName: 'Deploy an Azure Function on Kubernetes'
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionConnection: '$(subscriptionConnection)'
-    azureResourceGroup: $(resourceGroupName)
-    kubernetesCluster: $(aksName)
-    # remainder of task inputs
-```
 
 #### FAQ
 
