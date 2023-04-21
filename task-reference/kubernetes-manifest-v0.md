@@ -609,6 +609,13 @@ Specifies the location of the manifest bundles created by bake action.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+:::moniker range=">azure-pipelines-2020"
+
+> [!NOTE]
+> There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [KubernetesManifest@1](./kubernetes-manifest-v1.md) and [KubernetesManifest@1 service connection](./kubernetes-manifest-v1.md#service-connection)
+
+:::moniker-end
+
 Use a Kubernetes manifest task in a build or release pipeline to bake and deploy manifests to Kubernetes clusters.
 
 This task supports the following:
