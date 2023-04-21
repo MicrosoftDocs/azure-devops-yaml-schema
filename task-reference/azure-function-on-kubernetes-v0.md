@@ -176,7 +176,7 @@ None.
 
 ## Remarks
 
-There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md) and [AzureFunctionOnKubernetes@1 service connection](./azure-function-on-kubernetes-v1.md#service-connection)
+There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md) and [AzureFunctionOnKubernetes@1 remarks](./azure-function-on-kubernetes-v1.md#remarks)
 
 :::moniker-end
 <!-- :::editable-content-end::: -->

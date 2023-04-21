@@ -758,8 +758,6 @@ This YAML example shows how a Kubernetes Service Connection is used to refer to 
     kubernetesServiceEndpoint: Contoso
 ```
 
-#### Additional service connection details
-
 [!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
 
 ### Commands
