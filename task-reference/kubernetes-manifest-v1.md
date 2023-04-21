@@ -87,7 +87,12 @@ Specifies the action to be performed.
 **`connectionType`** - **Service connection type**<br>
 `string`. Required when `action != bake`. Allowed values: `azureResourceManager` (Azure Resource Manager), `kubernetesServiceConnection` (Kubernetes Service Connection). Default value: `kubernetesServiceConnection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection type. For more information, see [Remarks](#remarks).
+Select a Kubernetes service connection type.
+
+* `kubernetesServiceConnection` (Kubernetes Service Connection) - Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `azureResourceManager` (Azure Resource Manager) - Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time.
+
+For more information, see [Remarks](#remarks).
 <!-- :::editable-content-end::: -->
 <br>
 

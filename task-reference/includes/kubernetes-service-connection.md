@@ -3,14 +3,6 @@ ms.topic: include
 ms.date: 04/19/2023
 ---
 
-This task can be configured to target a Kubernetes cluster in a number of ways, using the `connectionType` property.
-
-| Connection type | Description |
-|-----------------|-------------|
-| Azure Resource Manager | Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time. |
-| Kubernetes Service Connection | Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. The latter requires Kubernetes cluster access at Service Connection configuration time. |
-| None | Use a pre-created Kubernetes configuration stored locally. |
-
 #### Kubernetes Service Connection limitations when accessing AKS
 
 You can create a Kubernetes Service Connection with any of the following options.

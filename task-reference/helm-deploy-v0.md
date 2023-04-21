@@ -283,7 +283,13 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 **`connectionType`** - **Connection Type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the connection type. Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account. For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
+Specifies the connection type. Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account. 
+
+* `Kubernetes Service Connection` - Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account. Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Does not access Kubernetes cluster at Service Connection configuration time.
+* `None` - Use a pre-created Kubernetes configuration stored locally.
+
+For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 <br>
 

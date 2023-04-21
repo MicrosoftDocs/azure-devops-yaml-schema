@@ -56,7 +56,12 @@ Deploy Azure function to Kubernetes cluster.
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection type. For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
+Select a Kubernetes service connection type.
+
+* `Kubernetes Service Connection` - Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. The latter requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time.
+
+For more information, see [Remarks](#remarks).
 <!-- :::editable-content-end::: -->
 <br>
 
