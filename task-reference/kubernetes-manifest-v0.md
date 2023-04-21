@@ -612,7 +612,7 @@ Specifies the location of the manifest bundles created by bake action.
 :::moniker range=">azure-pipelines-2020"
 
 > [!NOTE]
-> There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [KubernetesManifest@1](./kubernetes-manifest-v1.md) and [KubernetesManifest@1 service connection](./kubernetes-manifest-v1.md#service-connection)
+> There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [KubernetesManifest@1](./kubernetes-manifest-v1.md) and [KubernetesManifest@1 service connection remarks](./kubernetes-manifest-v1.md#remarks)
 
 :::moniker-end
 
