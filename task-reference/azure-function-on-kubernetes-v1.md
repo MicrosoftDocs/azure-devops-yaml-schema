@@ -57,6 +57,11 @@ Deploy Azure function to Kubernetes cluster.
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Kubernetes service connection type.
+
+* `Kubernetes Service Connection` - Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time.
+
+For more information, see [Remarks](#remarks).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,6 +229,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+::: moniker range="> azure-pipelines-2022"
+
+## Remarks
+
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
+
+::: moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
