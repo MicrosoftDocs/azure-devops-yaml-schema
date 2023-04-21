@@ -56,7 +56,7 @@ Deploy Azure function to Kubernetes cluster.
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection type.
+Select a Kubernetes service connection type. For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +228,7 @@ None.
 
 ## Remarks
 
-### Service Connection
+### Service connection
 
 [!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
 

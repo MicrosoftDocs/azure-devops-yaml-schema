@@ -227,7 +227,7 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
+Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster. For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -709,7 +709,7 @@ What's new in Version 1.0.
 
 Use this task to deploy, configure, or update a Kubernetes cluster by running kubectl commands.
 
-### Service Connection
+### Service connection
 
 The task works with two service connection types: **Azure Resource Manager** and **Kubernetes Service Connection**, described below.
 

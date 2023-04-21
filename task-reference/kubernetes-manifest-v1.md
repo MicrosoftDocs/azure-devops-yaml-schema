@@ -87,7 +87,7 @@ Specifies the action to be performed.
 **`connectionType`** - **Service connection type**<br>
 `string`. Required when `action != bake`. Allowed values: `azureResourceManager` (Azure Resource Manager), `kubernetesServiceConnection` (Kubernetes Service Connection). Default value: `kubernetesServiceConnection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection type.
+Select a Kubernetes service connection type. For more information, see [Remarks](#remarks).
 <!-- :::editable-content-end::: -->
 <br>
 
