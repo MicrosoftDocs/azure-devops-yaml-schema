@@ -358,7 +358,7 @@ Here's an example of using "pre-installed" feature. This feature allows you to u
 - task: JavaToolInstaller@0
   inputs:
     versionSpec: '8'
-    jdkArchitectureOption: 'x86'
+    jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
 ```
 <!-- :::editable-content-end::: -->
