@@ -1,7 +1,7 @@
 ---
 title: steps.downloadBuild definition
 description: Downloads build artifacts.
-ms.date: 03/06/2023
+ms.date: 04/28/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
