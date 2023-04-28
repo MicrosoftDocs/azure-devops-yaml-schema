@@ -66,6 +66,19 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+When adopting [agent releases that exclude the Node 6 task runner](https://github.com/microsoft/azure-pipelines-agent/blob/master/docs/node6.md) you may have an occasional need to run tasks that have not been updated to use a newer Node runner. For this scenario we provide a way to still use tasks dependent on Node End-of-Life runners. For more information, see Node runner guidance [blog post](https://devblogs.microsoft.com/devops/node-runner-update-guidance-for-azure-pipelines-task-authors/#upcoming-changes).
+
+The following task example shows how to install the Node 6 runner just-in-time, so an older task can successfully run.
+
+
+```yaml
+  steps:
+  - task: NodeTaskRunnerInstaller@0
+    inputs:
+      runnerVersion: 6
+```
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
