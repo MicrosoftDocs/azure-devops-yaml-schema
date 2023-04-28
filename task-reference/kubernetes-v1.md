@@ -228,6 +228,12 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Kubernetes Service Connection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
+
+* `Kubernetes Service Connection` - Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time.
+* `None` - Use a pre-created Kubernetes configuration stored locally.
+
+For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -709,7 +715,7 @@ What's new in Version 1.0.
 
 Use this task to deploy, configure, or update a Kubernetes cluster by running kubectl commands.
 
-### Service Connection
+### Service connection
 
 The task works with two service connection types: **Azure Resource Manager** and **Kubernetes Service Connection**, described below.
 
@@ -751,6 +757,8 @@ This YAML example shows how a Kubernetes Service Connection is used to refer to 
     connectionType: Kubernetes Service Connection
     kubernetesServiceEndpoint: Contoso
 ```
+
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
 
 ### Commands
 
@@ -898,11 +906,13 @@ You can use pipeline variables to pass literal values when creating ConfigMap, a
         forceUpdateConfigMap: true
         configMapArguments: --from-literal=myname=$(contosovalue)
 ```
+
 ### Troubleshooting
 
 #### My Kubernetes cluster is behind a firewall and I am using hosted agents. How can I deploy to this cluster?
 
 You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges)
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

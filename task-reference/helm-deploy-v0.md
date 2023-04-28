@@ -283,7 +283,13 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 **`connectionType`** - **Connection Type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the connection type. Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account.
+Specifies the connection type.
+
+* `Kubernetes Service Connection` - Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account. Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Does not access Kubernetes cluster at Service Connection configuration time.
+* `None` - Use a pre-created Kubernetes configuration stored locally.
+
+For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -840,12 +846,14 @@ Azure Pipelines has built-in support for Helm charts:
   You can connect to any Kubernetes cluster by using **kubeconfig** or a service account.
 * Helm deployments can be supplemented by using the **Kubectl** task; for example, create/update, imagepullsecret, and others.
 
-### Service Connection
+### Service connection
 
 HelmDeploy@0 works with two service connection types: **Azure Resource Manager** and **Kubernetes Service Connection**. See [Examples](#examples) for examples on configuring these two connection types.
 
 > [!NOTE]
 > A service connection isn't required if an environment resource that points to a Kubernetes cluster has already been specified in the pipeline's stage.
+
+[!INCLUDE [kubernetes-service-connection](./includes/kubernetes-service-connection.md)]
 
 ### Command values
 
@@ -862,6 +870,7 @@ There are some breaking changes between Helm 2 and Helm 3. One of them includes 
 #### When using Helm 3, if System.debug is set to true and Helm upgrade is the command being used, the pipeline fails even though the upgrade was successful.
 
 This is a known issue with Helm 3, as it writes some logs to stderr. Helm Deploy Task is marked as failed if there are logs to stderr or exit code is non-zero. Set the task input failOnStderr: false to ignore the logs printed to stderr.
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
