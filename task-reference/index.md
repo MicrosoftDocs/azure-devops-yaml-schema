@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/12/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -60,8 +60,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md) | Distribute app builds to testers and users via Visual Studio App Center. |
-| **App Center Distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **ARM template deployment**<br>[AzureResourceManagerTemplateDeployment@3](azure-resource-manager-template-deployment-v3.md) | Deploy an Azure Resource Manager (ARM) template to all the deployment scopes. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
@@ -74,7 +73,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@5](azure-file-copy-v5.md)<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@1](azure-function-on-kubernetes-v1.md)<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@2](azure-function-app-v2.md)<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -139,8 +138,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Load Testing**<br>[AzureLoadTest@1](azure-load-test-v1.md) | Automate performance regression testing with Azure Load Testing. |
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
-| **Publish code coverage results**<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish Cobertura or JaCoCo code coverage results from a build. |
-| **Publish code coverage results v2**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md) | Publish any of the code coverage results from a build. |
+| **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
@@ -259,8 +257,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md) | Distribute app builds to testers and users via Visual Studio App Center. |
-| **App Center Distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **ARM template deployment**<br>[AzureResourceManagerTemplateDeployment@3](azure-resource-manager-template-deployment-v3.md) | Deploy an Azure Resource Manager (ARM) template to all the deployment scopes. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
@@ -455,8 +452,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md) | Distribute app builds to testers and users via Visual Studio App Center. |
-| **App Center Distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **ARM template deployment**<br>[AzureResourceManagerTemplateDeployment@3](azure-resource-manager-template-deployment-v3.md) | Deploy an Azure Resource Manager (ARM) template to all the deployment scopes. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
@@ -649,8 +645,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md) | Distribute app builds to testers and users via Visual Studio App Center. |
-| **App Center Distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **ARM template deployment**<br>[AzureResourceManagerTemplateDeployment@3](azure-resource-manager-template-deployment-v3.md) | Deploy an Azure Resource Manager (ARM) template to all the deployment scopes. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
@@ -840,8 +835,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md) | Distribute app builds to testers and users via Visual Studio App Center. |
-| **App Center Distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
 | **Azure App Service Deploy**<br>[AzureRmWebAppDeployment@2](azure-rm-web-app-deployment-v2.md) | Update Azure App Service using Web Deploy / Kudu REST APIs. |
@@ -1016,7 +1010,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center Distribute**<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center Distribute**<br>[AppCenterDistribute@1](app-center-distribute-v1.md) | Distribute app builds to testers and users via App Center. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service Deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md)<br>[AzureRmWebAppDeployment@2](azure-rm-web-app-deployment-v2.md) | Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs. |
 | **Azure App Service Manage**<br>[AzureAppServiceManage@0](azure-app-service-manage-v0.md) | Start, Stop, Restart, Slot swap, Install site extensions or Enable Continuous Monitoring for an Azure App Service. |
@@ -1166,7 +1161,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **App Center Distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
+| **App Center distribute**<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via App Center. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service Deploy**<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md)<br>[AzureRmWebAppDeployment@2](azure-rm-web-app-deployment-v2.md) | Update Azure WebApp Services On Windows, Web App On Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node based Web applications, Function Apps, Mobile Apps, Api applications, Web Jobs using Web Deploy / Kudu REST APIs. |
 | **Azure App Service Manage**<br>[AzureAppServiceManage@0](azure-app-service-manage-v0.md) | Start, Stop, Restart, Slot swap, Install site extensions or Enable Continuous Monitoring for an Azure App Service. |

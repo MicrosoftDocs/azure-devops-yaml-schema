@@ -54,7 +54,7 @@ items:
     displayName: App Center distribute v1
   - name: AppCenterDistribute@0
     href: app-center-distribute-v0.md
-    displayName: App Center Distribute v0
+    displayName: App Center distribute v0
 - name: App Center test
   items:
   - name: AppCenterTest@1
@@ -779,6 +779,9 @@ items:
     displayName: Publish build artifacts v1
 - name: Publish code coverage results
   items:
+  - name: PublishCodeCoverageResults@2
+    href: publish-code-coverage-results-v2.md
+    displayName: Publish code coverage results v2
   - name: PublishCodeCoverageResults@1
     href: publish-code-coverage-results-v1.md
     displayName: Publish code coverage results v1

@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -912,7 +912,6 @@ You can use pipeline variables to pass literal values when creating ConfigMap, a
 #### My Kubernetes cluster is behind a firewall and I am using hosted agents. How can I deploy to this cluster?
 
 You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges)
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
