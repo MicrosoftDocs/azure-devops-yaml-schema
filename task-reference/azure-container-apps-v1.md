@@ -61,7 +61,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
+Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -74,6 +74,8 @@ Current working directory where the script is run.  Empty is the root of the rep
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Absolute path on the runner of the source application code to be built. If not provided, the 'imageToDeploy' argument must be provided to ensure the Container App has an image to reference.
+
+When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs are required.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -85,7 +87,7 @@ Absolute path on the runner of the source application code to be built. If not p
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Manager service connection for the deployment.
+Specify an Azure Resource Manager service connection for the deployment. This service connection must be linked to the user's Azure Subscription where the Container App will be created/updated. This service connection _must_ have proper permissions to make these changes within the subscription, for example Contributor role.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -98,6 +100,8 @@ Select an Azure Resource Manager service connection for the deployment.
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure Container Registry that the runnable application image will be pushed to.
+
+When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs are required.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +113,7 @@ The name of the Azure Container Registry that the runnable application image wil
 **`acrUsername`** - **Azure Container Registry username**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The username used to authenticate push requests to the provided Azure Container Registry. If not provided, an access token will be generated via 'az acr login' and provided to 'docker login' to authenticate the requests.
+The username used to authenticate push requests to the provided Azure Contrainer Registry. If not provided, an access token will be generated via 'az acr login' and provided to 'docker login' to authenticate the requests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +125,7 @@ The username used to authenticate push requests to the provided Azure Container 
 **`acrPassword`** - **Azure Container Registry password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The password used to authenticate push requests to the provided Azure Container Registry. If not provided, an access token will be generated via 'az acr login' and provided to 'docker login' to authenticate the requests.
+The password used to authenticate push requests to the provided Azure Contrainer Registry. If not provided, an access token will be generated via 'az acr login' and provided to 'docker login' to authenticate the requests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +137,7 @@ The password used to authenticate push requests to the provided Azure Container 
 **`dockerfilePath`** - **Dockerfile path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path to the Dockerfile in the provided application source that should be used to build the image that is then pushed to ACR and deployed to the Container App. If not provided, this task will check if there is a file named 'Dockerfile' at the root of the provided application source and use that to build the image. Otherwise, the Oryx++ Builder will be used to create the image.
+Relative path (_without file prefixes (see the following [Examples](#examples)) to the Dockerfile in the provided application source that should be used to build the image that is then pushed to ACR and deployed to the Container App. If not provided, this task will check if there is a file named 'Dockerfile' at the root of the provided application source and use that to build the image. Otherwise, the Oryx++ Builder will be used to create the image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +185,7 @@ The name of the Azure Container App that will be created or updated. If not prov
 **`resourceGroup`** - **Azure resource group name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The existing resource group that the Azure Container App will be created in. If not provided, this value will be `<container-app-name>-rg` and its existence will first be checked before attempting to create it.
+The resource group that the Azure Container App will be created in (or currently exists in). If not provided, this value will be in the form of `<container-app-name>-rg`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +197,7 @@ The existing resource group that the Azure Container App will be created in. If 
 **`containerAppEnvironment`** - **Azure Container App environment**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Azure Container App environment to use with the application. If not provided, an existing environment in the resource group of the Container App will be used, otherwise, an environment will be created in the form of `<container-app-name>-env`.
+The name of the Azure Container App environment to use with the application. If not provided, an existing environment in the resource group of the Container App will be used, otherwise, an environment will be created in the format of `<container-app-name>-env`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,7 +209,7 @@ The name of the Azure Container App environment to use with the application. If 
 **`runtimeStack`** - **Application runtime stack**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The platform version stack that the application runs in when deployed to the Azure Container App. This should be provided in the form of `<platform>:<version>`. If not provided, this value is determined by Oryx based on the contents of the provided application. Please view the following document for more information on the supported runtime stacks for Oryx: https://github.com/microsoft/Oryx/blob/main/doc/supportedRuntimeVersions.md.
+The platform version stack used in the final runnable application image that is deployed to the Container App. The value should be provided in the formation `<platform>:<version>`. If not provided, this value is determined by Oryx based on the contents of the provided application. Please refer to [this document](https://github.com/microsoft/Oryx/blob/main/doc/supportedRuntimeVersions.md) for more information on supported runtime stacks for Oryx.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -217,7 +221,7 @@ The platform version stack that the application runs in when deployed to the Azu
 **`targetPort`** - **Application target port**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The designated port for the application to run on. If no value is provided and the builder is used to build the runnable application image, the target port will be set to 80 for Python applications and 8080 for all other platform applications. If no value is provided when creating a Container App, the target port will default to 80. Note: when using this task to update a Container App, the target port may be updated if not provided based on changes to the ingress property.
+The target port that the Container App will listen on. If not provided, this value will be "80" for Python applications and "8080" for all other supported platforms.
 <!-- :::editable-content-end::: -->
 <br>
 
