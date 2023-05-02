@@ -209,7 +209,7 @@ The following pre-requisites need to be setup in the target machine(s) for the t
 
 ##### Azure Function
 
-The task is used to deploy an Auzre Functions project to an existing Azure Function. The Azure Function app should exist prior to running the task. The Azure Function App can be created from the [Azure portal](/azure-functions/functions-create-function-app-portal) . Alternatively, the [Azure PowerShell task](azure-powershell-v5.md) can be used to run [AzureRM PowerShell scripts](/powershell/azure/new-azureps-module-az) to provision and configure the Azure Function app.
+The task is used to deploy an Auzre Functions project to an existing Azure Function. The Azure Function app should exist prior to running the task. The Azure Function App can be created from the [Azure portal](/azure/azure-functions/functions-create-function-app-portal). Alternatively, the [Azure PowerShell task](azure-powershell-v5.md) can be used to run [AzureRM PowerShell scripts](/powershell/azure/new-azureps-module-az) to provision and configure the Azure Function app.
 
 The task can be used to deploy [Azure Functions]/azure/azure-functions/functions-reference) (Windows/Linux).
 
@@ -259,7 +259,7 @@ Run From Package creates the same deployment package as Zip Deploy. Instead of d
 
 * To ignore SSL error set a Variable of name VSTS_ARM_REST_IGNORE_SSL_ERRORS with value : true in the release definition.
 * The task works with the [Azure Resource Manager APIs](/rest/api/resources) only.
-* For avoiding deployment failure with error code ERROR_FILE_IN_USE we recommend defaulting to using the Run From Package option [Run your functions from a package file in Azure](/azure-functions/run-functions-from-deployment-package). For zero downtime deployment use slot swap.
+* For avoiding deployment failure with error code ERROR_FILE_IN_USE we recommend defaulting to using the Run From Package option [Run your functions from a package file in Azure](/azure/azure-functions/run-functions-from-deployment-package). For zero downtime deployment use slot swap.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

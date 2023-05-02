@@ -161,7 +161,7 @@ In this example, we are setting authentication for publishing to a private Azure
      python -m twine upload -r myTestFeed --config-file $(PYPIRC_PATH) dist/*.whl
 ```
 
-The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feedsd).
+The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 ### Publish Python distribution to the official Python registry
 
