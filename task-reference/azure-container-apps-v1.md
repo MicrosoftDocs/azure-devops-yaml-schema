@@ -145,7 +145,7 @@ Relative path to the Dockerfile in the provided application source that should b
 **`imageToBuild`** - **Docker image to build**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The custom name of the image that is to be built, pushed to ACR and deployed to the Container App by this task. Note: this image name should include the ACR server; e.g., <acr-name>.azurecr.io/<repo>:<tag>. If this argument is not provided, a default image name will be constructed in the form of `<acr-name>.azurecr.io/ado-task/container-app:<build-id>.<build-number>`.
+The custom name of the image that is to be built, pushed to ACR and deployed to the Container App by this task. Note: this image name should include the ACR server; e.g., `<acr-name>.azurecr.io/<repo>:<tag>`. If this argument is not provided, a default image name will be constructed in the form of `<acr-name>.azurecr.io/ado-task/container-app:<build-id>.<build-number>`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +157,7 @@ The custom name of the image that is to be built, pushed to ACR and deployed to 
 **`imageToDeploy`** - **Docker image to deploy**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The custom name of the image that has already been pushed to ACR and will be deployed to the Container App by this task. Note: the image name should include the ACR server; e.g., <acr-name>.azurecr.io/<repo>:<tag>. If this argument is not provided, the value provided (or determined) for the 'imageToBuild' argument will be used.
+The name of the image that has already been pushed to ACR and will be deployed to the Container App by this task. Note: the image name should include the ACR server; e.g., `<acr-name>.azurecr.io/<repo>:<tag>`. If this argument is not provided, the value provided (or determined) for the 'imageToBuild' argument will be used. If this image is found in an ACR instance that requires authentication to pull, the `acrName` argument, or the `acrUsername` and `acrPassword` arguments, can be provided to authenticate requests to the ACR instance.
 <!-- :::editable-content-end::: -->
 <br>
 
