@@ -119,6 +119,9 @@ items:
     displayName: Azure Cloud Service deployment v1
 - name: Azure Container Apps Deploy
   items:
+  - name: AzureContainerApps@1
+    href: azure-container-apps-v1.md
+    displayName: Azure Container Apps Deploy v1
   - name: AzureContainerApps@0
     href: azure-container-apps-v0.md
     displayName: Azure Container Apps Deploy v0

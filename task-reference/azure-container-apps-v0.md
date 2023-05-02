@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps.
-ms.date: 04/12/2023
+ms.date: 05/02/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -44,6 +44,8 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
     #targetPort: # string. Application target port. 
     #location: # string. Location of the Container App. 
     #environmentVariables: # string. Environment variables. 
+    #ingress: # string. Ingress setting. 
+    #yamlConfigPath: # string. YAML configuration file path. 
     #disableTelemetry: # boolean. Disable telemetry.
 ```
 
@@ -244,6 +246,30 @@ The location that the Container App (and other created resources) will be deploy
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A list of environment variable(s) for the container. Space-separated values in 'key=value' format. Empty string to clear existing values. Prefix value with 'secretref:' to reference a secret.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ingress"::: -->
+:::moniker range="=azure-pipelines"
+
+**`ingress`** - **Ingress setting**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Possible options: external, internal, disabled. If set to `external` (default value if not provided when creating a Container App), the Container App will be visible from the internet or a VNET, depending on the app environment endpoint configured. If set to `internal`, the Container App will be visible from within the app environment only. If set to `disabled`, ingress will be disabled for this Container App and will not have an HTTP or TCP endpoint.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="yamlConfigPath"::: -->
+:::moniker range="=azure-pipelines"
+
+**`yamlConfigPath`** - **YAML configuration file path**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Full path (on the executing Azure Pipelines agent) to the YAML file detailing the configuration of the Container App.
 <!-- :::editable-content-end::: -->
 <br>
 
