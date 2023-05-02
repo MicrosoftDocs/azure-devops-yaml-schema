@@ -208,7 +208,7 @@ To view the template parameters in a grid, click on `...` next to the override t
 **`csmParametersFileLink`** - **Template parameters link**<br>
 `string`. Optional. Use when `templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of the parameters file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json)
+Specifies the URL of the parameters file. Example: [https://raw.githubusercontent.com/Azure/...](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.parameters.json)
 
 To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>` To upload a parameters file to a storage account and generate a SAS token, you could use [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911). 
 
@@ -381,7 +381,7 @@ Chooses if the configured tags on the Azure VM need to be copied to the correspo
 
 ​By default, all Azure tags are copied following the format: `Key: Value`. Example: A `Role : Web` Azure tag would be copied as-is to the agent machine.
 
-Learn more about [using tags for Azure resources](/azure/azure-resource-manager/resource-group-using-tags​).
+Learn more about [using tags for Azure resources](/azure/azure-resource-manager/management/tag-resources​).
 <!-- :::editable-content-end::: -->
 <br>
 

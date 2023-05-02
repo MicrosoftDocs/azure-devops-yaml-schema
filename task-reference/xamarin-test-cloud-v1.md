@@ -130,7 +130,7 @@ Provides a path relative to the `.ipa` file. To make crash logs easier to read, 
 **`teamApiKey`** - **Team API key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies your Xamarin Test Cloud Team API key, which can be found under [Teams & Apps](https://testcloud.xamarin.com/account). Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing this value.
+Specifies your Xamarin Test Cloud Team API key, which can be found under [Teams & Apps](https://testcloud.xamarin.com). Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing this value.
 <!-- :::editable-content-end::: -->
 <br>
 
