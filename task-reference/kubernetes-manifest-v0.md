@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
-description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 03/16/2023
+description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts (task version 0).
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -608,6 +608,13 @@ Specifies the location of the manifest bundles created by bake action.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+:::moniker range=">azure-pipelines-2022"
+
+> [!NOTE]
+> There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [KubernetesManifest@1](./kubernetes-manifest-v1.md) and [KubernetesManifest@1 service connection remarks](./kubernetes-manifest-v1.md#remarks)
+
+:::moniker-end
 
 Use a Kubernetes manifest task in a build or release pipeline to bake and deploy manifests to Kubernetes clusters.
 

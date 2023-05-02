@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -23,7 +23,32 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure PowerShell v5
+# Run a PowerShell script within an Azure environment.
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required. Azure Subscription. 
+    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
+    #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
+    #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
+    #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
+    #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
+  # Azure PowerShell version options
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
+    preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
+  # Advanced
+    #pwsh: false # boolean. Use PowerShell Core. Default: false.
+    #validateScriptSignature: false # boolean. Optional. Use when ScriptType = FilePath. Validate script signature. Default: false.
+    #workingDirectory: # string. Working Directory.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 ```yaml
 # Azure PowerShell v5
@@ -169,6 +194,18 @@ The preferred Azure PowerShell Version needs to be a proper semantic version eg.
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, then tasks running on Windows agents will use `pwsh.exe` from your path instead of `powershell.exe`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="validateScriptSignature"::: -->
+:::moniker range="=azure-pipelines"
+
+**`validateScriptSignature`** - **Validate script signature**<br>
+`boolean`. Optional. Use when `ScriptType = FilePath`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is true, then the task will first check to make sure specified script is signed and valid before executing it.
 <!-- :::editable-content-end::: -->
 <br>
 

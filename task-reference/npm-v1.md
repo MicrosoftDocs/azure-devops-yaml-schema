@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -200,7 +200,7 @@ Specifies the registries to use. Commit a `.npmrc` file to your source code repo
 <!-- :::item name="customFeed"::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-**`customFeed`** - **Use packages from this Azure Artifacts registry**<br>
+**`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
@@ -211,7 +211,7 @@ Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, 
 
 :::moniker range="=azure-pipelines-2018"
 
-**`customFeed`** - **Use packages from this TFS registry**<br>
+**`customFeed`** - **Use packages from this VSTS/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `.npmrc`. You must have Azure Artifacts installed and licensed to select a feed here. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.

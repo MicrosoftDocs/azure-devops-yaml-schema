@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@4 - Azure file copy v4 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 4).
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -166,7 +166,7 @@ Specify a VM host name or tag that identifies a subset of VMs in a resource grou
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provide a list of VM names or tag names that identify the VMs the task will target. Valid filter criteria includes:
 
-- The name of an [Azure Resource Group](/azure-resource-manager/management/overview).
+- The name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
 - An output variable from a previous task.
 - A comma-delimited list of tag names or VM names.
 - Format VM names using a comma-separated list of FQDNs or IP addresses.

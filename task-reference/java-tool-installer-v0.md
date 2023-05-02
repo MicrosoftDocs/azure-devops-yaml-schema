@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 03/16/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -358,7 +358,7 @@ Here's an example of using "pre-installed" feature. This feature allows you to u
 - task: JavaToolInstaller@0
   inputs:
     versionSpec: '8'
-    jdkArchitectureOption: 'x86'
+    jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
 ```
 <!-- :::editable-content-end::: -->

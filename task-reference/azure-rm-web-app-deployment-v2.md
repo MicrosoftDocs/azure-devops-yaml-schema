@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@2 - Azure App Service Deploy v2 task
 description: Update Azure App Service using Web Deploy / Kudu REST APIs (task version 2).
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -23,7 +23,7 @@ Use this task to update Azure App Service using Web Deploy/[Kudu REST APIs](http
 :::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-# Azure App Service Deploy v2
+# Azure App Service deploy v2
 # Update Azure App Service using Web Deploy / Kudu REST APIs.
 - task: AzureRmWebAppDeployment@2
   inputs:

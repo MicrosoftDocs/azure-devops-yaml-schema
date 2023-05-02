@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@1 - FTP upload v1 task
 description: Upload files using FTP (task version 1).
-ms.date: 03/16/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
