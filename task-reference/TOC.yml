@@ -88,7 +88,7 @@ items:
     displayName: Azure App Service deploy v3
   - name: AzureRmWebAppDeployment@2
     href: azure-rm-web-app-deployment-v2.md
-    displayName: Azure App Service Deploy v2
+    displayName: Azure App Service deploy v2
 - name: Azure App Service manage
   items:
   - name: AzureAppServiceManage@0

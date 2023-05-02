@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@1 - .NET Core v1 task
 description: Build, test and publish using dotnet core command-line (task version 1).
-ms.date: 03/16/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
