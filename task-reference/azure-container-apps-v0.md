@@ -723,5 +723,8 @@ resource group named `<container-app-name>-rg` where the image built and pushed 
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Deploy to Azure Container Apps from Azure Pipelines](/azure/container-apps/azure-pipelines)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
