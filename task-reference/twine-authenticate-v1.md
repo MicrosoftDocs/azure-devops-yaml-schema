@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,21 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Python twine upload authenticate v1
+# Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
+- task: TwineAuthenticate@1
+  inputs:
+  # Feeds and Authentication
+    #artifactFeed: # string. My feed name (select below). 
+    #pythonUploadServiceConnection: # string. Feed from external organizations.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 ```yaml
 # Python twine upload authenticate v1
@@ -39,7 +53,18 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 ## Inputs
 
 <!-- :::item name="artifactFeed"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+**`artifactFeed`** - **My feed name (select below)**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the Azure artifact's feed name to authenticate with twine. The authenticating feed must be present within the organization. For project-scoped feeds, use the syntax `projectName/feedNameSelect`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 **`artifactFeed`** - **My feed (select below)**<br>
 `string`.<br>
@@ -136,7 +161,7 @@ In this example, we are setting authentication for publishing to a private Azure
      python -m twine upload -r myTestFeed --config-file $(PYPIRC_PATH) dist/*.whl
 ```
 
-The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feedsd).
+The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 ### Publish Python distribution to the official Python registry
 

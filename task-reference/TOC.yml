@@ -147,11 +147,14 @@ items:
   - name: AzureFunctionOnKubernetes@0
     href: azure-function-on-kubernetes-v0.md
     displayName: Azure Function on Kubernetes v0
-- name: Azure Functions
+- name: Azure Functions Deploy
   items:
+  - name: AzureFunctionApp@2
+    href: azure-function-app-v2.md
+    displayName: Azure Functions Deploy v2
   - name: AzureFunctionApp@1
     href: azure-function-app-v1.md
-    displayName: Azure Functions v1
+    displayName: Azure Functions Deploy v1
 - name: Azure Functions for container
   items:
   - name: AzureFunctionAppContainer@1

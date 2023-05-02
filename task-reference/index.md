@@ -273,7 +273,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -469,7 +469,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -663,7 +663,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
 | **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -851,8 +851,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
-| **Azure Function**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Deploy an Azure Function for Linux or Windows. |
 | **Azure Function for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update Function Apps with Docker containers. |
+| **Azure Functions Deploy**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Deploy an Azure Function for Linux or Windows. |
 | **Azure Key Vault**<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource. |
 | **Azure PowerShell**<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |

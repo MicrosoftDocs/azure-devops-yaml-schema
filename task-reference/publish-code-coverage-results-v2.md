@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 description: Publish code coverage results from a build.
-ms.date: 02/01/2023
+ms.date: 04/12/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -156,7 +156,7 @@ The publish code coverage results v2 task generates a cjson file and publishes t
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.102.0 or greater |
+| Agent version |  2.144.0 or greater |
 | Task category | Test |
 
 :::moniker-end
