@@ -79,7 +79,7 @@ Use this task to find, download, and cache a specified version of [NuGet](https:
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
+A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](https://dist.nuget.org/tools.json).
 
 If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 
@@ -94,7 +94,7 @@ Examples: `4.x`, `3.3.x`, `2.8.6`, `>=4.0.0-0`.
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
 `string`. Required. Default value: `4.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
+A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](https://dist.nuget.org/tools.json).
 
 If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 

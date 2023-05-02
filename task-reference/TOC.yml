@@ -141,6 +141,9 @@ items:
     displayName: Azure file copy v1
 - name: Azure Function on Kubernetes
   items:
+  - name: AzureFunctionOnKubernetes@1
+    href: azure-function-on-kubernetes-v1.md
+    displayName: Azure Function on Kubernetes v1
   - name: AzureFunctionOnKubernetes@0
     href: azure-function-on-kubernetes-v0.md
     displayName: Azure Function on Kubernetes v0
@@ -365,6 +368,9 @@ items:
     displayName: Deploy Azure Static Web App v0
 - name: Deploy to Kubernetes
   items:
+  - name: KubernetesManifest@1
+    href: kubernetes-manifest-v1.md
+    displayName: Deploy to Kubernetes v1
   - name: KubernetesManifest@0
     href: kubernetes-manifest-v0.md
     displayName: Deploy to Kubernetes v0
@@ -665,6 +671,11 @@ items:
   - name: MysqlDeploymentOnMachineGroup@1
     href: mysql-deployment-on-machine-group-v1.md
     displayName: MySQL database deploy v1
+- name: Node.js tasks runner installer
+  items:
+  - name: NodeTaskRunnerInstaller@0
+    href: node-task-runner-installer-v0.md
+    displayName: Node.js tasks runner installer v0
 - name: Node.js tool installer
   items:
   - name: NodeTool@0
@@ -768,9 +779,6 @@ items:
     displayName: Publish build artifacts v1
 - name: Publish code coverage results
   items:
-  - name: PublishCodeCoverageResults@2
-    href: publish-code-coverage-results-v2.md
-    displayName: Publish code coverage results v2
   - name: PublishCodeCoverageResults@1
     href: publish-code-coverage-results-v1.md
     displayName: Publish code coverage results v1

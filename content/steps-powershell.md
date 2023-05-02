@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
-ms.date: 03/02/2023
+ms.date: 04/28/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

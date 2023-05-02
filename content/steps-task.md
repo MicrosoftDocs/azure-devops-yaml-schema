@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: Runs a task.
-ms.date: 03/02/2023
+ms.date: 04/28/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -175,7 +175,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker range=">=azure-pipelines-2019"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Time to wait for this task to complete before the server kills it.
+Time to wait for this task to complete before the server kills it. For example, to configure a 10 minute timeout, use `timeoutInMinutes: 10`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

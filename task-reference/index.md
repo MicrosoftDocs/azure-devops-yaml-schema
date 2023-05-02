@@ -73,8 +73,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Cloud Service deployment**<br>[AzureCloudPowerShellDeployment@1](azure-cloud-powershell-deployment-v1.md) | Deploy an Azure Cloud Service. |
 | **Azure Database for MySQL deployment**<br>[AzureMysqlDeployment@1](azure-mysql-deployment-v1.md) | Run your scripts and make changes to your Azure Database for MySQL. |
 | **Azure file copy**<br>[AzureFileCopy@5](azure-file-copy-v5.md)<br>[AzureFileCopy@4](azure-file-copy-v4.md)<br>[AzureFileCopy@3](azure-file-copy-v3.md)<br>[AzureFileCopy@2](azure-file-copy-v2.md)<br>[AzureFileCopy@1](azure-file-copy-v1.md) | Copy files to Azure Blob Storage or virtual machines. |
-| **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
-| **Azure Functions Deploy**<br>[AzureFunctionApp@2](azure-function-app-v2.md)<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
+| **Azure Function on Kubernetes**<br>[AzureFunctionOnKubernetes@1](azure-function-on-kubernetes-v1.md)<br>[AzureFunctionOnKubernetes@0](azure-function-on-kubernetes-v0.md) | Deploy Azure function to Kubernetes cluster. |
+| **Azure Functions**<br>[AzureFunctionApp@1](azure-function-app-v1.md) | Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications. |
 | **Azure Functions for container**<br>[AzureFunctionAppContainer@1](azure-function-app-container-v1.md) | Update a function app with a Docker container. |
 | **Azure Key Vault**<br>[AzureKeyVault@2](azure-key-vault-v2.md)<br>[AzureKeyVault@1](azure-key-vault-v1.md) | Download Azure Key Vault secrets. |
 | **Azure Monitor alerts (Deprecated)**<br>[AzureMonitorAlerts@0](azure-monitor-alerts-v0.md) | Configure alerts on available metrics for an Azure resource (Deprecated). |
@@ -91,7 +91,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Chef**<br>[Chef@1](chef-v1.md) | Deploy to Chef environments by editing environment attributes. |
 | **Chef Knife**<br>[ChefKnife@1](chef-knife-v1.md) | Run scripts with Knife commands on your Chef workstation. |
 | **Copy files over SSH**<br>[CopyFilesOverSSH@0](copy-files-over-ssh-v0.md) | Copy files or build artifacts to a remote machine over SSH. |
-| **Deploy to Kubernetes**<br>[KubernetesManifest@0](kubernetes-manifest-v0.md) | Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts. |
+| **Deploy to Kubernetes**<br>[KubernetesManifest@1](kubernetes-manifest-v1.md)<br>[KubernetesManifest@0](kubernetes-manifest-v0.md) | Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts. |
 | **IIS web app deploy**<br>[IISWebAppDeploymentOnMachineGroup@0](iisweb-app-deployment-on-machine-group-v0.md) | Deploy a website or web application using Web Deploy. |
 | **IIS Web App deployment (Deprecated)**<br>[IISWebAppDeployment@1](iisweb-app-deployment-v1.md) | Deploy using MSDeploy, then create/update websites and app pools. |
 | **IIS web app manage**<br>[IISWebAppManagementOnMachineGroup@0](iisweb-app-management-on-machine-group-v0.md) | Create or update websites, web apps, virtual directories, or application pools. |
@@ -139,7 +139,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Load Testing**<br>[AzureLoadTest@1](azure-load-test-v1.md) | Automate performance regression testing with Azure Load Testing. |
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
-| **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |
+| **Publish code coverage results**<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish Cobertura or JaCoCo code coverage results from a build. |
+| **Publish code coverage results v2**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md) | Publish any of the code coverage results from a build. |
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
@@ -204,6 +205,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
 | **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
 | **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
+| **Node.js tasks runner installer**<br>[NodeTaskRunnerInstaller@0](node-task-runner-installer-v0.md) | Install specific Node.js version to run node tasks. |
 | **PowerShell**<br>[PowerShell@2](powershell-v2.md)<br>[PowerShell@1](powershell-v1.md) | Run a PowerShell script on Linux, macOS, or Windows. |
 | **Publish build artifacts**<br>[PublishBuildArtifacts@1](publish-build-artifacts-v1.md) | Publish build artifacts to Azure Pipelines or a Windows file share. |
 | **Publish Pipeline Artifacts**<br>[PublishPipelineArtifact@1](publish-pipeline-artifact-v1.md)<br>[PublishPipelineArtifact@0](publish-pipeline-artifact-v0.md) | Publish (upload) a file or directory as a named artifact for the current run. |

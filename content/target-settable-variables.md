@@ -1,7 +1,7 @@
 ---
 title: target.settableVariables definition
 description: Restrictions on which variables that can be set.
-ms.date: 03/01/2023
+ms.date: 04/28/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
