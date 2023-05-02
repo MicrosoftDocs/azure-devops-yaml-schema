@@ -1,7 +1,7 @@
 ---
 title: WindowsMachineFileCopy@2 - Windows machine file copy v2 task
 description: Copy files to remote Windows machines.
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: GitHubComment@0 - GitHub Comment v0 task
 description: Write a comment to your GitHub entity i.e. issue or a Pull Request (PR).
-ms.date: 03/16/2023
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

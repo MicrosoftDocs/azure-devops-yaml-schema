@@ -1,7 +1,7 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
 description: Download artifacts produced by a Jenkins job.
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 

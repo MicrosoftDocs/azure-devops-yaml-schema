@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@0 - Azure CLI Preview v0 task
 description: Run a Shell or Batch script with Azure CLI commands against an azure subscription.
-ms.date: 02/01/2023
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
