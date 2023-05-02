@@ -381,7 +381,7 @@ Chooses if the configured tags on the Azure VM need to be copied to the correspo
 
 ​By default, all Azure tags are copied following the format: `Key: Value`. Example: A `Role : Web` Azure tag would be copied as-is to the agent machine.
 
-Learn more about [using tags for Azure resources](/azure/azure-resource-manager/management/tag-resources​).
+Learn more about [using tags for Azure resources](/azure/azure-resource-manager/management/tag-resources).
 <!-- :::editable-content-end::: -->
 <br>
 
