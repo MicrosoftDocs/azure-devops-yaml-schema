@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -104,7 +104,7 @@ Specifies whether to store the artifact in Azure Pipelines or to copy it to a fi
 **`fileSharePath`** - **File share path**<br>
 `string`. Required when `artifactType = filepath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the file share where the artifact files are copied. This can include variables, for example `\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber)`. Publishing artifacts from a Linux or macOS agent to a file share is not supported, for example `\server\folderName`.
+Specifies the file share where the artifact files are copied. This can include variables, for example `\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber)`. Publishing artifacts from a Linux or macOS agent to a file share is not supported, for example `\\server\folderName`.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -32,7 +32,7 @@ Use this task to build a machine image using Packer, which may be used for Azure
     #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: {}.
   # Azure Details
     ConnectedServiceName: # string. Required. Azure subscription. 
-    isManagedImage: true # boolean. Required. Managed VM disk image. Default: true.
+    #isManagedImage: true # boolean. Managed VM disk image. Default: true.
     managedImageName: # string. Required when isManagedImage = true. Managed VM Disk Image Name. 
     location: # string. Required. Storage location. 
     storageAccountName: # string. Required. Storage account. 
@@ -68,7 +68,7 @@ Use this task to build a machine image using Packer, which may be used for Azure
     #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: {}.
   # Azure Details
     ConnectedServiceName: # string. Required. Azure subscription. 
-    isManagedImage: true # boolean. Required. Managed VM disk image. Default: true.
+    #isManagedImage: true # boolean. Managed VM disk image. Default: true.
     managedImageName: # string. Required when isManagedImage = true. Managed VM Disk Image Name. 
     location: # string. Required. Storage location. 
     storageAccountName: # string. Required. Storage account. 
@@ -147,7 +147,7 @@ Specifies the Azure Resource Manager subscription for baking and storing the mac
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`isManagedImage`** - **Managed VM disk image**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Checks if the generated image should be a managed image.
 <!-- :::editable-content-end::: -->

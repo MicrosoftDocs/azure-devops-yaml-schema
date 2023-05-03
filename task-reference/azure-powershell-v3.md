@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@3 - Azure PowerShell v3 task
 description: Run a PowerShell script within an Azure environment (task version 3).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,32 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure PowerShell v3
+# Run a PowerShell script within an Azure environment.
+- task: AzurePowerShell@3
+  inputs:
+    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Alias: ConnectedServiceNameSelector. Azure Connection Type. Default: ConnectedServiceNameARM.
+    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
+    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
+    #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
+    #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
+    #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
+    #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
+  # Azure PowerShell version options
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
+    preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
+  # Advanced
+    #validateScriptSignature: false # boolean. Optional. Use when ScriptType = FilePath. Validate script signature. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 ```yaml
 # Azure PowerShell v3
@@ -160,7 +185,7 @@ When this is true, this task will fail if any errors are written to the error pi
 **`azurePowerShellVersion`** - **Azure PowerShell Version**<br>
 Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-In case of hosted agents, the supported Azure PowerShell Versions are `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and `6.7.0` (Hosted VS2017 Queue).
+In case of hosted agents, the supported Azure PowerShell Versions are `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and `6.7.0`.
 To pick the latest version available on the agent, select `LatestVersion` (Latest installed version).
 
 For private agents, you can specify a preferred version of Azure PowerShell using `OtherVersion` (Specify other version).
@@ -175,7 +200,19 @@ For private agents, you can specify a preferred version of Azure PowerShell usin
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
 Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3.`. Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Azure module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and AzureRM module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1`, `6.7.0`.
+The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3.`. Regex like `2.\*,2.3.\*` is not supported. Hosted agents currently supports Azure module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1` and AzureRM module versions `2.1.0`, `3.8.0`, `4.2.1`, `5.1.1`, `6.7.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="validateScriptSignature"::: -->
+:::moniker range="=azure-pipelines"
+
+**`validateScriptSignature`** - **Validate script signature**<br>
+`boolean`. Optional. Use when `ScriptType = FilePath`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is true, then the task will first check to make sure specified script is signed and valid before executing it.
 <!-- :::editable-content-end::: -->
 <br>
 

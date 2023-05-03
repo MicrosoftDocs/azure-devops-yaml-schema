@@ -1,302 +1,101 @@
 ---
 title: jobs.job.container definition
-description: jobs.job.container definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: Container resource name.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # jobs.job.container definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019.1"
 
+<!-- :::editable-content name="description"::: -->
 Container jobs allow you to run jobs on a container instead of the agent host.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-Properties that use this definition: [pipeline.container](pipeline.md), [jobs.job.container](jobs-job.md)
+Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2019.1"
 
-Properties that use this definition: [pipeline.container](pipeline.md), [jobs.job.container](jobs-job.md), [jobs.deployment.container](jobs-deployment.md)
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-Properties that use this definition: [pipeline.container](pipeline.md), [jobs.job.container](jobs-job.md), [jobs.deployment.container](jobs-deployment.md)
+Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
 :::moniker-end
+<!-- :::parents-end::: -->
 
-:::moniker range="= azure-pipelines-2022"
+## Implementations
 
-Properties that use this definition: [pipeline.container](pipeline.md), [jobs.job.container](jobs-job.md), [jobs.deployment.container](jobs-deployment.md)
+<!-- :::implementations-list::: -->
+:::moniker range=">=azure-pipelines-2019.1"
 
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-Properties that use this definition: [pipeline.container](pipeline.md), [jobs.job.container](jobs-job.md), [jobs.deployment.container](jobs-deployment.md)
-
-:::moniker-end
-
-## Overloads
-
-:::moniker range="= azure-pipelines-2019.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [container: string](#container-string) | Specify job container by alias. |
-| [container: image](#container-image) | Specify job container using image tag and options. |
+| Implementation | Description |
+|---|---|
+| [container: string](#containerstring) | Specify job container by alias. |
+| [container: image](#containerimage) | Specify job container using image tag and options. |
 
 :::moniker-end
+<!-- :::implementations-list-end::: -->
 
-:::moniker range="= azure-pipelines-2020" 
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-| Overload | Description |
-|----------|-------------|
-| [container: string](#container-string) | Specify job container by alias. |
-| [container: image](#container-image) | Specify job container using image tag and options. |
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-:::moniker-end
+<!-- :::implementations::: -->
+<!-- :::implementation-item name="container: string"::: -->
+<a name="containerstring"></a>
+<!-- :::stringAnyOf::: -->
+:::moniker range=">=azure-pipelines-2019.1"
 
-:::moniker range="= azure-pipelines-2020.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [container: string](#container-string) | Specify job container by alias. |
-| [container: image](#container-image) | Specify job container using image tag and options. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022" 
-
-| Overload | Description |
-|----------|-------------|
-| [container: string](#container-string) | Specify job container by alias. |
-| [container: image](#container-image) | Specify job container using image tag and options. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines" 
-
-| Overload | Description |
-|----------|-------------|
-| [container: string](#container-string) | Specify job container by alias. |
-| [container: image](#container-image) | Specify job container using image tag and options. |
-
-:::moniker-end
-
-<!-- Remarks -->
-
-:::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
+<!-- :::implementation-signature::: -->
 ## container: string
+<!-- :::implementation-signature-end::: -->
 
-Specify job container using an alias.
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Specify job container by alias.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="jobContainer{string}" version="azure-pipelines-2019.1"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
-container: string # 
+container: string # Specify job container by alias.
 ```
+<!-- :::implementation-syntax-end::: -->
 
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobContainer`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::implementation-string-item::: -->
+**`container`** string.<br>
+<!-- :::editable-content name="description"::: -->
+Specify job container by alias.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-string-item-end::: -->
 
 :::moniker-end
+<!-- :::stringAnyOf-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="jobContainer{string}" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-container: string # 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobContainer`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="jobContainer{string}" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-container: string # 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobContainer`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="jobContainer{string}" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-container: string # 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobContainer`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="jobContainer{string}" version="azure-pipelines"::: -->
-
-
-```yaml
-container: string # 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobContainer`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ### Remarks
 
 The alias can be the name of an image, or it can be a reference to a [container resource](resources-containers-container.md).
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 The following example fetches the ubuntu image tagged 18.04 from [Docker Hub](https://hub.docker.com/) and then starts the container. When the `printenv` command runs, it happens inside the ubuntu:18.04 container.
@@ -310,905 +109,228 @@ container: ubuntu:18.04
 steps:
 - script: printenv
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="container: image"::: -->
+<a name="containerimage"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
+<!-- :::implementation-signature::: -->
 ## container: image
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
 Specify job container using image tag and options.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="jobContainer{image}" version="azure-pipelines-2019.1"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
 container:
-  image: string # Required. Container image tag. 
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
+  image: string # Required. Container image tag.
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  env: # Variables to map into the container's environment.
+    string: string # Name/value pairs
+  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+  options: string # Options to pass into container host.
+  ports: [ string ] # Ports to expose on the container.
+  volumes: [ string ] # Volumes to mount on the container.
+  mountReadOnly: # Volumes to mount read-only, the default is all false.
+    work: boolean # Mount the work directory as readonly.
+    externals: boolean # Mount the externals directory as readonly.
+    tools: boolean # Mount the tools directory as readonly.
+    tasks: boolean # Mount the tasks directory as readonly.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="image"::: -->
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Container image tag.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="env"::: -->
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Variables to map into the container's environment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="mapDockerSocket"::: -->
+**`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="options"::: -->
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Options to pass into container host.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ports"::: -->
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Ports to expose on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="volumes"::: -->
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Volumes to mount on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="mountReadOnly"::: -->
+**`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br><!-- :::editable-content name="propDescription"::: -->
+Volumes to mount read-only, the default is all false.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
-<!-- :::api-definition signature="jobContainer{image}" version="azure-pipelines-2020"::: -->
+<!-- :::implementation-signature::: -->
+## container: image
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Specify job container using image tag and options.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
 container:
-  image: string # Required. Container image tag. 
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
+  image: string # Required. Container image tag.
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  env: # Variables to map into the container's environment.
+    string: string # Name/value pairs
+  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+  options: string # Options to pass into container host.
+  ports: [ string ] # Ports to expose on the container.
+  volumes: [ string ] # Volumes to mount on the container.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="image"::: -->
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Container image tag.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="env"::: -->
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Variables to map into the container's environment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="mapDockerSocket"::: -->
+**`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="options"::: -->
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Options to pass into container host.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ports"::: -->
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Ports to expose on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="volumes"::: -->
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Volumes to mount on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines-2019.1"
 
-<!-- :::api-definition signature="jobContainer{image}" version="azure-pipelines-2020.1"::: -->
+<!-- :::implementation-signature::: -->
+## container: image
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Specify job container using image tag and options.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
 container:
-  image: string # Required. Container image tag. 
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
-  mountReadOnly:  # Volumes to mount read-only, the default is all false.
-    work: boolean # Mount the work directory as readonly.  (false,n,no,off,on,true,y,yes)
-    externals: boolean # Mount the externals directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tools: boolean # Mount the tools directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tasks: boolean # Mount the tasks directory as readonly.  (false,n,no,off,on,true,y,yes)
+  image: string # Required. Container image tag.
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  env: # Variables to map into the container's environment.
+    string: string # Name/value pairs
+  options: string # Options to pass into container host.
+  ports: [ string ] # Ports to expose on the container.
+  volumes: [ string ] # Volumes to mount on the container.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mountReadOnly`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string/boolean pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount read-only, the default is all false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="image"::: -->
+**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Container image tag.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="endpoint"::: -->
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="env"::: -->
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Variables to map into the container's environment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="options"::: -->
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Options to pass into container host.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="ports"::: -->
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Ports to expose on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="volumes"::: -->
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Volumes to mount on the container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="jobContainer{image}" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-container:
-  image: string # Required. Container image tag. 
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
-  mountReadOnly:  # Volumes to mount read-only, the default is all false.
-    work: boolean # Mount the work directory as readonly.  (false,n,no,off,on,true,y,yes)
-    externals: boolean # Mount the externals directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tools: boolean # Mount the tools directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tasks: boolean # Mount the tasks directory as readonly.  (false,n,no,off,on,true,y,yes)
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mountReadOnly`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string/boolean pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount read-only, the default is all false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="jobContainer{image}" version="azure-pipelines"::: -->
-
-
-```yaml
-container:
-  image: string # Required. Container image tag. 
-  endpoint: string # ID of the service endpoint connecting to a private container registry. 
-  env:  # Variables to map into the container's environment
-    string: string # Name/value pairs.
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.  (false,n,no,off,on,true,y,yes)
-  options: string # Options to pass into container host. 
-  ports: [ string ] # Ports to expose on the container. 
-  volumes: [ string ] # Volumes to mount on the container. 
-  mountReadOnly:  # Volumes to mount read-only, the default is all false.
-    work: boolean # Mount the work directory as readonly.  (false,n,no,off,on,true,y,yes)
-    externals: boolean # Mount the externals directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tools: boolean # Mount the tools directory as readonly.  (false,n,no,off,on,true,y,yes)
-    tasks: boolean # Mount the tasks directory as readonly.  (false,n,no,off,on,true,y,yes)
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `endpoint`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the service endpoint connecting to a private container registry. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the container's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `image`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Container image tag. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapDockerSocket`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `options`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Options to pass into container host. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `ports`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Ports to expose on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `volumes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount on the container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mountReadOnly`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string/boolean pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Volumes to mount read-only, the default is all false. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
+<!-- :::objectAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 Use `options` to configure container startup.
@@ -1255,10 +377,16 @@ jobs:
   steps:
   - script: printenv
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementations-end::: -->
 
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Define container jobs](/azure/devops/pipelines/process/container-phases)
 - [Define resources](/azure/devops/pipelines/process/resources)
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -97,7 +97,7 @@ Publish Test Results to VSTS/TFS.
 **`testResultsFormat`** - **Test result format**<br>
 Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`, `CTest`. Default value: `JUnit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
+Specifies the format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://docs.nunit.org/articles/nunit/technical-notes/usage/Test-Result-XML-Format.html), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
 <!-- :::editable-content-end::: -->
 <br>
 

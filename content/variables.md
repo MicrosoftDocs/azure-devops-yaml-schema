@@ -1,367 +1,105 @@
 ---
 title: variables definition
-description: variables definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: Define variables using name/value pairs.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # variables definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-Define variables to use in your pipeline.
+<!-- :::editable-content name="description"::: -->
+Define variables using name/value pairs.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-Properties that use this definition: [pipeline.variables](pipeline.md), [jobs.job.variables](jobs-job.md)
+Definitions that that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-Properties that use this definition: [pipeline.variables](pipeline.md), [jobs.job.variables](jobs-job.md)
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-Properties that use this definition: [pipeline.variables](pipeline.md), [stages.stage.variables](stages-stage.md), [jobs.job.variables](jobs-job.md), [jobs.deployment.variables](jobs-deployment.md)
+Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
 :::moniker-end
+<!-- :::parents-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
+## Implementations
 
-Properties that use this definition: [pipeline.variables](pipeline.md), [stages.stage.variables](stages-stage.md), [jobs.job.variables](jobs-job.md), [jobs.deployment.variables](jobs-deployment.md)
+<!-- :::implementations-list::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-Properties that use this definition: [pipeline.variables](pipeline.md), [stages.stage.variables](stages-stage.md), [jobs.job.variables](jobs-job.md), [jobs.deployment.variables](jobs-deployment.md)
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-Properties that use this definition: [pipeline.variables](pipeline.md), [stages.stage.variables](stages-stage.md), [jobs.job.variables](jobs-job.md), [jobs.deployment.variables](jobs-deployment.md)
+| Implementation | Description |
+|---|---|
+| [variables: string dictionary](#variablesmapping) | Define variables using name/value pairs. |
+| [variables: variable list](#variablesvariablelist) | Define variables by name, variable group, or in a template. |
 
 :::moniker-end
+<!-- :::implementations-list-end::: -->
 
-## Overloads
-
-:::moniker range="= azure-pipelines-2019" 
-
-| Overload | Description |
-|----------|-------------|
-| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
-| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
-| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020" 
-
-| Overload | Description |
-|----------|-------------|
-| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
-| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
-| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022" 
-
-| Overload | Description |
-|----------|-------------|
-| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
-| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines" 
-
-| Overload | Description |
-|----------|-------------|
-| [variables: string pairs](#variables-string-pairs) | Define variables using name/value pairs. |
-| [variables: variable list](#variables-variable-list) | Define variables by name, variable group, or in a template. |
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The `variables` keyword uses two syntax forms: list and mapping.
+The `variables` keyword uses two syntax forms: variable list and mapping (string dictionary).
 
 In mapping syntax, all keys are variable names and their values are variable values. To use variable templates, you must use list syntax. List syntax requires you to specify whether you're mentioning a variable (`name`), a variable group (`group`), or a template (`template`).
 
 You can't use list and mapping variables in the same variables section, but you can combine `name`, `group`, and `template` when using list syntax.
 
 You can specify variables at the pipeline, stage, or job level.
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-## variables: string pairs
+<!-- :::implementations::: -->
+<!-- :::implementation-item name="variables: mapping"::: -->
+<a name="variablesmapping"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-You can specify variables as string/value pairs.
+<!-- :::implementation-signature::: -->
+## variables: string dictionary
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Define variables using name/value pairs.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="variables" version="azure-pipelines-2019"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
 variables:
-  string: string # Name/value pairs.
+  string: string # Name/value pairs
 ```
+<!-- :::implementation-syntax-end::: -->
 
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapping`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::implementation-properties::: -->
+None.
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="variables" version="azure-pipelines-2019.1"::: -->
-
-
-```yaml
-variables:
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapping`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="variables" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-variables:
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapping`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="variables" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-variables:
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapping`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="variables" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-variables:
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapping`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="variables" version="azure-pipelines"::: -->
-
-
-```yaml
-variables:
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `mapping`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
+<!-- :::objectAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 For a simple set of hard-coded variables, use this mapping syntax:
@@ -410,250 +148,50 @@ jobs:
 ```
 
 ::: moniker-end
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="variables: variable list"::: -->
+<a name="variablesvariablelist"></a>
+<!-- :::arrayAnyOf::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
+<!-- :::implementation-signature::: -->
 ## variables: variable list
+<!-- :::implementation-signature-end::: -->
 
-Specify variables using the full syntax.
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Define variables by name, variable group, or in a template.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2019"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
-variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
+variables: [ name | group | template ] # Define variables by name, variable group, or in a template.
 ```
+<!-- :::implementation-syntax-end::: -->
 
-### Properties
+### List types
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::implementation-list-types::: -->
+| Type | Description |
+|---|---|
+| [variables.name](variables-name.md) | Define variables using name and full syntax. |
+| [variables.group](variables-group.md) | Reference variables from a variable group. |
+| [variables.template](variables-template.md) | Define variables in a template. |
+<!-- :::implementation-list-types-end::: -->
 
 :::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2019.1"::: -->
-
-
-```yaml
-variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="variables[variable]" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="variables[variable]" version="azure-pipelines"::: -->
-
-
-```yaml
-variables: [ name | group | template ] # Define variables by name, variable group, or in a template. 
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables.name](variables-name.md) | [variables.group](variables-group.md) | [variables.template](variables-template.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
+<!-- :::arrayAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 To include variable groups, switch to this sequence syntax:
@@ -691,12 +229,16 @@ variables:
 - group: my-variable-group-1  # variable group
 - group: my-variable-group-2  # another variable group
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementations-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add & use variable groups](/azure/devops/pipelines/library/variable-groups)
 - [Define variables](/azure/devops/pipelines/process/variables)
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

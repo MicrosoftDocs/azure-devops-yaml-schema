@@ -1,7 +1,7 @@
 ---
 title: Gradle@1 - Gradle v1 task
 description: Build using a Gradle wrapper script (task version 1).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -38,7 +38,7 @@ Build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to TFS/Team Services. Default: true.
+    #publishJUnitResults: true # boolean. Publish to TFS/Team Services. Default: true.
     testResultsFiles: '**/build/test-results/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/build/test-results/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
@@ -47,13 +47,13 @@ Build using a Gradle wrapper script.
     #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class Inclusion/Exclusion Filters. 
     #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail When Code Coverage Results Are Missing. Default: false.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube Analysis. Default: false.
     #sonarQubeServiceEndpoint: # string. Alias: sqConnectedServiceName. Required when sqAnalysisEnabled = true. SonarQube Endpoint. 
     #sonarQubeProjectName: # string. Alias: sqProjectName. Required when sqAnalysisEnabled = true. SonarQube Project Name. 
     #sonarQubeProjectKey: # string. Alias: sqProjectKey. Required when sqAnalysisEnabled = true. SonarQube Project Key. 
     #sonarQubeProjectVersion: # string. Alias: sqProjectVersion. Required when sqAnalysisEnabled = true. SonarQube Project Version. 
     #sonarQubeGradlePluginVersion: '2.0.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true. SonarQube Gradle Plugin Version. Default: 2.0.1.
-    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Required when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
+    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Optional. Use when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
     #sonarQubeDBUrl: # string. Alias: sqDbUrl. Optional. Use when sqDbDetailsRequired = true. Db Connection String. 
     #sonarQubeDBUsername: # string. Alias: sqDbUsername. Optional. Use when sqDbDetailsRequired = true. Db Username. 
     #sonarQubeDBPassword: # string. Alias: sqDbPassword. Optional. Use when sqDbDetailsRequired = true. Db User Password. 
@@ -134,7 +134,7 @@ Specifies the working directory to run the Gradle build. The task uses the repos
 :::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -278,7 +278,7 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube Analysis**<br>
-Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs a SonarQube analysis after executing the current goals. `install` or `package` goals should be executed first.
 <!-- :::editable-content-end::: -->
@@ -350,7 +350,7 @@ Contains the version number of the [SpotBugs Gradle plugin](https://plugins.grad
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeSpecifyDB`** - **The SonarQube server version is lower than 5.2**<br>
-Input alias: `sqDbDetailsRequired`. `boolean`. Required when `sqAnalysisEnabled = true`. Default value: `false`.<br>
+Input alias: `sqDbDetailsRequired`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 SonarQube server 5.1 and lower only. Specifies the database connection details.
 <!-- :::editable-content-end::: -->

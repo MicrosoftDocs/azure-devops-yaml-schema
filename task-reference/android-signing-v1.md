@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@1 - Android Signing v1 task
 description: Sign and align Android APK files (task version 1).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 

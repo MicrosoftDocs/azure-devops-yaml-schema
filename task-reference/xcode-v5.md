@@ -1,7 +1,7 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -35,7 +35,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
     #xcodeVersion: 'default' # '8' | '9' | '10' | '11' | '12' | '13' | 'default' | 'specifyPath'. Xcode version. Default: default.
     #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
   # Package options
-    packageApp: false # boolean. Required. Create app package. Default: false.
+    #packageApp: false # boolean. Create app package. Default: false.
     #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
     #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
     #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
@@ -81,7 +81,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
     #xcodeVersion: 'default' # '8' | '9' | '10' | '11' | 'default' | 'specifyPath'. Xcode version. Default: default.
     #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
   # Package options
-    packageApp: false # boolean. Required. Create app package. Default: false.
+    #packageApp: false # boolean. Create app package. Default: false.
     #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
     #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
     #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
@@ -127,7 +127,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
     #xcodeVersion: 'default' # '8' | '9' | '10' | '11' | 'default' | 'specifyPath'. Xcode version. Default: default.
     #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
   # Package options
-    packageApp: false # boolean. Required. Create app package. Default: false.
+    #packageApp: false # boolean. Create app package. Default: false.
     #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
     #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
     #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
@@ -171,7 +171,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
     #xcodeVersion: 'default' # '8' | '9' | '10' | 'default' | 'specifyPath'. Xcode version. Default: default.
     #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
   # Package options
-    packageApp: false # boolean. Required. Create app package. Default: false.
+    #packageApp: false # boolean. Create app package. Default: false.
     #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
     #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
     #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
@@ -215,7 +215,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
     #xcodeVersion: 'default' # '8' | '9' | '10' | 'default' | 'specifyPath'. Xcode version. Default: default.
     #xcodeDeveloperDir: # string. Optional. Use when xcodeVersion == specifyPath. Xcode developer path. 
   # Package options
-    packageApp: false # boolean. Required. Create app package. Default: false.
+    #packageApp: false # boolean. Create app package. Default: false.
     #archivePath: # string. Optional. Use when packageApp == true. Archive path. 
     #exportPath: 'output/$(SDK)/$(Configuration)' # string. Optional. Use when packageApp == true. Export path. Default: output/$(SDK)/$(Configuration).
     #exportOptions: 'auto' # 'auto' | 'plist' | 'specify'. Optional. Use when packageApp == true. Export options. Default: auto.
@@ -358,7 +358,7 @@ Specifies a path to a specific Xcode developer directory (for example, `/Applica
 :::moniker range=">=azure-pipelines-2019"
 
 **`packageApp`** - **Create app package**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether an IPA app package file is generated as a part of the build.
 <!-- :::editable-content-end::: -->

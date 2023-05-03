@@ -1,7 +1,7 @@
 ---
 title: Cache@2 - Cache v2 task
 description: Cache files between runs.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
+Improve build performance by using this task to cache files, like dependencies, between pipeline runs. See [Cache task: how it works](/azure/devops/pipelines/release/caching#cache-task-:-how-it-works) and [Reduce build time using caching](/azure/devops/pipelines/release/caching) for specific examples and more details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

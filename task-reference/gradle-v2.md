@@ -1,7 +1,7 @@
 ---
 title: Gradle@2 - Gradle v2 task
 description: Build using a Gradle wrapper script (task version 2).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Build using a Gradle wrapper script.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 # Gradle v2
@@ -32,7 +32,48 @@ Build using a Gradle wrapper script.
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
+    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
+    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
+  # Code Coverage
+    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
+    codeCoverageClassFilesDirectories: 'build/classes/main/' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: build/classes/main/.
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageGradle5xOrHigher: true # boolean. Alias: gradle5xOrHigher. Optional. Use when codeCoverageTool = JaCoCo. Gradle version >= 5.x. Default: true.
+  # Advanced
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
+  # Code Analysis
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
+    #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
+    #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
+    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
+    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
+    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
+    #spotBugsAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs. Default: false.
+    #spotBugsGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when spotBugsAnalysisEnabled = true. Spotbugs plugin version. Default: specify.
+    #spotbugsGradlePluginVersion: '4.7.0' # string. Required when spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify. Version number. Default: 4.7.0.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
+
+```yaml
+# Gradle v2
+# Build using a Gradle wrapper script.
+- task: Gradle@2
+  inputs:
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
+    #workingDirectory: # string. Alias: cwd. Working directory. 
+    #options: # string. Options. 
+    tasks: 'build' # string. Required. Tasks. Default: build.
+  # JUnit Test Results
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -48,13 +89,13 @@ Build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube or SonarCloud Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
     #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
     #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
-    spotBugsAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Required. Run SpotBugs. Default: false.
+    #spotBugsAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs. Default: false.
     #spotBugsGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when spotBugsAnalysisEnabled = true. Spotbugs plugin version. Default: specify.
     #spotbugsGradlePluginVersion: '4.7.0' # string. Required when spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify. Version number. Default: 4.7.0.
 ```
@@ -73,7 +114,7 @@ Build using a Gradle wrapper script.
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -88,7 +129,7 @@ Build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube or SonarCloud Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
     #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
     #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
@@ -110,7 +151,7 @@ Build using a Gradle wrapper script.
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -125,7 +166,7 @@ Build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube or SonarCloud Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
     #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
     #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
@@ -147,7 +188,7 @@ Build using a Gradle wrapper script.
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines/TFS. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines/TFS. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -162,7 +203,7 @@ Build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube or SonarCloud Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
     #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
     #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
@@ -240,7 +281,7 @@ See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutor
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -251,7 +292,7 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 :::moniker range="=azure-pipelines-2019"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -262,7 +303,7 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 :::moniker range="=azure-pipelines-2018"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -389,7 +430,18 @@ Sets JAVA_HOME by selecting a JDK version that the task discovers during builds 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+**`jdkVersionOption`** - **JDK version**<br>
+Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
@@ -451,7 +503,7 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube or SonarCloud Analysis**<br>
-Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option has changed from version 1 of the **Gradle** task to use the [SonarQube](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarqube) and [SonarCloud](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud) marketplace extensions. Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html) after executing tasks in the **Tasks** field. You must also add a **Prepare Analysis Configuration** task from one of the extensions to the build pipeline before this Gradle task.
 <!-- :::editable-content-end::: -->
@@ -523,7 +575,7 @@ Uses the PMD Java static analysis tool to look for bugs in the code. The results
 :::moniker range=">=azure-pipelines-2022"
 
 **`spotBugsAnalysis`** - **Run SpotBugs**<br>
-Input alias: `spotBugsAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs `spotBugs` when `true`. This plugin works with Gradle v5.6 or later. Learn more about [using the SpotBugs Gradle plugin](https://spotbugs.readthedocs.io/en/stable/gradle.html#use-spotbugs-gradle-plugin). The plugin may work in an unexpected way or may not work at all with an earlier Gradle version.
 <!-- :::editable-content-end::: -->

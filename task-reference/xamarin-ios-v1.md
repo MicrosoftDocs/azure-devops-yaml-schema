@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@1 - Xamarin.iOS v1 task
 description: Build an iOS app with Xamarin on macOS (task version 1).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,10 +30,10 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
     solutionFile: '**/*.sln' # string. Alias: solution. Required. Solution. Default: **/*.sln.
     configuration: 'Release' # string. Required. Configuration. Default: Release.
     #clean: false # boolean. Clean. Default: false.
-    packageApp: true # boolean. Required. Create app package. Default: true.
+    #packageApp: true # boolean. Create app package. Default: true.
     #buildForSimulator: false # boolean. Alias: forSimulator. Build for iOS Simulator. Default: false.
   # Advanced
-    runNugetRestore: true # boolean. Required. Run NuGet restore. Default: true.
+    #runNugetRestore: true # boolean. Run NuGet restore. Default: true.
     #args: # string. Arguments. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #buildToolOption: 'xbuild' # 'xbuild' | 'msbuild'. Alias: buildTool. Build tool. Default: xbuild.
@@ -41,7 +41,7 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
   # Signing & Provisioning
     #signingOption: 'file' # 'file' | 'id'. Alias: signMethod. Override using. Default: file.
     #signingIdentity: # string. Alias: iosSigningIdentity. Optional. Use when signMethod = id. Signing identity. 
-    #signingUnlockDefaultKeychain: false # boolean. Alias: unlockDefaultKeychain. Required when signMethod = id. Unlock default keychain. Default: false.
+    #signingUnlockDefaultKeychain: false # boolean. Alias: unlockDefaultKeychain. Optional. Use when signMethod = id. Unlock default keychain. Default: false.
     #signingDefaultKeychainPassword: # string. Alias: defaultKeychainPassword. Optional. Use when signMethod = id. Default keychain password. 
     #signingProvisioningProfileID: # string. Alias: provProfileUuid. Optional. Use when signMethod = id. Provisioning profile UUID. 
     #signingP12File: # string. Alias: p12. Optional. Use when signMethod = file. P12 certificate file. 
@@ -106,7 +106,7 @@ Optional. Runs a clean build (`/t:clean`) prior to the build.
 :::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create app package**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set to `true`, generates an IPA as a part of the build.
 <!-- :::editable-content-end::: -->
@@ -130,7 +130,7 @@ Optional. Builds for the iOS Simulator instead of physical iOS devices.
 :::moniker range="<=azure-pipelines"
 
 **`runNugetRestore`** - **Run NuGet restore**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before the build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
 <!-- :::editable-content-end::: -->
@@ -214,7 +214,7 @@ Overrides the signing identity that will be used to sign the build. If the value
 :::moniker range="<=azure-pipelines"
 
 **`signingUnlockDefaultKeychain`** - **Unlock default keychain**<br>
-Input alias: `unlockDefaultKeychain`. `boolean`. Required when `signMethod = id`. Default value: `false`.<br>
+Input alias: `unlockDefaultKeychain`. `boolean`. Optional. Use when `signMethod = id`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Resolves "User interaction is not allowed" errors by unlocking the default keychain.
 <!-- :::editable-content-end::: -->

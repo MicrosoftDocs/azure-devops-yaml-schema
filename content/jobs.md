@@ -1,159 +1,97 @@
 ---
-title: jobs list definition
-description: jobs list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: jobs definition
+description: Specifies the jobs that make up the work of a stage.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
-# jobs list definition
+# jobs definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-The jobs list specifies the jobs that make up the work of a stage.
-
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2019"::: -->
-
-```yaml
-jobs: [ job ] # 
-```
-
-
-Properties that use this definition: [pipeline.jobs](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [jobs.job](jobs-job.md) | Agent pool job. |
-
-<!-- :::api-definition-end::: -->
+<!-- :::editable-content name="description"::: -->
+Specifies the jobs that make up the work of a stage.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-<!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2019.1"::: -->
+<!-- :::editable-content name="description"::: -->
+Specifies the jobs that make up the work of a pipeline.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
 
 ```yaml
-jobs: [ job ] # 
+jobs: [ job | deployment | template ] # Specifies the jobs that make up the work of a stage.
 ```
-
-
-Properties that use this definition: [pipeline.jobs](pipeline.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [jobs.job](jobs-job.md) | Agent pool job. |
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2020"::: -->
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 ```yaml
-jobs: [ job | deployment | template ] # 
+jobs: [ job ] # Specifies the jobs that make up the work of a pipeline.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage.jobs](stages-stage.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [jobs.job](jobs-job.md) | Agent pool job. |
-| [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
-
-<!-- :::api-definition-end::: -->
+Definitions that that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md)
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-<!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2020.1"::: -->
+Definitions that that reference this definition: [pipeline](pipeline.md)
 
-```yaml
-jobs: [ job | deployment | template ] # 
-```
-
-
-Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage.jobs](stages-stage.md)
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
-| [jobs.job](jobs-job.md) | Agent pool job. |
-| [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="jobs[job]" version="azure-pipelines-2022"::: -->
-
-```yaml
-jobs: [ job | deployment | template ] # 
-```
-
-
-Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage.jobs](stages-stage.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [jobs.job](jobs-job.md) | Agent pool job. |
-| [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
-
-<!-- :::api-definition-end::: -->
+| Type | Description |
+|---|---|
+| [jobs.job](jobs-job.md) | A job is a collection of steps run by an agent or on a server. |
+| [jobs.deployment](jobs-deployment.md) | A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment. |
+| [jobs.template](jobs-template.md) | A set of jobs defined in a template. |
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-<!-- :::api-definition signature="jobs[job]" version="azure-pipelines"::: -->
-
-```yaml
-jobs: [ job | deployment | template ] # 
-```
-
-
-Properties that use this definition: [pipeline.jobs](pipeline.md), [stages.stage.jobs](stages-stage.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [jobs.job](jobs-job.md) | Agent pool job. |
-| [jobs.deployment](jobs-deployment.md) | Deployment job. |
-| [jobs.template](jobs-template.md) | Jobs defined in a template file. |
-
-<!-- :::api-definition-end::: -->
+| Type | Description |
+|---|---|
+| [jobs.job](jobs-job.md) | A job is a collection of steps run by an agent or on a server. |
 
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 A [job](/azure/devops/pipelines/process/phases) is a collection of [steps](steps.md) run by an [agent](/azure/devops/pipelines/agents/agents) or on a [server](/azure/devops/pipelines/process/phases#server-jobs). Jobs can run [conditionally](/azure/devops/pipelines/process/phases#conditions) and  might [depend on earlier jobs](/azure/devops/pipelines/process/phases#dependencies).
 
 > [!NOTE]
 > If you have only one stage and one job, you can use [single-job syntax](/azure/devops/pipelines/process/phases) as a shorter way to describe the steps to run.
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ## Examples
 
 ```yaml
@@ -166,14 +104,14 @@ jobs:
   steps:
   - script: echo My first job
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - For more information about `uses`, see [Limit job authorization scope to referenced Azure DevOps repositories](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope-to-referenced-azure-devops-repositories). For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 - Learn more about [variables](/azure/devops/pipelines/process/variables), [steps](steps.md), [pools](pool.md), and [server jobs](/azure/devops/pipelines/process/phases#server).
-
-
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

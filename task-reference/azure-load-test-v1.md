@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -31,6 +31,8 @@ Automate performance regression testing with Azure Load Testing.
     loadTestConfigFile: # string. Required. Load Test File. 
     resourceGroup: # string. Required. Load Test Resource Group. 
     loadTestResource: # string. Required. Load Test Resource Name. 
+    #loadTestRunName: # string. Load Test Run Name. 
+    #loadTestRunDescription: # string. Load Test Run Description. 
     #secrets: # string. Secrets. 
     #env: # string. env.
 ```
@@ -85,6 +87,30 @@ Enters or selects the Azure Resource Group that contains the Load test resource.
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enters or selects the name of an existing Azure Load Testing resource.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="loadTestRunName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`loadTestRunName`** - **Load Test Run Name**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Custom name for the load test run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="loadTestRunDescription"::: -->
+:::moniker range="=azure-pipelines"
+
+**`loadTestRunDescription`** - **Load Test Run Description**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Custom description for the load test run.
 <!-- :::editable-content-end::: -->
 <br>
 

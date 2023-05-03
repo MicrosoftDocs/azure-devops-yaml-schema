@@ -1,7 +1,7 @@
 ---
 title: NuGetToolInstaller@1 - NuGet tool installer v1 task
 description: Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -44,7 +44,7 @@ Acquires a specific version of NuGet from the internet or the tools cache and ad
 **`versionSpec`** - **Version of NuGet.exe to install**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](http://dist.nuget.org/tools.json).
+A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard. See the [list of available NuGet versions](https://dist.nuget.org/tools.json).
 
 If you want to match a pre-release version, the specification must contain a major, minor, patch, and pre-release version from the list above. If a version isn't specified, then one will be chosen automatically.
 

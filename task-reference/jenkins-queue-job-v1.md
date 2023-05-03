@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@1 - Jenkins Queue Job v1 task
 description: Queue a job on a Jenkins server (task version 1).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,10 +31,10 @@ Use this task to queue a job on a Jenkins server.
     jobName: # string. Required. Job name. 
     #isMultibranchJob: false # boolean. Job is of Multibranch Pipeline type. Default: false.
     #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch Pipeline Branch. 
-    captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
-    capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
+    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
+    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    parameterizedJob: false # boolean. Required. Parameterized job. Default: false.
+    #parameterizedJob: false # boolean. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
 ```
 
@@ -106,7 +106,7 @@ Queues this multibranch pipeline job on the specified branch. This input require
 :::moniker range="<=azure-pipelines"
 
 **`captureConsole`** - **Capture console output and wait for completion**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If specified, this input captures the Jenkins build console output, waits for the Jenkins build to complete, and succeeds/fails based on the Jenkins build result. Otherwise, once the Jenkins job queues, this step successfully completes without waiting for the Jenkins build to run.
 <!-- :::editable-content-end::: -->
@@ -118,7 +118,7 @@ If specified, this input captures the Jenkins build console output, waits for th
 :::moniker range="<=azure-pipelines"
 
 **`capturePipeline`** - **Capture pipeline output and wait for pipeline completion**<br>
-`boolean`. Required when `captureConsole = true`. Default value: `true`.<br>
+`boolean`. Optional. Use when `captureConsole = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If specified, this input captures the full Jenkins build pipeline console output, waits for the full Jenkins build pipeline to complete, and succeeds/fails based on the Jenkins build pipeline result. Otherwise, once the first Jenkins job completes, this input successfully completes without waiting for the full Jenkins build pipeline to run.
 <!-- :::editable-content-end::: -->
@@ -130,7 +130,7 @@ If specified, this input captures the full Jenkins build pipeline console output
 :::moniker range="<=azure-pipelines"
 
 **`parameterizedJob`** - **Parameterized job**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies if the Jenkins job accepts parameters. Use this input even if all default parameter values are used and no parameters are actually specified.
 <!-- :::editable-content-end::: -->

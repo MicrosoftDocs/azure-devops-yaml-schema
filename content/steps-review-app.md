@@ -1,907 +1,181 @@
 ---
 title: steps.reviewApp definition
-description: steps.reviewApp definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: Downloads creates a resource dynamically under a deploy phase provider.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
 # steps.reviewApp definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-The `reviewApp` step downloads creates a resource dynamically under a deploy phase provider.
+<!-- :::editable-content name="description"::: -->
+The `reviewApp` step creates a resource dynamically under a deploy phase provider.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="step{reviewApp}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2022"
 
 ```yaml
 steps:
-- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.. 
-  condition: string # Evaluate this condition expression to determine whether to run this task. 
-  continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
-  displayName: string # Human-readable name for the task. 
-  target: stepTarget # Environment in which to run this task
-  enabled: boolean # Run this task when the job runs?.  (false,n,no,off,on,true,y,yes)
-  env:  # Variables to map into the process's environment
-    string: string # Name/value pairs.
-  name: string # ID of the step.  ([-_A-Za-z0-9]*)
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it. 
+- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.
+  condition: string # Evaluate this condition expression to determine whether to run this task.
+  continueOnError: boolean # Continue running even on failure?
+  displayName: string # Human-readable name for the task.
+  target: string | target # Environment in which to run this task.
+  enabled: boolean # Run this task when the job runs?
+  env: # Variables to map into the process's environment.
+    string: string # Name/value pairs
+  name: string # ID of the step.
+  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
+  retryCountOnTaskFailure: string # Number of retries if the task fails.
 ```
-
-
-Properties that use this definition: [steps](steps.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `reviewApp`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Use this task under deploy phase provider to create a resource dynamically. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `target`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[target](target.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Environment in which to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `enabled`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Run this task when the job runs? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the process's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the step. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this task to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="step{reviewApp}" version="azure-pipelines-2020.1"::: -->
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
 
 ```yaml
 steps:
-- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.. 
-  condition: string # Evaluate this condition expression to determine whether to run this task. 
-  continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
-  displayName: string # Human-readable name for the task. 
-  target: stepTarget # Environment in which to run this task
-  enabled: boolean # Run this task when the job runs?.  (false,n,no,off,on,true,y,yes)
-  env:  # Variables to map into the process's environment
-    string: string # Name/value pairs.
-  name: string # ID of the step.  ([-_A-Za-z0-9]*)
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it. 
+- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.
+  condition: string # Evaluate this condition expression to determine whether to run this task.
+  continueOnError: boolean # Continue running even on failure?
+  displayName: string # Human-readable name for the task.
+  target: string | target # Environment in which to run this task.
+  enabled: boolean # Run this task when the job runs?
+  env: # Variables to map into the process's environment.
+    string: string # Name/value pairs
+  name: string # ID of the step.
+  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [steps](steps.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [steps](steps.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+<!-- :::item name="reviewApp"::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `reviewApp`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Use this task under deploy phase provider to create a resource dynamically. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `target`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[target](target.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Environment in which to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `enabled`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Run this task when the job runs? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the process's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the step. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this task to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`reviewApp`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+Use this task under deploy phase provider to create a resource dynamically.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="condition"::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="step{reviewApp}" version="azure-pipelines-2022"::: -->
-
-```yaml
-steps:
-- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.. 
-  condition: string # Evaluate this condition expression to determine whether to run this task. 
-  continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
-  displayName: string # Human-readable name for the task. 
-  target: stepTarget # Environment in which to run this task
-  enabled: boolean # Run this task when the job runs?.  (false,n,no,off,on,true,y,yes)
-  env:  # Variables to map into the process's environment
-    string: string # Name/value pairs.
-  name: string # ID of the step.  ([-_A-Za-z0-9]*)
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it. 
-  retryCountOnTaskFailure: string # Number of retries if the task fails. 
-```
-
-
-Properties that use this definition: [steps](steps.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `reviewApp`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Use this task under deploy phase provider to create a resource dynamically. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `target`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[target](target.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Environment in which to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `enabled`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Run this task when the job runs? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the process's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the step. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this task to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `retryCountOnTaskFailure`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Number of retries if the task fails. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Evaluate this condition expression to determine whether to run this task.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="step{reviewApp}" version="azure-pipelines"::: -->
-
-```yaml
-steps:
-- reviewApp: string # Required as first property. Use this task under deploy phase provider to create a resource dynamically.. 
-  condition: string # Evaluate this condition expression to determine whether to run this task. 
-  continueOnError: boolean # Continue running even on failure?.  (false,n,no,off,on,true,y,yes)
-  displayName: string # Human-readable name for the task. 
-  target: stepTarget # Environment in which to run this task
-  enabled: boolean # Run this task when the job runs?.  (false,n,no,off,on,true,y,yes)
-  env:  # Variables to map into the process's environment
-    string: string # Name/value pairs.
-  name: string # ID of the step.  ([-_A-Za-z0-9]*)
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it. 
-  retryCountOnTaskFailure: string # Number of retries if the task fails. 
-```
-
-
-Properties that use this definition: [steps](steps.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `reviewApp`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Use this task under deploy phase provider to create a resource dynamically. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `condition`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Evaluate this condition expression to determine whether to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `displayName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Human-readable name for the task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `target`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[target](target.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Environment in which to run this task. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `enabled`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Run this task when the job runs? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `env`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables to map into the process's environment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->ID of the step. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `timeoutInMinutes`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Time to wait for this task to complete before the server kills it. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `retryCountOnTaskFailure`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Number of retries if the task fails. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="displayName"::: -->
+:::moniker range=">=azure-pipelines-2020"
 
+**`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Human-readable name for the task.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="target"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
+Environment in which to run this task.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="enabled"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Run this task when the job runs?
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="env"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Variables to map into the process's environment.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the step. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="timeoutInMinutes"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Time to wait for this task to complete before the server kills it.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="retryCountOnTaskFailure"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Number of retries if the task fails.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The `reviewApp` keyword is a shortcut for the [Review App task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/ReviewAppV0).
+The `reviewApp` keyword is a shortcut for the [Review App task](/azure/devops/pipelines/tasks/reference/review-app-v0).
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-- [Review App task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/ReviewAppV0)
+- [Review App task](/azure/devops/pipelines/tasks/reference/review-app-v0)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

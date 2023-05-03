@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Cloud v0 task
 description: Deploy applications to Azure Spring Cloud and manage deployments.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -32,7 +32,7 @@ This task deploys applications to Azure Spring Cloud and manages those deploymen
     AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
     AppName: # string. Required. App. 
     #DeploymentType: 'Artifacts' # 'Artifacts' | 'CustomContainer'. Optional. Use when Action = Deploy. Deployment Type. Default: Artifacts.
-    #UseStagingDeployment: true # boolean. Required when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
+    #UseStagingDeployment: true # boolean. Optional. Use when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
     #CreateNewDeployment: false # boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Create a new staging deployment if one does not exist. Default: false.
     #DeploymentName: # string. Optional. Use when UseStagingDeployment = false && Action != Delete Staging Deployment. Deployment. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.jar' # string. Optional. Use when Action = Deploy && DeploymentType = Artifacts. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.jar.
@@ -65,7 +65,7 @@ This task deploys applications to Azure Spring Cloud and manages those deploymen
     Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
     AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
     AppName: # string. Required. App. 
-    #UseStagingDeployment: true # boolean. Required when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
+    #UseStagingDeployment: true # boolean. Optional. Use when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
     #CreateNewDeployment: false # boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Create a new staging deployment if one does not exist. Default: false.
     #DeploymentName: # string. Optional. Use when UseStagingDeployment = false && Action != Delete Staging Deployment. Deployment. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.jar' # string. Optional. Use when Action = Deploy. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.jar.
@@ -147,7 +147,7 @@ To deploy with source code or Java package, choose "Artifacts"; To deploy with c
 :::moniker range=">=azure-pipelines-2022"
 
 **`UseStagingDeployment`** - **Use Staging Deployment**<br>
-`boolean`. Required when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
+`boolean`. Optional. Use when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 At the time the task runs, this input automatically selects the deployment that's set as `staging`.
 

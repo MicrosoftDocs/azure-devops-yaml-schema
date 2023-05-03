@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -231,7 +231,7 @@ Specifies how the task reports completion. The allowed values are:
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the task's criteria for success. The response content does not influence the result if no criteria is defined. By default, the task passes when the call returns `200 OK`.
 
-Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions&tabs=yaml).
+Example: For response `{"status" : "successful"}`, the expression can be `eq(root['status'], 'successful')`. Learn more about [specifying conditions](/azure/devops/pipelines/process/conditions).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -279,7 +279,7 @@ For more information about using this task, see [Approvals and gates overview](/
 
 ### What base URLs are used when invoking Azure Management APIs?
 
-Azure management APIs are invoked using *ResourceManagerEndpoint* of the selected environment. For example `https://management.Azure.com` is used when the subscription is in an **AzureCloud** environment.
+Azure management APIs are invoked using *ResourceManagerEndpoint* of the selected environment. For example `https://management.azure.com` is used when the subscription is in an **AzureCloud** environment.
 
 ### Where should a task signal completion when **Callback** is chosen as the completion event?
 

@@ -1,7 +1,7 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -130,7 +130,7 @@ Provides a path relative to the `.ipa` file. To make crash logs easier to read, 
 **`teamApiKey`** - **Team API key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies your Xamarin Test Cloud Team API key, which can be found under [Teams & Apps](https://testcloud.xamarin.com/account). Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing this value.
+Specifies your Xamarin Test Cloud Team API key, which can be found under [Teams & Apps](https://testcloud.xamarin.com). Use a [secret variable](/azure/devops/pipelines/build/variables) to avoid exposing this value.
 <!-- :::editable-content-end::: -->
 <br>
 

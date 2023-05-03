@@ -1,7 +1,7 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -31,7 +31,7 @@ Build, test, and deploy with Apache Maven.
     #goals: 'package' # string. Goal(s). Default: package.
     #options: # string. Options. 
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
     testResultsFiles: '**/surefire-reports/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/surefire-reports/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
     #allowBrokenSymlinks: true # boolean. Alias: allowBrokenSymbolicLinks. Optional. Use when publishJUnitResults = true. Allow broken symbolic links. Default: true.
@@ -49,12 +49,12 @@ Build, test, and deploy with Apache Maven.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
     mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
     #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
-    #mavenSetM2Home: false # boolean. Required when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
+    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
     #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
-    mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Required. Authenticate built-in Maven feeds. Default: false.
-    effectivePomSkip: false # boolean. Alias: skipEffectivePom. Required. Skip generating effective POM while authenticating built-in feeds. Default: false.
+    #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate built-in Maven feeds. Default: false.
+    #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating built-in feeds. Default: false.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube or SonarCloud analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
     #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
     #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
@@ -112,7 +112,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 :::moniker range="=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to publish the JUnit test results produced by the Maven build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -310,7 +310,7 @@ Supplies the custom path to the Maven installation (for example: `/usr/share/mav
 :::moniker range="=azure-pipelines"
 
 **`mavenSetM2Home`** - **Set M2_HOME variable**<br>
-`boolean`. Required when `mavenVersionSelection = Path`. Default value: `false`.<br>
+`boolean`. Optional. Use when `mavenVersionSelection = Path`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the `M2_HOME` variable to a custom Maven installation path.
 <!-- :::editable-content-end::: -->
@@ -334,9 +334,9 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 :::moniker range="=azure-pipelines"
 
 **`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
-Input alias: `mavenFeedAuthenticate`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `mavenFeedAuthenticate`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Automatically authenticates built-in Maven feeds from the Azure Artifacts/TFS [Package Management](https://marketplace.visualstudio.com/items?itemName=ms.feed) extension. If built-in Maven feeds are not in use, deselect this option for faster builds.
+Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are not in use, deselect this option for faster builds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -346,9 +346,9 @@ Automatically authenticates built-in Maven feeds from the Azure Artifacts/TFS [P
 :::moniker range="=azure-pipelines"
 
 **`effectivePomSkip`** - **Skip generating effective POM while authenticating built-in feeds**<br>
-Input alias: `skipEffectivePom`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `skipEffectivePom`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Authenticates built-in Maven feeds using the POM only, which allows parent POMs in Azure Artifacts/Azure DevOps Server [Package Management] feeds.
+Authenticates with Artifacts feeds using the POM only.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -358,7 +358,7 @@ Authenticates built-in Maven feeds using the POM only, which allows parent POMs 
 :::moniker range="=azure-pipelines"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube or SonarCloud analysis**<br>
-Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 This option has changed from using version 1 of the **Maven** task to using the [SonarQube](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarqube) and [SonarCloud](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud) marketplace extensions.  
 Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html) after executing goals in the **Goals** field. The **install** or **package** goal should run first. Before this Maven task, you must also add a **Prepare Analysis Configuration** task from one of the extensions to the build pipeline.
@@ -540,5 +540,11 @@ Make sure you have specified `#codeCoverageClassFilesDirectories` and `#codeCove
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+- [Maven authenticate](maven-authenticate-v0.md)
+- [Publish Maven artifacts with Azure Pipelines](/azure/devops/pipelines/artifacts/publish-maven-artifacts)
+- [Java Tool Installer](java-tool-installer-v0.md)
+- [Build Java apps](/azure/devops/pipelines/ecosystems/java)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,6 +20,9 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 <!-- :::editable-content name="description"::: -->
 Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -36,7 +39,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Required when command = publish. Publish web projects. Default: true.
+    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish web projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
     #custom: # string. Required when command = custom. Custom command. 
     #arguments: # string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom. Arguments. 
@@ -90,7 +93,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Required when command = publish. Publish Web Projects. Default: true.
+    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish Web Projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
     #custom: # string. Required when command = custom. Custom command. 
     #arguments: # string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom. Arguments. 
@@ -143,7 +146,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Required when command = publish. Publish Web Projects. Default: true.
+    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish Web Projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s). 
     #custom: # string. Required when command = custom. Custom command. 
     #arguments: # string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom. Arguments. 
@@ -204,6 +207,9 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 `string`. Required. Allowed values: `build`, `push` (nuget push), `pack`, `publish`, `restore`, `run`, `test`, `custom`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The dotnet command to run. Specify `custom` to add arguments or use a command not listed here.
+
+> [!IMPORTANT]
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed. See remarks for details.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +219,7 @@ The dotnet command to run. Specify `custom` to add arguments or use a command no
 :::moniker range=">=azure-pipelines-2020"
 
 **`publishWebProjects`** - **Publish web projects**<br>
-`boolean`. Required when `command = publish`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
@@ -224,7 +230,7 @@ If this input is set to `true`, the `projects` property value is skipped, and th
 :::moniker range="<=azure-pipelines-2019.1"
 
 **`publishWebProjects`** - **Publish Web Projects**<br>
-`boolean`. Required when `command = publish`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is set to `true`, the `projects` property value is skipped, and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
@@ -293,7 +299,7 @@ Enabling this option will generate a `test results` TRX file in `$(Agent.TempDir
 This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
 
-Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
+Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -309,7 +315,7 @@ Enabling this option will generate a `test results` TRX file in `$(Agent.TempDir
 This option appends the `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
 
-Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments. This is currently only available on the Windows platform.
+Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -789,6 +795,30 @@ To fix this issue, add the `--no-restore` flag to the `Arguments` textbox.
 
 In addition, the `test` command does not recognize the `feedRestore` or `vstsFeed` arguments, and feeds specified in this manner will not be included in the generated `NuGet.config` file when the implicit `restore` step runs.  It's recommended that an explicit `dotnet restore` step be used to restore packages.  The `restore` command respects the `feedRestore` and `vstsFeed` arguments.
 
+### Why am I getting NU1507 warnings with [Package Source Mapping](/nuget/consume-packages/package-source-mapping) although when building on my machine it has no warnings?
+
+The the various commands that do a NuGet restore or access a NuGet feed build a special temporary `NuGet.config` file that add NuGet authentication for azure artifacts NuGet feeds. The way this is done is in conflict with the schema that Package Source Mapping uses to map the packages to the sources and breaks the Package Source Mappin configuration in the `NuGet.config` file in your repository.
+To work around this conflict you can use the [NuGet Authenticate](nuget-authenticate-v1.md) task to authenticate and afterwards the custom command to invoke the desired dotnet command without the `NuGet.config` modification.
+
+```YAML
+# Authenticate Azure DevOps NuGet feed
+- task: NuGetAuthenticate@1
+  displayName: 'Authenticate Azure DevOps NuGet feed'
+
+# Restore project
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'restore'
+
+# Build project
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'build'
+    arguments: '--no-restore'
+```
+
 ### Why should I check in a NuGet.config?
 
 Checking a `NuGet.config` into source control ensures that a key piece of information needed to build your project&mdash;the location of its packages&mdash;is available to every developer that checks out your code.
@@ -932,7 +962,22 @@ However, for situations where a team of developers works on a large range of pro
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Build |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

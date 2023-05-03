@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -750,7 +750,7 @@ This YAML example runs services:
     qualifyImageNames: true
     buildImages: true
     abortOnContainerExit: true
-    detached: false
+    detached: true
 ```
 
 ### Run a specific service image

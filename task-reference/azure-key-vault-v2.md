@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@2 - Azure Key Vault v2 task
 description: Download Azure Key Vault secrets.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -30,7 +30,7 @@ Use this task to download secrets, such as authentication keys, storage account 
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # string. Required. Secrets filter. Default: *.
-    RunAsPreJob: false # boolean. Required. Make secrets available to whole job. Default: false.
+    #RunAsPreJob: false # boolean. Make secrets available to whole job. Default: false.
 ```
 
 :::moniker-end
@@ -79,7 +79,7 @@ Downloads secret names according to the entered value. The value can be the defa
 :::moniker range=">=azure-pipelines-2022"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs the task before the job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
@@ -166,7 +166,7 @@ will contain the contents of the PFX in string format. You can use the following
 to retrieve the PFX file from the task variable:
  
 ```powershell
-$kvSecretBytes = [System.Convert]::FromBase64String($(PfxSecret))
+$kvSecretBytes = [System.Convert]::FromBase64String("$(PfxSecret)")
 $certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
 $certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
 ```

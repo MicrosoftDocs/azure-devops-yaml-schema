@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -203,7 +203,7 @@ Specifies the registries to use. Commit a `.npmrc` file to your source code repo
 **`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `.npmrc`.
+Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -214,7 +214,7 @@ Includes the selected feed in the generated `.npmrc`.
 **`customFeed`** - **Use packages from this VSTS/TFS registry**<br>
 `string`. Required when `customRegistry = useFeed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `.npmrc`.
+Includes the selected feed in the generated `.npmrc`. You must have Azure Artifacts installed and licensed to select a feed here. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -311,8 +311,8 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-> [!IMPORTANT]
-> The [npm Authenticate](npm-authenticate-v0.md) task is the recommended way to authenticate with Azure Artifacts. This npm no longer takes new features and only critical bugs are addressed.
+> [!NOTE]
+> The **Project Collection Build Service** and your project's **Build Service** identity must be set to **Contributor** to publish your packages to a feed using Azure Pipelines. See [Add new users/groups](/azure/devops/artifacts/feeds/feed-permissions#configure-feed-settings) for more details.
 
 ### Where can I learn npm commands and arguments?
 

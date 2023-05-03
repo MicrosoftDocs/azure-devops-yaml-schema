@@ -1,152 +1,66 @@
 ---
-title: resources.pipelines list definition
-description: resources.pipelines list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.pipelines definition
+description: List of pipeline resources.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
-# resources.pipelines list definition
+# resources.pipelines definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 List of pipeline resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-pipelines: [ pipeline ] # 
+pipelines: [ pipeline ] # List of pipeline resources.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.pipelines](resources.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources](resources.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+| Type | Description |
+|---|---|
 | [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
 
-<!-- :::api-definition-end::: -->
-
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2019.1"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-pipelines: [ pipeline ] # 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2020"::: -->
-
-```yaml
-pipelines: [ pipeline ] # 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-pipelines: [ pipeline ] # 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines-2022"::: -->
-
-```yaml
-pipelines: [ pipeline ] # 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="pipelineResources[pipelineResource]" version="azure-pipelines"::: -->
-
-```yaml
-pipelines: [ pipeline ] # 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.pipelines.pipeline](resources-pipelines-pipeline.md) | A pipeline resource. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

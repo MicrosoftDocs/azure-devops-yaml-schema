@@ -1,8 +1,7 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 12/19/2022
-ms.custom: py-fresh-zinc
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -32,7 +31,7 @@ Use this task to select a version of Python to run on an agent, and optionally a
     #disableDownloadFromRegistry: false # boolean. Disable downloading releases from the GitHub registry. Default: false.
     #allowUnstable: false # boolean. Optional. Use when disableDownloadFromRegistry = false. Allow downloading unstable releases. Default: false.
     #githubToken: # string. Optional. Use when disableDownloadFromRegistry = false. GitHub token for GitHub Actions python registry. 
-    addToPath: true # boolean. Required. Add to PATH. Default: true.
+    #addToPath: true # boolean. Add to PATH. Default: true.
   # Advanced
     architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
 ```
@@ -47,7 +46,7 @@ Use this task to select a version of Python to run on an agent, and optionally a
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
-    addToPath: true # boolean. Required. Add to PATH. Default: true.
+    #addToPath: true # boolean. Add to PATH. Default: true.
   # Advanced
     architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
 ```
@@ -62,7 +61,7 @@ Use this task to select a version of Python to run on an agent, and optionally a
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.x' # string. Required. Version spec. Default: 3.x.
-    addToPath: true # boolean. Required. Add to PATH. Default: true.
+    #addToPath: true # boolean. Add to PATH. Default: true.
   # Advanced
     architecture: 'x64' # 'x86' | 'x64'. Required. Architecture. Default: x64.
 ```
@@ -125,7 +124,7 @@ Specifies the GitHub token that enforces the anonymous requests limit in the [Gi
 :::moniker range=">=azure-pipelines-2019"
 
 **`addToPath`** - **Add to PATH**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepends the retrieved Python version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
 <!-- :::editable-content-end::: -->
@@ -185,6 +184,8 @@ This task will fail if no Python versions are found in `Agent.ToolsDirectory`. A
 ::: moniker range="> azure-pipelines-2019"
 
 As of version 0.150 of the task, version spec will also accept `pypy2` or `pypy3`.
+
+As of version 0.213.1 of the task, version spec will also accept `pypy2.x` or `pypy3.x`.
 
 ::: moniker-end
 

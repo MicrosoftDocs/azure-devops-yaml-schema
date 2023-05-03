@@ -1,270 +1,109 @@
 ---
 title: extends definition
-description: extends definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: Extends a pipeline using a template.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
 # extends definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-Extends a pipeline using a template.
+<!-- :::editable-content name="description"::: -->
+Extend a pipeline using a template.
+<!-- :::editable-content-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
+:::moniker-end
+<!-- :::description-end::: -->
 
-<!-- :::api-definition signature="extends{template,parameters}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
 
 ```yaml
 extends:
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
+  template: string # The template referenced by the pipeline to extend.
+  parameters: # Parameters used in the extend.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [pipeline.extends](pipeline.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [pipeline](pipeline.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+<!-- :::item name="template"::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in the extend. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`template`** string.<br><!-- :::editable-content name="propDescription"::: -->
+The template referenced by the pipeline to extend.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-:::moniker range="= azure-pipelines-2020.1"
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Parameters used in the extend.
+<!-- :::editable-content-end::: -->
 
-<!-- :::api-definition signature="extends{template,parameters}" version="azure-pipelines-2020.1"::: -->
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+## Examples
+
+Templates and their parameters are turned into constants before the pipeline runs.
+Template parameters provide type safety to input parameters.
+In this example, templates restrict which pools can be used in a pipeline by offering an enumeration of possible options rather than a freeform string.
 
 ```yaml
-extends:
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
+# template.yml
+parameters:
+- name: userpool
+  type: string
+  default: Azure Pipelines
+  values:
+  - Azure Pipelines
+  - private-pool-1
+  - private-pool-2
+
+pool: ${{ parameters.userpool }}
+steps:
+- script: # ... removed for clarity
 ```
-
-
-Properties that use this definition: [pipeline.extends](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in the extend. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="extends{template,parameters}" version="azure-pipelines-2022"::: -->
 
 ```yaml
+# azure-pipelines.yml
 extends:
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
+  template: template.yml
+  parameters:
+    userpool: private-pool-1
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+## See also
 
-Properties that use this definition: [pipeline.extends](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in the extend. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="extends{template,parameters}" version="azure-pipelines"::: -->
-
-```yaml
-extends:
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
-```
-
-
-Properties that use this definition: [pipeline.extends](pipeline.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in the extend. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
+- [Template types & usage](/azure/devops/pipelines/process/templates)
+- [Security through templates](/azure/devops/pipelines/security/templates)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

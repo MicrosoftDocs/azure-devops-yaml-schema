@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -211,7 +211,7 @@ Specifies the credentials to use for external registries located in the selected
 **`vstsFeed`** - **Feed**<br>
 Input alias: `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed. You must have Azure Artifacts installed and licensed to select a feed here.
+Includes the selected feed. You must have Azure Artifacts installed and licensed to select a feed here. Specifies the *FeedName* for an organization-scoped feed and *projectName/FeedName* or *ProjectID/FeedID* for a project-scoped feed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -247,9 +247,9 @@ Specifies the package version or uses a variable containing the version to downl
 **`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of an external feed that the task downloads.
+Specifies a feed in another organization/collection.
 
-If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
+For project-scoped feeds, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name/ID. For organization-scoped feeds, the value should be only the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -260,9 +260,9 @@ If the feed was created in a project, the value should be `Project/Feed`, where 
 **`feedDownloadExternal`** - **Feed**<br>
 `string`. Required when `internalOrExternalDownload = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of an external feed that the task downloads.
+Specifies a feed in another organization/collection.
 
-If the feed was created in a project, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name. If the feed was not created in a project, the value should be only the feed name.
+For project-scoped feeds, the value should be `Project/Feed`, where `Project` is the project's name or ID, and `Feed` is the feed's name/ID. For organization-scoped feeds, the value should be only the feed name.
 <!-- :::editable-content-end::: -->
 <br>
 

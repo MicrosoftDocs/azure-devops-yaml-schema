@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -38,7 +38,7 @@ Use this task to download secrets, such as authentication keys, storage account 
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # string. Required. Secrets filter. Default: *.
-    RunAsPreJob: false # boolean. Required. Make secrets available to whole job. Default: false.
+    #RunAsPreJob: false # boolean. Make secrets available to whole job. Default: false.
 ```
 
 :::moniker-end
@@ -53,7 +53,7 @@ Use this task to download secrets, such as authentication keys, storage account 
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     KeyVaultName: # string. Required. Key vault. 
     SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
-    RunAsPreJob: false # 'EditableOptions'. Required. Make secrets available to whole job. Default: false.
+    #RunAsPreJob: false # 'EditableOptions'. Make secrets available to whole job. Default: false.
 ```
 
 :::moniker-end
@@ -151,7 +151,7 @@ Downloads secret names according to the entered value. The value can be the defa
 :::moniker range=">=azure-pipelines-2022"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs the task before the job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->
@@ -162,7 +162,7 @@ Runs the task before the job execution begins. Exposes secrets to all tasks in t
 :::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
-`boolean`. Required. Allowed values: `EditableOptions` (True). Default value: `false`.<br>
+`boolean`. Allowed values: `EditableOptions` (True). Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs the task before the job execution begins. Exposes secrets to all tasks in the job, not just tasks that follow this one.
 <!-- :::editable-content-end::: -->

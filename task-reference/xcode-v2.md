@@ -1,7 +1,7 @@
 ---
 title: Xcode@2 - Xcode Build v2 task
 description: Build an Xcode workspace on Mac OS.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -32,7 +32,7 @@ Use this task to build an Xcode workspace on macOS.
     #sdk: '$(SDK)' # string. SDK. Default: $(SDK).
     #xcWorkspacePath: '**/*.xcodeproj/*.xcworkspace' # string. Workspace/Project Path. Default: **/*.xcodeproj/*.xcworkspace.
     #scheme: # string. Scheme. 
-    packageApp: true # boolean. Required. Create App Package. Default: true.
+    #packageApp: true # boolean. Create App Package. Default: true.
   # Package Options
     packageTool: 'xcodebuild' # 'xcrun' | 'xcodebuild'. Required. Create Package (IPA) using. Default: xcodebuild.
     #archivePath: # string. Optional. Use when packageTool == xcodebuild. Archive Path. 
@@ -46,7 +46,7 @@ Use this task to build an Xcode workspace on macOS.
     #teamId: # string. Optional. Use when xcode8AutomaticSigning = true. Team ID. 
     #signMethod: 'file' # 'file' | 'id'. Override Using. Default: file.
     #iosSigningIdentity: # string. Optional. Use when signMethod = id. Signing Identity. 
-    #unlockDefaultKeychain: false # boolean. Required when signMethod = id. Unlock Default Keychain. Default: false.
+    #unlockDefaultKeychain: false # boolean. Optional. Use when signMethod = id. Unlock Default Keychain. Default: false.
     #defaultKeychainPassword: # string. Optional. Use when signMethod = id. Default Keychain Password. 
     #provProfileUuid: # string. Optional. Use when signMethod = id. Provisioning Profile UUID. 
     #p12: # string. Optional. Use when signMethod = file. P12 Certificate File. 
@@ -146,7 +146,7 @@ Optional. Specifies the Xcode scheme name. *Must be a shared scheme* (shared che
 :::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create App Package**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether an IPA is generated as a part of the build. For exporting archives with Xcode 7 and Xcode 8, review additional inputs in the **Package Options** section.
 <!-- :::editable-content-end::: -->
@@ -290,7 +290,7 @@ Specifies the signing identity override that is used to sign the build. Defaults
 :::moniker range="<=azure-pipelines"
 
 **`unlockDefaultKeychain`** - **Unlock Default Keychain**<br>
-`boolean`. Required when `signMethod = id`. Default value: `false`.<br>
+`boolean`. Optional. Use when `signMethod = id`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Resolves **User interaction is not allowed** errors by unlocking the default keychain.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -203,7 +203,7 @@ This example downloads a secure certificate file and installs it to a trusted ce
     echo Installing $(caCertificate.secureFilePath) to the trusted CA directory...
     sudo chown root:root $(caCertificate.secureFilePath)
     sudo chmod a+r $(caCertificate.secureFilePath)
-    sudo ln -s -t /etc/ssl/certs/ $(caCertificate.secureFilePath)
+    sudo ln -s $(caCertificate.secureFilePath) /etc/ssl/certs/ 
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->

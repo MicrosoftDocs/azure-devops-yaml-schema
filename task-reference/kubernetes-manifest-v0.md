@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
-description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 12/19/2022
+description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts (task version 0).
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -609,6 +609,13 @@ Specifies the location of the manifest bundles created by bake action.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+:::moniker range=">azure-pipelines-2022"
+
+> [!NOTE]
+> There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [KubernetesManifest@1](./kubernetes-manifest-v1.md) and [KubernetesManifest@1 service connection remarks](./kubernetes-manifest-v1.md#remarks)
+
+:::moniker-end
+
 Use a Kubernetes manifest task in a build or release pipeline to bake and deploy manifests to Kubernetes clusters.
 
 This task supports the following:
@@ -731,6 +738,52 @@ steps:
       nginx: 1.7.9
 ```
 
+> [!NOTE]
+> To use Helm directly for managing releases and rollbacks, see the [Package and deploy Helm charts task](helm-deploy-v0.md). 
+
+### Kustomize example
+
+The following YAML code is an example of baking manifest files generated with Kustomize that contain a `kustomization.yaml` file. 
+
+```yaml
+steps:
+- task: KubernetesManifest@0
+  name: bake
+  displayName: Bake K8s manifests from kustomization path
+  inputs:
+    action: bake
+    renderType: kustomize
+    kustomizationPath: folderContainingKustomizationFile
+
+- task: KubernetesManifest@0
+  displayName: Deploy K8s manifests
+  inputs:
+    kubernetesServiceConnection: k8sSC1
+    manifests: $(bake.manifestsBundle)
+```
+
+### Kompose example
+
+The following YAML code is an example of baking manifest files generated with Kompose, a conversion tool for Docker Compose.
+
+```yaml
+steps:
+- task: KubernetesManifest@0
+  name: bake
+  displayName: Bake K8s manifests from Docker Compose
+  inputs:
+    action: bake
+    renderType: kompose
+    dockerComposeFile: docker-compose.yaml
+
+- task: KubernetesManifest@0
+  displayName: Deploy K8s manifests
+  inputs:
+    kubernetesServiceConnection: k8sSC1
+    manifests: $(bake.manifestsBundle)
+```
+
+
 ### Scale action
 
 The following YAML code shows an example of scaling objects:
@@ -786,6 +839,16 @@ steps:
 #### My Kubernetes cluster is behind a firewall and I am using hosted agents. How can I deploy to this cluster?
 
 You can grant hosted agents access through your firewall by allowing the IP addresses for the hosted agents. For more details, see [Agent IP ranges](/azure/devops/pipelines/agents/hosted#agent-ip-ranges).
+
+#### How do requests work to stable and variant service routes with canary deployments?
+
+The label selector relationship between pods and services in Kubernetes allows for setting up deployments so that a single service routes requests to both the stable and the canary variants. The Kubernetes manifest task uses this for canary deployments.
+
+If the task includes the inputs of `action: deploy` and `strategy: canary`, for each workload (Deployment, ReplicaSet, Pod, ...) defined in the input manifest files, a `-baseline` and `-canary` variant of the deployment are created. In this example, there's a deployment `sampleapp` in the input manifest file and that after completion of run number 22 of the pipeline, the stable variant of this deployment named `sampleapp` is deployed in the cluster. In the subsequent run (in this case run number 23), Kubernetes manifest task with `action: deploy` and `strategy: canary` would result in creation of sampleapp-baseline and sampleapp-canary deployments whose number of replicas are determined by the product of `percentage` task input with the value of the desired number of replicas for the final stable variant of `sampleapp` as per the input manifest files.
+
+Excluding the number of replicas, the baseline version has the same configuration as the stable variant while the canary version has the new changes that are being introduced by the current run (in this case, run number 23). If a manual intervention is set up in the pipeline after the above mentioned step, it would allow for an opportunity to pause the pipeline so that the pipeline admin can evaluate key metrics for the baseline and canary versions and take the decision on whether the canary changes are safe and good enough for a complete rollout.
+
+The`action: promote` and `strategy: canary` or `action: reject` and `strategy: canary` inputs of the Kubernetes manifest tasks can be used to promote or reject the canary changes respectively. Note that in either cases, at the end of this step, only the stable variant of the workloads declared in the input manifest files will be remain deployed in the cluster, while the ephemeral baseline and canary versions are cleaned up.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

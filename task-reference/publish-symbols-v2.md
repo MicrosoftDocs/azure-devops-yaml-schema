@@ -1,7 +1,7 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -37,7 +37,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
     #PublishSymbols: true # boolean. Publish symbols. Default: true.
     SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
     #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Required when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
     #SymbolExpirationInDays: '36530' # string. Optional. Use when PublishSymbols = true && SymbolServerType = TeamServices. Symbol Expiration (in days). Default: 36530.
   # Advanced
     #IndexableFileFormats: 'Default' # 'Default' | 'Pdb' | 'SourceMap' | 'All'. Optional. Use when PublishSymbols = true && SymbolServerType = TeamServices. Symbol file formats to publish. Default: Default.
@@ -65,7 +65,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
     #PublishSymbols: true # boolean. Publish symbols. Default: true.
     SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
     #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Required when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
   # Advanced
     #DetailedLog: true # boolean. Verbose logging. Default: true.
     #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
@@ -90,7 +90,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
     #PublishSymbols: true # boolean. Publish symbols. Default: true.
     SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
     #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Required when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
   # Advanced
     #DetailedLog: true # boolean. Verbose logging. Default: true.
     #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
@@ -136,7 +136,7 @@ Specifies the path to the folder that is searched for with symbol files. The def
 **`SearchPattern`** - **Search pattern**<br>
 `string`. Required. Default value: `**/bin/**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the pattern used to discover the PDB files to publish.
+Specifies the pattern used to discover the PDB files to publish. See [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -211,7 +211,7 @@ If you leave this argument blank, your symbols will be source indexed but not pu
 :::moniker range=">=azure-pipelines-2019"
 
 **`CompressSymbols`** - **Compress symbols**<br>
-`boolean`. Required when `SymbolServerType = FileShare`. Default value: `false`.<br>
+`boolean`. Optional. Use when `SymbolServerType = FileShare`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Compresses symbols when publishing to file share.
 <!-- :::editable-content-end::: -->

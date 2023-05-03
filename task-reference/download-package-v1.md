@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,27 @@ Use this task to download a package from a package management feed in Azure Arti
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Download package v1
+# Download a package from a package management feed in Azure Artifacts.
+- task: DownloadPackage@1
+  inputs:
+    packageType: 'nuget' # 'maven' | 'npm' | 'nuget' | 'pypi' | 'upack' | 'cargo'. Required. Package Type. Default: nuget.
+    feed: # string. Required. Feed. 
+    #view: # string. View. 
+    definition: # string. Required. Package. 
+    version: # string. Required. Version. 
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
+  # Advanced
+    #files: '**' # string. Optional. Use when packageType = maven || packageType = pypi || packageType = upack. Files. Default: **.
+    #extract: true # boolean. Optional. Use when packageType = nuget || packageType = npm. Extract package contents. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 ```yaml
 # Download package v1
@@ -45,7 +65,17 @@ Use this task to download a package from a package management feed in Azure Arti
 ## Inputs
 
 <!-- :::item name="packageType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+**`packageType`** - **Package Type**<br>
+`string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal), `cargo`. Default value: `nuget`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 **`packageType`** - **Package Type**<br>
 `string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal). Default value: `nuget`.<br>

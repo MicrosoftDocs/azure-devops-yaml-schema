@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,13 +36,13 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    includeRootFolder: true # boolean. Required. Prepend root folder name to archive paths. Default: true.
+    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
   # Archive
     archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
     #sevenZipCompression: 'normal' # 'ultra' | 'maximum' | 'normal' | 'fast' | 'fastest' | 'none'. Optional. Use when archiveType = 7z. 7z compression. Default: normal.
     #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    replaceExistingArchive: true # boolean. Required. Replace existing archive. Default: true.
+    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
     #verbose: false # boolean. Force verbose output. Default: false.
     #quiet: false # boolean. Force quiet output. Default: false.
 ```
@@ -57,13 +57,13 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    includeRootFolder: true # boolean. Required. Prepend root folder name to archive paths. Default: true.
+    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
   # Archive
     archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
     #sevenZipCompression: '5' # 'ultra' | 'maximum' | 'normal' | 'fast' | 'fastest' | 'none'. Optional. Use when archiveType = 7z. 7z compression. Default: 5.
     #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    replaceExistingArchive: true # boolean. Required. Replace existing archive. Default: true.
+    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
     #verbose: false # boolean. Force verbose output. Default: false.
     #quiet: false # boolean. Force quiet output. Default: false.
 ```
@@ -78,12 +78,12 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    includeRootFolder: true # boolean. Required. Prepend root folder name to archive paths. Default: true.
+    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
   # Archive
     archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
     #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    replaceExistingArchive: true # boolean. Required. Replace existing archive. Default: true.
+    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
     #verbose: false # boolean. Force verbose output. Default: false.
     #quiet: false # boolean. Force quiet output. Default: false.
 ```
@@ -98,12 +98,12 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    includeRootFolder: true # boolean. Required. Prepend root folder name to archive paths. Default: true.
+    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
   # Archive
     archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
     #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    replaceExistingArchive: true # boolean. Required. Replace existing archive. Default: true.
+    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
 ```
 
 :::moniker-end
@@ -138,7 +138,7 @@ Name of the root folder or the file path to files to add to the archive. For fol
 :::moniker range="<=azure-pipelines"
 
 **`includeRootFolder`** - **Prepend root folder name to archive paths**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prepends the root folder name to file paths in the archive. Otherwise, all file paths will start one level lower.
 
@@ -228,7 +228,7 @@ Specify the name of the archive file to create.  For example, to create `foo.tgz
 :::moniker range="<=azure-pipelines"
 
 **`replaceExistingArchive`** - **Replace existing archive**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 By default, overwrites an existing archive. Otherwise, when set to `false`, uncompressed tar files are added to the existing archive.
 

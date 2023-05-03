@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a PowerShell script on Linux, macOS, or Windows.
+
+>[!NOTE]
+> By default, PowerShell v2 uses PowerShell Core for Linux agents and Windows PowerShell for Windows agents. To use the latest version of PowerShell on Windows agents, set the `pwsh` parameter to `true`. PowerShell Core will then be used instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -352,7 +355,7 @@ If the value is set to `false`, the line `if ((Test-Path -LiteralPath variable:\
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the value is set to `true`, the task will use `pwsh.exe` from your PATH instead of `powershell.exe` on a Windows agent.
+If this is true, then tasks running on Windows agents will use `pwsh.exe` from your path instead of `powershell.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricUpdateAppVersions@1 - Update Service Fabric App Versions v1 task
 description: Automatically updates the versions of a packaged Service Fabric application.
-ms.date: 12/19/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
     applicationPackagePath: # string. Required. Application Package. 
     versionSuffix: '.$(Build.BuildNumber)' # string. Required. Version Value. Default: .$(Build.BuildNumber).
     #versionBehavior: 'Append' # 'Append' | 'Replace'. Version Behavior. Default: Append.
-    updateOnlyChanged: false # boolean. Required. Update only if changed. Default: false.
+    #updateOnlyChanged: false # boolean. Update only if changed. Default: false.
     #pkgArtifactName: # string. Optional. Use when updateOnlyChanged = true. Package Artifact Name. 
     #logAllChanges: true # boolean. Optional. Use when updateOnlyChanged = true. Log all changes. Default: true.
     #compareType: 'LastSuccessful' # 'LastSuccessful' | 'Specific'. Optional. Use when updateOnlyChanged = true. Compare against. Default: LastSuccessful.
@@ -59,7 +59,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the location of the Service Fabric application package to be deployed to the cluster. Example: `$(system.defaultworkingdirectory)/**/drop/applicationpackage`. [Variables](/azure/devops/pipelines/build/variables&tabs=yaml) and wildcards can be used in the path.
+Specifies the location of the Service Fabric application package to be deployed to the cluster. Example: `$(system.defaultworkingdirectory)/**/drop/applicationpackage`. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +100,7 @@ Appends the version value to existing values in the manifest files or replaces t
 :::moniker range="<=azure-pipelines"
 
 **`updateOnlyChanged`** - **Update only if changed**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Incrementally updates only the packages that have changed. Use the [deterministic compiler flag](https://devblogs.microsoft.com/dotnet/whats-new-for-c-and-vb-in-visual-studio/) to ensure builds with the same inputs produce the same outputs.
 <!-- :::editable-content-end::: -->

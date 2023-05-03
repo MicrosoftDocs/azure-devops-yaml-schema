@@ -1,335 +1,99 @@
 ---
 title: resources.webhooks.webhook definition
-description: resources.webhooks.webhook definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020.1"
 ---
 
 # resources.webhooks.webhook definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
+<!-- :::editable-content name="description"::: -->
 A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="webhookResource{webhook,connection}" version="azure-pipelines-2020.1"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
 ```yaml
 webhooks:
-- webhook: string # Required as first property. Name of the webhook.  ([-_A-Za-z0-9]*)
-  connection: string # Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.. 
-  type: string # Name of the webhook extension. leave this empty if its offline webhook.. 
-  filters: [ path ]
+- webhook: string # Required as first property. Name of the webhook.
+  connection: string # Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.
+  type: string # Name of the webhook extension. Leave this empty if it is an offline webhook.
+  filters: [ filter ] # List of trigger filters.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.webhooks](resources-webhooks.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+Definitions that that reference this definition: [resources.webhooks](resources-webhooks.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+<!-- :::item name="webhook"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `webhook`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the webhook. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `connection`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the webhook extension. leave this empty if its offline webhook. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `filters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of trigger filters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`webhook`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the webhook. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="connection"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="webhookResource{webhook,connection}" version="azure-pipelines-2022"::: -->
-
-```yaml
-webhooks:
-- webhook: string # Required as first property. Name of the webhook.  ([-_A-Za-z0-9]*)
-  connection: string # Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.. 
-  type: string # Name of the webhook extension. leave this empty if its offline webhook.. 
-  filters: [ path ]
-```
-
-
-Properties that use this definition: [resources.webhooks](resources-webhooks.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `webhook`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the webhook. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `connection`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the webhook extension. leave this empty if its offline webhook. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `filters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of trigger filters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="type"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="webhookResource{webhook,connection}" version="azure-pipelines"::: -->
-
-```yaml
-webhooks:
-- webhook: string # Required as first property. Name of the webhook.  ([-_A-Za-z0-9]*)
-  connection: string # Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.. 
-  type: string # Name of the webhook extension. leave this empty if its offline webhook.. 
-  filters: [ path ]
-```
-
-
-Properties that use this definition: [resources.webhooks](resources-webhooks.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `webhook`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Name of the webhook. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `connection`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `type`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the webhook extension. leave this empty if its offline webhook. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `filters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of trigger filters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the webhook extension. Leave this empty if it is an offline webhook.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="filters"::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
+**`filters`** [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
+List of trigger filters.
+<!-- :::editable-content-end::: -->
 
-<!-- Remarks -->
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::properties-end::: -->
 
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- Examples -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

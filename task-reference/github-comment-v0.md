@@ -1,7 +1,7 @@
 ---
 title: GitHubComment@0 - GitHub Comment v0 task
-description: Write a comment to your Github entity i.e. issue or a Pull Request (PR).
-ms.date: 12/19/2022
+description: Write a comment to your GitHub entity i.e. issue or a Pull Request (PR).
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to write a comment to your Github entity, for example an issue or a Pull Request (PR).
+Use this task to write a comment to your GitHub entity, for example an issue or a Pull Request (PR).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -24,7 +24,7 @@ Use this task to write a comment to your Github entity, for example an issue or 
 
 ```yaml
 # GitHub Comment v0
-# Write a comment to your Github entity i.e. issue or a Pull Request (PR).
+# Write a comment to your GitHub entity i.e. issue or a pull request (PR).
 - task: GitHubComment@0
   inputs:
     gitHubConnection: # string. Required. GitHub connection (OAuth or PAT). 
