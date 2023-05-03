@@ -139,11 +139,25 @@ This task is only supported in build pipelines, not release pipelines.
 
 Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dotnet-core-cli-v2.md), [Ant](ant-v1.md), [Maven](maven-v2.md), [Gulp](gulp-v1.md), and [Grunt](grunt-v0.md) also provide the option to publish code coverage data to the pipeline. If you are using these tasks, you do not need a separate Publish Code Coverage Results task in the pipeline.
 
-Prerequisite- To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 2.1.x] (https://learn.microsoft.com/en-gb/azure/devops/pipelines/tasks/reference/use-dotnet-v2?view=azure-pipelines&viewFallbackFrom=azure-devops) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task. 
+Prerequisite- To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 7.0.x] (https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-7) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task. 
 
 1) Following is the configuration of the .Net core sdk task in the azure pipelines that is used before the Publish Code Coverage Results v2 task:
 
-:::image type="content" source="media/dotnet-core-sdk.png" alt-text="Screenshot that shows the .Net Core Sdk task in the pipeline.":::
+:::moniker range=">=azure-pipelines-2019.1"
+
+```yaml
+# Dotnet core sdk task 7.0.x
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 7.0.x'
+  inputs:
+    version: 7.0.x
+```
+
+:::moniker-end
+
+    OR
+
+:::image type="content" source="media/dotnet7.png" alt-text="Screenshot that shows the .Net Core Sdk task in the pipeline.":::
 
 2) Following is the Configuration of the Publish Code Coverage Results version 2 task in the azure pipelines:
 
