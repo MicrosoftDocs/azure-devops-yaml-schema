@@ -487,13 +487,12 @@ The following examples outline how to use the `AzureContainerApps` in different 
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -505,12 +504,11 @@ the provided ACR instance.
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      imageToDeploy: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    imageToDeploy: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -521,11 +519,10 @@ This will create a new Container App named `ado-task-app-<build-id>-<build-numbe
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      yamlConfigPath: simple-image-container-app.yaml
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    yamlConfigPath: simple-image-container-app.yaml
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -557,15 +554,14 @@ resource ID of the **existing** Container App environment that the Container App
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      acrUsername: $(ACR_USERNAME_SECRET)
-      acrPassword: $(ACR_PASSWORD_SECRET)
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    acrUsername: $(ACR_USERNAME_SECRET)
+    acrPassword: $(ACR_PASSWORD_SECRET)
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -577,14 +573,13 @@ to the ACR instance.
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      containerAppName: 'my-test-container-app'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    containerAppName: 'my-test-container-app'
 ```
 
 This will create a new Container App named `my-test-container-app` in a new resource group name
@@ -594,14 +589,13 @@ This will create a new Container App named `my-test-container-app` in a new reso
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      resourceGroup: 'my-test-rg'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    resourceGroup: 'my-test-rg'
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a resource group named
@@ -611,15 +605,14 @@ This will create a new Container App named `ado-task-app-<build-id>-<build-numbe
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      containerAppName: 'my-test-container-app'
-      resourceGroup: 'my-test-rg'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    containerAppName: 'my-test-container-app'
+    resourceGroup: 'my-test-rg'
 ```
 
 This will create a new Container App named `my-test-container-app` in a resource group named `my-test-rg`. If the
@@ -629,14 +622,13 @@ This will create a new Container App named `my-test-container-app` in a resource
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      containerAppEnvironment: 'my-test-container-app-env'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    containerAppEnvironment: 'my-test-container-app-env'
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -646,14 +638,13 @@ This will create a new Container App named `ado-task-app-<build-id>-<build-numbe
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      runtimeStack: 'dotnetcore:7.0'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    runtimeStack: 'dotnetcore:7.0'
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -663,14 +654,13 @@ This will create a new Container App named `ado-task-app-<build-id>-<build-numbe
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      dockerfilePath: 'test.Dockerfile'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    dockerfilePath: 'test.Dockerfile'
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
@@ -685,14 +675,13 @@ inside of the task.
 
 ```yml
 steps:
-
-  - task: AzureContainerApps@1
-    displayName: Build and deploy Container App
-    inputs:
-      connectedServiceNameARM: 'azure-subscription-service-connection'
-      appSourcePath: '$(System.DefaultWorkingDirectory)'
-      acrName: 'mytestacr'
-      imageToBuild: 'mytestacr.azurecr.io/app:latest'
+- task: AzureContainerApps@1
+  displayName: Build and deploy Container App
+  inputs:
+    connectedServiceNameARM: 'azure-subscription-service-connection'
+    appSourcePath: '$(System.DefaultWorkingDirectory)'
+    acrName: 'mytestacr'
+    imageToBuild: 'mytestacr.azurecr.io/app:latest'
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new
