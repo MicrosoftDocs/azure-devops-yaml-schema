@@ -130,7 +130,7 @@ None.
 The command line has a shortcut in YAML: [steps.script](/azure/devops/pipelines/yaml-schema/steps-script).
 
 ```yml
-- script: # script path or inline
+- script: # inline script
   workingDirectory: #
   displayName: #
   failOnStderr: #
