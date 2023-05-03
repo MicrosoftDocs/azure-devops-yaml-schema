@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps (task version 0).
-ms.date: 05/02/2023
+ms.date: 05/03/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -686,8 +686,7 @@ steps:
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new
 resource group named `<container-app-name>-rg` where the image built and pushed to ACR is named
-`mytestacr.azurecr.io/app:latest`
-
+`mytestacr.azurecr.io/app:latest`.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
