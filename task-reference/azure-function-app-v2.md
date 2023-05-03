@@ -209,15 +209,15 @@ The following pre-requisites need to be setup in the target machine(s) for the t
 
 ##### Azure Function
 
-The task is used to deploy an Auzre Functions project to an existing Azure Function. The Azure Function app should exist prior to running the task. The Azure Function App can be created from the [Azure portal](/azure/azure-functions/functions-create-function-app-portal). Alternatively, the [Azure PowerShell task](azure-powershell-v5.md) can be used to run [AzureRM PowerShell scripts](/powershell/azure/new-azureps-module-az) to provision and configure the Azure Function app.
+The task is used to deploy an Azure Functions project to an existing Azure Function. The Azure Function app should exist prior to running the task. The Azure Function App can be created from the [Azure portal](/azure/azure-functions/functions-create-function-app-portal). Alternatively, the [Azure PowerShell task](azure-powershell-v5.md) can be used to run [AzureRM PowerShell scripts](/powershell/azure/new-azureps-module-az) to provision and configure the Azure Function app.
 
-The task can be used to deploy [Azure Functions]/azure/azure-functions/functions-reference) (Windows/Linux).
+The task can be used to deploy [Azure Functions](/azure/azure-functions/functions-reference) (Windows/Linux).
 
 ##### Azure Subscription
 
-To deploy to Azure, an Azure subscription has to be linked to Team Foundation Server or to Azure Pipelines using the Services tab in the Account Administration section. Add the Azure subscription to use in the Build or Release Management definition by opening the Account Administration screen (gear icon on the top-right of the screen) and then click on the Services Tab.
+To deploy to Azure, an Azure subscription has to be linked to Azure Pipelines using the Services tab in the Account Administration section. Add the Azure subscription to use in the Build or Release Management definition by opening the Account Administration screen (gear icon on the top-right of the screen) and then click on the Services Tab.
 
-Create the [ARM](/azure/azure-resource-manager/management/overview) service endpoint, use **'Azure Resource Manager'** endpoint type, for more details follow the steps listed in the link [here](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection).
+Create the [ARM](/azure/azure-resource-manager/management/overview) service endpoint and use **Azure Resource Manager** endpoint type. For more details, follow the steps listed in the link [here](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection).
 
 The task does not work with the Azure Classic service endpoint and it will not list these connections in the parameters in the task.
 
@@ -276,7 +276,7 @@ variables:
   # VSTS_ARM_REST_IGNORE_SSL_ERRORS: true
 
 steps:
-- task: AzureFunctionApp@1
+- task: AzureFunctionApp@2
   displayName: Azure Function App Deploy
   inputs:
     azureSubscription: $(azureSubscription)
