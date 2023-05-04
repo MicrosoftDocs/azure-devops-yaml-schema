@@ -124,7 +124,7 @@ To create a virtual directory inside the container, use the blob prefix input. F
 **`BlobPrefix`** - **Blob Prefix**<br>
 `string`. Optional. Use when `Destination = AzureBlob`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify a prefix that can determine the destination virtual direcotry withing the Azure Blob container. This applies when the `SourcePath` contains a wildcard that may match multiple items. 
+Specify a prefix for the destination virtual directory within the Azure Blob container. This applies when the `SourcePath` contains a wildcard that may match multiple items. 
 
 Example: You can append a build number to prefix the files from all blobs with the same build number.
 
