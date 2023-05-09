@@ -129,7 +129,7 @@ Disable CI triggers.
 ### Examples
 
 ```yaml
-trigger: none # will disable CI builds entirely
+trigger: none # will not run CI builds (outside of pull request events)
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
