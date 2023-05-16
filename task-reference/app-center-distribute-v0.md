@@ -233,6 +233,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+This task is deprecated. Use [AppCenterDistribute@3](./app-center-distribute-v3.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

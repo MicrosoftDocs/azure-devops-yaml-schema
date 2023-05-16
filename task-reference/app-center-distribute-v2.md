@@ -248,7 +248,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Added support for multiple destinations.
+This task is deprecated. Use [AppCenterDistribute@3](./app-center-distribute-v3.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
