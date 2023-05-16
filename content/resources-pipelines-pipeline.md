@@ -294,13 +294,48 @@ resources:
     source: TriggeringPipeline
 ```
 
-When a pipeline is triggered by one of its pipeline resources, the following variables are set.
+When a pipeline is triggered by one of its pipeline resources, the following variables are set in addition to the variables in the previous list.
 
 | Variable | Value |
 |----------|-------------|
 | `Build.Reason` | `ResourceTrigger` |
 | `Resources.TriggeringAlias` | The name of the pipeline resource, such as `source-pipeline` from the previous example. |
 | `Resource.TriggeringCategory` | `pipeline` |
+
+The following example has two pipeline resources.
+
+```yml
+resources:
+ pipelines:
+   - pipeline: source-pipeline
+     source: PipelineTriggerSource
+     project: FabrikamFiber
+     trigger: true
+   - pipeline: other-project-pipeline
+     source: PipelineTriggerFromOtherProject
+     project: FabrikamRepo
+     trigger: true
+
+trigger: none # Only trigger with pipeline resource trigger
+
+pool:
+  vmImage: ubuntu-latest
+
+- bash: echo $(resources.pipeline.source-pipeline.projectName)
+- bash: printenv | sort
+```
+
+Whe this pipeline is run, the first `bash` task outputs the `projectName` of the the pipeline resource named `source-pipeline`, which is `FabrikamFiber`.
+
+The second `bash` task outputs all of the environment variables available to the task. This typically would not be done in a production pipeline, but can be useful for troubleshooting. In this example there are two pipeline resources, and the output contains the following two lines.
+
+```
+RESOURCES_PIPELINE_OTHER-PROJECT-PIPELINE_PROJECTNAME=FabrikamRepo
+RESOURCES_PIPELINE_SOURCE-PIPELINE_PROJECTNAME=FabrikamFiber
+```
+
+> [!NOTE]
+> System and user-defined variables get injected as environment variables for your platform. When variables convert into environment variables, variable names become uppercase, and periods turn into underscores. For example, the variable name `any.variable` becomes `ANY_VARIABLE`.
 
 :::moniker-end
 
