@@ -327,7 +327,7 @@ pool:
 
 Whe this pipeline is run, the first `bash` task outputs the `projectName` of the the pipeline resource named `source-pipeline`, which is `FabrikamFiber`.
 
-The second `bash` task outputs all of the environment variables available to the task,including the pipeline resource variables described in this section. Listing environment variables isn't typically done in a production pipeline, but it can be useful for troubleshooting. In this example there are two pipeline resources, and the output contains the following two lines.
+The second `bash` task outputs all of the environment variables available to the task, including the pipeline resource variables described in this section. Listing environment variables isn't typically done in a production pipeline, but it can be useful for troubleshooting. In this example there are two pipeline resources, and the output contains the following two lines.
 
 ```
 RESOURCES_PIPELINE_OTHER-PROJECT-PIPELINE_PROJECTNAME=FabrikamRepo
