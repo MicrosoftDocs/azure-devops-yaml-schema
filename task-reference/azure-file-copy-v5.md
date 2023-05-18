@@ -435,14 +435,20 @@ The hosted agents are assigned randomly every time a build is triggered, the [ag
 ## Examples
 
 ```yml
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
 - task: AzureFileCopy@5
   inputs:
     SourcePath: 'Readme.md'
-    azureSubscription: 'Azure'
+    azureSubscription: 'MyAzureSubscription'
     Destination: 'AzureBlob'
-    storage: 'storageAccount'
-    ContainerName: 'containerName'
-    BlobPrefix: ''
+    storage: 'MyStorage'
+    ContainerName: 'MyContainerName'
   name: AzureFileCopy
   
 - script: | 
