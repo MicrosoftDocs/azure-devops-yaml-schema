@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to pause deployment in a pipeline and wait for manual intervention.
+Use this task to pause deployment in a release pipeline and wait for manual intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to pause deployment in a pipeline and wait for manual intervention
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to pause deployment in a pipeline and wait for intervention.
+Use this task to pause deployment in a release pipeline and wait for intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
