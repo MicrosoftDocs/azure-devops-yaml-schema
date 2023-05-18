@@ -432,7 +432,7 @@ Applies automatic package versioning depending on the specified value. This stri
 
 - **`byPrereleaseNumber`** - **Use the date and time**: The task will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime`, where you specify the values of X, Y, and Z.
 - **`byEnvVar`**- **Use an environment variable**: The task will use an environment variable that you specify and contains the version number you want to use.
-- **`true`** - **Use the build number**: The task will use the build number to version the package.
+- **`byBuildNumber`** - **Use the build number**: The task will use the build number to version the package.
 
 > [!NOTE]
 > Under General, set the build format to be [`$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)`](/azure/devops/pipelines/tasks/package/nuget).
