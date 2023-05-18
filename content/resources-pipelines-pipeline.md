@@ -265,7 +265,7 @@ For more information, see [Pipeline completion triggers](/azure/devops/pipelines
 
 ### Pipeline resource metadata as predefined variables
 
-In each run, the metadata for a pipeline resource is available to all jobs as these predefined variables:
+In each run, the metadata for a pipeline resource is available to all jobs as the following predefined variables. These variables are available to your pipeline at runtime, and therefore can't be used in [template expressions](/azure/devops/pipelines/process/variables#template-expression-syntax), which are evaluated at pipeline compile time.
 
 ```yaml
 resources.pipeline.<Alias>.projectName
