@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to pause deployment in a classic release pipeline and wait for manual intervention.
+Use this task to pause deployment in a pipeline and wait for manual intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Use this task to pause deployment in a classic release pipeline and wait for man
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to pause deployment in a classic release pipeline and wait for intervention.
+Use this task to pause deployment in a pipeline and wait for intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -28,12 +28,30 @@ Use this task to pause deployment in a classic release pipeline and wait for int
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019.1"
 
 ```yaml
-# This task is supported on classic release pipelines only.
-# Use the classic designer to add and configure this task in a classic release pipeline.
-# See the following Inputs section for details on the inputs that this task supports.
+# Manual intervention v8
+# Pause deployment and wait for manual intervention.
+- task: ManualIntervention@8
+  inputs:
+    #instructions: # string. Instructions. 
+    #emailRecipients: # string. Notify users. 
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+```yaml
+# Manual Intervention v8
+# Pause deployment and wait for intervention.
+- task: ManualIntervention@8
+  inputs:
+    #instructions: # string. Instructions. 
+    #emailRecipients: # string. Notify users. 
+    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
 
 :::moniker-end
@@ -111,7 +129,7 @@ None.
 Use this task in a release pipeline to pause an active deployment within a stage. This is typically executed to perform various manual steps or actions and then the automated deployment tasks are resumed.
 
 > [!NOTE]
-> This task can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline. This article refers to classic pipelines. For YAML usage, see [Manual Validation task](manual-validation-v0.md).
+> This task can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) and is intended for use in a classic release pipeline. This article refers to classic pipelines. For YAML usage, see [Manual Validation task](manual-validation-v0.md).
 
 :::image type="content" source="media/maninter-use-variables.png" alt-text="Screenshot of configuring a Manual Intervention task.":::
 
