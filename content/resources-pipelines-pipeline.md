@@ -336,6 +336,8 @@ RESOURCES_PIPELINE_SOURCE-PIPELINE_PROJECTNAME=FabrikamFiber
 
 > [!NOTE]
 > System and user-defined variables get injected as environment variables for your platform. When variables convert into environment variables, variable names become uppercase, and periods turn into underscores. For example, the variable name `any.variable` becomes `ANY_VARIABLE`.
+>
+> For more information about using variables and variable syntax, see [Understand variable syntax](/azure/devops/pipelines/process/variables?#understand-variable-syntax), [Specify conditions](/azure/devops/pipelines/process/conditions), and [Expressions](/azure/devops/pipelines/process/expressions).
 
 :::moniker-end
 
