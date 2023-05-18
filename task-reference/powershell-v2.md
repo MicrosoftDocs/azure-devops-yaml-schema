@@ -1,33 +1,20 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 10/13/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # PowerShell@2 - PowerShell v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run a PowerShell script on Linux, macOS, or Windows.
-<!-- :::editable-content-end::: -->
+Use this task to run a PowerShell script on Linux, macOS, or Windows.
 
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Run a PowerShell script on Windows, macOS, or Linux.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2018"
-
-<!-- :::editable-content name="description"::: -->
-This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
+>[!NOTE]
+> By default, PowerShell v2 uses PowerShell Core for Linux agents and Windows PowerShell for Windows agents. To use the latest version of PowerShell on Windows agents, set the `pwsh` parameter to `true`. PowerShell Core will then be used instead.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -177,7 +164,7 @@ This is an early preview. Run a PowerShell script on Windows, macOS, or Linux.
 **`targetType`** - **Type**<br>
 `string`. Allowed values: `filePath` (File Path), `inline`. Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target script type: File Path or Inline.
+Specifies the type of script for the task to run: an inline script or a path to a `.ps1` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,7 +176,7 @@ Target script type: File Path or Inline.
 **`filePath`** - **Script Path**<br>
 `string`. Required when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script to execute. Must be a fully qualified path or relative to $(System.DefaultWorkingDirectory).
+Specifies the path of the script to execute. Must be a fully qualified path or relative to `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,9 +188,9 @@ Path of the script to execute. Must be a fully qualified path or relative to $(S
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `targetType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the PowerShell script. Either ordinal parameters or named parameters. For example, `-Name someName -Path -Value "Some long string value"`.
+Specifies the arguments passed to the PowerShell script. Arguments can be ordinal parameters or named parameters. For example, `-Name someName -Path -Value "Some long string value"`.
 
-`arguments` is not used when `targetType` is `inline`.
+`arguments` is not used when `targetType` is set to `inline`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,7 +202,7 @@ Arguments passed to the PowerShell script. Either ordinal parameters or named pa
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your PowerShell commands here.\n\nWrite-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
+Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +213,7 @@ Contents of the script. The maximum supported inline script length is 32766 char
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"\n\n# Use the environment variables input below to pass secret variables to this script.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
+Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -237,7 +224,7 @@ Contents of the script. The maximum supported inline script length is 32766 char
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
+Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -272,7 +259,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 **`warningPreference`** - **WarningPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When not `Default`, prepends the line `$WarningPreference = 'VALUE'` at the top of your script.
+When not set to  `Default`, prepends the line `$WarningPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,7 +271,7 @@ When not `Default`, prepends the line `$WarningPreference = 'VALUE'` at the top 
 **`informationPreference`** - **InformationPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When not `Default`, prepends the line `$InformationPreference = 'VALUE'` at the top of your script.
+When not set to `Default`, prepends the line `$InformationPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -296,7 +283,7 @@ When not `Default`, prepends the line `$InformationPreference = 'VALUE'` at the 
 **`verbosePreference`** - **VerbosePreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When not `Default`, prepends the line `$VerbosePreference = 'VALUE'` at the top of your script.
+When not set to `Default`, prepends the line `$VerbosePreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -308,7 +295,7 @@ When not `Default`, prepends the line `$VerbosePreference = 'VALUE'` at the top 
 **`debugPreference`** - **DebugPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When not `Default`, prepends the line `$DebugPreference = 'VALUE'` at the top of your script.
+When not set to `Default`, prepends the line `$DebugPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -320,7 +307,7 @@ When not `Default`, prepends the line `$DebugPreference = 'VALUE'` at the top of
 **`progressPreference`** - **ProgressPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `silentlyContinue`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When not `Default`, prepends the line `$ProgressPreference = 'VALUE'` at the top of your script.
+When not set to `Default`, prepends the line `$ProgressPreference = 'VALUE'` at the top of your script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -332,7 +319,7 @@ When not `Default`, prepends the line `$ProgressPreference = 'VALUE'` at the top
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely on the exit code to determine failure.
+If the value of this boolean is `true`, the task fails if any errors are written to the error pipeline or if any data is written to the Standard Error stream. Otherwise, the task relies on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +331,7 @@ If this is true, this task will fail if any errors are written to the error pipe
 **`showWarnings`** - **Show warnings as Azure DevOps warnings**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, and your script writes a warnings - they are shown as warnings also in pipeline logs.
+If the value is set to `true`, and your script writes warnings, then the warnings will appear as warnings in Pipeline logs.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -356,7 +343,7 @@ If this is true, and your script writes a warnings - they are shown as warnings 
 **`ignoreLASTEXITCODE`** - **Ignore $LASTEXITCODE**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will cause the last exit code from an external command to be propagated as the exit code of powershell. Otherwise the line is not appended to the end of your script.
+If the value is set to `false`, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will cause the last exit code from an external command to be propagated as the exit code of `powershell`. Otherwise, the line is not appended to the end of your script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -368,7 +355,7 @@ If this is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE))
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, then on Windows the task will use pwsh.exe from your PATH instead of powershell.exe.
+If this is true, then tasks running on Windows agents will use `pwsh.exe` from your path instead of `powershell.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -380,7 +367,7 @@ If this is true, then on Windows the task will use pwsh.exe from your PATH inste
 **`workingDirectory`** - **Working Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory where the script is run. If not specified, the working directory is $(Build.SourcesDirectory).
+Specifies the working directory where the script is run. If a value is not specified, the working directory is `$(Build.SourcesDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -392,7 +379,7 @@ Working directory where the script is run. If not specified, the working directo
 **`runScriptInSeparateScope`** - **Run script in the separate scope**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input allows executing PowerShell scripts using '&' operator instead of the default '.'. If this input set to the true script will be executed in separate scope and globally scoped PowerShell variables won't be updated.
+This input allows executing PowerShell scripts using `&` operator instead of the default `.`. If this input is set to `true`, the script will be executed in a separate scope, and globally scoped PowerShell variables won't be updated.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -441,7 +428,7 @@ To learn more about defining release variables in a script, see [Define and modi
 
 ### Passing pipeline secrets in script, but secret is not masked in pipeline logs
 
-Be aware that PowerShell cuts off error message, so if you use some secrets in the script - they could be trimmed as well, and won't be masked in this case. For example, for the inline script below:
+Be aware that PowerShell cuts off error messages, so if you use pipeline secrets in a script, the secrets could be trimmed and exposed. For example, in the inline script below:
 
 ```powershell
 ./script.ps1 --arg1 value1 --arg2 <some_secret_which_will_be_masked_here>
@@ -455,7 +442,7 @@ There could be an exception like: `At <path_to_temp_script_file>:4 char:3`:
     + <Additional exception details>
 ```
 
-To avoid this issue you can handle such exceptions on a script level, or avoid cases when secrets could appear in the source code line in the error message.
+To avoid this issue, you can handle these exceptions on a script level, or avoid cases when pipeline secrets could appear in source code lines within error messages.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

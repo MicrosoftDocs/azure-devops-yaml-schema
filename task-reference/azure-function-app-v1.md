@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
-description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 10/11/2022
+description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -31,7 +31,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -57,7 +57,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2022"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -83,7 +83,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2020.1"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -109,7 +109,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2020"
 
 ```yaml
-# Azure Functions v1
+# Azure Functions Deploy v1
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
@@ -135,7 +135,7 @@ Deploy an Azure Function for Linux or Windows.
 :::moniker range="=azure-pipelines-2019.1"
 
 ```yaml
-# Azure Function v1
+# Azure Functions Deploy v1
 # Deploy an Azure Function for Linux or Windows.
 - task: AzureFunctionApp@1
   inputs:
@@ -353,7 +353,7 @@ Enter the configuration strings using the syntax `-key value` (for example: `-ph
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -364,7 +364,7 @@ Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-funct
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-function-app) for the app.
+Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->
 <br>
 

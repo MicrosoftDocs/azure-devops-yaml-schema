@@ -1,25 +1,17 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # InstallSSHKey@0 - Install SSH key v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Install an SSH key prior to a build or deployment.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Install an SSH key prior to a build or release.
+Use this task in a pipeline to install an SSH key prior to a build or release step.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -114,7 +106,7 @@ Install an SSH key prior to a build or release.
 **`knownHostsEntry`** - **Known Hosts Entry**<br>
 Input alias: `hostName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The entry for this SSH key for the known_hosts file.
+Specifies the SSH key entry for the known_hosts file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,7 +118,7 @@ The entry for this SSH key for the known_hosts file.
 **`sshPublicKey`** - **SSH Public Key**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The contents of the public SSH key.
+Optional. Specifies the contents of the public SSH key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +129,7 @@ The contents of the public SSH key.
 **`sshPublicKey`** - **SSH Public Key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The contents of the public SSH key.
+Specifies the contents of the public SSH key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +141,7 @@ The contents of the public SSH key.
 **`sshPassphrase`** - **SSH Passphrase**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The passphrase for the SSH key, if any.
+Optional. Specifies the passphrase for the SSH key, if any.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -161,7 +153,7 @@ The passphrase for the SSH key, if any.
 **`sshKeySecureFile`** - **SSH Key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the SSH key that was uploaded to `Secure Files` to install on the agent.
+Specifies the SSH key that was uploaded to `Secure Files` to install on the agent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +165,7 @@ Select the SSH key that was uploaded to `Secure Files` to install on the agent.
 **`addEntryToConfig`** - **Add entry to SSH config**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add entry related to the key installed to the SSH config file. The key file will be available for all subsequent tasks.
+Optional. Adds an entry related to the key that was installed to the SSH config file. The key file will be available for all subsequent tasks.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +177,7 @@ Add entry related to the key installed to the SSH config file. The key file will
 **`configHostAlias`** - **Alias**<br>
 `string`. Required when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of SSH config entry.
+Specifies the name of the SSH config entry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +189,7 @@ Name of SSH config entry.
 **`configHostname`** - **Host name**<br>
 `string`. Required when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Host name property of SSH config entry.
+Specifies the host name property of SSH config entry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +201,7 @@ Host name property of SSH config entry.
 **`configUser`** - **User**<br>
 `string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Username property of SSH config entry.
+Specifies the user name property of the SSH config entry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,7 +213,7 @@ Username property of SSH config entry.
 **`configPort`** - **Port**<br>
 `string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Port of SSH config entry.
+Specifies the port of the SSH config entry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,7 +225,7 @@ Port of SSH config entry.
 **`hostName`** - **Known Hosts Entry**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The entry for this SSH key for the known_hosts file.
+Specifies the SSH key entry for the known_hosts file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -283,14 +275,15 @@ steps:
 ```
 
 > [!NOTE]
-> Your public key should be added to the repository\organization otherwise you'll get issue with the access. For GitHub please follow [the guide above](#example-setup-using-github). For Azure DevOps Services please use the following guide: [Add the public key to Azure DevOps Services/TFS](/azure/devops/repos/git/use-ssh-keys-to-authenticate).
+> Your public key should be added to the repository\organization; otherwise, there will be access issues. For GitHub, follow [the guide above](#example-setup-using-github). For Azure DevOps Services, use [Add the public key to Azure DevOps Services/TFS](/azure/devops/repos/git/use-ssh-keys-to-authenticate).
 
 ### Installing of multiple SSH keys in the same pipeline job
 
 When using more than one key in the same pipeline job, the first one is used by default. To be able to use the desired key when establishing an SSH connection, you can use the `Advanced` section of the `InstallSSHKey` task to set the following parameters: `addEntryToConfig`, `configHostAlias`, `configHostname`, `configUser`, and `configPort`.
 
-These parameters allow you to add a host to the SSH config file (for example, `/root/.ssh/config` for Linux) in order to further use it in custom scripts via alias.
-After build is completed, the task will attempt to restore the original SSH config file. If there was no SSH config file initially, it will just be removed from the agent.
+These parameters allow you to add a host to the SSH config file (for example, `/root/.ssh/config` for Linux) in order to use it in custom scripts via an alias.
+
+After the build is completed, the task will attempt to restore the original SSH config file. If there was no SSH config file initially, then the host is removed from the agent.
 
 An example of multiple SSH keys installation. The case with several GitHub repos and their own key for each one:
 ```yml
@@ -336,11 +329,11 @@ steps:
 
 ### Example setup using GitHub
 
-This section describes how to use a private GitHub repository with YAML from within Azure Pipelines. 
+This section describes how to use a private GitHub repository with YAML from within Azure Pipelines.
 
-If you have a repository that you don't want to expose to the open-source community, a common practice is to make the repository private. However, a CI/CD tool like Azure DevOps needs access to the repository if you want to use the tool to manage the repository. To give Azure DevOps access, you might need an SSH key to authenticate access to GitHub. 
+If you have a repository that you don't want to expose to the open-source community, a common practice is to make the repository private. However, a CI/CD tool like Azure DevOps needs access to the repository if you want to use the tool to manage the repository. To give Azure DevOps access, you might need an SSH key to authenticate access to GitHub.
 
-Here are the steps to complete to use an SSH key to authenticate access to GitHub:
+Here are the steps to use an SSH key to authenticate access to GitHub:
 
 1. Generate a key pair to use to authenticate access from GitHub to Azure DevOps:
 
@@ -358,7 +351,7 @@ Here are the steps to complete to use an SSH key to authenticate access to GitHu
    
         :::image type="content" alt-text="Screenshot of the GitBash prompt to enter a passphrase for your SSH key pair." source="./media/ssh-task-02.png":::
    
-       The SSH key pairs are created and the following success message appears:
+       `ssh-keygen` creates the SSH key pairs, and the following success message appears:
    
        :::image type="content" alt-text="Screenshot of the GitBash message that shows that an SSH key pair was created." source="./media/ssh-task-03.png":::
      
@@ -390,7 +383,7 @@ Here are the steps to complete to use an SSH key to authenticate access to GitHu
      
         :::image type="content" alt-text="Screenshot of the Upload file dialog box and the Browse button." source="./media/ssh-task-08.png":::
        
-  4. Recover your "Known Hosts Entry". In GitBash, enter the following command: 
+  4. Recover your "Known Hosts Entry". In GitBash, enter the following command:
    
       ```bash
       ssh-keyscan github.com
@@ -400,7 +393,7 @@ Here are the steps to complete to use an SSH key to authenticate access to GitHu
      
       :::image type="content" alt-text="Screenshot of key search results in GitBash." source="./media/ssh-task-09.png":::
     
-  5. Create a YAML pipeline. 
+  5. Create a YAML pipeline.
   
      To create a YAML pipeline, in the YAML definition, add the following task:
   
@@ -412,7 +405,7 @@ Here are the steps to complete to use an SSH key to authenticate access to GitHu
         sshKeySecureFile: #{Enter the name of your key in "Secure Files" Here}
      ```
   
-Now, the SSH keys are installed and you can proceed with the script to connect by using SSH, and not the default HTTPS.
+The SSH keys are now installed, and you can proceed with the script to connect by using SSH, and not the default HTTPS.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

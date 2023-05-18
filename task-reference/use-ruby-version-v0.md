@@ -1,25 +1,17 @@
 ---
 title: UseRubyVersion@0 - Use Ruby version v0 task
 description: Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # UseRubyVersion@0 - Use Ruby version v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Retrieves the specified version of Ruby from the tool cache. Optionally add it to PATH.
+Use this task to select a version of Ruby to run on an agent. Optionally, the task can add the Ruby version to PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -64,7 +56,7 @@ Retrieves the specified version of Ruby from the tool cache. Optionally add it t
 **`versionSpec`** - **Version spec**<br>
 `string`. Required. Default value: `>= 2.4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version range or exact version of a Ruby version to use.
+Specifies the version range or a version of a Ruby version to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -76,7 +68,7 @@ Version range or exact version of a Ruby version to use.
 **`addToPath`** - **Add to PATH**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Prepend the retrieved Ruby version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
+Optional. Prepends the retrieved Ruby version to the PATH environment variable to make it available in subsequent tasks or scripts without using the output variable.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,9 +104,9 @@ Use this task to select a version of Ruby to run on an agent, and optionally add
 
 ### Prerequisites
 
-* A [Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted#software) with side-by-side versions of Ruby installed, or a self-hosted agent with Agent.ToolsDirectory configured (see [FAQ](#how-can-i-configure-a-self-hosted-agent-to-use-this-task)).
+* A [Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted#software) with side-by-side versions of Ruby installed, or a self-hosted agent with `Agent.ToolsDirectory` configured (see [FAQ](#how-can-i-configure-a-self-hosted-agent-to-use-this-task)).
 
-This task will fail if no Ruby versions are found in Agent.ToolsDirectory. Available Ruby versions on Microsoft-hosted agents can be found [here](/azure/devops/pipelines/agents/hosted#software).
+This task will fail if no Ruby versions are found in `Agent.ToolsDirectory`. See other available Ruby versions on [Microsoft-hosted agents](https://github.com/azure/devops/pipelines/agents/hosted#software).
 
 ### Where can I learn more about tool installers?
 
@@ -122,9 +114,7 @@ For an explanation of tool installers and examples, see [Tool installers](/azure
 
 ### How can I configure a self-hosted agent to use this task?
 
-You can run this task on a self-hosted agent with your own Ruby versions.
-To run this task on a self-hosted agent, set up Agent.ToolsDirectory by following the instructions [here](https://github.com/Microsoft/vsts-task-tool-lib/blob/master/docs/overview.md#tool-cache).
-The tool name to use is "Ruby."
+You can run this task on a self-hosted agent with your own Ruby versions. To run this task on a self-hosted agent, set up `Agent.ToolsDirectory` by following the [Tool Cache instructions](https://github.com/Microsoft/vsts-task-tool-lib/blob/master/docs/overview.md#tool-cache). The tool name to use is `Ruby`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

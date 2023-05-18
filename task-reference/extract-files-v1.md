@@ -1,7 +1,7 @@
 ---
 title: ExtractFiles@1 - Extract files v1 task
 description: Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
+Use this task to extract a variety of archive and compression files, such as .7z, .rar, .tar.gz, and .zip.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -29,8 +29,8 @@ Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, a
   inputs:
     archiveFilePatterns: '**/*.zip' # string. Required. Archive file patterns. Default: **/*.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
-    overwriteExistingFiles: false # boolean. Required. Overwrite existing files. Default: false.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
+    #overwriteExistingFiles: false # boolean. Overwrite existing files. Default: false.
     #pathToSevenZipTool: # string. Path to 7z utility.
 ```
 
@@ -45,8 +45,8 @@ Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, a
   inputs:
     archiveFilePatterns: '**/*.zip' # string. Required. Archive file patterns. Default: **/*.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
-    overwriteExistingFiles: false # boolean. Required. Overwrite existing files. Default: false.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
+    #overwriteExistingFiles: false # boolean. Overwrite existing files. Default: false.
 ```
 
 :::moniker-end
@@ -60,7 +60,7 @@ Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, a
   inputs:
     archiveFilePatterns: '*.zip' # string. Required. Archive file patterns. Default: *.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
 ```
 
 :::moniker-end
@@ -74,7 +74,7 @@ Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, a
   inputs:
     archiveFilePatterns: '*.zip' # string. Required. Archive file patterns. Default: *.zip.
     destinationFolder: # string. Required. Destination folder. 
-    cleanDestinationFolder: true # boolean. Required. Clean destination folder before extracting. Default: true.
+    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
 ```
 
 :::moniker-end
@@ -99,16 +99,15 @@ Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, a
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 `string`. Required. Default value: `**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269).<br>
-Patterns to match the archives you want to extract. By default, patterns start in the root folder of the repo (same as if you had specified `$(Build.SourcesDirectory))`.<br>
-Specify pattern filters, one per line, that match the archives to extract. For example:
-<li>`test.zip` extracts the test.zip file in the root folder.
-<li>`test/*.zip` extracts all .zip files in the test folder.
-<li>`**/*.tar` extracts all .tar files in the root folder and sub-folders.
-<li>`**/bin/*.7z` extracts all ''.7z'' files in any sub-folder named bin.<br>
-The pattern is used to match only archive file paths, not folder paths, and not archive contents to be extracted. So you should specify patterns such as `**/bin/**` instead of `**/bin`.
+Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns. Learn more about the [Extract Files task](/azure/devops/pipelines/tasks/utility/extract-files).
 
-Default value: `**/*.zip`
+Specifies the patterns to match the archives you want to extract. By default, patterns start in the root folder of the repo (same as if you had specified `$(Build.SourcesDirectory)`.  
+Specifies the pattern filters, one per line, that match the archives to extract. For example:
+* `test.zip` extracts the test.zip file in the root folder.
+* `test/*.zip` extracts all .zip files in the test folder.
+* `**/*.tar` extracts all .tar files in the root folder and sub-folders.
+* `**/bin/*.7z` extracts all .7z files in any sub-folder named "bin".  
+The pattern is used to match only archive file paths, not folder paths, and not archive contents to be extracted. So, you should specify patterns, such as `**/bin/**` instead of `**/bin`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -119,7 +118,7 @@ Default value: `**/*.zip`
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 `string`. Required. Default value: `*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269).
+Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  Learn more about the [Extract Files task](/azure/devops/pipelines/tasks/utility/extract-files).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,7 +130,7 @@ File paths or patterns of the archive files to extract.  Supports multiple lines
 **`destinationFolder`** - **Destination folder**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Destination folder into which archive files should be extracted.  Use [variables](https://go.microsoft.com/fwlink/?LinkID=550988) if files are not in the repo. Example: `$(agent.builddirectory)`.
+Specifies the destination folder into which archive files should be extracted. Use [variables](/azure/devops/pipelines/build/variables) if files are not in the repo. For example: `$(agent.builddirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -141,9 +140,9 @@ Destination folder into which archive files should be extracted.  Use [variables
 :::moniker range="<=azure-pipelines"
 
 **`cleanDestinationFolder`** - **Clean destination folder before extracting**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to clean the destination directory before archive contents are extracted into it.
+Specifies the option to clean the destination directory before archive contents are extracted into it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -153,9 +152,9 @@ Select this option to clean the destination directory before archive contents ar
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`overwriteExistingFiles`** - **Overwrite existing files**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to overwrite existing files in the destination directory if they already exist. If the option is `false`, the script prompts on existing files, asking whether you want to overwrite them.
+Specifies the option to overwrite existing files in the destination directory if they already exist. If the option is `false`, the script prompts on existing files, asking whether you want to overwrite them.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +166,7 @@ Select this option to overwrite existing files in the destination directory if t
 **`pathToSevenZipTool`** - **Path to 7z utility**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can specify custom path to 7z utility. For example, "C:\7z\7z.exe" on Windows and "/usr/local/bin/7z" on MacOS/Ubuntu. If it's not specified on Windows - default 7zip version supplied with a task will be used.
+Specifies the custom path to 7z utility. For example, `C:\7z\7z.exe` on Windows and `/usr/local/bin/7z` on MacOS/Ubuntu. If it's not specified on Windows, the default 7zip version supplied with a task will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -195,7 +194,7 @@ None.
 
 Use this task to extract files from archives to a target folder using match patterns. A range of standard archive formats is supported, including .zip, .jar, .war, .ear, .tar, .7z, and more.
 
-For more information about file matching patterns, see [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
+For more information about file matching patterns, see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -205,7 +204,7 @@ For more information about file matching patterns, see [File matching patterns r
 
 ### Extract all .zip files recursively
 
-This example will extract all .zip files recursively, including both root files and files from sub-folders
+This example will extract all .zip files recursively, including both root files and files from sub-folders.
 
 ```yaml
 steps:
@@ -218,7 +217,7 @@ steps:
 
 ### Extract all .zip files from subfolder
 
-This example will extract `test/one.zip`, `test/two.zip` but will leave `test/nested/three.zip`.
+This example will extract `test/one.zip` and `test/two.zip`, but will leave `test/nested/three.zip`.
 
 ```yaml
 steps:

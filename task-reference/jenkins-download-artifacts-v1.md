@@ -1,7 +1,7 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
 description: Download artifacts produced by a Jenkins job.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Download artifacts produced by a Jenkins job.
+Use this task to download artifacts produced by a Jenkins job.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -98,7 +98,7 @@ Download artifacts produced by a Jenkins job.
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance. To create one, click the Manage link and create a new Jenkins service connection.
+Specifies the service connection for your Jenkins instance. To create a new service connection, click the Manage link.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +109,7 @@ Select the service connection for your Jenkins instance. To create one, click th
 **`jenkinsServerConnection`** - **Jenkins service endpoint**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service connection for your Jenkins instance. To create one, click the Manage link and create a new Jenkins service connection.
+Specifies the service connection for your Jenkins instance. To create a new service connection, click the Manage link.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ Select the service connection for your Jenkins instance. To create one, click th
 **`jobName`** - **Job name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Jenkins job to download artifacts from.  This must exactly match the job name on the Jenkins server.
+Specifies the name of the Jenkins job to download artifacts from. This must exactly match the job name on the Jenkins server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +133,7 @@ The name of the Jenkins job to download artifacts from.  This must exactly match
 **`jenkinsJobType`** - **Jenkins job type**<br>
 `string`. Optional. Use when `jobName = invalidjobName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Jenkins job type, detected automatically.
+Automatically specifies the Jenkins job type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +145,8 @@ Jenkins job type, detected automatically.
 **`saveTo`** - **Save to**<br>
 `string`. Required. Default value: `jenkinsArtifacts`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Jenkins artifacts will be downloaded and saved to this directory.  This directory will be created if it does not exist.
+Specifies the directory where Jenkins artifacts are downloaded and saved.
+ This directory is created if it does not exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +158,7 @@ Jenkins artifacts will be downloaded and saved to this directory.  This director
 **`jenkinsBuild`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `LastSuccessfulBuild` (Last Successful Build), `BuildNumber` (Build Number). Default value: `LastSuccessfulBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download artifacts produced by the last successful build or from a specific build instance.
+Downloads artifacts produced by the last successful build or from a specific build instance.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,7 +170,7 @@ Download artifacts produced by the last successful build or from a specific buil
 **`jenkinsBuildNumber`** - **Jenkins build number**<br>
 `string`. Required when `jenkinsBuild == BuildNumber`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download artifacts produced by this build.
+Downloads artifacts produced by this build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +182,9 @@ Download artifacts produced by this build.
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](/azure/devops/pipelines/tasks/file-matching-patterns) <p>The default pattern (`**`) will download all files across all artifacts produced by the Jenkins job. To download all files within artifact drop, use `drop/**`.</p>
+Specifies the files to be downloaded as a multi-line minimatch pattern. More Information about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+The default pattern `**` downloads all files across all artifacts produced by the Jenkins job. To download all files within the artifact drop, use `drop/**`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,7 +208,7 @@ Enables downloading the commits and work item details associated with the Jenkin
 **`startJenkinsBuildNumber`** - **Download commits and work items from**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional start build number for downloading commits and work items. If provided, all commits and work items between start build number and build number given as input to download artifacts will be downloaded.
+Starts the build number for downloading commits and work items. If provided, all commits and work items between the start build number and the build number given as input to download artifacts are downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +219,7 @@ Optional start build number for downloading commits and work items. If provided,
 **`startJenkinsBuildNumber`** - **Download commits and workitems from**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional start build number for downloading commits and work items. If provided, all commits and work items between start build number and build number given as input to download artifacts will be downloaded.
+Starts the build number for downloading commits and work items. If provided, all commits and work items between the start build number and the build number given as input to download artifacts are downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +231,7 @@ Optional start build number for downloading commits and work items. If provided,
 **`artifactDetailsFileNameSuffix`** - **Commit and WorkItem FileName**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == invalid`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional file name suffix for commits and work item attachments. Attachments will be created with commits_{suffix}.json and workitem_{suffix}.json. If this input is not provided, attachments will be created with the name commits.json and workitems.json.
+Specifies the file name suffix for commits and work item attachments. Attachments are created with `commits_{suffix}.json` and `workitem_{suffix}.json`. If this input is not provided, attachments are created with the names `commits.json` and `workitems.json`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -240,7 +243,7 @@ Optional file name suffix for commits and work item attachments. Attachments wil
 **`propagatedArtifacts`** - **Artifacts are propagated to Azure**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins artifacts to Azure, refer to this [Jenkins plugin](https://wiki.jenkins.io/display/JENKINS/Windows+Azure+Storage+Plugin).
+Use this input if Jenkins artifacts were propagated to Azure. To upload Jenkins artifacts to Azure, refer to this [Jenkins plugin](https://wiki.jenkins.io/display/JENKINS/Windows+Azure+Storage+Plugin).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +255,7 @@ Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins arti
 **`artifactProvider`** - **Artifact Provider**<br>
 `string`. Required when `propagatedArtifacts == notValid`. Allowed values: `azureStorage` (Azure Storage). Default value: `azureStorage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the external storage provider used in Jenkins job to upload the artifacts.
+Specifies the external storage provider used in Jenkins job to upload the artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -264,7 +267,7 @@ Choose the external storage provider used in Jenkins job to upload the artifacts
 **`ConnectedServiceNameARM`** - **Azure Subscription**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose the Azure Resource Manager subscription for the artifacts.
+Specifies the Azure Resource Manager subscription for the artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +279,7 @@ Choose the Azure Resource Manager subscription for the artifacts.
 **`storageAccountName`** - **Storage Account Name**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Classic and Resource Manager storage accounts are listed. Select the storage account name in which the artifacts are propagated.
+Specifies Azure Classic or Resource Manager storage accounts. Select the storage account name where the artifacts are propagated.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -288,7 +291,7 @@ Azure Classic and Resource Manager storage accounts are listed. Select the stora
 **`containerName`** - **Container Name**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the container in the storage account to which artifacts are uploaded.
+Specifies the name of the container in the storage account where artifacts are uploaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -300,7 +303,7 @@ Name of the container in the storage account to which artifacts are uploaded.
 **`commonVirtualPath`** - **Common Virtual Path**<br>
 `string`. Optional. Use when `propagatedArtifacts == true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the artifacts inside the Azure storage container.
+Specifies the path to the artifacts inside the Azure storage container.
 <!-- :::editable-content-end::: -->
 <br>
 

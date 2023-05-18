@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@1 - Azure CLI v1 task
 description: Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 

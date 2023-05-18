@@ -1,25 +1,17 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Deploy an Azure Service Fabric application to a cluster.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Deploy a Service Fabric application to a cluster.
+Use this task to deploy a Service Fabric application to a cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the publish profile.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -148,7 +140,7 @@ Deploy a Service Fabric application to a cluster.
 **`applicationPackagePath`** - **Application Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the application package that is to be deployed. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path.
+Specifies the path to the application package that is to be deployed. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +152,7 @@ The path to the application package that is to be deployed. [Variables](/azure/d
 **`serviceConnectionName`** - **Cluster Service Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure Service Fabric service connection to be used to connect to the cluster. The settings defined in this referenced service connection will override those defined in the publish profile. Choose `Manage` to register a new service connection.
+Specifies the Azure Service Fabric service connection to be used to connect to the cluster. The settings defined in this referenced service connection override those defined in the publish profile. Choose `Manage` to register a new service connection.
 
 To connect to the cluster, the service fabric task uses the machine cert store to store the information about the certificate. If two releases run together on one machine using the same certificate, they will start properly. However, if one of the tasks is complete, then the certificate from the machine cert store will be cleaned up, which affects the second release.
 <!-- :::editable-content-end::: -->
@@ -173,7 +165,7 @@ To connect to the cluster, the service fabric task uses the machine cert store t
 **`serviceConnectionName`** - **Cluster Connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure Service Fabric service connection to be used to connect to the cluster. The settings defined in this referenced service connection will override those defined in the publish profile. Choose `Manage` to register a new service connection.
+Specifies the Azure Service Fabric service connection to be used to connect to the cluster. The settings defined in this referenced service connection override those defined in the publish profile. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +177,7 @@ Selects an Azure Service Fabric service connection to be used to connect to the 
 **`publishProfilePath`** - **Publish Profile**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The path to the publish profile file that defines the settings to use. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Learn more about [how to create publish profiles in Visual Studio](/azure/service-fabric/service-fabric-tutorial-deploy-app#publish-the-application-to-the-cluster).
+Optional. Specifies the path to the publish profile file that defines the settings to use. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. Learn more about [how to create publish profiles in Visual Studio](/azure/service-fabric/service-fabric-tutorial-deploy-app#publish-the-application-to-the-cluster).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +189,7 @@ Optional. The path to the publish profile file that defines the settings to use.
 **`applicationParameterPath`** - **Application Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The path to the application parameters file. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. If specified, this will override the value in the publish profile. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
+Optional. Specifies the path to the application parameters file. [Variables](/azure/devops/pipelines/build/variables) and wildcards can be used in the path. If specified, this overrides the value in the publish profile. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,17 +201,18 @@ Optional. The path to the application parameters file. [Variables](/azure/devops
 **`overrideApplicationParameter`** - **Override Application Parameters**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The variables defined in the build or release pipeline will be matched against the `Parameter Name` entries in the application manifest file. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
- Example: If your application has a parameter defined:
+Optional. Specifies the variables defined in the build or release pipeline are matched against the `Parameter Name` entries in the application manifest file. Learn more about [how to create an application parameters file in Visual Studio](/azure/service-fabric/service-fabric-manage-multiple-environment-app-configuration#specifying-parameters-during-application-creation).
+ Example:
 ```
  <Parameters> 
  <Parameter Name="SampleApp_PartitionCount" Value="1" /> 
  <Parameter Name="SampleApp_InstanceCount" DefaultValue="-1" /> 
  </Parameters>
 ```
- and you want to change the partition count to 2, you can define a release pipeline or an environment variable `SampleApp_PartitionCount` and its value as `2`. 
+ If your application has a parameter defined as in the above example, and you want to change the partition count to `2`, you can define a release pipeline or an environment variable `SampleApp_PartitionCount` and its value as `2`.
 
- **Note**: If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
+ > [!NOTE]
+> If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +224,7 @@ Optional. The variables defined in the build or release pipeline will be matched
 **`compressPackage`** - **Compress Package**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Indicates whether the application package should be compressed before copying to the image store. If enabled, this will override the value in the publish profile. Learn more about [compressing packages](/azure/service-fabric/service-fabric-package-apps#compress-a-package).
+Optional. Specifies whether the application package should be compressed before copying to the image store. If enabled, this overrides the value in the publish profile. Learn more about [compressing packages](/azure/service-fabric/service-fabric-package-apps#compress-a-package).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -243,7 +236,7 @@ Optional. Indicates whether the application package should be compressed before 
 **`copyPackageTimeoutSec`** - **CopyPackageTimeoutSec**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The timeout in seconds for copying application package to image store. If specified, this will override the value in the publish profile.
+Optional. Specifies the timeout in seconds for copying application package to the image store. If specified, this overrides the value in the publish profile.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +248,7 @@ Optional. The timeout in seconds for copying application package to image store.
 **`registerPackageTimeoutSec`** - **RegisterPackageTimeoutSec**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The timeout in seconds for registering or un-registering an application package.
+Optional. Specifies the timeout in seconds for registering or un-registering an application package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -285,7 +278,7 @@ Overwrites behavior if an application exists in the cluster with the same name a
 **`skipUpgradeSameTypeAndVersion`** - **Skip upgrade for same Type and Version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Indicates whether an upgrade will be skipped if the same application type and version already exists in the cluster, otherwise the upgrade fails during validation. If enabled, re-deployments are idempotent.
+Optional. Specifies whether an upgrade will be skipped if the same application type and version already exists in the cluster; otherwise, the upgrade fails during validation. If enabled, re-deployments are idempotent.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -297,7 +290,7 @@ Optional. Indicates whether an upgrade will be skipped if the same application t
 **`skipPackageValidation`** - **Skip package validation**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Indicates whether the package should be validated or not before deployment. Learn more about [package validation](/azure/service-fabric/service-fabric-package-apps#test-the-package).
+Optional. Specifies whether the package should be validated or not before deployment. Learn more about [package validation](/azure/service-fabric/service-fabric-package-apps#test-the-package).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -525,7 +518,7 @@ Configures the application with the specified Docker settings.
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required when `configureDockerSettings = true`. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Service Connection), `ContainerRegistryEndpoint` (Container Registry Service Connection), `UsernamePassword` (Username and Password). Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses how credentials for the Docker registry will be provided.
+Specifies how credentials for the Docker registry are provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -536,7 +529,7 @@ Chooses how credentials for the Docker registry will be provided.
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required when `configureDockerSettings = true`. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Endpoint), `ContainerRegistryEndpoint` (Container Registry Endpoint), `UsernamePassword` (Username and Password). Default value: `AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses how credentials for the Docker registry will be provided.
+Specifies how credentials for the Docker registry are provided.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -548,9 +541,10 @@ Chooses how credentials for the Docker registry will be provided.
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 
-**Note**: the task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
+> [!NOTE]
+> The task tries to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -561,9 +555,10 @@ Selects a Docker registry service connection. Required for commands that need to
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 
-**Note**: the task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
+> [!NOTE]
+> The task tries to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -575,9 +570,10 @@ Selects a Docker registry service connection. Required for commands that need to
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure subscription.
+Specifies an Azure subscription.
 
-**Note**: the task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
+> [!NOTE]
+> The task will try to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -589,7 +585,7 @@ Selects an Azure subscription.
 **`registryUserName`** - **Registry User Name**<br>
 `string`. Optional. Use when `configureDockerSettings = true && registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The username for the Docker registry.
+Specifies the username for the Docker registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -601,7 +597,7 @@ The username for the Docker registry.
 **`registryPassword`** - **Registry Password**<br>
 `string`. Optional. Use when `configureDockerSettings = true && registryCredentials = UsernamePassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The password for the Docker registry. If the password is not encrypted, it is recommended that you use a custom release pipeline secret variable to store it.
+Specifies the password for the Docker registry. If the password is not encrypted, you should use a custom release pipeline secret variable to store it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -613,7 +609,7 @@ The password for the Docker registry. If the password is not encrypted, it is re
 **`passwordEncrypted`** - **Password Encrypted**<br>
 `boolean`. Optional. Use when `configureDockerSettings = true && registryCredentials = UsernamePassword`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-It is recommended to encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, an error will occur.
+You should encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets). If you do not, and a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, that certificate will be used to encrypt the password; otherwise, an error will occur.
 <!-- :::editable-content-end::: -->
 <br>
 

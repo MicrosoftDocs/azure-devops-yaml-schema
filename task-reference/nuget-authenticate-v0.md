@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@0 - NuGet authenticate v0 task
 description: This version of the task is deprecated, use NuGetAuthenticateV1 instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
-This version of the task is deprecated, use NuGetAuthenticateV1 instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
+This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +21,7 @@ This task is deprecated.
 :::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
 
 <!-- :::editable-content name="description"::: -->
-Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
+Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -66,7 +66,7 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 **`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of NuGet service connection names for feeds outside this organization/collection. For feeds in this organization/collection, leave this blank; the build’s credentials are used automatically.
+Optional. The comma-separated list of [NuGet service connection](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) names for feeds outside this organization or collection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -78,7 +78,7 @@ Comma-separated list of NuGet service connection names for feeds outside this or
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the credential provider is already installed in the user profile, determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
+Optional. Reinstalls the credential provider to the user profile directory, even if it's already installed. If the credential provider is already installed in the user profile, the task determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,7 +104,13 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-This version of the task is deprecated, use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories.
+Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
+
+:::moniker range=">=azure-pipelines-2022"
+
+This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories.
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

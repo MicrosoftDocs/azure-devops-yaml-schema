@@ -1,7 +1,7 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 10/18/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -481,7 +481,7 @@ steps:
 ## See also
 
 * [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns)
-* [How do I use this task to publish artifacts](/devops/pipelines/artifacts/pipeline-artifacts)
+* [How do I use this task to publish artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts)
 * Learn how to use [verbose logs](/azure/devops/pipelines/troubleshooting/review-logs#configure-verbose-logs) for [troubleshooting](/azure/devops/pipelines/troubleshooting/troubleshooting).
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

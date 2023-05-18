@@ -1,7 +1,7 @@
 ---
 title: KubectlInstaller@0 - Kubectl tool installer v0 task
 description: Install Kubectl on agent machine.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install Kubectl on agent machine.
+Use this task for installing a specific version of kubectl binary on agents.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -42,7 +42,7 @@ Install Kubectl on agent machine.
 **`kubectlVersion`** - **Kubectl Version Spec**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Kubectl to install. The acceptable values are `latest` or any semantic version string, e.g. `1.15.0`.
+Specifies the version of kubectl to install. The acceptable values are `latest` or any semantic version string, e.g. `1.15.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,7 +68,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-This task can be used for installing a specific version of kubectl binary on agents.
+This task is used for installing a specific version of kubectl binary on agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -76,7 +76,7 @@ This task can be used for installing a specific version of kubectl binary on age
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-The following YAML example showcases the installation of latest version of kubectl binary on the agent - 
+The following YAML example showcases the installation of latest version of kubectl binary on the agent:
 
 ```YAML
 - task: KubectlInstaller@0
@@ -85,7 +85,7 @@ The following YAML example showcases the installation of latest version of kubec
     kubectlVersion: latest
 ```
 
-The following YAML example demonstrates the use of an explicit version string rather than installing the latest version available at the time of task execution - 
+The following YAML example demonstrates the use of an explicit version string rather than installing the latest version available at the time of task execution:
 
 ```YAML
 - task: KubectlInstaller@0

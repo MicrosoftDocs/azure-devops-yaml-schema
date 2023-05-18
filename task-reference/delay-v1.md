@@ -1,7 +1,7 @@
 ---
 title: Delay@1 - Delay v1 task
 description: Delay further execution of a workflow by a fixed time.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -72,7 +72,7 @@ Delays further execution of the workflow by a fixed time.
 **`delayForMinutes`** - **Delay Time (minutes)**<br>
 `string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Delays the execution of the workflow by specified time in minutes. A `0` value means that workflow execution will start without delay.
+Delays the execution of the workflow by specified time in minutes. A `0` value means that workflow execution will start without delay. The maximum value is `86400` (60 days).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,6 +102,8 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 
 > [!NOTE]
 > Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+
+The maximum value for a delay is 60 days (86400 minutes).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

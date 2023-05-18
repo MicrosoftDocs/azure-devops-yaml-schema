@@ -1,108 +1,66 @@
 ---
-title: resources.packages list definition
-description: resources.packages list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.packages definition
+description: List of external packages.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
-# resources.packages list definition
+# resources.packages definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
+<!-- :::editable-content name="description"::: -->
 List of package resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="packageResources[packageResource]" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
 
 ```yaml
-packages: [ package ] # 
+packages: [ package ] # List of package resources.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.packages](resources.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [resources](resources.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+| Type | Description |
+|---|---|
 | [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
 
-<!-- :::api-definition-end::: -->
-
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="packageResources[packageResource]" version="azure-pipelines-2020.1"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-packages: [ package ] # 
-```
-
-
-Properties that use this definition: [resources.packages](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="packageResources[packageResource]" version="azure-pipelines-2022"::: -->
-
-```yaml
-packages: [ package ] # 
-```
-
-
-Properties that use this definition: [resources.packages](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="packageResources[packageResource]" version="azure-pipelines"::: -->
-
-```yaml
-packages: [ package ] # 
-```
-
-
-Properties that use this definition: [resources.packages](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.packages.package](resources-packages-package.md) | A package resource used to reference a NuGet or npm GitHub package. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@4 - Run Code Analysis v4 task
 description: Run scanner and upload the results to the SonarQube server (task version 4).
-ms.date: 09/01/2022
+ms.date: 05/02/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run scanner and upload the results to the SonarQube server.
+Use this task to run the scanner and upload the results to the SonarQube server.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -62,7 +62,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-To be used with the new version of the `Prepare Analysis Configuration` task.
+This task is to be used with the new version of the `Prepare Analysis Configuration` task.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

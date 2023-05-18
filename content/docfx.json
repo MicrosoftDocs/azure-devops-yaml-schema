@@ -40,6 +40,7 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+      "ms.service": "azure-devops-pipelines",
       "uhfHeaderId": "MSDocsHeader-AzureDevOps",
       "ms.topic": "reference",
       "breadcrumb_path": "/azure/devops/pipelines/yaml-schema/breadcrumb/toc.json",
@@ -51,11 +52,9 @@
       "author": "steved0x",
       "ms.author": "sdanie",
       "ms.date": "02/14/2022",
-      "ms.prod": "devops",
       "ms.version": "ALM",
       "MSHAttr.msprod": "ms.prod:ALM",
-      "ms.prodfamily": "ALM",
-      "ms.technology": "devops-cicd"
+      "ms.prodfamily": "ALM"
     },
     "fileMetadata":
     {

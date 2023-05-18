@@ -1,7 +1,7 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Replace tokens with variable values in XML or JSON configuration files.
+Use this task to replace tokens with variable values in XML or JSON configuration files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -46,7 +46,11 @@ Replace tokens with variable values in XML or JSON configuration files.
 **`folderPath`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)), wildcards are supported. <br/> For example, $(System.DefaultWorkingDirectory)/\*\*/\*.zip. For zipped folders, the contents are extracted to the TEMP location, transformations executed, and the results zipped in original artifact location.
+File path to the package or a folder.
+
+Variables are [Build](/azure/devops/pipelines/build/variables) and [Release](/azure/devops/pipelines/release/variables#default-variables). Wildcards are supported. 
+
+For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, the contents are extracted to the TEMP location, transformations executed, and the results zipped in original artifact location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -58,7 +62,8 @@ File path to the package or a folder.<br />Variables ( [Build](/azure/devops/pip
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 `string`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of transformation file rules using the syntax: <br/>`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional and, if not specified, the source configuration file will be replaced with the transformed result file.
+Provides a newline-separated list of transformation file rules using the syntax:
+`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional, and if not specified, the source configuration file will be replaced with the transformed result file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +75,24 @@ Provide new line separated list of transformation file rules using the syntax: <
 **`jsonTargetFiles`** - **JSON target files**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of files to substitute the variable values. Files names are to be provided relative to the root folder. <br/> <br/> For example, to replace the value of ‘ConnectionString’ in the sample below, you need to define a variable as ‘Data.DefaultConnection.ConnectionString’ in the build or release pipeline (or release pipeline's environment). <br/> {<br/>&nbsp;&nbsp;"Data": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;"DefaultConnection": {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/> } <br/> Variable Substitution is run after configuration transforms. </br> </br> Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. <br/>Note: If same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
+Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
+
+For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
+
+```json
+{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
+    }
+  }
+}
+```
+
+ Variable Substitution is run after configuration transforms. 
+
+
+Note: Only custom variables that are defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +104,13 @@ Provide new line separated list of files to substitute the variable values. File
 **`xmlTargetFiles`** - **XML target files**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide new line separated list of files to substitute the variable values. Files names are to be provided relative to the root folder. <br/>For XML, Variables defined in the build or release pipelines will be matched against the 'key' or 'name' entries in the appSettings, applicationSettings, and connectionStrings sections of any config file and parameters.xml. <br/> Variable Substitution is run after configuration transforms. </br> Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. <br/>Note: If same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
+Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
+
+For XML, Variables defined in the build or release pipelines will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`.
+
+Variable Substitution is run after configuration transforms.
+
+Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,41 +141,41 @@ What's new in File Transform version 2:
 * More optimized task fields that allow users to enable any/all of the transformation (XML), variable substitution (JSON and XML) features in a single task instance.
 * Task fails when any of the configured transformation/substitution is NOT applied or when the task is no-op.
 
-Use this task to apply file transformations and variable substitutions on configuration and parameters files. 
+Use this task to apply file transformations and variable substitutions on configuration and parameters files.
 For details of how translations are processed, see [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
 
 > [!IMPORTANT]
-> This task is intended for web packages and requires a web package file, and does not work on standalone json files.
+> This task is intended for web packages and requires a web package file. It does not work on standalone JSON files.
 
 ### File transformations
 
-* At present file transformations are supported for only XML files.
-* To apply XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-t ransform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
+* At present, file transformations are supported for only XML files.
+* To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-t ransform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
 * File transformations are useful in many scenarios, particularly when you are deploying to an App service and want to add,
   remove or modify configurations for different environments (such as Dev, Test, or Prod) by following the standard
   [Web.config Transformation Syntax](/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations).
 * You can also use this functionality to transform other files, including Console or Windows service application configuration files
-  (for example, FabrikamService.exe.config).
-* Config file transformations are run before variable substitutions. 
+  (for example, `FabrikamService.exe.config`).
+* Config file transformations are run before variable substitutions.
 
 ### Variable substitution
 
 * At present only XML and JSON file formats are supported for variable substitution.
-* Tokens defined in the target configuration files are updated and then replaced with variable values. 
+* Tokens defined in the target configuration files are updated and then replaced with variable values.
 * Variable substitutions are run after config file transformations.
-* Variable substitution is applied for only the JSON keys predefined in the object hierarchy. It does not create new keys. 
+* Variable substitution is applied for only the JSON keys predefined in the object hierarchy. It does not create new keys.
 
 > [!NOTE]
 > Only custom variables defined in build and release pipelines are used in substitution. Default and system pipeline variables are excluded.
 >
-> Here's a list of currently excluded prefixes: 
-> * 'agent.'
-> * 'azure_http_user_agent'
-> * 'build.'
-> * 'common.'
-> * 'release.'
-> * 'system.'
-> * 'tf_'
+> Here's a list of currently excluded prefixes:
+> * `agent.`
+> * `azure_http_user_agent`
+> * `build.`
+> * `common.`
+> * `release.`
+> * `system.`
+> * `tf_`
 > 
 > If the same variables are defined in both the release pipeline and in a stage, the stage-defined variables supersede the pipeline-defined variables.
 
@@ -159,7 +187,7 @@ See also: [File transforms and variable substitution reference](/azure/devops/pi
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-If you need XML transformation to run on all the configuration files named with pattern **.Production.config**,
+If you need XML transformation to run on all the configuration files named with pattern `.Production.config`,
 the transformation rule should be specified as:
 
 `-transform **\*.Production.config  -xml **\*.config`
@@ -168,7 +196,7 @@ If you have a configuration file named based on the stage name in your pipeline,
 
 `-transform **\*.$(Release.EnvironmentName).config -xml **\*.config`
 
-To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions. 
+To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions.
 For example, to replace the value of **ConnectionString** in the sample below, you must define a variable
 as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or in a stage within the release pipeline). 
 

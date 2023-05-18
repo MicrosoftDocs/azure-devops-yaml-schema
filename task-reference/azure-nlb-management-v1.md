@@ -1,25 +1,17 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Connect/Disconnect an Azure virtual machine's network interface to a Load Balancer's backend address pool.
+Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's back-end address pool.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -78,7 +70,7 @@ Connect/Disconnect an Azure virtual machine's network interface to a Load Balanc
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Specifies the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +82,7 @@ Select the Azure Resource Manager subscription for the deployment.
 **`ResourceGroupName`** - **Resource Group**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the resource group name.
+Specifies the resource group name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +94,7 @@ Select the resource group name.
 **`LoadBalancer`** - **Load Balancer Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or enter the load balancer.
+Specifies or enters the load balancer's name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -114,9 +106,11 @@ Select or enter the load balancer.
 **`Action`** - **Action**<br>
 `string`. Required. Allowed values: `Disconnect` (Disconnect Primary Network Interface), `Connect` (Connect Primary Network Interface).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-**Disconnect:**  Removes the virtual machine’s primary network interface from the load balancer’s backend pool, so it stops receiving network traffic.
+The action you'd like to perform. 
 
-**Connect:** Adds the virtual machine’s primary network interface to load balancer backend pool, so it starts receiving network traffic based on the load balancing rules for the load balancer resource.
+**Disconnect**: Removes the virtual machine’s primary network interface from the load balancer’s back-end pool so it stops receiving network traffic.
+
+**Connect**: Adds the virtual machine’s primary network interface to load balancer back-end pool so it starts receiving network traffic based on the load balancing rules for the load balancer resource.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run tests with Visual Studio test runner.
+Use this task to run tests with Visual Studio test runner.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -69,7 +69,7 @@ Run tests with Visual Studio test runner.
 **`testAssembly`** - **Test Assembly**<br>
 `string`. Required. Default value: `**\*test*.dll;-:**\obj\**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test binaries to run tests on.  Wildcards can be used.  For example, `**\*test*.dll;-:**\obj\**` for all dlls with test in name while excluding files in any sub-directory named obj.
+Specifies which test binaries to run tests on.  Wildcards can be used.  For example, using `**\*test*.dll;-:**\obj\**` for all DLLs with "test" in the name and excluding files in any subdirectory named "obj".
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Test binaries to run tests on.  Wildcards can be used.  For example, `**\*test*.
 **`testFiltercriteria`** - **Test Filter criteria**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional criteria to filter tests from Test assemblies. For example: `Priority=1|Name=MyTestMethod`.
+Specifies additional criteria to filter tests from test assemblies. For example: `Priority=1|Name=MyTestMethod`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -93,7 +93,7 @@ Additional criteria to filter tests from Test assemblies. For example: `Priority
 **`runSettingsFile`** - **Run Settings File**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to runsettings file to use with the tests. Use `$(Build.SourcesDirectory)` to access the Project folder.
+Specifies the path to the **runsettings** file to use with the tests. Use `$(Build.SourcesDirectory)` to access the Project folder.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -105,7 +105,7 @@ Path to runsettings file to use with the tests. Use `$(Build.SourcesDirectory)` 
 **`overrideTestrunParameters`** - **Override TestRun Parameters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override parameters defined in the TestRunParameters section of runsettings file. For example: `AppURL=$(DeployURL);Port=8080`.
+Override parameters defined in the **TestRunParameters** section of the **runsettings** file. For example: `AppURL=$(DeployURL);Port=8080`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -117,7 +117,7 @@ Override parameters defined in the TestRunParameters section of runsettings file
 **`codeCoverageEnabled`** - **Code Coverage Enabled**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Collect code coverage information from the Test run.
+Collects code coverage information from the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -129,7 +129,7 @@ Collect code coverage information from the Test run.
 **`runInParallel`** - **Run In Parallel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enable parallel execution of your tests.
+Enables a parallel execution of your tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,7 +152,7 @@ Enable parallel execution of your tests.
 **`vsTestVersion`** - **VSTest version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013). Default value: `14.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of VSTest to use.
+Specifies the version of Visual Studio Test to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,7 +164,7 @@ The version of VSTest to use.
 **`vstestLocation`** - **Path to vstest.console.exe**<br>
 `string`. Optional. Use when `vstestLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to VSTest.
+Specifies the path to VSTest.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,7 +176,7 @@ Optionally supply the path to VSTest.
 **`pathtoCustomTestAdapters`** - **Path to Custom Test Adapters**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Directory path to custom test adapters. Nuget restored adapters are automatically searched for.
+Specifies the directory path to the custom test adapters. NuGet restored adapters are automatically searched for.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,7 +188,7 @@ Directory path to custom test adapters. Nuget restored adapters are automaticall
 **`otherConsoleOptions`** - **Other console options**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Other Console options that can be passed to vstest.console.exe. Click on the help link below for more details.
+Specifies other Console options that can be passed to `vstest.console.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -200,7 +200,7 @@ Other Console options that can be passed to vstest.console.exe. Click on the hel
 **`testRunTitle`** - **Test Run Title**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the Test Run.
+Specifies a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -212,7 +212,7 @@ Provide a name for the Test Run.
 **`platform`** - **Platform**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Platform against which the tests should be reported. If you have defined a variable for platform in your build task, use that here.
+Specifies the platform against which the tests should be reported. If you have defined a variable for the platform in your build task, use that when providing this input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,7 +224,7 @@ Platform against which the tests should be reported. If you have defined a varia
 **`configuration`** - **Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that here.
+Specifies the configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that when providing this input.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -236,7 +236,7 @@ Configuration against which the tests should be reported. If you have defined a 
 **`publishRunAttachments`** - **Upload Test Attachments**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Opt in/out of publishing test run level attachments.
+Opts in or out of publishing test run level attachments.
 <!-- :::editable-content-end::: -->
 <br>
 

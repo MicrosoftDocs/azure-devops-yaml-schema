@@ -1,7 +1,7 @@
 ---
 title: Gradle@1 - Gradle v1 task
 description: Build using a Gradle wrapper script (task version 1).
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -38,7 +38,7 @@ Build using a Gradle wrapper script.
     #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
     #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to TFS/Team Services. Default: true.
+    #publishJUnitResults: true # boolean. Publish to TFS/Team Services. Default: true.
     testResultsFiles: '**/build/test-results/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/build/test-results/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
@@ -47,13 +47,13 @@ Build using a Gradle wrapper script.
     #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class Inclusion/Exclusion Filters. 
     #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail When Code Coverage Results Are Missing. Default: false.
   # Code Analysis
-    sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Required. Run SonarQube Analysis. Default: false.
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube Analysis. Default: false.
     #sonarQubeServiceEndpoint: # string. Alias: sqConnectedServiceName. Required when sqAnalysisEnabled = true. SonarQube Endpoint. 
     #sonarQubeProjectName: # string. Alias: sqProjectName. Required when sqAnalysisEnabled = true. SonarQube Project Name. 
     #sonarQubeProjectKey: # string. Alias: sqProjectKey. Required when sqAnalysisEnabled = true. SonarQube Project Key. 
     #sonarQubeProjectVersion: # string. Alias: sqProjectVersion. Required when sqAnalysisEnabled = true. SonarQube Project Version. 
     #sonarQubeGradlePluginVersion: '2.0.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true. SonarQube Gradle Plugin Version. Default: 2.0.1.
-    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Required when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
+    #sonarQubeSpecifyDB: false # boolean. Alias: sqDbDetailsRequired. Optional. Use when sqAnalysisEnabled = true. The SonarQube server version is lower than 5.2. Default: false.
     #sonarQubeDBUrl: # string. Alias: sqDbUrl. Optional. Use when sqDbDetailsRequired = true. Db Connection String. 
     #sonarQubeDBUsername: # string. Alias: sqDbUsername. Optional. Use when sqDbDetailsRequired = true. Db Username. 
     #sonarQubeDBPassword: # string. Alias: sqDbPassword. Optional. Use when sqDbDetailsRequired = true. Db User Password. 
@@ -86,7 +86,7 @@ Build using a Gradle wrapper script.
 **`gradleWrapperFile`** - **Gradle Wrapper**<br>
 Input alias: `wrapperScript`. `string`. Required. Default value: `gradlew`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root to the Gradle Wrapper script.
+Specifies the `gradlew` wrapper's location within the repository that will be used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -98,6 +98,7 @@ Relative path from the repository root to the Gradle Wrapper script.
 **`options`** - **Options**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the command line options that will be passed to the Gradle wrapper. See [Gradle Command Line](https://docs.gradle.org/current/userguide/command_line_interface.html) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,6 +110,9 @@ Relative path from the repository root to the Gradle Wrapper script.
 **`tasks`** - **Tasks**<br>
 `string`. Required. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+The task(s) for Gradle to execute. A list of task names should be separated by spaces and can be taken from `gradlew tasks` issued from a command prompt.
+
+See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +124,7 @@ Relative path from the repository root to the Gradle Wrapper script.
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory in which to run the Gradle build. If not specified, the repository root directory is used.
+Specifies the working directory to run the Gradle build. The task uses the repository root directory if the working directory is not specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,9 +134,9 @@ Working directory in which to run the Gradle build. If not specified, the reposi
 :::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Gradle build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
+Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +148,7 @@ Select this option to publish JUnit test results produced by the Gradle build to
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/build/test-results/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +160,7 @@ Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for
 **`testRunTitle`** - **Test Run Title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Provides a name for the JUnit test case results for this build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +172,7 @@ Provide a name for the test run.
 **`codeCoverageToolOption`** - **Code Coverage Tool**<br>
 Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the code coverage tool.
+Specifies a code coverage tool to determine the code that is covered by the test cases for the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +184,7 @@ Select the code coverage tool.
 **`codeCoverageClassFilesDirectories`** - **Class Files Directories**<br>
 Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool = false`. Default value: `build/classes/main/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of directories containing class files and archive files (JAR, WAR, etc.). Code coverage is reported for class files in these directories. Normally, classes under `build/classes/main` are searched, which is the default class directory for Gradle builds.
+The comma-separated list of directories containing class files and archive files (.jar, .war, and more). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +196,7 @@ Comma-separated list of directories containing class files and archive files (JA
 **`codeCoverageClassFilter`** - **Class Inclusion/Exclusion Filters**<br>
 Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Comma-separated list of filters to include or exclude classes from collecting code coverage. For example: +:com.*,+:org.*,-:my.app*.*.
+The comma-separated list of filters to include or exclude classes from collecting code coverage. For example: `+:com.*`,`+:org.*`,`-:my.app*.*`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -204,7 +208,7 @@ Comma-separated list of filters to include or exclude classes from collecting co
 **`codeCoverageFailIfEmpty`** - **Fail When Code Coverage Results Are Missing**<br>
 Input alias: `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail the build if code coverage did not produce any results to publish.
+Fails the build if code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +220,7 @@ Fail the build if code coverage did not produce any results to publish.
 **`javaHomeOption`** - **Set JAVA_HOME by**<br>
 Input alias: `javaHomeSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Sets JAVA_HOME either by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
+Sets JAVA_HOME by selecting a JDK version that the task discovers during builds or by manually entering a JDK path.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +232,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 **`jdkVersionOption`** - **JDK Version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Will attempt to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +256,7 @@ Sets JAVA_HOME to the given path.
 **`jdkArchitectureOption`** - **JDK Architecture**<br>
 Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the architecture (x86, x64) of the JDK.
+Supplies the JDK architecture (x86 or x64).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -264,7 +268,7 @@ Optionally supply the architecture (x86, x64) of the JDK.
 **`gradleOptions`** - **Set GRADLE_OPTS**<br>
 Input alias: `gradleOpts`. `string`. Default value: `-Xmx1024m`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Sets the GRADLE_OPTS environment variable, which is used to send command-line arguments to start the JVM. The xmx flag specifies the maximum memory available to the JVM.
+Sets the GRADLE_OPTS environment variable, which is used to send command-line arguments to start the JVM. The `xmx` flag specifies the maximum memory available to the JVM.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -274,9 +278,9 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube Analysis**<br>
-Input alias: `sqAnalysisEnabled`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run a [SonarQube analysis](https://go.microsoft.com/fwlink/?LinkID=708598) after executing the current goals. 'install' or 'package' goals should be executed first.
+Runs a SonarQube analysis after executing the current goals. `install` or `package` goals should be executed first.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -300,7 +304,7 @@ The endpoint that specifies the SonarQube server to use.
 **`sonarQubeProjectName`** - **SonarQube Project Name**<br>
 Input alias: `sqProjectName`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project name, i.e. sonar.projectName.
+The SonarQube project name, that is `sonar.projectName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -312,7 +316,7 @@ The SonarQube project name, i.e. sonar.projectName.
 **`sonarQubeProjectKey`** - **SonarQube Project Key**<br>
 Input alias: `sqProjectKey`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project unique key, i.e. sonar.projectKey.
+The SonarQube project unique key, that is `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -324,7 +328,7 @@ The SonarQube project unique key, i.e. sonar.projectKey.
 **`sonarQubeProjectVersion`** - **SonarQube Project Version**<br>
 Input alias: `sqProjectVersion`. `string`. Required when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project version, i.e. sonar.projectVersion.
+The SonarQube project version, that is `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -336,7 +340,7 @@ The SonarQube project version, i.e. sonar.projectVersion.
 **`sonarQubeGradlePluginVersion`** - **SonarQube Gradle Plugin Version**<br>
 Input alias: `sqGradlePluginVersion`. `string`. Required when `sqAnalysisEnabled = true`. Default value: `2.0.1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube Gradle plugin version to use. Refer to https://plugins.gradle.org/plugin/org.sonarqube for all available versions.
+Contains the version number of the [SpotBugs Gradle plugin](https://plugins.gradle.org/plugin/com.github.spotbugs).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -346,9 +350,9 @@ The SonarQube Gradle plugin version to use. Refer to https://plugins.gradle.org/
 :::moniker range="<=azure-pipelines"
 
 **`sonarQubeSpecifyDB`** - **The SonarQube server version is lower than 5.2**<br>
-Input alias: `sqDbDetailsRequired`. `boolean`. Required when `sqAnalysisEnabled = true`. Default value: `false`.<br>
+Input alias: `sqDbDetailsRequired`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If using a SonarQube server 5.1 or lower, you must specify the database connection details.
+SonarQube server 5.1 and lower only. Specifies the database connection details.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -360,7 +364,7 @@ If using a SonarQube server 5.1 or lower, you must specify the database connecti
 **`sonarQubeDBUrl`** - **Db Connection String**<br>
 Input alias: `sqDbUrl`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SonarQube server 5.1 and lower only. Enter the database connection setting (i.e. sonar.jdbc.url). For example: jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor.
+SonarQube server version 5.1 and lower only. Enters the database connection setting, that is `sonar.jdbc.url`. For example: `jdbc:jtds:sqlserver://localhost/sonar;SelectMethod=Cursor`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -372,7 +376,7 @@ SonarQube server 5.1 and lower only. Enter the database connection setting (i.e.
 **`sonarQubeDBUsername`** - **Db Username**<br>
 Input alias: `sqDbUsername`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SonarQube server 5.1 and lower only. Enter the username for the database user (i.e. sonar.jdbc.username).
+SonarQube server 5.1 and lower only. Enters the username for the database user, that is `sonar.jdbc.username`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -384,7 +388,7 @@ SonarQube server 5.1 and lower only. Enter the username for the database user (i
 **`sonarQubeDBPassword`** - **Db User Password**<br>
 Input alias: `sqDbPassword`. `string`. Optional. Use when `sqDbDetailsRequired = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-SonarQube server 5.1 and lower only. Enter the password for the database user i.e. sonar.jdbc.password.
+SonarQube server 5.1 and lower only. Enter the password for the database user, that is `sonar.jdbc.password`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -396,7 +400,7 @@ SonarQube server 5.1 and lower only. Enter the password for the database user i.
 **`sonarQubeIncludeFullReport`** - **Include full analysis report in the build summary (SQ 5.3+)**<br>
 Input alias: `sqAnalysisIncludeFullReport`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This option will delay the build until the SonarQube analysis is completed.
+Delays the build until the SonarQube analysis is completed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -408,7 +412,7 @@ This option will delay the build until the SonarQube analysis is completed.
 **`sonarQubeFailWhenQualityGateFails`** - **Fail the build on quality gate failure (SQ 5.3+)**<br>
 Input alias: `sqAnalysisBreakBuildIfQualityGateFailed`. `boolean`. Optional. Use when `sqAnalysisEnabled = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This option is only available when using a SonarQube server 5.3 or above. It will introduce delays as the build must wait for SonarQube to complete the analysis. [More information](https://go.microsoft.com/fwlink/?LinkId=722407).
+SonarQube server version 5.3 or above only. Introduces delays as the build must wait for SonarQube to complete the analysis. Learn more about [using SonarQube for builds](https://devblogs.microsoft.com/devops/use-sonarqube-quality-gates-to-control-your-visual-studio-team-services-builds/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -420,7 +424,7 @@ This option is only available when using a SonarQube server 5.3 or above. It wil
 **`checkStyleRunAnalysis`** - **Run Checkstyle**<br>
 Input alias: `checkstyleAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the Checkstyle tool with the default Sun checks. Results are uploaded as build artifacts.
+Runs the Checkstyle tool with the default Sun checks. Results are uploaded as build artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -432,7 +436,7 @@ Run the Checkstyle tool with the default Sun checks. Results are uploaded as bui
 **`findBugsRunAnalysis`** - **Run FindBugs**<br>
 Input alias: `findbugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the FindBugs static analysis tool to look for bugs in the code. Results are uploaded as build artifacts.
+Uses the FindBugs static analysis tool to look for bugs in the code. Results are uploaded as build artifacts. In Gradle 6.0, [this plugin was removed](https://docs.gradle.org/current/userguide/upgrading_version_5.html#the_findbugs_plugin_has_been_removed). Use the SpotBugs plugin instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -444,7 +448,7 @@ Use the FindBugs static analysis tool to look for bugs in the code. Results are 
 **`pmdRunAnalysis`** - **Run PMD**<br>
 Input alias: `pmdAnalysisEnabled`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use the PMD Java static analysis tool to look for bugs in the code. Results are uploaded as build artifacts.
+Uses the PMD Java static analysis tool to look for bugs in the code. The results are uploaded as build artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -468,6 +472,42 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Configuration of the SonarQube analysis was moved to the [SonarQube](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarqube) or [SonarCloud](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud) extensions in the task `Prepare Analysis Configuration`.
+
+Use this task to build using a Gradle wrapper script.
+
+### How do I generate a wrapper from my Gradle project?
+
+The Gradle wrapper allows the build agent to download and configure the exact Gradle environment that is checked into the repository without having any software configuration on the build agent itself other than the JVM.
+
+1. Create the Gradle wrapper by issuing the following command from the root project directory where your build.gradle resides:
+
+   `jamal@fabrikam> gradle wrapper`
+
+2. Upload your Gradle wrapper to your remote repository.
+
+   There is a binary artifact that is generated by the gradle wrapper (located at `gradle/wrapper/gradle-wrapper.jar`).
+   This binary file is small and doesn't require updating. If you need to change the Gradle configuration run on the build agent, you update the `gradle-wrapper.properties`.
+
+   The repository should look something like this:
+
+```
+|-- gradle/
+    `-- wrapper/
+        `-- gradle-wrapper.jar
+        `-- gradle-wrapper.properties
+|-- src/
+|-- .gitignore
+|-- build.gradle
+|-- gradlew
+|-- gradlew.bat
+```
+
+### How do I fix timeouts when downloading dependencies?
+
+To fix errors such as `Read timed out` when downloading dependencies, users of Gradle 4.3+ can change the timeout by adding `-Dhttp.socketTimeout=60000 -Dhttp.connectionTimeout=60000` to `Options`. This increases the timeout from 10 seconds to 1 minute.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: PowerShellOnTargetMachines@2 - PowerShell on Target Machines v2 task
 description: Execute PowerShell scripts on remote machine(s) (task version 2).
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Execute PowerShell scripts on remote machine(s).
+Use this task to execute PowerShell scripts on remote machine(s).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -65,7 +65,9 @@ Execute PowerShell scripts on remote machine(s).
 **`EnvironmentName`** - **Machines**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a comma separated list of machine IP addresses or FQDNs along with ports. Port is defaulted based on the selected protocol. <br>Eg: dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986 <br>Or provide output variable of other tasks. Eg: $(variableName) <br>If you are using HTTPS, name/IP of machine should match the CN in the certificate.
+Specifies a comma-separated list of machine IP addresses or FQDNs, along with ports. The default port is based on the selected protocol.  
+For example: `dbserver.fabrikam.com,dbserver_int.fabrikam.com:5986,192.168.12.34:5986`  
+You can also provide the output variable of other tasks, for example `$(variableName)`. If you're using HTTPS, the name or IP of the machine should match the CN in the certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -77,7 +79,8 @@ Provide a comma separated list of machine IP addresses or FQDNs along with ports
 **`AdminUserName`** - **Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator login for the target machines. <br> Eg: Format: Domain\Admin User, Admin User@Domain, .\Admin User.
+Specifies the administrator login for the target machines.  
+For example: `Domain\Admin User`, `Admin User@Domain`, `.\Admin User`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -89,7 +92,7 @@ Administrator login for the target machines. <br> Eg: Format: Domain\Admin User,
 **`AdminPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Administrator password for the target machines. <br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'. <br>You may mark variable type as 'secret' to secure it.
+Specifies the administrator password for the target machines. Variables defined in build/release definitions as `$(passwordVariable)` are accepted. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -101,7 +104,7 @@ Administrator password for the target machines. <br>It can accept variable defin
 **`Protocol`** - **Protocol**<br>
 `string`. Allowed values: `Http`, `Https`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the protocol to use for the WinRM service connection with the machine(s). Default is HTTPS.
+Specifies the protocol to use for the WinRM service connection with the machine(s). The default value is `HTTPS`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,7 +116,7 @@ Select the protocol to use for the WinRM service connection with the machine(s).
 **`TestCertificate`** - **Test Certificate**<br>
 `boolean`. Optional. Use when `Protocol = Https`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
+Specifies the option to skip validating the authenticity of the machine's certificate by a trusted certification authority. The parameter is required for the WinRM HTTPS protocol.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,7 +128,7 @@ Select the option to skip validating the authenticity of the machine's certifica
 **`ScriptPath`** - **PowerShell Script**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the PowerShell script on the target machines or on a UNC path like C:\BudgetIT\Web\Deploy\Website.ps1.
+Specifies the location of the PowerShell script on the target machines or on a UNC path, like `C:\BudgetIT\Web\Deploy\Website.ps1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +140,7 @@ Location of the PowerShell script on the target machines or on a UNC path like C
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments for the PowerShell script. Can be ordinal parameters or named parameters like -testParam test.
+Specifies the arguments for the PowerShell script. Can be ordinal or named parameters, like `-testParam` test.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +152,7 @@ Arguments for the PowerShell script. Can be ordinal parameters or named paramete
 **`InitializationScriptPath`** - **Initialization Script**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the data script for DSC on the target machines or on a UNC path like C:\BudgetIT\Web\Deploy\WebsiteConfiguration.ps1.
+Specifies the location of the data script for DSC on the target machines or on a UNC path, like `C:\BudgetIT\Web\Deploy\WebsiteConfiguration.ps1`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -161,7 +164,7 @@ Location of the data script for DSC on the target machines or on a UNC path like
 **`SessionVariables`** - **Session Variables**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Set common session variables for both the scripts. For example, $variable = value, $var1 = "value, 123".
+Specifies the common session variables for both scripts. For example, `$variable = value` or `$var1 = "value, 123"`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +176,7 @@ Set common session variables for both the scripts. For example, $variable = valu
 **`RunPowershellInParallel`** - **Run PowerShell in Parallel**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Setting it to true will run the PowerShell scripts in parallel on the target machines.
+If set to `true`, runs the PowerShell scripts in parallel on the target machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +188,7 @@ Setting it to true will run the PowerShell scripts in parallel on the target mac
 **`ResourceFilteringMethod`** - **Select Machines By**<br>
 `string`. Allowed values: `machineNames` (Machine Names), `tags`. Default value: `machineNames`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally, select a subset of machines either by providing machine names or tags.
+Optional. Specifies a subset of machines by providing machine names or tags.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +200,9 @@ Optionally, select a subset of machines either by providing machine names or tag
 **`MachineNames`** - **Filter Criteria**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This input is valid only for machine groups or output variables and is not supported for flat list of machines yet. Provide a list of machines like, dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34, or tags like, Role:DB; OS:Win8.1. If multiple tags are provided, then the task will run in all the machines with the specified tags. The default is to run the task in all machines.
+This input is valid only for machine groups or output variables. It is not supported for a flat list of machines yet.
+
+Specifies a list of machines, like `dbserver.fabrikam.com, webserver.fabrikam.com, 192.168.12.34` or tags, like `Role:DB; OS:Win8.1`. If multiple tags are specified, the task will run in all machines with the specified tags. The default runs the task in all machines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -223,7 +228,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in Version 2.0.
+What's new in Version 2.0:
 * Removed support of legacy DTL machines.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->

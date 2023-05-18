@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2020"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Install npm packages from GitHub.
+Use this task to install npm packages from GitHub.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -45,7 +45,7 @@ Install npm packages from GitHub.
 **`packageName`** - **Package Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the package to download from github.
+Specifies the name of the package to download from GitHub.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -57,7 +57,7 @@ Name of the package to download from github.
 **`version`** - **Package Version**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version of the package to download from github.
+Specifies the version of the package to download from GitHub.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -69,7 +69,7 @@ Version of the package to download from github.
 **`externalRegistryCredentials`** - **Credentials for registry from GitHub**<br>
 Input alias: `externalEndpoints`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registry from GitHub.
+Specifies the credentials to use for external registry from GitHub.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Credentials to use for external registry from GitHub.
 **`installDirectory`** - **Destination directory**<br>
 Input alias: `packagesDirectory`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder in which packages are installed. If no folder is specified, packages are restored into the default system working directory.
+Specifies the folder where packages are installed. If no folder is specified, packages are restored into the default system working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,7 +116,22 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: npm |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Package |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,25 +1,17 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # NodeTool@0 - Node.js tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Finds or Downloads and caches specified version spec of Node and adds it to the PATH.
+Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -28,7 +20,25 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Node.js tool installer v0
+# Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec' # 'spec' | 'fromFile'. Required. Source of version. Default: spec.
+    #versionSpec: '6.x' # string. Optional. Use when versionSource = spec. Version Spec. Default: 6.x.
+    #versionFilePath: # string. Optional. Use when versionSource = fromFile. Path to the .nvmrc file. 
+    #checkLatest: false # boolean. Check for Latest Version. Default: false.
+    #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+  # Advanced
+    #nodejsMirror: 'https://nodejs.org/dist' # string. Set source for Node.js binaries. Default: https://nodejs.org/dist.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
 # Node.js tool installer v0
@@ -82,13 +92,47 @@ Finds or Downloads and caches specified version spec of Node and adds it to the 
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="versionSource"::: -->
+:::moniker range="=azure-pipelines"
+
+**`versionSource`** - **Source of version**<br>
+`string`. Required. Allowed values: `spec` (Specify Node version), `fromFile` (Get version from file). Default value: `spec`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+**`versionSpec`** - **Version Spec**<br>
+`string`. Optional. Use when `versionSource = spec`. Default value: `6.x`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022"
 
 **`versionSpec`** - **Version Spec**<br>
 `string`. Required. Default value: `6.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
+Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="versionFilePath"::: -->
+:::moniker range="=azure-pipelines"
+
+**`versionFilePath`** - **Path to the .nvmrc file**<br>
+`string`. Optional. Use when `versionSource = fromFile`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+File path to get version.  Example: src/.nvmrc.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,10 +144,10 @@ Version Spec of version to get.  Examples: 6.x, 4.x, 6.10.0, >=6.10.0.
 **`checkLatest`** - **Check for Latest Version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select if you want the agent to check for the latest available version that satisfies the version spec. For example, you select this option because you run this build on your [self-hosted agent](/azure/devops/pipelines/agents/agents) and you want to always use the latest `6.x` version.
+Specifies the agent to check for the latest available version that satisfies the version spec. For example, you select this option because you run this build on your [self-hosted agent](/azure/devops/pipelines/agents/agents), and you want to always use the latest `6.x` version.
 
 > [!TIP]
-> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to false. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
+> If you're using [the Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted), you should leave this set to `false`. Microsoft updates the Microsoft-hosted agents on a regular basis, but they're often slightly behind the latest version. Enabling this parameter could result in your build spending a lot of time updating to a newer minor version.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,7 +159,19 @@ Select if you want the agent to check for the latest available version that sati
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Installs the x86 version of Node regardless of the CPU architecture of the agent.
+Installs the `x86` version of Node regardless of the CPU architecture of the agent.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="nodejsMirror"::: -->
+:::moniker range="=azure-pipelines"
+
+**`nodejsMirror`** - **Set source for Node.js binaries**<br>
+`string`. Default value: `https://nodejs.org/dist`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use an alternative installation mirror when sourcing the Node.js binaries.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,108 +1,63 @@
 ---
-title: resources.webhooks.webhook.filters list definition
-description: resources.webhooks.webhook.filters list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.webhooks.webhook.filters definition
+description: List of trigger filters.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020.1"
 ---
 
-# resources.webhooks.webhook.filters list definition
+# resources.webhooks.webhook.filters definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-Filters used to customize the triggers for a webhook event.
+<!-- :::editable-content name="description"::: -->
+List of trigger filters.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="webhookFilters[webhookFilter]" version="azure-pipelines-2020.1"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
 ```yaml
-filters: [ path ] # 
+filters: [ filter ] # List of trigger filters.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+Definitions that that reference this definition: [resources.webhooks.webhook](resources-webhooks-webhook.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
-| [resources.webhooks.webhook.filters.path](resources-webhooks-webhook-filters-path.md) | Filter the JSON payload data by path/value. |
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="webhookFilters[webhookFilter]" version="azure-pipelines-2022"::: -->
-
-```yaml
-filters: [ path ] # 
-```
-
-
-Properties that use this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.webhooks.webhook.filters.path](resources-webhooks-webhook-filters-path.md) | Filter the JSON payload data by path/value. |
-
-<!-- :::api-definition-end::: -->
+| Type | Description |
+|---|---|
+| [resources.webhooks.webhook.filters.filter](resources-webhooks-webhook-filters-filter.md) | Webhook resource trigger filter. |
 
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="webhookFilters[webhookFilter]" version="azure-pipelines"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-filters: [ path ] # 
-```
-
-
-Properties that use this definition: [resources.webhooks.webhook.filters](resources-webhooks-webhook.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.webhooks.webhook.filters.path](resources-webhooks-webhook-filters-path.md) | Filter the JSON payload data by path/value. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-## Examples
-
-For subscribing to a webhook event, you need to define a webhook resource in your pipeline and point it to the Incoming webhook service connection. You can also define additional filters on the webhook resource based on the JSON payload data to further customize the triggers for each pipeline, and you can consume the payload data in the form of variables in your jobs.
-
-```yaml
-resources:
-  webhooks:
-    - webhook: MyWebhookTrigger          ### Webhook alias
-      connection: MyWebhookConnection    ### Incoming webhook service connection
-      filters:
-        - path: repositoryName      ### JSON path in the payload
-          value: maven-releases     ### Expected value in the path provided
-        - path: action
-          value: CREATED
-steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
-    script: |
-      Write-Host ${{ parameters.MyWebhookTrigger.repositoryName}}
-      Write-Host ${{ parameters.MyWebhookTrigger.component.group}}
-```
-
-
-## See also
-
-- [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

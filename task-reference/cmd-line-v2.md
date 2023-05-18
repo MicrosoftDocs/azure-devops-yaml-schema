@@ -1,7 +1,7 @@
 ---
 title: CmdLine@2 - Command line v2 task
 description: Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -130,7 +130,7 @@ None.
 The command line has a shortcut in YAML: [steps.script](/azure/devops/pipelines/yaml-schema/steps-script).
 
 ```yml
-- script: # script path or inline
+- script: # inline script
   workingDirectory: #
   displayName: #
   failOnStderr: #

@@ -1,91 +1,59 @@
 ---
 title: pipeline definition
-description: pipeline definition reference.
-ms.date: 09/20/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A pipeline is one or more stages that describe a CI/CD process.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # pipeline definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-::: moniker range="> azure-pipelines-2019"
-
+<!-- :::editable-content name="description"::: -->
 A pipeline is one or more stages that describe a CI/CD process.
+<!-- :::editable-content-end::: -->
 
-::: moniker-end
+:::moniker-end
 
-::: moniker range="azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
+<!-- :::editable-content name="description"::: -->
 A pipeline is one or more jobs that describe a CI/CD process.
+<!-- :::editable-content-end::: -->
 
-::: moniker-end
+:::moniker-end
+<!-- :::description-end::: -->
 
+<!-- :::parents::: -->
+<!-- :::parents-end::: -->
 
-## Overloads
+## Implementations
 
-:::moniker range="= azure-pipelines-2019" 
+<!-- :::implementations-list::: -->
+:::moniker range=">=azure-pipelines-2020"
 
-| Overload | Description |
-|----------|-------------|
-| [pipeline: jobs](#pipeline-jobs) | Pipeline with jobs and one implicit stage. |
-| [pipeline: steps](#pipeline-steps) | Pipeline with steps and one implicit job. |
+| Implementation | Description |
+|---|---|
+| [pipeline: stages](#pipelinestages) | Pipeline with stages. |
+| [pipeline: extends](#pipelineextends) | Pipeline that extends a template. |
+| [pipeline: jobs](#pipelinejobs) | Pipeline with jobs and one implicit stage. |
+| [pipeline: steps](#pipelinesteps) | Pipeline with steps and one implicit job. |
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2019.1" 
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-| Overload | Description |
-|----------|-------------|
-| [pipeline: jobs](#pipeline-jobs) | Pipeline with jobs and one implicit stage. |
-| [pipeline: steps](#pipeline-steps) | Pipeline with steps and one implicit job. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020" 
-
-| Overload | Description |
-|----------|-------------|
-| [pipeline: stages](#pipeline-stages) | Pipeline with stages. |
-| [pipeline: extends](#pipeline-extends) | Pipeline that extends a template. |
-| [pipeline: jobs](#pipeline-jobs) | Pipeline with jobs and one implicit stage. |
-| [pipeline: steps](#pipeline-steps) | Pipeline with steps and one implicit job. |
+| Implementation | Description |
+|---|---|
+| [pipeline: jobs](#pipelinejobs) | Pipeline with jobs. |
+| [pipeline: steps](#pipelinesteps) | Pipeline with steps and one implicit job. |
 
 :::moniker-end
+<!-- :::implementations-list-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1" 
-
-| Overload | Description |
-|----------|-------------|
-| [pipeline: stages](#pipeline-stages) | Pipeline with stages. |
-| [pipeline: extends](#pipeline-extends) | Pipeline that extends a template. |
-| [pipeline: jobs](#pipeline-jobs) | Pipeline with jobs and one implicit stage. |
-| [pipeline: steps](#pipeline-steps) | Pipeline with steps and one implicit job. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022" 
-
-| Overload | Description |
-|----------|-------------|
-| [pipeline: stages](#pipeline-stages) | Pipeline with stages. |
-| [pipeline: extends](#pipeline-extends) | Pipeline that extends a template. |
-| [pipeline: jobs](#pipeline-jobs) | Pipeline with jobs and one implicit stage. |
-| [pipeline: steps](#pipeline-steps) | Pipeline with steps and one implicit job. |
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines" 
-
-| Overload | Description |
-|----------|-------------|
-| [pipeline: stages](#pipeline-stages) | Pipeline with stages. |
-| [pipeline: extends](#pipeline-extends) | Pipeline that extends a template. |
-| [pipeline: jobs](#pipeline-jobs) | Pipeline with jobs and one implicit stage. |
-| [pipeline: steps](#pipeline-steps) | Pipeline with steps and one implicit job. |
-
-:::moniker-end
-
-
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 ::: moniker range="> azure-pipelines-2019"
@@ -154,14 +122,14 @@ If you have a single stage, you can omit the `stages` keyword and directly speci
 
 ```yaml
 # ... other pipeline-level keywords
-jobs: [ job | templateReference ]
+jobs: [ job | template ]
 ```
 
 If you have a single stage and a single job, you can omit the `stages` and `jobs` keywords and directly specify the [steps](steps.md) keyword:
 
 ```yaml
 # ... other pipeline-level keywords
-steps: [ script | bash | pwsh | powershell | checkout | task | templateReference ]
+steps: [ script | bash | pwsh | powershell | checkout | task | template | ... ]
 ```
 
 ::: moniker-end
@@ -172,4157 +140,385 @@ If you have a single job, you can omit the `jobs` keyword and directly specify t
 
 ```yaml
 # ... other pipeline-level keywords
-steps: [ script | bash | pwsh | powershell | checkout | task | templateReference ]
+steps: [ script | bash | pwsh | powershell | checkout | task | template | ... ]
 ```
 
 ::: moniker-end
 
 Use the `name` property to configure the pipeline run number. For more information, see [Configure run or build numbers](/azure/devops/pipelines/process/run-number).
-
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
-## pipeline: jobs
-
-You can provide a list of jobs to define a pipeline with a single implicit stage.
-
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="pipeline{jobs}" version="azure-pipelines-2019"::: -->
-
-
-```yaml
-jobs: [ job ]
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-pr: pr # Pull request triggers
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-variables: variables # Variables for this pipeline
-parameters: 
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Jobs represent units of work which can be assigned to a single agent or server. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="pipeline{jobs}" version="azure-pipelines-2019.1"::: -->
-
-
-```yaml
-jobs: [ job ]
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-pr: pr # Pull request triggers
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-variables: variables # Variables for this pipeline
-parameters: 
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Jobs represent units of work which can be assigned to a single agent or server. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipeline{jobs}" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-jobs: [ job | deployment | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Jobs represent units of work which can be assigned to a single agent or server. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="pipeline{jobs}" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-jobs: [ job | deployment | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Jobs represent units of work which can be assigned to a single agent or server. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="pipeline{jobs}" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-jobs: [ job | deployment | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Jobs represent units of work which can be assigned to a single agent or server. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="pipeline{jobs}" version="azure-pipelines"::: -->
-
-
-```yaml
-jobs: [ job | deployment | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `jobs`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs](jobs.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Jobs represent units of work which can be assigned to a single agent or server. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `appendCommitMessageToRunName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-### Examples
-
-```yaml
-trigger:
-- main
-
-pool: 
-  vmImage: ubuntu-latest
-
-jobs:
-- job: PreWork
-  steps:
-  - script: "Do pre-work"
-
-- job: PostWork
-  pool: windows-latest
-  steps:
-  - script: "Do post-work using a different hosted image"
-
-```
-:::moniker range="= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
-## pipeline: steps
-
-You can provide a list of steps to define a pipeline with a single implicit job and stage.
-
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="pipeline{steps}" version="azure-pipelines-2019"::: -->
-
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template | restoreCache | saveCache ]
-strategy: jobStrategy # Execution strategy for this job
-continueOnError: string # Continue running even on failure?. 
-pool: pool # Pool where this job will run
-services:  # Container resources to run as a service container.
-  string: string # Name/value pairs.
-workspace:  # Workspace options on the agent.
-  clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-pr: pr # Pull request triggers
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-variables: variables # Variables for this pipeline
-parameters: 
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. A list of steps to run in this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="pipeline{steps}" version="azure-pipelines-2019.1"::: -->
-
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template | restoreCache | saveCache ]
-strategy: jobStrategy # Execution strategy for this job
-continueOnError: string # Continue running even on failure?. 
-pool: pool # Pool where this job will run
-container: jobContainer # Container resource name
-services:  # Container resources to run as a service container.
-  string: string # Name/value pairs.
-workspace:  # Workspace options on the agent.
-  clean: string # Scorch the repo before fetching?.  (outputs, resources, all)
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-pr: pr # Pull request triggers
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-variables: variables # Variables for this pipeline
-parameters: 
-  string: string # Name/value pairs.
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. A list of steps to run in this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipeline{steps}" version="azure-pipelines-2020"::: -->
-
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-strategy: jobStrategy # Execution strategy for this job
-continueOnError: string # Continue running even on failure?. 
-pool: pool # Pool where this job will run
-container: jobContainer # Container resource name
-services:  # Container resources to run as a service container.
-  string: string # Name/value pairs.
-workspace:  # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. A list of steps to run in this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="pipeline{steps}" version="azure-pipelines-2020.1"::: -->
-
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-strategy: jobStrategy # Execution strategy for this job
-continueOnError: string # Continue running even on failure?. 
-pool: pool # Pool where this job will run
-container: jobContainer # Container resource name
-services:  # Container resources to run as a service container.
-  string: string # Name/value pairs.
-workspace:  # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. A list of steps to run in this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="pipeline{steps}" version="azure-pipelines-2022"::: -->
-
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-strategy: jobStrategy # Execution strategy for this job
-continueOnError: string # Continue running even on failure?. 
-pool: pool # Pool where this job will run
-container: jobContainer # Container resource name
-services:  # Container resources to run as a service container.
-  string: string # Name/value pairs.
-workspace:  # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. A list of steps to run in this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="pipeline{steps}" version="azure-pipelines"::: -->
-
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | restoreCache | saveCache | reviewApp ]
-strategy: jobStrategy # Execution strategy for this job
-continueOnError: string # Continue running even on failure?. 
-pool: pool # Pool where this job will run
-container: jobContainer # Container resource name
-services:  # Container resources to run as a service container.
-  string: string # Name/value pairs.
-workspace:  # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.  (outputs, resources, all)
-name: string # Pipeline run number.. 
-appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
-```
-
-### Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `strategy`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.strategy](jobs-job-strategy.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Execution strategy for this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `continueOnError`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continue running even on failure? 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where this job will run. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `container`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[jobs.job.container](jobs-job-container.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resource name. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `services`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Container resources to run as a service container. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `workspace`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-workspace options
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Workspace options on the agent. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `steps`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[steps](steps.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. A list of steps to run in this job. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `appendCommitMessageToRunName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-### Examples
-
-```yaml
-trigger:
-- main
-
-pool: 
-  vmImage: ubuntu-latest
-
-steps:
-- script: "Hello world!"
-```
-
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::implementations::: -->
+<!-- :::implementation-item name="pipeline: stages"::: -->
+<a name="pipelinestages"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range="=azure-pipelines"
+
+<!-- :::implementation-signature::: -->
 ## pipeline: stages
+<!-- :::implementation-signature-end::: -->
 
-You can provide a list of stages to define a pipeline with multiple stages.
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with stages.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipeline{stages}" version="azure-pipelines-2020"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
-stages: [ stage | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
+stages: [ stage | template ] # Required. Stages are groups of jobs that can run without human intervention.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[stages](stages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Stages are groups of jobs that can run without human intervention. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="stages"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Stages are groups of jobs that can run without human intervention.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="appendCommitMessageToRunName"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Append the commit message to the build number. The default is true.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines-2022"
 
-<!-- :::api-definition signature="pipeline{stages}" version="azure-pipelines-2020.1"::: -->
+<!-- :::implementation-signature::: -->
+## pipeline: stages
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with stages.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
-stages: [ stage | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
+stages: [ stage | template ] # Required. Stages are groups of jobs that can run without human intervention.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[stages](stages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Stages are groups of jobs that can run without human intervention. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="stages"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Stages are groups of jobs that can run without human intervention.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2020.1"
 
-<!-- :::api-definition signature="pipeline{stages}" version="azure-pipelines-2022"::: -->
+<!-- :::implementation-signature::: -->
+## pipeline: stages
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with stages.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
-stages: [ stage | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
+stages: [ stage | template ] # Required. Stages are groups of jobs that can run without human intervention.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[stages](stages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Stages are groups of jobs that can run without human intervention. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="stages"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Stages are groups of jobs that can run without human intervention.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines"
+:::moniker range="=azure-pipelines-2020"
 
-<!-- :::api-definition signature="pipeline{stages}" version="azure-pipelines"::: -->
+<!-- :::implementation-signature::: -->
+## pipeline: stages
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with stages.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
-stages: [ stage | template ]
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
+stages: [ stage | template ] # Required. Stages are groups of jobs that can run without human intervention.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `stages`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[stages](stages.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Stages are groups of jobs that can run without human intervention. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `appendCommitMessageToRunName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="stages"::: -->
+**`stages`** [stages](stages.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Stages are groups of jobs that can run without human intervention.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
+<!-- :::objectAnyOf-end::: -->
 
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- Remarks -->
-
-
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
 ### Examples
 
 ```yaml
@@ -4345,953 +541,1566 @@ stages:
     steps:
     - script: "Do test work"
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="pipeline: extends"::: -->
+<a name="pipelineextends"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range="=azure-pipelines"
 
-:::moniker range="= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
-
+<!-- :::implementation-signature::: -->
 ## pipeline: extends
+<!-- :::implementation-signature-end::: -->
 
-Extends a pipeline using a template.
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline that extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipeline{extends}" version="azure-pipelines-2020"::: -->
-
-
+<!-- :::implementation-syntax::: -->
 ```yaml
-extends:  # Required. Extends a template
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
+extends: # Required. Extends a template.
+  template: string # The template referenced by the pipeline to extend.
+  parameters: # Parameters used in the extend.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `extends`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[extends](extends.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Extends a template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="extends"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="appendCommitMessageToRunName"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Append the commit message to the build number. The default is true.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines-2022"
 
-<!-- :::api-definition signature="pipeline{extends}" version="azure-pipelines-2020.1"::: -->
+<!-- :::implementation-signature::: -->
+## pipeline: extends
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline that extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
-extends:  # Required. Extends a template
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
+extends: # Required. Extends a template.
+  template: string # The template referenced by the pipeline to extend.
+  parameters: # Parameters used in the extend.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `extends`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[extends](extends.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Extends a template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="extends"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2020.1"
 
-<!-- :::api-definition signature="pipeline{extends}" version="azure-pipelines-2022"::: -->
+<!-- :::implementation-signature::: -->
+## pipeline: extends
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline that extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
-extends:  # Required. Extends a template
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
+extends: # Required. Extends a template.
+  template: string # The template referenced by the pipeline to extend.
+  parameters: # Parameters used in the extend.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `extends`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[extends](extends.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Extends a template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="extends"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines"
+:::moniker range="=azure-pipelines-2020"
 
-<!-- :::api-definition signature="pipeline{extends}" version="azure-pipelines"::: -->
+<!-- :::implementation-signature::: -->
+## pipeline: extends
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline that extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
 ```yaml
-extends:  # Required. Extends a template
-  template: string # 
-  parameters:  # Parameters used in the extend
-    string: string # Name/value pairs.
-pool: pool # Pool where jobs in this pipeline will run unless otherwise specified
-name: string # Pipeline run number.. 
-appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.  (false,n,no,off,on,true,y,yes)
-trigger: trigger # Continuous integration triggers
-parameters: [ name ]
-pr: pr # Pull request triggers
-schedules: [ cron ]
-resources:  # Containers and repositories used in the build
-  builds: [ build ]
-  containers: [ container ]
-  pipelines: [ pipeline ]
-  repositories: [ repository ]
-  webhooks: [ webhook ]
-  packages: [ package ]
-variables: variables # Variables for this pipeline
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.  (runLatest,sequential)
+extends: # Required. Extends a template.
+  template: string # The template referenced by the pipeline to extend.
+  parameters: # Parameters used in the extend.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
 ```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
 ### Properties
 
+<!-- :::item name="extends"::: -->
+**`extends`** [extends](extends.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Extends a template.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `extends`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[extends](extends.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required. Extends a template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
+:::moniker-end
+<!-- :::objectAnyOf-end::: -->
 
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="pipeline: jobs"::: -->
+<a name="pipelinejobs"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range="=azure-pipelines"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pool`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pool](pool.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pool where jobs in this pipeline will run unless otherwise specified. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
+<!-- :::implementation-signature::: -->
+## pipeline: jobs
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with jobs and one implicit stage.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
+<!-- :::implementation-syntax::: -->
+```yaml
+jobs: [ job | deployment | template ] # Required. Jobs represent units of work which can be assigned to a single agent or server.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+```
+<!-- :::implementation-syntax-end::: -->
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `name`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string_allowExpressions
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline run number. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
+<!-- :::implementation-properties::: -->
+### Properties
 
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `appendCommitMessageToRunName`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-boolean
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Append the commit message to the build number. The default is true. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[trigger](trigger.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Continuous integration triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[parameters](parameters.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pipeline template parameters. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pr`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[pr](pr.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Pull request triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `schedules`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[schedules](schedules.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `resources`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[resources](resources.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Containers and repositories used in the build. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `variables`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-[variables](variables.md)
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Variables for this pipeline. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `lockBehavior`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Jobs represent units of work which can be assigned to a single agent or server.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="appendCommitMessageToRunName"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Append the commit message to the build number. The default is true.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
 
 :::moniker-end
 
+:::moniker range="=azure-pipelines-2022"
 
-<!-- Remarks -->
+<!-- :::implementation-signature::: -->
+## pipeline: jobs
+<!-- :::implementation-signature-end::: -->
 
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with jobs and one implicit stage.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
 
-<!-- Examples -->
+<!-- :::implementation-syntax::: -->
+```yaml
+jobs: [ job | deployment | template ] # Required. Jobs represent units of work which can be assigned to a single agent or server.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+```
+<!-- :::implementation-syntax-end::: -->
 
+<!-- :::implementation-properties::: -->
+### Properties
 
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Jobs represent units of work which can be assigned to a single agent or server.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2020.1"
+
+<!-- :::implementation-signature::: -->
+## pipeline: jobs
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with jobs and one implicit stage.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+jobs: [ job | deployment | template ] # Required. Jobs represent units of work which can be assigned to a single agent or server.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Jobs represent units of work which can be assigned to a single agent or server.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2020"
+
+<!-- :::implementation-signature::: -->
+## pipeline: jobs
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with jobs and one implicit stage.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+jobs: [ job | deployment | template ] # Required. Jobs represent units of work which can be assigned to a single agent or server.
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Jobs represent units of work which can be assigned to a single agent or server.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+
+<!-- :::implementation-signature::: -->
+## pipeline: jobs
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with jobs.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+jobs: [ job ] # Required. Jobs represent units of work which can be assigned to a single agent or server.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+pr: none | pr | [ string ] # Pull request triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+parameters: # Pipeline template parameters.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="jobs"::: -->
+**`jobs`** [jobs](jobs.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+Jobs represent units of work which can be assigned to a single agent or server.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+<!-- :::objectAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+### Examples
+
+```yaml
+trigger:
+- main
+
+pool: 
+  vmImage: ubuntu-latest
+
+jobs:
+- job: PreWork
+  steps:
+  - script: "Do pre-work"
+
+- job: PostWork
+  pool: windows-latest
+  steps:
+  - script: "Do post-work using a different hosted image"
+```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementation-item name="pipeline: steps"::: -->
+<a name="pipelinesteps"></a>
+<!-- :::objectAnyOf::: -->
+:::moniker range="=azure-pipelines"
+
+<!-- :::implementation-signature::: -->
+## pipeline: steps
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with steps and one implicit job.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # Required. A list of steps to run in this job.
+strategy: strategy # Execution strategy for this job.
+continueOnError: string # Continue running even on failure?
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+container: string | container # Container resource name.
+services: # Container resources to run as a service container.
+  string: string # Name/value pairs
+workspace: # Workspace options on the agent.
+  clean: string # Which parts of the workspace should be scorched before fetching.
+name: string # Pipeline run number.
+appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+A list of steps to run in this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="appendCommitMessageToRunName"::: -->
+**`appendCommitMessageToRunName`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Append the commit message to the build number. The default is true.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
+
+<!-- :::implementation-signature::: -->
+## pipeline: steps
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with steps and one implicit job.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # Required. A list of steps to run in this job.
+strategy: strategy # Execution strategy for this job.
+continueOnError: string # Continue running even on failure?
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+container: string | container # Container resource name.
+services: # Container resources to run as a service container.
+  string: string # Name/value pairs
+workspace: # Workspace options on the agent.
+  clean: string # Which parts of the workspace should be scorched before fetching.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+A list of steps to run in this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="lockBehavior"::: -->
+**`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2020.1"
+
+<!-- :::implementation-signature::: -->
+## pipeline: steps
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with steps and one implicit job.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # Required. A list of steps to run in this job.
+strategy: strategy # Execution strategy for this job.
+continueOnError: string # Continue running even on failure?
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+container: string | container # Container resource name.
+services: # Container resources to run as a service container.
+  string: string # Name/value pairs
+workspace: # Workspace options on the agent.
+  clean: string # Which parts of the workspace should be scorched before fetching.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  webhooks: [ webhook ] # List of webhooks.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+A list of steps to run in this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2020"
+
+<!-- :::implementation-signature::: -->
+## pipeline: steps
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with steps and one implicit job.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # Required. A list of steps to run in this job.
+strategy: strategy # Execution strategy for this job.
+continueOnError: string # Continue running even on failure?
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+container: string | container # Container resource name.
+services: # Container resources to run as a service container.
+  string: string # Name/value pairs
+workspace: # Workspace options on the agent.
+  clean: string # Which parts of the workspace should be scorched before fetching.
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+parameters: [ parameter ] # Pipeline template parameters.
+pr: none | pr | [ string ] # Pull request triggers.
+schedules: [ cron ] # Scheduled triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+  packages: [ package ] # List of package resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+A list of steps to run in this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** [parameters](parameters.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="schedules"::: -->
+**`schedules`** [schedules](schedules.md).<br><!-- :::editable-content name="propDescription"::: -->
+Scheduled triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019.1"
+
+<!-- :::implementation-signature::: -->
+## pipeline: steps
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with steps and one implicit job.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # Required. A list of steps to run in this job.
+strategy: strategy # Execution strategy for this job.
+continueOnError: string # Continue running even on failure?
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+container: string | container # Container resource name.
+services: # Container resources to run as a service container.
+  string: string # Name/value pairs
+workspace: # Workspace options on the agent.
+  clean: string # Scorch the repo before fetching?
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+pr: none | pr | [ string ] # Pull request triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+parameters: # Pipeline template parameters.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+A list of steps to run in this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="container"::: -->
+**`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
+Container resource name.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+<!-- :::implementation-signature::: -->
+## pipeline: steps
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Pipeline with steps and one implicit job.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # Required. A list of steps to run in this job.
+strategy: strategy # Execution strategy for this job.
+continueOnError: string # Continue running even on failure?
+pool: string | pool # Pool where jobs in this pipeline will run unless otherwise specified.
+services: # Container resources to run as a service container.
+  string: string # Name/value pairs
+workspace: # Workspace options on the agent.
+  clean: string # Scorch the repo before fetching?
+name: string # Pipeline run number.
+trigger: none | trigger | [ string ] # Continuous integration triggers.
+pr: none | pr | [ string ] # Pull request triggers.
+resources: # Containers and repositories used in the build.
+  builds: [ build ] # List of build resources referenced by the pipeline.
+  containers: [ container ] # List of container images.
+  pipelines: [ pipeline ] # List of pipeline resources.
+  repositories: [ repository ] # List of repository resources.
+variables: variables | [ variable ] # Variables for this pipeline.
+parameters: # Pipeline template parameters.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="steps"::: -->
+**`steps`** [steps](steps.md). Required.<br><!-- :::editable-content name="propDescription"::: -->
+A list of steps to run in this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="strategy"::: -->
+**`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
+Execution strategy for this job.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="continueOnError"::: -->
+**`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Continue running even on failure?
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pool"::: -->
+**`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pool where jobs in this pipeline will run unless otherwise specified.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="services"::: -->
+**`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
+Container resources to run as a service container.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="workspace"::: -->
+**`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
+Workspace options on the agent.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="name"::: -->
+**`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline run number.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+**`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Continuous integration triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="pr"::: -->
+**`pr`** [pr](pr.md).<br><!-- :::editable-content name="propDescription"::: -->
+Pull request triggers.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="resources"::: -->
+**`resources`** [resources](resources.md).<br><!-- :::editable-content name="propDescription"::: -->
+Containers and repositories used in the build.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="variables"::: -->
+**`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
+Variables for this pipeline.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Pipeline template parameters.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+<!-- :::objectAnyOf-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+### Examples
+
+```yaml
+trigger:
+- main
+
+pool: 
+  vmImage: ubuntu-latest
+
+steps:
+- script: "Hello world!"
+```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+<!-- :::implementation-item-end::: -->
+<!-- :::implementations-end::: -->
+
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Pipelines with multiple jobs](/azure/devops/pipelines/process/phases)
 - [Triggers](/azure/devops/pipelines/build/triggers)
 - [Variables](/azure/devops/pipelines/process/variables)
 - [Build number formats](/azure/devops/pipelines/process/run-number)
-
-
-
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: XamarinLicense@1 - Xamarin License v1 task
 description: XamarinLicense@1 is deprecated.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,9 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-XamarinLicense@1 is deprecated. Upgrade to free version of Xamarin: https://store.xamarin.com.
+XamarinLicense@1 is deprecated because you no longer need a Xamarin license to [build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin). You can now use the free version of [Xamarin](https://store.xamarin.com).
+
+This task was originally used in a build or release pipeline to activate or deactivate Xamarin licenses.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -59,6 +61,7 @@ This task is deprecated.
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Activate`, `Deactivate`. Default value: `Activate`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies `activate` for the first instance of this build task before any instances of the `Xamarin.Android` or `Xamarin.iOS` tasks. Specifies `deactivate` for the second instance of this build task after all instances of the `Xamarin.Android` and `Xamarin.iOS` tasks. You should also select `Always run` under `Control options` for the last instance of the Xamarin license task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +73,7 @@ This task is deprecated.
 **`email`** - **Email**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Xamarin account email address.
+Specifies the Xamarin account email address.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +85,7 @@ Xamarin account email address.
 **`password`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Xamarin account password. Use a new build variable with its lock enabled on the Variables tab to encrypt this value.
+Specifies the Xamarin account password. Use a [secret variable](/azure/devops/pipelines/build/variables) with its lock enabled on the variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +97,7 @@ Xamarin account password. Use a new build variable with its lock enabled on the 
 **`product`** - **Xamarin Product**<br>
 `string`. Required. Allowed values: `MA` (Xamarin.Android), `MT` (Xamarin.iOS), `MM` (Xamarin.Mac). Default value: `MA`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Xamarin product name.
+Specifies the Xamarin product name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,6 +109,7 @@ Xamarin product name.
 **`timeout`** - **Timeout in Seconds**<br>
 `string`. Default value: `30`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies how long you want to allow the build task to wait for the activation or deactivation.
 <!-- :::editable-content-end::: -->
 <br>
 

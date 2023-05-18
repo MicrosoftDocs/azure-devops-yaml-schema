@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Cloud v0 task
 description: Deploy applications to Azure Spring Cloud and manage deployments.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -20,7 +20,7 @@ This task deploys applications to Azure Spring Cloud and manages those deploymen
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 # Azure Spring Cloud v0
@@ -31,7 +31,41 @@ This task deploys applications to Azure Spring Cloud and manages those deploymen
     Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
     AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
     AppName: # string. Required. App. 
-    #UseStagingDeployment: true # boolean. Required when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
+    #DeploymentType: 'Artifacts' # 'Artifacts' | 'CustomContainer'. Optional. Use when Action = Deploy. Deployment Type. Default: Artifacts.
+    #UseStagingDeployment: true # boolean. Optional. Use when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
+    #CreateNewDeployment: false # boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Create a new staging deployment if one does not exist. Default: false.
+    #DeploymentName: # string. Optional. Use when UseStagingDeployment = false && Action != Delete Staging Deployment. Deployment. 
+    #Package: '$(System.DefaultWorkingDirectory)/**/*.jar' # string. Optional. Use when Action = Deploy && DeploymentType = Artifacts. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.jar.
+    #RegistryServer: 'docker.io' # string. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Registry Server. Default: docker.io.
+    #RegistryUsername: # string. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Registry Username. 
+    #RegistryPassword: # string. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Registry Password. 
+    #ImageName: 'hello-world:v1' # string. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Image Name and Tag. Default: hello-world:v1.
+    #ImageCommand: # string. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Image Command. 
+    #ImageArgs: # string. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Image Arguments. 
+    #ImageLanguageFramework: # 'springboot'. Optional. Use when Action = Deploy && DeploymentType = CustomContainer. Language Framework. 
+  # Application and Configuration Settings
+    #Builder: # string. Optional. Use when Action = Deploy && DeploymentType = Artifacts. Builder. 
+    #EnvironmentVariables: # string. Optional. Use when Action = Deploy. Environment Variables. 
+    #JvmOptions: # string. Optional. Use when Action = Deploy && DeploymentType = Artifacts. JVM Options. 
+    #RuntimeVersion: 'Java_11' # 'Java_8' | 'Java_11' | 'NetCore_31'. Optional. Use when Action = Deploy && DeploymentType = Artifacts. Runtime Version. Default: Java_11.
+    #DotNetCoreMainEntryPath: # string. Optional. Use when RuntimeVersion = NetCore_31. Main Entry Path. 
+    #Version: # string. Optional. Use when Action = Deploy. Version.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
+
+```yaml
+# Azure Spring Cloud v0
+# Deploy applications to Azure Spring Cloud and manage deployments.
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
+    AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
+    AppName: # string. Required. App. 
+    #UseStagingDeployment: true # boolean. Optional. Use when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
     #CreateNewDeployment: false # boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Create a new staging deployment if one does not exist. Default: false.
     #DeploymentName: # string. Optional. Use when UseStagingDeployment = false && Action != Delete Staging Deployment. Deployment. 
     #Package: '$(System.DefaultWorkingDirectory)/**/*.jar' # string. Optional. Use when Action = Deploy. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.jar.
@@ -97,11 +131,23 @@ The name of the Azure Spring Cloud app to deploy. The app must exist prior to th
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="DeploymentType"::: -->
+:::moniker range="=azure-pipelines"
+
+**`DeploymentType`** - **Deployment Type**<br>
+`string`. Optional. Use when `Action = Deploy`. Allowed values: `Artifacts`, `CustomContainer` (Custom Container). Default value: `Artifacts`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+To deploy with source code or Java package, choose "Artifacts"; To deploy with container image, choose "Custom Container".
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="UseStagingDeployment"::: -->
 :::moniker range=">=azure-pipelines-2022"
 
 **`UseStagingDeployment`** - **Use Staging Deployment**<br>
-`boolean`. Required when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
+`boolean`. Optional. Use when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 At the time the task runs, this input automatically selects the deployment that's set as `staging`.
 
@@ -136,7 +182,20 @@ The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to wh
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Package"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+**`Package`** - **Package or folder**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The file path to the package or folder containing the Azure Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).  
+Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported.  
+For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
@@ -144,6 +203,101 @@ The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to wh
 The file path to the package or folder containing the Azure Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).  
 Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported.  
 For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="Builder"::: -->
+:::moniker range="=azure-pipelines"
+
+**`Builder`** - **Builder**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select a builder of VMware Tanzu® Build Service™, this can be used in enterprise tier. <br/> For detailed description, please check [Use Tanzu Build Service](/azure/spring-cloud/how-to-enterprise-build-service?tabs=azure-portal).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="RegistryServer"::: -->
+:::moniker range="=azure-pipelines"
+
+**`RegistryServer`** - **Registry Server**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`. Default value: `docker.io`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The registry of the container image.  Default: docker.io.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="RegistryUsername"::: -->
+:::moniker range="=azure-pipelines"
+
+**`RegistryUsername`** - **Registry Username**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The username of the container registry.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="RegistryPassword"::: -->
+:::moniker range="=azure-pipelines"
+
+**`RegistryPassword`** - **Registry Password**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The password of the container registry.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ImageName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`ImageName`** - **Image Name and Tag**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`. Default value: `hello-world:v1`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The container image tag.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ImageCommand"::: -->
+:::moniker range="=azure-pipelines"
+
+**`ImageCommand`** - **Image Command**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The command of the container image.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ImageArgs"::: -->
+:::moniker range="=azure-pipelines"
+
+**`ImageArgs`** - **Image Arguments**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The arguments of the container image.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="ImageLanguageFramework"::: -->
+:::moniker range="=azure-pipelines"
+
+**`ImageLanguageFramework`** - **Language Framework**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = CustomContainer`. Allowed values: `springboot`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,7 +316,18 @@ The environment variables to be entered using the syntax `-key value` (for examp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="JvmOptions"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+**`JvmOptions`** - **JVM Options**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m -Xmx2048m`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 **`JvmOptions`** - **JVM Options**<br>
 `string`. Optional. Use when `Action = Deploy`.<br>
@@ -174,7 +339,18 @@ Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RuntimeVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+**`RuntimeVersion`** - **Runtime Version**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The runtime version on which the app will run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 **`RuntimeVersion`** - **Runtime Version**<br>
 `string`. Optional. Use when `Action = Deploy`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>

@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@1 - Xamarin.iOS v1 task
 description: Build an iOS app with Xamarin on macOS (task version 1).
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build an iOS app with Xamarin on macOS.
+Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -30,10 +30,10 @@ Build an iOS app with Xamarin on macOS.
     solutionFile: '**/*.sln' # string. Alias: solution. Required. Solution. Default: **/*.sln.
     configuration: 'Release' # string. Required. Configuration. Default: Release.
     #clean: false # boolean. Clean. Default: false.
-    packageApp: true # boolean. Required. Create app package. Default: true.
+    #packageApp: true # boolean. Create app package. Default: true.
     #buildForSimulator: false # boolean. Alias: forSimulator. Build for iOS Simulator. Default: false.
   # Advanced
-    runNugetRestore: true # boolean. Required. Run NuGet restore. Default: true.
+    #runNugetRestore: true # boolean. Run NuGet restore. Default: true.
     #args: # string. Arguments. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #buildToolOption: 'xbuild' # 'xbuild' | 'msbuild'. Alias: buildTool. Build tool. Default: xbuild.
@@ -41,7 +41,7 @@ Build an iOS app with Xamarin on macOS.
   # Signing & Provisioning
     #signingOption: 'file' # 'file' | 'id'. Alias: signMethod. Override using. Default: file.
     #signingIdentity: # string. Alias: iosSigningIdentity. Optional. Use when signMethod = id. Signing identity. 
-    #signingUnlockDefaultKeychain: false # boolean. Alias: unlockDefaultKeychain. Required when signMethod = id. Unlock default keychain. Default: false.
+    #signingUnlockDefaultKeychain: false # boolean. Alias: unlockDefaultKeychain. Optional. Use when signMethod = id. Unlock default keychain. Default: false.
     #signingDefaultKeychainPassword: # string. Alias: defaultKeychainPassword. Optional. Use when signMethod = id. Default keychain password. 
     #signingProvisioningProfileID: # string. Alias: provProfileUuid. Optional. Use when signMethod = id. Provisioning profile UUID. 
     #signingP12File: # string. Alias: p12. Optional. Use when signMethod = file. P12 certificate file. 
@@ -72,7 +72,7 @@ Build an iOS app with Xamarin on macOS.
 **`solutionFile`** - **Solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repository root of the Xamarin.iOS solution to build. May contain wildcards.
+Specifies the relative path from the repository root of the `Xamarin.iOS` solution to the build. May contain wildcards.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +84,7 @@ Relative path from the repository root of the Xamarin.iOS solution to build. May
 **`configuration`** - **Configuration**<br>
 `string`. Required. Default value: `Release`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Standard configurations are Ad-Hoc, AppStore, Debug, Release.
+Specifies the configuration. Standard configurations are Ad-Hoc, AppStore, Debug, and Release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Standard configurations are Ad-Hoc, AppStore, Debug, Release.
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run a clean build (/t:clean) prior to the build.
+Optional. Runs a clean build (`/t:clean`) prior to the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -106,9 +106,9 @@ Run a clean build (/t:clean) prior to the build.
 :::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create app package**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether an IPA should be generated as a part of the build.
+If set to `true`, generates an IPA as a part of the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Indicates whether an IPA should be generated as a part of the build.
 **`buildForSimulator`** - **Build for iOS Simulator**<br>
 Input alias: `forSimulator`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally build for the iOS Simulator instead of physical iOS devices.
+Optional. Builds for the iOS Simulator instead of physical iOS devices.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -130,9 +130,9 @@ Optionally build for the iOS Simulator instead of physical iOS devices.
 :::moniker range="<=azure-pipelines"
 
 **`runNugetRestore`** - **Run NuGet restore**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally run `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The 'nuget' tool in the PATH of the build agent machine will be used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
+Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before the build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +144,7 @@ Optionally run `nuget restore` on the Xamarin iOS solution to install all refere
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional command line arguments that should be used to build.
+Optional. Specifies additional command line arguments that are used to the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +156,7 @@ Additional command line arguments that should be used to build.
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory in which builds will run. When empty, the root of the repository is used.
+Optional. Specifies the working directory in which builds will run. If the value is empty, the root of the repository is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,6 +168,7 @@ Working directory in which builds will run. When empty, the root of the reposito
 **`buildToolOption`** - **Build tool**<br>
 Input alias: `buildTool`. `string`. Allowed values: `xbuild` (xbuild (Xamarin Studio)), `msbuild` (MSBuild (Visual Studio for Mac)). Default value: `xbuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the build tools that the task will use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +180,7 @@ Input alias: `buildTool`. `string`. Allowed values: `xbuild` (xbuild (Xamarin St
 **`mdtoolFile`** - **Build tool path**<br>
 Input alias: `mdtoolLocation`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally supply the path to xbuild (the Xamarin Studio mono build tool) or MSBuild (the Visual Studio for Mac build tool). When empty, the default xbuild or MSBuild path is used.
+Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MSBuild (the Visual Studio for Mac build tool). If the value is empty, the default xbuild or MSBuild path is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +192,7 @@ Optionally supply the path to xbuild (the Xamarin Studio mono build tool) or MSB
 **`signingOption`** - **Override using**<br>
 Input alias: `signMethod`. `string`. Allowed values: `file` (File Contents), `id` (Identifiers). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the build should use a signing or provisioning method that is different than the default, choose that method here. Choose 'File Contents' to use a P12 certificate and provisioning profile. Choose 'Identifiers' to retrieve signing settings from the default Keychain and pre-installed profiles. Leave the corresponding fields blank if you do not wish to override default build settings.
+Use this input if the build uses a signing or provisioning method that is different than the default. Choose `file` to use a P12 certificate and provisioning profile. Choose `id` to retrieve signing settings from the default Keychain and pre-installed profiles. Leave the corresponding fields blank if you do not wish to override the default build settings.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +204,7 @@ If the build should use a signing or provisioning method that is different than 
 **`signingIdentity`** - **Signing identity**<br>
 Input alias: `iosSigningIdentity`. `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optionally override the signing identity that will be used to sign the build. If nothing is entered, the setting in the Xcode project will be used. You may need to select 'Unlock Default Keychain' if you use this option.
+Overrides the signing identity that will be used to sign the build. If the value is empty, the setting in the Xcode project will be used. You may need to select `signingUnlockDefaultKeychain` if you use this option.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,9 +214,9 @@ Optionally override the signing identity that will be used to sign the build. If
 :::moniker range="<=azure-pipelines"
 
 **`signingUnlockDefaultKeychain`** - **Unlock default keychain**<br>
-Input alias: `unlockDefaultKeychain`. `boolean`. Required when `signMethod = id`. Default value: `false`.<br>
+Input alias: `unlockDefaultKeychain`. `boolean`. Optional. Use when `signMethod = id`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Resolve "User interaction is not allowed" errors by unlocking the default keychain.
+Resolves "User interaction is not allowed" errors by unlocking the default keychain.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -227,7 +228,7 @@ Resolve "User interaction is not allowed" errors by unlocking the default keycha
 **`signingDefaultKeychainPassword`** - **Default keychain password**<br>
 Input alias: `defaultKeychainPassword`. `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password to unlock the default keychain when that option is set.
+Specifies the password to unlock the default keychain when `signingUnlockDefaultKeychain` is set.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -239,7 +240,7 @@ Password to unlock the default keychain when that option is set.
 **`signingProvisioningProfileID`** - **Provisioning profile UUID**<br>
 Input alias: `provProfileUuid`. `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional UUID of an installed provisioning profile to be used for this build.
+Specifies the UUID of an installed provisioning profile to be used for this build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -251,7 +252,7 @@ Optional UUID of an installed provisioning profile to be used for this build.
 **`signingP12File`** - **P12 certificate file**<br>
 Input alias: `p12`. `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional relative path to a PKCS12-formatted P12 certificate file containing a signing certificate to be used for this build.
+Specifies the relative path to a PKCS12-formatted P12 certificate file containing a signing certificate to be used for this build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -263,7 +264,7 @@ Optional relative path to a PKCS12-formatted P12 certificate file containing a s
 **`signingP12Password`** - **P12 password**<br>
 Input alias: `p12pwd`. `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password to the P12 certificate file, if specified. Use a build variable to encrypt this value.
+Specifies the password to the P12 certificate file. Use a build variable to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -275,7 +276,7 @@ Password to the P12 certificate file, if specified. Use a build variable to encr
 **`signingProvisioningProfileFile`** - **Provisioning profile file**<br>
 Input alias: `provProfile`. `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional relative path to a file containing the provisioning profile override to be used for this build.
+Specifies the UUID of an installed provisioning profile override to be used for this build.
 <!-- :::editable-content-end::: -->
 <br>
 

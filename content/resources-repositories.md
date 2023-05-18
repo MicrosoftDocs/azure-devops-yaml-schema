@@ -1,149 +1,66 @@
 ---
-title: resources.repositories list definition
-description: resources.repositories list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.repositories definition
+description: List of external repositories.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
-# resources.repositories list definition
+# resources.repositories definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 List of repository resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-repositories: [ repository ] # 
+repositories: [ repository ] # List of repository resources.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.repositories](resources.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources](resources.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+| Type | Description |
+|---|---|
 | [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
 
-<!-- :::api-definition-end::: -->
-
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2019.1"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-repositories: [ repository ] # 
-```
-
-
-Properties that use this definition: [resources.repositories](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2020"::: -->
-
-```yaml
-repositories: [ repository ] # 
-```
-
-
-Properties that use this definition: [resources.repositories](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-repositories: [ repository ] # 
-```
-
-
-Properties that use this definition: [resources.repositories](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines-2022"::: -->
-
-```yaml
-repositories: [ repository ] # 
-```
-
-
-Properties that use this definition: [resources.repositories](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="repositoryResources[repositoryResource]" version="azure-pipelines"::: -->
-
-```yaml
-repositories: [ repository ] # 
-```
-
-
-Properties that use this definition: [resources.repositories](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.repositories.repository](resources-repositories-repository.md) | A repository resource is used to reference an additional repository in your pipeline. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

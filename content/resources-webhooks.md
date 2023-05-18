@@ -1,86 +1,66 @@
 ---
-title: resources.webhooks list definition
-description: resources.webhooks list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.webhooks definition
+description: List of webhooks.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020.1"
 ---
 
-# resources.webhooks list definition
+# resources.webhooks definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
+<!-- :::editable-content name="description"::: -->
 List of webhook resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="webhookResources[webhookResource]" version="azure-pipelines-2020.1"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
 ```yaml
-webhooks: [ webhook ] # 
+webhooks: [ webhook ] # List of webhooks.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.webhooks](resources.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+Definitions that that reference this definition: [resources](resources.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2020.1"
+
+| Type | Description |
+|---|---|
 | [resources.webhooks.webhook](resources-webhooks-webhook.md) | A webhook resource enables you to integrate your pipeline with an external service to automate the workflow. |
 
-<!-- :::api-definition-end::: -->
-
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2022"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="webhookResources[webhookResource]" version="azure-pipelines-2022"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-webhooks: [ webhook ] # 
-```
-
-
-Properties that use this definition: [resources.webhooks](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.webhooks.webhook](resources-webhooks-webhook.md) | A webhook resource enables you to integrate your pipeline with an external service to automate the workflow. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="webhookResources[webhookResource]" version="azure-pipelines"::: -->
-
-```yaml
-webhooks: [ webhook ] # 
-```
-
-
-Properties that use this definition: [resources.webhooks](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.webhooks.webhook](resources-webhooks-webhook.md) | A webhook resource enables you to integrate your pipeline with an external service to automate the workflow. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

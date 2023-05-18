@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@5 - Prepare Analysis Configuration v5 task
 description: Prepare SonarQube analysis configuration.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Prepare SonarQube analysis configuration.
+Use this task to prepare a SonarQube analysis configuration.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -54,7 +54,7 @@ Prepare SonarQube analysis configuration.
 **`SonarQube`** - **SonarQube Server Endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the SonarQube server endpoint for your project. To create one, click the Manage link and create a new SonarQube Server Endpoint, enter your server url and token.
+Specifies the SonarQube server endpoint for your project. To create one, click the `Manage` link, create a new SonarQube Server Endpoint, and enter your server url and token.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -66,14 +66,16 @@ Select the SonarQube server endpoint for your project. To create one, click the 
 **`scannerMode`** - **Choose the way to run the analysis**<br>
 `string`. Required. Allowed values: `MSBuild` (Integrate with MSBuild), `Other` (Integrate with Maven or Gradle), `CLI` (Use standalone scanner). Default value: `MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-####MSBuild
-* Put this task before your MSBuild task
-* Add the 'Run Code Analysis' task after the MSBuild/VSTest tasks
-####Maven/Gradle
-* Put this task before the Maven/Gradle task
-* Tick the 'Run SonarQube Analysis' checkbox in the Maven/Gradle task configuration.
-####Others
-For other cases you can use the standalone scanner (sonar-scanner) and set all configuration with this task, and then add the 'Run Code Analysis' task.
+**MSBuild**
+- Put this task before your MSBuild task.
+- Add the `Run Code Analysis` task after the MSBuild/VSTest tasks.
+
+**Maven/Gradle**
+- Put this task before the Maven/Gradle task.
+- Tick the `Run SonarQube Analysis` checkbox in the Maven/Gradle task configuration.
+
+**Others**
+- For other cases, you can use the standalone scanner (sonar-scanner), set all configurations with this task, and then add the `Run Code Analysis` task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -85,7 +87,7 @@ For other cases you can use the standalone scanner (sonar-scanner) and set all c
 **`configMode`** - **Mode**<br>
 `string`. Required when `scannerMode = CLI`. Allowed values: `file` (Store configuration with my source code (sonar-project.properties)), `manual` (Manually provide configuration). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose your preferred configuration method.
+Specifies your preferred configuration method.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -97,7 +99,7 @@ Choose your preferred configuration method.
 **`configFile`** - **Settings File**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = file`. Default value: `sonar-project.properties`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-More information is available [here](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html).
+Specifies the configuration settings and project properties. Learn more about the [SonarQube Extension for Azure DevOps](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -109,7 +111,7 @@ More information is available [here](http://redirect.sonarsource.com/doc/install
 **`cliProjectKey`** - **Project Key**<br>
 `string`. Required when `scannerMode = CLI && configMode = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project unique key, i.e. `sonar.projectKey`.
+Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +123,7 @@ The SonarQube project unique key, i.e. `sonar.projectKey`.
 **`projectKey`** - **Project Key**<br>
 `string`. Required when `scannerMode = MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project unique key, i.e. `sonar.projectKey`.
+Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +135,7 @@ The SonarQube project unique key, i.e. `sonar.projectKey`.
 **`cliProjectName`** - **Project Name**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project name, i.e. `sonar.projectName`.
+Specifies the SonarQube project name. For example, `sonar.projectName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -145,7 +147,7 @@ The SonarQube project name, i.e. `sonar.projectName`.
 **`projectName`** - **Project Name**<br>
 `string`. Optional. Use when `scannerMode = MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project name, i.e. `sonar.projectName`.
+Specifies the SonarQube project name. For example, `sonar.projectName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,7 +159,7 @@ The SonarQube project name, i.e. `sonar.projectName`.
 **`cliProjectVersion`** - **Project Version**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = manual`. Default value: `1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project version, i.e. `sonar.projectVersion`.
+Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -169,7 +171,7 @@ The SonarQube project version, i.e. `sonar.projectVersion`.
 **`projectVersion`** - **Project Version**<br>
 `string`. Optional. Use when `scannerMode = MSBuild`. Default value: `1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The SonarQube project version, i.e. `sonar.projectVersion`.
+Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -181,7 +183,7 @@ The SonarQube project version, i.e. `sonar.projectVersion`.
 **`cliSources`** - **Sources directory root**<br>
 `string`. Required when `scannerMode = CLI && configMode = manual`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the root directory containing source files. This value is set to the `sonar.sources` SonarQube property.
+Specifies the path to the root directory containing source files. This value is set to the `sonar.sources` SonarQube property.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +195,7 @@ Path to the root directory containing source files. This value is set to the `so
 **`extraProperties`** - **Additional Properties**<br>
 `string`. Default value: `# Additional properties that will be passed to the scanner, \n# Put one key=value per line, example:\n# sonar.exclusions=**/*.bin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-[Additional properties](https://redirect.sonarsource.com/doc/analysis-parameters.html) to be passed to the scanner. Specify each key=value pair on a new line.
+Specifies [additional properties](https://redirect.sonarsource.com/doc/analysis-parameters.html) to be passed to the scanner. Specify each `key=value` pair on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -219,7 +221,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-* __Support non MSBuild projects:__ This task can be used to configure analysis also for non MSBuild projects.
+- **Support non-MSBuild projects:** This task can also configure analysis for non-MSBuild projects.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

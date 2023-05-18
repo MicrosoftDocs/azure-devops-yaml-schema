@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,10 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Download a named artifact from a pipeline to a local path.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -21,7 +24,10 @@ This task is deprecated.
 :::moniker range="=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Download Pipeline Artifact.
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -84,7 +90,7 @@ Download Pipeline Artifact.
 **`buildType`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `current` (Current build), `specific` (Specific build). Default value: `current`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Download artifacts produced by the current build, or from a specific build.
+Downloads artifacts produced by the current pipeline run or from a specific pipeline run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +102,7 @@ Download artifacts produced by the current build, or from a specific build.
 **`project`** - **Project**<br>
 `string`. Required when `buildType == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The project from which to download the pipeline artifacts.
+Specifies the project name or GUID from which to download the pipeline artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +114,7 @@ The project from which to download the pipeline artifacts.
 **`pipeline`** - **Build pipeline**<br>
 Input alias: `definition`. `string`. Required when `buildType == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the build pipeline name.
+The definition ID of the build pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +126,7 @@ Select the build pipeline name.
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
 `boolean`. Optional. Use when `buildType == specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, this build task will try to download artifacts from the triggering build. If there is no triggering build from the specified pipeline, it will download artifacts from the build specified in the options below.
+If checked, the task downloads artifacts from the triggering build. If there is no triggering build from the specified pipeline, the task downloads artifacts from the build specified in the options below.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,6 +138,7 @@ If checked, this build task will try to download artifacts from the triggering b
 **`buildVersionToDownload`** - **Build version to download**<br>
 `string`. Required when `buildType == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the build version to download.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -143,7 +150,7 @@ If checked, this build task will try to download artifacts from the triggering b
 **`branchName`** - **Branch name**<br>
 `string`. Required when `buildType == specific && buildVersionToDownload == latestFromBranch`. Default value: `refs/heads/master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
+Specifies the filter on the branch/ref name. For example: ```refs/heads/develop```.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -155,7 +162,7 @@ Specify to filter on branch/ref name, for example: ```refs/heads/develop```.
 **`pipelineId`** - **Build**<br>
 Input alias: `buildId`. `string`. Required when `buildType == specific && buildVersionToDownload == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build from which to download the artifacts.
+The build from which to download the artifacts. For example: `1764`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +174,7 @@ The build from which to download the artifacts.
 **`tags`** - **Build Tags**<br>
 `string`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A comma-delimited list of tags. Only builds with these tags will be returned.
+The comma-delimited list of tags that the task uses to return tagged builds. Untagged builds are not returned.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -179,7 +186,7 @@ A comma-delimited list of tags. Only builds with these tags will be returned.
 **`artifactName`** - **Artifact name**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download.
+Specifies the name of the artifact to download. If the value is left empty, the task downloads all artifacts associated with the pipeline run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -191,7 +198,7 @@ The name of the artifact to download.
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify files to be downloaded as multi line minimatch pattern. [More Information](https://aka.ms/minimatchexamples).</p>.
+The file matching patterns that limit downloaded files. The value can be one or more file matching patterns that are new line delimited. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +210,7 @@ Specify files to be downloaded as multi line minimatch pattern. [More Informatio
 **`targetPath`** - **Destination directory**<br>
 Input alias: `downloadPath`. `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the artifacts will be downloaded.
+The path on the agent machine where the artifacts will be downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -227,6 +234,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to download.
+
+### How can I find the ID of the Pipeline I want to download an artifact from?
+
+You can find the ID of the pipeline in the pipeline variables. The pipeline ID is the [system.definitionId](/azure/devops/pipelines/build/variables#system-variables) variable. You can also find the ID in the URL path.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

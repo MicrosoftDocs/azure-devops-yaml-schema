@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,7 +31,7 @@ Use this task to build with Apache Ant.
     #options: # string. Options. 
     #targets: # string. Target(s). 
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -61,7 +61,7 @@ Use this task to build with Apache Ant.
     #options: # string. Options. 
     #targets: # string. Target(s). 
   # JUnit Test Results
-    publishJUnitResults: true # boolean. Required. Publish to Azure Pipelines/TFS. Default: true.
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines/TFS. Default: true.
     testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
   # Code Coverage
@@ -140,7 +140,7 @@ See [Using Apache Ant Targets](http://ant.apache.org/manual/targets.html#targets
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Ant build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -151,7 +151,7 @@ Select this option to publish JUnit test results produced by the Ant build to Az
 :::moniker range="=azure-pipelines-2019"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Ant build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines.
 <!-- :::editable-content-end::: -->
@@ -162,7 +162,7 @@ Select this option to publish JUnit test results produced by the Ant build to Az
 :::moniker range="=azure-pipelines-2018"
 
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Ant build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
 <!-- :::editable-content-end::: -->

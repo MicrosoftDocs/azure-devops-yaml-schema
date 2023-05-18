@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
-description: Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
-ms.date: 10/21/2022
+description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
+Build, push or run multi-container Docker applications. Use this task with Docker or the Azure Container registry.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -172,8 +172,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
 **`containerregistrytype`** - **Container Registry Type**<br>
 `string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Container Registry if using ACR or Container Registry if using any other container registry.
-Select a Container Registry Type.
+Specifies an Azure Container Registry type if using ACR. Specify a Container Registry type if using any other container registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +184,7 @@ Select a Container Registry Type.
 **`dockerRegistryEndpoint`** - **Docker Registry Service Connection**<br>
 `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required when commands need to authenticate using a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -196,7 +195,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`dockerRegistryEndpoint`** - **Docker Registry Connection**<br>
 `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
+Specifies a Docker registry service connection. Required when commands need to authenticate using a registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -208,7 +207,7 @@ Select a Docker registry service connection. Required for commands that need to 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure subscription. Name of the Azure Service Connection. See [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
+Specifies an Azure subscription. Name of the Azure Service Connection. To manually set up the connection, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -220,7 +219,7 @@ Select an Azure subscription. Name of the Azure Service Connection. See [Azure R
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Container Registry.
+Specifies an Azure Container Registry.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -232,7 +231,7 @@ Select an Azure Container Registry.
 **`dockerComposeFile`** - **Docker Compose File**<br>
 `string`. Required. Default value: `**/docker-compose.yml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the primary Docker Compose file to use.
+Specifies the file path to the primary Docker Compose file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,7 +243,7 @@ Path to the primary Docker Compose file to use.
 **`additionalDockerComposeFiles`** - **Additional Docker Compose Files**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Docker Compose files to be combined with the primary Docker Compose file. Relative paths are resolved relative to the directory containing the primary Docker Compose file. If a specified file is not found, it is ignored. Specify each file path on a new line.
+Specifies additional Docker Compose files that are combined with the primary Docker Compose file. Relative paths are resolved relative to the directory containing the primary Docker Compose file. If a specified file is not found, it is ignored. Specify each file path on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -256,7 +255,12 @@ Additional Docker Compose files to be combined with the primary Docker Compose f
 **`dockerComposeFileArgs`** - **Environment Variables**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Environment variables to be set during the command. Specify each name=value pair on a new line. You need to use the `|` operator in YAML to indicate that newlines should be preserved.
+Specifies any environment variables that are set.
+
+Format as follows:
+
+- List each `name=value` pair on a new line.
+- Use the `|` operator in YAML to preserve new lines.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -268,7 +272,7 @@ Environment variables to be set during the command. Specify each name=value pair
 **`projectName`** - **Project Name**<br>
 `string`. Default value: `$(Build.Repository.Name)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Project name used for default naming of images and containers.
+Specifies the project name to use by default to name images and containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -280,7 +284,7 @@ Project name used for default naming of images and containers.
 **`qualifyImageNames`** - **Qualify Image Names**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Qualify image names for built services with the Docker registry service connection's hostname if not otherwise specified.
+By default, specifies the Docker registry service connection's hostname.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -292,7 +296,7 @@ Qualify image names for built services with the Docker registry service connecti
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Build services` (Build service images), `Push services` (Push service images), `Run services` (Run service images), `Run a specific service` (Run a specific service image), `Lock services` (Lock service images), `Write service image digests`, `Combine configuration`, `Run a Docker Compose command`. Default value: `Run a Docker Compose command`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker Compose action.
+Specifies a Docker Compose action from the list of allowed values.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -304,7 +308,7 @@ Select a Docker Compose action.
 **`additionalImageTags`** - **Additional Image Tags**<br>
 `string`. Optional. Use when `action = Build services || action = Push services`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional tags for the Docker images being built or pushed.  Specify multiple tags with a line feed `\n`.
+Specifies additional tags for the Docker images being built or pushed.  You can specify multiple tags separating each with a line feed `\n`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -316,7 +320,7 @@ Additional tags for the Docker images being built or pushed.  Specify multiple t
 **`includeSourceTags`** - **Include Source Tags**<br>
 `boolean`. Optional. Use when `action = Build services || action = Push services`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include Git tags when building or pushing Docker images.
+Specifies Git tags when building or pushing Docker images.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -328,7 +332,7 @@ Include Git tags when building or pushing Docker images.
 **`includeLatestTag`** - **Include Latest Tag**<br>
 `boolean`. Optional. Use when `action = Build services || action = Push services`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the 'latest' tag when building or pushing Docker images.
+Specifies the *latest* tag when building or pushing Docker images.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -340,7 +344,7 @@ Include the 'latest' tag when building or pushing Docker images.
 **`buildImages`** - **Build Images**<br>
 `boolean`. Optional. Use when `action = Run services`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Build images before starting service containers.
+Specifies build images before starting service containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -352,7 +356,7 @@ Build images before starting service containers.
 **`serviceName`** - **Service Name**<br>
 `string`. Required when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the specific service to run.
+Specifies the name of the service you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -364,7 +368,7 @@ Name of the specific service to run.
 **`containerName`** - **Container Name**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the specific service container to run.
+Specifies the name of the service container you want to use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -376,7 +380,7 @@ Name of the specific service container to run.
 **`ports`** - **Ports**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Ports in the specific service container to publish to the host. Specify each host-port:container-port binding on a new line.
+Specifies ports in the service container to publish to the host. Add each `host-port:container-port` binding on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -388,7 +392,7 @@ Ports in the specific service container to publish to the host. Specify each hos
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The working directory for the specific service container.
+Specifies the working directory for the service container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -400,7 +404,7 @@ The working directory for the specific service container.
 **`entrypoint`** - **Entry Point Override**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override the default entry point for the specific service container.
+Specifies an override value for the default entry point of the service container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -411,7 +415,7 @@ Override the default entry point for the specific service container.
 **`entrypoint`** - **Entrypoint Override**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Override the default entry point for the specific service container.
+Specifies an override value for the default entry point for the service container.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -423,7 +427,7 @@ Override the default entry point for the specific service container.
 **`containerCommand`** - **Command**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Command to run in the specific service container. For example, if the image contains a simple Python Flask web application you can specify 'python app.py' to launch the web application.
+Specifies the command to run in the service container. For example, if the image contains a simple Python Flask web application you can specify `python app.py` to launch the web application.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -435,7 +439,7 @@ Command to run in the specific service container. For example, if the image cont
 **`detached`** - **Run in Background**<br>
 `boolean`. Optional. Use when `action = Run services || action = Run a specific service`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the service containers in the background.
+Specifies the service containers to run in the background.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -446,7 +450,7 @@ Run the service containers in the background.
 **`detached`** - **Run In Background**<br>
 `boolean`. Optional. Use when `action = Run services || action = Run a specific service`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Run the service containers in the background.
+Specifies the service containers to run in the background.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -458,7 +462,7 @@ Run the service containers in the background.
 **`abortOnContainerExit`** - **Abort on Container Exit**<br>
 `boolean`. Optional. Use when `action = Run services && detached == false`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Stop all containers when any container exits.
+Specifies all containers that should stop when any container exits.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -470,7 +474,7 @@ Stop all containers when any container exits.
 **`imageDigestComposeFile`** - **Image Digest Compose File**<br>
 `string`. Required when `action = Write service image digests`. Default value: `$(Build.StagingDirectory)/docker-compose.images.yml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to a Docker Compose file that is created and populated with the full image repository digests of each service's Docker image.
+Specifies the path to a Docker Compose file that is created and populated with the full image repository digests of each service's Docker image.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -482,7 +486,7 @@ Path to a Docker Compose file that is created and populated with the full image 
 **`removeBuildOptions`** - **Remove Build Options**<br>
 `boolean`. Optional. Use when `action = Lock services || action = Combine configuration`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Remove the build options from the output Docker Compose file.
+Specifies if build options should be removed from the output Docker Compose file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -494,7 +498,7 @@ Remove the build options from the output Docker Compose file.
 **`baseResolveDirectory`** - **Base Resolve Directory**<br>
 `string`. Optional. Use when `action = Lock services || action = Combine configuration`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The base directory from which relative paths in the output Docker Compose file should be resolved.
+Specifies the base directory from which relative paths in the output Docker Compose file should be resolved.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -506,7 +510,7 @@ The base directory from which relative paths in the output Docker Compose file s
 **`outputDockerComposeFile`** - **Output Docker Compose File**<br>
 `string`. Required when `action = Lock services || action = Combine configuration`. Default value: `$(Build.StagingDirectory)/docker-compose.yml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to an output Docker Compose file.
+Specifies the path to an output Docker Compose file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -518,7 +522,7 @@ Path to an output Docker Compose file.
 **`dockerComposeCommand`** - **Command**<br>
 `string`. Required when `action = Run a Docker Compose command`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Docker Compose command to execute with arguments. For example, 'rm --all' to remove all stopped service containers.
+Specifies the Docker Compose command to execute with arguments. For example, `rm --all` to remove all stopped service containers.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -530,7 +534,9 @@ Docker Compose command to execute with arguments. For example, 'rm --all' to rem
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `action != Lock services && action != Combine configuration && action != Write service image digests`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Docker Compose command options. Ex:<br> For build command,<br>--pull --compress --parallel.
+Specifies Docker Compose command options.
+
+Example: For the build command, `--pull --compress --parallel`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -542,7 +548,7 @@ Docker Compose command options. Ex:<br> For build command,<br>--pull --compress 
 **`dockerHostEndpoint`** - **Docker Host Service Connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker host service connection. Defaults to the agent's host.
+Specifies a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -553,7 +559,7 @@ Select a Docker host service connection. Defaults to the agent's host.
 **`dockerHostEndpoint`** - **Docker Host Connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker host service connection. Defaults to the agent's host.
+Specifies a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -565,7 +571,7 @@ Select a Docker host service connection. Defaults to the agent's host.
 **`nopIfNoDockerComposeFile`** - **No-op if no Docker Compose File**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If the Docker Compose file does not exist, skip this task. This is useful when the task offers optional behavior based on the existence of a Docker Compose file in the repository.
+Specifies a value to skip the task if the Docker Compose file does not exist. This option is useful when the task offers optional behavior based on the existence of a Docker Compose file in the repository.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -577,7 +583,7 @@ If the Docker Compose file does not exist, skip this task. This is useful when t
 **`requireAdditionalDockerComposeFiles`** - **Require Additional Docker Compose Files**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Produces an error if the additional Docker Compose files do not exist. This overrides the default behavior which is to ignore a file if it does not exist.
+Specifies a value to produce an error if the additional Docker Compose files do not exist. This option overrides the default behavior that would ignore a file if it does not exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -589,7 +595,7 @@ Produces an error if the additional Docker Compose files do not exist. This over
 **`currentWorkingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Working directory for the Docker Compose command.
+Specifies the working directory for the Docker Compose command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -601,7 +607,7 @@ Working directory for the Docker Compose command.
 **`dockerComposePath`** - **Docker Compose executable Path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This docker-compose executable will be used if the path is provided.
+Specifies a path to determine if the docker-compose executable is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -622,7 +628,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="DockerComposeOutput"::: -->
 **`DockerComposeOutput`**<br><!-- :::editable-content name="Value"::: -->
-The path of the file(s) which contains the output of the command. This can contain multiple file paths (separated by newline characters) in case of dockerComposeRun command (one for running and one for down), dockerPush (one for each image pushed), dockerBuild (the build itself and all the tag commands) and dockerDigest (one for each image pulled). The other commands only output one file.
+The path to the files which contain the output of the command. This can contain multiple file paths (separated by newline characters) such as, dockerComposeRun command (one for running and one for down), dockerPush (one for each image pushed), dockerBuild (the build itself and all the tag commands) and dockerDigest (one for each image pulled). The other commands only output one file.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -639,7 +645,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to build, push or run multi-container Docker applications. This task can be used with a Docker registry or an Azure Container Registry.
+Use this task to build, push or run multi-container Docker applications. Use this task with a Docker registry or an Azure Container Registry.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -744,7 +750,7 @@ This YAML example runs services:
     qualifyImageNames: true
     buildImages: true
     abortOnContainerExit: true
-    detached: false
+    detached: true
 ```
 
 ### Run a specific service image

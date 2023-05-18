@@ -1,7 +1,7 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -58,7 +58,7 @@ Run a PowerShell script.
 **`scriptType`** - **Type**<br>
 `string`. Required. Allowed values: `inlineScript` (Inline Script), `filePath` (File Path). Default value: `filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of the script: File Path or Inline Script.
+Specifies the type of script for the task to run: an inline script or a path to a `.ps1` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ Type of the script: File Path or Inline Script.
 **`scriptName`** - **Script Path**<br>
 `string`. Required when `scriptType = filePath`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of the script to execute. Should be fully qualified path or relative to the default working directory.
+Specifies the type of script for the task to run: an inline script or a path to a `.ps1` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,9 +82,9 @@ Path of the script to execute. Should be fully qualified path or relative to the
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments passed to the PowerShell script. Either ordinal parameters or named parameters. For example, `-Name someName -Path -Value "Some long string value"`.
+Specifies the arguments passed to the PowerShell script. Arguments can be ordinal parameters or named parameters. For example, `-Name someName -Path -Value "Some long string value"`.
 
-`arguments` is not used when `targetType` is `inline`.
+`arguments` is not used when `targetType` is set to `inline`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +96,7 @@ Arguments passed to the PowerShell script. Either ordinal parameters or named pa
 **`workingFolder`** - **Working folder**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when script is run. Defaults to the folder where the script is located.
+Specifies the working directory where the script is run. If a value is not specified, the working directory is `$(Build.SourcesDirectory)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +108,7 @@ Current working directory when script is run. Defaults to the folder where the s
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptType = inlineScript`. Default value: `# You can write your powershell scripts inline here. \n# You can also pass predefined and custom variables to this scripts using arguments\n\n Write-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Contents of the script. The maximum supported inline script length is 32766 characters. If you need more than that limit allows, use a script from file.
+Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +120,7 @@ Contents of the script. The maximum supported inline script length is 32766 char
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise the task will rely solely on $LASTEXITCODE and the exit code to determine failure.
+If the value of this boolean is `true`, the task fails if any errors are written to the error pipeline or if any data is written to the Standard Error stream. Otherwise, the task relies on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ To learn more about defining release variables in a script, see [Define and modi
 
 ### Passing pipeline secrets in script, but secret is not masked in pipeline logs
 
-Be aware that PowerShell cuts off error message, so if you use some secrets in the script - they could be trimmed as well, and won't be masked in this case. For example, for the inline script below:
+Be aware that PowerShell cuts off error messages, so if you use pipeline secrets in a script, the secrets could be trimmed and exposed. For example, in the inline script below:
 
 ```powershell
 ./script.ps1 --arg1 value1 --arg2 <some_secret_which_will_be_masked_here>
@@ -172,7 +172,7 @@ There could be an exception like: `At <path_to_temp_script_file>:4 char:3`:
     + <Additional exception details>
 ```
 
-To avoid this issue you can handle such exceptions on a script level, or avoid cases when secrets could appear in the source code line in the error message.
+To avoid this issue, you can handle these exceptions on a script level, or avoid cases when pipeline secrets could appear in source code lines within error messages.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

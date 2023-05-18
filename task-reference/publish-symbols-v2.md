@@ -1,33 +1,21 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # PublishSymbols@2 - Index sources and publish symbols v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-<!-- :::editable-content-end::: -->
+Use this task to index your source code and publish your symbols to a file share or Azure Artifacts symbol server.
 
-:::moniker-end
+Indexing your source code allows you to use your symbol files to debug your application on a machine other than the one you used to build your application. For example, you can debug an application built by a build agent from a dev machine that does not have the source code.
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Index your source code and publish symbols to a file share or Azure Artifacts Symbol Server.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2018"
-
-<!-- :::editable-content name="description"::: -->
-Index your source code and publish symbols to a file share or Visual Studio Team Services Symbol Server.
+Symbol servers enable your debugger to automatically retrieve the correct symbol files without knowing product names, build numbers, or package names.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -49,7 +37,7 @@ Index your source code and publish symbols to a file share or Visual Studio Team
     #PublishSymbols: true # boolean. Publish symbols. Default: true.
     SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
     #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Required when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
     #SymbolExpirationInDays: '36530' # string. Optional. Use when PublishSymbols = true && SymbolServerType = TeamServices. Symbol Expiration (in days). Default: 36530.
   # Advanced
     #IndexableFileFormats: 'Default' # 'Default' | 'Pdb' | 'SourceMap' | 'All'. Optional. Use when PublishSymbols = true && SymbolServerType = TeamServices. Symbol file formats to publish. Default: Default.
@@ -77,7 +65,7 @@ Index your source code and publish symbols to a file share or Visual Studio Team
     #PublishSymbols: true # boolean. Publish symbols. Default: true.
     SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
     #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Required when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
   # Advanced
     #DetailedLog: true # boolean. Verbose logging. Default: true.
     #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
@@ -102,7 +90,7 @@ Index your source code and publish symbols to a file share or Visual Studio Team
     #PublishSymbols: true # boolean. Publish symbols. Default: true.
     SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
     #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Required when SymbolServerType = FileShare. Compress symbols. Default: false.
+    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
   # Advanced
     #DetailedLog: true # boolean. Verbose logging. Default: true.
     #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
@@ -134,7 +122,9 @@ Index your source code and publish symbols to a file share or Visual Studio Team
 **`SymbolsFolder`** - **Path to symbols folder**<br>
 `string`. Default value: `$(Build.SourcesDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the folder that is searched for symbol files.  The default is $(Build.SourcesDirectory).  Otherwise specify a rooted path, for example: $(Build.BinariesDirectory)/MyProject. Note that UNC paths aren't supported if you select the Azure Artifacts symbol server as the server type.
+Specifies the path to the folder that is searched for with symbol files. The default is `$(Build.SourcesDirectory)`. Otherwise, specify a rooted path, such as `$(Build.BinariesDirectory)/MyProject`.
+> [!NOTE]
+>  UNC paths aren't supported if you select the Azure Artifacts symbol server as the server type.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +136,7 @@ The path to the folder that is searched for symbol files.  The default is $(Buil
 **`SearchPattern`** - **Search pattern**<br>
 `string`. Required. Default value: `**/bin/**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The pattern used to discover the pdb files to publish.
+Specifies the pattern used to discover the PDB files to publish. See [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns) for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +148,7 @@ The pattern used to discover the pdb files to publish.
 **`IndexSources`** - **Index sources**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to inject source server information into the PDB files. This option is only supported on Windows agents.
+Specifies whether to inject source server information into the PDB files. This option is only supported on Windows agents.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +160,7 @@ Indicates whether to inject source server information into the PDB files. This o
 **`PublishSymbols`** - **Publish symbols**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to publish the symbol files.
+Specifies whether to publish the symbol files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +172,7 @@ Indicates whether to publish the symbol files.
 **`SymbolServerType`** - **Symbol server type**<br>
 `string`. Required when `PublishSymbols = true`. Allowed values: `TeamServices` (Symbol Server in this organization/collection (requires Azure Artifacts)), `FileShare` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the "File share" option. Follow [these instructions](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
+Specifies where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the `File share` option. See instructions to [Publish symbols for debugging](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +183,7 @@ Choose where to publish symbols. Symbols published to the Azure Artifacts symbol
 **`SymbolServerType`** - **Symbol server type**<br>
 `string`. Required when `PublishSymbols = true`. Allowed values: `TeamServices` (Symbol Server in this account/collection (requires Package Management)), `FileShare` (File share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the "File share" option. Follow [these instructions](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
+Specifies where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the `File share` option. See instructions to [Publish symbols for debugging](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -205,13 +195,13 @@ Choose where to publish symbols. Symbols published to the Azure Artifacts symbol
 **`SymbolsPath`** - **Path to publish symbols**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = FileShare`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file share that hosts your symbols. This value will be used in the call to `symstore.exe add` as the `/s` parameter.
+Specifies the file share that hosts your symbols. This value will be used in the call to `symstore.exe add` as the `/s` parameter.
 To prepare your SymStore symbol store:
 
-1. Set up a folder on a file-sharing server to store the symbols. For example, set up \fabrikam-share\symbols.
+1. Set up a folder on a file-sharing server to store the symbols. For example, set up `\fabrikam-share\symbols`.
 1. Grant full control permission to the [build agent service account](/azure/devops/pipelines/agents/agents#account).
 
-If you leave this argument blank, your symbols will be source indexed but not published. (You can also store your symbols with your drops. [See Publish Build Artifacts](/azure/devops/pipelines/tasks/utility/publish-build-artifacts)).
+If you leave this argument blank, your symbols will be source indexed but not published. You can also store your symbols with your drops. [See Publish Build Artifacts](/azure/devops/pipelines/tasks/utility/publish-build-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,9 +211,9 @@ If you leave this argument blank, your symbols will be source indexed but not pu
 :::moniker range=">=azure-pipelines-2019"
 
 **`CompressSymbols`** - **Compress symbols**<br>
-`boolean`. Required when `SymbolServerType = FileShare`. Default value: `false`.<br>
+`boolean`. Optional. Use when `SymbolServerType = FileShare`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Compress symbols when publishing to file share.
+Compresses symbols when publishing to file share.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -235,7 +225,7 @@ Compress symbols when publishing to file share.
 **`SymbolExpirationInDays`** - **Symbol Expiration (in days)**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = TeamServices`. Default value: `36530`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The number of days that symbols should be retained.
+Specifies the number of days that symbols should be retained.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -247,7 +237,7 @@ The number of days that symbols should be retained.
 **`IndexableFileFormats`** - **Symbol file formats to publish**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = TeamServices`. Allowed values: `Default` (The Default set of symbols to upload), `Pdb` (Only Pdb based symbols Windows pdb's and managed Portable pdb's.), `SourceMap` (Only JavaScript based SourceMap symbols (*.js.map)), `All` (All supported symbol formats). Default value: `Default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Which debug formats to publish to the symbol server.
+Specifies which debug formats to publish to the symbol server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -259,7 +249,7 @@ Which debug formats to publish to the symbol server.
 **`DetailedLog`** - **Verbose logging**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use verbose logging.
+Specifies verbose logging.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -271,7 +261,7 @@ Use verbose logging.
 **`TreatNotIndexedAsWarning`** - **Warn if not indexed**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to warn if sources are not indexed for a PDB file. Otherwise the messages are logged as normal output.
+Specifies whether to warn if sources are not indexed for a PDB file. Otherwise, the messages are logged as normal output.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -283,7 +273,7 @@ Indicates whether to warn if sources are not indexed for a PDB file. Otherwise t
 **`UseNetCoreClientTool`** - **Use NetCore client tool**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Indicates whether to use version of the symbol upload tool that supports DWARF and ELF files. This option only matters on Windows agents. On non-Windows agents, the version of the symbol upload tool that supports DWARF and ELF files will always be used.
+Specifies whether to use a version of the symbol upload tool that supports DWARF and ELF files. This option only matters on Windows agents. On non-Windows agents, the version of the symbol upload tool that supports DWARF and ELF files will always be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -295,7 +285,7 @@ Indicates whether to use version of the symbol upload tool that supports DWARF a
 **`SymbolsMaximumWaitTime`** - **Max wait time (min)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The number of minutes to wait before failing this task.
+Specifies the number of minutes to wait before failing this task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -307,7 +297,7 @@ The number of minutes to wait before failing this task.
 **`SymbolsProduct`** - **Product**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the product parameter to symstore.exe.  The default is $(Build.DefinitionName).
+Specifies the product parameter to `symstore.exe`.  The default is `$(Build.DefinitionName)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -319,7 +309,7 @@ Specify the product parameter to symstore.exe.  The default is $(Build.Definitio
 **`SymbolsVersion`** - **Version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version parameter to symstore.exe.  The default is $(Build.BuildNumber).
+Specifies the version parameter to `symstore.exe`.  The default is `$(Build.BuildNumber)`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -331,7 +321,7 @@ Specify the version parameter to symstore.exe.  The default is $(Build.BuildNumb
 **`SymbolsArtifactName`** - **Artifact name**<br>
 `string`. Default value: `Symbols_$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the artifact name to use for the Symbols artifact.  The default is Symbols_$(BuildConfiguration).
+Specifies the artifact name to use for the symbols artifact.  The default is `Symbols_$(BuildConfiguration)`.
 <!-- :::editable-content-end::: -->
 <br>
 

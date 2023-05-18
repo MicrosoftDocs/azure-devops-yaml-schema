@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@0 - .NET Core v0 task
 description: Build, test and publish using dotnet core command-line (task version 0).
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,9 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Build, test and publish using dotnet core command-line.
+Use this task to build, test, package, or publish a dotnet application, or to run a custom dotnet command. For package commands, this task supports NuGet.org and authenticated feeds like Package Management and MyGet.
+
+If your .NET Core or .NET Standard build depends on NuGet packages, make sure to add two copies of this step: one with the `restore` command and one with the `build` command.
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
@@ -30,7 +32,7 @@ This task is deprecated.
 - task: DotNetCoreCLI@0
   inputs:
     command: 'build' # 'build' | 'publish' | 'restore' | 'test' | 'run'. Required. Command. Default: build.
-    #publishWebProjects: true # boolean. Required when command = publish. Publish Web Projects. Default: true.
+    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish Web Projects. Default: true.
     #projects: # string. Optional. Use when command != publish || publishWebProjects = false. Project(s). 
     #arguments: # string. Arguments. 
     #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip Published Projects. Default: true.
@@ -58,7 +60,7 @@ This task is deprecated.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `build`, `publish`, `restore`, `test`, `run`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The dotnet command to run. Select `custom` to add arguments or use a command not listed here.
+The dotnet command to run. Specify `custom` to add arguments or use a command not listed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -68,9 +70,9 @@ The dotnet command to run. Select `custom` to add arguments or use a command not
 :::moniker range="<=azure-pipelines"
 
 **`publishWebProjects`** - **Publish Web Projects**<br>
-`boolean`. Required when `command = publish`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the publish command on them. Web projects are identified by presence of either a web.config file or wwwroot folder in the directory. In the absence of a web.config file or wwwroot folder, projects that use a web SDK, like Microsoft.NET.Sdk.Web, are selected.
+If this input is set to `true`, the `projects` property value is skipped and the task tries to find the web projects in the repository and run the `publish` command on them. Web projects are identified by the presence of either a `web.config` file or a `wwwroot` folder in the directory. In the absence of a `web.config` file or a `wwwroot` folder, projects that use a web SDK, like `Microsoft.NET.Sdk.Web`, are selected.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +84,7 @@ If true, the `projects` property value is skipped and the task tries to find the
 **`projects`** - **Project(s)**<br>
 `string`. Optional. Use when `command != publish || publishWebProjects = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the csproj file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all .csproj files in all subfolders). For more information, see [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
+The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,9 +96,9 @@ The path to the csproj file(s) to use. You can use wildcards (e.g. `**/*.csproj`
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Arguments to the selected command. For example, build configuration, output folder, runtime. The arguments depend on the command selected.
+Specifies the arguments for the selected command. For example, build configuration, output folder, and runtime. The arguments depend on the command selected.
 
-This input only currently accepts arguments for `build`, `publish`, `run`, `test`, `custom`. If you would like to add arguments for a command not listed, use `custom`.
+This input currently only accepts arguments for `build`, `publish`, `run`, `test`, and `custom`. If you want to add arguments for a command not listed, use `custom`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +110,7 @@ This input only currently accepts arguments for `build`, `publish`, `run`, `test
 **`zipAfterPublish`** - **Zip Published Projects**<br>
 `boolean`. Optional. Use when `command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If true, folder created by the publish command will be zipped and deleted.
+If this input is set to `true`, the folder created by the publish command will be zipped and deleted.
 <!-- :::editable-content-end::: -->
 <br>
 

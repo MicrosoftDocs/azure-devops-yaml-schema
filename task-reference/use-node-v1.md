@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
+Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/) and add it to the PATH. This task also provides proxy support.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -57,7 +57,7 @@ Set up a Node.js environment and add it to the PATH, additionally providing prox
 **`version`** - **Version**<br>
 `string`. Default value: `10.x`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0.
+Required. Specifies the [Node.js version](https://nodejs.org/en/download/releases/) using SemVer's version range syntax. Examples: `10.x`, `10.15.1`, `>=10.15.0`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -69,7 +69,7 @@ Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0.
 **`checkLatest`** - **Check for Latest Version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always checks online for the latest available version that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
+Checks online for the latest available version that satisfies the version spec. This should be `false` unless you need to always have the latest version. Setting the value to `true` will cause the task to incur download costs that may be unnecessary, especially with the hosted build pool.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Always checks online for the latest available version that satisfies the version
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Installs the x86 version of Node regardless of the CPU architecture of the agent.
+Installs the x86 version of Node.js on a 64-bit Windows agent. Only works on Windows agents.
 <!-- :::editable-content-end::: -->
 <br>
 

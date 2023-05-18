@@ -1,957 +1,151 @@
 ---
 title: resources.pipelines.pipeline definition
-description: resources.pipelines.pipeline definition reference.
-ms.date: 09/20/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A pipeline resource.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
 # resources.pipelines.pipeline definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
-
-
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="pipelineResource{pipeline}" version="azure-pipelines-2019"::: -->
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.  ([-_A-Za-z0-9]*)
-  project: string # Project for the source; defaults to current project.. 
-  source: string # Name of the pipeline that produces the artifact.. 
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources-pipelines.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipeline`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the pipeline resource. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `project`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Project for the source; defaults to current project. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `source`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pipeline that produces the artifact. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `version`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
-
-<!-- :::api-definition signature="pipelineResource{pipeline}" version="azure-pipelines-2019.1"::: -->
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.  ([-_A-Za-z0-9]*)
-  project: string # Project for the source; defaults to current project.. 
-  source: string # Name of the pipeline that produces the artifact.. 
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources-pipelines.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipeline`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the pipeline resource. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `project`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Project for the source; defaults to current project. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `source`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pipeline that produces the artifact. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `version`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="pipelineResource{pipeline}" version="azure-pipelines-2020"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020.1"
 
 ```yaml
 pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.  ([-_A-Za-z0-9]*)
-  project: string # Project for the source; defaults to current project.. 
-  source: string # Name of the pipeline that produces the artifact.. 
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
-  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
+- pipeline: string # Required as first property. ID of the pipeline resource.
+  project: string # Project for the source; defaults to current project.
+  source: string # Name of the pipeline that produces the artifact.
+  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
+  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
+  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
   trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
-    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
-      include: [ branchFilter ] # List of branches to include. 
-      exclude: [ branchFilter ] # List of branches to exclude. 
+    enabled: boolean # Whether the trigger is enabled; defaults to true.
+    branches: branches # Branches to include or exclude for triggering a run.
+    stages: [ string ] # List of stages that when matched will trigger the pipeline.
+    tags: [ string ] # List of tags that when matched will trigger the pipeline.
 ```
-
-
-Properties that use this definition: [resources.pipelines](resources-pipelines.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipeline`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the pipeline resource. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `project`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Project for the source; defaults to current project. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `source`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pipeline that produces the artifact. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `version`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="pipelineResource{pipeline}" version="azure-pipelines-2020.1"::: -->
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.  ([-_A-Za-z0-9]*)
-  project: string # Project for the source; defaults to current project.. 
-  source: string # Name of the pipeline that produces the artifact.. 
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
-  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
+- pipeline: string # Required as first property. ID of the pipeline resource.
+  project: string # Project for the source; defaults to current project.
+  source: string # Name of the pipeline that produces the artifact.
+  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
+  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
+  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
   trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
-    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
-      include: [ branchFilter ] # List of branches to include. 
-      exclude: [ branchFilter ] # List of branches to exclude. 
-    stages: [ string ] # List of stages that when complete will trigger the pipeline. 
-    tags: [ string ] # List of tags that when matched will trigger the pipeline. 
+    enabled: boolean # Whether the trigger is enabled; defaults to true.
+    branches: branches # Branches to include or exclude for triggering a run.
 ```
-
-
-Properties that use this definition: [resources.pipelines](resources-pipelines.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipeline`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the pipeline resource. Acceptable values: [_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `project`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Project for the source; defaults to current project. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `source`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pipeline that produces the artifact. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `version`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
 
 :::moniker-end
 
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="pipelineResource{pipeline}" version="azure-pipelines-2022"::: -->
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 ```yaml
 pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.  ([-_A-Za-z0-9]*)
-  project: string # Project for the source; defaults to current project.. 
-  source: string # Name of the pipeline that produces the artifact.. 
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
-  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
-    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
-      include: [ branchFilter ] # List of branches to include. 
-      exclude: [ branchFilter ] # List of branches to exclude. 
-    stages: [ string ] # List of stages that when complete will trigger the pipeline. 
-    tags: [ string ] # List of tags that when matched will trigger the pipeline. 
+- pipeline: string # Required as first property. ID of the pipeline resource.
+  project: string # Project for the source; defaults to current project.
+  source: string # Name of the pipeline that produces the artifact.
+  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
+  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.pipelines](resources-pipelines.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources.pipelines](resources-pipelines.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## Properties
 
+<!-- :::properties::: -->
+<!-- :::item name="pipeline"::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipeline`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `project`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Project for the source; defaults to current project. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `source`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pipeline that produces the artifact. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `version`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`pipeline`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="project"::: -->
+:::moniker range=">=azure-pipelines-2019"
 
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="pipelineResource{pipeline}" version="azure-pipelines"::: -->
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.  ([-_A-Za-z0-9]*)
-  project: string # Project for the source; defaults to current project.. 
-  source: string # Name of the pipeline that produces the artifact.. 
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.. 
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.. 
-  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-    enabled: boolean # Whether the trigger is enabled; defaults to true..  (false,n,no,off,on,true,y,yes)
-    branches:  # Branch conditions to filter the events, optional; Defaults to all branches.
-      include: [ branchFilter ] # List of branches to include. 
-      exclude: [ branchFilter ] # List of branches to exclude. 
-    stages: [ string ] # List of stages that when complete will trigger the pipeline. 
-    tags: [ string ] # List of tags that when matched will trigger the pipeline. 
-```
-
-
-Properties that use this definition: [resources.pipelines](resources-pipelines.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `pipeline`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `project`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Project for the source; defaults to current project. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `source`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Name of the pipeline that produces the artifact. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `version`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `branch`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `tags`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string list
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `trigger`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string or trigger
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Specify none to disable, true to include all branches, or use the full syntax as described in the following examples. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
+**`project`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Project for the source; defaults to current project.
+<!-- :::editable-content-end::: -->
 
 :::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="source"::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+**`source`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the pipeline that produces the artifact.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="version"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
+The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="branch"::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+**`branch`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="tags"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`tags`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`trigger`** [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
+Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
 > [!NOTE]
@@ -1071,7 +265,7 @@ For more information, see [Pipeline completion triggers](/azure/devops/pipelines
 
 ### Pipeline resource metadata as predefined variables
 
-In each run, the metadata for a pipeline resource is available to all jobs as these predefined variables:
+In each run, the metadata for a pipeline resource is available to all jobs as the following predefined variables. These variables are available to your pipeline at runtime, and therefore can't be used in [template expressions](/azure/devops/pipelines/process/variables#template-expression-syntax), which are evaluated at pipeline compile time.
 
 ```yaml
 resources.pipeline.<Alias>.projectName
@@ -1100,7 +294,7 @@ resources:
     source: TriggeringPipeline
 ```
 
-When a pipeline is triggered by one of its pipeline resources, the following variables are set.
+When a pipeline is triggered by one of its pipeline resources, the following variables are set in addition to the variables in the previous list.
 
 | Variable | Value |
 |----------|-------------|
@@ -1108,10 +302,46 @@ When a pipeline is triggered by one of its pipeline resources, the following var
 | `Resources.TriggeringAlias` | The name of the pipeline resource, such as `source-pipeline` from the previous example. |
 | `Resource.TriggeringCategory` | `pipeline` |
 
+The following example has two pipeline resources.
+
+```yml
+resources:
+ pipelines:
+   - pipeline: source-pipeline
+     source: PipelineTriggerSource
+     project: FabrikamFiber
+     trigger: true
+   - pipeline: other-project-pipeline
+     source: PipelineTriggerFromOtherProject
+     project: FabrikamRepo
+     trigger: true
+
+trigger: none # Only trigger with pipeline resource trigger
+
+pool:
+  vmImage: ubuntu-latest
+
+- bash: echo $(resources.pipeline.source-pipeline.projectName)
+- bash: printenv | sort
+```
+
+Whe this pipeline is run, the first `bash` task outputs the `projectName` of the the pipeline resource named `source-pipeline`, which is `FabrikamFiber`.
+
+The second `bash` task outputs all of the environment variables available to the task, including the pipeline resource variables described in this section. Listing environment variables isn't typically done in a production pipeline, but it can be useful for troubleshooting. In this example there are two pipeline resources, and the output contains the following two lines.
+
+```
+RESOURCES_PIPELINE_OTHER-PROJECT-PIPELINE_PROJECTNAME=FabrikamRepo
+RESOURCES_PIPELINE_SOURCE-PIPELINE_PROJECTNAME=FabrikamFiber
+```
+
+> [!NOTE]
+> System and user-defined variables get injected as environment variables for your platform. When variables convert into environment variables, variable names become uppercase, and periods turn into underscores. For example, the variable name `any.variable` becomes `ANY_VARIABLE`.
+>
+> For more information about using variables and variable syntax, see [Understand variable syntax](/azure/devops/pipelines/process/variables?#understand-variable-syntax), [Specify conditions](/azure/devops/pipelines/process/conditions), and [Expressions](/azure/devops/pipelines/process/expressions).
+
 :::moniker-end
 
 You can consume artifacts from a pipeline resource by using a `download` task. See the [steps.download](steps-download.md) keyword.
-
 
 
 ## Examples
@@ -1137,9 +367,18 @@ resources:
         exclude:
         - users/*
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
-
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

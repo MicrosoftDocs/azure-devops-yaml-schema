@@ -1,7 +1,7 @@
 ---
 title: gulp@0 - gulp v0 task
 description: Run the gulp Node.js streaming task-based build system (task version 0).
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
-Run the gulp Node.js streaming task-based build system.
+Use this task to run the gulp Node.js streaming task-based build system.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -46,7 +46,7 @@ Node.js streaming task based build system.
     #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
-    enableCodeCoverage: false # boolean. Required. Enable code Coverage. Default: false.
+    #enableCodeCoverage: false # boolean. Enable code Coverage. Default: false.
     #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
     #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
     #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
@@ -72,7 +72,7 @@ Node.js streaming task based build system.
     #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
     #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
   # Code Coverage
-    enableCodeCoverage: false # boolean. Required. Enable code Coverage. Default: false.
+    #enableCodeCoverage: false # boolean. Enable code Coverage. Default: false.
     #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
     #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
     #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
@@ -100,7 +100,7 @@ Node.js streaming task based build system.
 **`gulpFile`** - **gulp File Path**<br>
 `string`. Required. Default value: `gulpfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the gulp file script file to run.
+The relative path from the repo root of the gulp file script file you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,7 +111,7 @@ Relative path from repo root of the gulp file script file to run.
 **`gulpFile`** - **Gulp File Path**<br>
 `string`. Required. Default value: `gulpfile.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from repo root of the gulp file script file to run.
+The relative path from the repo root of the gulp file script file you want to run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Relative path from repo root of the gulp file script file to run.
 **`targets`** - **gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional.  Space delimited list of tasks to run.  If not specified, the default task will run.
+Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -134,7 +134,7 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`targets`** - **Gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional.  Space delimited list of tasks to run.  If not specified, the default task will run.
+Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -146,7 +146,7 @@ Optional.  Space delimited list of tasks to run.  If not specified, the default 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to gulp.  --gulpfile is not needed since already added via gulpFile input above.
+Additional arguments passed to gulp. `--gulpfile` is not needed since it's already added via `gulpFile` input above.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -158,7 +158,7 @@ Additional arguments passed to gulp.  --gulpfile is not needed since already add
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory when script is run.  Defaults to the folder where the script is located.
+The current working directory to use when the script is run. This input defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +170,7 @@ Current working directory when script is run.  Defaults to the folder where the 
 **`gulpjs`** - **gulp.js location**<br>
 `string`. Required. Default value: `node_modules/gulp/bin/gulp.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-gulp.js to run when agent can't find global installed gulp.  Defaults to the gulp.js under node_modules folder of the working directory.
+Runs `gulp.js` when the agent can't find global-installed gulp.  This input defaults to the `gulp.js` installed under the `node_modules` folder of the working directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -182,7 +182,7 @@ gulp.js to run when agent can't find global installed gulp.  Defaults to the gul
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Gulp build to Azure Pipelines/TFS.
+Publishes JUnit test results from the gulp build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -193,7 +193,7 @@ Select this option to publish JUnit test results produced by the Gulp build to A
 **`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Gulp build to Azure Pipelines/TFS.
+Publishes JUnit test results from the gulp build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -204,7 +204,7 @@ Select this option to publish JUnit test results produced by the Gulp build to A
 **`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Gulp build to Azure Pipelines/TFS.
+Publishes JUnit test results from the gulp build to Azure Pipelines/TFS.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,7 +216,7 @@ Select this option to publish JUnit test results produced by the Gulp build to A
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with TEST-.
+The test results files path. You can use wildcards. For example, you can use `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -228,7 +228,7 @@ Test results files path. Wildcards can be used. For example, `**/TEST-*.xml` for
 **`testRunTitle`** - **Test Run Title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide a name for the test run.
+Provides a name for the test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,9 +238,9 @@ Provide a name for the test run.
 :::moniker range="<=azure-pipelines"
 
 **`enableCodeCoverage`** - **Enable code Coverage**<br>
-`boolean`. Required. Default value: `false`.<br>
+`boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to enable Code Coverage using Istanbul.
+Enables Code Coverage using Istanbul.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -252,7 +252,7 @@ Select this option to enable Code Coverage using Istanbul.
 **`testFramework`** - **Test Framework**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`. Allowed values: `Mocha`, `Jasmine`. Default value: `Mocha`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select your test framework.
+Specifies your test framework.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -264,7 +264,7 @@ Select your test framework.
 **`srcFiles`** - **Source Files**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your source files which you want to hookRequire().
+Provides the path to the source files that you want to hookRequire().
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +276,7 @@ Provide the path to your source files which you want to hookRequire().
 **`testFiles`** - **Test Script Files**<br>
 `string`. Required when `enableCodeCoverage = true`. Default value: `test/*.js`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the path to your test script files.
+Provides the path to your test script files.
 <!-- :::editable-content-end::: -->
 <br>
 

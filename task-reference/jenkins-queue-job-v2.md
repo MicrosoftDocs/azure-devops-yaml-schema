@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,10 +31,10 @@ Use this task to queue a job on a Jenkins server.
     jobName: # string. Required. Job name. 
     #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
     #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
-    capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
+    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
+    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    isParameterizedJob: false # boolean. Alias: parameterizedJob. Required. Parameterized job. Default: false.
+    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters. 
     #failOnUnstableResult: false # boolean. Fail on unstable result. Default: false.
     #retryCount: '3' # string. Number of retries for failed connection. Default: 3.
@@ -54,10 +54,10 @@ Use this task to queue a job on a Jenkins server.
     jobName: # string. Required. Job name. 
     #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
     #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
-    capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
+    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
+    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    isParameterizedJob: false # boolean. Alias: parameterizedJob. Required. Parameterized job. Default: false.
+    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
 ```
 
@@ -74,10 +74,10 @@ Use this task to queue a job on a Jenkins server.
     jobName: # string. Required. Job name. 
     #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
     #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    captureConsole: true # boolean. Required. Capture console output and wait for completion. Default: true.
-    capturePipeline: true # boolean. Required when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
+    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
+    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
   # Advanced
-    isParameterizedJob: false # boolean. Alias: parameterizedJob. Required. Parameterized job. Default: false.
+    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
     #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
 ```
 
@@ -160,7 +160,7 @@ Queues this multibranch pipeline job on the specified branch. This input require
 :::moniker range="<=azure-pipelines"
 
 **`captureConsole`** - **Capture console output and wait for completion**<br>
-`boolean`. Required. Default value: `true`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If specified, this input captures the Jenkins build console output, waits for the Jenkins build to complete, and succeeds/fails based on the Jenkins build result.  Otherwise, once the Jenkins job queues, this task successfully completes without waiting for the Jenkins build to run.
 <!-- :::editable-content-end::: -->
@@ -172,7 +172,7 @@ If specified, this input captures the Jenkins build console output, waits for th
 :::moniker range="<=azure-pipelines"
 
 **`capturePipeline`** - **Capture pipeline output and wait for pipeline completion**<br>
-`boolean`. Required when `captureConsole = true`. Default value: `true`.<br>
+`boolean`. Optional. Use when `captureConsole = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If specified, this task captures the full Jenkins build pipeline console output, waits for the full Jenkins build pipeline to complete, and succeeds/fails based on the Jenkins build pipeline result. Otherwise, once the first Jenkins job completes, this task successfully completes without waiting for full Jenkins build pipeline to run.
 <!-- :::editable-content-end::: -->
@@ -184,7 +184,7 @@ If specified, this task captures the full Jenkins build pipeline console output,
 :::moniker range="<=azure-pipelines"
 
 **`isParameterizedJob`** - **Parameterized job**<br>
-Input alias: `parameterizedJob`. `boolean`. Required. Default value: `false`.<br>
+Input alias: `parameterizedJob`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies if the Jenkins job accepts parameters. Use this input even if all default parameter values are used and no parameters are actually specified.
 <!-- :::editable-content-end::: -->
@@ -303,7 +303,22 @@ Results will be downloaded to the **$(Build.StagingDirectory)/jenkinsResults/Job
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Build |
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

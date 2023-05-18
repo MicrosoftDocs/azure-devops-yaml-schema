@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Download a package from a package management feed in Azure Artifacts.
+Use this task to download a package from a package management feed in Azure Artifacts.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,8 +19,7 @@ Download a package from a package management feed in Azure Artifacts.
 :::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Download a package from a Package Management feed in Azure Artifacts or TFS. 
- Requires the Package Management extension.
+Use this task to download a package from a package management feed in Azure Artifacts or TFS. Requires the Package Management extension.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -28,8 +27,7 @@ Download a package from a Package Management feed in Azure Artifacts or TFS.
 :::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
-Download a package from a Package Management feed in VSTS or TFS. 
- Requires the Package Management extension.
+Use this task to download a package from a package management feed in VSTS or TFS. Requires the Package Management extension.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -89,7 +87,7 @@ Download a package from a Package Management feed in VSTS or TFS.
 **`feed`** - **Feed**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the package source.
+Specifies the package source.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -101,7 +99,7 @@ Select the package source.
 **`definition`** - **Package**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the package to download. Only NuGet packages are currently supported.
+Specifies the package to download. Only NuGet packages are currently supported.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,7 +111,7 @@ Select the package to download. Only NuGet packages are currently supported.
 **`version`** - **Version**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Version of the package.
+Specifies the version of the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -125,7 +123,7 @@ Version of the package.
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path on the agent machine where the package will be downloaded.
+Specifies the path on the agent machine where the package is downloaded.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,7 +158,22 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

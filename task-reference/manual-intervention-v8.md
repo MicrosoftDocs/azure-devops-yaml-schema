@@ -1,7 +1,7 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Pause deployment in a classic release pipeline and wait for manual intervention.
+Use this task to pause deployment in a classic release pipeline and wait for manual intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Pause deployment in a classic release pipeline and wait for manual intervention.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Pause deployment and wait for intervention.
+Use this task to pause deployment in a classic release pipeline and wait for intervention.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -58,7 +58,7 @@ Pause deployment and wait for intervention.
 **`instructions`** - **Instructions**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-These instructions will be shown to the user for resuming or rejecting the manual intervention. Based on these instructions the user will take an informed decision about this manual intervention.
+Specifies the instructions that are shown to the user when resuming or rejecting the manual intervention. Based on these instructions, the user will make an informed decision about this manual intervention.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ These instructions will be shown to the user for resuming or rejecting the manua
 **`emailRecipients`** - **Notify users**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send a manual intervention pending email to specific users (or groups). Only users with manage deployment permission can act on a manual intervention.
+Sends a manual intervention pending email to specific users (or groups). Only users with manage deployment permission can act on a manual intervention.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -82,7 +82,7 @@ Send a manual intervention pending email to specific users (or groups). Only use
 **`onTimeout`** - **On timeout**<br>
 `string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Reject or resume this manual intervention automatically after it is pending for the specified timeout or 60 days, whichever is earlier.
+Automatically rejects or resumes the manual intervention after it is pending for the specified timeout, or 60 days, whichever is earlier.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,35 +108,22 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task in a release pipeline to pause an active deployment within a stage,
-typically to perform some manual steps or actions, and then continue the automated deployment tasks.
+Use this task in a release pipeline to pause an active deployment within a stage. This is typically executed to perform various manual steps or actions and then the automated deployment tasks are resumed.
 
 > [!NOTE]
-> This task can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline. This article refers only to classic pipelines. For YAML usage, see [Manual Validation task](manual-validation-v0.md).
+> This task can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline. This article refers to classic pipelines. For YAML usage, see [Manual Validation task](manual-validation-v0.md).
 
 :::image type="content" source="media/maninter-use-variables.png" alt-text="Screenshot of configuring a Manual Intervention task.":::
 
-The **Manual Intervention** task does not perform deployment actions directly.
-Instead, it allows you to pause an active deployment within a stage, typically to perform some
-manual steps or actions, and then continue the automated deployment tasks. For example, the user may
-need to edit the details of the current release before continuing; perhaps by entering the values for
-custom variables used by the tasks in the release.
+The **Manual Intervention** task does not perform deployment actions directly. Instead, it allows you to pause an active deployment within a stage, typically to perform various manual steps or actions, and then the automated deployment tasks are resumed. For example, the user may
+need to edit the details of the current release before continuing (perhaps by entering the values for custom variables used by the tasks in the release).
 
-The **Manual Intervention** task configuration includes an **Instructions** parameter that
-can be used to provide related information, or to specify the manual steps
-the user should execute during the agentless job. You can configure the task to
-send email notifications to users and user groups when it is awaiting intervention,
-and specify the automatic response (reject or resume the deployment) after a configurable
-timeout occurs.
+The **Manual Intervention** task configuration includes an **Instructions** parameter that is used to provide related information or to specify the manual steps the user executes during the agentless job. You can configure the task to send email notifications to users and user groups when it is awaiting intervention and specify the automatic response (reject or resume the deployment) after a configurable timeout occurs.
 
 > [!NOTE]
 > You can use built-in and custom variables to generate portions of your instructions.
 
-When the Manual Intervention task is activated during a deployment, it sets
-the deployment state to **IN PROGRESS** and displays
-a message bar containing  a link that opens the Manual Intervention dialog containing the instructions.
-After carrying out the manual steps, the administrator or user can choose to resume the deployment, or reject it.
-Users with **Manage deployment** permission on the stage can resume or reject the manual intervention.
+When the Manual Intervention task is activated during a deployment, it sets the deployment state to **IN PROGRESS**. A message bar is displayed with a link that opens the Manual Intervention dialog, which contains the instructions. After carrying out the manual steps, the administrator or user can choose to resume the deployment or reject it. Users with **Manage deployment** permission on the stage can resume or reject the manual intervention.
 
 For more information about using this task, see [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
 <!-- :::editable-content-end::: -->

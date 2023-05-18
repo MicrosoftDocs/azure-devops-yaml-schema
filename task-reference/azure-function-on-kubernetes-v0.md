@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
-description: Deploy Azure function to Kubernetes cluster.
-ms.date: 09/26/2022
+description: Deploy Azure function to Kubernetes cluster (task version 0).
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -172,6 +172,14 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+:::moniker range=">azure-pipelines-2022"
+
+## Remarks
+
+> [!NOTE]
+> There is a newer version of this task available that provides additional support for targetting a Kubernetes cluster in different ways, using the `connectionType` property. For more information, see [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md) and [AzureFunctionOnKubernetes@1 remarks](./azure-function-on-kubernetes-v1.md#remarks)
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

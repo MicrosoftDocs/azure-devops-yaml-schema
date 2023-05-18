@@ -1,7 +1,7 @@
 ---
 title: DuffleInstaller@0 - Duffle tool installer v0 task
 description: Install a specified version of Duffle for installing and managing CNAB bundles.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Install a specified version of Duffle for installing and managing CNAB bundles.
+Use this task to install a specified version of Duffle, which is used for installing and managing CNAB bundles.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -43,7 +43,7 @@ Install a specified version of Duffle for installing and managing CNAB bundles.
 **`version`** - **Version**<br>
 `string`. Required. Default value: `0.1.0-ralpha.4+dramallamabuie`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the version of Duffle to install.
+Specifies the version of Duffle to install.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -55,7 +55,7 @@ Specify the version of Duffle to install.
 **`checkLatestVersion`** - **Check for latest version**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Always checks online for the latest available version (stable.txt) that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
+Always checks online for the latest available version (stable.txt) that satisfies the version spec. Typically, the default value, `false`, is used unless you have a specific scenario where the latest update is always needed. This may incur download costs when potentially not necessary, especially with the hosted build pool.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,271 +1,76 @@
 ---
 title: jobs.template definition
-description: jobs.template definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+description: A set of jobs defined in a template.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2020"
 ---
 
 # jobs.template definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2020"
 
+<!-- :::editable-content name="description"::: -->
+A set of jobs defined in a template.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::description-end::: -->
+
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+```yaml
+jobs:
+- template: string # Required as first property. Reference to a template for this deployment.
+  parameters: # Parameters used in a deployment template.
+```
+
+:::moniker-end
+<!-- :::syntax-end::: -->
+
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+Definitions that that reference this definition: [jobs](jobs.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
+
+## Properties
+
+<!-- :::properties::: -->
+<!-- :::item name="template"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
+Reference to a template for this deployment.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="parameters"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+**`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Parameters used in a deployment template.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::properties-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+## Remarks
 
 You can define a set of jobs in one file and use it multiple times in other files. See [templates](/azure/devops/pipelines/process/templates) for more about working with job templates.
-
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="job{template}" version="azure-pipelines-2020"::: -->
-
-```yaml
-jobs:
-- template: string # Required as first property. Reference to a template for this deployment. 
-  parameters:  # Parameters used in a deployment template
-    string: string # Name/value pairs.
-```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to a template for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in a deployment template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="job{template}" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-jobs:
-- template: string # Required as first property. Reference to a template for this deployment. 
-  parameters:  # Parameters used in a deployment template
-    string: string # Name/value pairs.
-```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to a template for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in a deployment template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="job{template}" version="azure-pipelines-2022"::: -->
-
-```yaml
-jobs:
-- template: string # Required as first property. Reference to a template for this deployment. 
-  parameters:  # Parameters used in a deployment template
-    string: string # Name/value pairs.
-```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to a template for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in a deployment template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="job{template}" version="azure-pipelines"::: -->
-
-```yaml
-jobs:
-- template: string # Required as first property. Reference to a template for this deployment. 
-  parameters:  # Parameters used in a deployment template
-    string: string # Name/value pairs.
-```
-
-
-Properties that use this definition: [jobs](jobs.md)
-
-## Properties
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `template`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Required as first parameter. Reference to a template for this deployment. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-<!-- :::api-property::: -->
-:::row:::
-  :::column:::
-   <!-- :::api-property-name::: -->
-   `parameters`
-   <!-- :::api-property-name-end::: -->
-  :::column-end:::
-  :::column span="3":::
-<!-- :::api-property-type::: --> 
-string name/value pairs
-<!-- :::api-property-type-end::: -->  
-<!-- :::api-desc type="property"::: -->Parameters used in a deployment template. 
- <!-- :::api-desc-end::: -->
-  :::column-end:::
-:::row-end:::
-<!-- :::api-property-end::: -->
-___
-
-
-
-
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-## Remarks
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+## Examples
 
 In the main pipeline:
 
@@ -280,9 +85,6 @@ In the included template:
 parameters: { string: any } # expected parameters
 jobs: [ job ]
 ```
-
-
-## Examples
 
 In this example, a single job is repeated on three platforms.
 The job itself is specified only once.
@@ -328,9 +130,13 @@ jobs:
       vmImage: windows-latest
     sign: true  # Extra step on Windows only
 ```
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
+## See also
 
-
-
-
-<!-- See also -->
+See [templates](/azure/devops/pipelines/process/templates) for more about working with job templates.
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

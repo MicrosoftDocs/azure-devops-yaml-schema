@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -31,6 +31,8 @@ Automate performance regression testing with Azure Load Testing.
     loadTestConfigFile: # string. Required. Load Test File. 
     resourceGroup: # string. Required. Load Test Resource Group. 
     loadTestResource: # string. Required. Load Test Resource Name. 
+    #loadTestRunName: # string. Load Test Run Name. 
+    #loadTestRunDescription: # string. Load Test Run Description. 
     #secrets: # string. Secrets. 
     #env: # string. env.
 ```
@@ -85,6 +87,30 @@ Enters or selects the Azure Resource Group that contains the Load test resource.
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enters or selects the name of an existing Azure Load Testing resource.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="loadTestRunName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`loadTestRunName`** - **Load Test Run Name**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Custom name for the load test run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="loadTestRunDescription"::: -->
+:::moniker range="=azure-pipelines"
+
+**`loadTestRunDescription`** - **Load Test Run Description**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Custom description for the load test run.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -160,17 +186,14 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to run an Apache JMeter script by using Azure Load Testing Preview. Azure Load Testing is a fully managed load testing service that enables you to generate high-scale load.
+Use this task to run an Apache JMeter script by using Azure Load Testing. Azure Load Testing is a fully managed load testing service that enables you to generate high-scale load.
 
 The task succeeds if the load test finishes successfully and all [test criteria](/azure/load-testing/how-to-define-test-criteria) pass.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Although Azure PowerShell isn't listed in the demands for `AzureLoadTest@1`, the agent must have Azure PowerShell installed. Azure PowerShell is installed on [Windows and Linux hosted agent images](/azure/devops/pipelines/agents/hosted#software).
 
 > [!NOTE]
-> `AzureLoadTest@1` is part of the Azure Load Testing marketplace extension. For more information on installing and using this task, see [Identify performance regressions with Azure Load Testing Preview and Azure Pipelines](/azure/load-testing/tutorial-cicd-azure-pipelines).
+> `AzureLoadTest@1` is part of the Azure Load Testing marketplace extension. For more information on installing and using this task, see [Identify performance regressions with Azure Load Testing and Azure Pipelines](/azure/load-testing/tutorial-cicd-azure-pipelines).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

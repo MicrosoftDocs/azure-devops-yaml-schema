@@ -1,7 +1,7 @@
 ---
 title: VSMobileCenterTest@0 - Mobile Center Test v0 task
 description: Test mobile app packages with Visual Studio Mobile Center.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Test mobile app packages with Visual Studio Mobile Center.
+Use this task to test mobile app packages with Visual Studio Mobile Center.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -91,7 +91,7 @@ Test mobile app packages with Visual Studio Mobile Center.
 **`app`** - **Binary Application File Path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Relative path from the repo root to the APK or IPA file you want to test.
+Specifies the relative path from the repo root to the .APK or .IPA file you want to test.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +103,7 @@ Relative path from the repo root to the APK or IPA file you want to test.
 **`artifactsDir`** - **Artifacts Directory**<br>
 `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/MobileCenterTest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Where to place the artifacts produced by the prepare step and used by the run step. This directory will be created if it does not exist.
+Specifies the directory to place the artifacts that are produced by the prepare step and used by the run step. The directory is created if it does not exist.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -115,6 +115,7 @@ Where to place the artifacts produced by the prepare step and used by the run st
 **`enablePrepare`** - **Prepare Tests**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+If set to `true`, prepares tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -126,6 +127,7 @@ Where to place the artifacts produced by the prepare step and used by the run st
 **`framework`** - **Test Framework**<br>
 `string`. Required when `enablePrepare = true`. Allowed values: `appium`, `espresso`, `calabash`, `uitest` (Xamarin UI Test), `xcuitest`. Default value: `appium`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the test framework that the task will use.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +139,7 @@ Where to place the artifacts produced by the prepare step and used by the run st
 **`appiumBuildDir`** - **Build Directory**<br>
 `string`. Required when `enablePrepare = true && framework = appium`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to directory with Appium tests.
+Specifies the path to the directory that contains Appium tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -149,7 +151,7 @@ Path to directory with Appium tests.
 **`espressoBuildDir`** - **Build Directory**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to Espresso output directory.
+Specifies the path for the Espresso output directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -161,7 +163,7 @@ Path to Espresso output directory.
 **`espressoTestApkPath`** - **Test APK Path**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to APK file with Espresso tests. If not set, build-dir is used to discover it. Wildcard is allowed.
+Specifies the path to the APK file with Espresso tests. If a value is not set, `build-dir` is used to find the APK file. Wildcards are allowed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -173,7 +175,7 @@ Path to APK file with Espresso tests. If not set, build-dir is used to discover 
 **`calabashProjectDir`** - **Project Directory**<br>
 `string`. Required when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to Calabash workspace directory.
+Specifies the path for the Calabash workspace directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -185,7 +187,7 @@ Path to Calabash workspace directory.
 **`calabashConfigFile`** - **Cucumber Config File**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to Cucumber configuration file, usually cucumber.yml.
+Specifies the file path to the Cucumber configuration file, which is usually `cucumber.yml`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -197,7 +199,7 @@ Path to Cucumber configuration file, usually cucumber.yml.
 **`calabashProfile`** - **Profile to run**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Profile to run.  This value must exists in the Cucumber configuration file.
+Specifies the profile to run. This value must exist in the Cucumber configuration file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -209,7 +211,7 @@ Profile to run.  This value must exists in the Cucumber configuration file.
 **`calabashSkipConfigCheck`** - **Skip Configuration Check**<br>
 `boolean`. Optional. Use when `enablePrepare = true && framework = calabash`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Force running without Cucumber profile.
+Forces the task to run without a Cucumber profile.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -221,7 +223,7 @@ Force running without Cucumber profile.
 **`uitestBuildDir`** - **Build Directory**<br>
 `string`. Required when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to directory with built test assemblies.
+Specifies the path to the directory with built test assemblies.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -233,6 +235,7 @@ Path to directory with built test assemblies.
 **`uitestStoreFile`** - **Store File**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the path to the store file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -244,6 +247,7 @@ Path to directory with built test assemblies.
 **`uitestStorePass`** - **Store Password**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the password for the store file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,6 +259,7 @@ Path to directory with built test assemblies.
 **`uitestKeyAlias`** - **Key Alias**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the alias that identifies the public/private key pair used in the store file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -266,6 +271,7 @@ Path to directory with built test assemblies.
 **`uitestKeyPass`** - **Key Password**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the key password for the alias and store file. Use a new variable with its lock enabled on the Variables tab to encrypt this value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -277,7 +283,7 @@ Path to directory with built test assemblies.
 **`uitestToolsDir`** - **Test Tools Directory**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to directory with Xamarin UI test tools that contains test-cloud.exe.
+Specifies the path to the directory with Xamarin UI test tools that contains `test-cloud.exe`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -289,7 +295,7 @@ Path to directory with Xamarin UI test tools that contains test-cloud.exe.
 **`signInfo`** - **Signing Information**<br>
 `string`. Optional. Use when `framework = calabash || framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use Signing Infor for signing the test server.
+Uses signing information to sign the test server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -301,7 +307,7 @@ Use Signing Infor for signing the test server.
 **`xcuitestBuildDir`** - **Build Directory**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the build output directory (usually $(ProjectDir)/Build/Products/Debug-iphoneos).
+Specifies the path to the build output directory, which is usually `$(ProjectDir)/Build/Products/Debug-iphoneos`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -313,7 +319,7 @@ Path to the build output directory (usually $(ProjectDir)/Build/Products/Debug-i
 **`xcuitestTestIpaPath`** - **Test IPA Path**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the *.ipa file with the XCUITest tests.
+Specifies the path to the `*.ipa` file with the XCUITest tests.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -325,7 +331,7 @@ Path to the *.ipa file with the XCUITest tests.
 **`prepareOpts`** - **Additional Options**<br>
 `string`. Optional. Use when `enablePrepare = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to mobile-center test prepare step.
+Specifies additional arguments to pass to `mobile-center test prepare step`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -348,7 +354,7 @@ Additional arguments passed to mobile-center test prepare step.
 **`credsType`** - **Authentication Method**<br>
 `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (Mobile Center Connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use Mobile Center service endpoint connection or enter credentials to connect to Visual Studio Mobile Center.
+Specifies the authentication method. Use a Mobile Center service endpoint connection, or specify credentials to connect to Visual Studio Mobile Center.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -360,7 +366,7 @@ Use Mobile Center service endpoint connection or enter credentials to connect to
 **`serverEndpoint`** - **Mobile Center Connection**<br>
 `string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the service endpoint for your Visual Studio Mobile Center connection. To create one, click the Manage link and create a new service endpoint.
+Specifies the service endpoint for your Visual Studio Mobile Center connection. To create one, click the **Manage link** and create a new service endpoint.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -372,7 +378,7 @@ Select the service endpoint for your Visual Studio Mobile Center connection. To 
 **`username`** - **Mobile Center Username**<br>
 `string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visit https://mobile.azure.com/settings/profile to get your username.
+Visit [Azure Mobile Center](https://mobile.azure.com/settings/profile) to set your username.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -384,7 +390,7 @@ Visit https://mobile.azure.com/settings/profile to get your username.
 **`password`** - **Mobile Center Password**<br>
 `string`. Required when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Visit https://mobile.azure.com/settings/profile to set your password. It can accept variable defined in Build/Release definitions as '$(passwordVariable)'. You may mark variable type as 'secret' to secure it.
+Visit [Azure Mobile Center](https://mobile.azure.com/settings/profile) to set your password. This string can accept a variable defined in build/release definitions as `$(passwordVariable)`. You may mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -396,7 +402,7 @@ Visit https://mobile.azure.com/settings/profile to set your password. It can acc
 **`appSlug`** - **App Slug**<br>
 `string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The app slug is in the format of {username}/{app_identifier}.  To locate {username} and {app_identifier} for an app, click on its name from https://mobile.azure.com/apps, and the resulting url is in the format of https://mobile.azure.com/users/{username}/apps/{app_identifier}.
+The app slug is in the format of `{username}/{app_identifier}`. To locate `{username}` and `{app_identifier}` for an app, find the app's listing on [Azure Mobile Apps](https://mobile.azure.com/apps). The URL is in the format of `https://mobile.azure.com/users/{username}/apps/{app_identifier}`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -408,7 +414,7 @@ The app slug is in the format of {username}/{app_identifier}.  To locate {userna
 **`devices`** - **Devices**<br>
 `string`. Required when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-String to identify what devices this test will run against.  Copy and paste this string when you define a new test run from Mobile Center Test beacon.
+Identifies what devices this test will run against. Copy and paste this string when you define a new test run from Mobile Center Test beacon.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -420,7 +426,7 @@ String to identify what devices this test will run against.  Copy and paste this
 **`series`** - **Test Series**<br>
 `string`. Optional. Use when `enableRun = true`. Default value: `master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The series name for organizing test runs (e.g. master, production, beta).
+Specifies the series name for organizing test runs (e.g. `master`, `production`, `beta`).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -432,7 +438,7 @@ The series name for organizing test runs (e.g. master, production, beta).
 **`dsymDir`** - **dSYM Directory**<br>
 `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to iOS symbol files.
+Specifies the path to the dSYM directory, which contains iOS symbol files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -444,7 +450,7 @@ Path to iOS symbol files.
 **`locale`** - **System Language**<br>
 `string`. Required when `enableRun = true`. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If your language isn't displayed, select 'Other' and enter its locale below, such as en_US.
+If your language isn't displayed, specify **Other** and enter its locale, such as `en_US`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -456,7 +462,7 @@ If your language isn't displayed, select 'Other' and enter its locale below, suc
 **`userDefinedLocale`** - **Other Locale**<br>
 `string`. Optional. Use when `enableRun = true && locale = user`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 country code in the format [language]_[country], such as en_US.
+Specifies any two-letter ISO-639 language code, along with any two-letter ISO 3166 country code, in the format `[language]_[country]`, such as `en_US`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -468,7 +474,7 @@ Enter any two-letter ISO-639 language code along with any two-letter ISO 3166 co
 **`loginOpts`** - **Addtional Options for Login**<br>
 `string`. Optional. Use when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to mobile-center login step.
+Specifies additional arguments that are passed to `mobile-center login step`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -480,7 +486,7 @@ Additional arguments passed to mobile-center login step.
 **`runOpts`** - **Additional Options for Run**<br>
 `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional arguments passed to mobile-center test run.
+Specifies additional arguments that are passed to `mobile-center test run`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -492,7 +498,7 @@ Additional arguments passed to mobile-center test run.
 **`async`** - **Do not wait for test result**<br>
 `boolean`. Optional. Use when `enableRun = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Execute command asynchronously, exit when tests are uploaded, without waiting for test results.
+When set to `true`, executes commands asynchronously and exits when tests are uploaded without waiting for the test results.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -504,6 +510,7 @@ Execute command asynchronously, exit when tests are uploaded, without waiting fo
 **`cliLocationOverride`** - **mobile-center CLI Location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the path to the `mobile-center` command-line interface (CLI).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -515,7 +522,7 @@ Execute command asynchronously, exit when tests are uploaded, without waiting fo
 **`debug`** - **Enable Debug Output**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Add --debug to mobile-center cli.
+Adds `--debug` to the `mobile-center` command-line interface (CLI).
 <!-- :::editable-content-end::: -->
 <br>
 

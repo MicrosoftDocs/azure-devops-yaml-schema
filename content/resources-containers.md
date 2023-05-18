@@ -1,149 +1,66 @@
 ---
-title: resources.containers list definition
-description: resources.containers list definition reference.
-ms.date: 08/08/2022
-monikerRange: "= azure-pipelines || = azure-pipelines-2019 || = azure-pipelines-2019.1 || = azure-pipelines-2020 || = azure-pipelines-2020.1 || = azure-pipelines-2022"
+title: resources.containers definition
+description: List of container images.
+ms.date: 04/28/2023
+monikerRange: ">=azure-pipelines-2019"
 ---
 
-# resources.containers list definition
+# resources.containers definition
 
+<!-- :::description::: -->
+:::moniker range=">=azure-pipelines-2019"
 
+<!-- :::editable-content name="description"::: -->
 List of container resources referenced by the pipeline.
+<!-- :::editable-content-end::: -->
 
+:::moniker-end
+<!-- :::description-end::: -->
 
-:::moniker range="= azure-pipelines-2019"
-
-<!-- :::api-definition signature="containerResources[containerResource]" version="azure-pipelines-2019"::: -->
+<!-- :::syntax::: -->
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-containers: [ container ] # 
+containers: [ container ] # List of container images.
 ```
 
+:::moniker-end
+<!-- :::syntax-end::: -->
 
-Properties that use this definition: [resources.containers](resources.md)
+<!-- :::parents::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+Definitions that that reference this definition: [resources](resources.md)
+
+:::moniker-end
+<!-- :::parents-end::: -->
 
 ## List types
 
-| Type     | Description |
-|----------|-------------|
+<!-- :::list-types::: -->
+:::moniker range=">=azure-pipelines-2019"
+
+| Type | Description |
+|---|---|
 | [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
 
-<!-- :::api-definition-end::: -->
-
 :::moniker-end
+<!-- :::list-types-end::: -->
 
-:::moniker range="= azure-pipelines-2019.1"
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
 
-<!-- :::api-definition signature="containerResources[containerResource]" version="azure-pipelines-2019.1"::: -->
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
 
-```yaml
-containers: [ container ] # 
-```
-
-
-Properties that use this definition: [resources.containers](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020"
-
-<!-- :::api-definition signature="containerResources[containerResource]" version="azure-pipelines-2020"::: -->
-
-```yaml
-containers: [ container ] # 
-```
-
-
-Properties that use this definition: [resources.containers](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2020.1"
-
-<!-- :::api-definition signature="containerResources[containerResource]" version="azure-pipelines-2020.1"::: -->
-
-```yaml
-containers: [ container ] # 
-```
-
-
-Properties that use this definition: [resources.containers](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines-2022"
-
-<!-- :::api-definition signature="containerResources[containerResource]" version="azure-pipelines-2022"::: -->
-
-```yaml
-containers: [ container ] # 
-```
-
-
-Properties that use this definition: [resources.containers](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-:::moniker range="= azure-pipelines"
-
-<!-- :::api-definition signature="containerResources[containerResource]" version="azure-pipelines"::: -->
-
-```yaml
-containers: [ container ] # 
-```
-
-
-Properties that use this definition: [resources.containers](resources.md)
-
-## List types
-
-| Type     | Description |
-|----------|-------------|
-| [resources.containers.container](resources-containers-container.md) | A container resource used to reference a container image. |
-
-<!-- :::api-definition-end::: -->
-
-:::moniker-end
-
-
-<!-- Remarks -->
-
-
-<!-- Examples -->
-
-
+<!-- :::see-also::: -->
+<!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
 - [Add resources to a pipeline](/azure/devops/pipelines/process/resources)
+<!-- :::editable-content-end::: -->
+<!-- :::see-also-end::: -->

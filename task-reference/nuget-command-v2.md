@@ -1,25 +1,17 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
 description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # NuGetCommand@2 - NuGet v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Package Management and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+Use this task to restore, pack, or push NuGet packages, or run a NuGet command. This task supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. This task also uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -147,7 +139,7 @@ Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.or
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `restore`, `pack`, `push`, `custom`. Default value: `restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet command to run. Select 'Custom' to add arguments or to use a different command.
+Specifies the NuGet command to run. Use the `custom` value to add arguments or to use a different command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -159,7 +151,7 @@ The NuGet command to run. Select 'Custom' to add arguments or to use a different
 **`restoreSolution`** - **Path to solution, packages.config, or project.json**<br>
 Input alias: `solution`. `string`. Required when `command = restore`. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the solution, packages.config, or project.json file that references the packages to be restored.
+Specifies the path to the solution, `packages.config`, or `project.json` file that references the packages to be restored.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -171,7 +163,7 @@ The path to the solution, packages.config, or project.json file that references 
 **`feedsToUse`** - **Feeds to use**<br>
 Input alias: `selectOrConfig`. `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can either select a feed from Azure Artifacts and/or NuGet.org here, or commit a nuget.config file to your source code repository and set its path here.
+Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with the `select` value. Alternatively, you can commit a `NuGet.config` file to your source code repository and set its path as the value using the `config` value.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +175,7 @@ You can either select a feed from Azure Artifacts and/or NuGet.org here, or comm
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here.
+Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +186,7 @@ Include the selected feed in the generated NuGet.config. You must have Package M
 **`vstsFeed`** - **Use packages from this VSTS/TFS feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include the selected feed in the generated NuGet.config. You must have Package Management installed and licensed to select a feed here.
+Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,7 +198,7 @@ Include the selected feed in the generated NuGet.config. You must have Package M
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
 `boolean`. Optional. Use when `selectOrConfig = select`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include NuGet.org in the generated NuGet.config.
+Includes NuGet.org in the generated `NuGet.config`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,7 +210,7 @@ Include NuGet.org in the generated NuGet.config.
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
 `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet.config in your repository that specifies the feeds from which to restore packages.
+Specifies the path to the `NuGet.config` in your repository that determines the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -230,7 +222,7 @@ The NuGet.config in your repository that specifies the feeds from which to resto
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
 Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. This is the name of your NuGet service connection. For feeds in this organization/collection, leave this blank; the build’s credentials are used automatically.
+Specifies the credentials to use for external registries located in the selected `NuGet.config`. This is the name of your NuGet service connection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -241,7 +233,7 @@ Credentials to use for external registries located in the selected NuGet.config.
 **`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
 Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the selected NuGet.config. This is the name of your NuGet service connection. For feeds in this account/collection, leave this blank; the build’s credentials are used automatically.
+Specifies the credentials to use for external registries located in the selected `NuGet.config`. This is the name of your NuGet service connection. For feeds in this account or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -253,7 +245,7 @@ Credentials to use for external registries located in the selected NuGet.config.
 **`noCache`** - **Disable local cache**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Prevents NuGet from using packages from local machine caches.
+Prevents NuGet from using packages from local machine caches when set to `true`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -265,7 +257,7 @@ Prevents NuGet from using packages from local machine caches.
 **`disableParallelProcessing`** - **Disable parallel processing**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Prevents NuGet from installing multiple packages in parallel.
+Prevents NuGet from installing multiple packages in parallel processes when set to `true`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -277,7 +269,7 @@ Prevents NuGet from installing multiple packages in parallel.
 **`restoreDirectory`** - **Destination directory**<br>
 Input alias: `packagesDirectory`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder in which packages are installed. If no folder is specified, packages are restored into a packages/ folder alongside the selected solution, packages.config, or project.json.
+Specifies the folder in which packages are installed. If no folder is specified, packages are restored into a `packages/` folder alongside the selected solution, `packages.config`, or `project.json`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -301,7 +293,7 @@ Specifies the amount of detail displayed in the output.
 **`packagesToPush`** - **Path to NuGet package(s) to publish**<br>
 Input alias: `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The pattern to match or path to nupkg files to be uploaded. Multiple patterns can be separated by a semicolon.
+Specifies the pattern to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -336,7 +328,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 **`publishVstsFeed`** - **Target feed**<br>
 Input alias: `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a feed hosted in this account. You must have Azure Artifacts installed and licensed to select a feed here.
+Specifies a feed hosted in this account. You must have Azure Artifacts installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -348,7 +340,7 @@ Select a feed hosted in this account. You must have Azure Artifacts installed an
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If you continually publish a set of packages and only change the version number of the subset of packages that changed, use this option.
+Changes the version number of the subset of changed packages within a set of continually published packages.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -360,9 +352,9 @@ If you continually publish a set of packages and only change the version number 
 **`allowPackageConflicts`** - **Allow duplicates to be skipped**<br>
 `boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If you continually publish a set of packages and only change the version number of the subset of packages that changed, use this option. It allows the task to report success even if some of your packages are rejected with 409 Conflict errors.
+Reports task success even if some of your packages are rejected with 409 Conflict errors.
 
-This option is currently only available on Azure Pipelines and using Windows agents. If NuGet.exe encounters a conflict, the task will fail. This option will not work and publish will fail if you are within a proxy environment.
+This option is currently only available on Azure Pipelines and Windows agents. If `NuGet.exe` encounters a conflict, the task will fail. This option will not work and publishing will fail if you are within a proxy environment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -374,7 +366,7 @@ This option is currently only available on Azure Pipelines and using Windows age
 **`publishFeedCredentials`** - **NuGet server**<br>
 Input alias: `externalEndpoint`. `string`. Required when `command = push && nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The NuGet service connection that contains the external NuGet server’s credentials.
+Specifies the NuGet service connection that contains the external NuGet server’s credentials.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -398,9 +390,9 @@ Specifies the amount of detail displayed in the output.
 **`packagesToPack`** - **Path to csproj or nuspec file(s) to pack**<br>
 Input alias: `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Pattern to search for csproj directories to pack.
+Specifies the pattern that the task uses to search for csproj directories to pack.
 
-You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with '!'. Example: `**\*.csproj;!**\*.Tests.csproj`.
+You can separate multiple patterns with a semicolon, and you can make a pattern negative by prefixing it with `!`. Example: `**\*.csproj;!**\*.Tests.csproj`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -412,7 +404,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 **`configuration`** - **Configuration to package**<br>
 Input alias: `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When using a csproj file this specifies the configuration to package.
+Specifies the configuration to package when using a csproj file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -424,7 +416,7 @@ When using a csproj file this specifies the configuration to package.
 **`packDestination`** - **Package folder**<br>
 Input alias: `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Folder where packages will be created. If empty, packages will be created at the source root.
+Specifies the folder where the task creates packages. If the value is empty, the task creates packages at the source root.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -436,11 +428,14 @@ Folder where packages will be created. If empty, packages will be created at the
 **`versioningScheme`** - **Automatic package versioning**<br>
 `string`. Required. Allowed values: `off`, `byPrereleaseNumber` (Use the date and time), `byEnvVar` (Use an environment variable), `byBuildNumber` (Use the build number). Default value: `off`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Cannot be used with include referenced projects. If you choose 'Use the date and time', this will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime` where you choose X, Y, and Z.
+Applies automatic package versioning depending on the specified value. This string cannot be used with `includeReferencedProjects`. The allowed values are:
 
-If you choose 'Use an environment variable', you must select an environment variable and ensure it contains the version number you want to use.
+- **`byPrereleaseNumber`** - **Use the date and time**: The task will generate a [SemVer](http://semver.org/spec/v1.0.0.html)-compliant version formatted as `X.Y.Z-ci-datetime`, where you specify the values of X, Y, and Z.
+- **`byEnvVar`**- **Use an environment variable**: The task will use an environment variable that you specify and contains the version number you want to use.
+- **`true`** - **Use the build number**: The task will use the build number to version the package.
 
-If you choose 'Use the build number', this will use the build number to version your package. **Note:** Under Options set the build number format to be '[$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)](https://go.microsoft.com/fwlink/?LinkID=627416)'.
+> [!NOTE]
+> Under General, set the build format to be [`$(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)`](/azure/devops/pipelines/tasks/package/nuget).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -452,7 +447,7 @@ If you choose 'Use the build number', this will use the build number to version 
 **`includeReferencedProjects`** - **Include referenced projects**<br>
 `boolean`. Optional. Use when `versioningScheme = off`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Include referenced projects either as dependencies or as part of the package. Cannot be used with automatic package versioning. If a referenced project has a corresponding nuspec file that has the same name as the project, then that referenced project is added as a dependency. Otherwise, the referenced project is added as part of the package. [Learn more](/nuget/tools/cli-ref-pack).
+Includes referenced projects either as dependencies or as part of the package. Cannot be used with automatic package versioning. If a referenced project has a corresponding `nuspec` file that has the same name as the project, then that referenced project is added as a dependency. Otherwise, the referenced project is added as part of the package. Learn more about [using the pack command for NuGet CLI to create NuGet packages](/nuget/tools/cli-ref-pack).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -464,7 +459,7 @@ Include referenced projects either as dependencies or as part of the package. Ca
 **`versionEnvVar`** - **Environment variable**<br>
 `string`. Required when `versioningScheme = byEnvVar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the variable name without $, $env, or %.
+Specifies the variable name without `$`, `$env`, or `%`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -476,7 +471,7 @@ Enter the variable name without $, $env, or %.
 **`majorVersion`** - **Major**<br>
 Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -488,7 +483,7 @@ The 'X' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`minorVersion`** - **Minor**<br>
 Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -500,7 +495,7 @@ The 'Y' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`patchVersion`** - **Patch**<br>
 Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
+The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -512,7 +507,7 @@ The 'Z' in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 **`packTimezone`** - **Time zone**<br>
 `string`. Optional. Use when `versioningScheme = byPrereleaseNumber`. Allowed values: `utc`, `local` (Agent local time). Default value: `utc`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the desired time zone used to produce the version of the package. Selecting UTC is recommended if you're using hosted build agents as their date and time might differ.
+Specifies the desired time zone used to produce the version of the package. Selecting `utc` is recommended if you're using hosted build agents, as their date and time might differ.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -524,7 +519,7 @@ Specifies the desired time zone used to produce the version of the package. Sele
 **`includeSymbols`** - **Create symbols package**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies that the package contains sources and symbols. When used with a .nuspec file, this creates a regular NuGet package file and the corresponding symbols package.
+Specifies that the package contains sources and symbols. When used with a `.nuspec` file, this creates a regular NuGet package file and the corresponding symbols package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -548,7 +543,7 @@ Determines if the output files of the project should be in the tool folder.
 **`buildProperties`** - **Additional build properties**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a list of token=value pairs, separated by semicolons, where each occurrence of $token$ in the .nuspec file will be replaced with the given value. Values can be strings in quotation marks.
+Specifies a list of token=value pairs, separated by semicolons, where each occurrence of `$token$` in the `.nuspec` file will be replaced with the given value. Values can be strings in quotation marks.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -560,7 +555,7 @@ Specifies a list of token=value pairs, separated by semicolons, where each occur
 **`basePath`** - **Base path**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The base path of the files defined in the nuspec file.
+Specifies the base path of the files defined in the `nuspec` file.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -584,7 +579,7 @@ Specifies the amount of detail displayed in the output.
 **`arguments`** - **Command and arguments**<br>
 `string`. Required when `command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The command and arguments which will be passed to NuGet.exe for execution. If NuGet 3.5 or later is used, authenticated commands like list, restore, and publish against any feed in this account/collection that the Project Collection Build Service has access to will be automatically authenticated.
+Specifies the command and arguments that will be passed to `NuGet.exe` for execution. If NuGet 3.5 or later is used, authenticated commands like `list`, `restore`, and `publish` against any feed in this organization or collection that the Project Collection Build Service has access to will be automatically authenticated.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -611,24 +606,24 @@ None.
 ## Remarks
 
 > [!IMPORTANT]
-> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. This task no longer takes new features and only critical bugs are addressed.
+> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. This task no longer takes new features, and only critical bugs are addressed.
 
 Use this task to install and update NuGet package dependencies, or package and publish NuGet packages. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
 
 If your code depends on NuGet packages, make sure to add this step before your [Visual Studio Build task](vsbuild-v1.md). Also make sure to clear the deprecated **Restore NuGet Packages** checkbox in that task.
 
-If you are working with .NET Core or .NET Standard, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and it's currently supported by dotnet.
+If you are working with .NET Core or .NET Standard, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
 
 > [!TIP]
-> This version of the NuGet task uses NuGet 4.1.0 by default. To select a different version of NuGet, use the [Tool Installer](nuget-installer-v0.md).
+> This version of the NuGet task uses NuGet 4.1.0 by default. To select a different version of NuGet, use the [Tool Installer](nuget-tool-installer-v1.md).
 
 ### Versioning schemes
 
-For **byPrereleaseNumber**, the version will be set to whatever you choose for major, minor, and patch, plus the date and time in the format `yyyymmdd-hhmmss`.
+For **byPrereleaseNumber**, the version will be set to the values you choose for the major version, the minor version, and the patch, plus the date and time, in the format `yyyymmdd-hhmmss`.
 
-For **byEnvVar**, the version will be set to the value of the environment variable that has the name specified by the **versionEnvVar** parameter, e.g. `MyVersion` (no **$**, just the environment variable name). Make sure the environment variable is set to a proper SemVer e.g. `1.2.3` or `1.2.3-beta1`.
+For **byEnvVar**, the version will be set to the value of the environment variable that has the name specified by the **versionEnvVar** parameter, e.g. `MyVersion` (no **$**, just the environment variable name). Make sure the environment variable is set to a proper SemVer, such as `1.2.3` or `1.2.3-beta1`.
 
-For **byBuildNumber**, the version will be set using the pipeline run's build number.  This is the value specified for the pipeline's `name` property, which gets saved to the `BUILD_BUILDNUMBER` environment variable).  Ensure that the build number being used contains a proper SemVer e.g. `1.0.$(Rev:r)`. When using **byBuildNumber**, the task will extract the dotted version, `1.2.3.4` from the build number string, and use only that portion.  The rest of the string will be dropped.  If you want to use the build number as is, you can use **byEnvVar** as described above, and set **versionEnvVar** to `BUILD_BUILDNUMBER`.
+For **byBuildNumber**, the version will be set using the pipeline run's build number. This is the value specified for the pipeline's `name` property, which gets saved to the `BUILD_BUILDNUMBER` environment variable). Ensure that the build number being used contains a proper SemVer, such as `1.0.$(Rev:r)`. When using **byBuildNumber**, the task will extract the dotted version, `1.2.3.4`, from the build number string, and use only that portion.  The rest of the string will be dropped. If you want to use the build number as is, you can use **byEnvVar** as described above, and set **versionEnvVar** to `BUILD_BUILDNUMBER`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

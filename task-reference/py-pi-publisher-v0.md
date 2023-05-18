@@ -1,7 +1,7 @@
 ---
 title: PyPIPublisher@0 - PyPI publisher v0 task
 description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
+Use this task to create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -68,7 +68,7 @@ Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 **`pypiConnection`** - **PyPI service connection**<br>
 Input alias: `serviceEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A generic service connection for connecting to the package index.
+Specifies a generic service connection for connecting to the package index.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -80,7 +80,7 @@ A generic service connection for connecting to the package index.
 **`packageDirectory`** - **Python package directory**<br>
 Input alias: `wd`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory of the Python package to be created and published where setup.py is present.
+Specifies the directory of the Python package that is created and published where `setup.py` is present.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,7 +92,7 @@ The directory of the Python package to be created and published where setup.py i
 **`alsoPublishWheel`** - **Also publish a wheel**<br>
 Input alias: `wheel`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select whether to create and publish a universal wheel package (platform independent) in addition to an sdist package. [More information](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+Specifies whether to create and publish a universal wheel package (platform independent) in addition to an sdist package. More information about [packaging Python projects](https://packaging.python.org/tutorials/distributing-packages/#wheels).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,14 +104,14 @@ Select whether to create and publish a universal wheel package (platform indepen
 **`serviceEndpoint`** - **PyPI connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the generic service endpoint where PyPI server details are present.
+Specifies the generic service endpoint where the following PyPI server details are present:
 
-*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
-
-- Connection Name – Use a friendly connection name of your choice.
+- Connection Name – Use a connection name of your choice.
 - Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/).
 - User Name – PyPI registered username.
 - Password – password for your PyPI account.
+
+*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -123,7 +123,7 @@ Select the generic service endpoint where PyPI server details are present.
 **`wd`** - **Python package path**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Python package directory to be published where `setup.py` is present.
+Specifies the Python package directory published where `setup.py` is present.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +135,7 @@ Python package directory to be published where `setup.py` is present.
 **`wheel`** - **Upload wheel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, then task will additionally build and publish universal wheel (platform independent) of this package. [More information regarding universal wheel](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+If set to `true`, the task will build and publish a universal wheel (platform independent) of this package. More information regarding [universal wheels](https://packaging.python.org/tutorials/distributing-packages/#wheels).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -162,13 +162,11 @@ None.
 ## Remarks
 
 > [!IMPORTANT]
-> The PyPI Publisher task has been deprecated. You can now [publish PyPI packages using twine authentication and custom scripts](/azure/devops/pipelines/artifacts/pypi).
+> The PyPI Publisher task has been deprecated. You can now [publish PyPI packages using Twine authentication and custom scripts](/azure/devops/pipelines/artifacts/pypi).
 
 Use this task to create and upload an sdist or wheel to a PyPI-compatible index using Twine.
 
-This task builds an sdist package by running `python setup.py sdist` using the Python instance in `PATH`.
-It can optionally build a universal wheel in addition to the sdist.
-Then, it will upload the package to a PyPI index using `twine`.
+This task builds an sdist package by running `python setup.py sdist` with the Python instance in `PATH`. In addition to the sdist, it can optionally build a universal wheel. It will upload the package to a PyPI index using `twine`.
 The task will install the `wheel` and `twine` packages with `python -m pip install --user`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->

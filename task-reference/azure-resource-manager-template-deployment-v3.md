@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -85,6 +85,9 @@ Specifies the Azure Resource Manager service connection with access to the selec
 Input alias: `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure subscription.
+
+> [!IMPORTANT]
+> The specified value must be the subscription ID and not the subscription name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -133,7 +136,7 @@ Other deployment scopes: The location to store deployment metadata.
 **`templateLocation`** - **Template location**<br>
 `string`. Required. Allowed values: `Linked artifact`, `URL of the file`. Default value: `Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The location of the template for deployment.
+The location of the Template and the Parameters JSON files. Choose **Linked artifact** if the files are part of the linked code/build artifacts. For linked artifacts, you can also specify the path to a Bicep file. Choose **URL of the file** if the JSON files are located at any publicly accessible http/https URLs. To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?`. To upload a parameters file to a storage account and generate a SAS token, you could use [Azure file copy task](azure-file-copy-v5.md) or follow the steps using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell#deploy-private-template-with-sas-token) or [Azure CLI](/azure/azure-resource-manager/templates/deploy-cli).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +180,7 @@ To  view the template parameters in a grid, click on `...` next to Override temp
 **`csmFile`** - **Template**<br>
 `string`. Required when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).
+Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).  Supports Bicep files when the Azure CLI version > 2.20.0.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -189,11 +192,7 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 **`csmParametersFile`** - **Template parameters**<br>
 `string`. Optional. Use when `templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
-
-To use a file stored in a private storage account, retrieve and include the shared access signature (SAS) token in the URL of the template. Example: `<blob_storage_url>/template.json?<SAStoken>`. To upload a parameters file to a storage account and generate a SAS token, use the [Azure file copy](https://aka.ms/azurefilecopyreadme) task or follow the steps using [PowerShell](https://go.microsoft.com/fwlink/?linkid=838080) or [Azure CLI](https://go.microsoft.com/fwlink/?linkid=836911).
-
-To view the template parameters in a grid, click on `…` next to the override template parameters text box. This feature requires that CORS rules are enabled at the source. If templates are in Azure storage blob, refer to [Cross-Origin Resource Sharing](/rest/api/storageservices/fileservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services?redirectedfrom=MSDN#understanding-cors-requests) to enable CORS.
+Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template. Supports Bicep files when the Azure CLI version > 2.20.0.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -297,6 +296,9 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!NOTE]
+> This task supports Bicep files when the Azure CLI version > 2.20.0.
 
 - Added support for deployment at all the deployment scopes.
    - Removed all the VM related actions.

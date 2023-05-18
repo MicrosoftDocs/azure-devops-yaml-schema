@@ -1,7 +1,7 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 10/21/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
+Use this task to deploy an Azure SQL Database using DACPAC, or run scripts using SQLCMD.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -19,7 +19,7 @@ Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
 :::moniker range="<=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Deploy Azure SQL DB using DACPAC or run scripts using SQLCMD.
+Use this task to deploy an Azure SQL database using DACPAC, or run scripts using SQLCMD.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -182,7 +182,7 @@ Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `Connecte
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target Azure Classic subscription for deploying SQL files.
+Specifies the target Azure classic subscription for deploying SQL files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -194,7 +194,7 @@ Target Azure Classic subscription for deploying SQL files.
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Target Azure Resource Manager subscription for deploying SQL files.
+Specifies the target Azure Resource Manager subscription for deploying SQL files.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,8 +206,9 @@ Target Azure Resource Manager subscription for deploying SQL files.
 **`AuthenticationType`** - **Authentication Type**<br>
 `string`. Required. Allowed values: `server` (SQL Server Authentication), `aadAuthenticationPassword` (Active Directory - Password), `aadAuthenticationIntegrated` (Active Directory - Integrated), `connectionString` (Connection String), `servicePrincipal` (Service Principal). Default value: `server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of database authentication, can be SQL Server Authentication, Active Directory - Integrated, Active Directory - Password, Connection String, or Service Principal. Integrated authentication means that the agent will access the database using its current Active Directory account context.
-Specify the option to connect to the Azure SQL Server Database. The options are either to provide the Azure SQL Server Database details, or the SQL Server connection string, or AAD Authentication password or integrated or use a Service Principal. For SQL server authentication, use SQL server's user credentials and for AD authentication, use credentials of AD user configured to SQL server.
+Specifies the type of database authentication. It can be an SQL Server, Active Directory (integrated), Active Directory (password), connection string, or service principal authentication. Integrated authentication means that the agent accesses the database using its current Active Directory account context.
+
+Specify the option to connect to the Azure SQL Server database. You can provide the Azure SQL Server database details, the SQL Server connection string, AD Authentication (password or integrated), or use a service principal. For SQL Server authentication, use the SQL Server's user credentials. For AD authentication, use the credentials for the AD user configured to the SQL Server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -218,8 +219,9 @@ Specify the option to connect to the Azure SQL Server Database. The options are 
 **`AuthenticationType`** - **Authentication Type**<br>
 `string`. Required. Allowed values: `server` (SQL Server Authentication), `aadAuthenticationPassword` (Active Directory - Password), `aadAuthenticationIntegrated` (Active Directory - Integrated), `connectionString` (Connection String). Default value: `server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Type of database authentication, can be SQL Server Authentication, Active Directory - Integrated, Active Directory - Password, Connection String, or Service Principal. Integrated authentication means that the agent will access the database using its current Active Directory account context.
-Specify the option to connect to the Azure SQL Server Database. The options are either to provide the Azure SQL Server Database details, or the SQL Server connection string, or AAD Authentication password or integrated. For SQL server authentication, use SQL server's user credentials and for AD authentication, use credentials of AD user configured to SQL server.
+Specifies the type of database authentication. It can be an SQL Server, Active Directory (integrated), Active Directory (password), connection string, or service principal authentication. Integrated authentication means that the agent accesses the database using its current Active Directory account context.
+
+Specify the option to connect to the Azure SQL Server database. You can provide the Azure SQL Server database details, the SQL Server connection string, AD Authentication (password or integrated), or use a service principal. For SQL Server authentication, use the SQL Server's user credentials. For AD authentication, use the credentials for the AD user configured to the SQL Server.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -231,7 +233,7 @@ Specify the option to connect to the Azure SQL Server Database. The options are 
 **`ServerName`** - **Azure SQL Server**<br>
 `string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net.
+Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` or `Fabrikam.database.windows.net`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -242,7 +244,7 @@ Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.datab
 **`ServerName`** - **Azure SQL Server**<br>
 `string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net.
+Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` or `Fabrikam.database.windows.net`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -253,7 +255,7 @@ Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.datab
 **`ServerName`** - **Azure SQL Server Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net.
+Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` or `Fabrikam.database.windows.net`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -265,7 +267,7 @@ Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.datab
 **`DatabaseName`** - **Database**<br>
 `string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Azure SQL Database, where the files will be deployed.
+Specifies the name of the Azure SQL database where the files are deployed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -276,7 +278,7 @@ Name of the Azure SQL Database, where the files will be deployed.
 **`DatabaseName`** - **Database**<br>
 `string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Azure SQL Database, where the files will be deployed.
+Specifies the name of the Azure SQL database where the files are deployed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -287,7 +289,7 @@ Name of the Azure SQL Database, where the files will be deployed.
 **`DatabaseName`** - **Database Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Name of the Azure SQL Database, where the files will be deployed.
+Specifies the name of the Azure SQL database where the files are deployed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -299,7 +301,7 @@ Name of the Azure SQL Database, where the files will be deployed.
 **`SqlUsername`** - **Login**<br>
 `string`. Required when `AuthenticationType = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Azure SQL Server administrator login.
+Specifies the Azure SQL Server administrator login.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -310,7 +312,7 @@ Specify the Azure SQL Server administrator login.
 **`SqlUsername`** - **Server Admin Login**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Azure SQL Server administrator login or Active Directory user name.
+Specifies the Azure SQL Server administrator login or Active Directory user name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -321,7 +323,7 @@ Specify the Azure SQL Server administrator login or Active Directory user name.
 **`SqlUsername`** - **Server Admin Login**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Azure SQL Server administrator login or Active Directory user name.
+Specifies the Azure SQL Server administrator login or Active Directory user name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -333,7 +335,7 @@ Specify the Azure SQL Server administrator login or Active Directory user name.
 **`SqlPassword`** - **Password**<br>
 `string`. Required when `AuthenticationType = server`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the Azure SQL Server administrator.<br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
+Specifies the password for the Azure SQL Server administrator. Variables defined in the build or release pipelines as `$(passwordVariable)` are accepted. You can mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -344,7 +346,7 @@ Password for the Azure SQL Server administrator.<br>It can accept variable defin
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the Azure SQL Server administrator.<br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
+Specifies the password for the Azure SQL Server administrator. Variables defined in the build or release pipelines as `$(passwordVariable)` are accepted. You can mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -355,7 +357,7 @@ Password for the Azure SQL Server administrator.<br>It can accept variable defin
 **`SqlPassword`** - **Password**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the Azure SQL Server administrator.<br>It can accept variable defined in Build/Release Definitions as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
+Specifies the password for the Azure SQL Server administrator. Variables defined in the build or release pipelines as `$(passwordVariable)` are accepted. You can mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -367,7 +369,7 @@ Password for the Azure SQL Server administrator.<br>It can accept variable defin
 **`aadSqlUsername`** - **Login**<br>
 `string`. Required when `AuthenticationType = aadAuthenticationPassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Active directory username.
+Specifies the Active Directory user name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -379,7 +381,7 @@ Specify the Active directory username.
 **`aadSqlPassword`** - **Password**<br>
 `string`. Required when `AuthenticationType = aadAuthenticationPassword`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Password for the Active directory user.<br>It can accept variable defined in build or release pipelines as '$(passwordVariable)'.<br>You may mark the variable type as 'secret' to secure it.
+Specifies the password for the Active Directory user. Variables defined in the build or release pipelines as `$(passwordVariable)` are accepted. You can mark the variable type as `secret` to secure it.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -391,7 +393,7 @@ Password for the Active directory user.<br>It can accept variable defined in bui
 **`ConnectionString`** - **Connection String**<br>
 `string`. Required when `AuthenticationType = connectionString`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Azure SQL Server connection string like "Server=testServer.database.windows.net;Database=testdb;User ID=AccountPlaceholder;Password=$(securePassword);".
+Specifies the Azure SQL Server connection string, like `Server=testServer.database.windows.net;Database=testdb;User ID=AccountPlaceholder;Password=$(securePassword);`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -414,7 +416,7 @@ Input alias: `TaskNameSelector`. `string`. Required. Allowed values: `DacpacTask
 **`DeploymentAction`** - **Action**<br>
 `string`. Required when `TaskNameSelector = DacpacTask`. Allowed values: `Publish`, `Extract`, `Export`, `Import`, `Script`, `DriftReport` (Drift Report), `DeployReport` (Deploy Report). Default value: `Publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose one of the SQL Actions from the list. For more details refer <a href="https://go.microsoft.com/fwlink/?linkid=875177">link</a>.​.
+Specifies one of the SQL actions from the list. Learn more about the [SQL actions list](/sql/tools/sqlpackage/sqlpackage).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -425,7 +427,7 @@ Choose one of the SQL Actions from the list. For more details refer <a href="htt
 **`DeploymentAction`** - **Action**<br>
 `string`. Required. Allowed values: `Publish`, `Extract`, `Export`, `Import`, `Script`, `DriftReport` (Drift Report), `DeployReport` (Deploy Report). Default value: `Publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose one of the SQL Actions from the list. For more details refer <a href="https://go.microsoft.com/fwlink/?linkid=875177">link</a>.​.
+Specifies one of the SQL actions from the list. Learn more about the [SQL actions list](/sql/tools/sqlpackage/sqlpackage).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -437,7 +439,7 @@ Choose one of the SQL Actions from the list. For more details refer <a href="htt
 **`DacpacFile`** - **DACPAC File**<br>
 `string`. Required when `DeploymentAction = Publish || DeploymentAction = Script || DeploymentAction = DeployReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the DACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
+Specifies the location of the DACPAC file on the automation agent or on a UNC path that's accessible to the automation agent, like `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. Predefined system variables, like `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -448,7 +450,7 @@ Location of the DACPAC file on the automation agent or on a UNC path accessible 
 **`DacpacFile`** - **DACPAC File**<br>
 `string`. Required when `TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the DACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
+Specifies the location of the DACPAC file on the automation agent or on a UNC path that's accessible to the automation agent, like `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. Predefined system variables, like `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -459,7 +461,7 @@ Location of the DACPAC file on the automation agent or on a UNC path accessible 
 **`DacpacFile`** - **DACPAC File**<br>
 `string`. Required when `TaskNameSelector = DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the DACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.dacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
+Specifies the location of the DACPAC file on the automation agent or on a UNC path that's accessible to the automation agent, like `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. Predefined system variables, like `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -471,7 +473,7 @@ Location of the DACPAC file on the automation agent or on a UNC path accessible 
 **`BacpacFile`** - **BACPAC File**<br>
 `string`. Required when `DeploymentAction = Import`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the BACPAC file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.bacpac. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
+Specifies the location of the BACPAC file on the automation agent or on a UNC path that's accessible to the automation agent, like `\\BudgetIT\Web\Deploy\FabrikamDB.bacpac`. Predefined system variables, like `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -483,7 +485,7 @@ Location of the BACPAC file on the automation agent or on a UNC path accessible 
 **`SqlFile`** - **SQL Script**<br>
 `string`. Required when `TaskNameSelector = SqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Location of the SQL script file on the automation agent or on a UNC path accessible to the automation agent like, \\\\BudgetIT\Web\Deploy\FabrikamDB.sql. Predefined system variables like, $(agent.releaseDirectory) can also be used here.
+Specifies the location of the SQL script file on the automation agent or on a UNC path that's accessible to the automation agent, like `\\BudgetIT\Web\Deploy\FabrikamDB.sql`. Predefined system variables, like `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -495,7 +497,7 @@ Location of the SQL script file on the automation agent or on a UNC path accessi
 **`SqlInline`** - **Inline SQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the SQL script to execute on the Database selected above.
+Specifies the SQL script to execute on the previously selected database.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -507,7 +509,8 @@ Enter the SQL script to execute on the Database selected above.
 **`PublishProfile`** - **Publish Profile**<br>
 `string`. Optional. Use when `TaskNameSelector = DacpacTask || DeploymentAction = Script || DeploymentAction = DeployReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent machine or on a UNC share. If the publish profile contains secrets like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Then use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs and delete it when the pipeline is complete. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
+Provides fine-grained control over Azure SQL database creation or upgrades.  
+Specifies the path to the publish profile XML file on the automation agent machine or on a UNC share. If the publish profile contains secrets, like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Next, use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs. Delete it when the pipeline is complete. Predefined system variables, like `$(agent.buildDirectory)` or `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -518,7 +521,8 @@ Publish profile provides fine-grained control over Azure SQL Database creation o
 **`PublishProfile`** - **Publish Profile**<br>
 `string`. Optional. Use when `TaskNameSelector = DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Publish profile provides fine-grained control over Azure SQL Database creation or upgrades. Specify the path to the Publish profile XML file on the automation agent or on a UNC share. If the publish profile contains secrets like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Then use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs and delete it when the pipeline is complete. Predefined system variables like, $(agent.buildDirectory) or $(agent.releaseDirectory) can also be used here.
+Provides fine-grained control over Azure SQL database creation or upgrades.  
+Specifies the path to the publish profile XML file on the automation agent machine or on a UNC share. If the publish profile contains secrets, like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Next, use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs. Delete it when the pipeline is complete. Predefined system variables, like `$(agent.buildDirectory)` or `$(agent.releaseDirectory)`, can also be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -530,7 +534,7 @@ Publish profile provides fine-grained control over Azure SQL Database creation o
 **`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
 `string`. Optional. Use when `TaskNameSelector = DacpacTask || DeploymentAction = Extract || DeploymentAction = Export || DeploymentAction = Import || DeploymentAction = Script || DeploymentAction = DeployReport || DeploymentAction = DriftReport`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
+Specifies the additional `SqlPackage.exe` arguments that will be applied when deploying the Azure SQL database if the DACPAC option is selected, like `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -541,7 +545,7 @@ Additional SqlPackage.exe arguments that will be applied when deploying the Azur
 **`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
 `string`. Optional. Use when `TaskNameSelector = DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional SqlPackage.exe arguments that will be applied when deploying the Azure SQL Database, in case DACPAC option is selected like, `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the Publish profile XML file (if provided).
+Specifies the additional `SqlPackage.exe` arguments that will be applied when deploying the Azure SQL database if the DACPAC option is selected, like `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the publish profile XML file (if provided).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -553,7 +557,7 @@ Additional SqlPackage.exe arguments that will be applied when deploying the Azur
 **`SqlAdditionalArguments`** - **Additional Invoke-Sqlcmd Arguments**<br>
 `string`. Optional. Use when `TaskNameSelector = SqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, `-ConnectionTimeout 100 -OutputSqlErrors`.
+Specifies the additional Invoke-Sqlcmd arguments that are applied when executing the given SQL query on the Azure SQL database, like `-ConnectionTimeout 100 -OutputSqlErrors`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -565,7 +569,7 @@ Additional Invoke-Sqlcmd arguments that will be applied when executing the given
 **`InlineAdditionalArguments`** - **Additional Invoke-Sqlcmd Arguments**<br>
 `string`. Optional. Use when `TaskNameSelector = InlineSqlTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Additional Invoke-Sqlcmd arguments that will be applied when executing the given SQL query on the Azure SQL Database like, `-ConnectionTimeout 100 -OutputSqlErrors`.
+Specifies the additional Invoke-Sqlcmd arguments that are applied when executing the given SQL query on the Azure SQL Database, like `-ConnectionTimeout 100 -OutputSqlErrors`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -577,7 +581,7 @@ Additional Invoke-Sqlcmd arguments that will be applied when executing the given
 **`IpDetectionMethod`** - **Specify Firewall Rules Using**<br>
 `string`. Required. Allowed values: `AutoDetect`, `IPAddressRange`. Default value: `AutoDetect`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For the task to run, the IP Address of the automation agent has to be added to the 'Allowed IP Addresses' in the Azure SQL Server's Firewall. Select auto-detect to automatically add firewall exception for range of possible IP Address of automation agent or specify the range explicitly.
+For the task to run, the IP address of the automation agent must be added to the **Allowed IP Addresses** in the Azure SQL Server's firewall. Select auto-detect to automatically add the firewall exception for the range of the possible IP address of the automation agent, or specify the range explicitly.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -589,7 +593,7 @@ For the task to run, the IP Address of the automation agent has to be added to t
 **`StartIpAddress`** - **Start IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The starting IP Address of the automation agent machine pool like 196.21.30.50.
+Specifies the starting IP address of the automation agent machine pool, like `196.21.30.50`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -601,7 +605,7 @@ The starting IP Address of the automation agent machine pool like 196.21.30.50.
 **`EndIpAddress`** - **End IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ending IP Address of the automation agent machine pool like 196.21.30.65.
+Specifies the ending IP address of the automation agent machine pool, like `196.21.30.65`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -613,7 +617,7 @@ The ending IP Address of the automation agent machine pool like 196.21.30.65.
 **`DeleteFirewallRule`** - **Delete Rule After Task Ends**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If selected, then after the task ends, the IP Addresses specified here are deleted from the 'Allowed IP Addresses' list of the Azure SQL Server's Firewall.
+If selected, after the task ends, the IP addresses specified here are deleted from the **Allowed IP Addresses** list in the Azure SQL Server's firewall.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -655,7 +659,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="SqlDeploymentOutputFile"::: -->
 **`SqlDeploymentOutputFile`**<br><!-- :::editable-content name="Value"::: -->
-Generated output file path when deployment package action is either of Extract, Export, Script, Drift Report, Deploy Report.
+The generated output file path when the deployment package action is `Extract`, `Export`, `Script`, `DriftReport`, or `DeployReport`.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 
@@ -672,10 +676,10 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to deploy to Azure SQL DB using a DACPAC or run scripts using SQLCMD.
+Use this task to deploy an Azure SQL database using a DACPAC, or run scripts using SQLCMD.
 
 > [!IMPORTANT]
-> This task is supported only in a Windows environment. If you are trying to use Azure Active Directory (Azure AD) integrated authentication, you must create a private agent. Azure AD integrated authentication is not supported for hosted agents.
+> This task is only supported in a Windows environment. If you are trying to use Azure Active Directory (Azure AD) integrated authentication, you must create a private agent. Azure AD integrated authentication is not supported for hosted agents.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

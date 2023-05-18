@@ -1,25 +1,19 @@
 ---
 title: queryWorkItems@0 - Query work items v0 task
 description: Execute a work item query and check the number of items returned.
-ms.date: 09/26/2022
+ms.date: 05/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # queryWorkItems@0 - Query work items v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Execute a work item query and check the number of items returned.
-<!-- :::editable-content-end::: -->
+Use this task in an [agentless](/azure/devops/pipelines/process/phases) job of a release pipeline to ensure the number of matching items returned by a work item query is within the configured thresholds.
 
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Executes a work item query and checks for the number of items returned.
+Can only be used in an [agentless](/azure/devops/pipelines/process/phases) job of a release pipeline.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -78,7 +72,7 @@ Executes a work item query and checks for the number of items returned.
 **`queryId`** - **Query**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a saved work item query within the current project to execute. Can be a built-in or custom query.
+Specifies a saved work item query within the current project to execute. Can be a built-in or custom query.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -90,7 +84,7 @@ Select a saved work item query within the current project to execute. Can be a b
 **`maxThreshold`** - **Upper threshold**<br>
 `string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The maximum number of matching workitems from the query.
+Specifies the maximum number of matching work items from the query.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -102,7 +96,7 @@ The maximum number of matching workitems from the query.
 **`minThreshold`** - **Lower threshold**<br>
 `string`. Required. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The minimum number of matching workitems from the query.
+Specifies the minimum number of matching work items from the query.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -131,11 +125,11 @@ None.
 Use this task in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline to ensure the number of matching items returned by a work item query is within the configured thresholds.
 
 > [!NOTE]
-> Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+> This task can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
-This task succeeds if _minimum-threshold_ **&lt;=** _#-matching-workitems_ **&lt;=** _maximum-threshold_.
+This task succeeds if `_minimum-threshold_` **&lt;=** `_#-matching-workitems_` **&lt;=** `_maximum-threshold_`.
 
-For more information about using this task, see [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
+For more information about using this task, see the [Approvals and gates overview](/azure/devops/pipelines/release/approvals/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
