@@ -202,7 +202,7 @@ Specifies the arguments passed to the PowerShell script. Arguments can be ordina
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your PowerShell commands here.\n\nWrite-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
+Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
