@@ -1,7 +1,7 @@
 ---
 title: SqlDacpacDeploymentOnMachineGroup@0 - SQL Server database deploy v0 task
 description: Deploy a SQL Server database using DACPAC or SQL scripts.
-ms.date: 05/02/2023
+ms.date: 05/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,58 +20,12 @@ Use this task to deploy a SQL Server database using DACPAC or SQL scripts.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-# SQL Server database deploy v0
-# Deploy a SQL Server database using DACPAC or SQL scripts.
-- task: SqlDacpacDeploymentOnMachineGroup@0
-  inputs:
-    TaskType: 'dacpac' # 'dacpac' | 'sqlQuery' | 'sqlInline'. Required. Deploy SQL Using. Default: dacpac.
-    DacpacFile: # string. Required when TaskType = dacpac. DACPAC File. 
-    #SqlFile: # string. Required when TaskType = sqlQuery. Sql File. 
-    #ExecuteInTransaction: false # boolean. Optional. Use when TaskType = sqlQuery. Execute within a transaction. Default: false.
-    #ExclusiveLock: false # boolean. Optional. Use when ExecuteInTransaction = true. Acquire an exclusive app lock while executing script(s). Default: false.
-    #AppLockName: # string. Required when ExclusiveLock = true. App lock name. 
-    #InlineSql: # string. Required when TaskType = sqlInline. Inline Sql. 
-    TargetMethod: 'server' # 'server' | 'connectionString' | 'publishProfile'. Required when TaskType = dacpac. Specify SQL Using. Default: server.
-    #ServerName: 'localhost' # string. Required when TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline. Server Name. Default: localhost.
-    #DatabaseName: # string. Required when TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline. Database Name. 
-    #AuthScheme: 'windowsAuthentication' # 'windowsAuthentication' | 'sqlServerAuthentication'. Required when TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline. Authentication. Default: windowsAuthentication.
-    #SqlUsername: # string. Required when AuthScheme = sqlServerAuthentication. SQL User name. 
-    #SqlPassword: # string. Required when AuthScheme = sqlServerAuthentication. SQL Password. 
-    #ConnectionString: # string. Required when TargetMethod = connectionString. Connection String. 
-    #PublishProfile: # string. Optional. Use when TaskType = dacpac. Publish Profile. 
-    #AdditionalArguments: # string. Optional. Use when TaskType = dacpac. Additional Arguments. 
-    #AdditionalArgumentsSql: # string. Optional. Use when TaskType = sqlQuery || TaskType = sqlInline. Additional Arguments.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# SQL Server Database Deploy v0
-# Deploy to SQL Server Database using DACPAC or SQL scripts.
-- task: SqlDacpacDeploymentOnMachineGroup@0
-  inputs:
-    TaskType: 'dacpac' # 'dacpac' | 'sqlQuery' | 'sqlInline'. Required. Deploy SQL Using. Default: dacpac.
-    DacpacFile: # string. Required when TaskType = dacpac. DACPAC File. 
-    #SqlFile: # string. Required when TaskType = sqlQuery. Sql File. 
-    #ExecuteInTransaction: false # boolean. Optional. Use when TaskType = sqlQuery. Execute within a transaction. Default: false.
-    #ExclusiveLock: false # boolean. Optional. Use when ExecuteInTransaction = true. Acquire an exclusive app lock while executing script(s). Default: false.
-    #AppLockName: # string. Required when ExclusiveLock = true. App lock name. 
-    #InlineSql: # string. Required when TaskType = sqlInline. Inline Sql. 
-    TargetMethod: 'server' # 'server' | 'connectionString' | 'publishProfile'. Required when TaskType = dacpac. Specify SQL Using. Default: server.
-    #ServerName: 'localhost' # string. Required when TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline. Server Name. Default: localhost.
-    #DatabaseName: # string. Required when TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline. Database Name. 
-    #AuthScheme: 'windowsAuthentication' # 'windowsAuthentication' | 'sqlServerAuthentication'. Required when TargetMethod = server || TaskType = sqlQuery || TaskType = sqlInline. Authentication. Default: windowsAuthentication.
-    #SqlUsername: # string. Required when AuthScheme = sqlServerAuthentication. SQL User name. 
-    #SqlPassword: # string. Required when AuthScheme = sqlServerAuthentication. SQL Password. 
-    #ConnectionString: # string. Required when TargetMethod = connectionString. Connection String. 
-    #PublishProfile: # string. Optional. Use when TaskType = dacpac. Publish Profile. 
-    #AdditionalArguments: # string. Optional. Use when TaskType = dacpac. Additional Arguments. 
-    #AdditionalArgumentsSql: # string. Optional. Use when TaskType = sqlQuery || TaskType = sqlInline. Additional Arguments.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end

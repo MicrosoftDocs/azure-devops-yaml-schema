@@ -1,7 +1,7 @@
 ---
 title: AzureFunction@0 - Invoke Azure Function v0 task
 description: Invoke Azure function as a part of your process.
-ms.date: 05/02/2023
+ms.date: 05/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -72,7 +72,7 @@ The URL of the Azure function to be invoked​. Example: `https://azurefunctiona
 **`key`** - **Function key**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The function or the host key used to access and invoke the function. To keep the key secure, use a secret pipeline variable to store the function key. Example: `$(myFunctionKey)`. `myFunctionKey` is an environment-level secret variable with a value as the secret key, such as `ZxPXnIEODXLRzYwCw1TgZ4osMfoKs9Zn6se6X/N0FnztfDvZbdOmYw==`.
+The function or the host key used to access and invoke the function. To keep the key secure, use a secret pipeline variable to store the function key. Example: `$(myFunctionKey)`. `myFunctionKey` is an environment-level secret variable with a value as the secret key.
 <!-- :::editable-content-end::: -->
 <br>
 

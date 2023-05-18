@@ -1,7 +1,7 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 05/02/2023
+ms.date: 05/18/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -25,18 +25,9 @@ Use this task to run your scripts and make changes to your MySQL Database. There
 :::moniker range=">=azure-pipelines-2019.1"
 
 ```yaml
-# MySQL database deploy v1
-# Run scripts and make changes to a MySQL Database.
-- task: MysqlDeploymentOnMachineGroup@1
-  inputs:
-    #TaskNameSelector: 'SqlTaskFile' # 'SqlTaskFile' | 'InlineSqlTask'. Deploy MySql Using. Default: SqlTaskFile.
-    SqlFile: # string. Required when TaskNameSelector = SqlTaskFile. MySQL Script. 
-    #SqlInline: # string. Required when TaskNameSelector = InlineSqlTask. Inline MySQL Script. 
-    ServerName: 'localhost' # string. Required. Host Name. Default: localhost.
-    #DatabaseName: # string. Database Name. 
-    SqlUsername: # string. Required. Mysql User Name. 
-    SqlPassword: # string. Required. Password. 
-    #SqlAdditionalArguments: # string. Additional Arguments.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end
