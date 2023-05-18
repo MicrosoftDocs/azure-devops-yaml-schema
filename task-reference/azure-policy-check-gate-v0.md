@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 05/02/2023
+ms.date: 05/18/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -23,9 +23,13 @@ Use this task to check the security and compliance assessment for Azure Policy.
 :::moniker range=">=azure-pipelines-2019.1"
 
 ```yaml
-# This task is supported on classic release pipelines only.
-# Use the classic designer to add and configure this task in a classic release pipeline.
-# See the following Inputs section for details on the inputs that this task supports.
+# Check Azure Policy compliance v0
+# Security and compliance assessment for Azure Policy.
+- task: AzurePolicyCheckGate@0
+  inputs:
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    #ResourceGroupName: # string. Resource group. 
+    #Resources: # string. Resource name.
 ```
 
 :::moniker-end

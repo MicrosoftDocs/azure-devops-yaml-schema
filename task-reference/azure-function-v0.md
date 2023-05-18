@@ -1,7 +1,7 @@
 ---
 title: AzureFunction@0 - Invoke Azure Function v0 task
 description: Invoke Azure function as a part of your process.
-ms.date: 05/02/2023
+ms.date: 05/18/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -23,9 +23,19 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 :::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-# This task is supported on classic release pipelines only.
-# Use the classic designer to add and configure this task in a classic release pipeline.
-# See the following Inputs section for details on the inputs that this task supports.
+# Invoke Azure Function v0
+# Invoke Azure function as a part of your process.
+- task: AzureFunction@0
+  inputs:
+    function: # string. Required. Azure function url. 
+    key: # string. Required. Function key. 
+    method: 'POST' # 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'PATCH'. Required. Method. Default: POST.
+    #headers: # string. Headers. 
+    #queryParameters: # string. Query parameters. 
+    #body: '{"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}' # string. Optional. Use when method != GET && method != HEAD. Body. Default: {"JobId": "$(system.jobId)", "PlanId": "$(system.planId)", "TimelineId": "$(system.timelineId)", "ProjectId": "$(system.teamProjectId)", "VstsUrl": "$(system.CollectionUri)","AuthToken": "$(system.AccessToken)"}.
+  # Completion Options
+    waitForCompletion: 'false' # 'true' | 'false'. Required. Complete based on. Default: false.
+    #successCriteria: # string. Optional. Use when waitForCompletion = false. Success criteria.
 ```
 
 :::moniker-end
