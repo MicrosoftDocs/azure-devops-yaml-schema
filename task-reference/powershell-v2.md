@@ -213,7 +213,7 @@ Specifies the contents of the script. The maximum supported inline script length
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"\n\n# Use the environment variables input below to pass secret variables to this script.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
+Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -224,7 +224,7 @@ Specifies the contents of the script. The maximum supported inline script length
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
+Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 
