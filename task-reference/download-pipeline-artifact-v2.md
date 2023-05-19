@@ -81,7 +81,7 @@ Specifies the project name or GUID from which to download the pipeline artifacts
 **`definition`** - **Build pipeline**<br>
 Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The definition ID of the pipeline.
+The definition ID of the pipeline. In a running pipeline the `definitionId` can be found in the [System.DefinitionId](/azure/devops/pipelines/build/variables#system-variables-devops-services) variable. The `definitionId` can also be retrieved from the URL on the pipeline overview page in the Azure DevOps portal. In the following URL example, the `definitionId` is 78: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build?definitionId=78&_a=summary`. To download artifacts from a specific pipeline definition, capture the `definitionId` from that pipeline, and specify it as the `pipeline` parameter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -129,7 +129,7 @@ Specifies the filter on the branch/ref name. For example: ```refs/heads/develop`
 **`pipelineId`** - **Build**<br>
 Input alias: `runId | buildId`. `string`. Required when `source == specific && runVersion == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The build from which to download the artifacts. For example: `1764`.
+The identifier of the pipeline run from which to download the artifacts. In a running pipeline the `buildId` can be found in the [Build.BuildId](/azure/devops/pipelines/build/variables#build-variables-devops-services) variable. The `buildId` can also be retrieved from the URL on the pipeline run summary page in the Azure DevOps portal. In the following URL example, the `buildId` is 1088: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build/results?buildId=1088&view=results`. To download artifacts from a specific pipeline run, capture the `buildId` from that run, and specify it as the `buildId` parameter.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -255,7 +255,14 @@ The [publish](/azure/devops/pipelines/yaml-schema/steps-publish) and [download](
 
 ### How can I find the ID of the Pipeline I want to download an artifact from?
 
-You can find the ID of the pipeline in the pipeline variables. The pipeline ID is the [system.definitionId](/azure/devops/pipelines/build/variables#system-variables) variable. You can also find the ID in the URL path.
+#### To find the definitionId for a specific pipeline definition
+
+In a running pipeline, the `definitionId` can be found in the [System.DefinitionId](/azure/devops/pipelines/build/variables#system-variables-devops-services) variable. The `definitionId` can also be retrieved from the URL on the pipeline overview page in the Azure DevOps portal. In the following URL example, the `definitionId` is 78: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build?definitionId=78&_a=summary`. To download artifacts from a specific pipeline definition, capture the `definitionId` from that pipeline, and specify it as the `pipeline` parameter.
+
+#### To find the buildId for a specific pipeline run
+
+The identifier of the pipeline run from which to download the artifacts. In a running pipeline the `buildId` can be found in the [Build.BuildId](/azure/devops/pipelines/build/variables#build-variables-devops-services) variable. The `buildId` can also be retrieved from the URL on the pipeline run summary page in the Azure DevOps portal. In the following URL example, the `buildId` is 1088: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build/results?buildId=1088&view=results`. To download artifacts from a specific pipeline run, capture the `buildId` from that run, and specify it as the `buildId` parameter.
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
