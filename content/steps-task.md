@@ -207,7 +207,7 @@ If you don't specify a command mode, you can shorten the `target` structure to:
 
 ### Common task properties
 
-All tasks support a set of common properties in addition to `name` and `inputs`. For more information on configuring these properties, see [Task control options](/azure/devops/pipelines/process/tasks#task-control-options) and [Task environment variables](/azure/devops/pipelines/process/tasks#environment-variables).
+All tasks support a set of common properties in addition to `name` and `inputs`. For a list of common task properties, see the preceding [Properties](#properties) section. For more information on configuring these properties, see [Task control options](/azure/devops/pipelines/process/tasks#task-control-options) and [Task environment variables](/azure/devops/pipelines/process/tasks#environment-variables).
 
 Learn more about [conditions](/azure/devops/pipelines/process/conditions),
 [timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks#step-target).
