@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 05/18/2023
+ms.date: 05/23/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,23 @@ Use this task to check the security and compliance assessment for Azure Policy.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Check Azure Policy compliance v0
+# Security and compliance assessment for Azure Policy.
+- task: AzurePolicyCheckGate@0
+  inputs:
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    #ResourceGroupName: # string. Resource group. 
+    #Resources: # string. Resource name. 
+  # Advanced
+    #RetryDuration: '00:02:00' # string. Retry duration. Default: 00:02:00.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 ```yaml
 # Check Azure Policy compliance v0
@@ -69,6 +85,18 @@ Provides the resource group name.
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the name of Azure resources for which you want to check the policy compliance.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="RetryDuration"::: -->
+:::moniker range="=azure-pipelines"
+
+**`RetryDuration`** - **Retry duration**<br>
+`string`. Default value: `00:02:00`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Defines period which task will wait until it retry to call Azure API in case that previous response code was "Accepted"​. Minimal period is 2 minutes.
 <!-- :::editable-content-end::: -->
 <br>
 

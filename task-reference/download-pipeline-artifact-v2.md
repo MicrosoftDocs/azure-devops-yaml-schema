@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 05/02/2023
+ms.date: 05/23/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -262,7 +262,6 @@ In a running pipeline, the `definitionId` can be found in the [System.Definition
 #### To find the buildId for a specific pipeline run
 
 The identifier of the pipeline run from which to download the artifacts. In a running pipeline the `buildId` can be found in the [Build.BuildId](/azure/devops/pipelines/build/variables#build-variables-devops-services) variable. The `buildId` can also be retrieved from the URL on the pipeline run summary page in the Azure DevOps portal. In the following URL example, the `buildId` is 1088: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build/results?buildId=1088&view=results`. To download artifacts from a specific pipeline run, capture the `buildId` from that run, and specify it as the `buildId` parameter.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
