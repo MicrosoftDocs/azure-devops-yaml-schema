@@ -1,7 +1,7 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 05/02/2023
+ms.date: 05/23/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -51,8 +51,8 @@ Build, test, and deploy with Apache Maven.
     #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
     #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
     #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
-    #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate built-in Maven feeds. Default: false.
-    #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating built-in feeds. Default: false.
+    #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate with Artifacts feeds. Default: false.
+    #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating with Artifacts feeds. Default: false.
   # Code Analysis
     #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
     #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
@@ -333,7 +333,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 <!-- :::item name="mavenAuthenticateFeed"::: -->
 :::moniker range="=azure-pipelines"
 
-**`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
+**`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are not in use, deselect this option for faster builds.
@@ -345,7 +345,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 <!-- :::item name="effectivePomSkip"::: -->
 :::moniker range="=azure-pipelines"
 
-**`effectivePomSkip`** - **Skip generating effective POM while authenticating built-in feeds**<br>
+**`effectivePomSkip`** - **Skip generating effective POM while authenticating with Artifacts feeds**<br>
 Input alias: `skipEffectivePom`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Authenticates with Artifacts feeds using the POM only.

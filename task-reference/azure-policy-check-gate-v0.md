@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 05/18/2023
+ms.date: 05/23/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,23 @@ Use this task to check the security and compliance assessment for Azure Policy.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Check Azure Policy compliance v0
+# Security and compliance assessment for Azure Policy.
+- task: AzurePolicyCheckGate@0
+  inputs:
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    #ResourceGroupName: # string. Resource group. 
+    #Resources: # string. Resource name. 
+  # Advanced
+    #RetryDuration: '00:02:00' # string. Retry duration. Default: 00:02:00.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 ```yaml
 # Check Azure Policy compliance v0
@@ -69,6 +85,20 @@ Provides the resource group name.
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the name of Azure resources for which you want to check the policy compliance.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="RetryDuration"::: -->
+:::moniker range="=azure-pipelines"
+
+**`RetryDuration`** - **Retry duration**<br>
+`string`. Default value: `00:02:00`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The Check Azure Policy compliance task performs an asynchronous [On-demand evaluation scan](/azure/governance/policy/how-to/get-compliance-data#on-demand-evaluation-scan---rest) of your [compliance data of Azure resources](/azure/governance/policy/how-to/get-compliance-data). The call returns a **202 Accepted** status while the evaluation is ongoing. The `RetryDuration` input configures the intervals in which the task retries the REST API call to check for the completion of the policy evaluation. The format is **hours:minutes:seconds** in the following format: `hh:mm:ss`.
+
+The default is `00:02:00` (two minutes), which is the minumum interval that may be configured.
 <!-- :::editable-content-end::: -->
 <br>
 

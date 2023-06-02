@@ -221,11 +221,11 @@ items:
   - name: AzureResourceGroupDeployment@1
     href: azure-resource-group-deployment-v1.md
     displayName: Azure Resource Group Deployment v1
-- name: Azure Spring Cloud
+- name: Azure Spring Apps
   items:
   - name: AzureSpringCloud@0
     href: azure-spring-cloud-v0.md
-    displayName: Azure Spring Cloud v0
+    displayName: Azure Spring Apps v0
 - name: Azure SQL Database deployment
   items:
   - name: SqlAzureDacpacDeployment@1

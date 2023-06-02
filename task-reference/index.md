@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 05/02/2023
+ms.date: 05/23/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -80,7 +80,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure PowerShell**<br>[AzurePowerShell@5](azure-powershell-v5.md)<br>[AzurePowerShell@4](azure-powershell-v4.md)<br>[AzurePowerShell@3](azure-powershell-v3.md)<br>[AzurePowerShell@2](azure-powershell-v2.md)<br>[AzurePowerShell@1](azure-powershell-v1.md) | Run a PowerShell script within an Azure environment. |
 | **Azure resource group deployment**<br>[AzureResourceGroupDeployment@2](azure-resource-group-deployment-v2.md) | Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines. |
 | **Azure Resource Group Deployment**<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy, start, stop, delete Azure Resource Groups. |
-| **Azure Spring Cloud**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Cloud and manage deployments. |
+| **Azure Spring Apps**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Apps and manage deployments. |
 | **Azure SQL Database deployment**<br>[SqlAzureDacpacDeployment@1](sql-azure-dacpac-deployment-v1.md) | Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD. |
 | **Azure VM scale set deployment**<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
 | **Azure Web App**<br>[AzureWebApp@1](azure-web-app-v1.md) | Deploy an Azure Web App for Linux or Windows. |
