@@ -176,6 +176,9 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it. For example, to configure a 10 minute timeout, use `timeoutInMinutes: 10`.
+
+> [!NOTE]
+> Azure Pipelines [enforces time limits based on your project type and whether you are using paid parallel jobs](/azure/devops/pipelines/licensing/concurrent-jobs#how-much-do-parallel-jobs-cost), and timeouts can also be specified at the [job level](jobs-job.md). If these timeout intervals elapse before your task completes, the task is terminated, even if the task is configured with a longer timeout interval.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
