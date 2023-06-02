@@ -97,6 +97,8 @@ Selects the name of Azure resources for which you want to check the policy compl
 `string`. Default value: `00:02:00`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Check Azure Policy compliance task performs an asynchronous [On-demand evaluation scan](/azure/governance/policy/how-to/get-compliance-data#on-demand-evaluation-scan---rest) of your [compliance data of Azure resources](/azure/governance/policy/how-to/get-compliance-data). The call returns a **202 Accepted** status while the evaluation is ongoing. The `RetryDuration` input configures the intervals in which the task retries the REST API call to check for the completion of the policy evaluation. The format is **hours:minutes:seconds** in the following format: `hh:mm:ss`.
+
+The default is `00:02:00` (two minutes), which is the minumum interval that may be configured.
 <!-- :::editable-content-end::: -->
 <br>
 
