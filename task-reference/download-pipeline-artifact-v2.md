@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 05/23/2023
+ms.date: 06/02/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

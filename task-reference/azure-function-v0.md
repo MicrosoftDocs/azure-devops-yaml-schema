@@ -1,7 +1,7 @@
 ---
 title: AzureFunction@0 - Invoke Azure Function v0 task
 description: Invoke Azure function as a part of your process.
-ms.date: 05/18/2023
+ms.date: 06/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
