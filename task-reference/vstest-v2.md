@@ -270,7 +270,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 :::moniker range=">=azure-pipelines-2019"
 
 **`testAssemblyVer2`** - **Test files**<br>
-`string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
+`string`. Required when `testSelector = testAssemblies`. Default value: `**\bin\**\*test.dll\n**\bin\**\*tests.dll`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -281,7 +281,7 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 :::moniker range="=azure-pipelines-2018"
 
 **`testAssemblyVer2`** - **Test assemblies**<br>
-`string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
+`string`. Required when `testSelector = testAssemblies`. Default value: `**\bin\**\*test.dll\n**\bin\**\*tests.dll`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
