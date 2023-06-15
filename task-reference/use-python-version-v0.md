@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to select a version of Python to run on an agent, and optionally add it to PATH.
+Use this task to download or select a version of Python to run on an agent, and optionally add it to PATH.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -175,6 +175,7 @@ Use this task to select a version of Python to run on an agent, and optionally a
 ### Prerequisites
 
 * A [Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted#software) with side-by-side versions of Python installed, or a self-hosted agent with `Agent.ToolsDirectory` configured (see [FAQ](#how-can-i-configure-a-self-hosted-agent-to-use-this-task)).
+* Downloading python versions is not supported on self-hosted agents.
 
 This task will fail if no Python versions are found in `Agent.ToolsDirectory`. Available Python versions on Microsoft-hosted agents can be found [here](/azure/devops/pipelines/agents/hosted#software).
 
@@ -206,6 +207,9 @@ On the Microsoft-hosted Windows images, the interpreter is just `python`.
 For Microsoft-hosted agents, x86 is supported only on Windows. This is because Windows can run executables compiled for the x86 architecture with the WoW64 subsystem.Hosted Ubuntu and Hosted macOS run 64-bit operating systems and run only 64-bit Python.
 
 ### How can I configure a self-hosted agent to use this task?
+
+> [!IMPORTANT]
+> Downloading python versions is not supported on self-hosted agents. You may only use pre-installed versions.
 
 The desired Python version needs to be added to the tool cache on the self-hosted agent so the task can use it. Normally, the tool cache is located under the `_work/_tool` directory of the agent; alternatively, the path can be overridden by the environment variable `AGENT_TOOLSDIRECTORY`. Under that directory, create the following directory structure based off of your Python version:
 
