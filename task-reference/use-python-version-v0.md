@@ -170,7 +170,7 @@ The directory of the installed Python distribution. Use this in subsequent tasks
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to select a version of Python to run on an agent, and optionally add it to PATH.
+Use this task to download or select a version of Python to run on an agent, and optionally add it to PATH.
 
 ### Prerequisites
 
