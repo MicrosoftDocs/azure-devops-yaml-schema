@@ -168,8 +168,8 @@ The source folder of the files to copy to the remote machine.  When empty, the r
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file paths to include as part of the copy. Supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns). The default value is `**`, which includes all files (including sub-folders) under the source folder.
 
-- Example: `**/*.jar \n **/*.war` includes all .jar and .war files (including sub-folders) under the source folder.
-- Example: `** \n !**/*.xml` includes all files (including sub-folders) under the source folder, but excludes xml files.
+- Example: `**/*.*(jar|war)` includes all .jar and .war files (including sub-folders) under the source folder.
+- Example: `"** \n !**/*.xml"` includes all files (including sub-folders) under the source folder, but excludes xml files.
 <!-- :::editable-content-end::: -->
 <br>
 
