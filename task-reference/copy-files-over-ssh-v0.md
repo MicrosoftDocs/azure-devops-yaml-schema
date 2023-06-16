@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -168,8 +168,8 @@ The source folder of the files to copy to the remote machine.  When empty, the r
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file paths to include as part of the copy. Supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns). The default value is `**`, which includes all files (including sub-folders) under the source folder.
 
-- Example: `**/*.jar \n **/*.war` includes all .jar and .war files (including sub-folders) under the source folder.
-- Example: `** \n !**/*.xml` includes all files (including sub-folders) under the source folder, but excludes xml files.
+- Example: `**/*.*(jar|war)` includes all .jar and .war files (including sub-folders) under the source folder.
+- Example: `"** \n !**/*.xml"` includes all files (including sub-folders) under the source folder, but excludes xml files.
 <!-- :::editable-content-end::: -->
 <br>
 

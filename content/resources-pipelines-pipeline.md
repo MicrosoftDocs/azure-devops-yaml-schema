@@ -265,7 +265,7 @@ For more information, see [Pipeline completion triggers](/azure/devops/pipelines
 
 ### Pipeline resource metadata as predefined variables
 
-In each run, the metadata for a pipeline resource is available to all jobs as these predefined variables:
+In each run, the metadata for a pipeline resource is available to all jobs as the following predefined variables. These variables are available to your pipeline at runtime, and therefore can't be used in [template expressions](/azure/devops/pipelines/process/variables#template-expression-syntax), which are evaluated at pipeline compile time.
 
 ```yaml
 resources.pipeline.<Alias>.projectName
@@ -336,6 +336,8 @@ RESOURCES_PIPELINE_SOURCE-PIPELINE_PROJECTNAME=FabrikamFiber
 
 > [!NOTE]
 > System and user-defined variables get injected as environment variables for your platform. When variables convert into environment variables, variable names become uppercase, and periods turn into underscores. For example, the variable name `any.variable` becomes `ANY_VARIABLE`.
+>
+> For more information about using variables and variable syntax, see [Understand variable syntax](/azure/devops/pipelines/process/variables?#understand-variable-syntax), [Specify conditions](/azure/devops/pipelines/process/conditions), and [Expressions](/azure/devops/pipelines/process/expressions).
 
 :::moniker-end
 

@@ -1,7 +1,7 @@
 ---
 title: UseRubyVersion@0 - Use Ruby version v0 task
 description: Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -106,7 +106,7 @@ Use this task to select a version of Ruby to run on an agent, and optionally add
 
 * A [Microsoft-hosted agent](/azure/devops/pipelines/agents/hosted#software) with side-by-side versions of Ruby installed, or a self-hosted agent with `Agent.ToolsDirectory` configured (see [FAQ](#how-can-i-configure-a-self-hosted-agent-to-use-this-task)).
 
-This task will fail if no Ruby versions are found in `Agent.ToolsDirectory`. See other available Ruby versions on [Microsoft-hosted agents](https://github.com/azure/devops/pipelines/agents/hosted#software).
+This task will fail if no Ruby versions are found in `Agent.ToolsDirectory`. See other available Ruby versions on [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted#software).
 
 ### Where can I learn more about tool installers?
 

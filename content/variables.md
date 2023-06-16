@@ -20,13 +20,13 @@ Define variables using name/value pairs.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

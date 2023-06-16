@@ -1,7 +1,7 @@
 ---
 title: IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
 description: Create or update websites, web apps, virtual directories, or application pools.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,158 +20,12 @@ Use this task to create or update websites, web apps, virtual directories, or ap
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019"
 
 ```yaml
-# IIS web app manage v0
-# Create or update websites, web apps, virtual directories, or application pools.
-- task: IISWebAppManagementOnMachineGroup@0
-  inputs:
-    #EnableIIS: false # boolean. Enable IIS. Default: false.
-    IISDeploymentType: 'IISWebsite' # 'IISWebsite' | 'IISWebApplication' | 'IISVirtualDirectory' | 'IISApplicationPool'. Required. Configuration type. Default: IISWebsite.
-    ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: CreateOrUpdateWebsite.
-    #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: CreateOrUpdateAppPool.
-    #StartStopWebsiteName: # string. Required when ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite. Website name. 
-    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: http.
-    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: All Unassigned.
-    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: 80.
-    #ServerNameIndication: false # boolean. Optional. Use when IISDeploymentType = randomDeployment. Server Name Indication required. Default: false.
-    #HostNameWithOutSNI: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
-    #HostNameWithHttp: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
-    #HostNameWithSNI: # string. Required when IISDeploymentType = randomDeployment. Host name. 
-    #SSLCertThumbPrint: # string. Required when IISDeploymentType = randomDeployment. SSL certificate thumbprint. 
-    #StartStopRecycleAppPoolName: # string. Required when ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool. Application pool name. 
-  # IIS Website
-    WebsiteName: # string. Required. Website name. 
-    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
-    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough' # 'WebsiteUserPassThrough' | 'WebsiteWindowsAuth'. Required. Physical path authentication. Default: WebsiteUserPassThrough.
-    #WebsiteAuthUserName: # string. Required when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Username. 
-    #WebsiteAuthUserPassword: # string. Optional. Use when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Password. 
-    #AddBinding: false # boolean. Add binding. Default: false.
-    #CreateOrUpdateAppPoolForWebsite: false # boolean. Create or update app pool. Default: false.
-    #ConfigureAuthenticationForWebsite: false # boolean. Configure authentication. Default: false.
-  # IIS Bindings
-    Bindings: # string. Required. Add bindings. 
-  # IIS Application pool
-    AppPoolNameForWebsite: # string. Required. Name. 
-    DotNetVersionForWebsite: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
-    PipeLineModeForWebsite: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
-    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsernameForWebsite: # string. Required when AppPoolIdentityForWebsite = SpecificUser. Username. 
-    #AppPoolPasswordForWebsite: # string. Optional. Use when AppPoolIdentityForWebsite = SpecificUser. Password. 
-  # IIS Authentication
-    #AnonymousAuthenticationForWebsite: false # boolean. Anonymous authentication. Default: false.
-    #BasicAuthenticationForWebsite: false # boolean. Basic authentication. Default: false.
-    #WindowsAuthenticationForWebsite: true # boolean. Windows authentication. Default: true.
-  # IIS Virtual directory
-    ParentWebsiteNameForVD: # string. Required. Parent website name. 
-    VirtualPathForVD: # string. Required. Virtual path. 
-    PhysicalPathForVD: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
-    #VDPhysicalPathAuth: 'VDUserPassThrough' # 'VDUserPassThrough' | 'VDWindowsAuth'. Physical path authentication. Default: VDUserPassThrough.
-    #VDAuthUserName: # string. Required when VDPhysicalPathAuth = VDWindowsAuth. Username. 
-    #VDAuthUserPassword: # string. Optional. Use when VDPhysicalPathAuth = VDWindowsAuth. Password. 
-  # IIS Application
-    ParentWebsiteNameForApplication: # string. Required. Parent website name. 
-    VirtualPathForApplication: # string. Required. Virtual path. 
-    PhysicalPathForApplication: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
-    #ApplicationPhysicalPathAuth: 'ApplicationUserPassThrough' # 'ApplicationUserPassThrough' | 'ApplicationWindowsAuth'. Physical path authentication. Default: ApplicationUserPassThrough.
-    #ApplicationAuthUserName: # string. Required when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Username. 
-    #ApplicationAuthUserPassword: # string. Optional. Use when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Password. 
-    #CreateOrUpdateAppPoolForApplication: false # boolean. Create or update app pool. Default: false.
-  # IIS Application pool
-    AppPoolNameForApplication: # string. Required. Name. 
-    DotNetVersionForApplication: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
-    PipeLineModeForApplication: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
-    AppPoolIdentityForApplication: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsernameForApplication: # string. Required when AppPoolIdentityForApplication = SpecificUser. Username. 
-    #AppPoolPasswordForApplication: # string. Optional. Use when AppPoolIdentityForApplication = SpecificUser. Password. 
-  # IIS Application pool
-    AppPoolName: # string. Required. Name. 
-    DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
-    PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
-    AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsername: # string. Required when AppPoolIdentity = SpecificUser. Username. 
-    #AppPoolPassword: # string. Optional. Use when AppPoolIdentity = SpecificUser. Password. 
-  # Advanced
-    #AppCmdCommands: # string. Additional appcmd.exe commands.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# IIS Web App Manage v0
-# Create or update a Website, Web App, Virtual Directories, and Application Pool.
-- task: IISWebAppManagementOnMachineGroup@0
-  inputs:
-    #EnableIIS: false # boolean. Enable IIS. Default: false.
-    IISDeploymentType: 'IISWebsite' # 'IISWebsite' | 'IISWebApplication' | 'IISVirtualDirectory' | 'IISApplicationPool'. Required. Configuration type. Default: IISWebsite.
-    ActionIISWebsite: 'CreateOrUpdateWebsite' # 'CreateOrUpdateWebsite' | 'StartWebsite' | 'StopWebsite'. Required when IISDeploymentType = IISWebsite. Action. Default: CreateOrUpdateWebsite.
-    #ActionIISApplicationPool: 'CreateOrUpdateAppPool' # 'CreateOrUpdateAppPool' | 'StartAppPool' | 'StopAppPool' | 'RecycleAppPool'. Required when IISDeploymentType = IISApplicationPool. Action. Default: CreateOrUpdateAppPool.
-    #StartStopWebsiteName: # string. Required when ActionIISWebsite = StartWebsite || ActionIISWebsite = StopWebsite. Website name. 
-    #Protocol: 'http' # 'https' | 'http'. Required when IISDeploymentType = randomDeployment. Protocol. Default: http.
-    #IPAddress: 'All Unassigned' # string. Required when IISDeploymentType = randomDeployment. IP address. Default: All Unassigned.
-    #Port: '80' # string. Required when IISDeploymentType = randomDeployment. Port. Default: 80.
-    #ServerNameIndication: false # boolean. Optional. Use when IISDeploymentType = randomDeployment. Server Name Indication required. Default: false.
-    #HostNameWithOutSNI: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
-    #HostNameWithHttp: # string. Optional. Use when IISDeploymentType = randomDeployment. Host name. 
-    #HostNameWithSNI: # string. Required when IISDeploymentType = randomDeployment. Host name. 
-    #SSLCertThumbPrint: # string. Required when IISDeploymentType = randomDeployment. SSL certificate thumbprint. 
-    #StartStopRecycleAppPoolName: # string. Required when ActionIISApplicationPool = StartAppPool || ActionIISApplicationPool = StopAppPool || ActionIISApplicationPool = RecycleAppPool. Application pool name. 
-  # IIS Website
-    WebsiteName: # string. Required. Website name. 
-    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
-    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough' # 'WebsiteUserPassThrough' | 'WebsiteWindowsAuth'. Required. Physical path authentication. Default: WebsiteUserPassThrough.
-    #WebsiteAuthUserName: # string. Required when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Username. 
-    #WebsiteAuthUserPassword: # string. Optional. Use when WebsitePhysicalPathAuth = WebsiteWindowsAuth. Password. 
-    #AddBinding: false # boolean. Add binding. Default: false.
-    #CreateOrUpdateAppPoolForWebsite: false # boolean. Create or update app pool. Default: false.
-    #ConfigureAuthenticationForWebsite: false # boolean. Configure authentication. Default: false.
-  # IIS Bindings
-    Bindings: # string. Required. Add bindings. 
-  # IIS Application pool
-    AppPoolNameForWebsite: # string. Required. Name. 
-    DotNetVersionForWebsite: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
-    PipeLineModeForWebsite: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
-    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsernameForWebsite: # string. Required when AppPoolIdentityForWebsite = SpecificUser. Username. 
-    #AppPoolPasswordForWebsite: # string. Optional. Use when AppPoolIdentityForWebsite = SpecificUser. Password. 
-  # IIS Authentication
-    #AnonymousAuthenticationForWebsite: false # boolean. Anonymous authentication. Default: false.
-    #BasicAuthenticationForWebsite: false # boolean. Basic authentication. Default: false.
-    #WindowsAuthenticationForWebsite: true # boolean. Windows authentication. Default: true.
-  # IIS Virtual directory
-    ParentWebsiteNameForVD: # string. Required. Parent website name. 
-    VirtualPathForVD: # string. Required. Virtual path. 
-    PhysicalPathForVD: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
-    #VDPhysicalPathAuth: 'VDUserPassThrough' # 'VDUserPassThrough' | 'VDWindowsAuth'. Physical path authentication. Default: VDUserPassThrough.
-    #VDAuthUserName: # string. Required when VDPhysicalPathAuth = VDWindowsAuth. Username. 
-    #VDAuthUserPassword: # string. Optional. Use when VDPhysicalPathAuth = VDWindowsAuth. Password. 
-  # IIS Application
-    ParentWebsiteNameForApplication: # string. Required. Parent website name. 
-    VirtualPathForApplication: # string. Required. Virtual path. 
-    PhysicalPathForApplication: '%SystemDrive%\inetpub\wwwroot' # string. Required. Physical path. Default: %SystemDrive%\inetpub\wwwroot.
-    #ApplicationPhysicalPathAuth: 'ApplicationUserPassThrough' # 'ApplicationUserPassThrough' | 'ApplicationWindowsAuth'. Physical path authentication. Default: ApplicationUserPassThrough.
-    #ApplicationAuthUserName: # string. Required when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Username. 
-    #ApplicationAuthUserPassword: # string. Optional. Use when ApplicationPhysicalPathAuth = ApplicationWindowsAuth. Password. 
-    #CreateOrUpdateAppPoolForApplication: false # boolean. Create or update app pool. Default: false.
-  # IIS Application pool
-    AppPoolNameForApplication: # string. Required. Name. 
-    DotNetVersionForApplication: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
-    PipeLineModeForApplication: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
-    AppPoolIdentityForApplication: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsernameForApplication: # string. Required when AppPoolIdentityForApplication = SpecificUser. Username. 
-    #AppPoolPasswordForApplication: # string. Optional. Use when AppPoolIdentityForApplication = SpecificUser. Password. 
-  # IIS Application pool
-    AppPoolName: # string. Required. Name. 
-    DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required. .NET version. Default: v4.0.
-    PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required. Managed pipeline mode. Default: Integrated.
-    AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsername: # string. Required when AppPoolIdentity = SpecificUser. Username. 
-    #AppPoolPassword: # string. Optional. Use when AppPoolIdentity = SpecificUser. Password. 
-  # Advanced
-    #AppCmdCommands: # string. Additional appcmd.exe commands.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end

@@ -1,7 +1,7 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -108,7 +108,7 @@ Specifies the working directory where the script is run. If a value is not speci
 **`inlineScript`** - **Inline Script**<br>
 `string`. Required when `scriptType = inlineScript`. Default value: `# You can write your powershell scripts inline here. \n# You can also pass predefined and custom variables to this scripts using arguments\n\n Write-Host "Hello World"`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 32766 characters. Use a script from a file if you want to use a longer script.
+Specifies the contents of the script. The maximum supported inline script length is 500 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 

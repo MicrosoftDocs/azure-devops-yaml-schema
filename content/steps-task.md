@@ -176,6 +176,8 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it. For example, to configure a 10 minute timeout, use `timeoutInMinutes: 10`.
+
+[!INCLUDE [task-timeout](./includes/task-timeout.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -207,7 +209,7 @@ If you don't specify a command mode, you can shorten the `target` structure to:
 
 ### Common task properties
 
-All tasks support a set of common properties in addition to `name` and `inputs`. For more information on configuring these properties, see [Task control options](/azure/devops/pipelines/process/tasks#task-control-options) and [Task environment variables](/azure/devops/pipelines/process/tasks#environment-variables).
+All tasks support a set of common properties in addition to `name` and `inputs`. For a list of common task properties, see the preceding [Properties](#properties) section. For more information on configuring these properties, see [Task control options](/azure/devops/pipelines/process/tasks#task-control-options) and [Task environment variables](/azure/devops/pipelines/process/tasks#environment-variables).
 
 Learn more about [conditions](/azure/devops/pipelines/process/conditions),
 [timeouts](/azure/devops/pipelines/process/phases#timeouts), and [step targets](/azure/devops/pipelines/process/tasks#step-target).

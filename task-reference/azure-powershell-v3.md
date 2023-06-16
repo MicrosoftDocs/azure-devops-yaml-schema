@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@3 - Azure PowerShell v3 task
 description: Run a PowerShell script within an Azure environment (task version 3).
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -137,7 +137,7 @@ The path of the script. This should be a fully qualified path or one relative to
 **`Inline`** - **Inline Script**<br>
 `string`. Optional. Use when `ScriptType = InlineScript`. Default value: `# You can write your azure powershell scripts inline here. \n# You can also pass predefined and custom variables to this script using arguments`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enters the script to execute.
+Specifes the script to execute. The maximum supported inline script length is 5000 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
 <br>
 

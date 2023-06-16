@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
 description: Pause a YAML pipeline run to wait for manual interaction (Preview).
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -45,6 +45,8 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sends a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send an email to a group using the `[org name]\group name` syntax.
+
+This task input is required, but you can specify an empty string if you don't want to notify anyone, for example during a test run: `notifyUsers: ''`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -103,7 +105,7 @@ The **Manual Validation** task allows you to pause a pipeline run within a stage
 
 The **Manual Validation** task configuration includes an **instructions** parameter that is used to provide related information or to specify the manual steps the user executes during the pause. You can configure the task to send email notifications to users and user groups when it is awaiting a review and specify the automatic response (reject or resume) after a configurable timeout occurs.
 
-You can specify the timeout value for the task using the optional `timeoutInMinutes` parameter, available in the control options.
+You can specify the timeout value for the task using the optional `timeoutInMinutes` parameter, available in the common task properties.
 
 > [!NOTE]
 > For the task to run completely, the timeout value of the job should be higher than the timeout value of the task. See [default job timeout values](/azure/devops/pipelines/process/phases#timeouts).

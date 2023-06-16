@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: "<=azure-pipelines"
 ---
 

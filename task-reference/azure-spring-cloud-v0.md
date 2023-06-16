@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Cloud v0 task
 description: Deploy applications to Azure Spring Cloud and manage deployments.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -23,13 +23,13 @@ This task deploys applications to Azure Spring Cloud and manages those deploymen
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Azure Spring Cloud v0
-# Deploy applications to Azure Spring Cloud and manage deployments.
+# Azure Spring Apps v0
+# Deploy applications to Azure Spring Apps and manage deployments.
 - task: AzureSpringCloud@0
   inputs:
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
-    AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
+    AzureSpringCloud: # string. Required. Azure Spring Apps Name. 
     AppName: # string. Required. App. 
     #DeploymentType: 'Artifacts' # 'Artifacts' | 'CustomContainer'. Optional. Use when Action = Deploy. Deployment Type. Default: Artifacts.
     #UseStagingDeployment: true # boolean. Optional. Use when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
@@ -108,7 +108,18 @@ The action to be performed on Azure Spring Cloud.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AzureSpringCloud"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+**`AzureSpringCloud`** - **Azure Spring Apps Name**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The name or resource ID of the Azure Spring Cloud instance to deploy.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 **`AzureSpringCloud`** - **Azure Spring Cloud Name**<br>
 `string`. Required.<br>

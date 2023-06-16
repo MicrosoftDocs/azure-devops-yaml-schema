@@ -173,6 +173,8 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.
+
+[!INCLUDE [task-timeout](./includes/task-timeout.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

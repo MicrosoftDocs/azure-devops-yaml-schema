@@ -1,7 +1,7 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -685,8 +685,6 @@ None.
 ## Remarks
 
 Use this task to build, test, or archive an Xcode workspace on macOS, and optionally package an app.
-
-This version of the task is compatible with Xcode 8 - 11. Features that were solely to maintain compatibility with Xcode 7 have been removed. This task has better options for using Microsoft-hosted macOS agents.
 
 ### Using multiple provisioning profiles
 
