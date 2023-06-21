@@ -167,7 +167,7 @@ This task is only supported in build pipelines, not release pipelines.
 
 Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dotnet-core-cli-v2.md), [Ant](ant-v1.md), [Maven](maven-v2.md), [Gulp](gulp-v1.md), and [Grunt](grunt-v0.md) also provide the option to publish code coverage data to the pipeline. If you are using these tasks, you do not need a separate Publish Code Coverage Results task in the pipeline.
 
-To generate the HTML code coverage report you need dotnet 2.0.0 or later on the agent. The dotnet folder must be in the environment path. If there are multiple folders containing dotnet, the one with version 2.0.0 must be before any others in the path list.
+To generate the HTML code coverage report you need dotnet framework 2.0.0 or later on the agent. The dotnet folder must be in the environment path. If there are multiple folders containing dotnet, the one with version 2.0.0 must be before any others in the path list.
 
 ### Code coverage results for JavaScript with Istanbul using YAML
 
