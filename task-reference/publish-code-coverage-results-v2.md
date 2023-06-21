@@ -102,7 +102,7 @@ This task is only supported in build pipelines, not release pipelines.
 
 Tasks such as [Visual Studio Test](vstest-v2.md), [.NET Core](dotnet-core-cli-v2.md), [Ant](ant-v1.md), [Maven](maven-v2.md), [Gulp](gulp-v1.md), and [Grunt](grunt-v0.md) also provide the option to publish code coverage data to the pipeline. If you are using these tasks, you do not need a separate Publish Code Coverage Results task in the pipeline.
 
-Prerequisite- To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 7.0.x] (/dotnet/core/whats-new/dotnet-7) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task. 
+Prerequisite- To use the Publish Code Coverage Results v2 task in the pipeline, please use the [dotnet 7.0.x](/dotnet/core/whats-new/dotnet-7) task as a pre-requisite in the pipeline. Use the dotnet core task before the Publish Code Coverage v2 task. 
 
 ### Prerequisites
 
