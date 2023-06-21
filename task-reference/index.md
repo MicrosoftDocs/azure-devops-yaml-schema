@@ -1287,15 +1287,15 @@ Inputs to a task are identified by a `label`, `name`, and may include one or mor
 }
 ```
 
-Before YAML pipelines were introduced in 2019, pipelines were created and edited using a UI based pipeline editor, and only the `label` was used to reference a task input. The `name` was present but wasn't displayed to pipeline authors.
+Before YAML pipelines were introduced in 2019, pipelines were created and edited using a UI based pipeline editor, and only the `label` was used by pipeline authors to reference a task input.
 
 :::image type="content" source="./media/task-assistant.png" alt-text="Screenshot of the task assistant in the YAML pipeline editor.":::
 
-When YAML pipelines were introduced in 2019, pipeline authors using YAML began using the task input `name` to refer to a task input. In some cases, the task input names weren't descriptive, so `aliases` were added to provide additional descriptive names for task inputs.
+When YAML pipelines were introduced in 2019, pipeline authors using YAML started using the task input `name` to refer to a task input. In some cases, the task input names weren't descriptive, so `aliases` were added to provide additional descriptive names for task inputs.
 
-For example, the `InstallSSHKey@0` task has a **Known Hosts Entry** input named `hostName` that expects an entry from a **known_hosts** file. The **Known Hosts Entry** label in the classic pipeline designer makes this clear, but it isn't as clear when using the `hostName` name in a YAML pipeline. Task input aliases were introduced to allow task authors to provide decriptive names for their previously authored tasks, and for the `InstallSSHKey@0` task, a `knownHostsEntry` alias was added, while keeping the original `hostName` name for compatibility with existing pipelines using that name.
+For example, the `InstallSSHKey@0` task has a **Known Hosts Entry** input named `hostName` that expects an entry from a **known_hosts** file. The **Known Hosts Entry** label in the classic pipeline designer makes this clear, but it isn't as clear when using the `hostName` name in a YAML pipeline. Task input aliases were introduced to allow task authors to provide decriptive names for their previously authored tasks, and for the `InstallSSHKey@0` task, a `knownHostsEntry` [alias was added](https://github.com/microsoft/azure-pipelines-tasks/pull/9973/), while keeping the original `hostName` name for compatibility with existing pipelines using that name.
 
-The following two YAML snippets are functionally identical, with the first example using the `knownHostsEntry` alias and the second example using `hostName`.
+Any items in a task input's `aliases` are interchangeable with the `name`. The following two YAML snippets are functionally identical, with the first example using the `knownHostsEntry` alias and the second example using `hostName`.
 
 ```yml
 - task: InstallSSHKey@0
