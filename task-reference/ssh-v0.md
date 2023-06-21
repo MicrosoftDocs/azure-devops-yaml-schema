@@ -264,7 +264,7 @@ Specifies how long (in milliseconds) the task waits for the SSH handshake to com
 **`interactiveKeyboardAuthentication`** - **Use interactive-keyboard authentication**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enables interactive-keyboard authentication. Use this value if `PasswordAuthentication` is disabled on the target machine.
+Enables interactive-keyboard authentication. Set to `true` if your destination SSH server requires Interactive Keyboard Authentication (`PasswordAuthentication` is disabled on the target machine/set to No in sshd_config).
 <!-- :::editable-content-end::: -->
 <br>
 
