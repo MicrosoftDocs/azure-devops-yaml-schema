@@ -1274,7 +1274,7 @@ These tasks are open source [on GitHub](https://github.com/Microsoft/azure-pipel
 
 ### What are task input aliases?
 
-Before YAML Pipelines were introduced in 2019, pipeline authors had no visibility to the name of a task input; they would only see the label that was displayed in the classic pipeline designer, with the task input name being used internally in the task implementation. When YAML pipelines were introduced, some of these task input names were not descriptive, and the concept of aliases was created, to allow a task author to provide a task input YAML name that was more descriptive than the original name, while keeping the original name to preserve compatibility. For example, the [InstallSSHKey@0](./install-ssh-key-v0.md) task had a **Known Hosts Entry** input named `hostName` that expected an entry from a **known_hosts** file. The **Known Hosts Entry** label in classic pipeline designer made this clear, but it wasn't as clear when using the `hostName` name in a YAML pipeline. Task input aliases were introduced to allow task authors to provide decriptive names for their previously authored tasks, and for the `InstallSSHKey@0` task, a `knownHostsEntry` aliased was provided. See [InstallSSHKey@0 task.json in the open source tasks repo](https://github.com/microsoft/azure-pipelines-tasks/blob/5cf07afe033fe76df9d011b1e71ee2b7057f3969/Tasks/InstallSSHKeyV0/task.json#L35).
+Inputs to a task are identified by a `label`, `name`, and one or more optional `aliases`. The following example is an excerpt from the [source code](https://github.com/microsoft/azure-pipelines-tasks/blob/5cf07afe033fe76df9d011b1e71ee2b7057f3969/Tasks/InstallSSHKeyV0/task.json#L35) for the **Known Hosts Entry** input of the `InstallSSHKey@0` task.
 
 ```json
 {
@@ -1282,83 +1282,54 @@ Before YAML Pipelines were introduced in 2019, pipeline authors had no visibilit
     "aliases": [
         "knownHostsEntry"
     ],
+    "label": "Known Hosts Entry"
     ...
 }
 ```
 
+Before YAML pipelines were introduced in 2019, pipelines were created and edited only using a UI based pipeline editor, and only the `label` was used to reference a task input. The `name` was present but wasn't displayed to pipeline authors. The `label` is also used in the YAML pipeline editor task assistant.
 
-See [Making life easier for YAML users](https://github.com/microsoft/azure-pipelines-tasks/blob/master/docs/authoring/yaml-tasks.md#making-life-easier-for-yaml-users).
+:::image type="content" source="./media/task-assistant.png" alt-text="Screenshot of the task assistant in the YAML pipeline editor."":::
 
-Starting with Azure DevOps Server 2019.1, the [YAML Pipeline editor was introduced](/azure/devops/pipelines/get-started/yaml-pipeline-editor), which provided an intellisense type functionality. The schema used to validate a YAML Pipeline in the pipeline editor is available using this API (for example Visual Studio Code uses this when a pipeline is being edited in VS Code, and the Pipeline extension is installed.) and contains the allowable syntax for a pipeline, including all of the tasks installed in that particular Azure DevOps organization.
+When YAML pipelines were introduced in 2019, pipeline authors using YAML began using the task input `name` to refer to a task input. In some cases, the task input names weren't descriptive, so `aliases` were added to provide additional descriptive names for task inputs.
 
-https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/yamlschema/get?view=azure-devops-rest-7.0
+For example, the [InstallSSHKey@0](./install-ssh-key-v0.md) task has a **Known Hosts Entry** input named `hostName` that expects an entry from a **known_hosts** file. The **Known Hosts Entry** label in the classic pipeline designer makes this clear, but it isn't as clear when using the `hostName` name in a YAML pipeline. Task input aliases were introduced to allow task authors to provide decriptive names for their previously authored tasks, and for the `InstallSSHKey@0` task, a `knownHostsEntry` alias was added, while keeping the original `hostName` name for compatibility with existing pipelines using that name.
 
-If a task input has an alias, the YAML schema treats the alias as the "primary" input, and suggests the alias in its intellisense instead of the original parameter name. I can't confirm, but I believe the Pipeline editor team chose this, because the intent of an alias was to provide a more descriptive name to a parameter, and they felt the alias, when present, provided this (this is conjecture, I can try to find out for sure). In the example of the AzureCLI@2 task, here is the list of inputs displayed by the intellisense functionality; note that it uses the alias (if the input has an alias, for example the azureSubscription task input name)
+The following two YAML snippets are functionally identical.
 
-![image](https://github.com/MicrosoftDocs/azure-devops-docs/assets/1580889/832446ac-21bc-455d-a5a1-f5da6154cef9)
+```yml
+- task: InstallSSHKey@0
+  inputs:
+    # Using knownHostsEntry alias
+    knownHostsEntry: 'sample known hosts entry line'
+    # Remainder of task inputs omitted
 
-In the schema downloaded using the REST API (or you can download it in your browser using an URL like `https://dev.azure.com/<your organization name>/_apis/distributedtask/yamlschema?api-version=5.1`), that input looks like this.
-```
-"task": {
-  "description": "Azure CLI\n\nRun Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.",
-  "ignoreCase": "value",
-  "pattern": "^AzureCLI@2$"
-},
-"inputs": {
-  "description": "Azure CLI inputs",
-  "properties": {
-    "azureSubscription": {
-      "type": "string",
-      "description": "Azure Resource Manager connection",
-      "ignoreCase": "key",
-      "aliases": [
-        "connectedServiceNameARM"
-      ]
-    },
+- task: InstallSSHKey@0
+  inputs:
+    # Using hostName name
+    hostName: 'sample known hosts entry line'
+    # Remainder of task inputs omitted
 ```
 
-The task reference uses the alias (if present) as the primary name of the task input, in order to match the intellisense in the YAML Schema and pipeline editor.
+Starting with Azure DevOps Server 2019.1, the [YAML pipeline editor was introduced](/azure/devops/pipelines/get-started/yaml-pipeline-editor), which provides an intellisense type functionality. If a task input has an alias, the alias is suggested by the intellisense.
 
-If a task input has more than one alias, which one does it display as the primary name in the task reference? 
+:::image type="content" source="./media/yaml-editor-intellisense.png" alt-text="Screenshot of intellisense in the YAML pipeline editor.":::
 
-It uses the first alias in the list, which matches the intellisense in the YAML Pipeline editor. One example of this is the XamarinIOS@2 task:
-https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/XamariniOSV2/task.json#L111
-```
-            "name": "buildToolLocation",
-            "aliases": [
-                "mdtoolFile",
-                "mdtoolLocation"
-            ],
-```
+The YAML pipeline editor uses the [Yamlschema - Get](/rest/api/azure/devops/distributedtask/yamlschema/get) REST API to retrieve the schema used for validation in the editor. The following example is the **Known Hosts Entry** task input for the `InstallSSHKey@0` task from the YAML schema, with `knownHostsEntry` listed in the name position and `hostName` in the `aliases` collection.
 
-From the YAML Schema, using the first alias name (`mdToolFile`) as the primary name.
-```
-                "mdtoolFile": {
-                  "type": "string",
-                  "description": "Build tool path",
-                  "ignoreCase": "key",
-                  "aliases": [
-                    "buildToolLocation",
-                    "mdtoolLocation"
-                  ]
-                },
+```json
+"properties": {
+  "knownHostsEntry": {
+    "type": "string",
+    "description": "Known Hosts Entry",
+    "ignoreCase": "key",
+    "aliases": [
+      "hostName"
+    ]
+  },
 ```
 
-I think that adding some new aliases to the tasks is a good idea, and if they are added so that they are the first in the list, they will be used as the primary name in the task reference.
-
-While many portions of the task reference are automated, some parts are user editable, like task description, and task input descriptions. Part of the task input content is generated, but part of it is manually authored and can accept PRs.
-
-https://github.com/MicrosoftDocs/azure-devops-yaml-schema/blob/main/README.md
-
-For this particular task input (from your example above), the description is accurate, but I agree that the task input naming could be improved (and the alias doesn't really provide any clarity)
-
-I don't work with this particular task, so someone else will reply to this specific issue about task input names, but I wanted to provide some information about the task reference article generation. If you have a PR to any of the "editable content" in the task reference, please submit it with our gratitude.
-
-Thank you for your feedback on this task (and others using a similar task input),
-Steve
-
-
-
+The intellisense in the YAML pipeline editor displays `knownHostsEntry`, and the YAML generated by the task assistant uses `knownHostsEntry` in the generated YAML. To match with these conventions, the task reference displays the `alias` as the YAML name for a task input. If a task has more than one alias (there are a few that have two aliases), the first alias is used as the name.
 
 ### Why did the task reference change?
 
