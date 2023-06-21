@@ -1289,7 +1289,7 @@ Inputs to a task are identified by a `label`, `name`, and one or more optional `
 
 Before YAML pipelines were introduced in 2019, pipelines were created and edited only using a UI based pipeline editor, and only the `label` was used to reference a task input. The `name` was present but wasn't displayed to pipeline authors. The `label` is also used in the YAML pipeline editor task assistant.
 
-:::image type="content" source="./media/task-assistant.png" alt-text="Screenshot of the task assistant in the YAML pipeline editor."":::
+:::image type="content" source="./media/task-assistant.png" alt-text="Screenshot of the task assistant in the YAML pipeline editor.":::
 
 When YAML pipelines were introduced in 2019, pipeline authors using YAML began using the task input `name` to refer to a task input. In some cases, the task input names weren't descriptive, so `aliases` were added to provide additional descriptive names for task inputs.
 
@@ -1341,6 +1341,8 @@ The Azure Pipelines tasks reference documentation moved to its current location 
  * Supports community contributions with integrated user content such as enhanced task input descriptions, remarks and examples.
  * Provides task coverage for all supported Azure DevOps versions.
  * Updated every sprint to cover the latest updates.
+
+To contribute, see [Contributing to the tasks content](https://github.com/MicrosoftDocs/azure-devops-yaml-schema#contributing-to-the-tasks-content).
 
 ### Where can I learn step-by-step how to build my app?
 
