@@ -57,7 +57,7 @@ Deploy an Azure Cloud Service.
 **`ARMConnectedServiceName`** - **Azure subscription (ARM)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Azure Resource Manager subscription.
+The ARM subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -81,7 +81,7 @@ Enter or Select the Azure Resource Group that contains the Azure App Service spe
 **`ARMStorageAccount`** - **Storage account (ARM)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Choose a pre-existing ARM storage account.
+A pre-existing ARM storage account.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -93,7 +93,7 @@ Choose a pre-existing ARM storage account.
 **`ServiceName`** - **Service name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or enter an existing cloud service name.
+An existing cloud service name.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -105,7 +105,7 @@ Select or enter an existing cloud service name.
 **`ServiceLocation`** - **Service location**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a region for new service deployment.Possible options are **East US**, **East US 2**, **Central US**, **South Central US**, **West US**, **North Europe**, **West Europe** and others.
+A region for new service deployment. Options include: East US, East US 2, Central US, South Central US, West US, North Europe, West Europe, and others.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -117,7 +117,7 @@ Select a region for new service deployment.Possible options are **East US**, **E
 **`CsCfg`** - **CsCfg**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of CsCfg under the default artifact directory.
+The CsCfg path in the default artifact directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -141,7 +141,7 @@ Path of CsDef under the default artifact directory.
 **`CsPkg`** - **CsPkg**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path of CsPkg under the default artifact directory.
+Path to the CsPkg in the default artifact directory.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -165,7 +165,7 @@ Choose a pre-existing Azure KeyVault with certificates.
 **`DeploymentLabel`** - **Deployment label**<br>
 `string`. Default value: `$(Build.BuildNumber)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the label name for the new deployment. If not specified, a Globally Unique Identifier (GUID) is used.
+Specifies the label name for the new deployment. If not specified, defaults to a Globally Unique Identifier (GUID).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -177,7 +177,7 @@ Specifies the label name for the new deployment. If not specified, a Globally Un
 **`AppendDateTimeToLabel`** - **Append current date and time**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Appends current date and time to deployment label.
+Appends current date and time to the deployment label.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -201,7 +201,7 @@ Appends current date and time to deployment label.
 **`AllowUpgrade`** - **Allow upgrade**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected allows an upgrade to the Microsoft Azure cloud service.
+Allows an upgrade to the Microsoft Azure deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -213,7 +213,7 @@ When selected allows an upgrade to the Microsoft Azure cloud service.
 **`VerifyRoleInstanceStatus`** - **Verify role instance status**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When selected then the task will wait until role instances are in ready state.
+Causes the task to wait until role instances are in the ready state.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,7 +225,15 @@ When selected then the task will wait until role instances are in ready state.
 **`DiagnosticStorageAccountKeys`** - **Diagnostic storage account keys**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide storage keys for diagnostics storage account in Role:Storagekey format. The diagnostics storage account name for each role will be obtained from diagnostics config file (.wadcfgx). If the .wadcfgx file for a role is not found, diagnostics extensions won’t be set for the role. If the storage account name is missing in the .wadcfgx file, the default storage account will be used for storing diagnostics results and the storage key parameters from deployment task will be ignored. It’s recommended to save <storage_account_key> as a secret variable unless there is no sensitive information in the diagnostics result for your environment. <br/><br/>For example,<br/> WebRole: &lt;WebRole_storage_account_key&gt;<br/>WorkerRole: &lt;WorkerRole_stoarge_account_key&gt;.
+Format storage key string as `Role:Storagekey`. The diagnostics storage account name for each role is retrieved from the diagnostic config file (.wadcfgx).
+
+- If the .wadcfgx file for a role is not found: The diagnostic extension isn't set for that role.
+- If the storage account name is not found in the .wadcfgx file: The default storage account is used for storing diagnostic results, and storage key parameters from the deployment task is ignored.
+
+If there is sensitive information in the diagnostic results for your environment, save the `storage_account_key` as a secret variable. For example:
+
+- WebRole: `WebRole_storage_account_key`
+- WorkerRole: `WorkerRole_stoarge_account_key`
 <!-- :::editable-content-end::: -->
 <br>
 
