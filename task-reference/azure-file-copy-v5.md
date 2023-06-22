@@ -124,11 +124,13 @@ To create a virtual directory inside the container, use the blob prefix input. F
 **`BlobPrefix`** - **Blob Prefix**<br>
 `string`. Optional. Use when `Destination = AzureBlob`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify a prefix that can be used to filter files.
+Specify a prefix for the destination virtual directory within the Azure Blob container. This applies when the `SourcePath` contains a wildcard that may match multiple items. 
 
-Example: You can append a build number to filter the files from all blobs with the same build number.
+Example: You can append a build number to prefix the files from all blobs with the same build number.
 
 Example: If you specify a blob prefix `myvd1`, a virtual directory is created inside the container. Files are copied from the source to `https://myaccount.blob.core.windows.net/mycontainer/myvd1/`.
+
+In the case that the `SourcePath` is a single item with no wildcard, this blob prefix will function as the destination blob name.
 <!-- :::editable-content-end::: -->
 <br>
 
