@@ -1,7 +1,7 @@
 ---
 title: jobs definition
 description: Specifies the jobs that make up the work of a stage.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -46,13 +46,13 @@ jobs: [ job ] # Specifies the jobs that make up the work of a pipeline.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md)
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-Definitions that that reference this definition: [pipeline](pipeline.md)
+Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

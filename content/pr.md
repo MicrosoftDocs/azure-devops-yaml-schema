@@ -1,7 +1,7 @@
 ---
 title: pr definition
 description: Pull request trigger.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,7 @@ A pull request trigger specifies which branches cause a pull request build to ru
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [pipeline](pipeline.md)
+Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

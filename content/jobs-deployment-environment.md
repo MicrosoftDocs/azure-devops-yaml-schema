@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.environment definition
 description: Target environment name and optionally a resource name to record the deployment history.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,7 @@ The `environment` keyword specifies the [environment](/azure/devops/pipelines/pr
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [jobs.deployment](jobs-deployment.md)
+Definitions that reference this definition: [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: resources.packages definition
 description: List of external packages.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,7 +30,7 @@ packages: [ package ] # List of package resources.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [resources](resources.md)
+Definitions that reference this definition: [resources](resources.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook.filters definition
 description: List of trigger filters.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -30,7 +30,7 @@ filters: [ filter ] # List of trigger filters.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-Definitions that that reference this definition: [resources.webhooks.webhook](resources-webhooks-webhook.md)
+Definitions that reference this definition: [resources.webhooks.webhook](resources-webhooks-webhook.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

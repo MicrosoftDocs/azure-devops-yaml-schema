@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline.trigger.branches definition
 description: Branches to include or exclude for triggering a run using a pipeline resource.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,7 @@ Branches to include or exclude for triggering a run using a pipeline resource.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
+Definitions that reference this definition: [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

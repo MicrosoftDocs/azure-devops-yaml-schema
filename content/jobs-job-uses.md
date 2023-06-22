@@ -1,7 +1,7 @@
 ---
 title: jobs.job.uses definition
 description: Any resources required by this job that are not already referenced.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -32,7 +32,7 @@ uses:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-Definitions that that reference this definition: [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
+Definitions that reference this definition: [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: target.settableVariables definition
 description: Restrictions on which variables that can be set.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -20,7 +20,7 @@ Restrictions on which variables that can be set by a step.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2022"
 
-Definitions that that reference this definition: [target](target.md)
+Definitions that reference this definition: [target](target.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

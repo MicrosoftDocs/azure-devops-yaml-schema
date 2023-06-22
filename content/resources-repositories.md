@@ -1,7 +1,7 @@
 ---
 title: resources.repositories definition
 description: List of external repositories.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -30,7 +30,7 @@ repositories: [ repository ] # List of repository resources.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [resources](resources.md)
+Definitions that reference this definition: [resources](resources.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

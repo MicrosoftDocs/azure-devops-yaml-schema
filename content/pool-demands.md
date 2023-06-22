@@ -1,7 +1,7 @@
 ---
 title: pool.demands definition
 description: Demands (for a private pool).
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,7 @@ Demands (for a private pool).
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [pool](pool.md)
+Definitions that reference this definition: [pool](pool.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

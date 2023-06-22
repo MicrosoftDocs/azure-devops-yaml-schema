@@ -1,7 +1,7 @@
 ---
 title: steps definition
 description: Steps are a linear sequence of operations that make up a job.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -38,13 +38,13 @@ steps: [ task | script | powershell | pwsh | bash | checkout | download | downlo
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [preDeployHook](pre-deploy-hook.md), [deployHook](deploy-hook.md), [routeTrafficHook](route-traffic-hook.md), [postRouteTrafficHook](post-route-traffic-hook.md), [onFailureHook](on-failure-hook.md), [onSuccessHook](on-success-hook.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [preDeployHook](pre-deploy-hook.md), [deployHook](deploy-hook.md), [routeTrafficHook](route-traffic-hook.md), [postRouteTrafficHook](post-route-traffic-hook.md), [onFailureHook](on-failure-hook.md), [onSuccessHook](on-success-hook.md)
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

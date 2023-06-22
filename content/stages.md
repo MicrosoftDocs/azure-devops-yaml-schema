@@ -1,7 +1,7 @@
 ---
 title: stages definition
 description: Stages are a collection of related jobs.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,7 +30,7 @@ stages: [ stage | template ] # Stages are a collection of related jobs.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [pipeline](pipeline.md)
+Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters definition
 description: Pipeline template parameters.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,7 +30,7 @@ parameters: [ parameter ] # Specifies the runtime parameters passed to a pipelin
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [pipeline](pipeline.md)
+Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: variables.name definition
 description: Define variables using name and full syntax.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -43,7 +43,7 @@ variables:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [variables](variables.md)
+Definitions that reference this definition: [variables](variables.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

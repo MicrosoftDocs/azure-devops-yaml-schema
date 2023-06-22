@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks definition
 description: List of webhooks.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -30,7 +30,7 @@ webhooks: [ webhook ] # List of webhooks.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020.1"
 
-Definitions that that reference this definition: [resources](resources.md)
+Definitions that reference this definition: [resources](resources.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->
