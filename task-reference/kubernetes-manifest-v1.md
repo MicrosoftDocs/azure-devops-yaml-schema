@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 06/02/2023
+ms.date: 06/22/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -33,6 +33,7 @@ Use Kubernetes manifest files to deploy to clusters or even bake the manifest fi
     #azureSubscriptionConnection: # string. Alias: azureSubscriptionEndpoint. Required when action != bake && connectionType = azureResourceManager. Azure subscription. 
     #azureResourceGroup: # string. Required when action != bake && connectionType = azureResourceManager. Resource group. 
     #kubernetesCluster: # string. Required when action != bake && connectionType = azureResourceManager. Kubernetes cluster. 
+    #useClusterAdmin: false # boolean. Optional. Use when connectionType = azureResourceManager. Use cluster admin credentials. Default: false.
     #namespace: # string. Namespace. 
     #strategy: 'none' # 'canary' | 'none'. Optional. Use when action = deploy || action = promote || action = reject. Strategy. Default: none.
     #trafficSplitMethod: 'pod' # 'pod' | 'smi'. Optional. Use when strategy = canary. Traffic split method. Default: pod.
@@ -141,6 +142,18 @@ Select an Azure resource group.
 `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure managed cluster.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="useClusterAdmin"::: -->
+:::moniker range="=azure-pipelines"
+
+**`useClusterAdmin`** - **Use cluster admin credentials**<br>
+`boolean`. Optional. Use when `connectionType = azureResourceManager`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use cluster administrator credentials instead of default cluster user credentials.
 <!-- :::editable-content-end::: -->
 <br>
 

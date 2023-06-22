@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 06/02/2023
+ms.date: 06/22/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,26 @@ Use this task in a build pipeline to publish build artifacts to Azure Pipelines,
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Publish build artifacts v1
+# Publish build artifacts to Azure Pipelines or a Windows file share.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+    ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+    publishLocation: 'Container' # 'Container' | 'FilePath'. Alias: ArtifactType. Required. Artifact publish location. Default: Container.
+    #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
+    #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
+    #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
+  # Advanced
+    #StoreAsTar: false # boolean. Tar the artifact before uploading. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Publish build artifacts v1
@@ -234,18 +253,6 @@ Specifies the degree of parallelism (the number of threads) used to perform the 
 
 :::moniker-end
 <!-- :::item-end::: -->
-<!-- :::item name="FileCopyOptions"::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-**`FileCopyOptions`** - **File copy options**<br>
-`string`. Optional. Use when `ArtifactType = FilePath`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Passes additional options to the Robocopy command. For example, the recursive minimatch pattern `**/*`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
 <!-- :::item name="StoreAsTar"::: -->
 :::moniker range=">=azure-pipelines-2022"
 
@@ -253,6 +260,18 @@ Passes additional options to the Robocopy command. For example, the recursive mi
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds all files from the publish path to a tar archive before uploading. This allows you to preserve the UNIX file permissions. Use `extractTars` option of the[DownloadBuildArtifacts](download-build-artifacts-v1.md) task to extract the downloaded items automatically. This setting is ignored on Windows agents.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="FileCopyOptions"::: -->
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+
+**`FileCopyOptions`** - **File copy options**<br>
+`string`. Optional. Use when `ArtifactType = FilePath`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Passes additional options to the Robocopy command. For example, the recursive minimatch pattern `**/*`.
 <!-- :::editable-content-end::: -->
 <br>
 
