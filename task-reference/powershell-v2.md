@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 06/02/2023
+ms.date: 06/22/2023
 monikerRange: "<=azure-pipelines"
 ---
 

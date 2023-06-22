@@ -1,7 +1,7 @@
 ---
 title: Delay@1 - Delay v1 task
 description: Delay further execution of a workflow by a fixed time.
-ms.date: 06/02/2023
+ms.date: 06/22/2023
 monikerRange: "<=azure-pipelines"
 ---
 
