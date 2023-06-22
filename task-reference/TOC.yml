@@ -114,6 +114,9 @@ items:
     displayName: Azure CLI Preview v0
 - name: Azure Cloud Service deployment
   items:
+  - name: AzureCloudPowerShellDeployment@2
+    href: azure-cloud-powershell-deployment-v2.md
+    displayName: Azure Cloud Service deployment v2
   - name: AzureCloudPowerShellDeployment@1
     href: azure-cloud-powershell-deployment-v1.md
     displayName: Azure Cloud Service deployment v1
