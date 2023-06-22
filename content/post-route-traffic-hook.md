@@ -1,7 +1,7 @@
 ---
 title: postRouteTrafficHook definition
 description: Used to run the steps after the traffic is routed.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -35,7 +35,7 @@ postRouteTrafficHook:
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
 
-Definitions that that reference this definition: [jobs.deployment.strategy.runOnce](jobs-deployment-strategy-run-once.md), [jobs.deployment.strategy.rolling](jobs-deployment-strategy-rolling.md), [jobs.deployment.strategy.canary](jobs-deployment-strategy-canary.md)
+Definitions that reference this definition: [jobs.deployment.strategy.runOnce](jobs-deployment-strategy-run-once.md), [jobs.deployment.strategy.rolling](jobs-deployment-strategy-rolling.md), [jobs.deployment.strategy.canary](jobs-deployment-strategy-canary.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

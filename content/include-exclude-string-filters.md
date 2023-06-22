@@ -1,7 +1,7 @@
 ---
 title: includeExcludeStringFilters definition
 description: Items to include or exclude.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -23,7 +23,7 @@ Items to include or exclude.
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
 
-Definitions that that reference this definition: [resources.containers.container.trigger](resources-containers-container-trigger.md)
+Definitions that reference this definition: [resources.containers.container.trigger](resources-containers-container-trigger.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

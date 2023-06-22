@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -71,7 +71,7 @@ pipelines:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [resources.pipelines](resources-pipelines.md)
+Definitions that reference this definition: [resources.pipelines](resources-pipelines.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

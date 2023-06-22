@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.canary definition
 description: Canary Deployment strategy.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -50,7 +50,7 @@ canary:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [jobs.deployment.strategy](jobs-deployment-strategy.md)
+Definitions that reference this definition: [jobs.deployment.strategy](jobs-deployment-strategy.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

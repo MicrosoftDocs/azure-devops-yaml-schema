@@ -1,7 +1,7 @@
 ---
 title: steps.downloadBuild definition
 description: Downloads build artifacts.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -85,7 +85,7 @@ steps:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [steps](steps.md)
+Definitions that reference this definition: [steps](steps.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

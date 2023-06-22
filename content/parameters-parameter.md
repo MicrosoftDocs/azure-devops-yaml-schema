@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -35,7 +35,7 @@ parameters:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [parameters](parameters.md)
+Definitions that reference this definition: [parameters](parameters.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy definition
 description: Execution strategy for this deployment.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,7 @@ A deployment strategy enables you to configure how the update is delivered.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [jobs.deployment](jobs-deployment.md)
+Definitions that reference this definition: [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

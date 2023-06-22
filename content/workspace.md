@@ -1,7 +1,7 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -43,7 +43,7 @@ workspace:
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
@@ -52,7 +52,7 @@ Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

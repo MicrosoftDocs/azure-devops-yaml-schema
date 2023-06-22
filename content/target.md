@@ -1,7 +1,7 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,7 @@ Tasks run in an execution context, which is either the agent host or a container
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md)
+Definitions that reference this definition: [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: schedules.cron definition
 description: A scheduled trigger specifies a schedule on which branches are built.
-ms.date: 05/18/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -36,7 +36,7 @@ schedules:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [schedules](schedules.md)
+Definitions that reference this definition: [schedules](schedules.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

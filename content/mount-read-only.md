@@ -1,7 +1,7 @@
 ---
 title: mountReadOnly definition
 description: Volumes to mount read-only.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -37,7 +37,7 @@ mountReadOnly:
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
 
-Definitions that that reference this definition: [jobs.job.container](jobs-job-container.md), [resources.containers.container](resources-containers-container.md)
+Definitions that reference this definition: [jobs.job.container](jobs-job-container.md), [resources.containers.container](resources-containers-container.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

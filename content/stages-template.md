@@ -1,7 +1,7 @@
 ---
 title: stages.template definition
 description: You can define a set of stages in one file and use it multiple times in other files.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -32,7 +32,7 @@ stages:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [stages](stages.md)
+Definitions that reference this definition: [stages](stages.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

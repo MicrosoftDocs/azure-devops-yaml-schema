@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,13 +20,13 @@ A push trigger specifies which branches cause a continuous integration build to 
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2020"
 
-Definitions that that reference this definition: [pipeline](pipeline.md), [resources.repositories.repository](resources-repositories-repository.md)
+Definitions that reference this definition: [pipeline](pipeline.md), [resources.repositories.repository](resources-repositories-repository.md)
 
 :::moniker-end
 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
-Definitions that that reference this definition: [pipeline](pipeline.md)
+Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

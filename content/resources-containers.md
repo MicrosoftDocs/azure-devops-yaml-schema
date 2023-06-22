@@ -1,7 +1,7 @@
 ---
 title: resources.containers definition
 description: List of container images.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -30,7 +30,7 @@ containers: [ container ] # List of container images.
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [resources](resources.md)
+Definitions that reference this definition: [resources](resources.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: resources.builds.build definition
 description: A build resource used to reference artifacts from a run.
-ms.date: 04/28/2023
+ms.date: 06/22/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -51,7 +51,7 @@ builds:
 <!-- :::parents::: -->
 :::moniker range=">=azure-pipelines-2019"
 
-Definitions that that reference this definition: [resources.builds](resources-builds.md)
+Definitions that reference this definition: [resources.builds](resources-builds.md)
 
 :::moniker-end
 <!-- :::parents-end::: -->
