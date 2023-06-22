@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 06/02/2023
+ms.date: 06/22/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -297,7 +297,7 @@ None.
 * [Result formats mapping](#result-formats-mapping)
 * [Attachments support](#attachments-support)
 
-This task publishes test results to Azure Pipelines or TFS when tests are executed to provide a comprehensive test reporting and analytics experience. You can use the test runner of your choice that supports the results format you require. Supported results formats include [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) (including [PHPUnit](https://phpunit.readthedocs.io/en/9.5/configuration.html#the-logging-element)), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX), and [xUnit 2](https://xunit.net/docs/format-xml-v2).
+This task publishes test results to Azure Pipelines or TFS when tests are executed to provide a comprehensive test reporting and analytics experience. You can use the test runner of your choice that supports the results format you require. Supported results formats include [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) (including [PHPUnit](https://docs.phpunit.de/en/10.2/configuration.html#the-logging-element)), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX), and [xUnit 2](https://xunit.net/docs/format-xml-v2).
 
 Other built-in tasks, such as [Visual Studio Test task](vstest-v2.md) and [Dot NetCore CLI task](dotnet-core-cli-v2.md) automatically publish test results to the pipeline. Tasks such as [Ant](ant-v1.md), [Maven](maven-v3.md), [Gulp](gulp-v1.md), [Grunt](grunt-v0.md), and [Xcode](xcode-v5.md) provide publishing results as an option within the task, or build libraries such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/). If you are using any of these tasks, you do not need a separate **Publish Test Results** task in the pipeline.
 
