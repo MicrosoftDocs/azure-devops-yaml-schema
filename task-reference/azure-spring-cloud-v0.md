@@ -11,7 +11,7 @@ monikerRange: ">=azure-pipelines-2022"
 :::moniker range=">=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
-This task deploys applications to Azure Spring Cloud and manages those deployments.
+This task deploys applications to Azure Spring Apps and manages those deployments.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -101,7 +101,7 @@ Specifies the [Azure Resource Manager subscription](/azure/devops/pipelines/libr
 **`Action`** - **Action**<br>
 `string`. Required. Allowed values: `Deploy`, `Set Production` (Set Production Deployment), `Delete Staging Deployment`. Default value: `Deploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The action to be performed on Azure Spring Cloud.
+The action to be performed on Azure Spring Apps.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -113,7 +113,7 @@ The action to be performed on Azure Spring Cloud.
 **`AzureSpringCloud`** - **Azure Spring Apps Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name or resource ID of the Azure Spring Cloud instance to deploy.
+The name or resource ID of the Azure Spring Apps instance to deploy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +124,7 @@ The name or resource ID of the Azure Spring Cloud instance to deploy.
 **`AzureSpringCloud`** - **Azure Spring Cloud Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name or resource ID of the Azure Spring Cloud instance to deploy.
+The name or resource ID of the Azure Spring Apps instance to deploy.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +136,7 @@ The name or resource ID of the Azure Spring Cloud instance to deploy.
 **`AppName`** - **App**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Azure Spring Cloud app to deploy. The app must exist prior to the task execution.
+The name of the Azure Spring Apps app to deploy. The app must exist prior to the task execution.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -198,7 +198,7 @@ The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to wh
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file path to the package or folder containing the Azure Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).  
+The file path to the package or folder containing the Azure Spring Apps app contents (`.jar` file for Java, `.zip` for .NET Core).  
 Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported.  
 For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 <!-- :::editable-content-end::: -->
@@ -211,7 +211,7 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The file path to the package or folder containing the Azure Spring Cloud app contents (`.jar` file for Java, `.zip` for .NET Core).  
+The file path to the package or folder containing the Azure Spring Apps app contents (`.jar` file for Java, `.zip` for .NET Core).  
 Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported.  
 For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 <!-- :::editable-content-end::: -->
