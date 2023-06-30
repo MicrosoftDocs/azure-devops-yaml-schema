@@ -198,7 +198,7 @@ After running this task with "Add to PATH," the `python` command in subsequent s
 
 The versions of Python installed on the Microsoft-hosted Ubuntu and macOS images follow the symlinking structure for Unix-like systems that are defined in [PEP 394](https://www.python.org/dev/peps/pep-0394/).
 
-For example, `python3.7` is the actual interpreter for Python 3.7.
+For example, `python3.11` is the actual interpreter for Python 3.11.
 
 `python3` is symlinked to that interpreter, and `python` is a symlink to that symlink.
 
@@ -227,12 +227,12 @@ The `platform` should either be `x86` or `x64`.
 The `tool files` should be the unzipped Python version files.
 The `{platform}.complete` should be a 0 byte file that looks like `x86.complete` or `x64.complete` and just signifies the tool has been installed in the cache properly.
 
-As a complete and concrete example, here is how a completed download of Python 3.6.4 for x64 would look in the tool cache:
+As a complete and concrete example, here is how a completed download of Python 3.11.4 for x64 would look in the tool cache:
 
 ```
 $AGENT_TOOLSDIRECTORY/
     Python/
-        3.6.4/
+        3.11.4/
             x64/
                 {tool files}
             x64.complete
