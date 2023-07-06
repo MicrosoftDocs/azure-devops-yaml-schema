@@ -7,7 +7,13 @@ monikerRange: "<=azure-pipelines"
 
 # Azure Pipelines task reference
 
-A task performs an action in a pipeline. For example, a task can build an app, interact with Azure resources, install a tool, or run a test. Tasks are the building blocks for defining automation in a pipeline. The articles in this section describe the built-in tasks for Azure Pipelines.
+A task performs an action in a pipeline. For example, a task can build an app, interact with Azure resources, install a tool, or run a test. Tasks are the building blocks for defining automation in a pipeline. 
+
+The articles in this section describe the built-in tasks for Azure Pipelines and specify the semantics for attributes
+that hold special meaning for each task.
+
+Please refer to the [YAML Reference for *steps.task*](/azure/devops/pipelines/yaml-schema/steps-task) for details on
+the general attributes supported by tasks.
 
 For how-tos and tutorials about authoring pipelines using tasks, including creating custom tasks, custom extensions, and finding tasks on the Visual Studio Marketplace, see [Tasks concepts](/azure/devops/pipelines/process/tasks) and [Azure Pipelines documentation](/azure/devops/pipelines/).
 
