@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -31,29 +31,29 @@ Use this task to download, or package and publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
-    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
-    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed (or Project/Feed if the feed was created in a project). 
-    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
-    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required when command = download. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external && command = download. organization/collection connection. 
+    #vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal && command = download. Feed. 
+    #vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal && command = download. Package name. 
+    #vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal && command = download. Version. 
+    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Feed (or Project/Feed if the feed was created in a project). 
+    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Package name. 
+    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. organization/collection connection. 
-    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
-    #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed (or Project/Feed if the feed was created in a project). 
-    #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
-    #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
-    #packagePublishDescription: # string. Description. 
+    #feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required when command = publish. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external && command = publish. organization/collection connection. 
+    #vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal && command = publish. Destination Feed. 
+    #vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal && command = publish. Package name. 
+    #feedPublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Feed (or Project/Feed if the feed was created in a project). 
+    #packagePublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Package name. 
+    #versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required when command = publish. Version. Default: patch.
+    #versionPublish: # string. Required when versionPublishSelector = custom && command = publish. Custom version. 
+    #packagePublishDescription: # string. Optional. Use when command = publish. Description. 
   # Advanced
     #publishPackageMetadata: true # boolean. Optional. Use when command = publish && internalOrExternalPublish = internal. Publish pipeline metadata. Default: true.
     #verbosity: 'None' # 'None' | 'Trace' | 'Debug' | 'Information' | 'Warning' | 'Error' | 'Critical'. Verbosity. Default: None.
   # Output
-    #publishedPackageVar: # string. Package Output Variable.
+    #publishedPackageVar: # string. Optional. Use when command = publish. Package Output Variable.
 ```
 
 :::moniker-end
@@ -69,29 +69,29 @@ Use this task to download, or package and publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. organization/collection connection. 
-    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
-    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed. 
-    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
-    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required when command = download. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external && command = download. organization/collection connection. 
+    #vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal && command = download. Feed. 
+    #vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal && command = download. Package name. 
+    #vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal && command = download. Version. 
+    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Feed. 
+    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Package name. 
+    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. organization/collection connection. 
-    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
-    #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed. 
-    #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
-    #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
-    #packagePublishDescription: # string. Description. 
+    #feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required when command = publish. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external && command = publish. organization/collection connection. 
+    #vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal && command = publish. Destination Feed. 
+    #vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal && command = publish. Package name. 
+    #feedPublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Feed. 
+    #packagePublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Package name. 
+    #versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required when command = publish. Version. Default: patch.
+    #versionPublish: # string. Required when versionPublishSelector = custom && command = publish. Custom version. 
+    #packagePublishDescription: # string. Optional. Use when command = publish. Description. 
   # Advanced
     #publishPackageMetadata: true # boolean. Optional. Use when command = publish && internalOrExternalPublish = internal. Publish pipeline metadata. Default: true.
     #verbosity: 'None' # 'None' | 'Trace' | 'Debug' | 'Information' | 'Warning' | 'Error' | 'Critical'. Verbosity. Default: None.
   # Output
-    #publishedPackageVar: # string. Package Output Variable.
+    #publishedPackageVar: # string. Optional. Use when command = publish. Package Output Variable.
 ```
 
 :::moniker-end
@@ -107,24 +107,24 @@ Use this task to download, or package and publish Universal Packages.
     downloadDirectory: '$(System.DefaultWorkingDirectory)' # string. Required when command = download. Destination directory. Default: $(System.DefaultWorkingDirectory).
     #publishDirectory: '$(Build.ArtifactStagingDirectory)' # string. Required when command = publish. Path to file(s) to publish. Default: $(Build.ArtifactStagingDirectory).
   # Feed & package details
-    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required. Feed location. Default: internal.
-    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external. Account/collection connection. 
-    vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal. Feed. 
-    vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal. Package name. 
-    vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal. Version. 
-    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external. Feed. 
-    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external. Package name. 
-    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external. Version. 
+    feedsToUse: 'internal' # 'internal' | 'external'. Alias: internalOrExternalDownload. Required when command = download. Feed location. Default: internal.
+    #externalFeedCredentials: # string. Alias: externalEndpoint. Optional. Use when internalOrExternalDownload = external && command = download. Account/collection connection. 
+    #vstsFeed: # string. Alias: feedListDownload. Required when internalOrExternalDownload = internal && command = download. Feed. 
+    #vstsFeedPackage: # string. Alias: packageListDownload. Required when internalOrExternalDownload = internal && command = download. Package name. 
+    #vstsPackageVersion: # string. Alias: versionListDownload. Required when internalOrExternalDownload = internal && command = download. Version. 
+    #feedDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Feed. 
+    #packageDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Package name. 
+    #versionDownloadExternal: # string. Required when internalOrExternalDownload = external && command = download. Version. 
   # Feed & package details
-    feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required. Feed location. Default: internal.
-    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external. Account/collection connection. 
-    vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal. Destination Feed. 
-    vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal. Package name. 
-    #feedPublishExternal: # string. Required when internalOrExternalPublish = external. Feed. 
-    #packagePublishExternal: # string. Required when internalOrExternalPublish = external. Package name. 
-    versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required. Version. Default: patch.
-    #versionPublish: # string. Required when versionPublishSelector = custom. Custom version. 
-    #packagePublishDescription: # string. Description. 
+    #feedsToUsePublish: 'internal' # 'internal' | 'external'. Alias: internalOrExternalPublish. Required when command = publish. Feed location. Default: internal.
+    #publishFeedCredentials: # string. Alias: externalEndpoints. Required when internalOrExternalPublish = external && command = publish. Account/collection connection. 
+    #vstsFeedPublish: # string. Alias: feedListPublish. Required when internalOrExternalPublish = internal && command = publish. Destination Feed. 
+    #vstsFeedPackagePublish: # string. Alias: packageListPublish. Required when internalOrExternalPublish = internal && command = publish. Package name. 
+    #feedPublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Feed. 
+    #packagePublishExternal: # string. Required when internalOrExternalPublish = external && command = publish. Package name. 
+    #versionOption: 'patch' # 'major' | 'minor' | 'patch' | 'custom'. Alias: versionPublishSelector. Required when command = publish. Version. Default: patch.
+    #versionPublish: # string. Required when versionPublishSelector = custom && command = publish. Custom version. 
+    #packagePublishDescription: # string. Optional. Use when command = publish. Description. 
   # Advanced
     #verbosity: 'None' # 'None' | 'Trace' | 'Debug' | 'Information' | 'Warning' | 'Error' | 'Critical'. Verbosity. Default: None.
 ```
@@ -163,7 +163,7 @@ Specifies the folder path where the task downloads the package's contents.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`feedsToUse`** - **Feed location**<br>
-Input alias: `internalOrExternalDownload`. `string`. Required. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
+Input alias: `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -174,7 +174,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker range="=azure-pipelines-2019"
 
 **`feedsToUse`** - **Feed location**<br>
-Input alias: `internalOrExternalDownload`. `string`. Required. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
+Input alias: `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -186,7 +186,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`externalFeedCredentials`** - **organization/collection connection**<br>
-Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external`.<br>
+Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -197,7 +197,7 @@ Specifies the credentials to use for external registries located in the selected
 :::moniker range="=azure-pipelines-2019"
 
 **`externalFeedCredentials`** - **Account/collection connection**<br>
-Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external`.<br>
+Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -209,7 +209,7 @@ Specifies the credentials to use for external registries located in the selected
 :::moniker range=">=azure-pipelines-2019"
 
 **`vstsFeed`** - **Feed**<br>
-Input alias: `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
+Input alias: `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed. You must have Azure Artifacts installed and licensed to select a feed here. Specifies the *FeedName* for an organization-scoped feed and *projectName/FeedName* or *ProjectID/FeedID* for a project-scoped feed.
 <!-- :::editable-content-end::: -->
@@ -221,7 +221,7 @@ Includes the selected feed. You must have Azure Artifacts installed and licensed
 :::moniker range=">=azure-pipelines-2019"
 
 **`vstsFeedPackage`** - **Package name**<br>
-Input alias: `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
+Input alias: `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the package for the task to download.
 <!-- :::editable-content-end::: -->
@@ -233,7 +233,7 @@ Specifies the name of the package for the task to download.
 :::moniker range=">=azure-pipelines-2019"
 
 **`vstsPackageVersion`** - **Version**<br>
-Input alias: `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal`.<br>
+Input alias: `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the package version or uses a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version. Examples: `1.*` gets the highest version with major version 1, and `1.2.*` gets the highest patch release with major version 1 and minor version 2.
 <!-- :::editable-content-end::: -->
@@ -245,7 +245,7 @@ Specifies the package version or uses a variable containing the version to downl
 :::moniker range=">=azure-pipelines-2020"
 
 **`feedDownloadExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
-`string`. Required when `internalOrExternalDownload = external`.<br>
+`string`. Required when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed in another organization/collection.
 
@@ -258,7 +258,7 @@ For project-scoped feeds, the value should be `Project/Feed`, where `Project` is
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 **`feedDownloadExternal`** - **Feed**<br>
-`string`. Required when `internalOrExternalDownload = external`.<br>
+`string`. Required when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed in another organization/collection.
 
@@ -272,7 +272,7 @@ For project-scoped feeds, the value should be `Project/Feed`, where `Project` is
 :::moniker range=">=azure-pipelines-2019"
 
 **`packageDownloadExternal`** - **Package name**<br>
-`string`. Required when `internalOrExternalDownload = external`.<br>
+`string`. Required when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the package name to download.
 <!-- :::editable-content-end::: -->
@@ -284,7 +284,7 @@ Specifies the package name to download.
 :::moniker range=">=azure-pipelines-2019"
 
 **`versionDownloadExternal`** - **Version**<br>
-`string`. Required when `internalOrExternalDownload = external`.<br>
+`string`. Required when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the package version or uses a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version. Examples: `1.*` gets the highest version with major version 1, and `1.2.*` gets the highest patch release with major version 1 and minor version 2. Wildcard patterns are not supported with pre-release packages.
 <!-- :::editable-content-end::: -->
@@ -308,7 +308,7 @@ Specifies the path to list of files to be published.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`feedsToUsePublish`** - **Feed location**<br>
-Input alias: `internalOrExternalPublish`. `string`. Required. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
+Input alias: `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -319,7 +319,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker range="=azure-pipelines-2019"
 
 **`feedsToUsePublish`** - **Feed location**<br>
-Input alias: `internalOrExternalPublish`. `string`. Required. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
+Input alias: `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This account/collection), `external` (Another account/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -331,7 +331,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishFeedCredentials`** - **organization/collection connection**<br>
-Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external`.<br>
+Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external feeds.
 <!-- :::editable-content-end::: -->
@@ -342,7 +342,7 @@ Specifies the credentials to use for external feeds.
 :::moniker range="=azure-pipelines-2019"
 
 **`publishFeedCredentials`** - **Account/collection connection**<br>
-Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external`.<br>
+Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external feeds.
 <!-- :::editable-content-end::: -->
@@ -354,7 +354,7 @@ Specifies the credentials to use for external feeds.
 :::moniker range=">=azure-pipelines-2019"
 
 **`vstsFeedPublish`** - **Destination Feed**<br>
-Input alias: `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal`.<br>
+Input alias: `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the project and the feed's name/GUID to publish to.
 <!-- :::editable-content-end::: -->
@@ -378,7 +378,7 @@ Associates this build/release pipeline's metadata (such as run # and source code
 :::moniker range=">=azure-pipelines-2019"
 
 **`vstsFeedPackagePublish`** - **Package name**<br>
-Input alias: `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal`.<br>
+Input alias: `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a package ID to publish or creates a new package ID if you've never published a version of this package before. Package names must be lower case and can only use letters, numbers, and dashes (`-`).
 <!-- :::editable-content-end::: -->
@@ -390,7 +390,7 @@ Specifies a package ID to publish or creates a new package ID if you've never pu
 :::moniker range=">=azure-pipelines-2020"
 
 **`feedPublishExternal`** - **Feed (or Project/Feed if the feed was created in a project)**<br>
-`string`. Required when `internalOrExternalPublish = external`.<br>
+`string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the external feed name to publish to.
 
@@ -403,7 +403,7 @@ If the feed was created in a project, the value should be `Project/Feed`, where 
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
 
 **`feedPublishExternal`** - **Feed**<br>
-`string`. Required when `internalOrExternalPublish = external`.<br>
+`string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the external feed name to publish to.
 
@@ -417,7 +417,7 @@ If the feed was created in a project, the value should be `Project/Feed`, where 
 :::moniker range=">=azure-pipelines-2019"
 
 **`packagePublishExternal`** - **Package name**<br>
-`string`. Required when `internalOrExternalPublish = external`.<br>
+`string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the package name when publishing to an external feed.
 <!-- :::editable-content-end::: -->
@@ -429,7 +429,7 @@ Specifies the package name when publishing to an external feed.
 :::moniker range=">=azure-pipelines-2019"
 
 **`versionOption`** - **Version**<br>
-Input alias: `versionPublishSelector`. `string`. Required. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
+Input alias: `versionPublishSelector`. `string`. Required when `command = publish`. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a version increment strategy. The `custom` value to input your package version manually. For new packages, the first version will be 1.0.0 if you specify `major`, 0.1.0 if you specify `minor`, or 0.0.1 if you specify `patch`. See the [Semantic Versioning spec](https://semver.org/) for more information.
 <!-- :::editable-content-end::: -->
@@ -441,7 +441,7 @@ Specifies a version increment strategy. The `custom` value to input your package
 :::moniker range=">=azure-pipelines-2019"
 
 **`versionPublish`** - **Custom version**<br>
-`string`. Required when `versionPublishSelector = custom`.<br>
+`string`. Required when `versionPublishSelector = custom && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a custom version schema for the package.
 <!-- :::editable-content-end::: -->
@@ -453,7 +453,7 @@ Specifies a custom version schema for the package.
 :::moniker range=">=azure-pipelines-2019"
 
 **`packagePublishDescription`** - **Description**<br>
-`string`.<br>
+`string`. Optional. Use when `command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the description of the package contents and/or the changes made in this version of the package.
 <!-- :::editable-content-end::: -->
@@ -488,7 +488,7 @@ Specifies the amount of detail displayed in the output.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishedPackageVar`** - **Package Output Variable**<br>
-`string`.<br>
+`string`. Optional. Use when `command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a name for the variable that will contain the published package name and version.
 <!-- :::editable-content-end::: -->

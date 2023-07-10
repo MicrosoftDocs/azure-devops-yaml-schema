@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -50,7 +50,7 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
     #AppInsightsResourceGroupName: # string. Required when Action == Enable Continuous Monitoring. Resource Group name for Application Insights. 
     #ApplicationInsightsResourceName: # string. Required when Action == Enable Continuous Monitoring. Application Insights resource name. 
   # Advanced Settings
-    #ApplicationInsightsWebTestName: # string. Application Insights web test name.
+    #ApplicationInsightsWebTestName: # string. Optional. Use when Action == Enable Continuous Monitoring. Application Insights web test name.
 ```
 
 :::moniker-end
@@ -77,7 +77,7 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
     #AppInsightsResourceGroupName: # string. Required when Action == Enable Continuous Monitoring. Resource Group name for Application Insights. 
     #ApplicationInsightsResourceName: # string. Required when Action == Enable Continuous Monitoring. Application Insights resource name. 
   # Advanced Settings
-    #ApplicationInsightsWebTestName: # string. Application Insights web test name.
+    #ApplicationInsightsWebTestName: # string. Optional. Use when Action == Enable Continuous Monitoring. Application Insights web test name.
 ```
 
 :::moniker-end
@@ -104,7 +104,7 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
     #AppInsightsResourceGroupName: # string. Required when Action == Enable Continuous Monitoring. Resource Group name for Application Insights. 
     #ApplicationInsightsResourceName: # string. Required when Action == Enable Continuous Monitoring. Application Insights resource name. 
   # Advanced Settings
-    #ApplicationInsightsWebTestName: # string. Application Insights web test name.
+    #ApplicationInsightsWebTestName: # string. Optional. Use when Action == Enable Continuous Monitoring. Application Insights web test name.
 ```
 
 :::moniker-end
@@ -404,7 +404,7 @@ If your Application Insights resource is not listed here and you want to create 
 :::moniker range=">=azure-pipelines-2019"
 
 **`ApplicationInsightsWebTestName`** - **Application Insights web test name**<br>
-`string`.<br>
+`string`. Optional. Use when `Action == Enable Continuous Monitoring`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Enters the Application Insights web test name you want to create or update.
 

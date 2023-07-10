@@ -1,7 +1,7 @@
 ---
 title: IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
 description: Create or update websites, web apps, virtual directories, or application pools.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -116,7 +116,7 @@ Specifies the name of the IIS website.
 :::moniker range="<=azure-pipelines"
 
 **`WebsiteName`** - **Website name**<br>
-`string`. Required.<br>
+`string`. Required when `ActionIISWebsite = CreateOrUpdateWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the IIS website to create or update.
 <!-- :::editable-content-end::: -->
@@ -128,7 +128,7 @@ Specifies the name of the IIS website to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`WebsitePhysicalPath`** - **Physical path**<br>
-`string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
+`string`. Required when `ActionIISWebsite = CreateOrUpdateWebsite`. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the physical path where the website content will be stored. The content can reside on the local computer, in a remote directory, or on a network share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
@@ -140,7 +140,7 @@ Specifies the physical path where the website content will be stored. The conten
 :::moniker range="<=azure-pipelines"
 
 **`WebsitePhysicalPathAuth`** - **Physical path authentication**<br>
-`string`. Required. Allowed values: `WebsiteUserPassThrough` (Application User (Pass-through)), `WebsiteWindowsAuth` (Windows Authentication). Default value: `WebsiteUserPassThrough`.<br>
+`string`. Required when `ActionIISWebsite = CreateOrUpdateWebsite`. Allowed values: `WebsiteUserPassThrough` (Application User (Pass-through)), `WebsiteWindowsAuth` (Windows Authentication). Default value: `WebsiteUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the authentication mechanism that will be used to access the physical path of the website.
 <!-- :::editable-content-end::: -->
@@ -152,7 +152,7 @@ Specifies the authentication mechanism that will be used to access the physical 
 :::moniker range="<=azure-pipelines"
 
 **`WebsiteAuthUserName`** - **Username**<br>
-`string`. Required when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
+`string`. Required when `WebsitePhysicalPathAuth = WebsiteWindowsAuth && ActionIISWebsite = CreateOrUpdateWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the user name that will be used to access the website's physical path.
 <!-- :::editable-content-end::: -->
@@ -164,7 +164,7 @@ Specifies the user name that will be used to access the website's physical path.
 :::moniker range="<=azure-pipelines"
 
 **`WebsiteAuthUserPassword`** - **Password**<br>
-`string`. Optional. Use when `WebsitePhysicalPathAuth = WebsiteWindowsAuth`.<br>
+`string`. Optional. Use when `WebsitePhysicalPathAuth = WebsiteWindowsAuth && ActionIISWebsite = CreateOrUpdateWebsite`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the user's password that will be used to access the website's physical path.  
 The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
@@ -178,7 +178,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 :::moniker range="<=azure-pipelines"
 
 **`AddBinding`** - **Add binding**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `ActionIISWebsite = CreateOrUpdateWebsite`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to add port binding for the website.
 <!-- :::editable-content-end::: -->
@@ -291,7 +291,7 @@ Specifies the thumb-print of the Secure Socket Layer certificate that the websit
 :::moniker range="<=azure-pipelines"
 
 **`Bindings`** - **Add bindings**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && AddBinding = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Click on the extension button `...` to add bindings for the website.
 <!-- :::editable-content-end::: -->
@@ -303,7 +303,7 @@ Click on the extension button `...` to add bindings for the website.
 :::moniker range="<=azure-pipelines"
 
 **`CreateOrUpdateAppPoolForWebsite`** - **Create or update app pool**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `ActionIISWebsite = CreateOrUpdateWebsite`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to create or update an application pool. If checked, the website will be created in the specified application pool.
 <!-- :::editable-content-end::: -->
@@ -315,7 +315,7 @@ Specifies the option to create or update an application pool. If checked, the we
 :::moniker range="<=azure-pipelines"
 
 **`ConfigureAuthenticationForWebsite`** - **Configure authentication**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `ActionIISWebsite = CreateOrUpdateWebsite`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to configure authentication for the website.
 <!-- :::editable-content-end::: -->
@@ -327,7 +327,7 @@ Specifies the option to configure authentication for the website.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolNameForWebsite`** - **Name**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && CreateOrUpdateAppPoolForWebsite = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
@@ -339,7 +339,7 @@ Specifies the name of the IIS application pool to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`DotNetVersionForWebsite`** - **.NET version**<br>
-`string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
+`string`. Required when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && CreateOrUpdateAppPoolForWebsite = true`. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version of the .NET Framework that is loaded by the application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
@@ -351,7 +351,7 @@ Specifies the version of the .NET Framework that is loaded by the application po
 :::moniker range="<=azure-pipelines"
 
 **`PipeLineModeForWebsite`** - **Managed pipeline mode**<br>
-`string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
+`string`. Required when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && CreateOrUpdateAppPoolForWebsite = true`. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the managed pipeline mode to determine how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in integrated mode.
 <!-- :::editable-content-end::: -->
@@ -363,7 +363,7 @@ Specifies the managed pipeline mode to determine how IIS processes requests for 
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolIdentityForWebsite`** - **Identity**<br>
-`string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
+`string`. Required when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && CreateOrUpdateAppPoolForWebsite = true`. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configures the account under which an application pool's worker process runs. Specifies one of the predefined security accounts or configures a custom account.
 <!-- :::editable-content-end::: -->
@@ -375,7 +375,7 @@ Configures the account under which an application pool's worker process runs. Sp
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolUsernameForWebsite`** - **Username**<br>
-`string`. Required when `AppPoolIdentityForWebsite = SpecificUser`.<br>
+`string`. Required when `AppPoolIdentityForWebsite = SpecificUser && IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && CreateOrUpdateAppPoolForWebsite = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
@@ -387,7 +387,7 @@ Specifies the username of the custom account that you want to use.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolPasswordForWebsite`** - **Password**<br>
-`string`. Optional. Use when `AppPoolIdentityForWebsite = SpecificUser`.<br>
+`string`. Optional. Use when `AppPoolIdentityForWebsite = SpecificUser && IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && CreateOrUpdateAppPoolForWebsite = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the password for the custom account.  
 The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
@@ -401,7 +401,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 :::moniker range="<=azure-pipelines"
 
 **`AnonymousAuthenticationForWebsite`** - **Anonymous authentication**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && ConfigureAuthenticationForWebsite = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to enable anonymous authentication for a website.
 <!-- :::editable-content-end::: -->
@@ -413,7 +413,7 @@ Specifies the option to enable anonymous authentication for a website.
 :::moniker range="<=azure-pipelines"
 
 **`BasicAuthenticationForWebsite`** - **Basic authentication**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && ConfigureAuthenticationForWebsite = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to enable basic authentication for a website.
 <!-- :::editable-content-end::: -->
@@ -425,7 +425,7 @@ Specifies the option to enable basic authentication for a website.
 :::moniker range="<=azure-pipelines"
 
 **`WindowsAuthenticationForWebsite`** - **Windows authentication**<br>
-`boolean`. Default value: `true`.<br>
+`boolean`. Optional. Use when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && ConfigureAuthenticationForWebsite = true`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to enable windows authentication for a website.
 <!-- :::editable-content-end::: -->
@@ -437,7 +437,7 @@ Specifies the option to enable windows authentication for a website.
 :::moniker range="<=azure-pipelines"
 
 **`ParentWebsiteNameForVD`** - **Parent website name**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISVirtualDirectory`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the parent website of the virtual directory.
 <!-- :::editable-content-end::: -->
@@ -449,7 +449,7 @@ Specifies the name of the parent website of the virtual directory.
 :::moniker range="<=azure-pipelines"
 
 **`VirtualPathForVD`** - **Virtual path**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISVirtualDirectory`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the virtual path of the virtual directory.
 
@@ -463,7 +463,7 @@ For example, to create a virtual directory `Site/Application/VDir`, enter `/Appl
 :::moniker range="<=azure-pipelines"
 
 **`PhysicalPathForVD`** - **Physical path**<br>
-`string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
+`string`. Required when `IISDeploymentType = IISVirtualDirectory`. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the physical path where the virtual directory's content is stored. The content can reside on the local computer, in a remote directory, or on a network share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
@@ -475,7 +475,7 @@ Specifies the physical path where the virtual directory's content is stored. The
 :::moniker range="<=azure-pipelines"
 
 **`VDPhysicalPathAuth`** - **Physical path authentication**<br>
-`string`. Allowed values: `VDUserPassThrough` (Application User (Pass-through)), `VDWindowsAuth` (Windows Authentication). Default value: `VDUserPassThrough`.<br>
+`string`. Optional. Use when `IISDeploymentType = IISVirtualDirectory`. Allowed values: `VDUserPassThrough` (Application User (Pass-through)), `VDWindowsAuth` (Windows Authentication). Default value: `VDUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the authentication mechanism that is used to access the physical path of the virtual directory.
 <!-- :::editable-content-end::: -->
@@ -487,7 +487,7 @@ Specifies the authentication mechanism that is used to access the physical path 
 :::moniker range="<=azure-pipelines"
 
 **`VDAuthUserName`** - **Username**<br>
-`string`. Required when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
+`string`. Required when `VDPhysicalPathAuth = VDWindowsAuth && IISDeploymentType = IISVirtualDirectory`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the user name that is used to access the virtual directory's physical path.
 <!-- :::editable-content-end::: -->
@@ -499,7 +499,7 @@ Specifies the user name that is used to access the virtual directory's physical 
 :::moniker range="<=azure-pipelines"
 
 **`VDAuthUserPassword`** - **Password**<br>
-`string`. Optional. Use when `VDPhysicalPathAuth = VDWindowsAuth`.<br>
+`string`. Optional. Use when `VDPhysicalPathAuth = VDWindowsAuth && IISDeploymentType = IISVirtualDirectory`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the user's password that is used to access the virtual directory's physical path.  
 The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
@@ -513,7 +513,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 :::moniker range="<=azure-pipelines"
 
 **`ParentWebsiteNameForApplication`** - **Parent website name**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the parent website under which the application will be created or updated.
 <!-- :::editable-content-end::: -->
@@ -525,7 +525,7 @@ Specifies the name of the parent website under which the application will be cre
 :::moniker range="<=azure-pipelines"
 
 **`VirtualPathForApplication`** - **Virtual path**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the virtual path of the application.
 
@@ -539,7 +539,7 @@ For example, to create an application `Site/Application`, enter `/Application`. 
 :::moniker range="<=azure-pipelines"
 
 **`PhysicalPathForApplication`** - **Physical path**<br>
-`string`. Required. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication`. Default value: `%SystemDrive%\inetpub\wwwroot`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the physical path where the application's content is stored. The content can reside on the local computer, in a remote directory, or on a network share, like `C:\Fabrikam` or `\\ContentShare\Fabrikam`.
 <!-- :::editable-content-end::: -->
@@ -551,7 +551,7 @@ Specifies the physical path where the application's content is stored. The conte
 :::moniker range="<=azure-pipelines"
 
 **`ApplicationPhysicalPathAuth`** - **Physical path authentication**<br>
-`string`. Allowed values: `ApplicationUserPassThrough` (Application User (Pass-through)), `ApplicationWindowsAuth` (Windows Authentication). Default value: `ApplicationUserPassThrough`.<br>
+`string`. Optional. Use when `IISDeploymentType = IISWebApplication`. Allowed values: `ApplicationUserPassThrough` (Application User (Pass-through)), `ApplicationWindowsAuth` (Windows Authentication). Default value: `ApplicationUserPassThrough`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the authentication mechanism that is used to access the physical path of the application.
 <!-- :::editable-content-end::: -->
@@ -563,7 +563,7 @@ Specifies the authentication mechanism that is used to access the physical path 
 :::moniker range="<=azure-pipelines"
 
 **`ApplicationAuthUserName`** - **Username**<br>
-`string`. Required when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
+`string`. Required when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth && IISDeploymentType = IISWebApplication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the user name that is used to access the application's physical path.
 <!-- :::editable-content-end::: -->
@@ -575,7 +575,7 @@ Specifies the user name that is used to access the application's physical path.
 :::moniker range="<=azure-pipelines"
 
 **`ApplicationAuthUserPassword`** - **Password**<br>
-`string`. Optional. Use when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth`.<br>
+`string`. Optional. Use when `ApplicationPhysicalPathAuth = ApplicationWindowsAuth && IISDeploymentType = IISWebApplication`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the user's password that is used to access the application's physical path.  
 The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
@@ -589,7 +589,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 :::moniker range="<=azure-pipelines"
 
 **`CreateOrUpdateAppPoolForApplication`** - **Create or update app pool**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `IISDeploymentType = IISWebApplication`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the option to create or update an application pool. If checked, the application will be created in the specified application pool.
 <!-- :::editable-content-end::: -->
@@ -601,7 +601,7 @@ Specifies the option to create or update an application pool. If checked, the ap
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolNameForApplication`** - **Name**<br>
-`string`. Required.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication && CreateOrUpdateAppPoolForApplication = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
@@ -613,7 +613,7 @@ Specifies the name of the IIS application pool to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`DotNetVersionForApplication`** - **.NET version**<br>
-`string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication && CreateOrUpdateAppPoolForApplication = true`. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version of the .NET Framework that is loaded by the application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
@@ -625,7 +625,7 @@ Specifies the version of the .NET Framework that is loaded by the application po
 :::moniker range="<=azure-pipelines"
 
 **`PipeLineModeForApplication`** - **Managed pipeline mode**<br>
-`string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication && CreateOrUpdateAppPoolForApplication = true`. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the managed pipeline mode to determine how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the integrated mode.
 <!-- :::editable-content-end::: -->
@@ -637,7 +637,7 @@ Specifies the managed pipeline mode to determine how IIS processes requests for 
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolIdentityForApplication`** - **Identity**<br>
-`string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
+`string`. Required when `IISDeploymentType = IISWebApplication && CreateOrUpdateAppPoolForApplication = true`. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configures the account under which an application pool's worker process runs. Specifies one of the predefined security accounts or configures a custom account.
 <!-- :::editable-content-end::: -->
@@ -649,7 +649,7 @@ Configures the account under which an application pool's worker process runs. Sp
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolUsernameForApplication`** - **Username**<br>
-`string`. Required when `AppPoolIdentityForApplication = SpecificUser`.<br>
+`string`. Required when `AppPoolIdentityForApplication = SpecificUser && IISDeploymentType = IISWebApplication && CreateOrUpdateAppPoolForApplication = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
@@ -661,7 +661,7 @@ Specifies the username of the custom account that you want to use.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolPasswordForApplication`** - **Password**<br>
-`string`. Optional. Use when `AppPoolIdentityForApplication = SpecificUser`.<br>
+`string`. Optional. Use when `AppPoolIdentityForApplication = SpecificUser && IISDeploymentType = IISWebApplication && CreateOrUpdateAppPoolForApplication = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the password for the custom account.  
 The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  
@@ -675,7 +675,7 @@ The best practice is to create a variable in the build or release pipeline, mark
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolName`** - **Name**<br>
-`string`. Required.<br>
+`string`. Required when `ActionIISApplicationPool = CreateOrUpdateAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the IIS application pool to create or update.
 <!-- :::editable-content-end::: -->
@@ -687,7 +687,7 @@ Specifies the name of the IIS application pool to create or update.
 :::moniker range="<=azure-pipelines"
 
 **`DotNetVersion`** - **.NET version**<br>
-`string`. Required. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
+`string`. Required when `ActionIISApplicationPool = CreateOrUpdateAppPool`. Allowed values: `v4.0`, `v2.0`, `No Managed Code`. Default value: `v4.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version of the .NET Framework that is loaded by the application pool. If the applications assigned to this application pool do not contain managed code, select the **No Managed Code** option from the list.
 <!-- :::editable-content-end::: -->
@@ -699,7 +699,7 @@ Specifies the version of the .NET Framework that is loaded by the application po
 :::moniker range="<=azure-pipelines"
 
 **`PipeLineMode`** - **Managed pipeline mode**<br>
-`string`. Required. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
+`string`. Required when `ActionIISApplicationPool = CreateOrUpdateAppPool`. Allowed values: `Integrated`, `Classic`. Default value: `Integrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the managed pipeline mode to determine how IIS processes requests for managed content. Use classic mode only when the applications in the application pool cannot run in the integrated mode.
 <!-- :::editable-content-end::: -->
@@ -711,7 +711,7 @@ Specifies the managed pipeline mode to determine how IIS processes requests for 
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolIdentity`** - **Identity**<br>
-`string`. Required. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
+`string`. Required when `ActionIISApplicationPool = CreateOrUpdateAppPool`. Allowed values: `ApplicationPoolIdentity` (Application Pool Identity), `LocalService` (Local Service), `LocalSystem` (Local System), `NetworkService` (Network Service), `SpecificUser` (Custom Account). Default value: `ApplicationPoolIdentity`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Configures the account under which an application pool's worker process runs. Specifies one of the predefined security accounts or configures a custom account.
 <!-- :::editable-content-end::: -->
@@ -723,7 +723,7 @@ Configures the account under which an application pool's worker process runs. Sp
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolUsername`** - **Username**<br>
-`string`. Required when `AppPoolIdentity = SpecificUser`.<br>
+`string`. Required when `AppPoolIdentity = SpecificUser && ActionIISApplicationPool = CreateOrUpdateAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the username of the custom account that you want to use.
 <!-- :::editable-content-end::: -->
@@ -735,7 +735,7 @@ Specifies the username of the custom account that you want to use.
 :::moniker range="<=azure-pipelines"
 
 **`AppPoolPassword`** - **Password**<br>
-`string`. Optional. Use when `AppPoolIdentity = SpecificUser`.<br>
+`string`. Optional. Use when `AppPoolIdentity = SpecificUser && ActionIISApplicationPool = CreateOrUpdateAppPool`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the password for the custom account.  
 The best practice is to create a variable in the build or release pipeline, mark it as `Secret` to secure it, and then provide it when using this input, like `$(userCredentials)`.  

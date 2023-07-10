@@ -1,7 +1,7 @@
 ---
 title: GitHubRelease@0 - GitHub Release v0 task
 description: Create, edit, or delete a GitHub release (task version 0).
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -45,9 +45,9 @@ Use this task to create, edit, or delete a GitHub release.
     #addChangeLog: true # boolean. Optional. Use when action = create || action = edit. Add changelog. Default: true.
   # Changelog configuration
     changeLogCompareToRelease: 'lastFullRelease' # 'lastFullRelease' | 'lastNonDraftRelease' | 'lastNonDraftReleaseByTag'. Required when addChangeLog = true. Compare to. Default: lastFullRelease.
-    #changeLogCompareToReleaseTag: # string. Required when changeLogCompareToRelease = lastNonDraftReleaseByTag. Release Tag. 
+    #changeLogCompareToReleaseTag: # string. Required when changeLogCompareToRelease = lastNonDraftReleaseByTag && addChangeLog = true. Release Tag. 
     changeLogType: 'commitBased' # 'commitBased' | 'issueBased'. Required when addChangeLog = true. Changelog type. Default: commitBased.
-    #changeLogLabels: '[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]' # string. Optional. Use when changeLogType = issueBased. Categories. Default: [{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }].
+    #changeLogLabels: '[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]' # string. Optional. Use when changeLogType = issueBased && addChangeLog = true. Categories. Default: [{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }].
 ```
 
 :::moniker-end
@@ -296,7 +296,7 @@ Indicates which release to compare with to generate the changelog:
 :::moniker range=">=azure-pipelines-2020"
 
 **`changeLogCompareToReleaseTag`** - **Release Tag**<br>
-`string`. Required when `changeLogCompareToRelease = lastNonDraftReleaseByTag`.<br>
+`string`. Required when `changeLogCompareToRelease = lastNonDraftReleaseByTag && addChangeLog = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the regex for the release tag. A release matching this tag will be used as the base for changelog computation.
 <!-- :::editable-content-end::: -->
@@ -320,7 +320,7 @@ Specifies the changelog type. A changelog can be commit-based or issue-based. A 
 :::moniker range=">=azure-pipelines-2020"
 
 **`changeLogLabels`** - **Categories**<br>
-`string`. Optional. Use when `changeLogType = issueBased`. Default value: `[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]`.<br>
+`string`. Optional. Use when `changeLogType = issueBased && addChangeLog = true`. Default value: `[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Categorizes changes based on the label associated with the issue or PR. For a label, you can mention the display name for the category and the state of issue. Examples of labels include: `"[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]"`. In cases where a change has multiple labels on it, the first specified label takes priority. Leave this field empty to see a flat list of issues or PRs.
 <!-- :::editable-content-end::: -->

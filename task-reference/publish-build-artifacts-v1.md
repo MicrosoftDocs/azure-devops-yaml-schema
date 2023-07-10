@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,6 +30,7 @@ Use this task in a build pipeline to publish build artifacts to Azure Pipelines,
     PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
     ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
     publishLocation: 'Container' # 'Container' | 'FilePath'. Alias: ArtifactType. Required. Artifact publish location. Default: Container.
+    #MaxArtifactSize: '0' # string. Max Artifact Size. Default: 0.
     #TargetPath: # string. Required when ArtifactType = FilePath. File share path. 
     #Parallel: false # boolean. Optional. Use when ArtifactType = FilePath. Parallel copy. Default: false.
     #ParallelCount: '8' # string. Optional. Use when ArtifactType = FilePath && Parallel = true. Parallel count. Default: 8.
@@ -201,6 +202,18 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Visual Studio Team Services/TFS), `FilePath` (A file share).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="MaxArtifactSize"::: -->
+:::moniker range="=azure-pipelines"
+
+**`MaxArtifactSize`** - **Max Artifact Size**<br>
+`string`. Default value: `0`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Maximum limit on the size of artifacts to be published in bytes. Put 0 if you don't want to set any limit.
 <!-- :::editable-content-end::: -->
 <br>
 

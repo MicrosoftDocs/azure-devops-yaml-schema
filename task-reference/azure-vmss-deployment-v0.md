@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -33,12 +33,12 @@ This task deploys a Virtual Machine scale set image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
   # Image Details
-    imageUrl: # string. Required. Image URL. 
+    #imageUrl: # string. Required when action = Update image || action = UpdateImage. Image URL. 
   # Configure start-up
-    #customScriptsDirectory: # string. Custom script directory. 
-    #customScript: # string. Command. 
-    #customScriptArguments: # string. Arguments. 
-    #customScriptsStorageAccount: # string. Azure storage account where custom scripts will be uploaded. 
+    #customScriptsDirectory: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Custom script directory. 
+    #customScript: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Command. 
+    #customScriptArguments: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Arguments. 
+    #customScriptsStorageAccount: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Azure storage account where custom scripts will be uploaded. 
   # Advanced
     #skipArchivingCustomScripts: false # boolean. Skip Archiving custom scripts. Default: false.
 ```
@@ -58,12 +58,12 @@ This task deploys a Virtual Machine scale set image.
     vmssName: # string. Required. Virtual Machine scale set name. 
     vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
   # Image Details
-    imageUrl: # string. Required. Image URL. 
+    #imageUrl: # string. Required when action = Update image || action = UpdateImage. Image URL. 
   # Configure start-up
-    #customScriptsDirectory: # string. Custom script directory. 
-    #customScript: # string. Command. 
-    #customScriptArguments: # string. Arguments. 
-    #customScriptsStorageAccount: # string. Azure storage account where custom scripts will be uploaded. 
+    #customScriptsDirectory: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Custom script directory. 
+    #customScript: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Command. 
+    #customScriptArguments: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Arguments. 
+    #customScriptsStorageAccount: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Azure storage account where custom scripts will be uploaded. 
   # Advanced
     #skipArchivingCustomScripts: false # boolean. Skip Archiving custom scripts. Default: false.
 ```
@@ -140,7 +140,7 @@ Specifies the operating system type of the VM scale set.
 :::moniker range=">=azure-pipelines-2019"
 
 **`imageUrl`** - **Image URL**<br>
-`string`. Required.<br>
+`string`. Required when `action = Update image || action = UpdateImage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the URL of the VHD image. If it's an Azure storage blob URL, the storage account location is the same as the scale set location.
 <!-- :::editable-content-end::: -->
@@ -151,7 +151,7 @@ Specifies the URL of the VHD image. If it's an Azure storage blob URL, the stora
 :::moniker range="=azure-pipelines-2018"
 
 **`imageUrl`** - **Image url**<br>
-`string`. Required.<br>
+`string`. Required when `action = Update image || action = UpdateImage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the URL of the VHD image. If it's an Azure storage blob URL, the storage account location is the same as the scale set location.
 <!-- :::editable-content-end::: -->
@@ -163,7 +163,7 @@ Specifies the URL of the VHD image. If it's an Azure storage blob URL, the stora
 :::moniker range="<=azure-pipelines"
 
 **`customScriptsDirectory`** - **Custom script directory**<br>
-`string`.<br>
+`string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. The path to the directory containing the custom script(s) that are run by using the Custom Script VM Extension. The extension approach is useful for post deployment configuration, application/software installation, or any other application configuration/management task. For example, the script can set a machine level environment variable which the application uses, like database connection strings.
 <!-- :::editable-content-end::: -->
@@ -175,7 +175,7 @@ Optional. The path to the directory containing the custom script(s) that are run
 :::moniker range="<=azure-pipelines"
 
 **`customScript`** - **Command**<br>
-`string`.<br>
+`string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. The script that is run by using the Custom Script VM Extension. This script can invoke other scripts in the directory and is invoked with the arguments passed below.  
 In conjunction with such arguments, this script can be used to execute commands.
@@ -192,7 +192,7 @@ For example:
 :::moniker range="<=azure-pipelines"
 
 **`customScriptArguments`** - **Arguments**<br>
-`string`.<br>
+`string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. The custom script will be invoked with arguments passed. Build/release variables can be used, which makes it easy to use secrets.
 <!-- :::editable-content-end::: -->
@@ -204,7 +204,7 @@ Optional. The custom script will be invoked with arguments passed. Build/release
 :::moniker range="<=azure-pipelines"
 
 **`customScriptsStorageAccount`** - **Azure storage account where custom scripts will be uploaded**<br>
-`string`.<br>
+`string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. The Custom Script Extension downloads and executes the provided scripts on each virtual machine in the VM scale set. These scripts will be stored in the pre-existing ARM storage account specified here.
 <!-- :::editable-content-end::: -->

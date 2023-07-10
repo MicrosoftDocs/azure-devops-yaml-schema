@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -38,7 +38,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
   # Application and Configuration Settings
     #appSettings: # string. App settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -165,7 +165,7 @@ Enter the application settings using the syntax `-key value` (for example: `-Por
 :::moniker range="=azure-pipelines"
 
 **`deploymentMethod`** - **Deployment method**<br>
-`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
+`string`. Required when `appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->
