@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -30,9 +30,9 @@ Use this task to restore your NuGet packages using dotnet CLI.
     packageName: # string. Required. Package Name. 
     version: # string. Required. Package Version. 
   # Feeds and authentication
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Required when selectOrConfig = config. Credentials for feed from GitHub. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Required when selectOrConfig = config && command = restore. Credentials for feed from GitHub. 
   # Advanced
-    #restoreDirectory: # string. Alias: packagesDirectory. Destination directory.
+    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory.
 ```
 
 :::moniker-end
@@ -69,7 +69,7 @@ Specifies the version of the package to download from GitHub.
 :::moniker range=">=azure-pipelines-2020"
 
 **`externalFeedCredentials`** - **Credentials for feed from GitHub**<br>
-Input alias: `externalEndpoints`. `string`. Required when `selectOrConfig = config`.<br>
+Input alias: `externalEndpoints`. `string`. Required when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registry from GitHub.
 <!-- :::editable-content-end::: -->
@@ -81,7 +81,7 @@ Specifies the credentials to use for external registry from GitHub.
 :::moniker range=">=azure-pipelines-2020"
 
 **`restoreDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. `string`.<br>
+Input alias: `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder where packages are installed. If no folder is specified, packages are restored into the default system working directory.
 <!-- :::editable-content-end::: -->

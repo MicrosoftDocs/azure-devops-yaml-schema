@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@0 - Package and deploy Helm charts v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,17 +36,17 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager. Use cluster admin credentials. Default: false.
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
-    #namespace: # string. Namespace. 
+    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package && command != save. Connection Type. Default: Azure Resource Manager.
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Azure subscription. 
+    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Resource group. 
+    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Kubernetes cluster. 
+    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Use cluster admin credentials. Default: false.
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package && command != save. Kubernetes Service Connection. 
+    #namespace: # string. Optional. Use when command != logout && command != package && command != save. Namespace. 
   # Azure Container Registry
-    azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required. Azure subscription for Container Registry. 
-    azureResourceGroupForACR: # string. Required. Resource group. 
-    azureContainerRegistry: # string. Required. Azure Container Registry. 
+    #azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required when command == save. Azure subscription for Container Registry. 
+    #azureResourceGroupForACR: # string. Required when command == save. Resource group. 
+    #azureContainerRegistry: # string. Required when command == save. Azure Container Registry. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'save' | 'upgrade' | 'uninstall'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
@@ -70,14 +70,14 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
     #chartNameForACR: # string. Required when command == save. Chart Name For Azure Container Registry. 
     #chartPathForACR: # string. Required when command == save. Chart Path for Azure Container Registry. 
   # TLS
-    #enableTls: false # boolean. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true. CA certificate. 
-    #certificate: # string. Required when enableTls == true. Certificate. 
-    #privatekey: # string. Required when enableTls == true. Key. 
+    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package && command != save. Enable TLS. Default: false.
+    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package && command != save. CA certificate. 
+    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package && command != save. Certificate. 
+    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package && command != save. Key. 
   # Advanced
-    #tillernamespace: # string. Tiller namespace. 
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #publishPipelineMetadata: true # boolean. Publish pipeline metadata. Default: true.
+    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package && command != save. Tiller namespace. 
+    #failOnStderr: false # boolean. Optional. Use when command != login && command != logout && command != package && command != save. Fail on Standard Error. Default: false.
+    #publishPipelineMetadata: true # boolean. Optional. Use when command != login && command != logout && command != package && command != save. Publish pipeline metadata. Default: true.
 ```
 
 :::moniker-end
@@ -90,17 +90,17 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager. Use cluster admin credentials. Default: false.
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
-    #namespace: # string. Namespace. 
+    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package && command != save. Connection Type. Default: Azure Resource Manager.
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Azure subscription. 
+    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Resource group. 
+    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Kubernetes cluster. 
+    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager && command != logout && command != package && command != save. Use cluster admin credentials. Default: false.
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package && command != save. Kubernetes Service Connection. 
+    #namespace: # string. Optional. Use when command != logout && command != package && command != save. Namespace. 
   # Azure Container Registry
-    azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required. Azure subscription for Container Registry. 
-    azureResourceGroupForACR: # string. Required. Resource group. 
-    azureContainerRegistry: # string. Required. Azure Container Registry. 
+    #azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required when command == save. Azure subscription for Container Registry. 
+    #azureResourceGroupForACR: # string. Required when command == save. Resource group. 
+    #azureContainerRegistry: # string. Required when command == save. Azure Container Registry. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'save' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
@@ -124,14 +124,14 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
     #chartNameForACR: # string. Required when command == save. Chart Name For Azure Container Registry. 
     #chartPathForACR: # string. Required when command == save. Chart Path for Azure Container Registry. 
   # TLS
-    #enableTls: false # boolean. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true. CA certificate. 
-    #certificate: # string. Required when enableTls == true. Certificate. 
-    #privatekey: # string. Required when enableTls == true. Key. 
+    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package && command != save. Enable TLS. Default: false.
+    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package && command != save. CA certificate. 
+    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package && command != save. Certificate. 
+    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package && command != save. Key. 
   # Advanced
-    #tillernamespace: # string. Tiller namespace. 
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #publishPipelineMetadata: true # boolean. Publish pipeline metadata. Default: true.
+    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package && command != save. Tiller namespace. 
+    #failOnStderr: false # boolean. Optional. Use when command != login && command != logout && command != package && command != save. Fail on Standard Error. Default: false.
+    #publishPipelineMetadata: true # boolean. Optional. Use when command != login && command != logout && command != package && command != save. Publish pipeline metadata. Default: true.
 ```
 
 :::moniker-end
@@ -144,13 +144,13 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager. Use cluster admin credentials. Default: false.
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
-    #namespace: # string. Namespace. 
+    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package. Connection Type. Default: Azure Resource Manager.
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package. Azure subscription. 
+    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Resource group. 
+    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Kubernetes cluster. 
+    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager && command != logout && command != package. Use cluster admin credentials. Default: false.
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package. Kubernetes Service Connection. 
+    #namespace: # string. Optional. Use when command != logout && command != package. Namespace. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
@@ -172,13 +172,13 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
     #waitForExecution: true # boolean. Optional. Use when command == init || command == install || command == upgrade. Wait. Default: true.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
   # TLS
-    #enableTls: false # boolean. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true. CA certificate. 
-    #certificate: # string. Required when enableTls == true. Certificate. 
-    #privatekey: # string. Required when enableTls == true. Key. 
+    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package. Enable TLS. Default: false.
+    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package. CA certificate. 
+    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package. Certificate. 
+    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package. Key. 
   # Advanced
-    #tillernamespace: # string. Tiller namespace. 
-    #failOnStderr: true # boolean. Fail on Standard Error. Default: true.
+    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package. Tiller namespace. 
+    #failOnStderr: true # boolean. Optional. Use when command != login && command != logout && command != package. Fail on Standard Error. Default: true.
 ```
 
 :::moniker-end
@@ -191,12 +191,12 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
-    #namespace: # string. Namespace. 
+    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package. Connection Type. Default: Azure Resource Manager.
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package. Azure subscription. 
+    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Resource group. 
+    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Kubernetes cluster. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package. Kubernetes Service Connection. 
+    #namespace: # string. Optional. Use when command != logout && command != package. Namespace. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
@@ -218,12 +218,12 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
     #waitForExecution: true # boolean. Optional. Use when command == init || command == install || command == upgrade. Wait. Default: true.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
   # TLS
-    #enableTls: false # boolean. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true. CA certificate. 
-    #certificate: # string. Required when enableTls == true. Certificate. 
-    #privatekey: # string. Required when enableTls == true. Key. 
+    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package. Enable TLS. Default: false.
+    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package. CA certificate. 
+    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package. Certificate. 
+    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package. Key. 
   # Advanced
-    #tillernamespace: # string. Tiller namespace.
+    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package. Tiller namespace.
 ```
 
 :::moniker-end
@@ -236,12 +236,12 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 - task: HelmDeploy@0
   inputs:
   # Kubernetes Cluster
-    connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager. Kubernetes cluster. 
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection. Kubernetes Service Connection. 
-    #namespace: # string. Namespace. 
+    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package. Connection Type. Default: Azure Resource Manager.
+    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package. Azure subscription. 
+    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Resource group. 
+    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Kubernetes cluster. 
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package. Kubernetes Service Connection. 
+    #namespace: # string. Optional. Use when command != logout && command != package. Namespace. 
   # Commands
     command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
@@ -263,12 +263,12 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
     #waitForExecution: true # boolean. Optional. Use when command == init || command == install || command == upgrade. Wait. Default: true.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
   # TLS
-    #enableTls: false # boolean. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true. CA certificate. 
-    #certificate: # string. Required when enableTls == true. Certificate. 
-    #privatekey: # string. Required when enableTls == true. Key. 
+    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package. Enable TLS. Default: false.
+    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package. CA certificate. 
+    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package. Certificate. 
+    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package. Key. 
   # Advanced
-    #tillernamespace: # string. Tiller namespace.
+    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package. Tiller namespace.
 ```
 
 :::moniker-end
@@ -278,10 +278,27 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 ## Inputs
 
 <!-- :::item name="connectionType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`connectionType`** - **Connection Type**<br>
-`string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
+`string`. Required when `command != logout && command != package && command != save`. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the connection type.
+
+* `Kubernetes Service Connection` - Specify `Kubernetes Service Connection` to connect to any Kubernetes cluster by using `kubeconfig` or the Azure Service Account. Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Specify `Azure Resource Manager` to connect to an Azure Kubernetes Service by using Azure Service Connection. Does not access Kubernetes cluster at Service Connection configuration time.
+* `None` - Use a pre-created Kubernetes configuration stored locally.
+
+For more information, see [Service connection](#service-connection) in the following [Remarks](#remarks) section.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`connectionType`** - **Connection Type**<br>
+`string`. Required when `command != logout && command != package`. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the connection type.
 
@@ -296,10 +313,21 @@ For more information, see [Service connection](#service-connection) in the follo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager`.<br>
+Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The name of the Azure Service Connection. Specify an Azure subscription that has your container registry.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`azureSubscription`** - **Azure subscription**<br>
+Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure Service Connection. Specify an Azure subscription that has your container registry.
 <!-- :::editable-content-end::: -->
@@ -308,10 +336,21 @@ The name of the Azure Service Connection. Specify an Azure subscription that has
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`azureResourceGroup`** - **Resource group**<br>
-`string`. Required when `connectionType = Azure Resource Manager`.<br>
+`string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The name of the resource group within the subscription. Specify an Azure Resource Group.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`azureResourceGroup`** - **Resource group**<br>
+`string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the resource group within the subscription. Specify an Azure Resource Group.
 <!-- :::editable-content-end::: -->
@@ -320,10 +359,21 @@ The name of the resource group within the subscription. Specify an Azure Resourc
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesCluster"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
-`string`. Required when `connectionType = Azure Resource Manager`.<br>
+`string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The name of the AKS cluster. Specify an Azure Managed Cluster.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`kubernetesCluster`** - **Kubernetes cluster**<br>
+`string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the AKS cluster. Specify an Azure Managed Cluster.
 <!-- :::editable-content-end::: -->
@@ -332,10 +382,21 @@ The name of the AKS cluster. Specify an Azure Managed Cluster.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useClusterAdmin"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`useClusterAdmin`** - **Use cluster admin credentials**<br>
-`boolean`. Optional. Use when `connectionType = Azure Resource Manager`. Default value: `false`.<br>
+`boolean`. Optional. Use when `connectionType = Azure Resource Manager && command != logout && command != package && command != save`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Uses cluster administrator credentials instead of default cluster user credentials.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2020"
+
+**`useClusterAdmin`** - **Use cluster admin credentials**<br>
+`boolean`. Optional. Use when `connectionType = Azure Resource Manager && command != logout && command != package`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Uses cluster administrator credentials instead of default cluster user credentials.
 <!-- :::editable-content-end::: -->
@@ -344,10 +405,21 @@ Uses cluster administrator credentials instead of default cluster user credentia
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection`.<br>
+Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies a Kubernetes Service Connection.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
+Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Kubernetes Service Connection.
 <!-- :::editable-content-end::: -->
@@ -356,10 +428,21 @@ Specifies a Kubernetes Service Connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`namespace`** - **Namespace**<br>
-`string`.<br>
+`string`. Optional. Use when `command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The namespace on which you run the `kubectl` commands. If not specified, the task uses the default namespace. Specify the Kubernetes namespace to use. You can specify the Tiller namespace in the advanced section of the task or by passing the `--tiller-namespace` option as an argument.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`namespace`** - **Namespace**<br>
+`string`. Optional. Use when `command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The namespace on which you run the `kubectl` commands. If not specified, the task uses the default namespace. Specify the Kubernetes namespace to use. You can specify the Tiller namespace in the advanced section of the task or by passing the `--tiller-namespace` option as an argument.
 <!-- :::editable-content-end::: -->
@@ -371,7 +454,7 @@ The namespace on which you run the `kubectl` commands. If not specified, the tas
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
-Input alias: `azureSubscriptionEndpointForACR`. `string`. Required.<br>
+Input alias: `azureSubscriptionEndpointForACR`. `string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription that has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
@@ -383,7 +466,7 @@ Specifies an Azure subscription that has your Azure Container Registry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureResourceGroupForACR`** - **Resource group**<br>
-`string`. Required.<br>
+`string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure Resource Group that has your Container Registry.
 <!-- :::editable-content-end::: -->
@@ -395,7 +478,7 @@ Specifies an Azure Resource Group that has your Container Registry.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
-`string`. Required.<br>
+`string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure Container Registry to be used for pushing Helm charts.
 <!-- :::editable-content-end::: -->
@@ -672,10 +755,21 @@ The Helm command options.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableTls"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`enableTls`** - **Enable TLS**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `command != login && command != logout && command != package && command != save`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Enables using SSL between Helm and Tiller.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`enableTls`** - **Enable TLS**<br>
+`boolean`. Optional. Use when `command != login && command != logout && command != package`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enables using SSL between Helm and Tiller.
 <!-- :::editable-content-end::: -->
@@ -684,10 +778,21 @@ Enables using SSL between Helm and Tiller.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="caCert"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`caCert`** - **CA certificate**<br>
-`string`. Required when `enableTls == true`.<br>
+`string`. Required when `enableTls == true && command != login && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The CA cert used to issue a certificate for the Tiller and Helm client.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`caCert`** - **CA certificate**<br>
+`string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The CA cert used to issue a certificate for the Tiller and Helm client.
 <!-- :::editable-content-end::: -->
@@ -696,10 +801,21 @@ The CA cert used to issue a certificate for the Tiller and Helm client.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="certificate"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`certificate`** - **Certificate**<br>
-`string`. Required when `enableTls == true`.<br>
+`string`. Required when `enableTls == true && command != login && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the Tiller certificate or the Helm client certificate.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`certificate`** - **Certificate**<br>
+`string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Tiller certificate or the Helm client certificate.
 <!-- :::editable-content-end::: -->
@@ -708,10 +824,21 @@ Specify the Tiller certificate or the Helm client certificate.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="privatekey"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`privatekey`** - **Key**<br>
-`string`. Required when `enableTls == true`.<br>
+`string`. Required when `enableTls == true && command != login && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the Tiller key or the Helm client key.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`privatekey`** - **Key**<br>
+`string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Tiller key or the Helm client key.
 <!-- :::editable-content-end::: -->
@@ -720,10 +847,21 @@ Specify the Tiller key or the Helm client key.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tillernamespace"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020.1"
 
 **`tillernamespace`** - **Tiller namespace**<br>
-`string`.<br>
+`string`. Optional. Use when `command != login && command != logout && command != package && command != save`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify Tiller's Kubernetes namespace.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+
+**`tillernamespace`** - **Tiller namespace**<br>
+`string`. Optional. Use when `command != login && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify Tiller's Kubernetes namespace.
 <!-- :::editable-content-end::: -->
@@ -735,7 +873,7 @@ Specify Tiller's Kubernetes namespace.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `command != login && command != logout && command != package && command != save`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is `true`, this task fails if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise, the task relies on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
@@ -746,7 +884,7 @@ If this input is `true`, this task fails if any errors are written to the error 
 :::moniker range="=azure-pipelines-2020"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
-`boolean`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command != login && command != logout && command != package`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is `true`, this task fails if any errors are written to the error pipeline, or if any data is written to the Standard Error stream. Otherwise, the task relies on the exit code to determine failure.
 <!-- :::editable-content-end::: -->
@@ -758,7 +896,7 @@ If this input is `true`, this task fails if any errors are written to the error 
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`publishPipelineMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command != login && command != logout && command != package && command != save`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is `true`, the task collects and publishes deployment metadata.
 <!-- :::editable-content-end::: -->

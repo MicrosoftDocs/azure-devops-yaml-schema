@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -49,7 +49,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -75,7 +75,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -101,7 +101,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -127,7 +127,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -153,7 +153,7 @@ Deploy an Azure Function for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -351,7 +351,7 @@ Enter the configuration strings using the syntax `-key value` (for example: `-ph
 :::moniker range=">=azure-pipelines-2022"
 
 **`deploymentMethod`** - **Deployment method**<br>
-`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
+`string`. Required when `appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->
@@ -362,7 +362,7 @@ Chooses the [deployment method](#deployment-methods) for the app.
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
 
 **`deploymentMethod`** - **Deployment method**<br>
-`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
+`string`. Required when `appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chooses the [deployment method](#deployment-methods) for the app.
 <!-- :::editable-content-end::: -->

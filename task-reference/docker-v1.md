@@ -1,7 +1,7 @@
 ---
 title: Docker@1 - Docker v1 task
 description: Build, tag, push, or run Docker images, or run a Docker command.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,10 +36,10 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
-    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when command != logout. Container registry type. Default: Azure Container Registry.
+    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry && command != logout. Docker registry service connection. 
+    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure subscription. 
+    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure container registry. 
   # Commands
     #addBaseImageData: true # boolean. Add base image metadata to image(s). Default: true.
     command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
@@ -68,9 +68,9 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
     restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
-    #dockerHostEndpoint: # string. Docker host service connection. 
-    #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #memoryLimit: # string. Memory limit.
+    #dockerHostEndpoint: # string. Optional. Use when command != login && command != logout. Docker host service connection. 
+    #enforceDockerNamingConvention: true # boolean. Optional. Use when command != login && command != logout. Force image name to follow Docker naming convention. Default: true.
+    #memoryLimit: # string. Optional. Use when command != login && command != logout. Memory limit.
 ```
 
 :::moniker-end
@@ -83,10 +83,10 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
-    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when command != logout. Container registry type. Default: Azure Container Registry.
+    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry && command != logout. Docker registry service connection. 
+    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure subscription. 
+    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure container registry. 
   # Commands
     command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
     #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
@@ -114,9 +114,9 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
     restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
-    #dockerHostEndpoint: # string. Docker host service connection. 
-    #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #memoryLimit: # string. Memory limit.
+    #dockerHostEndpoint: # string. Optional. Use when command != login && command != logout. Docker host service connection. 
+    #enforceDockerNamingConvention: true # boolean. Optional. Use when command != login && command != logout. Force image name to follow Docker naming convention. Default: true.
+    #memoryLimit: # string. Optional. Use when command != login && command != logout. Memory limit.
 ```
 
 :::moniker-end
@@ -129,10 +129,10 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
-    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when command != logout. Container registry type. Default: Azure Container Registry.
+    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry && command != logout. Docker registry service connection. 
+    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure subscription. 
+    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure container registry. 
   # Commands
     command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
     #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
@@ -159,9 +159,9 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
     restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
-    #dockerHostEndpoint: # string. Docker host service connection. 
-    #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #memoryLimit: # string. Memory limit.
+    #dockerHostEndpoint: # string. Optional. Use when command != login && command != logout. Docker host service connection. 
+    #enforceDockerNamingConvention: true # boolean. Optional. Use when command != login && command != logout. Force image name to follow Docker naming convention. Default: true.
+    #memoryLimit: # string. Optional. Use when command != login && command != logout. Memory limit.
 ```
 
 :::moniker-end
@@ -174,10 +174,10 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
 - task: Docker@1
   inputs:
   # Container Registry
-    containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry. Docker registry service connection. 
-    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure container registry. 
+    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when command != logout. Container registry type. Default: Azure Container Registry.
+    #dockerRegistryEndpoint: # string. Optional. Use when containerregistrytype = Container Registry && command != logout. Docker registry service connection. 
+    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure subscription. 
+    #azureContainerRegistry: # string. Optional. Use when containerregistrytype = Azure Container Registry && command != logout. Azure container registry. 
   # Commands
     command: 'Build an image' # 'Build an image' | 'Tag image' | 'Push an image' | 'Run an image' | 'login' | 'logout'. Required. Command. Default: Build an image.
     #dockerFile: '**/Dockerfile' # string. Required when command = Build an image || command = build. Dockerfile. Default: **/Dockerfile.
@@ -204,9 +204,9 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
     restartPolicy: 'no' # 'no' | 'onFailure' | 'always' | 'unlessStopped'. Required when runInBackground = true. Restart policy. Default: no.
     #maxRestartRetries: # string. Optional. Use when runInBackground = true && restartPolicy = onFailure. Maximum restart retries. 
   # Advanced Options
-    #dockerHostEndpoint: # string. Docker host service connection. 
-    #enforceDockerNamingConvention: true # boolean. Force image name to follow Docker naming convention. Default: true.
-    #memoryLimit: # string. Memory limit.
+    #dockerHostEndpoint: # string. Optional. Use when command != login && command != logout. Docker host service connection. 
+    #enforceDockerNamingConvention: true # boolean. Optional. Use when command != login && command != logout. Force image name to follow Docker naming convention. Default: true.
+    #memoryLimit: # string. Optional. Use when command != login && command != logout. Memory limit.
 ```
 
 :::moniker-end
@@ -219,7 +219,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
 :::moniker range=">=azure-pipelines-2019"
 
 **`containerregistrytype`** - **Container registry type**<br>
-`string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
+`string`. Required when `command != logout`. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Container Registry to connect using an Azure Service Connection. Select an Azure Container Registry to connect to a Docker Hub or any other private container registry.
 <!-- :::editable-content-end::: -->
@@ -243,7 +243,7 @@ The default value adds base image data, such as the base image name and digest, 
 :::moniker range=">=azure-pipelines-2019"
 
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
-`string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
+`string`. Optional. Use when `containerregistrytype = Container Registry && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. Required for commands that authenticate using a registry.
 <!-- :::editable-content-end::: -->
@@ -255,7 +255,7 @@ Specifies a Docker registry service connection. Required for commands that authe
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
-`string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+`string`. Optional. Use when `containerregistrytype = Azure Container Registry && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
@@ -267,7 +267,7 @@ Specifies an Azure subscription.
 :::moniker range=">=azure-pipelines-2019"
 
 **`azureContainerRegistry`** - **Azure container registry**<br>
-`string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+`string`. Optional. Use when `containerregistrytype = Azure Container Registry && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure Container Registry in the selected Azure Subscription. The container image is built and pushed to this container registry.
 <!-- :::editable-content-end::: -->
@@ -612,7 +612,7 @@ Specifies the maximum number of restart retries the Docker daemon attempts.
 :::moniker range=">=azure-pipelines-2019"
 
 **`dockerHostEndpoint`** - **Docker host service connection**<br>
-`string`.<br>
+`string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker host service connection. Defaults to the agent's host.
 <!-- :::editable-content-end::: -->
@@ -624,7 +624,7 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 :::moniker range=">=azure-pipelines-2019"
 
 **`enforceDockerNamingConvention`** - **Force image name to follow Docker naming convention**<br>
-`boolean`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command != login && command != logout`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The default value modifies the Docker image name according to Docker naming conventions. For example, convert upper case characters to lower case and remove spaces.
 <!-- :::editable-content-end::: -->
@@ -636,7 +636,7 @@ The default value modifies the Docker image name according to Docker naming conv
 :::moniker range=">=azure-pipelines-2019"
 
 **`memoryLimit`** - **Memory limit**<br>
-`string`.<br>
+`string`. Optional. Use when `command != login && command != logout`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the maximum amount of memory available to the container as an integer with optional suffixes like `2GB`.
 <!-- :::editable-content-end::: -->

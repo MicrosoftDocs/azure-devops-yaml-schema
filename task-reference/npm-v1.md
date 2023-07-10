@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -34,16 +34,16 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
     #workingDir: # string. Working folder that contains package.json. 
     #customCommand: # string. Required when command = custom. Command and arguments. 
   # Advanced
-    #verbose: # boolean. Verbose logging. 
-    #publishPackageMetadata: true # boolean. Optional. Use when command = publish && publishRegistry = useFeed. Publish pipeline metadata. Default: true.
+    #verbose: # boolean. Optional. Use when command = install || command = ci || command = publish. Verbose logging. 
+    #publishPackageMetadata: true # boolean. Optional. Use when command = publish && publishRegistry = useFeed && command = install || command = ci || command = publish. Publish pipeline metadata. Default: true.
   # Custom registries and authentication
-    #customRegistry: 'useNpmrc' # 'useNpmrc' | 'useFeed'. Registries to use. Default: useNpmrc.
-    #customFeed: # string. Required when customRegistry = useFeed. Use packages from this Azure Artifacts/TFS registry. 
-    #customEndpoint: # string. Optional. Use when customRegistry = useNpmrc. Credentials for registries outside this organization/collection. 
+    #customRegistry: 'useNpmrc' # 'useNpmrc' | 'useFeed'. Optional. Use when command = install || command = ci || command = custom. Registries to use. Default: useNpmrc.
+    #customFeed: # string. Required when customRegistry = useFeed && command = install || command = ci || command = custom. Use packages from this Azure Artifacts/TFS registry. 
+    #customEndpoint: # string. Optional. Use when customRegistry = useNpmrc && command = install || command = ci || command = custom. Credentials for registries outside this organization/collection. 
   # Destination registry and authentication
-    #publishRegistry: 'useExternalRegistry' # 'useExternalRegistry' | 'useFeed'. Registry location. Default: useExternalRegistry.
-    #publishFeed: # string. Required when publishRegistry = useFeed. Target registry. 
-    publishEndpoint: # string. Required when publishRegistry = useExternalRegistry. External Registry.
+    #publishRegistry: 'useExternalRegistry' # 'useExternalRegistry' | 'useFeed'. Optional. Use when command = publish. Registry location. Default: useExternalRegistry.
+    #publishFeed: # string. Required when publishRegistry = useFeed && command = publish. Target registry. 
+    #publishEndpoint: # string. Required when publishRegistry = useExternalRegistry && command = publish. External Registry.
 ```
 
 :::moniker-end
@@ -59,16 +59,16 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
     #workingDir: # string. Working folder that contains package.json. 
     #customCommand: # string. Required when command = custom. Command and arguments. 
   # Advanced
-    #verbose: # boolean. Verbose logging. 
-    #publishPackageMetadata: true # boolean. Optional. Use when command = publish && publishRegistry = useFeed. Publish pipeline metadata. Default: true.
+    #verbose: # boolean. Optional. Use when command = install || command = publish. Verbose logging. 
+    #publishPackageMetadata: true # boolean. Optional. Use when command = publish && publishRegistry = useFeed && command = install || command = publish. Publish pipeline metadata. Default: true.
   # Custom registries and authentication
-    #customRegistry: 'useNpmrc' # 'useNpmrc' | 'useFeed'. Registries to use. Default: useNpmrc.
-    #customFeed: # string. Required when customRegistry = useFeed. Use packages from this Azure Artifacts/TFS registry. 
-    #customEndpoint: # string. Optional. Use when customRegistry = useNpmrc. Credentials for registries outside this organization/collection. 
+    #customRegistry: 'useNpmrc' # 'useNpmrc' | 'useFeed'. Optional. Use when command = install || command = custom. Registries to use. Default: useNpmrc.
+    #customFeed: # string. Required when customRegistry = useFeed && command = install || command = custom. Use packages from this Azure Artifacts/TFS registry. 
+    #customEndpoint: # string. Optional. Use when customRegistry = useNpmrc && command = install || command = custom. Credentials for registries outside this organization/collection. 
   # Destination registry and authentication
-    #publishRegistry: 'useExternalRegistry' # 'useExternalRegistry' | 'useFeed'. Registry location. Default: useExternalRegistry.
-    #publishFeed: # string. Required when publishRegistry = useFeed. Target registry. 
-    publishEndpoint: # string. Required when publishRegistry = useExternalRegistry. External Registry.
+    #publishRegistry: 'useExternalRegistry' # 'useExternalRegistry' | 'useFeed'. Optional. Use when command = publish. Registry location. Default: useExternalRegistry.
+    #publishFeed: # string. Required when publishRegistry = useFeed && command = publish. Target registry. 
+    #publishEndpoint: # string. Required when publishRegistry = useExternalRegistry && command = publish. External Registry.
 ```
 
 :::moniker-end
@@ -84,15 +84,15 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
     #workingDir: # string. Working folder with package.json. 
     #customCommand: # string. Required when command = custom. Command and arguments. 
   # Advanced
-    #verbose: # boolean. Verbose logging. 
+    #verbose: # boolean. Optional. Use when command = install || command = publish. Verbose logging. 
   # Custom registries and authentication
-    #customRegistry: 'useNpmrc' # 'useNpmrc' | 'useFeed'. Registries to use. Default: useNpmrc.
-    #customFeed: # string. Required when customRegistry = useFeed. Use packages from this Azure Artifacts/TFS registry. 
-    #customEndpoint: # string. Optional. Use when customRegistry = useNpmrc. Credentials for registries outside this account/collection. 
+    #customRegistry: 'useNpmrc' # 'useNpmrc' | 'useFeed'. Optional. Use when command = install || command = custom. Registries to use. Default: useNpmrc.
+    #customFeed: # string. Required when customRegistry = useFeed && command = install || command = custom. Use packages from this Azure Artifacts/TFS registry. 
+    #customEndpoint: # string. Optional. Use when customRegistry = useNpmrc && command = install || command = custom. Credentials for registries outside this account/collection. 
   # Destination registry and authentication
-    #publishRegistry: 'useExternalRegistry' # 'useExternalRegistry' | 'useFeed'. Registry location. Default: useExternalRegistry.
-    #publishFeed: # string. Required when publishRegistry = useFeed. Target registry. 
-    publishEndpoint: # string. Required when publishRegistry = useExternalRegistry. External Registry.
+    #publishRegistry: 'useExternalRegistry' # 'useExternalRegistry' | 'useFeed'. Optional. Use when command = publish. Registry location. Default: useExternalRegistry.
+    #publishFeed: # string. Required when publishRegistry = useFeed && command = publish. Target registry. 
+    #publishEndpoint: # string. Required when publishRegistry = useExternalRegistry && command = publish. External Registry.
 ```
 
 :::moniker-end
@@ -162,10 +162,21 @@ Specifies the path to the folder containing the target `package.json` and `.npmr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbose"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2020"
 
 **`verbose`** - **Verbose logging**<br>
-`boolean`.<br>
+`boolean`. Optional. Use when `command = install || command = ci || command = publish`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Prints more information to the console when the task runs.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2019.1"
+
+**`verbose`** - **Verbose logging**<br>
+`boolean`. Optional. Use when `command = install || command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prints more information to the console when the task runs.
 <!-- :::editable-content-end::: -->
@@ -186,10 +197,21 @@ Runs a custom command. Example: `dist-tag ls mypackage`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customRegistry"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2020"
 
 **`customRegistry`** - **Registries to use**<br>
-`string`. Allowed values: `useNpmrc` (Registries in my .npmrc), `useFeed` (Registry I select here). Default value: `useNpmrc`.<br>
+`string`. Optional. Use when `command = install || command = ci || command = custom`. Allowed values: `useNpmrc` (Registries in my .npmrc), `useFeed` (Registry I select here). Default value: `useNpmrc`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the registries to use. Commit a `.npmrc` file to your source code repository and set its path as the value, or specify a registry from Azure Artifacts as the value.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2019.1"
+
+**`customRegistry`** - **Registries to use**<br>
+`string`. Optional. Use when `command = install || command = custom`. Allowed values: `useNpmrc` (Registries in my .npmrc), `useFeed` (Registry I select here). Default value: `useNpmrc`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the registries to use. Commit a `.npmrc` file to your source code repository and set its path as the value, or specify a registry from Azure Artifacts as the value.
 <!-- :::editable-content-end::: -->
@@ -198,10 +220,21 @@ Specifies the registries to use. Commit a `.npmrc` file to your source code repo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customFeed"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2020"
 
 **`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
-`string`. Required when `customRegistry = useFeed`.<br>
+`string`. Required when `customRegistry = useFeed && command = install || command = ci || command = custom`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+
+**`customFeed`** - **Use packages from this Azure Artifacts/TFS registry**<br>
+`string`. Required when `customRegistry = useFeed && command = install || command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
 <!-- :::editable-content-end::: -->
@@ -212,7 +245,7 @@ Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, 
 :::moniker range="=azure-pipelines-2018"
 
 **`customFeed`** - **Use packages from this VSTS/TFS registry**<br>
-`string`. Required when `customRegistry = useFeed`.<br>
+`string`. Required when `customRegistry = useFeed && command = install || command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed in the generated `.npmrc`. You must have Azure Artifacts installed and licensed to select a feed here. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
 <!-- :::editable-content-end::: -->
@@ -221,10 +254,21 @@ Includes the selected feed in the generated `.npmrc`. You must have Azure Artifa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2020"
 
 **`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
-`string`. Optional. Use when `customRegistry = useNpmrc`.<br>
+`string`. Optional. Use when `customRegistry = useNpmrc && command = install || command = ci || command = custom`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Credentials to use for external registries located in the project's `.npmrc`. Leave this blank for registries in this account/collection; the task uses the build's credentials automatically.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019.1"
+
+**`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
+`string`. Optional. Use when `customRegistry = useNpmrc && command = install || command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Credentials to use for external registries located in the project's `.npmrc`. Leave this blank for registries in this account/collection; the task uses the build's credentials automatically.
 <!-- :::editable-content-end::: -->
@@ -235,7 +279,7 @@ Credentials to use for external registries located in the project's `.npmrc`. Le
 :::moniker range="<=azure-pipelines-2019"
 
 **`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
-`string`. Optional. Use when `customRegistry = useNpmrc`.<br>
+`string`. Optional. Use when `customRegistry = useNpmrc && command = install || command = custom`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Credentials to use for external registries located in the project's `.npmrc`. Leave this blank for registries in this account/collection; the task uses the build's credentials automatically.
 <!-- :::editable-content-end::: -->
@@ -247,7 +291,7 @@ Credentials to use for external registries located in the project's `.npmrc`. Le
 :::moniker range="<=azure-pipelines"
 
 **`publishRegistry`** - **Registry location**<br>
-`string`. Allowed values: `useExternalRegistry` (External npm registry (including other accounts/collections)), `useFeed` (Registry I select here). Default value: `useExternalRegistry`.<br>
+`string`. Optional. Use when `command = publish`. Allowed values: `useExternalRegistry` (External npm registry (including other accounts/collections)), `useFeed` (Registry I select here). Default value: `useExternalRegistry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the registry that the command will target.
 <!-- :::editable-content-end::: -->
@@ -259,7 +303,7 @@ Specifies the registry that the command will target.
 :::moniker range="<=azure-pipelines"
 
 **`publishFeed`** - **Target registry**<br>
-`string`. Required when `publishRegistry = useFeed`.<br>
+`string`. Required when `publishRegistry = useFeed && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a registry hosted in the account. You must have Package Management installed and licensed to select a registry here.
 <!-- :::editable-content-end::: -->
@@ -268,10 +312,21 @@ Specifies a registry hosted in the account. You must have Package Management ins
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishPackageMetadata"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2020"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = publish && publishRegistry = useFeed`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = publish && publishRegistry = useFeed && command = install || command = ci || command = publish`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Associates the build/release pipeline's metadata (the run # and source code information) with the package.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019.1"
+
+**`publishPackageMetadata`** - **Publish pipeline metadata**<br>
+`boolean`. Optional. Use when `command = publish && publishRegistry = useFeed && command = install || command = publish`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Associates the build/release pipeline's metadata (the run # and source code information) with the package.
 <!-- :::editable-content-end::: -->
@@ -283,7 +338,7 @@ Associates the build/release pipeline's metadata (the run # and source code info
 :::moniker range="<=azure-pipelines"
 
 **`publishEndpoint`** - **External Registry**<br>
-`string`. Required when `publishRegistry = useExternalRegistry`.<br>
+`string`. Required when `publishRegistry = useExternalRegistry && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for publishing to an external registry.
 <!-- :::editable-content-end::: -->

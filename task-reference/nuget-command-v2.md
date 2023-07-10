@@ -1,7 +1,7 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
 description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -39,33 +39,33 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
     #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
     #arguments: # string. Required when command = custom. Command and arguments. 
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
-    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
-    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config. Credentials for feeds outside this organization/collection. 
+    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts/TFS feed. 
+    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
   # Advanced
-    #noCache: false # boolean. Disable local cache. Default: false.
-    #disableParallelProcessing: false # boolean. Disable parallel processing. Default: false.
-    #restoreDirectory: # string. Alias: packagesDirectory. Destination directory. 
-    #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+    #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
+    #disableParallelProcessing: false # boolean. Optional. Use when command = restore. Disable parallel processing. Default: false.
+    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
+    #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
-    #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = push. Verbosity. Default: Detailed.
   # Pack options
-    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
-    #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off. Include referenced projects. Default: false.
-    #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
-    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
-    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
-    #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber. Time zone. Default: utc.
-    #includeSymbols: false # boolean. Create symbols package. Default: false.
-    #toolPackage: false # boolean. Tool Package. Default: false.
+    #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
+    #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off && command = pack. Include referenced projects. Default: false.
+    #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
+    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Major. Default: 1.
+    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Minor. Default: 0.
+    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Patch. Default: 0.
+    #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber && command = pack. Time zone. Default: utc.
+    #includeSymbols: false # boolean. Optional. Use when command = pack. Create symbols package. Default: false.
+    #toolPackage: false # boolean. Optional. Use when command = pack. Tool Package. Default: false.
   # Advanced
-    #buildProperties: # string. Additional build properties. 
-    #basePath: # string. Base path. 
-    #verbosityPack: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+    #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
+    #basePath: # string. Optional. Use when command = pack. Base path. 
+    #verbosityPack: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = pack. Verbosity. Default: Detailed.
 ```
 
 :::moniker-end
@@ -89,32 +89,32 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
     #packDestination: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package folder. Default: $(Build.ArtifactStagingDirectory).
     #arguments: # string. Required when command = custom. Command and arguments. 
   # Feeds and authentication
-    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts/TFS feed. 
-    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
-    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
-    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config. Credentials for feeds outside this account/collection. 
+    feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts/TFS feed. 
+    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this account/collection. 
   # Advanced
-    #noCache: false # boolean. Disable local cache. Default: false.
-    #disableParallelProcessing: false # boolean. Disable parallel processing. Default: false.
-    #restoreDirectory: # string. Alias: packagesDirectory. Destination directory. 
-    #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+    #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
+    #disableParallelProcessing: false # boolean. Optional. Use when command = restore. Disable parallel processing. Default: false.
+    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
+    #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+    #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = push. Verbosity. Default: Detailed.
   # Pack options
-    versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required. Automatic package versioning. Default: off.
-    #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off. Include referenced projects. Default: false.
-    #versionEnvVar: # string. Required when versioningScheme = byEnvVar. Environment variable. 
-    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber. Major. Default: 1.
-    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber. Minor. Default: 0.
-    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber. Patch. Default: 0.
-    #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber. Time zone. Default: utc.
-    #includeSymbols: false # boolean. Create symbols package. Default: false.
-    #toolPackage: false # boolean. Tool Package. Default: false.
+    #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
+    #includeReferencedProjects: false # boolean. Optional. Use when versioningScheme = off && command = pack. Include referenced projects. Default: false.
+    #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
+    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Major. Default: 1.
+    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Minor. Default: 0.
+    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Patch. Default: 0.
+    #packTimezone: 'utc' # 'utc' | 'local'. Optional. Use when versioningScheme = byPrereleaseNumber && command = pack. Time zone. Default: utc.
+    #includeSymbols: false # boolean. Optional. Use when command = pack. Create symbols package. Default: false.
+    #toolPackage: false # boolean. Optional. Use when command = pack. Tool Package. Default: false.
   # Advanced
-    #buildProperties: # string. Additional build properties. 
-    #basePath: # string. Base path. 
-    #verbosityPack: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+    #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
+    #basePath: # string. Optional. Use when command = pack. Base path. 
+    #verbosityPack: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = pack. Verbosity. Default: Detailed.
 ```
 
 :::moniker-end
@@ -161,7 +161,7 @@ Specifies the path to the solution, `packages.config`, or `project.json` file th
 :::moniker range="<=azure-pipelines"
 
 **`feedsToUse`** - **Feeds to use**<br>
-Input alias: `selectOrConfig`. `string`. Required. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
+Input alias: `selectOrConfig`. `string`. Required when `command = restore`. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with the `select` value. Alternatively, you can commit a `NuGet.config` file to your source code repository and set its path as the value using the `config` value.
 <!-- :::editable-content-end::: -->
@@ -173,7 +173,7 @@ Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with 
 :::moniker range=">=azure-pipelines-2019"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
+Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
@@ -184,7 +184,7 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 :::moniker range="=azure-pipelines-2018"
 
 **`vstsFeed`** - **Use packages from this VSTS/TFS feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select`.<br>
+Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
@@ -196,7 +196,7 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 :::moniker range="<=azure-pipelines"
 
 **`includeNuGetOrg`** - **Use packages from NuGet.org**<br>
-`boolean`. Optional. Use when `selectOrConfig = select`. Default value: `true`.<br>
+`boolean`. Optional. Use when `selectOrConfig = select && command = restore`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes NuGet.org in the generated `NuGet.config`.
 <!-- :::editable-content-end::: -->
@@ -208,7 +208,7 @@ Includes NuGet.org in the generated `NuGet.config`.
 :::moniker range="<=azure-pipelines"
 
 **`nugetConfigPath`** - **Path to NuGet.config**<br>
-`string`. Optional. Use when `selectOrConfig = config`.<br>
+`string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path to the `NuGet.config` in your repository that determines the feeds from which to restore packages.
 <!-- :::editable-content-end::: -->
@@ -220,7 +220,7 @@ Specifies the path to the `NuGet.config` in your repository that determines the 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
-Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
+Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. This is the name of your NuGet service connection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -231,7 +231,7 @@ Specifies the credentials to use for external registries located in the selected
 :::moniker range="<=azure-pipelines-2019"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
-Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config`.<br>
+Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. This is the name of your NuGet service connection. For feeds in this account or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -243,7 +243,7 @@ Specifies the credentials to use for external registries located in the selected
 :::moniker range="<=azure-pipelines"
 
 **`noCache`** - **Disable local cache**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `command = restore`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prevents NuGet from using packages from local machine caches when set to `true`.
 <!-- :::editable-content-end::: -->
@@ -255,7 +255,7 @@ Prevents NuGet from using packages from local machine caches when set to `true`.
 :::moniker range=">=azure-pipelines-2019"
 
 **`disableParallelProcessing`** - **Disable parallel processing**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `command = restore`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Prevents NuGet from installing multiple packages in parallel processes when set to `true`.
 <!-- :::editable-content-end::: -->
@@ -267,7 +267,7 @@ Prevents NuGet from installing multiple packages in parallel processes when set 
 :::moniker range="<=azure-pipelines"
 
 **`restoreDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. `string`.<br>
+Input alias: `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder in which packages are installed. If no folder is specified, packages are restored into a `packages/` folder alongside the selected solution, `packages.config`, or `project.json`.
 <!-- :::editable-content-end::: -->
@@ -279,7 +279,7 @@ Specifies the folder in which packages are installed. If no folder is specified,
 :::moniker range="<=azure-pipelines"
 
 **`verbosityRestore`** - **Verbosity**<br>
-`string`. Allowed values: `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
+`string`. Optional. Use when `command = restore`. Allowed values: `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the amount of detail displayed in the output.
 <!-- :::editable-content-end::: -->
@@ -338,7 +338,7 @@ Specifies a feed hosted in this account. You must have Azure Artifacts installed
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = push && nuGetFeedType = internal && command = push`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Changes the version number of the subset of changed packages within a set of continually published packages.
 <!-- :::editable-content-end::: -->
@@ -376,7 +376,7 @@ Specifies the NuGet service connection that contains the external NuGet serverâ€
 :::moniker range="<=azure-pipelines"
 
 **`verbosityPush`** - **Verbosity**<br>
-`string`. Allowed values: `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
+`string`. Optional. Use when `command = push`. Allowed values: `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the amount of detail displayed in the output.
 <!-- :::editable-content-end::: -->
@@ -426,7 +426,7 @@ Specifies the folder where the task creates packages. If the value is empty, the
 :::moniker range="<=azure-pipelines"
 
 **`versioningScheme`** - **Automatic package versioning**<br>
-`string`. Required. Allowed values: `off`, `byPrereleaseNumber` (Use the date and time), `byEnvVar` (Use an environment variable), `byBuildNumber` (Use the build number). Default value: `off`.<br>
+`string`. Required when `command = pack`. Allowed values: `off`, `byPrereleaseNumber` (Use the date and time), `byEnvVar` (Use an environment variable), `byBuildNumber` (Use the build number). Default value: `off`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Applies automatic package versioning depending on the specified value. This string cannot be used with `includeReferencedProjects`. The allowed values are:
 
@@ -445,7 +445,7 @@ Applies automatic package versioning depending on the specified value. This stri
 :::moniker range="<=azure-pipelines"
 
 **`includeReferencedProjects`** - **Include referenced projects**<br>
-`boolean`. Optional. Use when `versioningScheme = off`. Default value: `false`.<br>
+`boolean`. Optional. Use when `versioningScheme = off && command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes referenced projects either as dependencies or as part of the package. Cannot be used with automatic package versioning. If a referenced project has a corresponding `nuspec` file that has the same name as the project, then that referenced project is added as a dependency. Otherwise, the referenced project is added as part of the package. Learn more about [using the pack command for NuGet CLI to create NuGet packages](/nuget/tools/cli-ref-pack).
 <!-- :::editable-content-end::: -->
@@ -457,7 +457,7 @@ Includes referenced projects either as dependencies or as part of the package. C
 :::moniker range="<=azure-pipelines"
 
 **`versionEnvVar`** - **Environment variable**<br>
-`string`. Required when `versioningScheme = byEnvVar`.<br>
+`string`. Required when `versioningScheme = byEnvVar && command = pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the variable name without `$`, `$env`, or `%`.
 <!-- :::editable-content-end::: -->
@@ -469,7 +469,7 @@ Specifies the variable name without `$`, `$env`, or `%`.
 :::moniker range="<=azure-pipelines"
 
 **`majorVersion`** - **Major**<br>
-Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `1`.<br>
+Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -481,7 +481,7 @@ The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`minorVersion`** - **Minor**<br>
-Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
+Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -493,7 +493,7 @@ The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`patchVersion`** - **Patch**<br>
-Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber`. Default value: `0`.<br>
+Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -505,7 +505,7 @@ The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`packTimezone`** - **Time zone**<br>
-`string`. Optional. Use when `versioningScheme = byPrereleaseNumber`. Allowed values: `utc`, `local` (Agent local time). Default value: `utc`.<br>
+`string`. Optional. Use when `versioningScheme = byPrereleaseNumber && command = pack`. Allowed values: `utc`, `local` (Agent local time). Default value: `utc`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the desired time zone used to produce the version of the package. Selecting `utc` is recommended if you're using hosted build agents, as their date and time might differ.
 <!-- :::editable-content-end::: -->
@@ -517,7 +517,7 @@ Specifies the desired time zone used to produce the version of the package. Sele
 :::moniker range="<=azure-pipelines"
 
 **`includeSymbols`** - **Create symbols package**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies that the package contains sources and symbols. When used with a `.nuspec` file, this creates a regular NuGet package file and the corresponding symbols package.
 <!-- :::editable-content-end::: -->
@@ -529,7 +529,7 @@ Specifies that the package contains sources and symbols. When used with a `.nusp
 :::moniker range="<=azure-pipelines"
 
 **`toolPackage`** - **Tool Package**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `command = pack`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Determines if the output files of the project should be in the tool folder.
 <!-- :::editable-content-end::: -->
@@ -541,7 +541,7 @@ Determines if the output files of the project should be in the tool folder.
 :::moniker range="<=azure-pipelines"
 
 **`buildProperties`** - **Additional build properties**<br>
-`string`.<br>
+`string`. Optional. Use when `command = pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a list of token=value pairs, separated by semicolons, where each occurrence of `$token$` in the `.nuspec` file will be replaced with the given value. Values can be strings in quotation marks.
 <!-- :::editable-content-end::: -->
@@ -553,7 +553,7 @@ Specifies a list of token=value pairs, separated by semicolons, where each occur
 :::moniker range=">=azure-pipelines-2019"
 
 **`basePath`** - **Base path**<br>
-`string`.<br>
+`string`. Optional. Use when `command = pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the base path of the files defined in the `nuspec` file.
 <!-- :::editable-content-end::: -->
@@ -565,7 +565,7 @@ Specifies the base path of the files defined in the `nuspec` file.
 :::moniker range="<=azure-pipelines"
 
 **`verbosityPack`** - **Verbosity**<br>
-`string`. Allowed values: `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
+`string`. Optional. Use when `command = pack`. Allowed values: `Quiet`, `Normal`, `Detailed`. Default value: `Detailed`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the amount of detail displayed in the output.
 <!-- :::editable-content-end::: -->

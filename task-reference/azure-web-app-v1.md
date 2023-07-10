@@ -1,7 +1,7 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -42,7 +42,7 @@ This task deploys an Azure Web App for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -68,7 +68,7 @@ This task deploys an Azure Web App for Linux or Windows.
     #appSettings: # string. App settings. 
     #configurationStrings: # string. Configuration settings. 
   # Additional Deployment Options
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -247,7 +247,7 @@ Specify the web app configuration settings using the syntax `-key value` (for ex
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentMethod`** - **Deployment method**<br>
-`string`. Required. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
+`string`. Required when `appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app#deployment-methods) for the app. Acceptable values are **auto**, **zipDeploy**, and **runFromPackage**.
 <!-- :::editable-content-end::: -->

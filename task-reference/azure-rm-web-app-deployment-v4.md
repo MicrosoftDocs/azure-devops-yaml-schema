@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -56,26 +56,26 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer. Startup command. 
   # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script path. 
   # File Transforms & Variable Substitution Options
-    #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution. 
+    #WebConfigParameters: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML variable substitution. Default: false.
+    #JSONFiles: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. JSON variable substitution. 
   # Application and Configuration Settings
-    #AppSettings: # string. App settings. 
-    #ConfigurationSettings: # string. Configuration settings. 
+    #AppSettings: # string. Optional. Use when ConnectionType = AzureRM. App settings. 
+    #ConfigurationSettings: # string. Optional. Use when ConnectionType = AzureRM. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
-    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
-    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Exclude files from the App_Data folder. Default: true.
-    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
-    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Rename locked files. Default: true.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Optional. Use when ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Select deployment method. Default: false.
+    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: webDeploy.
+    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Take App Offline. Default: true.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Exclude files from the App_Data folder. Default: true.
+    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
+    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Rename locked files. Default: true.
 ```
 
 :::moniker-end
@@ -105,26 +105,26 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux. Startup command. 
   # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script path. 
   # File Transforms & Variable Substitution Options
-    #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution. 
+    #WebConfigParameters: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML variable substitution. Default: false.
+    #JSONFiles: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. JSON variable substitution. 
   # Application and Configuration Settings
-    #AppSettings: # string. App settings. 
-    #ConfigurationSettings: # string. Configuration settings. 
+    #AppSettings: # string. Optional. Use when ConnectionType = AzureRM. App settings. 
+    #ConfigurationSettings: # string. Optional. Use when ConnectionType = AzureRM. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
-    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
-    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Exclude files from the App_Data folder. Default: true.
-    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
-    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Rename locked files. Default: true.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Optional. Use when ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Select deployment method. Default: false.
+    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: webDeploy.
+    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Take App Offline. Default: true.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Exclude files from the App_Data folder. Default: true.
+    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
+    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Rename locked files. Default: true.
 ```
 
 :::moniker-end
@@ -154,26 +154,26 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #RuntimeStackFunction: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux. Startup command. 
   # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script path. 
   # File Transforms & Variable Substitution Options
-    #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution. 
+    #WebConfigParameters: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML variable substitution. Default: false.
+    #JSONFiles: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. JSON variable substitution. 
   # Application and Configuration Settings
-    #AppSettings: # string. App settings. 
-    #ConfigurationSettings: # string. Configuration settings. 
+    #AppSettings: # string. Optional. Use when ConnectionType = AzureRM. App settings. 
+    #ConfigurationSettings: # string. Optional. Use when ConnectionType = AzureRM. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
-    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
-    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Exclude files from the App_Data folder. Default: true.
-    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
-    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Rename locked files. Default: true.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Optional. Use when ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Select deployment method. Default: false.
+    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: webDeploy.
+    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Take App Offline. Default: true.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Exclude files from the App_Data folder. Default: true.
+    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
+    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Rename locked files. Default: true.
 ```
 
 :::moniker-end
@@ -203,26 +203,26 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
     #RuntimeStackFunction: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Startup command. 
   # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script path. 
   # File Transforms & Variable Substitution Options
-    #WebConfigParameters: # string. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution. 
+    #WebConfigParameters: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML variable substitution. Default: false.
+    #JSONFiles: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. JSON variable substitution. 
   # Application and Configuration Settings
-    #AppSettings: # string. App settings. 
-    #ConfigurationSettings: # string. Configuration settings. 
+    #AppSettings: # string. Optional. Use when ConnectionType = AzureRM. App settings. 
+    #ConfigurationSettings: # string. Optional. Use when ConnectionType = AzureRM. Configuration settings. 
   # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Select deployment method. Default: false.
-    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true. Deployment method. Default: webDeploy.
-    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip. Take App Offline. Default: true.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Exclude files from the App_Data folder. Default: true.
-    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
-    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy. Rename locked files. Default: true.
+    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Optional. Use when ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Select deployment method. Default: false.
+    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: webDeploy.
+    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Take App Offline. Default: true.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Exclude files from the App_Data folder. Default: true.
+    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
+    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Rename locked files. Default: true.
 ```
 
 :::moniker-end
@@ -556,7 +556,7 @@ Specify the Startup command.
 :::moniker range=">=azure-pipelines-2019"
 
 **`ScriptType`** - **Deployment script type**<br>
-`string`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
+`string`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Customizes the deployment by providing a script that runs on the Azure App Service after successful deployment. Choose inline deployment script or the path and name of a script file. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
@@ -568,7 +568,7 @@ Customizes the deployment by providing a script that runs on the Azure App Servi
 :::moniker range=">=azure-pipelines-2019"
 
 **`InlineScript`** - **Inline Script**<br>
-`string`. Required when `ScriptType == Inline Script`. Default value: `:: You can provide your deployment commands here. One command per line.`.<br>
+`string`. Required when `ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer`. Default value: `:: You can provide your deployment commands here. One command per line.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The script to execute. You can provide your deployment commands here, one command per line. See the following example.
 <!-- :::editable-content-end::: -->
@@ -580,7 +580,7 @@ The script to execute. You can provide your deployment commands here, one comman
 :::moniker range=">=azure-pipelines-2019"
 
 **`ScriptPath`** - **Deployment script path**<br>
-`string`. Required when `ScriptType == File Path`.<br>
+`string`. Required when `ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path and name of the script to execute.
 <!-- :::editable-content-end::: -->
@@ -592,7 +592,7 @@ The path and name of the script to execute.
 :::moniker range=">=azure-pipelines-2019"
 
 **`WebConfigParameters`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
-`string`.<br>
+`string`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for `node.js` applications, `web.config` will have a Startup file and iis_node module values. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
@@ -604,7 +604,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 :::moniker range=">=azure-pipelines-2019"
 
 **`AppSettings`** - **App settings**<br>
-`string`.<br>
+`string`. Optional. Use when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edits web app application settings using the syntax `-key value`. Values containing spaces must be enclosed in double quotes. Examples: `-Port 5000 -RequestTimeout 5000` and `-WEBSITE_TIME_ZONE "Eastern Standard Time"`. To provide two or more key values, the key values must be separated by a space. Example: `-key1 "Value1" -Key2 "Value2"`.
 <!-- :::editable-content-end::: -->
@@ -616,7 +616,7 @@ Edits web app application settings using the syntax `-key value`. Values contain
 :::moniker range=">=azure-pipelines-2019"
 
 **`ConfigurationSettings`** - **Configuration settings**<br>
-`string`.<br>
+`string`. Optional. Use when `ConnectionType = AzureRM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edits web app configuration settings using the syntax `-key value`. Values containing spaces must be enclosed in double quotes. Example: `-phpVersion 5.6 -linuxFxVersion node|6.11`.
 <!-- :::editable-content-end::: -->
@@ -628,7 +628,7 @@ Edits web app configuration settings using the syntax `-key value`. Values conta
 :::moniker range=">=azure-pipelines-2019"
 
 **`enableCustomDeployment`** - **Select deployment method**<br>
-Input alias: `UseWebDeploy`. `boolean`. Default value: `false`.<br>
+Input alias: `UseWebDeploy`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If unchecked or false, the task auto-detects the best deployment method based on the app type, package format, and other parameters. Check this option in the task assistant to view the supported deployment methods, and choose one for deploying your app.
 <!-- :::editable-content-end::: -->
@@ -640,7 +640,7 @@ If unchecked or false, the task auto-detects the best deployment method based on
 :::moniker range=">=azure-pipelines-2019"
 
 **`DeploymentType`** - **Deployment method**<br>
-`string`. Required when `UseWebDeploy == true`. Allowed values: `webDeploy` (Web Deploy), `zipDeploy` (Zip Deploy), `runFromZip` (Run From Package). Default value: `webDeploy`.<br>
+`string`. Required when `UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `webDeploy` (Web Deploy), `zipDeploy` (Zip Deploy), `runFromZip` (Run From Package). Default value: `webDeploy`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Determines the deployment method for the app.
 <!-- :::editable-content-end::: -->
@@ -652,7 +652,7 @@ Determines the deployment method for the app.
 :::moniker range=">=azure-pipelines-2019"
 
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType != runFromZip`. Default value: `true`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory before the synchronization operation begins. The file will be removed after the synchronization completes successfully.
 <!-- :::editable-content-end::: -->
@@ -664,7 +664,7 @@ Specify this option to take the Azure App Service offline by placing an `app_off
 :::moniker range=">=azure-pipelines-2019"
 
 **`SetParametersFile`** - **SetParameters file**<br>
-`string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`.<br>
+`string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The location of the `SetParameters.xml` file to use.
 <!-- :::editable-content-end::: -->
@@ -676,7 +676,7 @@ The location of the `SetParameters.xml` file to use.
 :::moniker range=">=azure-pipelines-2019"
 
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `false`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify 'true' to delete files on the Azure App Service that have no matching files in the App Service package or folder. This will also remove all files related to any extension installed on this Azure App Service. To prevent this, select the `Exclude files from App_Data folder` checkbox.
 <!-- :::editable-content-end::: -->
@@ -688,7 +688,7 @@ Specify 'true' to delete files on the Azure App Service that have no matching fi
 :::moniker range=">=azure-pipelines-2019"
 
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
@@ -700,7 +700,7 @@ Specify the option to prevent files in the `App_Data` folder from being deployed
 :::moniker range=">=azure-pipelines-2019"
 
 **`AdditionalArguments`** - **Additional arguments**<br>
-`string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `-retryAttempts:6 -retryInterval:10000`.<br>
+`string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `-retryAttempts:6 -retryInterval:10000`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Additional Web Deploy arguments following the syntax `-key:value`. These will be applied when deploying the Azure App Service. Examples: `-disableLink:AppPoolExtension -disableLink:ContentExtension`. Learn more about [Web Deploy Operation Settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569089(v=ws.10)).
 <!-- :::editable-content-end::: -->
@@ -712,7 +712,7 @@ Additional Web Deploy arguments following the syntax `-key:value`. These will be
 :::moniker range=">=azure-pipelines-2019"
 
 **`RenameFilesFlag`** - **Rename locked files**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy`. Default value: `true`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the default value to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. If set, the option enables msdeploy to rename files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
@@ -724,7 +724,7 @@ Specify the default value to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FI
 :::moniker range=">=azure-pipelines-2019"
 
 **`enableXmlTransform`** - **XML transformation**<br>
-Input alias: `XmlTransformation`. `boolean`. Default value: `false`.<br>
+Input alias: `XmlTransformation`. `boolean`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`. Configuration transformations run before variable substitution. [XML transformations](/azure/devops/pipelines/tasks/transforms-variable-substitution#xml-transformation) are supported only for the Windows platform.
 <!-- :::editable-content-end::: -->
@@ -736,7 +736,7 @@ The config transforms will be run for `*.Release.config` and `*.<EnvironmentName
 :::moniker range=">=azure-pipelines-2019"
 
 **`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
-Input alias: `XmlVariableSubstitution`. `boolean`. Default value: `false`.<br>
+Input alias: `XmlVariableSubstitution`. `boolean`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Variables defined in the build or release pipeline will be matched against the key or name entries in the `configSections`, `appSettings`, `applicationSettings`, and `connectionStrings` sections of any configuration file and `parameters.xml` file. Variable substitution runs after configuration transformations.
 
@@ -750,7 +750,7 @@ If the same variables are defined in the release pipeline and in the stage, the 
 :::moniker range=">=azure-pipelines-2019"
 
 **`JSONFiles`** - **JSON variable substitution**<br>
-`string`.<br>
+`string`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a newline-separated list of JSON files to substitute the variable values. File names must be relative to the root folder. To substitute JSON variables that are nested or hierarchical, specify them using `JSONPath` expressions. For example, to replace the value of `ConnectionString` in the sample below, define a variable named `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipelines stage).
 

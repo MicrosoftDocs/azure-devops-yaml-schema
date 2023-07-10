@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -46,10 +46,10 @@ This task supports custom variables. If you're not familiar with how to use vari
     #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
     #validateGeneratedDeploymentManifest: 'false' # 'true' | 'false'. Required when action = Generate deployment manifest. Validate the schema of generated deployment manifest. Default: false.
   # Advanced
-    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
-    priority: '0' # string. Required. IoT Edge deployment priority. Default: 0.
+    #deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
+    #priority: '0' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment priority. Default: 0.
   # Advanced
-    #bypassModules: # string. Bypass module(s).
+    #bypassModules: # string. Optional. Use when action = Push module images. Bypass module(s).
 ```
 
 :::moniker-end
@@ -78,10 +78,10 @@ This task supports custom variables. If you're not familiar with how to use vari
     #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
     #validateGeneratedDeploymentManifest: 'false' # 'true' | 'false'. Required when action = Generate deployment manifest. Validate the schema of generated deployment manifest. Default: false.
   # Advanced
-    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
-    priority: '0' # string. Required. IoT Edge deployment priority. Default: 0.
+    #deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
+    #priority: '0' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment priority. Default: 0.
   # Advanced
-    #bypassModules: # string. Bypass module(s).
+    #bypassModules: # string. Optional. Use when action = Push module images. Bypass module(s).
 ```
 
 :::moniker-end
@@ -109,10 +109,10 @@ This task supports custom variables. If you're not familiar with how to use vari
     #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: true.
     #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
   # Advanced
-    deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
-    priority: '0' # string. Required. IoT Edge deployment priority. Default: 0.
+    #deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
+    #priority: '0' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment priority. Default: 0.
   # Advanced
-    #bypassModules: # string. Bypass module(s).
+    #bypassModules: # string. Optional. Use when action = Push module images. Bypass module(s).
 ```
 
 :::moniker-end
@@ -181,7 +181,7 @@ Selects the IoT Hub.
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`deploymentid`** - **IoT Edge deployment ID**<br>
-`string`. Required. Default value: `$(System.TeamProject)-devops-deployment`.<br>
+`string`. Required when `action = Deploy to IoT Edge devices`. Default value: `$(System.TeamProject)-devops-deployment`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridden.
  This has up to 128 lowercase letters and numbers, and the following characters are allowed: `-:+%_#*?!(),=@;'`.
@@ -195,7 +195,7 @@ Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridd
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`priority`** - **IoT Edge deployment priority**<br>
-`string`. Required. Default value: `0`.<br>
+`string`. Required when `action = Deploy to IoT Edge devices`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets the `priority` to a positive integer to resolve deployment conflicts.  When this task is targeted by multiple deployments, a device will use the one with the highest priority or, in the case of two deployments with the same priority, the latest creation time.
  For more information, see [Azure IoT Edge deployment](/azure/iot-edge/how-to-deploy-monitor#monitor-a-deployment).
@@ -365,7 +365,7 @@ Fail this step if the generated deployment manifest does not pass schema validat
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`bypassModules`** - **Bypass module(s)**<br>
-`string`.<br>
+`string`. Optional. Use when `action = Push module images`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the module(s) that you do not need to build or push in `.template.json`, specifies the module names, and separates them with commas.
  Example: if you have `SampleModule1` and `SampleModule2` in your `.template.json` and you want to only build or push `SampleModule1`, then you set the bypass modules as `SampleModule2`. Leave this empty if you would like to build all the modules in `.template.json`.

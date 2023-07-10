@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -70,28 +70,28 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
     #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
   # Output
-    #WebAppUri: # string. App Service URL. 
+    #WebAppUri: # string. Optional. Use when WebAppKind != "". App Service URL. 
   # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when WebAppKind != "". Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && WebAppKind != "". Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path && WebAppKind != "". Deployment script path. 
   # File Transforms & Variable Substitution Options
-    #GenerateWebConfig: false # boolean. Generate Web.config. Default: false.
-    #WebConfigParameters: # string. Required when GenerateWebConfig == true. Web.config parameters. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution. 
+    #GenerateWebConfig: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. Generate Web.config. Default: false.
+    #WebConfigParameters: # string. Required when GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. Web.config parameters. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. XML variable substitution. Default: false.
+    #JSONFiles: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
     #ConfigurationSettings: # string. Configuration settings. 
   # Additional Deployment Options
-    #TakeAppOfflineFlag: false # boolean. Take App Offline. Default: false.
-    #UseWebDeploy: false # boolean. Publish using Web Deploy. Default: false.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: false # boolean. Optional. Use when UseWebDeploy == true. Exclude files from the App_Data folder. Default: false.
-    #AdditionalArguments: # string. Optional. Use when UseWebDeploy == true. Additional arguments. 
-    #RenameFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true. Rename locked files. Default: false.
+    #TakeAppOfflineFlag: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Take App Offline. Default: false.
+    #UseWebDeploy: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Publish using Web Deploy. Default: false.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Exclude files from the App_Data folder. Default: false.
+    #AdditionalArguments: # string. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Additional arguments. 
+    #RenameFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Rename locked files. Default: false.
 ```
 
 :::moniker-end
@@ -127,28 +127,28 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
     #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
   # Output
-    #WebAppUri: # string. App Service URL. 
+    #WebAppUri: # string. Optional. Use when WebAppKind != "". App Service URL. 
   # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path. Deployment script path. 
+    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when WebAppKind != "". Deployment script type. 
+    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && WebAppKind != "". Inline Script. Default: :: You can provide your deployment commands here. One command per line..
+    #ScriptPath: # string. Required when ScriptType == File Path && WebAppKind != "". Deployment script path. 
   # File Transforms & Variable Substitution Options
-    #GenerateWebConfig: false # boolean. Generate Web.config. Default: false.
-    #WebConfigParameters: # string. Required when GenerateWebConfig == true. Web.config parameters. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. XML variable substitution. Default: false.
-    #JSONFiles: # string. JSON variable substitution. 
+    #GenerateWebConfig: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. Generate Web.config. Default: false.
+    #WebConfigParameters: # string. Required when GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. Web.config parameters. 
+    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. XML transformation. Default: false.
+    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. XML variable substitution. Default: false.
+    #JSONFiles: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. JSON variable substitution. 
   # Application and Configuration Settings
     #AppSettings: # string. App settings. 
     #ConfigurationSettings: # string. Configuration settings. 
   # Additional Deployment Options
-    #TakeAppOfflineFlag: false # boolean. Take App Offline. Default: false.
-    #UseWebDeploy: false # boolean. Publish using Web Deploy. Default: false.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: false # boolean. Optional. Use when UseWebDeploy == true. Exclude files from the App_Data folder. Default: false.
-    #AdditionalArguments: # string. Optional. Use when UseWebDeploy == true. Additional arguments. 
-    #RenameFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true. Rename locked files. Default: false.
+    #TakeAppOfflineFlag: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Take App Offline. Default: false.
+    #UseWebDeploy: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Publish using Web Deploy. Default: false.
+    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". SetParameters file. 
+    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Remove additional files at destination. Default: false.
+    #ExcludeFilesFromAppDataFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Exclude files from the App_Data folder. Default: false.
+    #AdditionalArguments: # string. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Additional arguments. 
+    #RenameFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Rename locked files. Default: false.
 ```
 
 :::moniker-end
@@ -499,7 +499,7 @@ Specify the startup command.
 :::moniker range="<=azure-pipelines"
 
 **`WebAppUri`** - **App Service URL**<br>
-`string`.<br>
+`string`. Optional. Use when `WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a name for the output variable that is generated for the URL of the Azure App Service. The variable can be used in subsequent tasks.
 <!-- :::editable-content-end::: -->
@@ -511,7 +511,7 @@ Specify a name for the output variable that is generated for the URL of the Azur
 :::moniker range="<=azure-pipelines"
 
 **`ScriptType`** - **Deployment script type**<br>
-`string`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
+`string`. Optional. Use when `WebAppKind != ""`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Customizes the deployment by providing a script that will run on the Azure App service once the task has completed the deployment successfully . For example, this can restore packages for Node, PHP, and Python applications. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
@@ -523,7 +523,7 @@ Customizes the deployment by providing a script that will run on the Azure App s
 :::moniker range="<=azure-pipelines"
 
 **`InlineScript`** - **Inline Script**<br>
-`string`. Required when `ScriptType == Inline Script`. Default value: `:: You can provide your deployment commands here. One command per line.`.<br>
+`string`. Required when `ScriptType == Inline Script && WebAppKind != ""`. Default value: `:: You can provide your deployment commands here. One command per line.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
@@ -534,7 +534,7 @@ Customizes the deployment by providing a script that will run on the Azure App s
 :::moniker range="<=azure-pipelines"
 
 **`ScriptPath`** - **Deployment script path**<br>
-`string`. Required when `ScriptType == File Path`.<br>
+`string`. Required when `ScriptType == File Path && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
@@ -542,10 +542,21 @@ Customizes the deployment by providing a script that will run on the Azure App s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="GenerateWebConfig"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`GenerateWebConfig`** - **Generate Web.config**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for the `node.js` application, `web.config` will have startup file and `iis_node` module values. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`GenerateWebConfig`** - **Generate Web.config**<br>
+`boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for the `node.js` application, `web.config` will have startup file and `iis_node` module values. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
@@ -554,10 +565,21 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WebConfigParameters"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`WebConfigParameters`** - **Web.config parameters**<br>
-`string`. Required when `GenerateWebConfig == true`.<br>
+`string`. Required when `GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Edits values like startup files in the generated `web.config` file. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`WebConfigParameters`** - **Web.config parameters**<br>
+`string`. Required when `GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edits values like startup files in the generated `web.config` file. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
 <!-- :::editable-content-end::: -->
@@ -596,7 +618,7 @@ Examples: `-phpVersion 5.6` `-linuxFxVersion: node|6.11`.
 :::moniker range="<=azure-pipelines"
 
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to take the Azure App Service offline by placing an `app_offline.htm` file in the root directory of the App Service before the sync operation begins. The file will be removed after the sync operation completes successfully.
 <!-- :::editable-content-end::: -->
@@ -608,7 +630,7 @@ Use this option to take the Azure App Service offline by placing an `app_offline
 :::moniker range="<=azure-pipelines"
 
 **`UseWebDeploy`** - **Publish using Web Deploy**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 `Publish using Web Deploy` options are supported only when using Windows agent. On other platforms, the task relies on [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the Azure App Service, and following options are not supported.
 <!-- :::editable-content-end::: -->
@@ -620,7 +642,7 @@ Use this option to take the Azure App Service offline by placing an `app_offline
 :::moniker range="<=azure-pipelines"
 
 **`SetParametersFile`** - **SetParameters file**<br>
-`string`. Optional. Use when `UseWebDeploy == true`.<br>
+`string`. Optional. Use when `UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The location of the `SetParameters.xml` file to use.
 <!-- :::editable-content-end::: -->
@@ -632,7 +654,7 @@ The location of the `SetParameters.xml` file to use.
 :::moniker range="<=azure-pipelines"
 
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to delete files on the Azure App Service that have no matching files in the App Service package or folder.
 
@@ -646,7 +668,7 @@ Note: This will also remove all files related to any extension installed on this
 :::moniker range="<=azure-pipelines"
 
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to prevent files in the `App_Data` folder from being deployed to/deleted from the Azure App Service.
 <!-- :::editable-content-end::: -->
@@ -658,7 +680,7 @@ Use this option to prevent files in the `App_Data` folder from being deployed to
 :::moniker range="<=azure-pipelines"
 
 **`AdditionalArguments`** - **Additional arguments**<br>
-`string`. Optional. Use when `UseWebDeploy == true`.<br>
+`string`. Optional. Use when `UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The additional Web Deploy arguments following the syntax `-key:value`.
 
@@ -674,7 +696,7 @@ See more examples of [Web Deploy Operation Settings](https://go.microsoft.com/fw
 :::moniker range="<=azure-pipelines"
 
 **`RenameFilesFlag`** - **Rename locked files**<br>
-`boolean`. Optional. Use when `UseWebDeploy == true`. Default value: `false`.<br>
+`boolean`. Optional. Use when `UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azure App Service application settings. The option enables msdeploy to rename locked files that are locked during app deployment.
 <!-- :::editable-content-end::: -->
@@ -683,10 +705,25 @@ Use this option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlTransform"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`enableXmlTransform`** - **XML transformation**<br>
-Input alias: `XmlTransformation`. `boolean`. Default value: `false`.<br>
+Input alias: `XmlTransformation`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`.
+
+Config transforms will be run prior to the Variable Substitution.
+
+XML transformations are supported only for Windows platform.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`enableXmlTransform`** - **XML transformation**<br>
+Input alias: `XmlTransformation`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`.
 
@@ -699,10 +736,23 @@ XML transformations are supported only for Windows platform.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlVariableSubstitution"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
-Input alias: `XmlVariableSubstitution`. `boolean`. Default value: `false`.<br>
+Input alias: `XmlVariableSubstitution`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Variables defined in the build or release pipeline will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`. Variable Substitution is run after config transforms.
+
+Note: If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
+Input alias: `XmlVariableSubstitution`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Variables defined in the build or release pipeline will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`. Variable Substitution is run after config transforms.
 
@@ -713,10 +763,39 @@ Note: If the same variables are defined in the release pipeline and in the envir
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="JSONFiles"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
 
 **`JSONFiles`** - **JSON variable substitution**<br>
-`string`.<br>
+`string`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provides a new lines-separated list of JSON files to substitute the variable values. Files names are to be provided relative to the root folder.
+
+To substitute JSON variables that are nested or hierarchical, specify them using `JSONPath` expressions.
+
+For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build/release pipeline (or the release pipeline’s environment).
+
+```json
+{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
+    }
+  }
+}
+```
+
+Variable Substitution is run after configuration transforms.
+
+Note: pipeline variables are excluded in substitution.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
+
+**`JSONFiles`** - **JSON variable substitution**<br>
+`string`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a new lines-separated list of JSON files to substitute the variable values. Files names are to be provided relative to the root folder.
 
