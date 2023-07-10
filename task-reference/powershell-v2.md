@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 06/22/2023
+ms.date: 07/10/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -564,7 +564,6 @@ In your YAML pipeline, call:
 * Learn more about PowerShell scripts
   * [Scripting with Windows PowerShell](/powershell/scripting/overview)
   * [Microsoft Script Center (the Scripting Guys)](https://technet.microsoft.com/scriptcenter/bb410849.aspx)
-  * [Windows PowerShell Tutorial](http://www.computerperformance.co.uk/powershell/index.htm)
   * [PowerShell.org](https://powershell.org/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
