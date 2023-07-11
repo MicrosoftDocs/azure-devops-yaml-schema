@@ -46,6 +46,8 @@ Improve build performance by using this task to cache files, like dependencies, 
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The key (unique identifier) for the cache. This should be a string that can be segmented using `|`. File paths can be absolute or relative to `$(System.DefaultWorkingDirectory)`.
+
+While there is no defined maximum number of segments for a key, if you are getting cache misses, try using a shorter key with fewer segments, for example by creating a new key that is a hash of your segments.
 <!-- :::editable-content-end::: -->
 <br>
 
