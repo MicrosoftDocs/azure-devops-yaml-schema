@@ -42,7 +42,7 @@ Installs kubelogin and adds it to the PATH of your agent.
 **`kubeloginVersion`** - **kubelogin version**<br>
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of kubelogin to use. To install version `0.0.30`, specify `0.0.30`. For more information about kubelogin versions, see [kubelogin releases](https://github.com/Azure/kubelogin/releases).
+The version of kubelogin to use, for example `0.0.30`, or `latest` to use the latest version. For more information about kubelogin versions, see [kubelogin releases](https://github.com/Azure/kubelogin/releases).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,7 +70,7 @@ None.
 
 The kubelogin installer task acquires a specific version of [kubelogin](https://azure.github.io/kubelogin/index.html) from the internet or the tools cache and adds it to the PATH of the agent (hosted or private). Use this task to change the version of kubelogin used in subsequent tasks like [KubernetesManifest@1](./kubernetes-manifest-v1.md), [HelmDeploy@0](./helm-deploy-v0.md), [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md), and [Kubernetes@1](./kubernetes-v1.md).
 
-Adding `KubeloginInstaller@0` before the previously listed tasks in a build definition ensures that the desired Kubelogin version is available at the time of building, testing and publishing your app.
+Adding `KubeloginInstaller@0` before the previously listed tasks in a build definition ensures that the desired kubelogin version is available at the time of building, testing and publishing your app.
 
 The tool installer approach also allows you to decouple from the agent update cycles. If the Kubelogin version you are looking for is missing from the agent (hosted or private), then you can use `KubeloginInstaller@0` to get the right version installed on the agent.
 
@@ -97,7 +97,7 @@ To explicitly specify `kubeloginVersion`, use the following syntax.
 ```yml
 - task: KubeloginInstaller@0
   inputs:
-    kubeloginVersion: 'latest'
+    kubeloginVersion: 'latest' # or a specific version like '0.0.30'
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
