@@ -90,7 +90,7 @@ Branch names to include or exclude for triggering a run.
 :::moniker range="=azure-pipelines"
 
 **`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Whether to run the pipeline if the previously scheduled run is in-progress; the default is `false``. This is regardless of the version of the pipeline repository.
+Whether to run the pipeline if the previously scheduled run is in-progress; the default is `false`. This is regardless of the version of the pipeline repository.
 
 The following table describes how `always` and `batch` interact.
 
