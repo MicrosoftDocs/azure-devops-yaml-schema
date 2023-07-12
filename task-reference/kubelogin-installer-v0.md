@@ -68,11 +68,11 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The kubelogin installer task acquires a specific version of [kubelogin](https://azure.github.io/kubelogin/index.html) from the internet or the tools cache and adds it to the PATH of the agent (hosted or private). Use this task to change the version of kubelogin used in subsequent tasks like [KubernetesManifest@1](./kubernetes-manifest-v1.md), [HelmDeploy@0](./helm-deploy-v0.md), [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md), and [Kubernetes@1](./kubernetes-v1.md).
+The kubelogin installer task acquires the specified version of [kubelogin](https://azure.github.io/kubelogin/index.html) from the internet or the tools cache and adds it to the PATH of the agent (hosted or private). Use this task to change the version of kubelogin used in subsequent tasks like [KubernetesManifest@1](./kubernetes-manifest-v1.md), [HelmDeploy@0](./helm-deploy-v0.md), [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md), and [Kubernetes@1](./kubernetes-v1.md).
 
 Adding `KubeloginInstaller@0` before the previously listed tasks in a build definition ensures that the desired kubelogin version is available at the time of building, testing and publishing your app.
 
-The tool installer approach also allows you to decouple from the agent update cycles. If the Kubelogin version you are looking for is missing from the agent (hosted or private), then you can use `KubeloginInstaller@0` to get the right version installed on the agent.
+The tool installer approach also allows you to decouple from the agent update cycles. If the kubelogin version you are looking for is missing from the agent (hosted or private), then you can use `KubeloginInstaller@0` to get the right version installed on the agent.
 
 For more information on kubelogin, see [Non-interactive sign-in with kubelogin](/azure/aks/managed-azure-ad#non-interactive-sign-in-with-kubelogin).
 <!-- :::editable-content-end::: -->
