@@ -102,7 +102,7 @@ The following table describes how `always` and `batch` interact.
 | `true` | `true` | Pipeline runs according to the cron schedule. |
 
 > [!IMPORTANT]
-> When `always` is `true`, the pipeline runs according to the cron schedule, even when `batch` ir `true`.
+> When `always` is `true`, the pipeline runs according to the cron schedule, even when `batch` is `true`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
