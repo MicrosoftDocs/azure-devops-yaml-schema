@@ -638,6 +638,11 @@ items:
   - name: KubectlInstaller@0
     href: kubectl-installer-v0.md
     displayName: Kubectl tool installer v0
+- name: Kubelogin tool installer
+  items:
+  - name: KubeloginInstaller@0
+    href: kubelogin-installer-v0.md
+    displayName: Kubelogin tool installer v0
 - name: Manual intervention
   items:
   - name: ManualIntervention@8
