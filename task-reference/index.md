@@ -1269,7 +1269,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 ## Open source
 
-These tasks are open source [on GitHub](https://github.com/Microsoft/azure-pipelines-tasks). Feedback and contributions are welcome.
+These tasks are open source [on GitHub](https://github.com/Microsoft/azure-pipelines-tasks). Feedback and contributions are welcome. See [Pipeline task changelog](https://github.com/microsoft/azure-pipelines-tasks/releases) for a list of task changes, including a historical record of task updates.
 
 ## FAQ
 
