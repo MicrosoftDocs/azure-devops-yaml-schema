@@ -321,7 +321,7 @@ Specifies the version parameter to `symstore.exe`.  The default is `$(Build.Buil
 **`SymbolsArtifactName`** - **Artifact name**<br>
 `string`. Default value: `Symbols_$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the artifact name to use for the symbols artifact.  The default is `Symbols_$(BuildConfiguration)`.
+Specifies the artifact name to use for the symbols artifact. This should only be used with the FileShare symbol server type.  The default is `Symbols_$(BuildConfiguration)`.
 <!-- :::editable-content-end::: -->
 <br>
 
