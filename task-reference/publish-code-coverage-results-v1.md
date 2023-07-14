@@ -101,8 +101,7 @@ Specifying a path to source files is required when coverage XML reports don't co
 
 This input can be used if tests are run in a Docker container.
 
-Multiple sources can be added by delimiting each list item with the ';' character.
-Eg: pathToSources: $(System.DefaultWorkingDirectory)/path/to/first/source;$(System.DefaultWorkingDirectory)/path/to/second/source
+Multiple sources can be added by delimiting each list item with the `;` character, for example `pathToSources: $(System.DefaultWorkingDirectory)/path/to/first/source;$(System.DefaultWorkingDirectory)/path/to/second/source`.
 <!-- :::editable-content-end::: -->
 <br>
 
