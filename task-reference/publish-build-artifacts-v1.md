@@ -156,7 +156,7 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 **`ArtifactName`** - **Artifact name**<br>
 `string`. Required. Default value: `drop`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the artifact to create in the publish location.
+Specifies the name of the artifact to create in the publish location. The following special characters are not allowed: `+`, `%`, `{`, `}`
 <!-- :::editable-content-end::: -->
 <br>
 
