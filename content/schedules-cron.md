@@ -129,7 +129,7 @@ If you specify no scheduled trigger, no scheduled builds occur.
 
 > [!IMPORTANT]
 > Scheduled triggers defined using the pipeline settings UI take precedence over YAML scheduled triggers.
-> 
+>
 > If your YAML pipeline has both YAML scheduled triggers and UI defined scheduled triggers, 
 > only the UI defined scheduled triggers are run. 
 > To run the YAML defined scheduled triggers in your YAML pipeline,
@@ -148,49 +148,13 @@ When a pipeline is running due to a cron scheduled trigger, the pre-defined `Bui
 Your YAML pipeline may contain multiple cron schedules, and you may want your pipeline to run different stages or jobs based on which cron schedule runs. For example, you have a nightly build and a weekly build, and you want to run a certain job only during the weekly build. You can use the `Build.CronSchedule.DisplayName` variable in a job or stage condition to determine whether to run that job or stage.
 
 ```yml
-trigger: none
-
-pool:
-  vmImage: ubuntu-latest
-
-schedules:
-- cron: '0 0 * * *'
-  displayName: Daily midnight build
-  branches:
-    include:
-    - main
-    - releases/*
-    exclude:
-    - releases/ancient/*
-- cron: '0 12 * * 0'
-  displayName: Weekly Sunday build
-  branches:
-    include:
-    - releases/*
-  always: true
-
-stages:
 - stage: stage1
   # Run this stage only when the pipeline is triggered by the 
   # "Daily midnight build" cron schedule
   condition: eq(variables['Build.CronSchedule.DisplayName'], 'Daily midnight build')
-  jobs:
-  - job: job1
-    steps:
-    - script: echo Hello from Stage 1 Job 1
-- stage: stage2
-  jobs:
-  - job: job2
-    steps:
-    - script: echo Hello from Stage 2 Job 2
-  - job: job3 
-    # Run this job only when the pipeline is triggered by the 
-    # "Weekly Sunday build" cron schedule
-    condition: eq(variables['Build.CronSchedule.DisplayName'], 'Weekly Sunday build')
-    steps:
-    - script: echo Hello from Stage 2 Job 3
 ```
 
+For more examples, see the following [Examples](#examples) section.
 
 :::moniker-end
 <!-- :::editable-content-end::: -->
@@ -199,6 +163,14 @@ stages:
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
+
+The following example defines two schedules.
+
+The first schedule, **Daily midnight build**, runs a pipeline at midnight every day only if the code has changed since the last successful scheduled run.
+It runs the pipeline for `main` and all `releases/*` branches, except for those branches under `releases/ancient/*`.
+
+The second schedule, **Weekly Sunday build**, runs a pipeline at noon on Sundays for all `releases/*` branches.
+It does so regardless of whether the code has changed since the last run.
 
 ```yaml
 schedules:
@@ -218,13 +190,36 @@ schedules:
   always: true
 ```
 
-In the preceding example, two schedules are defined.
+:::moniker range=">azure-pipelines-2022"
 
-The first schedule, **Daily midnight build**, runs a pipeline at midnight every day only if the code has changed since the last successful scheduled run.
-It runs the pipeline for `main` and all `releases/*` branches, except for those branches under `releases/ancient/*`.
+To conditionally run a stage or job based on whether it was scheduled by a scheduled trigger, use the `Build.CronSchedule.DisplayName` variable in a condition. In this example, `stage1` only runs if the pipeline was triggered by the `Daily midnight build` schedule, and `job3` only runs if the pipeline was triggered by the `Weekly Sunday build` schedule.
 
-The second schedule, **Weekly Sunday build**, runs a pipeline at noon on Sundays for all `releases/*` branches.
-It does so regardless of whether the code has changed since the last run.
+```yml
+stages:
+- stage: stage1
+  # Run this stage only when the pipeline is triggered by the 
+  # "Daily midnight build" cron schedule
+  condition: eq(variables['Build.CronSchedule.DisplayName'], 'Daily midnight build')
+  jobs:
+  - job: job1
+    steps:
+    - script: echo Hello from Stage 1 Job 1
+
+- stage: stage2
+  dependsOn: [] # Indicate this stage does not depend on the previous stage
+  jobs:
+  - job: job2
+    steps:
+    - script: echo Hello from Stage 2 Job 2
+  - job: job3 
+    # Run this job only when the pipeline is triggered by the 
+    # "Weekly Sunday build" cron schedule
+    condition: eq(variables['Build.CronSchedule.DisplayName'], 'Weekly Sunday build')
+    steps:
+    - script: echo Hello from Stage 2 Job 3
+```
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
