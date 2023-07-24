@@ -257,9 +257,33 @@ Run From Package creates the same deployment package as Zip Deploy. Instead of d
 
 ### Troubleshooting
 
-* To ignore SSL error set a Variable of name VSTS_ARM_REST_IGNORE_SSL_ERRORS with value : true in the release definition.
-* The task works with the [Azure Resource Manager APIs](/rest/api/resources) only.
-* For avoiding deployment failure with error code ERROR_FILE_IN_USE we recommend defaulting to using the Run From Package option [Run your functions from a package file in Azure](/azure/azure-functions/run-functions-from-deployment-package). For zero downtime deployment use slot swap.
+[!INCLUDE [rm-app-service-troubleshoot-shared](./includes/rm-app-service-troubleshoot-shared.md)]
+
+[!INCLUDE [rm-webapp-functionapp-troubleshoot-shared.md](./includes/rm-webapp-functionapp-troubleshoot-shared.md)]
+
+#### Function app deployment on Windows succeeds but the app doesn't work
+
+This problem could occur if a web.config file isn't present in your app. You can either add a web.config file to your source or automatically generate one by using the **Application and Configuration Settings** of the task.
+
+1. Select the task and go to **Generate web.config parameters for Python, Node.js, Go and Java apps**:
+
+   :::image type="content" source="media/azure-rm-function-app-01.png" alt-text="Screenshot that shows the Generate web.config parameters section.":::
+
+
+1. Select the More button (...) under **Generate web.config parameters for Python, Node.js, Go and Java apps** to edit the parameters:
+
+   :::image type="content" source="media/azure-rm-web-app-deployment-02.png" alt-text="Screenshot that shows the Generate web.config parameters.":::
+
+1. Select your application type in the **Application framework** list.
+1. Select **OK**. Doing so will populate the web.config parameters required to generate the web.config file.
+
+### FAQs
+
+[!INCLUDE [rm-app-service-FAQs-shared](./includes/rm-app-service-faqs-shared.md)]
+
+#### I can't deploy to an internal App Service Environment by using an Azure Resource Manager service connection and a Microsoft-hosted agent
+
+By design, a Microsoft-hosted agent won't work with an App Service Environment. Instead, you need to configure a private agent on a virtual machine that's in the same virtual network as the App Service Environment. Also, set a private DNS zone to enable communication between the resources.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
