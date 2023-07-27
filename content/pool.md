@@ -264,10 +264,37 @@ pool:
   - Agent.Version -equals 2.144.0 # equals check for Agent.Version 2.144.0
 ```
 
-> [!NOTE]
-> Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
 
-For more information and examples, see [Specify demands](/azure/devops/pipelines/process/demands).
+### Exists operation
+
+```yaml
+pool:
+  name: MyPool
+  demands: myCustomCapability # exists check for myCustomCapability
+ ```
+
+### Equals operation
+
+```yaml
+pool:
+  name: MyPool
+  demands: Agent.Version -equals 2.144.0 # equals check for Agent.Version 2.144.0
+```
+
+### Agent variables as system capabilities
+
+Self-hosted agents have the following system capabilities with similar names to agent variables, but they are not variables and don't require variable syntax when checking for exists or equals in a demand.
+
+* Agent.Name
+* Agent.Version
+* Agent.ComputerName
+* Agent.HomeDirectory
+* Agent.OS
+* Agent.OSArchitecture
+* Agent.OSVerion (Windows agents only)
+
+For more information, see [Specify demands](/azure/devops/pipelines/process/demands).
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 <!-- :::implementation-item-end::: -->
