@@ -84,8 +84,35 @@ Specify a demand for a private pool.
 <!-- :::editable-content name="remarks"::: -->
 ### Remarks
 
-> [!NOTE]
-> Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+
+### Exists operation
+
+```yaml
+pool:
+  name: MyPool
+  demands: myCustomCapability # exists check for myCustomCapability
+ ```
+
+### Equals operation
+
+```yaml
+pool:
+  name: MyPool
+  demands: Agent.Version -equals 2.144.0 # equals check for Agent.Version 2.144.0
+```
+
+### Agent variables as system capabilities
+
+Self-hosted agents have the following system capabilities with similar names to agent variables, but they are not variables and don't require variable syntax when checking for exists or equals in a demand.
+
+* Agent.Name
+* Agent.Version
+* Agent.ComputerName
+* Agent.HomeDirectory
+* Agent.OS
+* Agent.OSArchitecture
+* Agent.OSVerion (Windows agents only)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -139,8 +166,35 @@ demands: [ string ] # Specify a list of demands for a private pool.
 <!-- :::editable-content name="remarks"::: -->
 ### Remarks
 
-> [!NOTE]
-> Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+
+### Exists operation
+
+```yaml
+pool:
+  name: MyPool
+  demands: myCustomCapability # exists check for myCustomCapability
+ ```
+
+### Equals operation
+
+```yaml
+pool:
+  name: MyPool
+  demands: Agent.Version -equals 2.144.0 # equals check for Agent.Version 2.144.0
+```
+
+### Agent variables as system capabilities
+
+Self-hosted agents have the following system capabilities with similar names to agent variables, but they are not variables and don't require variable syntax when checking for exists or equals in a demand.
+
+* Agent.Name
+* Agent.Version
+* Agent.ComputerName
+* Agent.HomeDirectory
+* Agent.OS
+* Agent.OSArchitecture
+* Agent.OSVerion (Windows agents only)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
