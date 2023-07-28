@@ -114,7 +114,7 @@ To trigger your pipeline using the webhook, you need to make a `POST` request to
 }
 ```
 
-When you access data from the webhook's request body, be mindful that it may lead to incorrect YAML. For example, if in the previous pipeline, your step reads `- script: echo ${{ parameters.WebHook.resource.message }}`, and you trigger the pipeline via a webhook, the pipeline doesn't run. This is because in the process of replacing `${{ parameters.WebHook.resource.message.title }}` with `message`, which contains the following JSON, the geenrated YAML becomes invalid.
+When you access data from the webhook's request body, be mindful that it may lead to incorrect YAML. For example, if in the previous pipeline, your step reads `- script: echo ${{ parameters.WebHook.resource.message }}`, and you trigger the pipeline via a webhook, the pipeline doesn't run. This is because in the process of replacing `${{ parameters.WebHook.resource.message.title }}` with `message`, which contains the following JSON, the generated YAML becomes invalid.
 
 ```json
 {
@@ -123,7 +123,7 @@ When you access data from the webhook's request body, be mindful that it may lea
 }
 ```
 
-Because the generated YAML becomes invalid, and no pipeline run is queued in response.
+Because the generated YAML becomes invalid, no pipeline run is queued in response.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
