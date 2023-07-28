@@ -189,11 +189,10 @@ The `git` type refers to Azure Repos Git repos.
 
 For more information about these types, see [Check out multiple repositories in your pipeline - Repository resource definition](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition).
 
+:::moniker range=">=azure-pipelines-2020"
 ### Variables
 
 In each run, the metadata for a repository resource is available to all jobs in the form of runtime variables. The `<Alias>` is the identifier that you gave for your repository resource.
-
-## [Schema](#tab/schema)
 
 ```yaml
 resources.repositories.<Alias>.name
@@ -203,7 +202,7 @@ resources.repositories.<Alias>.id
 resources.repositories.<Alias>.url
 ```
 
-## [Example](#tab/example)
+The following example has a repository resource with an alias of `common`, and the repository resource variables are accessed using `resources.repositories.common.*`.
 
 ```yaml
 resources:
@@ -229,7 +228,7 @@ steps:
     echo "url = $(url)"
 ```
 
----
+::: moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
