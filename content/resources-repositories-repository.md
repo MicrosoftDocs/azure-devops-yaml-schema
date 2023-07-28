@@ -188,6 +188,47 @@ The `git` type refers to Azure Repos Git repos.
   Bitbucket Cloud repos require a [Bitbucket Cloud service connection](/azure/devops/pipelines/library/service-endpoints#bitbucket-cloud-service-connection) for authorization.
 
 For more information about these types, see [Check out multiple repositories in your pipeline - Repository resource definition](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition).
+
+### Variables
+In each run, the metadata for a repository resource is available to all jobs in the form of runtime variables. The <Alias> is the identifier that you gave for your repository resource.
+
+## [Schema](#tab/schema)
+
+```yaml
+resources.repositories.<Alias>.name
+resources.repositories.<Alias>.ref
+resources.repositories.<Alias>.type
+resources.repositories.<Alias>.id
+resources.repositories.<Alias>.url
+```
+
+## [Example](#tab/example)
+
+```yaml
+resources:
+  repositories:
+    - repository: common
+      type: git
+      ref: main
+      name: Repo
+
+variables:
+  ref: $[ resources.repositories.common.ref ]
+  name: $[ resources.repositories.common.name ]
+  id: $[ resources.repositories.common.id ]
+  type: $[ resources.repositories.common.type ]
+  url: $[ resources.repositories.common.url ]
+
+steps:
+- bash: |
+    echo "name = $(name)"
+    echo "ref = $(ref)"
+    echo "id = $(id)"
+    echo "type = $(type)"
+    echo "url = $(url)"
+```
+
+---
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
