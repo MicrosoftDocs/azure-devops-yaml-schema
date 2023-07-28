@@ -190,7 +190,7 @@ The `git` type refers to Azure Repos Git repos.
 For more information about these types, see [Check out multiple repositories in your pipeline - Repository resource definition](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition).
 
 ### Variables
-In each run, the metadata for a repository resource is available to all jobs in the form of runtime variables. The <Alias> is the identifier that you gave for your repository resource.
+In each run, the metadata for a repository resource is available to all jobs in the form of runtime variables. The `<Alias>` is the identifier that you gave for your repository resource.
 
 ## [Schema](#tab/schema)
 
