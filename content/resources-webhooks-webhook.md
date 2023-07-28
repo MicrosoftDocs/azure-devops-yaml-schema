@@ -90,6 +90,7 @@ List of trigger filters.
 ## Examples
 
 You can define your pipeline as follows.
+
 ```yaml
 resources:
   webhooks:
@@ -101,6 +102,7 @@ steps:
 ```
 
 To trigger your pipeline using the webhook, you need to make a `POST` request to `https://dev.azure.com/<org_name>/_apis/public/distributedtask/webhooks/<webhook_connection_name>?api-version=6.0-preview`. This endpoint is publicly available, and no authorization is needed. The request should have the following body.
+
 ```json
 {
     "resource": {
@@ -111,15 +113,17 @@ To trigger your pipeline using the webhook, you need to make a `POST` request to
     }
 }
 ```
-When you access data from the webhook's request body, be mindful that it may lead to incorrect YAML. For example, if in the previous pipeline, your step reads `- script: echo ${{ parameters.WebHook.resource.message }}`, and you trigger the pipeline via a webhook, the pipeline doesn't run. This is because in the process of replacing `${{ parameters.WebHook.resource.message.title }}` with 
+
+When you access data from the webhook's request body, be mindful that it may lead to incorrect YAML. For example, if in the previous pipeline, your step reads `- script: echo ${{ parameters.WebHook.resource.message }}`, and you trigger the pipeline via a webhook, the pipeline doesn't run. This is because in the process of replacing `${{ parameters.WebHook.resource.message.title }}` with `message`, which contains the following JSON, the geenrated YAML becomes invalid.
+
 ```json
 {
   "title": "Hello, world!",
   "subtitle": "I'm using WebHooks!"
 }
 ```
-the generated YAML becomes invalid, and no pipeline run is queued in response.
 
+Because the generated YAML becomes invalid, and no pipeline run is queued in response.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
