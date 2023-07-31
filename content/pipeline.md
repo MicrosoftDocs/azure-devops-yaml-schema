@@ -304,7 +304,7 @@ Pool where jobs in this pipeline will run unless otherwise specified.
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pipeline run number.
 
-See [Configure run or build numbers](/devops/pipelines/process/run-number) for allowed placeholders.
+See [Configure run or build numbers](/azure/devops/pipelines/process/run-number) for allowed placeholders.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
