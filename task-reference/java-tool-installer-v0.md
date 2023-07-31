@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 07/10/2023
+ms.date: 07/31/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,30 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Java tool installer v0
+# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8' # string. Required. JDK version. Default: 8.
+    jdkArchitectureOption: # 'x64' | 'x86'. Required. JDK architecture. 
+    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory' | 'PreInstalled'. Required. JDK source. 
+    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
+    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
+    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
+    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
+    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
+    #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
+    #azureResourceGroupName: # string. Optional. Use when jdkSourceOption == AzureStorage. Resource Group name. 
+    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
+    #createExtractDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Create directory for extracting. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Java tool installer v0
@@ -244,6 +267,18 @@ Specifies the destination directory where the JDK should be extracted. On Linux 
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the destination directory where the JDK should be extracted. On Linux and Windows, this is used as the destination directory for the JDK installation. On macOS, this directory is used as a temporary folder for extracting .dmg's because macOS doesn't support installing JDK to a specific directory.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="azureResourceGroupName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`azureResourceGroupName`** - **Resource Group name**<br>
+`string`. Optional. Use when `jdkSourceOption == AzureStorage`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Resource Group name of the storage account.
 <!-- :::editable-content-end::: -->
 <br>
 

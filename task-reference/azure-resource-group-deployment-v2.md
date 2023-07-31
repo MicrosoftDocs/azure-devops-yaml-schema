@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 07/10/2023
+ms.date: 07/31/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,46 @@ Deploy, start, stop, delete Azure Resource Groups.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure resource group deployment v2
+# Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
+- task: AzureResourceGroupDeployment@2
+  inputs:
+  # Azure Details
+    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
+    action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'Select Resource Group' | 'Start' | 'Stop' | 'StopWithDeallocate' | 'Restart' | 'Delete' | 'DeleteRG'. Required. Action. Default: Create Or Update Resource Group.
+    resourceGroupName: # string. Required. Resource group. 
+    #location: # string. Required when action = Create Or Update Resource Group. Location. 
+  # Template
+    #templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required when action = Create Or Update Resource Group. Template location. Default: Linked artifact.
+    #csmFileLink: # string. Required when templateLocation = URL of the file && action = Create Or Update Resource Group. Template link. 
+    #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file && action = Create Or Update Resource Group. Template parameters link. 
+    #csmFile: # string. Required when templateLocation = Linked artifact && action = Create Or Update Resource Group. Template. 
+    #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact && action = Create Or Update Resource Group. Template parameters. 
+    #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group. Override template parameters. 
+    #deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required when action = Create Or Update Resource Group. Deployment mode. Default: Incremental.
+  # Advanced deployment options for virtual machines
+    #enableDeploymentPrerequisites: 'None' # 'None' | 'ConfigureVMwithWinRM' | 'ConfigureVMWithDGAgent'. Optional. Use when action = Create Or Update Resource Group || action = Select Resource Group. Enable prerequisites. Default: None.
+    #teamServicesConnection: # string. Alias: deploymentGroupEndpoint. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && action = Create Or Update Resource Group || action = Select Resource Group. Azure Pipelines service connection. 
+    #teamProject: # string. Alias: project. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && action = Create Or Update Resource Group || action = Select Resource Group. Team project. 
+    #deploymentGroupName: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && action = Create Or Update Resource Group || action = Select Resource Group. Deployment Group. 
+    #copyAzureVMTags: true # boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && action = Create Or Update Resource Group || action = Select Resource Group. Copy Azure VM tags to agents. Default: true.
+    #runAgentServiceAsUser: false # boolean. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && action = Create Or Update Resource Group || action = Select Resource Group. Run agent service as a user. Default: false.
+    #userName: # string. Required when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true && action = Create Or Update Resource Group || action = Select Resource Group. User name. 
+    #password: # string. Optional. Use when enableDeploymentPrerequisites = ConfigureVMWithDGAgent && runAgentServiceAsUser = true && action = Create Or Update Resource Group || action = Select Resource Group. Password. 
+    #outputVariable: # string. Optional. Use when enableDeploymentPrerequisites = ConfigureVMwithWinRM || enableDeploymentPrerequisites = None && action = Create Or Update Resource Group || action = Select Resource Group. VM details for WinRM. 
+  # Advanced
+    #deploymentName: # string. Optional. Use when action = Create Or Update Resource Group. Deployment name. 
+    #deploymentOutputs: # string. Optional. Use when action = Create Or Update Resource Group. Deployment outputs. 
+    #addSpnToEnvironment: false # boolean. Optional. Use when action = Create Or Update Resource Group. Access service principal details in override parameters. Default: false.
+    #useWithoutJSON: false # boolean. Optional. Use when action = Create Or Update Resource Group. Use individual output values without JSON.Stringify applied. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 ```yaml
 # Azure resource group deployment v2
@@ -480,6 +519,18 @@ Provides a name for the output variable, which contains the outputs section of t
 `boolean`. Optional. Use when `action = Create Or Update Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds the service principal ID and key of the Azure endpoint chosen to be the script's execution environment. The variables `$servicePrincipalId` and `$servicePrincipalKey` can be in override parameters, such as `-key $servicePrincipalKey`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="useWithoutJSON"::: -->
+:::moniker range="=azure-pipelines"
+
+**`useWithoutJSON`** - **Use individual output values without JSON.Stringify applied**<br>
+`boolean`. Optional. Use when `action = Create Or Update Resource Group`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Individual output values are being converted via JSON.Stringify by default. If you want to use the output values as it is without converting them via JSON.Stringify, enable this option. For more details refer to [this](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2#deployment-outputs).
 <!-- :::editable-content-end::: -->
 <br>
 

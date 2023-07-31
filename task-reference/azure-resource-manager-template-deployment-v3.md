@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 07/10/2023
+ms.date: 07/31/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,38 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# ARM template deployment v3
+# Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+  # Azure Details
+    deploymentScope: 'Resource Group' # 'Management Group' | 'Subscription' | 'Resource Group'. Required. Deployment scope. Default: Resource Group.
+    azureResourceManagerConnection: # string. Alias: ConnectedServiceName. Required. Azure Resource Manager connection. 
+    #subscriptionId: # string. Alias: subscriptionName. Required when deploymentScope != Management Group. Subscription. 
+    #action: 'Create Or Update Resource Group' # 'Create Or Update Resource Group' | 'DeleteRG'. Required when deploymentScope = Resource Group. Action. Default: Create Or Update Resource Group.
+    #resourceGroupName: # string. Required when deploymentScope = Resource Group. Resource group. 
+    #location: # string. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Location. 
+  # Template
+    #templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Template location. Default: Linked artifact.
+    #csmFileLink: # string. Required when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template link. 
+    #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters link. 
+    #csmFile: # string. Required when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template. 
+    #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters. 
+    #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Override template parameters. 
+    #deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment mode. Default: Incremental.
+  # Advanced
+    #deploymentName: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment name. 
+    #deploymentOutputs: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment outputs. 
+    #addSpnToEnvironment: false # boolean. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Access service principal details in override parameters. Default: false.
+    #useWithoutJSON: false # boolean. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Use individual output values without JSON.Stringify applied. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 ```yaml
 # ARM template deployment v3
@@ -272,6 +303,18 @@ Provides a name for the variable for the output variable, which contains the out
 `boolean`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds the service principal ID and key of the Azure endpoint chosen to be the script's execution environment. The variables `$servicePrincipalId` and `$servicePrincipalKey` can be in override parameters, such as `-key $servicePrincipalKey`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="useWithoutJSON"::: -->
+:::moniker range="=azure-pipelines"
+
+**`useWithoutJSON`** - **Use individual output values without JSON.Stringify applied**<br>
+`boolean`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Individual output values are being converted via JSON.Stringify by default. If you want to use the output values as it is without converting them via JSON.Stringify, enable this option. For more details refer to [this](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceManagerTemplateDeploymentV3#deployment-outputs).
 <!-- :::editable-content-end::: -->
 <br>
 
