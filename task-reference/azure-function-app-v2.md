@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 07/10/2023
+ms.date: 07/31/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@2
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    connectedServiceNameARM: # string. Alias: azureSubscription. Required. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
     #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
@@ -47,13 +47,13 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="azureSubscription"::: -->
+<!-- :::item name="connectedServiceNameARM"::: -->
 :::moniker range="=azure-pipelines"
 
-**`azureSubscription`** - **Azure subscription**<br>
-`string`. Required.<br>
+**`connectedServiceNameARM`** - **Azure Resource Manager connection**<br>
+Input alias: `azureSubscription`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects the Azure Resource Manager subscription for the deployment.
+Select the Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
 <br>
 
