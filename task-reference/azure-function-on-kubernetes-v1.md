@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
 description: Deploy Azure function to Kubernetes cluster.
-ms.date: 07/10/2023
+ms.date: 07/31/2023
 monikerRange: "=azure-pipelines"
 ---
 

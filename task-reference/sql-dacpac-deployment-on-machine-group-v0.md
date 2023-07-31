@@ -1,7 +1,7 @@
 ---
 title: SqlDacpacDeploymentOnMachineGroup@0 - SQL Server database deploy v0 task
 description: Deploy a SQL Server database using DACPAC or SQL scripts.
-ms.date: 07/10/2023
+ms.date: 07/31/2023
 monikerRange: "<=azure-pipelines"
 ---
 
