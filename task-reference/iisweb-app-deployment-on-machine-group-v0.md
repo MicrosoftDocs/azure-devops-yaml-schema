@@ -135,6 +135,8 @@ Selects the option to take the Web App offline by placing an `app_offline.htm` f
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies additional Web Deploy arguments that are applied when deploying the Azure Web App. For example, `-disableLink:AppPoolExtension` or `-disableLink:ContentExtension`.
+
+For a list of Web Deploy arguments, see [Web Deploy Operation Settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569089(v=ws.10)).
 <!-- :::editable-content-end::: -->
 <br>
 
