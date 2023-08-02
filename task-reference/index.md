@@ -1304,6 +1304,8 @@ For example, the `InstallSSHKey@0` task has a **Known Hosts Entry** input named 
 
 Any items in a task input's `aliases` are interchangeable with the `name` in a YAML pipeline. The following two YAML snippets are functionally identical, with the first example using the `knownHostsEntry` alias and the second example using `hostName`.
 
+:::code language="yml" source="./includes/code/index-installsshkey-1.yml" highlight="4,10":::
+
 ```yml
 - task: InstallSSHKey@0
   inputs:
