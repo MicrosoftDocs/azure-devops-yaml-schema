@@ -1,0 +1,9 @@
+"properties": {
+    "knownHostsEntry": {
+      "type": "string",
+      "description": "Known Hosts Entry",
+      "ignoreCase": "key",
+      "aliases": [
+        "hostName"
+      ]
+    },
