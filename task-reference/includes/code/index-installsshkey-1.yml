@@ -1,0 +1,11 @@
+- task: InstallSSHKey@0
+  inputs:
+    # Using knownHostsEntry alias
+    knownHostsEntry: 'sample known hosts entry line'
+    # Remainder of task inputs omitted
+
+- task: InstallSSHKey@0
+  inputs:
+    # Using hostName name
+    hostName: 'sample known hosts entry line'
+    # Remainder of task inputs omitted
