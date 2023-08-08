@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 07/31/2023
+ms.date: 08/08/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -118,6 +118,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
+| **Cargo authenticate (for task runners)**<br>[CargoAuthenticate@0](cargo-authenticate-v0.md) | Authentication task for the cargo client used for installing Cargo crates distribution. |
 | **CocoaPods**<br>[CocoaPods@0](cocoa-pods-v0.md) | Install CocoaPods dependencies for Swift and Objective-C Cocoa projects. |
 | **Conda environment**<br>[CondaEnvironment@1](conda-environment-v1.md)<br>[CondaEnvironment@0](conda-environment-v0.md) | This task is deprecated. Use `conda` directly in script to work with Anaconda environments. |
 | **Download Github Npm Package**<br>[DownloadGithubNpmPackage@1](download-github-npm-package-v1.md) | Install npm packages from GitHub. |
