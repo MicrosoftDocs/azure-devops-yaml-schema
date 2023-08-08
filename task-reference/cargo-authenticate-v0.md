@@ -56,6 +56,8 @@ Path to the config.toml file that specifies the registries you want to work with
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Credentials to use for external registries located in the project's config.toml. For registries in this organization/collection, leave this blank; the build’s credentials are used automatically.
+
+Use the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant) to select the desired service connections.
 <!-- :::editable-content-end::: -->
 <br>
 
