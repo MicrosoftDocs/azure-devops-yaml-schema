@@ -107,5 +107,12 @@ steps:
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+
+## See also
+
+- [Template usage reference](/azure/devops/pipelines/process/templates)
+- [Template parameters](/azure/devops/pipelines/process/template-parameters)
+- [Define variables](/azure/devops/pipelines/process/variables)
+
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
