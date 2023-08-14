@@ -12,6 +12,9 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Authentication task for the cargo client used for installing Cargo crates distribution.
+
+> [!NOTE]
+> Cargo support in Azure Artifacts is currently in preview.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
