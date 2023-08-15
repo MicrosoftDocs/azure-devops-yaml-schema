@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Authentication task for the cargo client used for installing Cargo crates distribution.
+Authentication task for the cargo client used for installing Cargo crates.
 
 > [!NOTE]
 > Cargo support in Azure Artifacts is currently in preview.
@@ -58,7 +58,7 @@ Path to the config.toml file that specifies the registries you want to work with
 **`cargoServiceConnections`** - **Credentials for registries outside this organization/collection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the project's config.toml. For registries in this organization/collection, leave this blank; the build’s credentials are used automatically.
+Credentials to use for external registries located in the project's config.toml. For registries in this organization/collection, don't specify this attribute; the build’s credentials are used automatically.
 
 Use the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant) to select the desired service connections.
 <!-- :::editable-content-end::: -->
