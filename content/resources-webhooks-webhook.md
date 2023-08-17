@@ -162,6 +162,9 @@ instead of
     }
 }
 ```
+
+Even though the two JSON objects above represent the same object, they generate different SHA-1 checksums. This is because SHA-1 is computed on their string representation, which is different.
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
