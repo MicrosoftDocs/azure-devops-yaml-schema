@@ -51,7 +51,7 @@ Use demands to make sure that the [capabilities](/azure/devops/pipelines/agents/
 > matches the requirements of the job, so although it is possible to add capabilities to a Microsoft-hosted agent, you don't need 
 > to use capabilities with Microsoft-hosted agents.
 
-You can check for the presence of a capability using a demand ([Exists operation](#exists-operation)) or you can check for a specific string in a capability ([Equals operation](#equals-operation)). Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
+You can check for the presence of a capability ([Exists operation](#exists-operation)) or you can check for a specific string in a capability ([Equals operation](#equals-operation)). Checking for the existence of a capability (exists) and checking for a specific string in a capability (equals) are the only two supported operations for demands.
 
 ### Task demands
 
