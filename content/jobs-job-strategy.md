@@ -137,7 +137,7 @@ If `maxParallel` is unspecified, no limit is applied.
 
 #### Build on multiple platforms
 
-This example uses a `matrix` job strategy to build a on multipl platforms.
+This example uses a `matrix` job strategy to build on multiple platforms.
 
 ```yaml
 # Build NodeJS Express app using Azure Pipelines
