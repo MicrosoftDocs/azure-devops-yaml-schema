@@ -135,6 +135,82 @@ If `maxParallel` is unspecified, no limit is applied.
 <!-- :::editable-content name="examples"::: -->
 ### Examples
 
+#### Build on multiple platforms
+
+This example uses a `matrix` job strategy to build on multiple platforms.
+
+```yaml
+# Build NodeJS Express app using Azure Pipelines
+# https://learn.microsoft.com/azure/devops/pipelines/ecosystems/javascript?view=azure-devops
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-latest'
+    mac:
+      imageName: 'macOS-latest'
+    windows:
+      imageName: 'windows-latest'
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+
+- script: |
+    npm install
+    npm test
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/TEST-RESULTS.xml'
+    testRunTitle: 'Test results for JavaScript'
+
+- task: PublishCodeCoverageResults@1
+  inputs: 
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
+```
+
+This pipeline uses  [script](./steps-script.md) to run in each platform's integral script interpreter: Bash on macOS and Linux, CMD on Windows.
+See [multi-platform scripts](/azure/devops/pipelines/scripts/cross-platform-scripting) to learn more.
+
+#### Build on multiple platforms using self-hosted and Microsoft-hosted agents
+
+The following example builds on both a self-hosted agent and a Microsoft-hosted agent, by specifying both a `vmImage` and a `Pool` variable, like the following example. For the hosted agent, specify `Azure Pipelines` as the pool name, and for self-hosted agents, leave the `vmImage` blank. The blank `vmImage` for the self-hosted agent may result in some unusual entries in the logs but they won't affect the pipeline.
+
+```yml
+strategy:
+  matrix:
+    microsofthosted:
+      poolName: Azure Pipelines
+      vmImage: ubuntu-latest
+
+    selfhosted:
+      poolName: FabrikamPool
+      vmImage:
+
+pool:
+  name: $(poolName)
+  vmImage: $(vmImage)
+
+steps:
+- checkout: none
+- script: echo test
+```
+
+#### Build using different Python versions
+
 ```yaml
 jobs:
 - job: Build
