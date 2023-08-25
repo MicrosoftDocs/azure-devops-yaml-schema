@@ -1,7 +1,7 @@
 ---
 title: AzureMonitor@1 - Query Azure Monitor alerts v1 task
 description: Observe the configured Azure Monitor rules for active alerts.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

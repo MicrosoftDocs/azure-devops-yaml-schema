@@ -1,7 +1,7 @@
 ---
 title: Cache@2 - Cache v2 task
 description: Cache files between runs.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

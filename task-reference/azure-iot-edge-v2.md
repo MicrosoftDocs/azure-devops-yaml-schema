@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

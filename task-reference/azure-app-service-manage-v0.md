@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: "<=azure-pipelines"
 ---
 

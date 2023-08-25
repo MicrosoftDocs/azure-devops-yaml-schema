@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@1 - Azure Resource Group Deployment v1 task
 description: Deploy, start, stop, delete Azure Resource Groups.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: "<=azure-pipelines"
 ---
 
