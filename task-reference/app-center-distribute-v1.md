@@ -12,9 +12,11 @@ monikerRange: ">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to distribute app builds to testers and users via App Center and Visual Studio App Center.
+
+This task is deprecated; use [AppCenterDistribute@3](./app-center-distribute-v3.md).
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

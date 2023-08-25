@@ -12,9 +12,11 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below).
-<!-- :::editable-content-end::: -->
 
 This task is deprecated.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

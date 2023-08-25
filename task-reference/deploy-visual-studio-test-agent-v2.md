@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

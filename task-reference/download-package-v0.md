@@ -11,10 +11,12 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to download a package from a package management feed in Azure Artifacts. This task is deprecated; use [DownloadPackage@1](./download-package-v1.md).
+Use this task to download a package from a package management feed in Azure Artifacts.
+
+This task is deprecated; use [DownloadPackage@1](./download-package-v1.md).
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

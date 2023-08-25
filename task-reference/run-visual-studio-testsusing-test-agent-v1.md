@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the Visual Studio Test task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the Visual Studio Test Platform task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities, such as automatically rerunning failed tests.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

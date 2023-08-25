@@ -12,9 +12,11 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Deploy to Chef environments by editing environment attributes.
-<!-- :::editable-content-end::: -->
 
 This task is deprecated.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

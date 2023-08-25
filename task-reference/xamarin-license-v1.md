@@ -16,7 +16,7 @@ XamarinLicense@1 is deprecated because you no longer need a Xamarin license to [
 This task was originally used in a build or release pipeline to activate or deactivate Xamarin licenses.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

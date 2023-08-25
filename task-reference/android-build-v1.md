@@ -16,7 +16,7 @@ Use this task to build an Android app using Gradle and (optionally) start the em
 The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipelines/tasks/reference/gradle-v3) instead.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

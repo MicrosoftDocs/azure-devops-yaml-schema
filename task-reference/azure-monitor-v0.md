@@ -12,9 +12,11 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured classic Azure Monitor rules for active alerts.
+
+This task is deprecated; use [AzureMonitor@1](./azure-monitor-v1.md).
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

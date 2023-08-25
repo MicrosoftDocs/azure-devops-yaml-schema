@@ -13,11 +13,13 @@ monikerRange: ">=azure-pipelines-2019"
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
 
+This task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
+
 > [!NOTE]
 > For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

@@ -17,7 +17,7 @@ Use this task to create and activate a Conda environment.
 > This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 
