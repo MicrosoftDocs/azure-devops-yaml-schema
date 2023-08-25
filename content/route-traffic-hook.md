@@ -1,7 +1,7 @@
 ---
 title: routeTrafficHook definition
 description: Used to run steps that serve the traffic to the updated version.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

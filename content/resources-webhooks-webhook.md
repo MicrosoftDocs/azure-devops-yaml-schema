@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook definition
 description: A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 
@@ -164,7 +164,6 @@ instead of
 ```
 
 Even though the two JSON objects above represent the same object, they generate different SHA-1 checksums. This is because SHA-1 is computed on their string representation, which is different.
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

@@ -1,7 +1,7 @@
 ---
 title: variables.template definition
 description: Define variables in a template.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -107,12 +107,10 @@ steps:
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-
 ## See also
 
 - [Template usage reference](/azure/devops/pipelines/process/templates)
 - [Template parameters](/azure/devops/pipelines/process/template-parameters)
 - [Define variables](/azure/devops/pipelines/process/variables)
-
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
