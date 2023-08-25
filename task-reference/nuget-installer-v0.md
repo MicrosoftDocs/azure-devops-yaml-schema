@@ -1,14 +1,24 @@
 ---
 title: NuGetInstaller@0 - NuGet Installer v0 task
 description: Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # NuGetInstaller@0 - NuGet Installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
+<!-- :::editable-content-end::: -->
+
+This task is deprecated.
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.

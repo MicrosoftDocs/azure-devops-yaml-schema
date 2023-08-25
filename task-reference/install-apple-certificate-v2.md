@@ -1,7 +1,7 @@
 ---
 title: InstallAppleCertificate@2 - Install Apple certificate v2 task
 description: Install an Apple certificate required to build on a macOS agent machine.
-ms.date: 07/31/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -28,7 +28,29 @@ Install an Apple certificate required to build on a macOS agent.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Install Apple certificate v2
+# Install an Apple certificate required to build on a macOS agent machine.
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: # string. Required. Certificate (P12). 
+    #certPwd: # string. Certificate (P12) password. 
+  # Advanced
+    keychain: 'temp' # 'default' | 'temp' | 'custom'. Required. Keychain. Default: temp.
+    #keychainPassword: # string. Required when keychain = custom || keychain = default. Keychain password. 
+    #customKeychainPath: # string. Required when keychain = custom. Custom keychain path. 
+    #deleteCert: # boolean. Optional. Use when keychain = custom || keychain = default. Delete certificate from keychain. 
+    #deleteCustomKeychain: # boolean. Optional. Use when keychain = custom. Delete custom keychain. 
+    #signingIdentity: # string. Certificate signing identity. 
+    #setUpPartitionIdACLForPrivateKey: # boolean. Set up partition_id ACL for the imported private key. 
+    #opensslPkcsArgs: # string. OpenSSL arguments for PKCS12.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Install Apple certificate v2
@@ -196,6 +218,18 @@ Specifies the `Common Name` of the subject in the signing certificate.  Will att
 `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If `true`, sets the `partition_id` ACL for the imported private key so that `codesign` won't prompt to use the key for signing. This isn't necessary for temporary keychains on MacOS High Sierra. Learn more about [Open Radar](http://www.openradar.me/28524119).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="opensslPkcsArgs"::: -->
+:::moniker range="=azure-pipelines"
+
+**`opensslPkcsArgs`** - **OpenSSL arguments for PKCS12**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Arguments for extraction certificate information using openssl.
 <!-- :::editable-content-end::: -->
 <br>
 
