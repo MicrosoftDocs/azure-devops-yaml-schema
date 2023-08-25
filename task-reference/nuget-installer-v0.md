@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities.
+Installs or restores missing NuGet packages. This task is deprecated; use [NuGetAuthenticate@0](./nuget-authenticate-v1.md).
 <!-- :::editable-content-end::: -->
 
 This task is deprecated.
