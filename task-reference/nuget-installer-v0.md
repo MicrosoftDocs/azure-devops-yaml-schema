@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Installs or restores missing NuGet packages. This task is deprecated; use [NuGetAuthenticate@0](./nuget-authenticate-v1.md).
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

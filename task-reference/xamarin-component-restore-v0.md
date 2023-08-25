@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 This task is deprecated. Use 'NuGet' instead.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

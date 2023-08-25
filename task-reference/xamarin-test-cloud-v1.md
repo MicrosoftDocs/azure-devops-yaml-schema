@@ -16,7 +16,7 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 > You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterTest](app-center-test-v1.md) task instead.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 
@@ -28,7 +28,7 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 > You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterTest](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AppCenterTestV1) task instead.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

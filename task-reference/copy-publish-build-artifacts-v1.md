@@ -17,7 +17,7 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 > This task is deprecated. We recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts) and the [Copy Files task](copy-files-v2.md) and the [Publish Build Artifacts](publish-build-artifacts-v1.md) task instead.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

@@ -14,9 +14,11 @@ monikerRange: "<=azure-pipelines"
 Use this task to build, test, package, or publish a dotnet application, or to run a custom dotnet command. For package commands, this task supports NuGet.org and authenticated feeds like Package Management and MyGet.
 
 If your .NET Core or .NET Standard build depends on NuGet packages, make sure to add two copies of this step: one with the `restore` command and one with the `build` command.
+
+This task is deprecated; use [DotNetCoreCLI@2](./dotnet-core-cli-v2.md).
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->

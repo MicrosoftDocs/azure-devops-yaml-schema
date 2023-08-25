@@ -14,7 +14,7 @@ monikerRange: ">=azure-pipelines-2020"
 This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
 <!-- :::editable-content-end::: -->
 
-This task is deprecated.
+<!-- This task is deprecated.-->
 
 :::moniker-end
 

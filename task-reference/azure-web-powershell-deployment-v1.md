@@ -12,9 +12,11 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task creates or updates Azure App Service using Azure PowerShell.
-<!-- :::editable-content-end::: -->
 
 This task is deprecated.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated.-->
 
 :::moniker-end
 <!-- :::description-end::: -->
