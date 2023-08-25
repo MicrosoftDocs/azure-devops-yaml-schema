@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.rolling definition
 description: Rolling Deployment strategy.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

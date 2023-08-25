@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: A job is a collection of steps run by an agent or on a server.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

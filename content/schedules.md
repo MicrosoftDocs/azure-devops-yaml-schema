@@ -1,7 +1,7 @@
 ---
 title: schedules definition
 description: The schedules list specifies the scheduled triggers for the pipeline.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

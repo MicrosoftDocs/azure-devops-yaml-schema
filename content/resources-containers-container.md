@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 07/10/2023
+ms.date: 08/25/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
