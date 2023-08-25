@@ -13,7 +13,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Run scripts with Knife commands on your Chef workstation.
 
-his task is deprecated.
+This task is deprecated.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->
@@ -25,7 +25,7 @@ his task is deprecated.
 <!-- :::editable-content name="description"::: -->
 Run Scripts with knife commands on your chef workstation.
 
-his task is deprecated.
+This task is deprecated.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->

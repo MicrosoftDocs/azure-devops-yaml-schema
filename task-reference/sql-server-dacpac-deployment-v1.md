@@ -13,7 +13,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a SQL Server database using DACPAC.
 
-This task is deprecated..
+This task is deprecated.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->
