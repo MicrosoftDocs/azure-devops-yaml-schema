@@ -299,7 +299,7 @@ Enabling this option will generate a `test results` TRX file in `$(Agent.TempDir
 This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
 
-Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments.
+Code coverage can be collected by adding the `--collect "Code coverage"` option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -315,7 +315,7 @@ Enabling this option will generate a `test results` TRX file in `$(Agent.TempDir
 This option appends the `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
 
-Code coverage can be collected by adding the `--collect “Code coverage”` option to the command line arguments.
+Code coverage can be collected by adding the `--collect "Code coverage"` option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
