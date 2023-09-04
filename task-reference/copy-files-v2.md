@@ -245,7 +245,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-If no files match, the task will still report success. If a matched file already exists in the target folder, the task will report failure unless `Overwrite` is set to true.
+If no files match, the task will still report success. If a matched file already exists in the target folder, the task will not report failure but mention that the file already exists and skip it. Use and set `Overwrite` to `true` to replace existing files. 
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
