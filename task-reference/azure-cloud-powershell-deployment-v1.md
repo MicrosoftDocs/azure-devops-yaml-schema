@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Deploy an Azure Cloud Service.
+
+[!INCLUDE [workflow-identity](../content/includes/workflow-identity.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
