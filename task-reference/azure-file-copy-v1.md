@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
+
+[!INCLUDE [workflow-identity](../content/includes/workflow-identity.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
