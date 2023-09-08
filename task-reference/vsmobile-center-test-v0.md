@@ -1,7 +1,7 @@
 ---
 title: VSMobileCenterTest@0 - Mobile Center Test v0 task
 description: Test mobile app packages with Visual Studio Mobile Center.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: "<=azure-pipelines"
 ---
 
