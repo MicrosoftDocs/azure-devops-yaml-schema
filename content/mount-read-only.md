@@ -1,7 +1,7 @@
 ---
 title: mountReadOnly definition
 description: Volumes to mount read-only.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: ">=azure-pipelines-2020.1"
 ---
 

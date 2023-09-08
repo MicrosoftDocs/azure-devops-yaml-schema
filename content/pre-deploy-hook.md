@@ -1,7 +1,7 @@
 ---
 title: preDeployHook definition
 description: Used to run steps that initialize resources before application deployment starts.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
