@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@3 - App Center distribute v3 task
 description: Distribute app builds to testers and users via Visual Studio App Center.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

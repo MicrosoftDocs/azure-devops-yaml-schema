@@ -1,7 +1,7 @@
 ---
 title: UseRubyVersion@0 - Use Ruby version v0 task
 description: Use the specified version of Ruby from the tool cache, optionally adding it to the PATH.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

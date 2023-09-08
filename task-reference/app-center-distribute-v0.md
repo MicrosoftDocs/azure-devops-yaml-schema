@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@0 - App Center Distribute v0 task
 description: Distribute app builds to testers and users via App Center (task version 1).
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@1 - Archive Files v1 task
 description: Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: "<=azure-pipelines"
 ---
 
