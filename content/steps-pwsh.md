@@ -1,7 +1,7 @@
 ---
 title: steps.pwsh definition
 description: Runs a script in PowerShell Core on Windows, macOS, and Linux.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

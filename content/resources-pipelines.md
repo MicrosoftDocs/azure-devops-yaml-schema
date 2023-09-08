@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines definition
 description: List of pipeline resources.
-ms.date: 08/25/2023
+ms.date: 09/08/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
