@@ -225,7 +225,7 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 **`Builder`** - **Builder**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select a builder of VMware Tanzu® Build Service™, this can be used in enterprise tier. <br/> For detailed description, please check [Use Tanzu Build Service](/azure/spring-cloud/how-to-enterprise-build-service?tabs=azure-portal).
+Select a builder of VMware Tanzu® Build Service™, this can be used in enterprise tier. <br/> For detailed description, please check [Use Tanzu Build Service](/azure/spring-apps/how-to-enterprise-build-service?tabs=azure-portal).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -422,7 +422,7 @@ After the 'Deploy' action only. Contains private URL for accessing the updated d
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to deploy applications to [Azure Spring Cloud](/azure/spring-cloud/) and to manage Azure Spring Cloud [deployments](/azure/spring-cloud/concept-understand-app-and-deployment).
+Use this task to deploy applications to [Azure Spring Apps](/azure/spring-apps/) and to manage Azure Spring Cloud [deployments](/azure/spring-apps/concept-understand-app-and-deployment).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -430,7 +430,7 @@ Use this task to deploy applications to [Azure Spring Cloud](/azure/spring-cloud
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-The following examples demonstrate common usage scenarios. For more information, see [Automate application deployments to Azure Spring Cloud](/azure/spring-cloud/how-to-cicd?pivots=programming-language-java).
+The following examples demonstrate common usage scenarios. For more information, see [Automate application deployments to Azure Spring Apps](/azure/spring-apps/how-to-cicd?pivots=programming-language-java).
 
 ### Deleting a staging deployment
 
@@ -456,7 +456,7 @@ steps:
 
 #### To production
 
-The following example deploys to the default production deployment in Azure Spring Cloud. This is the only possible deployment scenario when using the Basic SKU:
+The following example deploys to the default production deployment in Azure Spring Apps. This is the only possible deployment scenario when using the Basic SKU:
 
 > [!NOTE]
 > The package search pattern should only return exactly one package. If the build task produces multiple JAR packages such as *sources.jar* and *javadoc.jar*, you need to refine the search pattern so that it only matches the application binary artifact.
@@ -496,7 +496,7 @@ steps:
     Package: '$(System.DefaultWorkingDirectory)/**/*customer-api*.jar'
 ```
 
-For more on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](/azure/spring-cloud/concepts-blue-green-deployment-strategies).
+For more on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](/azure/spring-apps/concepts-blue-green-deployment-strategies).
 
 ### Setting production deployment
 
