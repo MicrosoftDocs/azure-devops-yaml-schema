@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 09/08/2023
+ms.date: 09/11/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -57,13 +57,13 @@ This task deploys applications to Azure Spring Apps and manages those deployment
 :::moniker range="=azure-pipelines-2022"
 
 ```yaml
-# Azure Spring Cloud v0
-# Deploy applications to Azure Spring Cloud and manage deployments.
+# Azure Spring Apps v0
+# Deploy applications to Azure Spring Apps and manage deployments.
 - task: AzureSpringCloud@0
   inputs:
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
     Action: 'Deploy' # 'Deploy' | 'Set Production' | 'Delete Staging Deployment'. Required. Action. Default: Deploy.
-    AzureSpringCloud: # string. Required. Azure Spring Cloud Name. 
+    AzureSpringCloud: # string. Required. Azure Spring Apps Name. 
     AppName: # string. Required. App. 
     #UseStagingDeployment: true # boolean. Optional. Use when Action = Deploy || Action = Set Production. Use Staging Deployment. Default: true.
     #CreateNewDeployment: false # boolean. Optional. Use when Action = Deploy && UseStagingDeployment = false. Create a new staging deployment if one does not exist. Default: false.
@@ -108,20 +108,9 @@ The action to be performed on Azure Spring Apps.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AzureSpringCloud"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022"
 
 **`AzureSpringCloud`** - **Azure Spring Apps Name**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name or resource ID of the Azure Spring Apps instance to deploy.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022"
-
-**`AzureSpringCloud`** - **Azure Spring Cloud Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name or resource ID of the Azure Spring Apps instance to deploy.
