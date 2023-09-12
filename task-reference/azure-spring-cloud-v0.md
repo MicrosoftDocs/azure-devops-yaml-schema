@@ -182,20 +182,7 @@ The [deployment](/azure/spring-apps/concept-understand-app-and-deployment) to wh
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Package"::: -->
-:::moniker range="=azure-pipelines"
-
-**`Package`** - **Package or folder**<br>
-`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The file path to the package or folder containing the Azure Spring Apps app contents (`.jar` file for Java, `.zip` for .NET Core).  
-Variables ( [Build](/azure/devops/pipelines/build/variables) | [Release](/azure/devops/pipelines/release/variables#default-variables)) and wildcards are supported.  
-For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`Package`** - **Package or folder**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Default value: `$(System.DefaultWorkingDirectory)/**/*.jar`.<br>
@@ -222,18 +209,7 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.jar`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Builder"::: -->
-:::moniker range="=azure-pipelines"
-
-**`Builder`** - **Builder**<br>
-`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select a builder of VMware Tanzu® Build Service™, this can be used in enterprise tier. <br/> For detailed description, please check [Use Tanzu Build Service](/azure/spring-apps/how-to-enterprise-build-service?tabs=azure-portal).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`Builder`** - **Builder**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
@@ -340,18 +316,7 @@ The environment variables to be entered using the syntax `-key value` (for examp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="JvmOptions"::: -->
-:::moniker range="=azure-pipelines"
-
-**`JvmOptions`** - **JVM Options**<br>
-`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m -Xmx2048m`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`JvmOptions`** - **JVM Options**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`.<br>
@@ -374,18 +339,7 @@ Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RuntimeVersion"::: -->
-:::moniker range="=azure-pipelines"
-
-**`RuntimeVersion`** - **Runtime Version**<br>
-`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The runtime version on which the app will run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`RuntimeVersion`** - **Runtime Version**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>

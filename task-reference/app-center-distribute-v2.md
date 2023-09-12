@@ -8,19 +8,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 # AppCenterDistribute@2 - App Center distribute v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to distribute app builds to testers and users via Visual Studio App Center.
-
-This task is deprecated; use [AppCenterDistribute@3](./app-center-distribute-v3.md).
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated.-->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to distribute app builds to testers and users via Visual Studio App Center.

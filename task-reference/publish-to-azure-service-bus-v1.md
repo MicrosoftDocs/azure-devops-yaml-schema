@@ -208,18 +208,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useDataContractSerializer"::: -->
-:::moniker range="=azure-pipelines"
-
-**`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Set `useDataContractSerializer` to `false` if you want to pass your message as a stream instead of an object.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
 `boolean`. Default value: `true`.<br>

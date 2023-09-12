@@ -104,18 +104,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
-:::moniker range="=azure-pipelines"
-
-**`versionSpec`** - **Version Spec**<br>
-`string`. Optional. Use when `versionSource = spec`. Default value: `6.x`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.0`, `>=6.10.0`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`versionSpec`** - **Version Spec**<br>
 `string`. Optional. Use when `versionSource = spec`. Default value: `6.x`.<br>

@@ -180,20 +180,7 @@ Specify the Azure Resource Manager subscription for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appType"::: -->
-:::moniker range="=azure-pipelines"
-
-**`appType`** - **App type**<br>
-Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), `applinux` (Linux Web App), `functionapp` (Function App (Not Recommended, Use Azure Functions Task)), `api` (API App), `mobileapp` (Mobile App). Default value: `app`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the type of web app to deploy.
-
-Note: Specify Linux Web App for built-in platform images or custom container image deployments.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`appType`** - **App type**<br>
 Input alias: `WebAppKind`. `string`. Required. Allowed values: `app` (Web App), `applinux` (Linux Web App), `functionapp` (Function App (Not Recommended, Use Azure Functions Task)), `api` (API App), `mobileapp` (Mobile App). Default value: `app`.<br>

@@ -56,18 +56,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 ## Inputs
 
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range="=azure-pipelines"
-
-**`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
@@ -79,20 +68,7 @@ Current working directory where the script is run. Empty is the root of the repo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSourcePath"::: -->
-:::moniker range="=azure-pipelines"
-
-**`appSourcePath`** - **Application source path**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Absolute path on the runner of the source application code to be built. If not provided, the 'imageToDeploy' argument must be provided to ensure the Container App has an image to reference.
-
-When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs are required.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`appSourcePath`** - **Application source path**<br>
 `string`.<br>
@@ -106,18 +82,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
-
-**`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify an Azure Resource Manager service connection for the deployment. This service connection must be linked to the user's Azure Subscription where the Container App will be created/updated. This service connection _must_ have proper permissions to make these changes within the subscription, for example Contributor role.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
@@ -129,20 +94,7 @@ Specify an Azure Resource Manager service connection for the deployment. This se
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="acrName"::: -->
-:::moniker range="=azure-pipelines"
-
-**`acrName`** - **Azure Container Registry name**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Azure Container Registry that the runnable application image will be pushed to.
-
-When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs are required.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`acrName`** - **Azure Container Registry name**<br>
 `string`.<br>
@@ -156,18 +108,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="acrUsername"::: -->
-:::moniker range="=azure-pipelines"
-
-**`acrUsername`** - **Azure Container Registry username**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The username used to authenticate push requests to the provided Azure Contrainer Registry. If not provided, an access token will be generated via 'az acr login' and provided to 'docker login' to authenticate the requests.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`acrUsername`** - **Azure Container Registry username**<br>
 `string`.<br>
@@ -179,18 +120,7 @@ The username used to authenticate push requests to the provided Azure Contrainer
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="acrPassword"::: -->
-:::moniker range="=azure-pipelines"
-
-**`acrPassword`** - **Azure Container Registry password**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The password used to authenticate push requests to the provided Azure Contrainer Registry. If not provided, an access token will be generated via 'az acr login' and provided to 'docker login' to authenticate the requests.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`acrPassword`** - **Azure Container Registry password**<br>
 `string`.<br>
@@ -202,18 +132,7 @@ The password used to authenticate push requests to the provided Azure Contrainer
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerfilePath"::: -->
-:::moniker range="=azure-pipelines"
-
-**`dockerfilePath`** - **Dockerfile path**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Relative path (_without file prefixes (see the following [Examples](#examples)) to the Dockerfile in the provided application source that should be used to build the image that is then pushed to ACR and deployed to the Container App. If not provided, this task will check if there is a file named 'Dockerfile' at the root of the provided application source and use that to build the image. Otherwise, the Oryx++ Builder will be used to create the image.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`dockerfilePath`** - **Dockerfile path**<br>
 `string`.<br>
@@ -225,18 +144,7 @@ Relative path (_without file prefixes (see the following [Examples](#examples)) 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageToBuild"::: -->
-:::moniker range="=azure-pipelines"
-
-**`imageToBuild`** - **Docker image to build**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The custom name of the image that is to be built, pushed to ACR and deployed to the Container App by this task. Note: this image name should include the ACR server; e.g., `<acr-name>.azurecr.io/<repo>:<tag>`. If this argument is not provided, a default image name will be constructed in the form of `<acr-name>.azurecr.io/ado-task/container-app:<build-id>.<build-number>`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`imageToBuild`** - **Docker image to build**<br>
 `string`.<br>
@@ -248,18 +156,7 @@ The custom name of the image that is to be built, pushed to ACR and deployed to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageToDeploy"::: -->
-:::moniker range="=azure-pipelines"
-
-**`imageToDeploy`** - **Docker image to deploy**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of the image that has already been pushed to ACR and will be deployed to the Container App by this task. Note: the image name should include the ACR server; e.g., `<acr-name>.azurecr.io/<repo>:<tag>`. If this argument is not provided, the value provided (or determined) for the 'imageToBuild' argument will be used. If this image is found in an ACR instance that requires authentication to pull, the `acrName` argument, or the `acrUsername` and `acrPassword` arguments, can be provided to authenticate requests to the ACR instance.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`imageToDeploy`** - **Docker image to deploy**<br>
 `string`.<br>
@@ -283,18 +180,7 @@ The name of the Azure Container App that will be created or updated. If not prov
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range="=azure-pipelines"
-
-**`resourceGroup`** - **Azure resource group name**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The resource group that the Azure Container App will be created in (or currently exists in). If not provided, this value will be in the form of `<container-app-name>-rg`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`resourceGroup`** - **Azure resource group name**<br>
 `string`.<br>
@@ -306,18 +192,7 @@ The resource group that the Azure Container App will be created in (or currently
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerAppEnvironment"::: -->
-:::moniker range="=azure-pipelines"
-
-**`containerAppEnvironment`** - **Azure Container App environment**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Azure Container App environment to use with the application. If not provided, an existing environment in the resource group of the Container App will be used, otherwise, an environment will be created in the format of `<container-app-name>-env`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`containerAppEnvironment`** - **Azure Container App environment**<br>
 `string`.<br>
@@ -329,18 +204,7 @@ The name of the Azure Container App environment to use with the application. If 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range="=azure-pipelines"
-
-**`runtimeStack`** - **Application runtime stack**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The platform version stack used in the final runnable application image that is deployed to the Container App. The value should be provided in the formation `<platform>:<version>`. If not provided, this value is determined by Oryx based on the contents of the provided application. Please refer to [this document](https://github.com/microsoft/Oryx/blob/main/doc/supportedRuntimeVersions.md) for more information on supported runtime stacks for Oryx.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`runtimeStack`** - **Application runtime stack**<br>
 `string`.<br>
@@ -352,18 +216,7 @@ The platform version stack used in the final runnable application image that is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targetPort"::: -->
-:::moniker range="=azure-pipelines"
-
-**`targetPort`** - **Application target port**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The target port that the Container App will listen on. If not provided, this value will be "80" for Python applications and "8080" for all other supported platforms.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`targetPort`** - **Application target port**<br>
 `string`.<br>
@@ -411,45 +264,7 @@ Possible options: external, internal, disabled. If set to `external` (default va
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="yamlConfigPath"::: -->
-:::moniker range="=azure-pipelines"
-
-**`yamlConfigPath`** - **YAML configuration file path**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Full path (on the executing Azure Pipelines agent) to the YAML file detailing the configuration of the Container App.
-
-The `resourceGroup` property in the YAML configuration file _will not_ be used; the value for this either comes from
-the `resourceGroup` argument provided to the task, or the default resource group name generated by the task. All other
-properties provided in the YAML configuration file will override the values provided as arguments to this task; for
-example, if the `containerAppName` argument is provided to the task, and the `name` property is set in the YAML
-configuration file, the `name` property in the YAML file will be used when creating or updating the Container App.
-
-Image and application source arguments (_e.g._, `appSourcePath`, `imageToDeploy`) will still be used to first build
-and/or push an image that is used by the Container App; in this case, the provided YAML configuration file will need to
-reference the image specified by `imageToDeploy` (or `imageToBuild`, depending on your scenario).
-
-When creating a new Container App, all properties listed in the YAML configuration file (except `resourceGroup` as
-mentioned above) will be set when the Container App is created. When updating an existing Container App, only the
-properties listed in the file will be updated on the Container App.
-
-Currently, the YAML file does not support setting up managed identity authentication for the container registry used;
-for more information on this issue, please see
-[this GitHub issue](https://github.com/microsoft/azure-container-apps/issues/524).
-
-In cases where the `yamlConfigPath` argument is provided, the YAML file will be passed through to the corresponding
-`az containerapp` command, either
-[`create`](/cli/azure/containerapp#az-containerapp-create) or
-[`update`](/cli/azure/containerapp#az-containerapp-update)
-depending on your scenario. For more information on the intended behavior when the YAML configuration file is provided,
-please see the documents linked for the corresponding commands.
-
-For more information on the structure of the YAML configuration file, please visit [this site](https://aka.ms/azure-container-apps-yaml).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`yamlConfigPath`** - **YAML configuration file path**<br>
 `string`.<br>

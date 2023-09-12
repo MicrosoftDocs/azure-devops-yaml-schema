@@ -259,18 +259,7 @@ Specifies how long (in milliseconds) the task waits for the SSH handshake to com
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="interactiveKeyboardAuthentication"::: -->
-:::moniker range="=azure-pipelines"
-
-**`interactiveKeyboardAuthentication`** - **Use interactive-keyboard authentication**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Enables interactive-keyboard authentication. Set to `true` if your destination SSH server requires Interactive Keyboard Authentication (`PasswordAuthentication` is disabled on the target machine/set to No in sshd_config).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`interactiveKeyboardAuthentication`** - **Use interactive-keyboard authentication**<br>
 `boolean`. Default value: `false`.<br>

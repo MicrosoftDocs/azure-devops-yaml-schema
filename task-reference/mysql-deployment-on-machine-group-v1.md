@@ -108,18 +108,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
-
-**`SqlUsername`** - **Mysql User Name**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-This string is the same value that is used for `Username` in `Parameters` in MySQL Workbench.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
 
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>

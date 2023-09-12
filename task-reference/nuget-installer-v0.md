@@ -8,17 +8,7 @@ monikerRange: "<=azure-pipelines"
 # NuGetInstaller@0 - NuGet Installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
-
-<!-- :::editable-content name="description"::: -->
-Installs or restores missing NuGet packages. This task is deprecated; use [NuGetAuthenticate@0](./nuget-authenticate-v1.md).
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated.-->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Installs or restores missing NuGet packages. This task is deprecated; use [NuGetAuthenticate@0](./nuget-authenticate-v1.md).

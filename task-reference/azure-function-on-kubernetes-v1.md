@@ -51,23 +51,7 @@ Deploy Azure function to Kubernetes cluster.
 ## Inputs
 
 <!-- :::item name="connectionType"::: -->
-:::moniker range="=azure-pipelines"
-
-**`connectionType`** - **Service connection type**<br>
-`string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`. Default value: `Kubernetes Service Connection`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection type.
-
-* `Kubernetes Service Connection` - Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
-* `Azure Resource Manager` - Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time.
-
-For more information, see [Remarks](#remarks).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`connectionType`** - **Service connection type**<br>
 `string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`. Default value: `Kubernetes Service Connection`.<br>
@@ -156,18 +140,7 @@ Kubernetes namespace.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretName"::: -->
-:::moniker range="=azure-pipelines"
-
-**`secretName`** - **Secret Name**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: `Azure storage connection string`).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`secretName`** - **Secret Name**<br>
 `string`.<br>

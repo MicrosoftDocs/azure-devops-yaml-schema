@@ -368,18 +368,7 @@ Specify an existing slot other than the Production slot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DockerNamespace"::: -->
-:::moniker range="=azure-pipelines"
-
-**`DockerNamespace`** - **Registry or Namespace**<br>
-`string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-A globally unique top-level domain name for your specific registry or namespace. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`DockerNamespace`** - **Registry or Namespace**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
@@ -402,18 +391,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DockerRepository"::: -->
-:::moniker range="=azure-pipelines"
-
-**`DockerRepository`** - **Image**<br>
-`string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of the repository where the container images are stored. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`DockerRepository`** - **Image**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
@@ -436,18 +414,7 @@ The name of the repository where the container images are stored. Note: The full
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DockerImageTag"::: -->
-:::moniker range="=azure-pipelines"
-
-**`DockerImageTag`** - **Tag**<br>
-`string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Tags are the mechanism that registries use to apply version information to Docker images. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
@@ -533,22 +500,7 @@ Specify the framework and version.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StartupCommand"::: -->
-:::moniker range="=azure-pipelines"
-
-**`StartupCommand`** - **Startup command**<br>
-`string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Startup command. For example:
-
-dotnet exec `filename.dll`
-
-dotnet `filename.dll`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer`.<br>

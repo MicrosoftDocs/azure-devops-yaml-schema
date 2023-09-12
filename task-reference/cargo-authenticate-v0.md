@@ -8,18 +8,7 @@ monikerRange: ">=azure-pipelines-2022.1"
 # CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
-
-<!-- :::editable-content name="description"::: -->
-Authentication task for the cargo client used for installing Cargo crates.
-
-> [!NOTE]
-> Cargo support in Azure Artifacts is currently in preview.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Authentication task for the cargo client used for installing Cargo crates.
@@ -64,20 +53,7 @@ Path to the config.toml file that specifies the registries you want to work with
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cargoServiceConnections"::: -->
-:::moniker range="=azure-pipelines"
-
-**`cargoServiceConnections`** - **Credentials for registries outside this organization/collection**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Credentials to use for external registries located in the project's config.toml. For registries in this organization/collection, don't specify this attribute; the build’s credentials are used automatically.
-
-Use the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant) to select the desired service connections.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`cargoServiceConnections`** - **Credentials for registries outside this organization/collection**<br>
 `string`.<br>

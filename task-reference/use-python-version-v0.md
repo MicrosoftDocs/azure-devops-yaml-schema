@@ -85,18 +85,7 @@ Specifies the version range or exact version of a Python version to use, using S
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="disableDownloadFromRegistry"::: -->
-:::moniker range="=azure-pipelines"
-
-**`disableDownloadFromRegistry`** - **Disable downloading releases from the GitHub registry**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Disables downloading missing Python versions from the [Github Actions registry](https://github.com/actions/python-versions). This boolean should only be `true` if using a local installation of Python.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`disableDownloadFromRegistry`** - **Disable downloading releases from the GitHub registry**<br>
 `boolean`. Default value: `false`.<br>
@@ -108,18 +97,7 @@ Disables downloading missing Python versions from the [Github Actions registry](
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowUnstable"::: -->
-:::moniker range="=azure-pipelines"
-
-**`allowUnstable`** - **Allow downloading unstable releases**<br>
-`boolean`. Optional. Use when `disableDownloadFromRegistry = false`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Downloads unstable Python versions from the [Github Actions Python versions registry](https://github.com/actions/python-versions) if set to `true`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`allowUnstable`** - **Allow downloading unstable releases**<br>
 `boolean`. Optional. Use when `disableDownloadFromRegistry = false`. Default value: `false`.<br>
@@ -131,18 +109,7 @@ Downloads unstable Python versions from the [Github Actions Python versions regi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="githubToken"::: -->
-:::moniker range="=azure-pipelines"
-
-**`githubToken`** - **GitHub token for GitHub Actions python registry**<br>
-`string`. Optional. Use when `disableDownloadFromRegistry = false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the GitHub token that enforces the anonymous requests limit in the [Github Actions python versions registry](https://github.com/actions/python-versions). Leaving this empty may cause download failures. Not needed if using a local installation of Python.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`githubToken`** - **GitHub token for GitHub Actions python registry**<br>
 `string`. Optional. Use when `disableDownloadFromRegistry = false`.<br>

@@ -53,18 +53,7 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 ## Inputs
 
 <!-- :::item name="artifactFeed"::: -->
-:::moniker range="=azure-pipelines"
-
-**`artifactFeed`** - **My feed name (select below)**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure artifact's feed name to authenticate with twine. The authenticating feed must be present within the organization. For project-scoped feeds, use the syntax `projectName/feedNameSelect`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`artifactFeed`** - **My feed name (select below)**<br>
 `string`.<br>

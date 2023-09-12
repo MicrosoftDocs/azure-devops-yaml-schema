@@ -302,18 +302,7 @@ When not set to `Default`, prepends the line `$DebugPreference = 'VALUE'` at the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="progressPreference"::: -->
-:::moniker range="=azure-pipelines"
-
-**`progressPreference`** - **ProgressPreference**<br>
-`string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `silentlyContinue`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-When not set to `Default`, prepends the line `$ProgressPreference = 'VALUE'` at the top of your script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`progressPreference`** - **ProgressPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `silentlyContinue`.<br>

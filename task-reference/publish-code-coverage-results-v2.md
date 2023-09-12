@@ -8,15 +8,7 @@ monikerRange: ">=azure-pipelines-2022.1"
 # PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to get code coverage results from a build.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to get code coverage results from a build.
@@ -47,18 +39,7 @@ Use this task to get code coverage results from a build.
 ## Inputs
 
 <!-- :::item name="summaryFileLocation"::: -->
-:::moniker range="=azure-pipelines"
-
-**`summaryFileLocation`** - **Path to summary files**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path of the summary file containing code coverage statistics, such as line, method, and class coverage. Multiple summary files are merged into a single report. The value may contain minimatch patterns. For example: `$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml`. [More information on minimatch patterns](https://aka.ms/minimatchexamples).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`summaryFileLocation`** - **Path to summary files**<br>
 `string`. Required.<br>
@@ -70,20 +51,7 @@ Specifies the path of the summary file containing code coverage statistics, such
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pathToSources"::: -->
-:::moniker range="=azure-pipelines"
-
-**`pathToSources`** - **Path to Source files**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifying a path to source files is required when coverage XML reports don't contain an absolute path to source files. For example, JaCoCo reports don't use absolute paths, so when publishing JaCoCo coverage for Java apps, the pattern is similar to `$(System.DefaultWorkingDirectory)/MyApp/src/main/java/`. This input should point to an absolute path to source files on the host. For example, `$(System.DefaultWorkingDirectory)/MyApp/`.
-
-This input can be used if tests are run in a Docker container.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`pathToSources`** - **Path to Source files**<br>
 `string`.<br>
@@ -97,18 +65,7 @@ This input can be used if tests are run in a Docker container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failIfCoverageEmpty"::: -->
-:::moniker range="=azure-pipelines"
-
-**`failIfCoverageEmpty`** - **Fail if code coverage results are missing**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Fails the task if code coverage did not produce any results to publish.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`failIfCoverageEmpty`** - **Fail if code coverage results are missing**<br>
 `boolean`. Default value: `false`.<br>
