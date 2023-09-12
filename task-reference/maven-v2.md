@@ -1,7 +1,7 @@
 ---
 title: Maven@2 - Maven v2 task
 description: Build, test, and deploy with Apache Maven (task version 2).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to build, test, and deploy with Apache Maven.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Maven v2
@@ -541,7 +541,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenAuthenticateFeed"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Default value: `true`.<br>

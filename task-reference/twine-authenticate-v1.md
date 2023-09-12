@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,7 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Python twine upload authenticate v1
@@ -54,6 +54,17 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 
 <!-- :::item name="artifactFeed"::: -->
 :::moniker range="=azure-pipelines"
+
+**`artifactFeed`** - **My feed name (select below)**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the Azure artifact's feed name to authenticate with twine. The authenticating feed must be present within the organization. For project-scoped feeds, use the syntax `projectName/feedNameSelect`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`artifactFeed`** - **My feed name (select below)**<br>
 `string`.<br>
@@ -193,7 +204,7 @@ In this example, we are setting up authentication for publishing to the official
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

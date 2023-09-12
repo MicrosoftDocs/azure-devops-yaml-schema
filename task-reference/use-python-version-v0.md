@@ -1,7 +1,7 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,7 @@ Use this task to download or select a version of Python to run on an agent, and 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Use Python version v0
@@ -95,6 +95,17 @@ Disables downloading missing Python versions from the [Github Actions registry](
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`disableDownloadFromRegistry`** - **Disable downloading releases from the GitHub registry**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Disables downloading missing Python versions from the [Github Actions registry](https://github.com/actions/python-versions). This boolean should only be `true` if using a local installation of Python.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowUnstable"::: -->
 :::moniker range="=azure-pipelines"
@@ -107,9 +118,31 @@ Downloads unstable Python versions from the [Github Actions Python versions regi
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`allowUnstable`** - **Allow downloading unstable releases**<br>
+`boolean`. Optional. Use when `disableDownloadFromRegistry = false`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Downloads unstable Python versions from the [Github Actions Python versions registry](https://github.com/actions/python-versions) if set to `true`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="githubToken"::: -->
 :::moniker range="=azure-pipelines"
+
+**`githubToken`** - **GitHub token for GitHub Actions python registry**<br>
+`string`. Optional. Use when `disableDownloadFromRegistry = false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the GitHub token that enforces the anonymous requests limit in the [Github Actions python versions registry](https://github.com/actions/python-versions). Leaving this empty may cause download failures. Not needed if using a local installation of Python.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`githubToken`** - **GitHub token for GitHub Actions python registry**<br>
 `string`. Optional. Use when `disableDownloadFromRegistry = false`.<br>

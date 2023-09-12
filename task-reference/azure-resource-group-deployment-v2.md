@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,7 @@ Deploy, start, stop, delete Azure Resource Groups.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure resource group deployment v2
@@ -525,7 +525,7 @@ Adds the service principal ID and key of the Azure endpoint chosen to be the scr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useWithoutJSON"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`useWithoutJSON`** - **Use individual output values without JSON.Stringify applied**<br>
 `boolean`. Optional. Use when `action = Create Or Update Resource Group`. Default value: `false`.<br>

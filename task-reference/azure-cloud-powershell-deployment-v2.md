@@ -1,14 +1,14 @@
 ---
 title: AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 description: Deploy an Azure Cloud Service.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Deploy an Azure Cloud Service.
@@ -20,7 +20,7 @@ Deploy an Azure Cloud Service.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure Cloud Service deployment v2
@@ -57,14 +57,25 @@ Deploy an Azure Cloud Service.
 **`ARMConnectedServiceName`** - **Azure subscription (ARM)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The ARM subscription.
+Azure Resource Manager subscription.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`ARMConnectedServiceName`** - **Azure subscription (ARM)**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceGroupName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
@@ -86,9 +97,31 @@ A pre-existing ARM storage account.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`ARMStorageAccount`** - **Storage account (ARM)**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A pre-existing ARM storage account.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ServiceName"::: -->
 :::moniker range="=azure-pipelines"
+
+**`ServiceName`** - **Service name**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+An existing cloud service name.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`ServiceName`** - **Service name**<br>
 `string`. Required.<br>
@@ -110,6 +143,17 @@ A region for new service deployment. Options include: East US, East US 2, Centra
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`ServiceLocation`** - **Service location**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A region for new service deployment. Options include: East US, East US 2, Central US, South Central US, West US, North Europe, West Europe, and others.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CsCfg"::: -->
 :::moniker range="=azure-pipelines"
@@ -122,9 +166,20 @@ The CsCfg path in the default artifact directory.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`CsCfg`** - **CsCfg**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The CsCfg path in the default artifact directory.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CsDef"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`CsDef`** - **CsDef**<br>
 `string`. Required.<br>
@@ -146,9 +201,20 @@ Path to the CsPkg in the default artifact directory.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`CsPkg`** - **CsPkg**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Path to the CsPkg in the default artifact directory.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="KeyVault"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`KeyVault`** - **Azure KeyVault**<br>
 `string`.<br>
@@ -170,6 +236,17 @@ Specifies the label name for the new deployment. If not specified, defaults to a
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`DeploymentLabel`** - **Deployment label**<br>
+`string`. Default value: `$(Build.BuildNumber)`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the label name for the new deployment. If not specified, defaults to a Globally Unique Identifier (GUID).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppendDateTimeToLabel"::: -->
 :::moniker range="=azure-pipelines"
@@ -182,9 +259,20 @@ Appends current date and time to the deployment label.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`AppendDateTimeToLabel`** - **Append current date and time**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Appends current date and time to the deployment label.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UpgradeMode"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`UpgradeMode`** - **Update mode for the cloud service**<br>
 `string`. Default value: `Auto`.<br>
@@ -206,9 +294,31 @@ Allows an upgrade to the Microsoft Azure deployment.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`AllowUpgrade`** - **Allow upgrade**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Allows an upgrade to the Microsoft Azure deployment.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="VerifyRoleInstanceStatus"::: -->
 :::moniker range="=azure-pipelines"
+
+**`VerifyRoleInstanceStatus`** - **Verify role instance status**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Causes the task to wait until role instances are in the ready state.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`VerifyRoleInstanceStatus`** - **Verify role instance status**<br>
 `boolean`. Default value: `false`.<br>
@@ -238,6 +348,25 @@ If there is sensitive information in the diagnostic results for your environment
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`DiagnosticStorageAccountKeys`** - **Diagnostic storage account keys**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Format storage key string as `Role:Storagekey`. The diagnostics storage account name for each role is retrieved from the diagnostic config file (.wadcfgx).
+
+- If the .wadcfgx file for a role is not found: The diagnostic extension isn't set for that role.
+- If the storage account name is not found in the .wadcfgx file: The default storage account is used for storing diagnostic results, and storage key parameters from the deployment task is ignored.
+
+If there is sensitive information in the diagnostic results for your environment, save the `storage_account_key` as a secret variable. For example:
+
+- WebRole: `WebRole_storage_account_key`
+- WorkerRole: `WorkerRole_stoarge_account_key`
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -248,7 +377,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -268,7 +397,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

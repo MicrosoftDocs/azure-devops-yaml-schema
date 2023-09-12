@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Visual Studio Test v2
@@ -278,6 +278,17 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 
 :::moniker-end
 
+:::moniker range="=azure-pipelines-2022.1"
+
+**`testAssemblyVer2`** - **Test files**<br>
+`string`. Required when `testSelector = testAssemblies`. Default value: `**\bin\**\*test.dll\n**\bin\**\*tests.dll`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`testAssemblyVer2`** - **Test files**<br>
@@ -434,6 +445,17 @@ Specifies which test platform to use.
 <!-- :::item-end::: -->
 <!-- :::item name="vsTestVersion"::: -->
 :::moniker range="=azure-pipelines"
+
+**`vsTestVersion`** - **Test platform version**<br>
+`string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>

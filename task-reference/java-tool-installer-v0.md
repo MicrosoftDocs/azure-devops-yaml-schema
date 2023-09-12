@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Java tool installer v0
@@ -273,7 +273,7 @@ Specifies the destination directory where the JDK should be extracted. On Linux 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroupName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureResourceGroupName`** - **Resource Group name**<br>
 `string`. Optional. Use when `jdkSourceOption == AzureStorage`.<br>

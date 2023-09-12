@@ -1,7 +1,7 @@
 ---
 title: Gradle@2 - Gradle v2 task
 description: Build using a Gradle wrapper script (task version 2).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Build using a Gradle wrapper script.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Gradle v2
@@ -431,6 +431,17 @@ Sets JAVA_HOME by selecting a JDK version that the task discovers during builds 
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
 :::moniker range="=azure-pipelines"
+
+**`jdkVersionOption`** - **JDK version**<br>
+Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>

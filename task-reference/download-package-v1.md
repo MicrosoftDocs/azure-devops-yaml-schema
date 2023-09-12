@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,7 @@ Use this task to download a package from a package management feed in Azure Arti
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Download package v1
@@ -65,7 +65,7 @@ Use this task to download a package from a package management feed in Azure Arti
 ## Inputs
 
 <!-- :::item name="packageType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`packageType`** - **Package Type**<br>
 `string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal), `cargo`. Default value: `nuget`.<br>
@@ -241,7 +241,7 @@ Yes, you can use the project or feed name in your definition. However, if your p
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

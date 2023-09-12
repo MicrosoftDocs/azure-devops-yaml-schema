@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # ARM template deployment v3
@@ -309,7 +309,7 @@ Adds the service principal ID and key of the Azure endpoint chosen to be the scr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useWithoutJSON"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`useWithoutJSON`** - **Use individual output values without JSON.Stringify applied**<br>
 `boolean`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Default value: `false`.<br>

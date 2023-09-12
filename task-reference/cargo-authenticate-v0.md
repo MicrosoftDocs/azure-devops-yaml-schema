@@ -1,8 +1,8 @@
 ---
 title: CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 description: Authentication task for the cargo client used for installing Cargo crates distribution.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
@@ -18,12 +18,23 @@ Authentication task for the cargo client used for installing Cargo crates.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Authentication task for the cargo client used for installing Cargo crates.
+
+> [!NOTE]
+> Cargo support in Azure Artifacts is currently in preview.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Cargo authenticate (for task runners) v0
@@ -41,7 +52,7 @@ Authentication task for the cargo client used for installing Cargo crates.
 ## Inputs
 
 <!-- :::item name="configFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`configFile`** - **config.toml file to authenticate**<br>
 `string`. Required.<br>
@@ -65,6 +76,19 @@ Use the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-edito
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`cargoServiceConnections`** - **Credentials for registries outside this organization/collection**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Credentials to use for external registries located in the project's config.toml. For registries in this organization/collection, don't specify this attribute; the build’s credentials are used automatically.
+
+Use the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant) to select the desired service connections.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -75,7 +99,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -95,7 +119,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,7 +1,7 @@
 ---
 title: Maven@3 - Maven v3 task
 description: Build, test, and deploy with Apache Maven (task version 3).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,7 @@ Use this task to build, test, and deploy with Apache Maven.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Maven v3
@@ -565,7 +565,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenAuthenticateFeed"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Default value: `false`.<br>
@@ -588,7 +588,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="effectivePomSkip"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`effectivePomSkip`** - **Skip generating effective POM while authenticating with Artifacts feeds**<br>
 Input alias: `skipEffectivePom`. `boolean`. Default value: `false`.<br>

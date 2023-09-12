@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -31,7 +31,7 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure App Service deploy v4
@@ -293,7 +293,7 @@ It is recommended to store a password in a secret variable and use that variable
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`appType`** - **App Service type**<br>
 Input alias: `WebAppKind`. `string`. Required when `ConnectionType = AzureRM`. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux), `webAppContainer` (Web App for Containers (Linux)), `webAppHyperVContainer` (Web App for Containers (Windows)), `functionApp` (Function App on Windows (Not Recommended, Use Azure Functions Task)), `functionAppLinux` (Function App on Linux (Not Recommended, Use Azure Functions Task)), `functionAppContainer` (Function App for Containers (Linux) (Not Recommended, Use Azure Functions for container Task)), `apiApp` (API App), `mobileApp` (Mobile App). Default value: `webApp`.<br>
@@ -379,6 +379,17 @@ A globally unique top-level domain name for your specific registry or namespace.
 
 :::moniker-end
 
+:::moniker range="=azure-pipelines-2022.1"
+
+**`DockerNamespace`** - **Registry or Namespace**<br>
+`string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A globally unique top-level domain name for your specific registry or namespace. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`DockerNamespace`** - **Registry or Namespace**<br>
@@ -402,6 +413,17 @@ The name of the repository where the container images are stored. Note: The full
 
 :::moniker-end
 
+:::moniker range="=azure-pipelines-2022.1"
+
+**`DockerRepository`** - **Image**<br>
+`string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The name of the repository where the container images are stored. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
 :::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`DockerRepository`** - **Image**<br>
@@ -415,6 +437,17 @@ The name of the repository where the container images are stored. Note: The full
 <!-- :::item-end::: -->
 <!-- :::item name="DockerImageTag"::: -->
 :::moniker range="=azure-pipelines"
+
+**`DockerImageTag`** - **Tag**<br>
+`string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Tags are the mechanism that registries use to apply version information to Docker images. Note: The fully qualified image name will be of the format: `{registry or namespace}/{repository}:{tag}`. For example, `myregistry.azurecr.io/nginx:latest`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppkind = webAppHyperVContainer`.<br>
@@ -501,6 +534,21 @@ Specify the framework and version.
 <!-- :::item-end::: -->
 <!-- :::item name="StartupCommand"::: -->
 :::moniker range="=azure-pipelines"
+
+**`StartupCommand`** - **Startup command**<br>
+`string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the Startup command. For example:
+
+dotnet exec `filename.dll`
+
+dotnet `filename.dll`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppkind = webAppHyperVContainer`.<br>

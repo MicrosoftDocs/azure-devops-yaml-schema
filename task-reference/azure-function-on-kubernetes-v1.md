@@ -1,14 +1,14 @@
 ---
 title: AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
 description: Deploy Azure function to Kubernetes cluster.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # AzureFunctionOnKubernetes@1 - Azure Function on Kubernetes v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Deploy Azure function to Kubernetes cluster.
@@ -20,7 +20,7 @@ Deploy Azure function to Kubernetes cluster.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure Function on Kubernetes v1
@@ -66,9 +66,25 @@ For more information, see [Remarks](#remarks).
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`connectionType`** - **Service connection type**<br>
+`string`. Required. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`. Default value: `Kubernetes Service Connection`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select a Kubernetes service connection type.
+
+* `Kubernetes Service Connection` - Allows you to provide a KubeConfig file, specify a Service Account, or import an AKS instance with the **Azure Subscription** option. Importing an AKS instance with the **Azure Subscription** option requires Kubernetes cluster access at Service Connection configuration time.
+* `Azure Resource Manager` - Lets you select an AKS instance. Does not access Kubernetes cluster at Service Connection configuration time.
+
+For more information, see [Remarks](#remarks).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
 `string`. Required.<br>
@@ -80,7 +96,7 @@ Select a Docker registry service connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection`.<br>
@@ -92,7 +108,7 @@ Select a Kubernetes service connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscriptionConnection`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager`.<br>
@@ -104,7 +120,7 @@ Select the Azure Resource Manager subscription, which contains Azure Container R
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `connectionType = Azure Resource Manager`.<br>
@@ -116,7 +132,7 @@ Select an Azure resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesCluster"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 `string`. Required when `connectionType = Azure Resource Manager`.<br>
@@ -128,7 +144,7 @@ Select an Azure managed cluster.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`namespace`** - **Kubernetes namespace**<br>
 `string`.<br>
@@ -150,9 +166,20 @@ Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: 
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`secretName`** - **Secret Name**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Kubernetes secret containing function config data (for ex. AzureWebJobsStorage: `Azure storage connection string`).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerHubNamespace"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`dockerHubNamespace`** - **Docker Hub namespace**<br>
 `string`.<br>
@@ -164,7 +191,7 @@ Docker Hub namespace. Required for private Docker Hub repository.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`appName`** - **Application Name**<br>
 `string`. Required.<br>
@@ -176,7 +203,7 @@ Application Name. The Kubernetes objects created use this name. This should foll
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="functionRootDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`functionRootDirectory`** - **Function root directory**<br>
 `string`.<br>
@@ -188,7 +215,7 @@ Function root directory. Should contain host.json. Docker build and push is perf
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForStability"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`waitForStability`** - **Wait for stability**<br>
 `boolean`. Default value: `true`.<br>
@@ -200,7 +227,7 @@ Wait for the Kubernetes objects to reach the desired state.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
@@ -220,7 +247,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -247,7 +274,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

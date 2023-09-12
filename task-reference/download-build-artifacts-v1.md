@@ -1,8 +1,8 @@
 ---
 title: DownloadBuildArtifacts@1 - Download build artifacts v1 task
 description: Download files that were saved as artifacts of a completed build.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # DownloadBuildArtifacts@1 - Download build artifacts v1 task
@@ -15,12 +15,20 @@ Use this task to download files that were saved as artifacts of a completed buil
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to download files that were saved as artifacts of a completed build.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Download build artifacts v1
@@ -65,9 +73,20 @@ Whether to download artifacts produced by the current build or from a specific b
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`buildType`** - **Download artifacts produced by**<br>
+`string`. Required. Allowed values: `current` (Current build), `specific` (Specific build). Default value: `current`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Whether to download artifacts produced by the current build or from a specific build.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="project"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`project`** - **Project**<br>
 `string`. Required when `buildType == specific`.<br>
@@ -89,9 +108,31 @@ Specifies the build pipeline name.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`pipeline`** - **Build pipeline**<br>
+Input alias: `definition`. `string`. Required when `buildType == specific`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the build pipeline name.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="specificBuildWithTriggering"::: -->
 :::moniker range="=azure-pipelines"
+
+**`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
+`boolean`. Optional. Use when `buildType == specific`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If `true`, this build task tries to download artifacts from the triggering build. If there is no triggering build from the specified pipeline, it downloads artifacts from the build specified in the options below.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
 `boolean`. Optional. Use when `buildType == specific`. Default value: `false`.<br>
@@ -117,9 +158,35 @@ Specifies which version of the build to download.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`buildVersionToDownload`** - **Build version to download**<br>
+`string`. Required when `buildType == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies which version of the build to download.
+
+- Choose `latest` to download the latest available build version.
+- Choose `latestFromBranch` to download the latest available build version of the branch specified by `branchName` and tags specified by `tags`.
+- Choose `specific` to download the build version specified by `buildId`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowPartiallySucceededBuilds"::: -->
 :::moniker range="=azure-pipelines"
+
+**`allowPartiallySucceededBuilds`** - **Download artifacts even from partially succeeded builds.**<br>
+`boolean`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If `true`, this build task tries to download artifacts whether the build succeeds or partially succeeds.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`allowPartiallySucceededBuilds`** - **Download artifacts even from partially succeeded builds.**<br>
 `boolean`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`. Default value: `false`.<br>
@@ -141,6 +208,17 @@ Specifies whether to filter on branch/ref name, for example: `refs/heads/develop
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`branchName`** - **Branch name**<br>
+`string`. Required when `buildType == specific && buildVersionToDownload == latestFromBranch`. Default value: `refs/heads/master`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies whether to filter on branch/ref name, for example: `refs/heads/develop`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildId"::: -->
 :::moniker range="=azure-pipelines"
@@ -153,9 +231,31 @@ The build you want to download the artifacts from.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`buildId`** - **Build**<br>
+`string`. Required when `buildType == specific && buildVersionToDownload == specific`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The build you want to download the artifacts from.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
 :::moniker range="=azure-pipelines"
+
+**`tags`** - **Build Tags**<br>
+`string`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A comma-delimited list of tags. Only builds with these tags are returned.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`tags`** - **Build Tags**<br>
 `string`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`.<br>
@@ -180,9 +280,23 @@ Downloads a specific artifact or specific files from the build.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`downloadType`** - **Download type**<br>
+`string`. Required. Allowed values: `single` (Specific artifact), `specific` (Specific files). Default value: `single`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Downloads a specific artifact or specific files from the build.
+
+* Choose `single` (Specific artifact) when you want only one specific artifact specified by `artifactName`
+* Choose `specific` (Specific files) when you want all artifacts of the selected build
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`artifactName`** - **Artifact name**<br>
 `string`. Required when `downloadType == single`.<br>
@@ -206,6 +320,19 @@ The default pattern `\*\*` downloads all files across all artifacts in the build
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`itemPattern`** - **Matching pattern**<br>
+`string`. Default value: `**`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the files to download as a multi-line minimatch pattern. For more information, see [File matching patterns reference](https://aka.ms/minimatchexamples). 
+
+The default pattern `\*\*` downloads all files across all artifacts in the build if you choose the **Specific files** option. To download all files within the artifact drop, use `drop/**`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="=azure-pipelines"
@@ -218,9 +345,20 @@ The path on the agent machine where the artifacts are downloaded.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`downloadPath`** - **Destination directory**<br>
+`string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The path on the agent machine where the artifacts are downloaded.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanDestinationFolder"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`cleanDestinationFolder`** - **Clean destination folder**<br>
 `boolean`. Default value: `false`.<br>
@@ -242,9 +380,31 @@ The number of files to download simultaneously.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`parallelizationLimit`** - **Parallelization limit**<br>
+`string`. Default value: `8`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The number of files to download simultaneously.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkDownloadedFiles"::: -->
 :::moniker range="=azure-pipelines"
+
+**`checkDownloadedFiles`** - **Check downloaded files**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If `true`, this build task checks that all files are fully downloaded.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`checkDownloadedFiles`** - **Check downloaded files**<br>
 `boolean`. Default value: `false`.<br>
@@ -266,9 +426,31 @@ The number of times to retry downloading a build artifact if the download fails.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`retryDownloadCount`** - **Retry count**<br>
+`string`. Default value: `4`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The number of times to retry downloading a build artifact if the download fails.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="extractTars"::: -->
 :::moniker range="=azure-pipelines"
+
+**`extractTars`** - **Extract all files that are stored inside tar archives**<br>
+`boolean`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Set to `true` to extract all downloaded files that have the **.tar** extension. This is helpful because you need to pack your artifact files into tar if you want to preserve Unix file permissions. Enabling the `StoreAsTar` option in the [Publish build artifacts](publish-build-artifacts-v1.md) task will store artifacts as **.tar** files automatically.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`extractTars`** - **Extract all files that are stored inside tar archives**<br>
 `boolean`.<br>
@@ -301,6 +483,20 @@ Please note that this input returns **BuildId** due to backward compatibility. F
 <!-- :::item-end::: -->
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
+
+<!-- :::item name="BuildNumber"::: -->
+**`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
+Stores the build number of the build artifact source.
+
+Please note that this input returns **BuildId** due to backward compatibility. For more information, see [Variables](/azure/devops/pipelines/build/variables#build-variables-devops-services).
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+
+:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->
@@ -320,7 +516,7 @@ Please note that this input returns **BuildId** due to backward compatibility. F
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|
