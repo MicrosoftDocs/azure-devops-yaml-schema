@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -18,7 +18,7 @@ Use `checkout` to configure how the pipeline checks out source code.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 steps:
@@ -189,7 +189,7 @@ Depth of Git graph to fetch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fetchTags"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`fetchTags`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior.

@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: A pipeline is one or more stages that describe a CI/CD process.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -158,7 +158,7 @@ Use the `name` property to configure the pipeline run number. For more informati
 <!-- :::implementation-item name="pipeline: stages"::: -->
 <a name="pipelinestages"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::implementation-signature::: -->
 ## pipeline: stages
@@ -549,7 +549,7 @@ stages:
 <!-- :::implementation-item name="pipeline: extends"::: -->
 <a name="pipelineextends"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::implementation-signature::: -->
 ## pipeline: extends
@@ -924,7 +924,7 @@ Variables for this pipeline.
 <!-- :::implementation-item name="pipeline: jobs"::: -->
 <a name="pipelinejobs"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::implementation-signature::: -->
 ## pipeline: jobs
@@ -1380,7 +1380,7 @@ jobs:
 <!-- :::implementation-item name="pipeline: steps"::: -->
 <a name="pipelinesteps"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::implementation-signature::: -->
 ## pipeline: steps
