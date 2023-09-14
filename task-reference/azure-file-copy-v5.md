@@ -12,6 +12,8 @@ monikerRange: ">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
+
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

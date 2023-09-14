@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
+
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
