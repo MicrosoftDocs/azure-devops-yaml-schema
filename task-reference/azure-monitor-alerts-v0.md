@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Configure alerts on available metrics for an Azure resource (Deprecated).
+
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

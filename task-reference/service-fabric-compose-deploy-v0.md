@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to deploy a Docker Compose application to a Service Fabric cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the Compose file.
 <!-- :::editable-content-end::: -->
 
-[!INCLUDE [workflow-identity](../content/includes/workflow-identity.md)]
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
 
 :::moniker-end
 <!-- :::description-end::: -->

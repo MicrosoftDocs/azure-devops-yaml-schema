@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to deploy a Service Fabric application to a cluster. This task deploys an Azure Service Fabric application to a cluster according to the settings defined in the publish profile.
 <!-- :::editable-content-end::: -->
 
-[!INCLUDE [workflow-identity](../content/includes/workflow-identity.md)]
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
 
 :::moniker-end
 <!-- :::description-end::: -->

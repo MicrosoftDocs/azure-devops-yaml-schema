@@ -15,7 +15,7 @@ Use this task to build and deploy images quickly and efficiently to Azure IoT Ed
 
 This task supports custom variables. If you're not familiar with how to use variables in Pipelines, see [define variables](/azure/devops/pipelines/process/variables).
 
-[!INCLUDE [workflow-identity](../content/includes/workflow-identity.md)]
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
 
 <!-- :::editable-content-end::: -->
 
