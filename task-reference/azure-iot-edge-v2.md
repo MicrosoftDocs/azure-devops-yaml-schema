@@ -14,6 +14,9 @@ monikerRange: ">=azure-pipelines-2019.1"
 Use this task to build and deploy images quickly and efficiently to Azure IoT Edge.
 
 This task supports custom variables. If you're not familiar with how to use variables in Pipelines, see [define variables](/azure/devops/pipelines/process/variables).
+
+[!INCLUDE [workload-identity](./includes/workload-identity.md)]
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
