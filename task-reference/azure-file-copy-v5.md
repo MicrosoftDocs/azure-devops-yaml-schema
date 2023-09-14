@@ -13,7 +13,7 @@ monikerRange: "=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
 
-[!INCLUDE [workload-identity](./includes/workload-identity.md)]
+[!INCLUDE [workload-identity](./includes/workload-identity-not-supported.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
