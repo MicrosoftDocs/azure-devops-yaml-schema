@@ -13,7 +13,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's back-end address pool.
 
-[!INCLUDE [workload-identity](./includes/workload-identity.md)]
+[!INCLUDE [workload-identity](./includes/workload-identity-not-supported.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
