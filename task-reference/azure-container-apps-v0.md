@@ -1,14 +1,14 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps (task version 0).
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 An Azure DevOps Task to build and deploy Azure Container Apps.
@@ -20,7 +20,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure Container Apps Deploy v0
@@ -56,7 +56,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 ## Inputs
 
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
@@ -68,7 +68,7 @@ Current working directory where the script is run. Empty is the root of the repo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSourcePath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`appSourcePath`** - **Application source path**<br>
 `string`.<br>
@@ -82,7 +82,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required.<br>
@@ -94,7 +94,7 @@ Specify an Azure Resource Manager service connection for the deployment. This se
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="acrName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`acrName`** - **Azure Container Registry name**<br>
 `string`.<br>
@@ -108,7 +108,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="acrUsername"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`acrUsername`** - **Azure Container Registry username**<br>
 `string`.<br>
@@ -120,7 +120,7 @@ The username used to authenticate push requests to the provided Azure Contrainer
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="acrPassword"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`acrPassword`** - **Azure Container Registry password**<br>
 `string`.<br>
@@ -132,7 +132,7 @@ The password used to authenticate push requests to the provided Azure Contrainer
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerfilePath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`dockerfilePath`** - **Dockerfile path**<br>
 `string`.<br>
@@ -144,7 +144,7 @@ Relative path (_without file prefixes (see the following [Examples](#examples)) 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageToBuild"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`imageToBuild`** - **Docker image to build**<br>
 `string`.<br>
@@ -156,7 +156,7 @@ The custom name of the image that is to be built, pushed to ACR and deployed to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageToDeploy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`imageToDeploy`** - **Docker image to deploy**<br>
 `string`.<br>
@@ -168,7 +168,7 @@ The name of the image that has already been pushed to ACR and will be deployed t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerAppName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`containerAppName`** - **Azure Container App name**<br>
 `string`.<br>
@@ -180,7 +180,7 @@ The name of the Azure Container App that will be created or updated. If not prov
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`resourceGroup`** - **Azure resource group name**<br>
 `string`.<br>
@@ -192,7 +192,7 @@ The resource group that the Azure Container App will be created in (or currently
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerAppEnvironment"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`containerAppEnvironment`** - **Azure Container App environment**<br>
 `string`.<br>
@@ -204,7 +204,7 @@ The name of the Azure Container App environment to use with the application. If 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`runtimeStack`** - **Application runtime stack**<br>
 `string`.<br>
@@ -216,7 +216,7 @@ The platform version stack used in the final runnable application image that is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targetPort"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`targetPort`** - **Application target port**<br>
 `string`.<br>
@@ -228,7 +228,7 @@ The target port that the Container App will listen on. If not provided, this val
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="location"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`location`** - **Location of the Container App**<br>
 `string`.<br>
@@ -240,7 +240,7 @@ The location that the Container App (and other created resources) will be deploy
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="environmentVariables"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`environmentVariables`** - **Environment variables**<br>
 `string`.<br>
@@ -252,7 +252,7 @@ A list of environment variable(s) for the container. Space-separated values in '
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ingress"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`ingress`** - **Ingress setting**<br>
 `string`.<br>
@@ -264,7 +264,7 @@ Possible options: external, internal, disabled. If set to `external` (default va
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="yamlConfigPath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`yamlConfigPath`** - **YAML configuration file path**<br>
 `string`.<br>
@@ -303,7 +303,7 @@ For more information on the structure of the YAML configuration file, please vis
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="disableTelemetry"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`disableTelemetry`** - **Disable telemetry**<br>
 `boolean`.<br>
@@ -323,7 +323,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -693,7 +693,7 @@ resource group named `<container-app-name>-rg` where the image built and pushed 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

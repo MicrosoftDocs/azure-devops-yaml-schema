@@ -1,14 +1,14 @@
 ---
 title: CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 description: Authentication task for the cargo client used for installing Cargo crates distribution.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Authentication task for the cargo client used for installing Cargo crates.
@@ -23,7 +23,7 @@ Authentication task for the cargo client used for installing Cargo crates.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Cargo authenticate (for task runners) v0
@@ -41,7 +41,7 @@ Authentication task for the cargo client used for installing Cargo crates.
 ## Inputs
 
 <!-- :::item name="configFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`configFile`** - **config.toml file to authenticate**<br>
 `string`. Required.<br>
@@ -53,7 +53,7 @@ Path to the config.toml file that specifies the registries you want to work with
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cargoServiceConnections"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`cargoServiceConnections`** - **Credentials for registries outside this organization/collection**<br>
 `string`.<br>
@@ -75,7 +75,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -95,7 +95,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

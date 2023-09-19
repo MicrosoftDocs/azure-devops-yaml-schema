@@ -1,7 +1,7 @@
 ---
 title: NuGetPublisher@0 - NuGet publisher v0 task
 description: NuGetPublisher@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -241,7 +241,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

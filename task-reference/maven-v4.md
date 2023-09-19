@@ -1,14 +1,14 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # Maven@4 - Maven v4 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Build, test, and deploy with Apache Maven.
@@ -20,7 +20,7 @@ Build, test, and deploy with Apache Maven.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Maven v4
@@ -73,7 +73,7 @@ Build, test, and deploy with Apache Maven.
 ## Inputs
 
 <!-- :::item name="mavenPOMFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenPOMFile`** - **Maven POM file**<br>
 `string`. Required. Default value: `pom.xml`.<br>
@@ -85,7 +85,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="goals"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`goals`** - **Goal(s)**<br>
 `string`. Default value: `package`.<br>
@@ -97,7 +97,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`options`** - **Options**<br>
 `string`.<br>
@@ -109,7 +109,7 @@ Specifies the relative path from the repository root to the Maven POM file. See 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 `boolean`. Default value: `true`.<br>
@@ -121,7 +121,7 @@ Specifies the option to publish the JUnit test results produced by the Maven bui
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/surefire-reports/TEST-*.xml`.<br>
@@ -136,7 +136,7 @@ For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`. I
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
@@ -148,7 +148,7 @@ Specifies a name for the test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowBrokenSymlinks"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`allowBrokenSymlinks`** - **Allow broken symbolic links**<br>
 Input alias: `allowBrokenSymbolicLinks`. `boolean`. Optional. Use when `publishJUnitResults = true`. Default value: `true`.<br>
@@ -160,7 +160,7 @@ If set to `false`, fails the build when the task finds a broken symbolic link wh
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageToolOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageToolOption`** - **Code coverage tool**<br>
 Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
@@ -172,7 +172,7 @@ Specifies the code coverage tool. Enabling code coverage inserts the clean goal 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageClassFilter"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageClassFilter`** - **Class inclusion/exclusion filters**<br>
 Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
@@ -184,7 +184,7 @@ Specifies a comma-separated list of filters to include or exclude classes from c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 Input alias: `classFilesDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
@@ -197,7 +197,7 @@ Specifies a comma-separated list of relative paths from the Maven POM file to di
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageSourceDirectories"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageSourceDirectories`** - **Source files directories**<br>
 Input alias: `srcDirectories`. `string`. Optional. Use when `codeCoverageTool = JaCoCo`.<br>
@@ -210,7 +210,7 @@ Specifies a comma-separated list of relative paths from the Maven POM file to so
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageFailIfEmpty"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageFailIfEmpty`** - **Fail when code coverage results are missing**<br>
 Input alias: `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
@@ -222,7 +222,7 @@ Fails the build if code coverage did not produce any results to publish.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageRestoreOriginalPomXml"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`codeCoverageRestoreOriginalPomXml`** - **Restore original pom.xml after task execution**<br>
 Input alias: `restoreOriginalPomXml`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
@@ -234,7 +234,7 @@ Code coverage modifies `pom.xml` to produce results. Use this option if you need
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="javaHomeOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`javaHomeOption`** - **Set JAVA_HOME by**<br>
 Input alias: `javaHomeSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
@@ -246,7 +246,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
@@ -259,7 +259,7 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`jdkDirectory`** - **JDK path**<br>
 Input alias: `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
@@ -271,7 +271,7 @@ Sets `JAVA_HOME` to the given path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkArchitectureOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
@@ -283,7 +283,7 @@ Supplies the architecture (`x86`, `x64`) of the JDK.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenVersionOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenVersionOption`** - **Maven version**<br>
 Input alias: `mavenVersionSelection`. `string`. Required. Allowed values: `Default`, `Path` (Custom Path). Default value: `Default`.<br>
@@ -295,7 +295,7 @@ Specifies either the default Maven version or the version in the specified custo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenDirectory`** - **Maven path**<br>
 Input alias: `mavenPath`. `string`. Required when `mavenVersionSelection = Path`.<br>
@@ -307,7 +307,7 @@ Supplies the custom path to the Maven installation (for example: `/usr/share/mav
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenSetM2Home"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenSetM2Home`** - **Set M2_HOME variable**<br>
 `boolean`. Optional. Use when `mavenVersionSelection = Path`. Default value: `false`.<br>
@@ -319,7 +319,7 @@ Sets the `M2_HOME` variable to a custom Maven installation path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenOptions"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenOptions`** - **Set MAVEN_OPTS to**<br>
 Input alias: `mavenOpts`. `string`. Default value: `-Xmx1024m`.<br>
@@ -331,7 +331,7 @@ Sets the `MAVEN_OPTS` environment variable, which is used to send command-line a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenAuthenticateFeed"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mavenAuthenticateFeed`** - **Authenticate with Artifacts feeds**<br>
 Input alias: `mavenFeedAuthenticate`. `boolean`. Default value: `false`.<br>
@@ -343,7 +343,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="effectivePomSkip"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`effectivePomSkip`** - **Skip generating effective POM while authenticating with Artifacts feeds**<br>
 Input alias: `skipEffectivePom`. `boolean`. Default value: `false`.<br>
@@ -355,7 +355,7 @@ Authenticates with Artifacts feeds using the POM only.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube or SonarCloud analysis**<br>
 Input alias: `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -368,7 +368,7 @@ Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.son
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isJacocoCoverageReportXML"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`isJacocoCoverageReportXML`** - **Use XML Jacoco reports for SonarQube analysis**<br>
 `boolean`. Optional. Use when `sqAnalysisEnabled = true && codeCoverageTool = JaCoCo`. Default value: `false`.<br>
@@ -380,7 +380,7 @@ Uses XML Jacoco reports for SonarQube analysis. Learn more about [test reports](
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sqMavenPluginVersionChoice"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`sqMavenPluginVersionChoice`** - **SonarQube scanner for Maven version**<br>
 `string`. Required when `sqAnalysisEnabled = true`. Allowed values: `latest` (Use latest release), `pom` (Use version declared in your pom.xml). Default value: `latest`.<br>
@@ -392,7 +392,7 @@ Specifies the SonarQube Maven plugin version to use. You can use the latest vers
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkStyleRunAnalysis"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`checkStyleRunAnalysis`** - **Run Checkstyle**<br>
 Input alias: `checkstyleAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -404,7 +404,7 @@ Runs the Checkstyle tool with the default Sun checks. If no Checkstyle configura
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pmdRunAnalysis"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`pmdRunAnalysis`** - **Run PMD**<br>
 Input alias: `pmdAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -416,7 +416,7 @@ Uses the PMD static analysis tool to look for bugs in the code. Results are uplo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="findBugsRunAnalysis"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`findBugsRunAnalysis`** - **Run FindBugs**<br>
 Input alias: `findbugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -428,7 +428,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsRunAnalysis"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`spotBugsRunAnalysis`** - **Run SpotBugs analysis**<br>
 Input alias: `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -440,7 +440,7 @@ Enable this option to run the SpotBugs code analysis plugin. More information ab
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`spotBugsVersion`** - **Version number**<br>
 Input alias: `spotBugsMavenPluginVersion`. `string`. Optional. Use when `spotBugsAnalysisEnabled = true`. Default value: `4.5.3.0`.<br>
@@ -452,7 +452,7 @@ Learn about [the available versions of SpotBugs](https://mvnrepository.com/artif
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsGoal"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`spotBugsGoal`** - **The goal for the spotbugs plugin**<br>
 `string`. Optional. Use when `spotBugsAnalysisEnabled = true`. Allowed values: `spotbugs` ("spotbugs" - Creates a report on found bugs), `check` ("check" - Pipeline fails if bugs were detected). Default value: `spotbugs`.<br>
@@ -464,7 +464,7 @@ Specifies the goal of the plugin. Learn more about [SpotBugs goals](https://spot
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failWhenBugsFound"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`failWhenBugsFound`** - **Fail when bugs are found with spotbugs:check**<br>
 Input alias: `spotBugsFailWhenBugsFound | sbFailWhenBugsFound`. `boolean`. Optional. Use when `spotBugsAnalysisEnabled = true && spotBugsGoal = check`. Default value: `true`.<br>
@@ -484,7 +484,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -522,7 +522,7 @@ Make sure you have specified `#codeCoverageClassFilesDirectories` and `#codeCove
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

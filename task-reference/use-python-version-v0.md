@@ -1,7 +1,7 @@
 ---
 title: UsePythonVersion@0 - Use Python version v0 task
 description: Use the specified version of Python from the tool cache, optionally adding it to the PATH.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,7 @@ Use this task to download or select a version of Python to run on an agent, and 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Use Python version v0
@@ -85,7 +85,7 @@ Specifies the version range or exact version of a Python version to use, using S
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="disableDownloadFromRegistry"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`disableDownloadFromRegistry`** - **Disable downloading releases from the GitHub registry**<br>
 `boolean`. Default value: `false`.<br>
@@ -97,7 +97,7 @@ Disables downloading missing Python versions from the [Github Actions registry](
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowUnstable"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`allowUnstable`** - **Allow downloading unstable releases**<br>
 `boolean`. Optional. Use when `disableDownloadFromRegistry = false`. Default value: `false`.<br>
@@ -109,7 +109,7 @@ Downloads unstable Python versions from the [Github Actions Python versions regi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="githubToken"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`githubToken`** - **GitHub token for GitHub Actions python registry**<br>
 `string`. Optional. Use when `disableDownloadFromRegistry = false`.<br>

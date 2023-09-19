@@ -1,14 +1,14 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadPackage@0 - Download package v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a package from a package management feed in Azure Artifacts.
@@ -170,7 +170,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

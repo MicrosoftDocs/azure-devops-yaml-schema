@@ -1,7 +1,7 @@
 ---
 title: NuGetToolInstaller@0 - NuGet tool installer v0 task
 description: Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks (task version 0).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -150,7 +150,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

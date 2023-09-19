@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # SSH v0
@@ -259,7 +259,7 @@ Specifies how long (in milliseconds) the task waits for the SSH handshake to com
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="interactiveKeyboardAuthentication"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`interactiveKeyboardAuthentication`** - **Use interactive-keyboard authentication**<br>
 `boolean`. Default value: `false`.<br>

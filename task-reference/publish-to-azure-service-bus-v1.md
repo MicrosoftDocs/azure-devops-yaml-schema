@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection (no agent is required).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -28,7 +28,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Publish To Azure Service Bus v1
@@ -208,7 +208,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useDataContractSerializer"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
 `boolean`. Default value: `true`.<br>

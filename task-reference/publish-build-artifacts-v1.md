@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task in a build pipeline to publish build artifacts to Azure Pipelines,
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Publish build artifacts v1
@@ -208,7 +208,7 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="MaxArtifactSize"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`MaxArtifactSize`** - **Max Artifact Size**<br>
 `string`. Default value: `0`.<br>

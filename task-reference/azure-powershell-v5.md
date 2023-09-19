@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -23,7 +23,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure PowerShell v5
@@ -200,7 +200,7 @@ If this is true, then tasks running on Windows agents will use `pwsh.exe` from y
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="validateScriptSignature"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`validateScriptSignature`** - **Validate script signature**<br>
 `boolean`. Optional. Use when `ScriptType = FilePath`. Default value: `false`.<br>

@@ -1,14 +1,14 @@
 ---
 title: PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 description: Publish code coverage results from a build.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to get code coverage results from a build.
@@ -20,7 +20,7 @@ Use this task to get code coverage results from a build.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Publish code coverage results v2
@@ -39,7 +39,7 @@ Use this task to get code coverage results from a build.
 ## Inputs
 
 <!-- :::item name="summaryFileLocation"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`summaryFileLocation`** - **Path to summary files**<br>
 `string`. Required.<br>
@@ -51,7 +51,7 @@ Specifies the path of the summary file containing code coverage statistics, such
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pathToSources"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`pathToSources`** - **Path to Source files**<br>
 `string`.<br>
@@ -65,7 +65,7 @@ This input can be used if tests are run in a Docker container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failIfCoverageEmpty"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`failIfCoverageEmpty`** - **Fail if code coverage results are missing**<br>
 `boolean`. Default value: `false`.<br>
@@ -85,7 +85,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -160,7 +160,7 @@ The publish code coverage results v2 task generates a cjson file and publishes t
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

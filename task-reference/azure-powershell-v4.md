@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@4 - Azure PowerShell v4 task
 description: Run a PowerShell script within an Azure environment (task version 4).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure PowerShell v4
@@ -256,7 +256,7 @@ If this is true, then on Windows the task will use `pwsh.exe` from your path ins
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="validateScriptSignature"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`validateScriptSignature`** - **Validate script signature**<br>
 `boolean`. Optional. Use when `ScriptType = FilePath`. Default value: `false`.<br>

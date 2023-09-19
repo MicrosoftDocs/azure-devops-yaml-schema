@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -187,7 +187,7 @@ In this example, we are setting authentication for downloading from an external 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

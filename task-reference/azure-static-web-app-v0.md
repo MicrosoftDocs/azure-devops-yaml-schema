@@ -1,7 +1,7 @@
 ---
 title: AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 description: Build and deploy an Azure Static Web App.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -20,7 +20,7 @@ This task builds and deploys an Azure Static Web app.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Deploy Azure Static Web App v0
@@ -276,7 +276,7 @@ Specifies the production branch. When defined, and the deployment environment is
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="data_api_location"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`data_api_location`** - **Data api location**<br>
 `string`.<br>

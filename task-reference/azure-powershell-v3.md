@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@3 - Azure PowerShell v3 task
 description: Run a PowerShell script within an Azure environment (task version 3).
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Azure PowerShell v3
@@ -207,7 +207,7 @@ The preferred Azure PowerShell Version needs to be a proper semantic version eg.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="validateScriptSignature"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`validateScriptSignature`** - **Validate script signature**<br>
 `boolean`. Optional. Use when `ScriptType = FilePath`. Default value: `false`.<br>

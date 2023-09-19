@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -23,7 +23,7 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # PowerShell v2
@@ -302,7 +302,7 @@ When not set to `Default`, prepends the line `$DebugPreference = 'VALUE'` at the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="progressPreference"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`progressPreference`** - **ProgressPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `silentlyContinue`.<br>

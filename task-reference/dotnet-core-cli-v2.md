@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -962,7 +962,7 @@ However, for situations where a team of developers works on a large range of pro
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

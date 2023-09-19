@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubRelease@0 - Download GitHub Release v0 task
 description: Downloads a GitHub Release from a repository.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -148,7 +148,7 @@ This task requires a [GitHub service connection](/azure/devops/pipelines/library
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

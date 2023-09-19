@@ -1,7 +1,7 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -108,7 +108,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
 
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>

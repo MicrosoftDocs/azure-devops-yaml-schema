@@ -1,14 +1,14 @@
 ---
 title: NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
 description: Install specific Node.js version to run node tasks.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Install specific Node.js version to run node tasks.
@@ -20,7 +20,7 @@ Install specific Node.js version to run node tasks.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Node.js tasks runner installer v0
@@ -37,7 +37,7 @@ Install specific Node.js version to run node tasks.
 ## Inputs
 
 <!-- :::item name="nodeVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`nodeVersion`** - **Version of runner to install**<br>
 Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1). Default value: `6`.<br>
@@ -57,7 +57,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 None.
 
@@ -90,7 +90,7 @@ The following task example shows how to install the Node 6 runner just-in-time, 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

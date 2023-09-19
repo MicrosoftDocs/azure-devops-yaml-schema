@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,7 @@ Use this task to check the security and compliance assessment for Azure Policy.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Check Azure Policy compliance v0
@@ -91,7 +91,7 @@ Selects the name of Azure resources for which you want to check the policy compl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RetryDuration"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`RetryDuration`** - **Retry duration**<br>
 `string`. Default value: `00:02:00`.<br>

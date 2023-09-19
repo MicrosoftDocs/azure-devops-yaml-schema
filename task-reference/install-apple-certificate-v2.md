@@ -1,7 +1,7 @@
 ---
 title: InstallAppleCertificate@2 - Install Apple certificate v2 task
 description: Install an Apple certificate required to build on a macOS agent machine.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -28,7 +28,7 @@ Install an Apple certificate required to build on a macOS agent.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Install Apple certificate v2
@@ -224,7 +224,7 @@ If `true`, sets the `partition_id` ACL for the imported private key so that `cod
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="opensslPkcsArgs"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`opensslPkcsArgs`** - **OpenSSL arguments for PKCS12**<br>
 `string`.<br>

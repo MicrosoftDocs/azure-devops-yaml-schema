@@ -1,14 +1,14 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 09/08/2023
-monikerRange: "=azure-pipelines"
+ms.date: 09/12/2023
+monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # KubernetesManifest@1 - Deploy to Kubernetes v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
@@ -20,7 +20,7 @@ Use Kubernetes manifest files to deploy to clusters or even bake the manifest fi
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Deploy to Kubernetes v1
@@ -71,7 +71,7 @@ Use Kubernetes manifest files to deploy to clusters or even bake the manifest fi
 ## Inputs
 
 <!-- :::item name="action"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`action`** - **Action**<br>
 `string`. Allowed values: `bake`, `createSecret` (create secret), `delete`, `deploy`, `patch`, `promote`, `scale`, `reject`. Default value: `deploy`.<br>
@@ -83,7 +83,7 @@ Specifies the action to be performed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connectionType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`connectionType`** - **Service connection type**<br>
 `string`. Required when `action != bake`. Allowed values: `azureResourceManager` (Azure Resource Manager), `kubernetesServiceConnection` (Kubernetes Service Connection). Default value: `kubernetesServiceConnection`.<br>
@@ -100,7 +100,7 @@ For more information, see [Remarks](#remarks).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`. Required when `action != bake && connectionType = kubernetesServiceConnection`.<br>
@@ -112,7 +112,7 @@ Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/serv
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscriptionConnection`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
@@ -124,7 +124,7 @@ Select the Azure Resource Manager subscription, which contains Azure Container R
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
@@ -136,7 +136,7 @@ Select an Azure resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesCluster"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
@@ -148,7 +148,7 @@ Select an Azure managed cluster.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useClusterAdmin"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`useClusterAdmin`** - **Use cluster admin credentials**<br>
 `boolean`. Optional. Use when `connectionType = azureResourceManager`. Default value: `false`.<br>
@@ -160,7 +160,7 @@ Use cluster administrator credentials instead of default cluster user credential
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`namespace`** - **Namespace**<br>
 `string`.<br>
@@ -172,7 +172,7 @@ Specifies the namespace for the commands by using the `–namespace` flag. If th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`strategy`** - **Strategy**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = reject`. Allowed values: `canary`, `none`. Default value: `none`.<br>
@@ -184,7 +184,7 @@ Specifies the deployment strategy used in the `deploy` action before a `promote`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trafficSplitMethod"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`trafficSplitMethod`** - **Traffic split method**<br>
 `string`. Optional. Use when `strategy = canary`. Allowed values: `pod`, `smi`. Default value: `pod`.<br>
@@ -198,7 +198,7 @@ For the value `pod`, the percentage split isn't possible at the request level in
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="percentage"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`percentage`** - **Percentage**<br>
 `string`. Required when `strategy = Canary && action = deploy`. Default value: `0`.<br>
@@ -226,7 +226,7 @@ In this case, the deployments `hello-world-baseline` and `hello-world-canary` ar
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baselineAndCanaryReplicas"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`baselineAndCanaryReplicas`** - **Baseline and canary replicas**<br>
 `string`. Required when `strategy = Canary && action = deploy && trafficSplitMethod = SMI`. Default value: `1`.<br>
@@ -249,7 +249,7 @@ In this case, the stable variant receives 80% of the traffic, while the baseline
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="manifests"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`manifests`** - **Manifests**<br>
 `string`. Required when `action = deploy || action = promote || action = reject`.<br>
@@ -261,7 +261,7 @@ Specifies the path to the manifest files to be used for deployment. Each line re
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containers"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`containers`** - **Containers**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = bake`.<br>
@@ -273,7 +273,7 @@ Specifies the fully qualified resource URL of the image to be used for substitut
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imagePullSecrets"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`imagePullSecrets`** - **ImagePullSecrets**<br>
 `string`. Optional. Use when `action = deploy || action = promote`.<br>
@@ -285,7 +285,7 @@ Specifies a multiline input where each line contains the name of a Docker regist
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="renderType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`renderType`** - **Render Engine**<br>
 `string`. Optional. Use when `action = bake`. Allowed values: `helm`, `kompose`, `kustomize`. Default value: `helm`.<br>
@@ -297,7 +297,7 @@ Specifies the render type used to produce the manifest files.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposeFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`dockerComposeFile`** - **Path to docker compose file**<br>
 `string`. Required when `action = bake && renderType = kompose`.<br>
@@ -309,7 +309,7 @@ Specifies a docker-compose file path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="helmChart"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`helmChart`** - **Helm Chart**<br>
 `string`. Required when `action = bake && renderType = helm`.<br>
@@ -321,7 +321,7 @@ Specifies the Helm chart path to bake.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`releaseName`** - **Helm Release Name**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
@@ -333,7 +333,7 @@ Specifies the Helm release name to use.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideFiles"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`overrideFiles`** - **Override Files**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
@@ -345,7 +345,7 @@ Specifies a multiline input that accepts the path to the override files. The fil
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrides"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`overrides`** - **Overrides**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
@@ -357,7 +357,7 @@ Specifies the override values to set.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kustomizationPath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`kustomizationPath`** - **Kustomization Path**<br>
 `string`. Optional. Use when `action = bake && renderType = kustomize`.<br>
@@ -369,7 +369,7 @@ Specifies the argument that must be the path to the directory containing the fil
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceToPatch"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`resourceToPatch`** - **Resource to patch**<br>
 `string`. Required when `action = patch`. Allowed values: `file`, `name`. Default value: `file`.<br>
@@ -386,7 +386,7 @@ Acceptable values are **file** and **name**.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceFileToPatch"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`resourceFileToPatch`** - **File path**<br>
 `string`. Required when `action = patch && resourceToPatch = file`.<br>
@@ -398,7 +398,7 @@ Specifies the path to the file used for a patch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kind"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`kind`** - **Kind**<br>
 `string`. Required when `action = scale || resourceToPatch = name`. Allowed values: `deployment`, `replicaset`, `statefulset`.<br>
@@ -410,7 +410,7 @@ Specifies the kind of K8s object, such as `deployment`, `replicaSet` and more.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`name`** - **Name**<br>
 `string`. Required when `action = scale || resourceToPatch = name`.<br>
@@ -432,9 +432,20 @@ Specifies the number of replicas to scale to.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
+
+**`replicas`** - **Replica count**<br>
+`string`. Required when `action = scale`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the name of the K8s object.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mergeStrategy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`mergeStrategy`** - **Merge Strategy**<br>
 `string`. Required when `action = patch`. Allowed values: `json`, `merge`, `strategic`. Default value: `strategic`.<br>
@@ -446,7 +457,7 @@ Specifies the type of patch being provided.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = delete`.<br>
@@ -459,7 +470,7 @@ Specifies the arguments for the `kubectl delete` command. An example is:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="patch"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`patch`** - **Patch**<br>
 `string`. Required when `action = patch`.<br>
@@ -471,7 +482,7 @@ Specifies the contents of the patch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`secretType`** - **Type of secret**<br>
 `string`. Required when `action = createSecret`. Allowed values: `dockerRegistry`, `generic`. Default value: `dockerRegistry`.<br>
@@ -483,7 +494,7 @@ Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`secretName`** - **Secret name**<br>
 `string`. Optional. Use when `action = createSecret`.<br>
@@ -495,7 +506,7 @@ Specifies the name of the secret. You can use this secret name in the Kubernetes
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretArguments"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = createSecret && secretType = generic`.<br>
@@ -507,7 +518,7 @@ Specifies keys and literal values to insert in secret. For example, `--from-lite
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryEndpoint"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
 `string`. Optional. Use when `action = createSecret && secretType = dockerRegistry`.<br>
@@ -519,7 +530,7 @@ Specifies the credentials of the specified service connection that are used to c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rolloutStatusTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`rolloutStatusTimeout`** - **Timeout for rollout status**<br>
 `string`. Optional. Use when `action = deploy || action = patch || action = scale || action = promote`. Default value: `0`.<br>
@@ -539,7 +550,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -802,7 +813,7 @@ The`action: promote` and `strategy: canary` or `action: reject` and `strategy: c
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

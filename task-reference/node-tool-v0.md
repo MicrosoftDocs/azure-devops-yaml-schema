@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 # Node.js tool installer v0
@@ -93,7 +93,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 ## Inputs
 
 <!-- :::item name="versionSource"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`versionSource`** - **Source of version**<br>
 `string`. Required. Allowed values: `spec` (Specify Node version), `fromFile` (Get version from file). Default value: `spec`.<br>
@@ -104,7 +104,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`versionSpec`** - **Version Spec**<br>
 `string`. Optional. Use when `versionSource = spec`. Default value: `6.x`.<br>
@@ -127,7 +127,7 @@ Specifies the version spec of the version to get. Examples: `6.x`, `4.x`, `6.10.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionFilePath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`versionFilePath`** - **Path to the .nvmrc file**<br>
 `string`. Optional. Use when `versionSource = fromFile`.<br>
@@ -166,7 +166,7 @@ Installs the `x86` version of Node regardless of the CPU architecture of the age
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="nodejsMirror"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`nodejsMirror`** - **Set source for Node.js binaries**<br>
 `string`. Default value: `https://nodejs.org/dist`.<br>
