@@ -1,7 +1,7 @@
 ---
 title: schedules.cron definition
 description: A scheduled trigger specifies a schedule on which branches are built.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -18,7 +18,7 @@ A scheduled trigger specifies a schedule on which branches are built.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 schedules:
@@ -87,7 +87,7 @@ Branch names to include or exclude for triggering a run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="batch"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`batch`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to run the pipeline if the previously scheduled run is in-progress; the default is `false`. This is regardless of the version of the pipeline repository.

@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -18,7 +18,7 @@ The `repository` keyword lets you specify an external repository. Use a reposito
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
 repositories:
@@ -108,7 +108,7 @@ Repository name. Format depends on 'type'; does not accept variables.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ref"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition).

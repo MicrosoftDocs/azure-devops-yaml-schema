@@ -1,7 +1,7 @@
 ---
 title: boolean definition
 description: Represents a boolean value in a pipeline.
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -39,7 +39,7 @@ Azure pipelines uses any of the previous string values to represent a boolean va
 <!-- :::string-item-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
