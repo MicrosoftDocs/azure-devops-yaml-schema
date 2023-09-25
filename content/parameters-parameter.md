@@ -64,7 +64,7 @@ Human-readable name for the parameter.
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
-boolean | container | containerList | deployment | deploymentList | environment | filePath | job | jobList | number | object | pool | secureFile | serviceConnection | stage | stageList | step | stepList | string.
+See [**types**](#types).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
