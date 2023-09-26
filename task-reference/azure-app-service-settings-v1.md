@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 description: Update/Add App settings an Azure Web App for Linux or Windows.
-ms.date: 09/08/2023
+ms.date: 09/26/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

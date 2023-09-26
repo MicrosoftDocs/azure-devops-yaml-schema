@@ -1,7 +1,7 @@
 ---
 title: DownloadPackage@0 - Download package v0 task
 description: Download a package from a package management feed in Azure Artifacts (task version 0).
-ms.date: 09/12/2023
+ms.date: 09/26/2023
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@5 - Prepare Analysis Configuration v5 task
 description: Prepare SonarQube analysis configuration.
-ms.date: 09/08/2023
+ms.date: 09/26/2023
 monikerRange: "=azure-pipelines"
 ---
 

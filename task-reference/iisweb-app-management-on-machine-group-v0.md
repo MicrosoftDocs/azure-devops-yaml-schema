@@ -1,7 +1,7 @@
 ---
 title: IISWebAppManagementOnMachineGroup@0 - IIS web app manage v0 task
 description: Create or update websites, web apps, virtual directories, or application pools.
-ms.date: 09/20/2023
+ms.date: 09/26/2023
 monikerRange: "<=azure-pipelines"
 ---
 
