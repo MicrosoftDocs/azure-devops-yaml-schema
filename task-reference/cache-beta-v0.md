@@ -1,7 +1,7 @@
 ---
 title: CacheBeta@0 - Cache (Beta) v0 task
 description: Cache files between runs (task version 0).
-ms.date: 09/08/2023
+ms.date: 09/26/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 

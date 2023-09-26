@@ -1,7 +1,7 @@
 ---
 title: Npm@0 - npm v0 task
 description: Run an npm command. Use NpmAuthenticate@0 task for latest capabilities.
-ms.date: 09/12/2023
+ms.date: 09/26/2023
 monikerRange: "<=azure-pipelines"
 ---
 
