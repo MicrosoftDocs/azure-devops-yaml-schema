@@ -1,14 +1,26 @@
 ---
 title: NuGetRestore@1 - NuGet Restore v1 task
 description: Restores NuGet packages in preparation for a Visual Studio Build step.
-ms.date: 09/08/2023
+ms.date: 09/25/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # NuGetRestore@1 - NuGet Restore v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
+
+This task will be deprecated soon, please switch to using the [NuGetCommand@2](./nuget-command-v2.md#restore) `restore` option.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated.-->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
@@ -20,7 +32,27 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# NuGet Restore v1
+# Restores NuGet packages in preparation for a Visual Studio Build step.
+- task: NuGetRestore@1
+  inputs:
+    solution: '**/*.sln' # string. Required. Path to solution, packages.config, or project.json. Default: **/*.sln.
+    selectOrConfig: 'select' # 'select' | 'config'. Required. Feeds to use. Default: select.
+    #feed: # string. Optional. Use when selectOrConfig = select. Use packages from this Azure Artifacts feed. 
+    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config. Path to NuGet.config. 
+  # Advanced
+    #noCache: false # boolean. Disable local cache. Default: false.
+    #packagesDirectory: # string. Destination directory. 
+    #verbosity: 'Detailed' # '-' | 'Quiet' | 'Normal' | 'Detailed'. Verbosity. Default: Detailed.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
 
 ```yaml
 # NuGet Restore v1
@@ -79,7 +111,18 @@ Specifies the feed(s) to use. Specify one feed from VSTS and/or NuGet.org using 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feed"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+**`feed`** - **Use packages from this Azure Artifacts feed**<br>
+`string`. Optional. Use when `selectOrConfig = select`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Includes the specified VSTS feed in the generated `NuGet.config` file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`feed`** - **Use packages from this VSTS feed**<br>
 `string`. Optional. Use when `selectOrConfig = select`.<br>
@@ -179,7 +222,22 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.144.0 or greater |
+| Task category | Package |
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|
