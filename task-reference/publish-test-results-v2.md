@@ -48,7 +48,7 @@ Publish Test Results to VSTS/TFS.
     #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
     #mergeTestResults: false # boolean. Merge test results. Default: false.
     #failTaskOnFailedTests: false # boolean. Fail if there are test failures. Default: false.
-    #failTaskOnMissingResultsFile: false # boolean. ms-resource:loc.input.label.failTaskOnMissingResultsFile. Default: false.
+    #failTaskOnMissingResultsFile: false # boolean. Fail if no result files are found. Default: false.
     #testRunTitle: # string. Test run title. 
   # Advanced
     #buildPlatform: # string. Alias: platform. Build Platform. 
