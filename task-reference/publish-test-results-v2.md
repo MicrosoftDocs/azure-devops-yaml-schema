@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 09/08/2023
+ms.date: 09/25/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -36,7 +36,29 @@ Publish Test Results to VSTS/TFS.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Publish Test Results v2
+# Publish test results to Azure Pipelines.
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Alias: testRunner. Required. Test result format. Default: JUnit.
+    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
+    #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
+    #mergeTestResults: false # boolean. Merge test results. Default: false.
+    #failTaskOnFailedTests: false # boolean. Fail if there are test failures. Default: false.
+    #failTaskOnMissingResultsFile: false # boolean. ms-resource:loc.input.label.failTaskOnMissingResultsFile. Default: false.
+    #testRunTitle: # string. Test run title. 
+  # Advanced
+    #buildPlatform: # string. Alias: platform. Build Platform. 
+    #buildConfiguration: # string. Alias: configuration. Build Configuration. 
+    #publishRunAttachments: true # boolean. Upload test results files. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
 
 ```yaml
 # Publish Test Results v2
@@ -183,6 +205,18 @@ When this boolean's value is `true`, the task reports test results from all the 
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. When this boolean's value is `true`, the task will fail if any of the tests in the results file are marked as failed. The default is `false`, which will simply publish the results from the results file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="failTaskOnMissingResultsFile"::: -->
+:::moniker range="=azure-pipelines"
+
+**`failTaskOnMissingResultsFile`** - **Fail if no result files are found**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Fail the task if no result files are found.
 <!-- :::editable-content-end::: -->
 <br>
 
