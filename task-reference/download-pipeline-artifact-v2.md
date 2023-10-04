@@ -30,7 +30,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 # Download build and pipeline artifacts.
 - task: DownloadPipelineArtifact@2
   inputs:
-    buildType: 'current' # 'current' | 'specific'. Alias: source. Required. Download artifacts produced by. Default: current.
+    #buildType: 'current' # 'current' | 'specific'. Alias: source. Download artifacts produced by. Default: current.
     #project: # string. Required when source == specific. Project. 
     #definition: # string. Alias: pipeline. Required when source == specific. Build pipeline. 
     #specificBuildWithTriggering: false # boolean. Alias: preferTriggeringPipeline. Optional. Use when source == specific. When appropriate, download artifacts from the triggering build. Default: false.
