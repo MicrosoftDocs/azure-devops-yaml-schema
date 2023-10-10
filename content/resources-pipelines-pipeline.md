@@ -101,7 +101,7 @@ Project for the source; defaults to current project.
 :::moniker range=">=azure-pipelines-2019"
 
 **`source`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Name of the pipeline that produces the artifact.
+Name of the pipeline that produces the artifact. If the pipeline is contained in a folder, include the folder name, including the leading `\`, for example `\security pipelines\security-lib-ci`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
