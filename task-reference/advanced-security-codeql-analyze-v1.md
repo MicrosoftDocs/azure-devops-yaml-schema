@@ -74,7 +74,7 @@ The task is available to run on self-hosted agents as well as Microsoft-hosted a
 
 ### Troubleshooting
 
-The Analyze task should appear after the initialize step for successful completion. 
+The Analyze task should appear after the initialize step for successful completion.
 
 ```YAML
 # Initialize CodeQL database 

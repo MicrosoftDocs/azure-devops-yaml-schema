@@ -60,7 +60,7 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-# Remarks
+## Remarks
 
 This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 
