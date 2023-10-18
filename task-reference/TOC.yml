@@ -20,6 +20,31 @@ items:
   - name: DotNetCoreInstaller@0
     href: dotnet-core-installer-v0.md
     displayName: .NET Core SDK/runtime installer v0
+- name: Advanced Security AutoBuild
+  items:
+  - name: AdvancedSecurity-Codeql-Autobuild@1
+    href: advanced-security-codeql-autobuild-v1.md
+    displayName: Advanced Security AutoBuild v1
+- name: Advanced Security Dependency Scanning
+  items:
+  - name: AdvancedSecurity-Dependency-Scanning@1
+    href: advanced-security-dependency-scanning-v1.md
+    displayName: Advanced Security Dependency Scanning v1
+- name: Advanced Security Initialize CodeQL
+  items:
+  - name: AdvancedSecurity-Codeql-Init@1
+    href: advanced-security-codeql-init-v1.md
+    displayName: Advanced Security Initialize CodeQL v1
+- name: Advanced Security Perform CodeQL analysis
+  items:
+  - name: AdvancedSecurity-Codeql-Analyze@1
+    href: advanced-security-codeql-analyze-v1.md
+    displayName: Advanced Security Perform CodeQL analysis v1
+- name: Advanced Security Publish Results
+  items:
+  - name: AdvancedSecurity-Publish@1
+    href: advanced-security-publish-v1.md
+    displayName: Advanced Security Publish Results v1
 - name: Android Build
   items:
   - name: AndroidBuild@1
