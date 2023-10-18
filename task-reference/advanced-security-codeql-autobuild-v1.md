@@ -70,17 +70,17 @@ The Autobuild task should appear after the initialize step for successful comple
 
 ```YAML
 # Initialize CodeQL database 
-- task: AdvancedSecurity-Code-Scanning-Init@1 
+- task: AdvancedSecurity-Codeql-Init@1
   inputs: 
     language: csharp 
-  displayName: ' Advanced Security Initialize CodeQL' 
+  displayName: 'Advanced Security Initialize CodeQL' 
 
 # Build project using Autobuild or your own custom build steps 
-- task: AdvancedSecurity-Code-Scanning-Autobuild@1 
-  displayName: ' Advanced Security Autobuild' 
+- task: AdvancedSecurity-Codeql-Autobuild@1
+  displayName: 'Advanced Security Autobuild' 
 
 # Run analysis 
-- task: AdvancedSecurity-Code-Scanning-Analyze@1 
+- task: AdvancedSecurity-Codeql-Analyze@1
   displayName: 'Advanced Security Code Scanning' 
 ```
 <!-- :::editable-content-end::: -->

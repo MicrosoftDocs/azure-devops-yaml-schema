@@ -72,7 +72,7 @@ The task is available to run on self-hosted agents as well as Microsoft-hosted a
 
 ### Troubleshooting
 
-For the most accurate scanning results, add the Advanced Security dependency scanning task after your build steps but before any clean up of the build process, as shown in the following example. 
+For the most accurate scanning results, add the Advanced Security dependency scanning task after your build steps but before any clean up of the build process, as shown in the following example.
 
 ```YAML
 # Authenticate Azure DevOps NuGet feed 
