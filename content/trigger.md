@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 09/08/2023
+ms.date: 10/19/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
