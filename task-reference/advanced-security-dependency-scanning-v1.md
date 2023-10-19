@@ -62,15 +62,18 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to scan your application for any vulnerabilities in open source components used in your source code.  
+Use this task to scan your application for any vulnerabilities in open source components used in your source code.
+
+> [!IMPORTANT]
+> This task is supported with Azure Repos Git repositories only.
+
+You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 
 ### Prerequisites  
 
 For the task to successfully complete and populate the Advanced Security tab for the scanned repository, [Advanced Security](/azure/devops/repos/security/configure-github-advanced-security-features) must be enabled for that repository prior to running a build with the dependency scanning task included.
 
 The task is available to run on self-hosted agents as well as Microsoft-hosted agents. For self-hosted agents, see [additional self-hosted agent set-up instructions](/azure/devops/repos/security/configure-github-advanced-security-features#extra-prerequisites-for-self-hosted-agents).
-
-### Troubleshooting
 
 For the most accurate scanning results, add the Advanced Security dependency scanning task after your build steps but before any clean up of the build process, as shown in the following example.
 

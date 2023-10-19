@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Attempts to automatically build your project for CodeQL analysis. This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
+Attempts to automatically build your project for CodeQL analysis by finding and building project files in the source folder. This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -62,7 +62,20 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+> [!IMPORTANT]
+> This task is supported with Azure Repos Git repositories only.
+
+The `AdvancedSecurity-Codeql-Autobuild@1` task attempts to build the project file in your repository. If `AdvancedSecurity-Codeql-Autobuild@1` cannot build your project, remove the `AdvancedSecurity-Codeql-Autobuild@1` task and replace it with your custom build steps.
+
 This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
+
+The pipeline must call the tasks in the following order.
+
+1. Initialize CodeQL
+1. AutoBuild (or your custom build tasks)
+1. Perform CodeQL analysis
+
+The AutoBuild task is optional and may be replaced with your custom build tasks. Either AutoBuild or your custom build tasks must be run for your project to be analyzed.
 
 The `AdvancedSecurity-Codeql-Autobuild@1` task must appear after the initialize step for successful completion.
 

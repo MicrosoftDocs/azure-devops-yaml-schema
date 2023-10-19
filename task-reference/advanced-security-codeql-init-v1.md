@@ -12,6 +12,8 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Initializes the CodeQL database in preparation for building.
+
+You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -168,10 +170,15 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The build pipeline must call the tasks in the following order.
+You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
+
+> [!IMPORTANT]
+> This task is supported with Azure Repos Git repositories only.
+
+The pipeline must call the tasks in the following order.
 
 1. Initialize CodeQL
-1. AutoBuild (or your customer build tasks)
+1. AutoBuild (or your custom build tasks)
 1. Perform CodeQL analysis
 
 The AutoBuild task is optional and may be replaced with your custom build tasks. Either AutoBuild or your custom build tasks must be run for your project to be analyzed.
