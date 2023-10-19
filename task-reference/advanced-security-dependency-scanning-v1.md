@@ -128,5 +128,8 @@ For the most accurate scanning results, add the Advanced Security dependency sca
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Dependency scanning for GitHub Advanced Security](/azure/devops/repos/security/github-advanced-security-dependency-scanning)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

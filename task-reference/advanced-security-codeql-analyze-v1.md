@@ -125,5 +125,8 @@ The analysis task must appear after the initialize task for successful completio
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Code scanning for GitHub Advanced Security](/azure/devops/repos/security/github-advanced-security-code-scanning)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
