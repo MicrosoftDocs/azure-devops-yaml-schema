@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 09/26/2023
+ms.date: 10/19/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,6 +35,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | Task | Description |
 |---|---|
 | **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **Advanced Security AutoBuild**<br>[AdvancedSecurity-Codeql-Autobuild@1](advanced-security-codeql-autobuild-v1.md) | Attempts to build the repository by finding and building project files in the source folder. |
+| **Advanced Security Initialize CodeQL**<br>[AdvancedSecurity-Codeql-Init@1](advanced-security-codeql-init-v1.md) | Initializes the CodeQL database in preparation for building. |
+| **Advanced Security Perform CodeQL analysis**<br>[AdvancedSecurity-Codeql-Analyze@1](advanced-security-codeql-analyze-v1.md) | Finalizes the CodeQL database and runs the analysis queries. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -177,6 +180,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
+| **Advanced Security Dependency Scanning**<br>[AdvancedSecurity-Dependency-Scanning@1](advanced-security-dependency-scanning-v1.md) | Scan for open source dependency vulnerabilities in your source code. |
 | **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
