@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Autobuild@1 - Advanced Security AutoBuild v1 task
 description: Attempts to build the repository by finding and building project files in the source folder.
-ms.date: 10/18/2023
+ms.date: 10/19/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Attempts to automatically build your project for CodeQL analysis. This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.  
+Attempts to automatically build your project for CodeQL analysis. This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -64,9 +64,7 @@ None.
 
 This task is not required if you have your own custom build steps, or if you are not using `cpp`, `java`, `csharp`, or `swift`. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 
-### Troubleshooting
-
-The Autobuild task should appear after the initialize step for successful completion.
+The `AdvancedSecurity-Codeql-Autobuild@1` task must appear after the initialize step for successful completion.
 
 ```YAML
 # Initialize CodeQL database 

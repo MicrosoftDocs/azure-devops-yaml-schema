@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 description: Scan for open source dependency vulnerabilities in your source code.
-ms.date: 10/18/2023
+ms.date: 10/19/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Scan your application for any vulnerabilities in open source components used in your source code. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.  
+Scan your application for any vulnerabilities in open source components used in your source code. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 10/18/2023
+ms.date: 10/19/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,9 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Finalizes the CodeQL database and runs the analysis queries.
-
-Scan your application for any vulnerabilities in open source components used in your source code. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.  
+Analyzes the code in an Azure Repos Git repository to find security vulnerabilities and coding errors. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -64,7 +62,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Scan your application for any vulnerabilities in your source code.
+Scans your application for any vulnerabilities in your source code.
 
 ### Prerequisites  
 
@@ -72,9 +70,7 @@ For the task to successfully complete and populate the Advanced Security tab for
 
 The task is available to run on self-hosted agents as well as Microsoft-hosted agents. For self-hosted agents, see [additional self-hosted agent set-up instructions](/azure/devops/repos/security/configure-github-advanced-security-features#extra-prerequisites-for-self-hosted-agents).
 
-### Troubleshooting
-
-The Analyze task should appear after the initialize step for successful completion.
+The analyze task must appear after the initialize step for successful completion.
 
 ```YAML
 # Initialize CodeQL database 
@@ -85,7 +81,7 @@ The Analyze task should appear after the initialize step for successful completi
 
 # Build project using Autobuild or your own custom build steps 
 - task: AdvancedSecurity-Codeql-Autobuild@1
-  displayName: ' Advanced Security Autobuild' 
+  displayName: 'Advanced Security Autobuild' 
 
 # Run analysis 
 - task: AdvancedSecurity-Codeql-Analyze@1 
