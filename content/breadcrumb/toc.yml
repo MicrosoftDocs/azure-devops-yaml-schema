@@ -5,7 +5,3 @@
   - name: Azure Pipelines
     tocHref: /azure/devops/pipelines/
     topicHref: /azure/devops/pipelines/index
-    items:
-    - name: YAML schema
-      tocHref: /azure/devops/pipelines/yaml-schema/
-      topicHref: /azure/devops/pipelines/yaml-schema/index
