@@ -144,7 +144,7 @@ If you don't provide this value, the default sources folder for the pipeline inf
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the level of logging.
 
-You can specify `loglevel` here in the task, or you can specify it in a pipeline variable named `advancedsecurity.codeql.loglevel`. If both are set, the value specified in the task takes precedence, unless the default value `_` is specified. If `_` is specified, the value from `advancedsecurity.codeql.loglevel` is used if available.
+You can specify `loglevel` here in the task, or you can specify it in a pipeline variable named `advancedsecurity.codeql.loglevel`. If both are set, the value specified in the task takes precedence, unless the default value `_` for `loglevel` in the task is specified. If `_` is specified, the value from `advancedsecurity.codeql.loglevel` is used if available.
 <!-- :::editable-content-end::: -->
 <br>
 
