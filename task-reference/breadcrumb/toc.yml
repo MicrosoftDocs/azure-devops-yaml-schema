@@ -5,7 +5,3 @@
   - name: Azure Pipelines
     tocHref: /azure/devops/pipelines/
     topicHref: /azure/devops/pipelines/index
-    items:
-    - name: Tasks
-      tocHref: /azure/devops/pipelines/tasks/reference/
-      topicHref: /azure/devops/pipelines/tasks/reference/index
