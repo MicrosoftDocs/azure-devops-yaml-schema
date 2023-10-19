@@ -1,14 +1,27 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 09/26/2023
+ms.date: 10/19/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+This task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.

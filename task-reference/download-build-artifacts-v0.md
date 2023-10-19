@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 09/26/2023
+ms.date: 10/19/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,7 +31,38 @@ Download Build Artifacts.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Download build artifacts v0
+# Download files that were saved as artifacts of a completed build.
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
+    #project: # string. Required when buildType == specific. Project. 
+    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
+    #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
+    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
+    #allowPartiallySucceededBuilds: false # boolean. Optional. Use when buildType == specific && buildVersionToDownload != specific. Download artifacts even from partially succeeded builds. Default: false.
+    #branchName: 'refs/heads/master' # string. Required when buildType == specific && buildVersionToDownload == latestFromBranch. Branch name. Default: refs/heads/master.
+    #buildId: # string. Required when buildType == specific && buildVersionToDownload == specific. Build. 
+    #tags: # string. Optional. Use when buildType == specific && buildVersionToDownload != specific. Build Tags. 
+    downloadType: 'single' # 'single' | 'specific'. Required. Download type. Default: single.
+    artifactName: # string. Required when downloadType == single. Artifact name. 
+    #itemPattern: '**' # string. Matching pattern. Default: **.
+    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
+    #cleanDestinationFolder: false # boolean. Clean destination folder. Default: false.
+  # Advanced
+    #parallelizationLimit: '8' # string. Parallelization limit. Default: 8.
+    #checkDownloadedFiles: false # boolean. Check downloaded files. Default: false.
+    #retryDownloadCount: '4' # string. Retry count. Default: 4.
+    #retryRedirectDownloadCount: '0' # string. Retry count for redirect download. Default: 0.
+    #extractTars: # boolean. Extract all files that are stored inside tar archives.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
 
 ```yaml
 # Download build artifacts v0
@@ -361,6 +392,18 @@ If `true`, this build task checks that all files are fully downloaded.
 `string`. Default value: `4`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The number of times to retry downloading a build artifact if the download fails.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="retryRedirectDownloadCount"::: -->
+:::moniker range="=azure-pipelines"
+
+**`retryRedirectDownloadCount`** - **Retry count for redirect download**<br>
+`string`. Default value: `0`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Optional number of times to retry downloading a build artifact if the download based on redirect fails. If your network does not allow following the redirect, you can set this to -1 to always download streamed response from Azure DevOps instead.
 <!-- :::editable-content-end::: -->
 <br>
 
