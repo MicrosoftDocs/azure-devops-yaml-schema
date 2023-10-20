@@ -108,7 +108,7 @@ The **Manual Validation** task configuration includes an **instructions** parame
 You can specify the timeout value for the task using the optional `timeoutInMinutes` parameter, available in the common task properties.
 
 > [!NOTE]
-> For the task to run completely, the timeout value of the job should be higher than the timeout value of the task. See [default job timeout values](/azure/devops/pipelines/process/phases#timeouts).
+> For the task to run completely, the `timeoutInMinutes` value of the job (`default = 60 minutes`) containing this task should be higher than the `timeoutInMinutes` value of the task itself. See [default job timeout values](/azure/devops/pipelines/process/phases#timeouts).
 
 > [!TIP]
 > You can use variables to specify email addresses in the `notifyUsers` parameter.
