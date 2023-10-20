@@ -330,7 +330,7 @@ Set the namespace for the kubectl command by using the –namespace flag. If the
 **`command`** - **Command**<br>
 `string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `login`, `logout`, `logs`, `run`, `set`, `top`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or specify a kubectl command to run. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other `kubectl` commands such as `scale`. Use the `arguments` input to specify additional parameters to the specified `kubectl` command.
+Select or specify a kubectl command to run. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [kubectl commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands) such as `scale`. Use the `arguments` input to specify additional parameters to the specified `kubectl` command.
 <!-- :::editable-content-end::: -->
 <br>
 
