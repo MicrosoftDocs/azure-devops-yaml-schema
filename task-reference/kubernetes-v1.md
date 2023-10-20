@@ -328,9 +328,9 @@ Set the namespace for the kubectl command by using the –namespace flag. If the
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`command`** - **Command**<br>
-`string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `login`, `logout`, `logs`, `run`, `set`, `top`, `scale`.<br>
+`string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `login`, `logout`, `logs`, `run`, `set`, `top`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select or specify a kubectl command to run.
+Select or specify a kubectl command to run. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other `kubectl` commands such as `scale`. Use the `arguments` inpt to specify additional parameters to the specified `kubectl` command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -817,9 +817,7 @@ This YAML example shows how a Kubernetes Service Connection is used to refer to 
 
 ### Commands
 
-The command input accepts one of the following [kubectl commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands):
-
-**apply**, **create**, **delete**, **exec**, **expose**, **get**, **login**, **logout**, **logs**, **run**, **set**, or **top**.
+The command input accepts [kubectl commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands).
 
 This YAML example demonstrates the **apply** command:
 
@@ -834,6 +832,7 @@ This YAML example demonstrates the **apply** command:
     command: apply
     arguments: -f mhc-aks.yaml
 ```
+
 This YAML example demonstrates the use of a configuration file with the **apply** command:
 
 ```YAML
@@ -849,7 +848,8 @@ This YAML example demonstrates the use of a configuration file with the **apply*
     configuration: mhc-aks.yaml
 ```
 
-This YAML example shows the use of how to use the **scale** command to decrease the number of replicas in a deployment to 0
+This YAML example shows the use of how to use the **scale** command to decrease the number of replicas in a deployment to 0.
+
 ```YAML
 - task: Kubernetes@1
       displayName: 'Scale down deployment $(k8sDeployment) to 0'
