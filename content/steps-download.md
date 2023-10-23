@@ -206,7 +206,9 @@ Number of retries if the task fails.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The `download` keyword downloads artifact resources. Depending on the type of artifacts available, it will call [Download Pipeline Artifacts](/azure/devops/pipelines/tasks/reference/download-pipeline-artifact-v2) (if your pipeline is running in Azure DevOps Services), [Download Build Artifacts](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) (if your pipeline is running in Azure DevOps Server), or [Download artifacts from file share](/azure/devops/pipelines/tasks/reference/download-fileshare-artifacts-v1).
+The `download` keyword downloads linked artifact resources.
+
+Depending on the type of linked artifacts, `download` calls [Download Pipeline Artifacts](/azure/devops/pipelines/tasks/reference/download-pipeline-artifact-v2) (if your pipeline is running in Azure DevOps Services), [Download Build Artifacts](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) (if your pipeline is running in Azure DevOps Server), and [Download artifacts from file share](/azure/devops/pipelines/tasks/reference/download-fileshare-artifacts-v1).
 
 ### Artifact download location
 
