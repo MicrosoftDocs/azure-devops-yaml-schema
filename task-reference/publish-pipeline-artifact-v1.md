@@ -8,10 +8,21 @@ monikerRange: ">=azure-pipelines-2020"
 # PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="= azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish (upload) a file or directory as a named artifact for the current run.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <> azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to publish (upload) a file or directory as a named artifact for the current run.
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
