@@ -1,19 +1,30 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 09/26/2023
+ms.date: 10/19/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.
 
-This task is deprecated; use [PublishPipelineArtifact@1](./publish-pipeline-artifact-v1.md).
+There is a newer version of this task. For more information, see [PublishPipelineArtifact@1](./publish-pipeline-artifact-v1.md).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 < azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to publish a local directory or file as a named artifact for the current pipeline.
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->
@@ -24,6 +35,9 @@ This task is deprecated; use [PublishPipelineArtifact@1](./publish-pipeline-arti
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -131,6 +145,15 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+There is a newer version of this task. For more information, see [PublishPipelineArtifact@1](./publish-pipeline-artifact-v1.md).
+
+:::moniker range="<azure-pipelines"
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
+
+:::moniker-end
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -142,7 +165,22 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  2.199.0 or greater |
+| Task category | Utility |
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|

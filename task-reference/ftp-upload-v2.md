@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@2 - FTP upload v2 task
 description: Upload files using FTP.
-ms.date: 09/26/2023
+ms.date: 10/19/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,34 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# FTP upload v2
+# Upload files using FTP.
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required. Authentication Method. Default: serviceEndpoint.
+    serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
+    #serverUrl: # string. Required when credsType = inputs. Server URL. 
+    #username: # string. Required when credsType = inputs. Username. 
+    #password: # string. Required when credsType = inputs. Password. 
+    #implicitFTPS: false # boolean. Use implicit FTPS. Default: false.
+    rootDirectory: # string. Alias: rootFolder. Required. Root folder. 
+    filePatterns: '**' # string. Required. File patterns. Default: **.
+    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
+  # Advanced
+    #enableUtf8: false # boolean. Enable UTF8 support. Default: false.
+    #clean: false # boolean. Delete remote directory. Default: false.
+    #cleanContents: false # boolean. Optional. Use when clean = false. Clear remote directory contents. Default: false.
+    #preservePaths: false # boolean. Preserve file paths. Default: false.
+    #trustSSL: false # boolean. Trust server certificate. Default: false.
+    #customCmds: # string. FTP Commands.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
 
 ```yaml
 # FTP upload v2
@@ -131,6 +158,17 @@ Specifies the user name for the FTP connection.
 `string`. Required when `credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the password for the FTP connection.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="implicitFTPS"::: -->
+:::moniker range="=azure-pipelines"
+
+**`implicitFTPS`** - **Use implicit FTPS**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
 
