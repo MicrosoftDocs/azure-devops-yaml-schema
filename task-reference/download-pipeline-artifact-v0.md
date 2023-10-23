@@ -13,7 +13,7 @@ monikerRange: ">=azure-pipelines-2019"
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
 
-This task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
+There is a newer version of this task. For more information, see [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
 
 > [!NOTE]
 > For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
@@ -26,10 +26,8 @@ This task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-ar
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
 
-This task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
-
-> [!NOTE]
-> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.`. Use [Download Build Artifacts](download-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->
@@ -41,8 +39,8 @@ This task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-ar
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
 
-> [!NOTE]
-> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.`. Use [Download Build Artifacts](download-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -138,6 +136,11 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+There is a newer version of this task. For more information, see [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.`. Use [Download Build Artifacts](download-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 
 By default, artifacts are downloaded to `$(Pipeline.Workspace)`. If you don't specify an artifact name, a subdirectory will be created for each downloaded artifact. You can use [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns) to limit the files you want to download.
 
