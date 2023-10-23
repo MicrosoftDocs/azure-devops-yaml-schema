@@ -8,10 +8,21 @@ monikerRange: ">=azure-pipelines-2019"
 # steps.publish definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `publish` keyword publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 < azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+The `publish` keyword publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume.
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -195,6 +206,9 @@ Number of retries if the task fails.
 ## Remarks
 
 The `publish` keyword is a shortcut for the [Publish Pipeline Artifact task](/azure/devops/pipelines/tasks/reference/publish-pipeline-artifact-v1).
+
+> [!IMPORTANT]
+> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server.
 
 Learn more about [publishing artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts#publish-artifacts).
 <!-- :::editable-content-end::: -->
