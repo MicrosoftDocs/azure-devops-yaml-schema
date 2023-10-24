@@ -210,6 +210,8 @@ The `download` keyword downloads artifact resources.
 
 Depending on the type of referenced artifact (or artifacts), `download` calls [Download Pipeline Artifacts](/azure/devops/pipelines/tasks/reference/download-pipeline-artifact-v2) (for Pipeline artifacts, if your pipeline is running in Azure DevOps Services), [Download Build Artifacts](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) (for build artifacts), or [Download artifacts from file share](/azure/devops/pipelines/tasks/reference/download-fileshare-artifacts-v1) (for file share artifacts).
 
+All artifacts from the current pipeline and from all pipeline resources are automatically downloaded and made available at the beginning of each [deployment job](./jobs-deployment.md), but you can override this behavior using the `download` step. For more information, see [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts). Artifacts are not automatically downloaded for non-deployment jobs. Use `download`` explicitly to download artifacts in non-deployment jobs.
+
 ### Artifact download location
 
 Artifacts from the current pipeline are downloaded to `$(Pipeline.Workspace)/<artifact name>`.
