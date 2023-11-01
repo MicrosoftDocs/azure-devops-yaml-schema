@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 10/19/2023
+ms.date: 11/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -169,10 +169,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Kubelogin tool installer**<br>[KubeloginInstaller@0](kubelogin-installer-v0.md) | Helps to install kubelogin. |
-| **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
 | **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
-| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
+| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md)<br>[NodeTool@0](node-tool-v0.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
 | **Visual Studio test platform installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -367,10 +366,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install Azure Func Core Tools**<br>[FuncToolsInstaller@0](func-tools-installer-v0.md) | Install Azure Func Core Tools. |
 | **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
-| **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
 | **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
-| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
+| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md)<br>[NodeTool@0](node-tool-v0.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
 | **Visual Studio test platform installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -562,10 +560,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install Azure Func Core Tools**<br>[FuncToolsInstaller@0](func-tools-installer-v0.md) | Install Azure Func Core Tools. |
 | **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
-| **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
 | **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
-| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
+| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md)<br>[NodeTool@0](node-tool-v0.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
 | **Visual Studio test platform installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -755,10 +752,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install Azure Func Core Tools**<br>[FuncToolsInstaller@0](func-tools-installer-v0.md) | Install Azure Func Core Tools. |
 | **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
-| **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
 | **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
-| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
+| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md)<br>[NodeTool@0](node-tool-v0.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
 | **Visual Studio test platform installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -946,10 +942,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install Azure Func Core Tools**<br>[FuncToolsInstaller@0](func-tools-installer-v0.md) | Install Azure Func Core Tools. |
 | **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
-| **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
 | **Use .NET Core**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
-| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
+| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md)<br>[NodeTool@0](node-tool-v0.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
 | **Visual Studio test platform installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -1127,10 +1122,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Helm tool installer**<br>[HelmInstaller@1](helm-installer-v1.md)<br>[HelmInstaller@0](helm-installer-v0.md) | Install Helm on an agent machine. |
 | **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
-| **Node.js tool installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
 | **Use dotnet**<br>[UseDotNet@2](use-dotnet-v2.md) | Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support. |
-| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
+| **Use Node.js ecosystem**<br>[UseNode@1](use-node-v1.md)<br>[NodeTool@0](node-tool-v0.md) | Set up a Node.js environment and add it to the PATH, additionally providing proxy support. |
 | **Use Python version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Use the specified version of Python from the tool cache, optionally adding it to the PATH. |
 | **Use Ruby version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Use the specified version of Ruby from the tool cache, optionally adding it to the PATH. |
 | **Visual Studio test platform installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -1289,8 +1283,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Go Tool Installer**<br>[GoTool@0](go-tool-v0.md) | Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this to set the version of Go used in subsequent tasks. |
 | **Helm tool installer**<br>[HelmInstaller@0](helm-installer-v0.md) | Install Helm and Kubernetes on agent machine. |
 | **Java Tool Installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquires a specific version of Java from a user supplied Azure blob or the tools cache and sets JAVA_HOME. Use this task to change the version of Java used in Java tasks. |
-| **Node Tool Installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or Downloads and caches specified version spec of Node and adds it to the PATH. |
 | **NuGet Tool Installer**<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
+| **Use Node.js ecosystem**<br>[NodeTool@0](node-tool-v0.md) | Finds or Downloads and caches specified version spec of Node and adds it to the PATH. |
 | **Use Python Version**<br>[UsePythonVersion@0](use-python-version-v0.md) | Retrieves the specified version of Python from the tool cache. Optionally add it to PATH. |
 | **Use Ruby Version**<br>[UseRubyVersion@0](use-ruby-version-v0.md) | Retrieves the specified version of Ruby from the tool cache. Optionally add it to PATH. |
 | **Visual Studio Test Platform Installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
@@ -1431,8 +1425,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 |---|---|
 | **.NET Core SDK/runtime installer**<br>[DotNetCoreInstaller@0](dotnet-core-installer-v0.md) | Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH. |
 | **Java Tool Installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquires a specific version of Java from a user supplied Azure blob or the tools cache and sets JAVA_HOME. Use this task to change the version of Java used in Java tasks. |
-| **Node Tool Installer**<br>[NodeTool@0](node-tool-v0.md) | Finds or Downloads and caches specified version spec of Node and adds it to the PATH. |
 | **NuGet Tool Installer**<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this step to change the version of NuGet used in the NuGet steps. |
+| **Use Node.js ecosystem**<br>[NodeTool@0](node-tool-v0.md) | Finds or Downloads and caches specified version spec of Node and adds it to the PATH. |
 | **Visual Studio Test Platform Installer**<br>[VisualStudioTestPlatformInstaller@1](visual-studio-test-platform-installer-v1.md) | Acquires the test platform from nuget.org or the tools cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task. |
 ## Utility tasks
 

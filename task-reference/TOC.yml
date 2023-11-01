@@ -717,11 +717,6 @@ items:
   - name: NodeTaskRunnerInstaller@0
     href: node-task-runner-installer-v0.md
     displayName: Node.js tasks runner installer v0
-- name: Node.js tool installer
-  items:
-  - name: NodeTool@0
-    href: node-tool-v0.md
-    displayName: Node.js tool installer v0
 - name: npm
   items:
   - name: Npm@1
@@ -982,6 +977,9 @@ items:
   - name: UseNode@1
     href: use-node-v1.md
     displayName: Use Node.js ecosystem v1
+  - name: NodeTool@0
+    href: node-tool-v0.md
+    displayName: Use Node.js ecosystem v0
 - name: Use Python version
   items:
   - name: UsePythonVersion@0

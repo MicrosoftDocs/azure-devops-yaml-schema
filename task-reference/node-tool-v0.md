@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 09/26/2023
+ms.date: 11/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -25,7 +25,7 @@ There is a newer version of the task available. For more information, see [UseNo
 :::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
-# Node.js tool installer v0
+# Use Node.js ecosystem v0
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -43,7 +43,7 @@ There is a newer version of the task available. For more information, see [UseNo
 :::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
-# Node.js tool installer v0
+# Use Node.js ecosystem v0
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -57,7 +57,7 @@ There is a newer version of the task available. For more information, see [UseNo
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 ```yaml
-# Node.js tool installer v0
+# Use Node.js ecosystem v0
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -70,7 +70,7 @@ There is a newer version of the task available. For more information, see [UseNo
 :::moniker range="=azure-pipelines-2019"
 
 ```yaml
-# Node Tool Installer v0
+# Use Node.js ecosystem v0
 # Finds or Downloads and caches specified version spec of Node and adds it to the PATH.
 - task: NodeTool@0
   inputs:
