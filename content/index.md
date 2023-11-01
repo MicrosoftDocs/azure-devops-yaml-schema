@@ -20,7 +20,7 @@ The YAML schema reference does not cover tasks. For more information about tasks
 :::moniker range=">=azure-pipelines-2020"
 
 [**pipeline**](pipeline.md)<br><!-- :::editable-content name="description"::: -->
-A pipeline is one or more stages that describe a CI/CD process.
+A pipeline is one or more stages that describe a CI/CD process. The pipeline definition contains the documentation for root level properties like `name`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
