@@ -13,7 +13,7 @@ monikerRange: ">=azure-pipelines-2019"
 <!-- :::editable-content name="description"::: -->
 A `task` step runs a task.
 
-All tasks support the following set of common properties in addition to `name` and `inputs`.
+All tasks support the following set of common properties.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
