@@ -12,6 +12,8 @@ monikerRange: ">=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download files that were saved as artifacts of a completed build.
+
+If you're using Azure DevOps Services, we recommend using [Download Pipeline Artifacts](./download-pipeline-artifact-v2.md) and [Publish Pipeline Artifacts](./publish-pipeline-artifact-v1.md) for faster performance.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

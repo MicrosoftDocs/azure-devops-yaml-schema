@@ -173,9 +173,9 @@ To generate the HTML code coverage report you need dotnet framework 2.0.0 or lat
 
 ### Code coverage results for JavaScript with Istanbul using YAML
 
-To publish code coverage results for JavaScript with Istanbul using YAML, see [JavaScript](/azure/devops/pipelines/ecosystems/javascript) in the Ecosystems section of these topics, which also includes examples for other languages.
+To publish code coverage results for JavaScript with Istanbul using YAML, see [Customize JavaScript](/azure/devops/pipelines/ecosystems/customize-javascript) in the Ecosystems section of these topics, which also includes examples for other languages.
 
-See an [example of publishing code coverage using Cobertura](/azure/devops/pipelines/ecosystems/javascript#publish-code-coverage-results).
+See an [example of publishing code coverage using Cobertura](/azure/devops/pipelines/ecosystems/customize-javascript#publish-code-coverage-results).
 
 ## Docker
 

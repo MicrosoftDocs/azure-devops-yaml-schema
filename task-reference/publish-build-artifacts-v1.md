@@ -1,14 +1,24 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 09/26/2023
+ms.date: 11/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # PublishBuildArtifacts@1 - Publish build artifacts v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task in a build pipeline to publish build artifacts to Azure Pipelines, TFS, or a file share.
+
+If you're using Azure DevOps Services, we recommend using [Download Pipeline Artifacts](./download-pipeline-artifact-v2.md) and [Publish Pipeline Artifacts](./publish-pipeline-artifact-v1.md) for faster performance.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task in a build pipeline to publish build artifacts to Azure Pipelines, TFS, or a file share.

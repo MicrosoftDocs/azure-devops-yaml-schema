@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 09/26/2023
+ms.date: 11/01/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
+
+There is a newer version of the task available. For more information, see [UseNode@1](./use-node-v1.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -23,7 +25,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 :::moniker range=">=azure-pipelines-2022.1"
 
 ```yaml
-# Node.js tool installer v0
+# Use Node.js ecosystem v0
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -41,7 +43,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 :::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 ```yaml
-# Node.js tool installer v0
+# Use Node.js ecosystem v0
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -55,7 +57,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 :::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
 
 ```yaml
-# Node.js tool installer v0
+# Use Node.js ecosystem v0
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -68,7 +70,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 :::moniker range="=azure-pipelines-2019"
 
 ```yaml
-# Node Tool Installer v0
+# Use Node.js ecosystem v0
 # Finds or Downloads and caches specified version spec of Node and adds it to the PATH.
 - task: NodeTool@0
   inputs:
@@ -195,6 +197,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+There is a newer version of the task available. For more information, see [UseNode@1](./use-node-v1.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
