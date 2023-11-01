@@ -13,6 +13,8 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to download files that were saved as artifacts of a completed build.
 
+If you're using Azure DevOps Services, we recommend using [Download Pipeline Artifacts](./download-pipeline-artifact-v2.md) and [Publish Pipeline Artifacts](./publish-pipeline-artifact-v1.md) for faster performance.
+
 > [!NOTE]
 > Disable IIS Basic Authentication if you are using Azure DevOps Server to allow authentication with your Personal Access Token. See [IIS Basic Authentication and PATs](/azure/devops/integrate/get-started/authentication/iis-basic-auth) for more details.
 <!-- :::editable-content-end::: -->
