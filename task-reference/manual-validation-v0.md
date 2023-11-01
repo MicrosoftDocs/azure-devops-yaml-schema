@@ -105,7 +105,7 @@ The **Manual Validation** task allows you to pause a pipeline run within a stage
 
 The **Manual Validation** task configuration includes an **instructions** parameter that is used to provide related information or to specify the manual steps the user executes during the pause. You can configure the task to send email notifications to users and user groups when it is awaiting a review and specify the automatic response (reject or resume) after a configurable timeout occurs.
 
-You can specify the timeout value for the task using the optional `timeoutInMinutes` parameter, available in the common task properties.
+You can specify the timeout value for the task using the optional `timeoutInMinutes` parameter, available in the [common task properties](/azure/devops/pipelines/yaml-schema/steps-task).
 
 > [!NOTE]
 > For the task to run completely, the `timeoutInMinutes` value of the job (`default = 60 minutes`) containing this task should be higher than the `timeoutInMinutes` value of the task itself. See [default job timeout values](/azure/devops/pipelines/process/phases#timeouts).
@@ -138,6 +138,8 @@ a message bar with a link that opens the Manual validation dialog, which contain
         instructions: 'Please validate the build configuration and resume'
         onTimeout: 'resume'
 ```
+
+This example uses `timeoutInMinutes` which is a [common task property](/azure/devops/pipelines/yaml-schema/steps-task) available in all tasks.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
