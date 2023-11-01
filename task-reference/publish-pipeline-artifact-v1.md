@@ -1,14 +1,14 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 09/26/2023
+ms.date: 11/01/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
 # PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 
 <!-- :::description::: -->
-:::moniker range="= azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish (upload) a file or directory as a named artifact for the current run.
@@ -16,7 +16,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 < azure-pipelines"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish (upload) a file or directory as a named artifact for the current run.

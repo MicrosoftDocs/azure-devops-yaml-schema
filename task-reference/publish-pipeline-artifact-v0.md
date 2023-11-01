@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 10/19/2023
+ms.date: 11/01/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -18,7 +18,7 @@ There is a newer version of this task. For more information, see [PublishPipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 < azure-pipelines"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.
@@ -153,7 +153,6 @@ There is a newer version of this task. For more information, see [PublishPipelin
 > This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Publish Build Artifacts](publish-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 
 :::moniker-end
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

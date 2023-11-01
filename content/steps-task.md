@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: Runs a task.
-ms.date: 10/19/2023
+ms.date: 11/01/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -12,6 +12,8 @@ monikerRange: ">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 A `task` step runs a task.
+
+All tasks support the following set of common properties.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
