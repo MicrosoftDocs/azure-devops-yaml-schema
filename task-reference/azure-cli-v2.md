@@ -195,9 +195,9 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your PowerShe
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Adds the service principal ID, service principal key, and tenant ID of the Azure endpoint you chose to the script's execution environment. You can use the `servicePrincipalId`, `servicePrincipalKey` and `tenantId` variables in your script.
+Adds the service principal ID, service principal key or workload identity federation token, and tenant ID of the Azure endpoint you chose to the script's execution environment. You can use the `servicePrincipalId`, `servicePrincipalKey` or `idToken`, and `tenantId` variables in your script.
 
-This is honored only when the Azure endpoint has service principal authentication scheme.
+This is honored only when the Azure endpoint has service principal authentication scheme or workload identity federation authentication scheme.
 
 The following list shows the syntax to access environment variables based on the script type.
 
