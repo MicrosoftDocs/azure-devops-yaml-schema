@@ -13,7 +13,7 @@ monikerRange: ">=azure-pipelines-2019.1"
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
 
-This task is deprecated.
+This task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->

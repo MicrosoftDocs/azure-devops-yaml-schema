@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to find, download, and cache a specified version of [Node.js](https://nodejs.org/en/) and add it to the PATH.
+
+There is a newer version of the task available. For more information, see [UseNode@1](./use-node-v1.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -195,6 +197,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+There is a newer version of the task available. For more information, see [UseNode@1](./use-node-v1.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
