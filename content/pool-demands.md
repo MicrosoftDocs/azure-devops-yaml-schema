@@ -91,7 +91,7 @@ Self-hosted agents have the following system capabilities with similar names to 
 * Agent.HomeDirectory
 * Agent.OS
 * Agent.OSArchitecture
-* Agent.OSVerion (Windows agents only)
+* Agent.OSVersion (Windows agents only)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
