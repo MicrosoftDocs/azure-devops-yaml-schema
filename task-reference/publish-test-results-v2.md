@@ -538,6 +538,14 @@ The Publish Test Results task provides support for attachments for both test run
 | **Test run** | /test-suite/attachments/attachment/**filePath** |
 | **Test run** | /test-suite[@type='Assembly']/test-case/attachments/attachment/**filePath** |
 
+#### [JUnit](#tab/junitattachments)
+
+#### JUnit
+
+| Scope | Path |
+| ----- | ---- |
+| **Test Result** | /testsuites/testsuite/testcase/system-out/ -> Contents matching pattern **[[ATTACHMENT|filePath]]** 
+
 * * *
 
 > [!NOTE]
