@@ -35,7 +35,7 @@ Deploy an Azure Function for Linux or Windows.
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Required. Azure subscription. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
