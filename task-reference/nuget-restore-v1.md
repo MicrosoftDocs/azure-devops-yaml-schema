@@ -13,7 +13,8 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
 
-This task will be deprecated soon, please switch to using the [NuGetCommand@2](./nuget-command-v2.md#restore) `restore` option.
+> [!IMPORTANT]
+> This task is deprecated. Builds that use it will break on 11-27-2023. Please switch to using [NuGetCommand@2](./nuget-command-v2.md)'s `restore` option as soon as possible.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated.-->
