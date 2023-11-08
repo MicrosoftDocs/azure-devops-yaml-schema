@@ -70,7 +70,7 @@ A job is a linear series of steps.
 Steps can be tasks, scripts, or references to external templates.
 
 This hierarchy is reflected in the structure of a YAML file like:
-
+```yaml
 - Pipeline
   - Stage A
     - Job 1
@@ -83,6 +83,7 @@ This hierarchy is reflected in the structure of a YAML file like:
       - ...
   - Stage B
     - ...
+```
 
 Simple pipelines don't require all of these levels.
 For example, in a single-job build, you can omit the containers for stages and jobs because there are only steps.
@@ -100,7 +101,7 @@ A job is a linear series of steps.
 Steps can be tasks, scripts, or references to external templates.
 
 This hierarchy is reflected in the structure of a YAML file like:
-
+```yaml
 - Pipeline
   - Job 1
     - Step 1.1
@@ -110,6 +111,7 @@ This hierarchy is reflected in the structure of a YAML file like:
     - Step 2.1
     - Step 2.2
     - ...
+```
 
 For single-job pipelines, you can omit the jobs container because there are only steps.
 And because many options shown in this article aren't required and have good defaults, your YAML definitions are unlikely to include all of them.
