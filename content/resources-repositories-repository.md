@@ -146,9 +146,13 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range=">= azure-pipelines-2022.1"
 
 [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition) for the `ref` property (but not the `name` property). Wildcards are supported in triggers.
+
+::: moniker-end
+
+::: moniker range=">= azure-pipelines-2020"
 
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).
