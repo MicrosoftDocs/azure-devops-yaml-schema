@@ -18,4 +18,3 @@ To resolve this issue, you can choose from the following options, in order of pr
 1. Update the agent image. If you are using hosted agents, move from **windows-2019** to **windows-2022** (or **windows-latest**). If you are using self-hosted agents, install Visual Studio 2022 on the agent to get a newer version of **msdeploy.exe**.
 1. If you are dependent on an older agent image and can't update the agent for your pipeline, consider splitting the job so that the Azure App Service deploy task runs on **windows-2022** (or **windows-latest**).
 1. If neither of these options is possible, you can [enable basic authentication](/azure/app-service/deploy-configure-credentials#disable-basic-authentication) for your Azure App Service.
-1. 
