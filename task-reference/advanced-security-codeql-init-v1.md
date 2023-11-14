@@ -118,7 +118,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 **`codeqlpathstoinclude`** - **Set a list of additional paths to include in the CodeQL analysis**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can provide multiple paths separated by commas. The paths must be relative to the folder where CodeQL is running, which defaults to the `Build.SourcesDirectory` pipeline environment variable. For example, to include the `$(Build.SourcesDirectory)/app directory`, set `codeqlpathstoinclude: app` rather than `codeqlpathstoinclude: $(Build.SourcesDirectory)/app`.
+You can provide multiple paths separated by commas. The paths must be relative to the folder where CodeQL is running, which defaults to the `Build.SourcesDirectory` pipeline environment variable. For example, to include the `$(Build.SourcesDirectory)/app` directory, set `codeqlpathstoinclude: app` rather than `codeqlpathstoinclude: $(Build.SourcesDirectory)/app`.
 <!-- :::editable-content-end::: -->
 <br>
 
