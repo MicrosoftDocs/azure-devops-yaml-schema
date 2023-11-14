@@ -839,12 +839,12 @@ The following prerequisites must be set up in the target machine(s) for the task
 ### Usage notes
 
 * The task works with the [Azure Resource Manager APIs](/rest/api/resources/) only.
-* To ignore SSL errors, define a variable named `VSTS_ARM_REST_IGNORE_SSL_ERRORS` with value `true` in the the pipeline. If you are deploying to a slot configured to auto-swap, the swap will fail unless you set `SCM_SKIP_SSL_VALIDATION` or 'SCM_SKIP_ASE_SSL_VALIDATION' to `1` in the app services configuration settings.
+* To ignore SSL errors, define a variable named `VSTS_ARM_REST_IGNORE_SSL_ERRORS` with value `true` in the the pipeline. If you are deploying to a slot configured to auto-swap, the swap will fail unless you set `SCM_SKIP_SSL_VALIDATION` or `SCM_SKIP_ASE_SSL_VALIDATION` to `1` in the app services configuration settings.
 * For .NET apps targeting Web App on Windows, avoid deployment failure with the error `ERROR_FILE_IN_USE` by ensuring that
   **Rename locked files** and **Take App Offline** settings are enabled. For zero downtime deployment, use the slot swap option.
 * When deploying to an App Service that has Application Insights configured, and you have enabled **Remove additional files at destination**,
   ensure you also enable **Exclude files from the App\_Data folder** in order to maintain the Application insights extension in
-  a safe state. This is required because the Application Insights continuous web job is installed into the App\_Data folder. 
+  a safe state. This is required because the Application Insights continuous web job is installed into the App\_Data folder.
 
 ### Deployment methods
 
@@ -854,7 +854,7 @@ to choose from additional package-based deployment options.
 
 Based on the type of Azure App Service and agent, the task chooses a suitable deployment technology. The different deployment technologies used by the task are:
 
-* [Web Deploy](#web-deploy) 
+* [Web Deploy](#web-deploy)
 * [Kudu REST APIs](#kudu-rest-apis)
 * [Container Registry](#container-registry)
 * [Zip Deploy](#zip-deploy)
@@ -922,6 +922,12 @@ mounted by the Functions runtime and files in the **wwwroot** folder become read
 Expects a .war deployment package and deploys the file content to the **wwwroot** folder or **webapps** folder of the App Service in Azure.
 
 ### Troubleshooting
+
+:::moniker range=">azure-pipelines-2022.1"
+
+[!INCLUDE [rm-web-app-deployment-authentication](./includes/rm-web-app-deployment-authentication.md)]
+
+:::moniker-end
 
 [!INCLUDE [rm-app-service-troubleshoot-shared](./includes/rm-app-service-troubleshoot-shared.md)]
 
