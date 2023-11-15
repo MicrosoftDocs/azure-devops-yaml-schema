@@ -544,7 +544,7 @@ The Publish Test Results task provides support for attachments for both test run
 
 | Scope | Path |
 | ----- | ---- |
-| **Test Result** | /testsuites/testsuite/testcase/system-out/ -> Contents matching pattern **[[ATTACHMENT|filePath]]** 
+| **Test Result** | /testsuites/testsuite/testcase/system-out/ -> Contents matching pattern **[[ATTACHMENT|filePath]]**  |
 
 * * *
 
