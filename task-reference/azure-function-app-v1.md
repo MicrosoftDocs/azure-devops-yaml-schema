@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -35,7 +35,7 @@ Deploy an Azure Function for Linux or Windows.
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. Azure Resource Manager connection. 
+    azureSubscription: # string. Required. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
@@ -61,7 +61,7 @@ Deploy an Azure Function for Linux or Windows.
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Required. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. Azure Functions App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
@@ -87,7 +87,7 @@ Deploy an Azure Function for Linux or Windows.
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Required. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
@@ -113,7 +113,7 @@ Deploy an Azure Function for Linux or Windows.
 # Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Required. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
@@ -139,7 +139,7 @@ Deploy an Azure Function for Linux or Windows.
 # Deploy an Azure Function for Linux or Windows.
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: # string. Required. Azure subscription. 
+    azureSubscription: # string. Required. Azure Resource Manager connection. 
     appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
     appName: # string. Required. App name. 
     #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
@@ -165,7 +165,7 @@ Deploy an Azure Function for Linux or Windows.
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
 
-**`azureSubscription`** - **Azure subscription**<br>
+**`azureSubscription`** - **Azure Resource Manager connection**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the Azure Resource Manager subscription for the deployment.
