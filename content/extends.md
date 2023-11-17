@@ -1,7 +1,7 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 10/19/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
