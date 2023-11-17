@@ -94,6 +94,9 @@ ID of the service endpoint connecting to this repository.
 
 **`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+
+> [!IMPORTANT]
+> Repository resource triggers don't support `batch`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

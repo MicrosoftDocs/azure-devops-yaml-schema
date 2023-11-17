@@ -63,7 +63,7 @@ For more information about using triggers with a specific repository type, see [
 
 If you specify no push trigger, pushes to any branch trigger a build.
 
-There are three distinct syntax options for the `trigger` keyword: a list of branches to include, a way to disable CI triggers, and the full syntax for complete control. 
+There are three distinct syntax options for the `trigger` keyword: a list of branches to include, a way to disable CI triggers, and the full syntax for complete control.
 
 ::: moniker range=">= azure-pipelines-2020"
 
@@ -297,7 +297,7 @@ If you have many team members uploading changes often, you may want to reduce th
 
 ::: moniker range=">= azure-pipelines-2020"
 
-> [!NOTE]
+> [!IMPORTANT]
 > `batch` is not supported in repository resource triggers.
 
 ::: moniker-end
