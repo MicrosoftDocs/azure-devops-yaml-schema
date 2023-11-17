@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -285,7 +285,7 @@ You can use Team Foundation Server Plug-in (version 5.2.0 or newer) to automatic
 
 To set it up:
 
-1. Install the [Team Foundation Server Plug-in](https://www.jenkins.io/doc/pipeline/steps/tfs/) on the Jenkins server.
+1. Install the [Team Foundation Server Plug-in](https://github.com/jenkinsci/tfs-plugin) on the Jenkins server.
 
 2. On the Jenkins server, for each job you would like to collect results from, add the **Collect results for Azure Pipelines/TFS** post-build action and then configure it with one or more pairs of result type and include file pattern.
 
