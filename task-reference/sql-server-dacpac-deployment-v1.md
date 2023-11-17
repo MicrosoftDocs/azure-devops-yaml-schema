@@ -1,7 +1,7 @@
 ---
 title: SqlServerDacpacDeployment@1 - SQL Server database deploy (Deprecated) v1 task
 description: Deploy a SQL Server database using DACPAC.
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: "<=azure-pipelines"
 ---
 

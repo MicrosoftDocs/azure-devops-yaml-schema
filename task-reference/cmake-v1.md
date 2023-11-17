@@ -1,7 +1,7 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: "<=azure-pipelines"
 ---
 

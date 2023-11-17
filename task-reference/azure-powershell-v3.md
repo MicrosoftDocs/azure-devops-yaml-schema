@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@3 - Azure PowerShell v3 task
 description: Run a PowerShell script within an Azure environment (task version 3).
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

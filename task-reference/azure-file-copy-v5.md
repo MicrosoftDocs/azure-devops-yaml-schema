@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@5 - Azure file copy v5 task
 description: Copy files to Azure Blob Storage or virtual machines.
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: "<=azure-pipelines"
 ---
 
