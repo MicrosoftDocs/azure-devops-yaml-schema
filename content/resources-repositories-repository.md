@@ -93,7 +93,11 @@ ID of the service endpoint connecting to this repository.
 :::moniker range=">=azure-pipelines-2020"
 
 **`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
-CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+CI trigger for this repository, no CI trigger if omitted.
+
+> [!IMPORTANT]
+> * Repository resource triggers are supported only for Azure Repos Git repositories.
+> * Repository resource triggers don't support `batch`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
