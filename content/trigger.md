@@ -298,7 +298,7 @@ If you have many team members uploading changes often, you may want to reduce th
 ::: moniker range=">= azure-pipelines-2020"
 
 > [!IMPORTANT]
-> `batch` is not supported in repository resource triggers.
+> `batch` is not supported in [repository resource](./resources-repositories-repository.md) triggers.
 
 ::: moniker-end
 
