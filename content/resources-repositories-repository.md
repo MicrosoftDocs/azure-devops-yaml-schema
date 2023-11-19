@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 10/19/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -93,7 +93,11 @@ ID of the service endpoint connecting to this repository.
 :::moniker range=">=azure-pipelines-2020"
 
 **`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
-CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+CI trigger for this repository, no CI trigger if omitted.
+
+> [!IMPORTANT]
+> * Repository resource triggers are supported only for Azure Repos Git repositories.
+> * Repository resource triggers don't support `batch`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -146,9 +150,13 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range=">= azure-pipelines-2022.1"
 
 [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-repository-resource-definition) for the `ref` property (but not the `name` property). Wildcards are supported in triggers.
+
+::: moniker-end
+
+::: moniker range=">= azure-pipelines-2020"
 
 > [!IMPORTANT]
 > Repository resource triggers are supported for Azure Repos Git repositories only. For more information on `trigger` syntax, including [wildcard support](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#wildcards) for [branches](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#branches) and [tags](/azure/devops/pipelines/repos/azure-repos-git?tabs=yaml#tags), see [trigger definition](trigger.md) and [Build Azure Repos Git or TFS Git repositories](/azure/devops/pipelines/repos/azure-repos-git).

@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -841,10 +841,15 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-What's new in Version 3.0: 
-   Supports File Transformations (XDT) 
-   Supports Variable Substitutions(XML, JSON) 
-   Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
+There is a newer version of this task available. For more information, see [AzureRmWebAppDeployment@4](./azure-rm-web-app-deployment-v4.md).
+
+:::moniker range=">azure-pipelines-2022.1"
+
+### Troubleshooting
+
+[!INCLUDE [rm-web-app-deployment-authentication](./includes/rm-web-app-deployment-authentication.md)]
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

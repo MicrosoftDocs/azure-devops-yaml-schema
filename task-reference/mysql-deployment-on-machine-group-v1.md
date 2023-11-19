@@ -1,7 +1,7 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 09/26/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -97,7 +97,7 @@ Specifies the name of the database. The script will create a database name if on
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlUsername"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 **`SqlUsername`** - **MySQL User Name**<br>
 `string`. Required.<br>
@@ -108,7 +108,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
 
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>

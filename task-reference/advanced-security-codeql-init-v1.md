@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 10/18/2023
+ms.date: 11/17/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -106,7 +106,7 @@ You can specify `threads` here in the task, or you can specify it in a pipeline 
 **`codeqlpathstoignore`** - **Set a list of paths to exclude in the CodeQL analysis**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can provide multiple paths separated by commas, for example: `c:\test,c:\test\ignored`.
+You can provide multiple paths separated by commas. The paths must be relative to the `sourcesfolder` where CodeQL is running, which defaults to the `Build.SourcesDirectory` pipeline environment variable. For example, to ignore the `$(Build.SourcesDirectory)/donotscan` directory, set `codeqlpathstoignore: donotscan` rather than `codeqlpathstoignore: $(Build.SourcesDirectory)/donotscan`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,7 +118,7 @@ You can provide multiple paths separated by commas, for example: `c:\test,c:\tes
 **`codeqlpathstoinclude`** - **Set a list of additional paths to include in the CodeQL analysis**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-You can provide multiple paths separated by commas, for example: `c:\test,c:\test\ignored`.
+You can provide multiple paths separated by commas. The paths must be relative to the `sourcesfolder` where CodeQL is running, which defaults to the `Build.SourcesDirectory` pipeline environment variable. For example, to include the `$(Build.SourcesDirectory)/app` directory, set `codeqlpathstoinclude: app` rather than `codeqlpathstoinclude: $(Build.SourcesDirectory)/app`.
 <!-- :::editable-content-end::: -->
 <br>
 

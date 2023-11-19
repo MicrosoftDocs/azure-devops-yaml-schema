@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 10/19/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -128,7 +128,15 @@ Specify none to disable, true to trigger on all image tags, or use the full synt
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="endpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2022.1"
+
+**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
+ID of the service endpoint connecting to a private container registry.  [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
 
 **`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
@@ -155,7 +163,15 @@ Set this flag to false to force the agent not to setup the /var/run/docker.sock 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range=">=azure-pipelines-2022.1"
+
+**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Options to pass into container host. [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 **`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Options to pass into container host.
@@ -164,7 +180,15 @@ Options to pass into container host.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ports"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range=">=azure-pipelines-2022.1"
+
+**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Ports to expose on the container. [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 **`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Ports to expose on the container.
@@ -173,7 +197,15 @@ Ports to expose on the container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="volumes"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range=">=azure-pipelines-2022.1"
+
+**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Volumes to mount on the container. [Template expressions are supported](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
 
 **`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount on the container.
@@ -250,7 +282,7 @@ The `container` keyword lets you specify your container images.
 
 [Service containers](/azure/devops/pipelines/process/service-containers) run alongside a job to provide various dependencies like databases.
 
-::: moniker range=">azure-pipelines-2022"
+::: moniker range=">=azure-pipelines-2022.1"
 
 [Template expressions](/azure/devops/release-notes/2022/sprint-212-update#template-expressions-in-container-resource-definition) are supported for `endpoint`, `volumes`, `ports`, and `options` properties of a container resource in a YAML pipeline.
 

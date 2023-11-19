@@ -1,7 +1,7 @@
 ---
 title: schedules definition
 description: The schedules list specifies the scheduled triggers for the pipeline.
-ms.date: 10/19/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -55,12 +55,12 @@ If you specify no scheduled trigger, no scheduled builds occur.
 
 > [!IMPORTANT]
 > Scheduled triggers defined using the pipeline settings UI take precedence over YAML scheduled triggers.
-> 
-> If your YAML pipeline has both YAML scheduled triggers and UI defined scheduled triggers, 
-> only the UI defined scheduled triggers are run. 
+>
+> If your YAML pipeline has both YAML scheduled triggers and UI defined scheduled triggers,
+> only the UI defined scheduled triggers are run.
 > To run the YAML defined scheduled triggers in your YAML pipeline,
 > you must remove the scheduled triggers defined in the pipeline settings UI.
-> Once all UI scheduled triggers are removed, a push must be made in order for the YAML 
+> Once all UI scheduled triggers are removed, a push must be made in order for the YAML
 > scheduled triggers to start being evaluated.
 >
 > To delete UI scheduled triggers from a YAML pipeline, see [UI settings override YAML scheduled triggers](/azure/devops/pipelines/troubleshooting/troubleshooting#ui-settings-override-yaml-scheduled-triggers).

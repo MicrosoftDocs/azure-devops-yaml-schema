@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 10/19/2023
+ms.date: 11/17/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -373,7 +373,6 @@ steps:
 ```
 
 To configure the setting in the pipeline UI, edit your YAML pipeline, and choose **More actions**, **Triggers**, **YAML**, **Get sources**, and check or uncheck the **Sync tags** checkbox. For more information, see [Sync tags](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
-
 
 #### Default behavior
 
