@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
 
 > [!IMPORTANT]
-> This task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
+> This task is deprecated. Use [UseDotNet@2](use-dotnet-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

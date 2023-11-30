@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
 >[!NOTE]
 > [!INCLUDE [task-deprecation](includes/task-deprecation.md)]
-> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterDistrivbute#3](./app-center-distribute-v3.md) task instead.
+> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterDistribute@3](./app-center-distribute-v3.md) task instead.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
