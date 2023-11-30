@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@4 - Run Code Analysis v4 task
 description: Run scanner and upload the results to the SonarQube server (task version 4).
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: "=azure-pipelines"
 ---
 
