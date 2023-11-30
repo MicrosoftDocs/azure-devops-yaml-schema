@@ -139,6 +139,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+## Remarks
+
+There is a newer version of this task available at [NuGetToolInstaller@1](./nuget-tool-installer-v1.md).
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

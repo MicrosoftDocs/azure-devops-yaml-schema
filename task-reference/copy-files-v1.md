@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to copy files from a source folder to a target folder using match patterns. (The match patterns will only match file paths, not folder paths).
+
+> [!NOTE]
+> There is a newer version of this task available at [CopyFiles@2](copy-files-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

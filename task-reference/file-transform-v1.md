@@ -178,6 +178,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+## Remarks
+
+There is a newer version of this task available at [FileTransform@2](./file-transform-v2.md).
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

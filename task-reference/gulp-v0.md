@@ -302,6 +302,13 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+:::moniker range=">=azure-pipelines-2019.1"
+
+> [!NOTE]
+> THere is a newer version of this task available at [gulp@1](./gulp-v1.md).
+
+:::moniker-end
+
 Use this task to run gulp tasks using the Node.js streaming task-based build system.
 
 > [!NOTE]

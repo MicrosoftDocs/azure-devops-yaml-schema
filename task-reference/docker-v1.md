@@ -11,7 +11,10 @@ monikerRange: ">=azure-pipelines-2019"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Build, tag, push, or run Docker images, or run a Docker command.
+Build, tag, push, or run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.
+
+> [!NOTE]
+> [Docker@2](docker-v2.md) is a newer version of this task that simplifies the task by removing inputs that can be passed as arguments to the command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,6 +23,9 @@ Build, tag, push, or run Docker images, or run a Docker command.
 
 <!-- :::editable-content name="description"::: -->
 Build, tag, push, or run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.
+
+> [!NOTE]
+> [Docker@2](docker-v2.md) is a newer version of this task that simplifies the task by removing inputs that can be passed as arguments to the command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

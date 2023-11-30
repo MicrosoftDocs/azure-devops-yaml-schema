@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to distribute app builds to testers and users via App Center.
+
+> [!IMPORTANT]
+> This task is deprecated. Use [AppCenterDistribute@3](./app-center-distribute-v3.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
