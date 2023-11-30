@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@1 - Azure Container Apps Deploy v1 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 

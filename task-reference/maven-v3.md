@@ -1,7 +1,7 @@
 ---
 title: Maven@3 - Maven v3 task
 description: Build, test, and deploy with Apache Maven (task version 3).
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

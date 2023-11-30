@@ -1,7 +1,7 @@
 ---
 title: CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 description: CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -17,7 +17,7 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 > This task is deprecated. We recommend that you use [Pipeline Artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts) and the [Copy Files task](copy-files-v2.md) and the [Publish Build Artifacts](publish-build-artifacts-v1.md) task instead.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->

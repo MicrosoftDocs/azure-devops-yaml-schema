@@ -1,7 +1,7 @@
 ---
 title: PythonScript@0 - Python script v0 task
 description: Run a Python file or inline script.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

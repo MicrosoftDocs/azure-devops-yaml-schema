@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@0 - .NET Core v0 task
 description: Build, test and publish using dotnet core command-line (task version 0).
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -18,7 +18,7 @@ If your .NET Core or .NET Standard build depends on NuGet packages, make sure to
 This task is deprecated; use [DotNetCoreCLI@2](./dotnet-core-cli-v2.md).
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->

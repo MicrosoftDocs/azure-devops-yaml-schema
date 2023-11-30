@@ -1,7 +1,7 @@
 ---
 title: XamarinComponentRestore@0 - Xamarin Component Restore v0 task
 description: This task is deprecated. Use 'NuGet' instead.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 This task is deprecated. Use 'NuGet' instead.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 

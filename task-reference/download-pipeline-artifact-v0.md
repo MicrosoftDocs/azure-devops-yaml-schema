@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 description: Downloads an artifact associated with a pipeline.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -30,7 +30,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 > This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Download Build Artifacts](download-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 
