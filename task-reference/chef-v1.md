@@ -1,22 +1,36 @@
 ---
 title: Chef@1 - Chef v1 task
 description: Deploy to Chef environments by editing environment attributes.
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # Chef@1 - Chef v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Deploy to Chef environments by editing environment attributes.
 
-This task is deprecated.
+> [!IMPORTANT]
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [Chef-CLI](https://github.com/chef/chef-cli).
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Deploy to Chef environments by editing environment attributes.
+
+> [!IMPORTANT]
+> This task is deprecated. Use [Chef-CLI](https://github.com/chef/chef-cli).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -134,8 +148,8 @@ None.
 
 Use this task to deploy to Chef environments by editing environment attributes.
 
-> [!NOTE]
-> This task is deprecated.
+> [!IMPORTANT]
+> This task is deprecated. Use [Chef-CLI](https://github.com/chef/chef-cli).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

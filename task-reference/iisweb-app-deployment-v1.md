@@ -1,22 +1,36 @@
 ---
 title: IISWebAppDeployment@1 - IIS Web App deployment (Deprecated) v1 task
 description: Deploy using MSDeploy, then create/update websites and app pools.
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # IISWebAppDeployment@1 - IIS Web App deployment (Deprecated) v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
 
-This task is deprecated.
+> [!IMPORTANT]
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [IIS Web App Deployment Using WinRM - Viual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp).
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
+
+> [!IMPORTANT]
+> This task is deprecated. Use [IIS Web App Deployment Using WinRM - Viual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -581,6 +595,10 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+> [!IMPORTANT]
+> This task is deprecated. Use [IIS Web App Deployment Using WinRM - Viual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

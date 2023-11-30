@@ -13,8 +13,8 @@ monikerRange: ">=azure-pipelines-2019"
 <!-- :::editable-content name="description"::: -->
 Use this task to create and activate a Conda environment.
 
-> [!NOTE]
-> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+> [!IMPORTANT]
+> This task has been deprecated. Use [conda commands](https://conda.io/projects/conda/en/latest/commands/index.html) directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -143,8 +143,8 @@ None.
 
 Use this task to create and activate a Conda environment.
 
-> [!NOTE]
-> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+> [!IMPORTANT]
+> This task has been deprecated. Use [conda commands](https://conda.io/projects/conda/en/latest/commands/index.html) directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 
 This task will create a Conda environment and activate it for subsequent build tasks.
 

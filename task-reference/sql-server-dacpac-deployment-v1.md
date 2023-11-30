@@ -1,14 +1,27 @@
 ---
 title: SqlServerDacpacDeployment@1 - SQL Server database deploy (Deprecated) v1 task
 description: Deploy a SQL Server database using DACPAC.
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # SqlServerDacpacDeployment@1 - SQL Server database deploy (Deprecated) v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to deploy a SQL Server database using DACPAC.
+
+> [!IMPORTANT]
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [IIS Web App Deployment Using WinRM - Viual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a SQL Server database using DACPAC.
@@ -16,7 +29,7 @@ Use this task to deploy a SQL Server database using DACPAC.
 This task is deprecated.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->

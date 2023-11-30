@@ -1,23 +1,36 @@
 ---
 title: CondaEnvironment@1 - Conda environment v1 task
 description: This task is deprecated. Use `conda` directly in script to work with Anaconda environments.
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # CondaEnvironment@1 - Conda environment v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create and activate a Conda environment.
 
-> [!NOTE]
-> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+> [!IMPORTANT]
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [conda commands](https://conda.io/projects/conda/en/latest/commands/index.html) directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to create and activate a Conda environment.
+
+> [!IMPORTANT]
+> This task has been deprecated. Use [conda commands](https://conda.io/projects/conda/en/latest/commands/index.html) directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 
@@ -179,8 +192,8 @@ None.
 
 Use this task to create and activate a Conda environment.
 
-> [!NOTE]
-> This task has been deprecated. Use `conda` directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
+> [!IMPORTANT]
+> This task has been deprecated. Use [conda commands](https://conda.io/projects/conda/en/latest/commands/index.html) directly in the [bash task](bash-v3.md) or [batch script task](batch-script-v1.md) as an alternative.
 
 This task will create a Conda environment and activate it for subsequent build tasks.
 
