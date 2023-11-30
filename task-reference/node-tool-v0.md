@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -22,7 +22,27 @@ There is a newer version of the task available. For more information, see [UseNo
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Use Node.js ecosystem v0
+# Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec' # 'spec' | 'fromFile'. Required. Source of version. Default: spec.
+    #versionSpec: '6.x' # string. Optional. Use when versionSource = spec. Version Spec. Default: 6.x.
+    #versionFilePath: # string. Optional. Use when versionSource = fromFile. Path to the .nvmrc file. 
+    #checkLatest: false # boolean. Check for Latest Version. Default: false.
+    #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+  # Advanced
+    #nodejsMirror: 'https://nodejs.org/dist' # string. Set source for Node.js binaries. Default: https://nodejs.org/dist.
+    #retryCountOnDownloadFails: '5' # string. Set retry count when nodes downloads failed. Default: 5.
+    #delayBetweenRetries: '1000' # string. Set delay between retries. Default: 1000.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 ```yaml
 # Use Node.js ecosystem v0
@@ -174,6 +194,30 @@ Installs the `x86` version of Node regardless of the CPU architecture of the age
 `string`. Default value: `https://nodejs.org/dist`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use an alternative installation mirror when sourcing the Node.js binaries.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="retryCountOnDownloadFails"::: -->
+:::moniker range="=azure-pipelines"
+
+**`retryCountOnDownloadFails`** - **Set retry count when nodes downloads failed**<br>
+`string`. Default value: `5`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use this option when the task failed to download node binaries from the mirror. The task will retry to download the binaries for the specified times.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="delayBetweenRetries"::: -->
+:::moniker range="=azure-pipelines"
+
+**`delayBetweenRetries`** - **Set delay between retries**<br>
+`string`. Default value: `1000`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use this option to set the delay between retries in milliseconds. The default value is 1000 milliseconds.
 <!-- :::editable-content-end::: -->
 <br>
 

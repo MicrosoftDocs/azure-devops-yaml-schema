@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 11/17/2023
+ms.date: 11/30/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,24 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Use Node.js ecosystem v1
+# Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
+- task: UseNode@1
+  inputs:
+    #version: '10.x' # string. Version. Default: 10.x.
+    #checkLatest: false # boolean. Check for Latest Version. Default: false.
+    #force32bit: false # boolean. Use 32 bit version on x64 agents. Default: false.
+  # advanced
+    #retryCountOnDownloadFails: '5' # string. Set retry count when nodes downloads failed. Default: 5.
+    #delayBetweenRetries: '1000' # string. Set delay between retries. Default: 1000.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.1"
 
 ```yaml
 # Use Node.js ecosystem v1
@@ -82,6 +99,30 @@ Checks online for the latest available version that satisfies the version spec. 
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Installs the x86 version of Node.js on a 64-bit Windows agent. Only works on Windows agents.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="retryCountOnDownloadFails"::: -->
+:::moniker range="=azure-pipelines"
+
+**`retryCountOnDownloadFails`** - **Set retry count when nodes downloads failed**<br>
+`string`. Default value: `5`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use this option when the task failed to download node binaries from the mirror. The task will retry to download the binaries for the specified times.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="delayBetweenRetries"::: -->
+:::moniker range="=azure-pipelines"
+
+**`delayBetweenRetries`** - **Set delay between retries**<br>
+`string`. Default value: `1000`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Use this option to set the delay between retries in milliseconds. The default value is 1000 milliseconds.
 <!-- :::editable-content-end::: -->
 <br>
 
