@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreInstaller@0 - .NET Core SDK/runtime installer v0 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH (task version 0).
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -13,7 +13,8 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
 
-This task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
+> [!IMPORTANT]
+> This task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

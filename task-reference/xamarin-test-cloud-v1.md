@@ -13,10 +13,11 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
 >[!NOTE]
-> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterTest](app-center-test-v1.md) task instead.
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)]
+> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterDistrivbute#3](./app-center-distribute-v3.md) task instead.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 
@@ -25,10 +26,10 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 <!-- :::editable-content name="description"::: -->
 XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
 >[!NOTE]
-> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterTest](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AppCenterTestV1) task instead.
+> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterDistrivbute#3](./app-center-distribute-v3.md) task instead.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->

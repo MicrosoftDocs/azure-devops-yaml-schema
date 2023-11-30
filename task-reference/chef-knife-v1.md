@@ -1,34 +1,46 @@
 ---
 title: ChefKnife@1 - Chef Knife v1 task
 description: Run scripts with Knife commands on your Chef workstation.
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: "<=azure-pipelines"
 ---
 
 # ChefKnife@1 - Chef Knife v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Run scripts with Knife commands on your Chef workstation.
 
-This task is deprecated.
+> [!IMPORTANT]
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [Chef knife client](https://docs.chef.io/workstation/knife_client/).
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Run scripts with Knife commands on your Chef workstation.
+
+> [!IMPORTANT]
+> This task is deprecated. Use [Chef knife client](https://docs.chef.io/workstation/knife_client/).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
 Run Scripts with knife commands on your chef workstation.
-
-This task is deprecated.
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -134,10 +146,8 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-Use this task to run scripts with Knife commands on your Chef workstation.
-
-> [!NOTE]
-> This task is deprecated.
+> [!IMPORTANT]
+> This task is deprecated. Use [Chef knife client](https://docs.chef.io/workstation/knife_client/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

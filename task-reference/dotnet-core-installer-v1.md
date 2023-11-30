@@ -1,22 +1,36 @@
 ---
 title: DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
-ms.date: 11/17/2023
+ms.date: 11/29/2023
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
 
-This task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
+> [!IMPORTANT]
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [@UseDotNet2](use-dotnet-v2.md).
 <!-- :::editable-content-end::: -->
 
-<!-- This task is deprecated.-->
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
+
+> [!IMPORTANT]
+> TThis task is deprecated. Use [@UseDotNet2](use-dotnet-v2.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 
