@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/19/2023
+ms.date: 12/01/2023
 ---
 
 #### Kubernetes Service Connection considerations when accessing AKS
@@ -13,11 +13,11 @@ You can create a Kubernetes service connection with any of the following options
 
 :::image type="content" source="../media/kubernetes-service-connection-authentication-method.png" alt-text="Screenshot of choosing a Kubernetes service connection authentication method.":::
 
-When selecting the **Azure Subscription** option, Kubernetes needs to be accessible to Azure DevOps at service connection configuration time. There may be various reasons a service connection cannot be created, for example you created a private cluster or the cluster has local accounts disabled. In these cases, Azure DevOps is unable to connect to your cluster at service connection configuration time and you will observe the dialog to be stuck at **Loading namespaces**.
+When selecting the **Azure Subscription** option, Kubernetes needs to be accessible to Azure DevOps at service connection configuration time. There may be various reasons a service connection cannot be created, for example you [created a private cluster](/azure/aks/private-clusters) or the cluster has [local accounts disabled](/azure/aks/managed-aad#disable-local-accounts). In these cases, Azure DevOps can't connect to your cluster at service connection configuration time and you'll see a stuck **Loading namespaces** screen.
 
 :::image type="content" source="../media/loading-namespaces.png" alt-text="Screenshot of choosing a Kubernetes service connection authentication dialog stuck at loading namespaces.":::
 
-Starting with Kubernetes 1.24, long-lived tokens are [no longer created by default](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#urgent-upgrade-notes). Kubernetes recommends not to use long-lived tokens. As a result, tasks using a Kubernetes service connection created using the Azure Subscription option do not have access to the permanent token required to authenticate and can’t access your Kubernetes cluster. This also results in the **Loading namespaces** dialog to be frozen.
+Starting with Kubernetes 1.24, long-lived tokens are [no longer created by default](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#urgent-upgrade-notes). Kubernetes recommends not using long-lived tokens. As a result, tasks using a Kubernetes service connection created with the **Azure Subscription** option don't have access to the permanent token required to authenticate and can’t access your Kubernetes cluster. This also results in the frozen **Loading namespaces** dialog.
 
 #### Use the Azure Resource Manager Service Connection to access AKS
 

@@ -1,7 +1,7 @@
 ---
 title: Chef@1 - Chef v1 task
 description: Deploy to Chef environments by editing environment attributes.
-ms.date: 11/29/2023
+ms.date: 11/30/2023
 monikerRange: "<=azure-pipelines"
 ---
 
