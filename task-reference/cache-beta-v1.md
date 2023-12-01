@@ -12,6 +12,9 @@ monikerRange: ">=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
 Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
+
+> [!NOTE]
+> There is a newer version of this task. Use [Cache@2](./cache-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

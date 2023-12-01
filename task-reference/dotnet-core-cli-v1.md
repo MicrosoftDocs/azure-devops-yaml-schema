@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Build, test and publish using dotnet core command-line.
+
+For a newer version of this task, see [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

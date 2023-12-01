@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a program from the command prompt.
+
+> [!NOTE]
+> There is a newer version of this task. Use [CmdLine@2](./cmd-line-v2.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

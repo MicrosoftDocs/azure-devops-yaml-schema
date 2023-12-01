@@ -474,6 +474,20 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+:::moniker range=">=azure-pipelines-2022"
+
+> [!NOTE]
+> There is a newer version of this task available at [Gradle@3](./gradle-v3.md).
+
+:::moniker-end
+
+:::moniker range="<azure-pipelines-2022"
+
+> [!NOTE]
+> There is a newer version of this task available at [Gradle@2](./gradle-v2.md).
+
+:::moniker-end
+
 Configuration of the SonarQube analysis was moved to the [SonarQube](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarqube) or [SonarCloud](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud) extensions in the task `Prepare Analysis Configuration`.
 
 Use this task to build using a Gradle wrapper script.

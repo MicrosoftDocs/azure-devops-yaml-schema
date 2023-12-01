@@ -290,6 +290,13 @@ None.
 
 Use this task to upload files to a remote machine using FTP or securely with FTPS.
 
+:::moniker range=">=azure-pipelines-2019.1"
+
+> [!NOTE]
+> There is a newer version of this task available at [FtpUpload@2](./ftp-upload-v2.md).
+
+:::moniker-end
+
 ### Where can I learn more about file matching patterns?
 
 * [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns)

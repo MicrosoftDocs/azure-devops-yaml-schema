@@ -164,6 +164,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+:::moniker range=">=azure-pipelines-2019.1"
+
+## Remarks
+
+There is a newer version of this task available at [HelmInstaller@1](./helm-installer-v1.md).
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

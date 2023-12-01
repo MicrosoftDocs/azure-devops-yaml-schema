@@ -346,6 +346,13 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+:::moniker range=">=azure-pipelines-2020"
+
+## Remarks
+
+There is a newer version of this task available at [GitHubRelease@1](./github-release-v1.md).
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

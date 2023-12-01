@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task deploys and configures the Test Agent to run tests on a set of machines.
+
+> [!IMPORTANT]
+> This task is deprecated. Use the [Visual Studio Test task](./vstest-v2.md) to run unit and functional tests.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
