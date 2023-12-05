@@ -550,7 +550,7 @@ The Publish Test Results task provides support for attachments for both test run
 
 :::moniker range="<= azure-pipelines-2022.1"
 
-JUnit attachment support is not available in Azure DevOps Server 2022.1 and lower.
+JUnit attachment support was added in [Azure DevOps sprint 229](/azure/devops/release-notes/2023/sprint-229-update#publish-test-results-task), and is not available in Azure DevOps Server 2022.1 and lower.
 
 :::moniker-end
 
