@@ -337,6 +337,7 @@ Other built-in tasks, such as [Visual Studio Test task](vstest-v2.md) and [Dot N
 
 The published test results are displayed in the [Tests tab](/azure/devops/pipelines/test/review-continuous-test-results-after-build) in the pipeline summary. The results help you to measure pipeline quality, review traceability, troubleshoot failures, and drive failure ownership.
 
+
 The following example shows the task is configured to publish test results.
 
 ![Open the test history page](media/publish-test-results.png)
@@ -512,6 +513,10 @@ This table lists the fields reported in the [Tests tab](/azure/devops/pipelines/
 > **Duration** is used only when **Date started** and **Date completed** are not available.
 >
 > The fully qualified name format for **testName** is **Namespace.Testclass.Methodname** with a character limit of 512. If the test is data driven and has parameters, the character limit will include the parameters.
+
+> **While publishing the test result, you may get this error: Failed to publish test results: Invalid Priority specified**
+This error occur if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
+
 
 ### Attachments support
 
