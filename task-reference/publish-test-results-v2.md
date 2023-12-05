@@ -513,10 +513,10 @@ This table lists the fields reported in the [Tests tab](/azure/devops/pipelines/
 > **Duration** is used only when **Date started** and **Date completed** are not available.
 >
 > The fully qualified name format for **testName** is **Namespace.Testclass.Methodname** with a character limit of 512. If the test is data driven and has parameters, the character limit will include the parameters.
-
-### While publishing the test result, you may get this error: Failed to publish test results: Invalid Priority specified
-
-This error occur if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
+>
+> **While publishing the test result, you may get this error: Failed to publish test results: Invalid Priority specified**
+>
+> This error occurs if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
 
 
 ### Attachments support
