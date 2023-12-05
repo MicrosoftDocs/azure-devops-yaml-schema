@@ -14,7 +14,7 @@ monikerRange: "<=azure-pipelines"
 Installs or restores missing NuGet packages.
 
 > [!IMPORTANT]
-> This task is deprecated. Builds that use it will break on 11-27-2023. Please switch to using [NuGetCommand@2](./nuget-command-v2.md)'s `restore` option as soon as possible.
+> This task is deprecated. Builds that use it will break on 11-27-2023. Please switch to using [NuGetCommand@2](./nuget-command-v2.md)'s `restore` option as soon as possible. For more information, see [Migrate from NuGetInstaller@0 or NuGetRestore@1](./nuget-command-v2.md#migrate-from-nugetinstaller0-or-nugetrestore1).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
