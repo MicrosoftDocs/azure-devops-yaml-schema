@@ -641,7 +641,7 @@ If you were using `NuGetInstaller@0` with `restoreMode: install`, configure the 
 | NuGetCommand@2 task input | Value |
 |---------------------------|-------|
 | `command`                 | `custom` |
-| `arguments`         | What the full install command would look like in the NuGet CLI. For example, if you want to run the equivalent of `nuget install ninject -OutputDirectory c:\proj` in your pipeline, then the `arguments` parameter would be `install ninject -OutputDirectory c:\proj`.  If you were using NuGetInstaller@0's `nuGetRestoreArgs` parameter these also now go in `arguments`. |
+| `arguments`         | What the full install command would look like in the NuGet CLI. For example, if you want to run the equivalent of `nuget install ninject -OutputDirectory c:\proj` in your pipeline, then the `arguments` parameter would be `install ninject -OutputDirectory c:\proj`.  If you were using the `NuGetInstaller@0` `nuGetRestoreArgs` parameter these also now go in `arguments`. |
 
 If you were using `NuGetRestore@1`, configure the following inputs when using `NuGetCommand@2`.
 
@@ -651,6 +651,8 @@ If you were using `NuGetRestore@1`, configure the following inputs when using `N
 | `restoreSolution`         | Path the .sln file |
 
 Similar to using `NuGetRestore@1` or the `NuGetInstaller@0` `restore` option, `NuGetCommand@2` has inputs to set the feed, decide between `select` or `config`, specify the path to the `NuGet.config` file, and use packages from nuget.org.
+
+For more information, see the following [examples](#examples).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
