@@ -907,6 +907,11 @@ Yes, starting from version `17.3` VSTest does support running tests that target 
 Prior to that, this wasn't possible due to a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
 
 If you want to run tests that belong to multiple target frameworks, you'll need to install a compatible version of VSTest via **Visual Studio Test Platform Installer** and set `vsTestVersion` to `toolsInstaller` to use it.
+
+### While publishing the test result, getting this error: Failed to publish test results: Invalid Priority specified?
+
+This error occur if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
