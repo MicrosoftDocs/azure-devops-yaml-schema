@@ -629,18 +629,12 @@ For **byBuildNumber**, the version will be set using the pipeline run's build nu
 
 `NuGetInstaller@0` and `NuGetRestore@1` are deprecated, and you should replace them in your pipeline with `NuGetCommand@2`.
 
-Similar to using `NuGetRestore@1` or the `NuGetInstaller@0` `restore` option, `NuGetCommand@2` has inputs to set the feed, decide between `select` or `config`, specify the path to the `NuGet.config` file, and use packages from nuget.org.
-
-### NuGetInstaller@0 restoreMode: restore
-
 If you were using `NuGetInstaller@0` with `restoreMode: restore`, configure the following inputs when using `NuGetCommand@2`.
 
 | NuGetCommand@2 task input | Value |
 |---------------------------|-------|
 | `command`                 | `restore` |
 | `restoreSolution`         | Path the .sln file |
-
-### NuGetInstaller@0 restoreMode: install
 
 If you were using `NuGetInstaller@0` with `restoreMode: install`, configure the following inputs when using `NuGetCommand@2`.
 
@@ -649,14 +643,14 @@ If you were using `NuGetInstaller@0` with `restoreMode: install`, configure the 
 | `command`                 | `custom` |
 | `arguments`         | What the full install command would look like in the NuGet CLI. For example, if you want to run the equivalent of `nuget install ninject -OutputDirectory c:\proj` in your pipeline, then the `arguments` parameter would be `install ninject -OutputDirectory c:\proj`.  If you were using NuGetInstaller@0's `nuGetRestoreArgs` parameter these also now go in `arguments`. |
 
-### NuGetRestore@1
-
 If you were using `NuGetRestore@1`, configure the following inputs when using `NuGetCommand@2`.
 
 | NuGetCommand@2 task input | Value |
 |---------------------------|-------|
 | `command`                 | `restore` |
 | `restoreSolution`         | Path the .sln file |
+
+Similar to using `NuGetRestore@1` or the `NuGetInstaller@0` `restore` option, `NuGetCommand@2` has inputs to set the feed, decide between `select` or `config`, specify the path to the `NuGet.config` file, and use packages from nuget.org.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
