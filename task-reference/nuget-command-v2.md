@@ -624,6 +624,39 @@ For **byPrereleaseNumber**, the version will be set to the values you choose for
 For **byEnvVar**, the version will be set to the value of the environment variable that has the name specified by the **versionEnvVar** parameter, e.g. `MyVersion` (no **$**, just the environment variable name). Make sure the environment variable is set to a proper SemVer, such as `1.2.3` or `1.2.3-beta1`.
 
 For **byBuildNumber**, the version will be set using the pipeline run's build number. This is the value specified for the pipeline's `name` property, which gets saved to the `BUILD_BUILDNUMBER` environment variable). Ensure that the build number being used contains a proper SemVer, such as `1.0.$(Rev:r)`. When using **byBuildNumber**, the task will extract the dotted version, `1.2.3.4`, from the build number string, and use only that portion.  The rest of the string will be dropped. If you want to use the build number as is, you can use **byEnvVar** as described above, and set **versionEnvVar** to `BUILD_BUILDNUMBER`.
+
+### Migrate from NuGetInstaller@0 or NuGetRestore@1
+
+`NuGetInstaller@0` and `NuGetRestore@1` are deprecated, and you should replace them in your pipeline with `NuGetCommand@2`.
+
+Similar to using `NuGetRestore@1` or the `NuGetInstaller@0` `restore` option, `NuGetCommand@2` has inputs to set the feed, decide between `select` or `config`, specify the path to the `NuGet.config` file, and use packages from nuget.org.
+
+### NuGetInstaller@0 restoreMode: restore
+
+If you were using `NuGetInstaller@0` with `restoreMode: restore`, configure the following inputs when using `NuGetCommand@2`.
+
+| NuGetCommand@2 task input | Value |
+|---------------------------|-------|
+| `command`                 | `restore` |
+| `restoreSolution`         | Path the .sln file |
+
+### NuGetInstaller@0 restoreMode: install
+
+If you were using `NuGetInstaller@0` with `restoreMode: install`, configure the following inputs when using `NuGetCommand@2`.
+
+| NuGetCommand@2 task input | Value |
+|---------------------------|-------|
+| `command`                 | `custom` |
+| `arguments`         | What the full install command would look like in the NuGet CLI. For example, if you want to run the equivalent of `nuget install ninject -OutputDirectory c:\proj` in your pipeline, then the `arguments` parameter would be `install ninject -OutputDirectory c:\proj`.  If you were using NuGetInstaller@0's `nuGetRestoreArgs` parameter these also now go in `arguments`. |
+
+### NuGetRestore@1
+
+If you were using `NuGetRestore@1`, configure the following inputs when using `NuGetCommand@2`.
+
+| NuGetCommand@2 task input | Value |
+|---------------------------|-------|
+| `command`                 | `restore` |
+| `restoreSolution`         | Path the .sln file |
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -677,6 +710,7 @@ Restore all your solutions with packages from a selected feed.
     feedsToUse: 'config'
     nugetConfigPath: 'nuget.config'
 ```
+
 ### Package
 
 Create a NuGet package in the destination folder.
@@ -739,6 +773,7 @@ Create a NuGet package in the destination folder.
         feedsToUse: 'config'
         includeNugetOrg: 'true'
     ```
+
 ### Custom
 
 Run any other NuGet command besides the default ones: pack, push, and restore.
