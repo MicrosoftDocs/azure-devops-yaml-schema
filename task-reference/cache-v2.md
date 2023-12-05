@@ -71,7 +71,7 @@ The path of the folder to cache. Can be fully qualified or relative to `$(System
 **`cacheHitVar`** - **Cache hit variable**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The variable to set based on cache restoration. It will be `true` when the cache is restored (i.e. a cache hit), `'inexact'` on a restore key cache hit (based on `restoreKeys`) or `false` if there is a cache miss.
+The variable to set based on cache restoration. It will be `true` when the cache is restored (i.e. a cache hit), `inexact` on a restore key cache hit (based on `restoreKeys`) or `false` if there is a cache miss.
 <!-- :::editable-content-end::: -->
 <br>
 
