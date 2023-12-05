@@ -544,6 +544,24 @@ The Publish Test Results task provides support for attachments for both test run
 | **Test run** | /test-suite/attachments/attachment/**filePath** |
 | **Test run** | /test-suite[@type='Assembly']/test-case/attachments/attachment/**filePath** |
 
+#### [JUnit](#tab/junitattachments)
+
+#### JUnit
+
+:::moniker range="<= azure-pipelines-2022.1"
+
+JUnit attachment support was added in [Azure DevOps sprint 229](/azure/devops/release-notes/2023/sprint-229-update#publish-test-results-task), and is not available in Azure DevOps Server 2022.1 and lower.
+
+:::moniker-end
+
+:::moniker range="> azure-pipelines-2022.1"
+
+| Scope | Path |
+| ----- | ---- |
+| **Test Result** | /testsuites/testsuite/testcase/system-out/ -> Contents matching pattern **[[ATTACHMENT\|filePath]]**  |
+
+:::moniker-end
+
 * * *
 
 > [!NOTE]
