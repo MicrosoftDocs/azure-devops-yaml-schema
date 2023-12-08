@@ -76,7 +76,7 @@ Specifies the command mode of the task.
 **`isCustomVersion`** - **Custom Version**<br>
 `boolean`. Optional. Use when `command = install`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, you can provide a custom version for the task.
+Specify `true` to provide a custom version of Notation for the task by specifying a download URL to the custom version in the `url` property.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +100,7 @@ The version of Notation to install. Example: 1.0.0, 1, 1.0, 1.0.0.
 **`url`** - **Download URL**<br>
 `string`. Required when `command = install && isCustomVersion = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-example: https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz.
+The URL to a custom version of Notation to use, for example: `https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz`.
 <!-- :::editable-content-end::: -->
 <br>
 
