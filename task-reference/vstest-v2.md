@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
-ms.date: 11/30/2023
+ms.date: 12/08/2023
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -911,7 +911,6 @@ If you want to run tests that belong to multiple target frameworks, you'll need 
 ### While publishing the test result, getting this error: Failed to publish test results: Invalid Priority specified?
 
 This error occur if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
