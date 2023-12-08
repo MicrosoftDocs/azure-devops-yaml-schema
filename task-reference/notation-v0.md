@@ -60,7 +60,11 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
 **`command`** - **Command to run**<br>
 `string`. Required. Allowed values: `install`, `sign`, `verify`. Default value: `install`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-example: install.
+Specifies the command mode of the task.
+
+* **install** - The `install` command detects the current operating system and architecture to download the corresponding Notation CLI from GitHub releases. It also verifies the checksum of the downloaded file against the golden file in the `./data` folder and adds Notation to the PATH.
+* **sign** - The `sign` command downloads the selected Notation plugin, validates its checksum, and then calls on the Notation CLI to sign.
+* **verify** - The `verify` command transfers the trust store and trust policy from the user's code repository to the Notation configuration folder, as required by Notation CLI. It then invokes the Notation CLI to perform verification.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +124,7 @@ The SHA-256 checksum of the downloaded file.
 **`artifactRefs`** - **Artifact references**<br>
 `string`. Optional. Use when `command = verify || command = sign`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Container artifact references for signing. If it was not specified, use the artifact reference from previous Docker push task. Example: <registry name>/<repository name>@<digest> If multiple, separate by comma.
+Container artifact references for signing. If not specified, the task uses the artifact reference from the previous Docker push task. Example: `<registry name>/<repository name>@<digest>`. Multiple artifact references must be comma separated.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +136,7 @@ Container artifact references for signing. If it was not specified, use the arti
 **`signatureFormat`** - **Signature Format**<br>
 `string`. Optional. Use when `command = sign && command = sign || command = verify`. Allowed values: `cose`, `jws`. Default value: `cose`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Signature envelope format, options: "jws", "cose" (default "jws").
+Signature envelope format.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -167,7 +171,7 @@ Use the Referrers API to sign signatures, if not supported (returns 404), fallba
 **`akvPluginVersion`** - **Plugin Version**<br>
 `string`. Required when `plugin = azureKeyVault && command = sign`. Default value: `1.0.1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The version of the Azure Key Vault plugin to be installed. please visit the [release page](https://github.com/Azure/notation-azure-kv/releases) for the available versions.
+The version of the Azure Key Vault plugin to be installed. See the [notation-azure-kv releases page](https://github.com/Azure/notation-azure-kv/releases) for the available versions.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -203,7 +207,7 @@ The Key ID is the key or certificate identifier for Azure Key Vault.
 **`caCertBundle`** - **Certificate Bundle File Path**<br>
 `string`. Optional. Use when `plugin = azureKeyVault && command = sign`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-A file with root and all intermediate certificates, starting from the root certificate, following the order in the certificate chain.
+The certificate bundle file with root and all intermediate certificates, starting from the root certificate, following the order in the certificate chain.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -215,6 +219,7 @@ A file with root and all intermediate certificates, starting from the root certi
 **`selfSigned`** - **Self-signed Certificate**<br>
 `boolean`. Optional. Use when `plugin = azureKeyVault && command = sign`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Whether the certificate is a self-signed certificate.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +231,7 @@ A file with root and all intermediate certificates, starting from the root certi
 **`trustPolicy`** - **Trust Policy File Path**<br>
 `string`. Required when `command = verify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the [trust policy](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/trust-store-trust-policy.md#trust-policy) file relative to the repository. Example: ./path/to/trust-policy.json.
+The path to the [trust policy](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/trust-store-trust-policy.md#trust-policy) file relative to the repository. Example: `./path/to/trust-policy.json`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -238,7 +243,7 @@ The path to the [trust policy](https://github.com/notaryproject/specifications/b
 **`trustStore`** - **Trust Store Folder Path**<br>
 `string`. Required when `command = verify`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the directory containing the [trust store](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/trust-store-trust-policy.md#trust-store) relative to the repository. Example: ./path/to/truststore/.
+The path to the directory containing the [trust store](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/trust-store-trust-policy.md#trust-store) relative to the repository. Example: `./path/to/truststore/`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,6 +267,28 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+The Notation task calls upon the Notation CLI to execute signing and verification operations. Notation CLI is a tool used to sign and verify Docker container artifacts or images. When signing an artifact, Notation signs the artifact's unique manifest descriptor and attaches the signature to the same repository. When verifying an artifact, Notation retrieves the signature from the repository and validates it against the certificate in the trust store.
+
+### Prerequisites
+
+* This task requires public network access for downloading Notation CLI and Notation Azure Key Vault plugin from Github releases.
+* Supported Agent OS: Linux x64/ARM64, Windows x64, macOS x64/ARM64
+
+### Notation install command
+
+The `install` command detects the current operating system and architecture to download the corresponding Notation CLI from GitHub releases. It also verifies the checksum of the downloaded file against the golden file in the `./data` folder and adds Notation to the PATH.
+
+### Notation sign command
+
+The `sign` command downloads the selected Notation plugin, validates its checksum, and then calls on the Notation CLI to sign.
+
+### Notation verfy command
+
+The `verify` command transfers the trust store and trust policy from the user's code repository to the Notation configuration folder, as required by Notation CLI. It then invokes the Notation CLI to perform verification.
+
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
