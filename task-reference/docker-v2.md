@@ -206,7 +206,7 @@ Specifies the path to the build context. Pass `**` to indicate the directory tha
 **`tags`** - **Tags**<br>
 `string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a list of tags on separate lines. These tags are used in `build`, `push` and `buildAndPush` commands.
+Specifies a list of comma-separated tags. These tags are used in `build`, `push` and `buildAndPush` commands.
 <!-- :::editable-content-end::: -->
 <br>
 
