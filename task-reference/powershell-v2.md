@@ -478,7 +478,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'filePath'
-    filePath: `test.ps1'
+    filePath: 'test.ps1'
 ```
 
 ### Write a warning
