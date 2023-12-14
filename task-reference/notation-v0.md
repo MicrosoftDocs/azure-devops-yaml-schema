@@ -284,7 +284,7 @@ The `install` command detects the current operating system and architecture to d
 
 The `sign` command downloads the selected Notation plugin, validates its checksum, and then calls on the Notation CLI to sign.
 
-### Notation verfy command
+### Notation verify command
 
 The `verify` command transfers the trust store and trust policy from the user's code repository to the Notation configuration folder, as required by Notation CLI. It then invokes the Notation CLI to perform verification.
 <!-- :::editable-content-end::: -->
