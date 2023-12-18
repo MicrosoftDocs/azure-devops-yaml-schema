@@ -61,13 +61,13 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 For more information about using triggers with a specific repository type, see [Supported source repositories](/azure/devops/pipelines/repos).
 
-:::moniker range="<= azure-pipelines-2022"
+:::moniker range="<= azure-pipelines-2022.1"
 
 If you specify no push trigger, pushes to any branch trigger a build.
 
 :::moniker-end
 
-:::moniker range="> azure-pipelines-2022"
+:::moniker range="> azure-pipelines-2022.1"
 
 YAML pipelines are configured by default with a CI trigger on all branches, unless the [Disable implied YAML CI trigger](/azure/devops/release-notes/2023/sprint-227-update#prevent-unintended-pipeline-runs) setting is enabled. The **Disable implied YAML CI trigger** setting can be configured at the organization level or at the project level. When the **Disable implied YAML CI trigger** setting is enabled, CI triggers for YAML pipelines are not enabled if the YAML pipeline doesn't have a `trigger` section. The default value for **Disable implied YAML CI trigger** is `false`.
 
