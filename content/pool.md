@@ -296,7 +296,7 @@ Self-hosted agents have the following system capabilities with similar names to 
 * Agent.HomeDirectory
 * Agent.OS
 * Agent.OSArchitecture
-* Agent.OSVerion (Windows agents only)
+* Agent.OSVersion (Windows agents only)
 
 For more information, see [Specify demands](/azure/devops/pipelines/process/demands).
 <!-- :::editable-content-end::: -->
