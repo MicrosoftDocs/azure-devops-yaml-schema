@@ -268,7 +268,7 @@ The file path to the package or folder that contains App Service content generat
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `DOTNET|6.0` (DOTNET|6.0 (functionapp v4)), `JAVA|8` (JAVA|8 (functionapp v2/v3/v4)), `JAVA|11` (JAVA|11  (functionapp v3/v4)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3/v4)), `NODE|16` (NODE|16 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3/v4)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3/v4)), `PYTHON|3.9` (PYTHON|3.9 (functionapp v3/v4)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the dropdown menu.
+Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -279,7 +279,7 @@ Learn about [supported runtime versions](/azure/azure-functions/functions-versio
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values, like `DOCKER|microsoft/azure-functions-*`, are deprecated. New values are listed in the dropdown menu.
+Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -290,7 +290,7 @@ Learn about [supported runtime versions](/azure/azure-functions/functions-versio
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Learn about [supported runtime versions](/azure/azure-functions/functions-versions#languages).  Old values, like `DOCKER|microsoft/azure-functions-*`, are deprecated. New values are listed in the dropdown menu.
+Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
 <!-- :::editable-content-end::: -->
 <br>
 
