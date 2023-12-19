@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 11/17/2023
+ms.date: 12/18/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -61,7 +61,17 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 For more information about using triggers with a specific repository type, see [Supported source repositories](/azure/devops/pipelines/repos).
 
+:::moniker range="<= azure-pipelines-2022.1"
+
 If you specify no push trigger, pushes to any branch trigger a build.
+
+:::moniker-end
+
+:::moniker range="> azure-pipelines-2022.1"
+
+YAML pipelines are configured by default with a CI trigger on all branches, unless the [Disable implied YAML CI trigger](/azure/devops/release-notes/2023/sprint-227-update#prevent-unintended-pipeline-runs) setting is enabled. The **Disable implied YAML CI trigger** setting can be configured at the organization level or at the project level. When the **Disable implied YAML CI trigger** setting is enabled, CI triggers for YAML pipelines are not enabled if the YAML pipeline doesn't have a `trigger` section. The default value for **Disable implied YAML CI trigger** is `false`.
+
+:::moniker-end
 
 There are three distinct syntax options for the `trigger` keyword: a list of branches to include, a way to disable CI triggers, and the full syntax for complete control.
 
