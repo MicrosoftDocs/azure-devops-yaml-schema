@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 11/30/2023
+ms.date: 12/21/2023
 monikerRange: "=azure-pipelines"
 ---
 
@@ -38,6 +38,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
     #codeqlpathstoinclude: # string. Set a list of additional paths to include in the CodeQL analysis. 
     #sourcesfolder: # string. Sets the folder that contains the sources to be analyzed. 
     #loglevel: '_' # '0' | '1' | '2' | '_'. Set the log level for the CodeQL analysis. Default: _.
+    #configfilepath: # string. Use this to enable custom query analysis in codeql (path must be absolute).
 ```
 
 :::moniker-end
@@ -145,6 +146,18 @@ If you don't provide this value, the default sources folder for the pipeline inf
 Specify the level of logging.
 
 You can specify `loglevel` here in the task, or you can specify it in a pipeline variable named `advancedsecurity.codeql.loglevel`. If both are set, the value specified in the task takes precedence, unless the default value `_` for `loglevel` in the task is specified. If `_` is specified, the value from `advancedsecurity.codeql.loglevel` is used if available.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="configfilepath"::: -->
+:::moniker range="=azure-pipelines"
+
+**`configfilepath`** - **Use this to enable custom query analysis in codeql (path must be absolute).**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If path is not provided, then codeql analysis will proceed with default queries.
 <!-- :::editable-content-end::: -->
 <br>
 
