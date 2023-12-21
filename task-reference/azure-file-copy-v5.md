@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@5 - Azure file copy v5 task
 description: Copy files to Azure Blob Storage or virtual machines.
-ms.date: 11/30/2023
+ms.date: 12/21/2023
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -364,6 +364,8 @@ When the target is Azure VMs, the files are first copied to an automatically gen
 
 The task uses **AzCopy**, the command-line utility built for fast copying data from and to Azure storage accounts. Version 5 of the Azure File Copy task uses [AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).
 
+Azure File Copy version 3 and lower would retrieve the Azure Storage key to provide access. Azure File Copy version 4 and higher [require Azure Storage to be authorized via Microsoft Entra ID or SAS token](/azure/storage/common/storage-use-azcopy-v10#authorize-azcopy). Authentication using a service principal and managed identity are available. For managed identities, only system-wide managed identity is supported. The level of authorization required is shown in [Option 1: Use Microsoft Entra ID](/azure/storage/common/storage-use-azcopy-v10#option-1-use-azure-active-directory).
+
 To dynamically deploy Azure Resource Groups that contain virtual machines, use the
 [Azure Resource Group Deployment](azure-resource-group-deployment-v2.md) task. This task
 has a sample template that can perform the required operations to set up the WinRM HTTPS
@@ -373,11 +375,6 @@ protocol on the VMs, open port 5986 in the firewall, and install the test certif
 > If you are deploying to Azure Static Websites as a container in Blob storage,
   use **Version 2** or higher of the task in order to preserve the **$web**
   container name.
-
-The task supports authentication based on Azure Active Directory. Authentication using a service principal and managed identity are available. For managed identities, only system-wide managed identity is supported.
-  
-> [!NOTE]
-> For authorization, provide access to the Security Principal. The level of authorization required is shown in [Option 1: Use Active Directory](/azure/storage/common/storage-use-azcopy-v10#option-1-use-azure-active-directory).
 
 ### What are the Azure PowerShell prerequisites for using this task?
 
