@@ -223,7 +223,7 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 **`csmParametersFile`** - **Template parameters**<br>
 `string`. Optional. Use when `templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template. Supports Bicep files when the Azure CLI version > 2.20.0.
+Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template. Supports Bicep Param files when the Azure CLI version > 2.47.0.
 <!-- :::editable-content-end::: -->
 <br>
 
