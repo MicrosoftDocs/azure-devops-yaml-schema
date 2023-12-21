@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.canary definition
 description: Canary Deployment strategy.
-ms.date: 11/17/2023
+ms.date: 12/21/2023
 monikerRange: ">=azure-pipelines-2020"
 ---
 
