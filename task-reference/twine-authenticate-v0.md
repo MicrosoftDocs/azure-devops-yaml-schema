@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@0 - Python twine upload authenticate v0 task
 description: Authenticate for uploading Python distributions using twine (task version 0).
-ms.date: 11/30/2023
+ms.date: 12/21/2023
 monikerRange: ">=azure-pipelines-2019"
 ---
 

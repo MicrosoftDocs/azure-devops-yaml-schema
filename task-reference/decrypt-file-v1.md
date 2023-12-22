@@ -1,7 +1,7 @@
 ---
 title: DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 description: Decrypt a file using OpenSSL.
-ms.date: 11/30/2023
+ms.date: 12/21/2023
 monikerRange: "<=azure-pipelines"
 ---
 
