@@ -158,7 +158,7 @@ Project scoped feed
 ```XML
  <repository>
    <id>MyFeedInOrg1</id>
-   <url>https://pkgs.dev.azure.com/OrganzationName/ProjectName/_packaging/MyProjectScopedFeed1/Maven/v1</url>
+   <url>https://pkgs.dev.azure.com/OrganizationName/ProjectName/_packaging/MyProjectScopedFeed1/Maven/v1</url>
    <releases>
      <enabled>true</enabled>
    </releases>
@@ -172,7 +172,7 @@ Organization scoped feed
 ```XML
  <repository>
    <id>MyFeedInOrg1</id>
-   <url>https://pkgs.dev.azure.com/OrganzationName/_packaging/MyOrgScopedFeed1/Maven/v1</url>
+   <url>https://pkgs.dev.azure.com/OrganizationName/_packaging/MyOrgScopedFeed1/Maven/v1</url>
    <releases>
      <enabled>true</enabled>
    </releases>
