@@ -92,7 +92,7 @@ Specifies the directory of the Python package that is created and published wher
 **`alsoPublishWheel`** - **Also publish a wheel**<br>
 Input alias: `wheel`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to create and publish a universal wheel package (platform independent) in addition to an sdist package. More information about [packaging Python projects](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+Specifies whether to create and publish a universal wheel package (platform independent) in addition to an sdist package. More information about [packaging Python projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -135,7 +135,7 @@ Specifies the Python package directory published where `setup.py` is present.
 **`wheel`** - **Upload wheel**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, the task will build and publish a universal wheel (platform independent) of this package. More information regarding [universal wheels](https://packaging.python.org/tutorials/distributing-packages/#wheels).
+If set to `true`, the task will build and publish a universal wheel (platform independent) of this package. More information regarding [universal wheels](https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#wheels).
 <!-- :::editable-content-end::: -->
 <br>
 

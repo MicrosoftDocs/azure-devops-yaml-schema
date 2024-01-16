@@ -320,7 +320,23 @@ Creates the same deployment package as Zip Deploy. However, instead of deploying
 
 [!INCLUDE [rm-webapp-functionapp-troubleshoot-shared.md](includes/rm-webapp-functionapp-troubleshoot-shared.md)]
 
-### Web app deployment on Windows is successful but the app is not working
+### FAQs
+
+#### What's the difference between the `AzureWebApp` and `AzureRmWebAppDeployment` tasks?
+
+The [Azure Web App task](./azure-web-app-v1.md) (`AzureWebApp`) is the simplest way to deploy to an Azure Web App. By default, your deployment happens to the root application in the Azure Web App.
+
+The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](./azure-rm-web-app-deployment-v4.md) can handle more custom scenarios, such as:
+
+- [Modify configuration settings](/azure/app-service/deploy-azure-pipelines#example-make-variable-substitutions) inside web packages and XML parameters files.
+- [Deploy with Web Deploy](/azure/app-service/deploy-azure-pipelines#example-deploy-using-web-deploy), if you're used to the IIS deployment process.
+- [Deploy to virtual applications](/azure/app-service/deploy-azure-pipelines#example-deploy-to-a-virtual-application).
+- Deploy to other app types, like Container apps, Function apps, WebJobs, or API and Mobile apps.
+
+> [!NOTE]  
+> File transforms and variable substitution are also supported by the separate [File Transform task](./file-transform-v2.md) for use in Azure Pipelines. You can use the File Transform task to apply file transformations and variable substitutions on any configuration and parameters files.
+
+#### Web app deployment on Windows is successful but the app is not working
 
 This may be because web.config is not present in your app. You can either add a web.config file to your source or auto-generate one using **Application and Configuration Settings**.
 
@@ -336,7 +352,7 @@ This may be because web.config is not present in your app. You can either add a 
 * Select your application type from the drop down.
 * Click OK. This will populate the web.config parameters required to generate web.config.
 
-### Web app deployment on App Service Environment (ASE) is not working
+#### Web app deployment on App Service Environment (ASE) is not working
 
 * Ensure that the Azure DevOps build agent is on the same VNET (subnet can be different) as the Internal Load Balancer (ILB) of  ASE. This will enable the agent to pull code from Azure DevOps and deploy to ASE.
 * If you are using Azure DevOps, the agent doesn't need to be accessible from the internet but needs only outbound access to connect to Azure DevOps Service.
