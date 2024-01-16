@@ -1257,6 +1257,20 @@ If you are using web deploy to deploy your app, in some error scenarios Web Depl
 
 ### FAQs
 
+#### What's the difference between the `AzureWebApp` and `AzureRmWebAppDeployment` tasks?
+
+The [Azure Web App task](./azure-web-app-v1.md) (`AzureWebApp`) is the simplest way to deploy to an Azure Web App. By default, your deployment happens to the root application in the Azure Web App.
+
+The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](./azure-rm-web-app-deployment-v4.md) can handle more custom scenarios, such as:
+
+- [Modify configuration settings](/azure/app-service/deploy-azure-pipelines#example-make-variable-substitutions) inside web packages and XML parameters files.
+- [Deploy with Web Deploy](/azure/app-service/deploy-azure-pipelines#example-deploy-using-web-deploy), if you're used to the IIS deployment process.
+- [Deploy to virtual applications](/azure/app-service/deploy-azure-pipelines#example-deploy-to-a-virtual-application).
+- Deploy to other app types, like Container apps, Function apps, WebJobs, or API and Mobile apps.
+
+> [!NOTE]  
+> File transforms and variable substitution are also supported by the separate [File Transform task](./file-transform-v2.md) for use in Azure Pipelines. You can use the File Transform task to apply file transformations and variable substitutions on any configuration and parameters files.
+
 [!INCLUDE [rm-app-service-FAQs-shared](./includes/rm-app-service-faqs-shared.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
