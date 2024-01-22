@@ -217,7 +217,7 @@ Optional. When this boolean's value is `true`, the task will fail if any of the 
 **`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When `true`, fails the test run if there is failure in publishing test results.
+When `true`, fails the task if there is failure in publishing test results.
 <!-- :::editable-content-end::: -->
 <br>
 
