@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 description: Scan for open source dependency vulnerabilities in your source code.
-ms.date: 12/21/2023
+ms.date: 01/22/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -26,7 +26,9 @@ Scan your application for any vulnerabilities in open source components used in 
 # Advanced Security Dependency Scanning v1
 # Scan for open source dependency vulnerabilities in your source code.
 - task: AdvancedSecurity-Dependency-Scanning@1
-  inputs: # none
+  inputs:
+  # Advanced
+    #directoryExclusionList: # string. Directory exclusion list.
 ```
 
 :::moniker-end
@@ -35,10 +37,15 @@ Scan your application for any vulnerabilities in open source components used in 
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="emptyCollectionValue"::: -->
+<!-- :::item name="directoryExclusionList"::: -->
 :::moniker range="=azure-pipelines"
 
-None.
+**`directoryExclusionList`** - **Directory exclusion list**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+List of relative directory paths to ignore as a set of semi-colon separated values. If no paths are listed, everything under the source directory will be scanned. Filtering supports glob pattern matching of directories.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->

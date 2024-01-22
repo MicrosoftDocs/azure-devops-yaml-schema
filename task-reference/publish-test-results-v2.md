@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 12/21/2023
+ms.date: 01/22/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -48,6 +48,7 @@ Publish Test Results to VSTS/TFS.
     #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
     #mergeTestResults: false # boolean. Merge test results. Default: false.
     #failTaskOnFailedTests: false # boolean. Fail if there are test failures. Default: false.
+    #failTaskOnFailureToPublishResults: false # boolean. Fail if there is failure in publishing test results. Default: false.
     #failTaskOnMissingResultsFile: false # boolean. Fail if no result files are found. Default: false.
     #testRunTitle: # string. Test run title. 
   # Advanced
@@ -205,6 +206,18 @@ When this boolean's value is `true`, the task reports test results from all the 
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. When this boolean's value is `true`, the task will fail if any of the tests in the results file are marked as failed. The default is `false`, which will simply publish the results from the results file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="failTaskOnFailureToPublishResults"::: -->
+:::moniker range="=azure-pipelines"
+
+**`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When `true`, fails the test run if there is failure in publishing test results.
 <!-- :::editable-content-end::: -->
 <br>
 
