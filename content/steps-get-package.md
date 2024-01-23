@@ -1,7 +1,7 @@
 ---
 title: steps.getPackage definition
 description: Downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
