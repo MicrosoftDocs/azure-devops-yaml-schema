@@ -236,7 +236,7 @@ steps:
     echo "id = $(id)"
     echo "type = $(type)"
     echo "url = $(url)"
-    echo "url = $(version)"
+    echo "version = $(version)"
 ```
 
 ::: moniker-end
