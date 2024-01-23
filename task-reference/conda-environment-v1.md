@@ -1,7 +1,7 @@
 ---
 title: CondaEnvironment@1 - Conda environment v1 task
 description: This task is deprecated. Use `conda` directly in script to work with Anaconda environments.
-ms.date: 12/21/2023
+ms.date: 01/22/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

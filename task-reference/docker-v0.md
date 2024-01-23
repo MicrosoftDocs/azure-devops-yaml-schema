@@ -1,7 +1,7 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 12/21/2023
+ms.date: 01/22/2024
 monikerRange: "<=azure-pipelines"
 ---
 

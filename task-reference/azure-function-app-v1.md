@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
-ms.date: 12/21/2023
+ms.date: 01/22/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 12/21/2023
+ms.date: 01/22/2024
 monikerRange: "<=azure-pipelines"
 ---
 
