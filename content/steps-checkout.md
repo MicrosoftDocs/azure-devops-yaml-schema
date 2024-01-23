@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

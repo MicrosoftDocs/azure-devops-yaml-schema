@@ -1,7 +1,7 @@
 ---
 title: includeExcludeStringFilters definition
 description: Items to include or exclude.
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 

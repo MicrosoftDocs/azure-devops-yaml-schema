@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: A pipeline is one or more stages that describe a CI/CD process.
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
