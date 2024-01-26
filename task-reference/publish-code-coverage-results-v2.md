@@ -96,6 +96,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+> [!NOTE]
+> See [New version of Publish Code Coverage Results task](https://devblogs.microsoft.com/devops/new-pccr-task/) on the [Azure DevOps blog](https://devblogs.microsoft.com/devops/) for information about the new features in V2 of the Publish Code Coverage Results task, and migrating from V1 to V2.
+
 Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS and after generating the coverage xml files in order to obtain code coverage tab and coverage reporting details in the pipeline. The task supports code coverage generated xml formats. This task generates a cjson file which contains the code coverage details. It will also produce a code coverage HTML report under the build artifacts.
 
 This task is only supported in build pipelines, not release pipelines.

@@ -163,6 +163,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+> [!NOTE]
+> See [New version of Publish Code Coverage Results task](https://devblogs.microsoft.com/devops/new-pccr-task/) on the [Azure DevOps blog](https://devblogs.microsoft.com/devops/) for information about the new features in V2 of the Publish Code Coverage Results task, and migrating from V1 to V2.
+
 Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS in order to obtain coverage reporting. The task supports popular coverage result formats such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/).
 
 This task is only supported in build pipelines, not release pipelines.
