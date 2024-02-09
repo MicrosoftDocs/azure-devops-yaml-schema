@@ -300,7 +300,7 @@ If this input is set to `true`, the `projects` property value is skipped, and th
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the `.csproj` or `.sln` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 
-This path is relative to the root of the repository regardless of the `workingDirectory` input setting.
+This path is relative to the root of the repository regardless of the `workingDirectory` setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -313,7 +313,7 @@ This path is relative to the root of the repository regardless of the `workingDi
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 
-This path is relative to the root of the repository regardless of the `workingDirectory` input setting.
+This path is relative to the root of the repository regardless of the `workingDirectory` setting.
 <!-- :::editable-content-end::: -->
 <br>
 
