@@ -298,7 +298,9 @@ If this input is set to `true`, the `projects` property value is skipped, and th
 **`projects`** - **Path to project(s) or solution(s)**<br>
 `string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
+The path to the `.csproj` or `.sln` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+This path is relative to the root of the repository regardless of the `workingDirectory` input setting.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -310,6 +312,8 @@ The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.cspr
 `string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the `.csproj` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+This path is relative to the root of the repository regardless of the `workingDirectory` input setting.
 <!-- :::editable-content-end::: -->
 <br>
 
