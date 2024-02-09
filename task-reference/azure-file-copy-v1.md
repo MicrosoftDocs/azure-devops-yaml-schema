@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@1 - Azure file copy v1 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 1).
-ms.date: 01/22/2024
+ms.date: 02/09/2024
 monikerRange: "<=azure-pipelines"
 ---
 
