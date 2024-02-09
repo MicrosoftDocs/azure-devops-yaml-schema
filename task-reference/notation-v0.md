@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 01/22/2024
+ms.date: 02/09/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
     command: 'install' # 'install' | 'sign' | 'verify'. Required. Command to run. Default: install.
   # Command Configuration
     #isCustomVersion: false # boolean. Optional. Use when command = install. Custom Version. Default: false.
-    #version: '1.0.1' # string. Required when command = install && isCustomVersion = false. Version. Default: 1.0.1.
+    #version: '1.1.0' # string. Required when command = install && isCustomVersion = false. Version. Default: 1.1.0.
     #url: # string. Required when command = install && isCustomVersion = true. Download URL. 
     #checksum: # string. Required when command = install && isCustomVersion = true. Checksum. 
     #artifactRefs: # string. Optional. Use when command = verify || command = sign. Artifact references. 
@@ -86,7 +86,7 @@ Specify `true` to provide a custom version of Notation for the task by specifyin
 :::moniker range="=azure-pipelines"
 
 **`version`** - **Version**<br>
-`string`. Required when `command = install && isCustomVersion = false`. Default value: `1.0.1`.<br>
+`string`. Required when `command = install && isCustomVersion = false`. Default value: `1.1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of Notation to install. Example: 1.0.0, 1, 1.0, 1.0.0.
 <!-- :::editable-content-end::: -->

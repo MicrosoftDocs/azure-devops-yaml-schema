@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 01/22/2024
+ms.date: 02/09/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -65,7 +65,7 @@ You can set the language here in the task, or you can specify the language in a 
 :::moniker range="=azure-pipelines"
 
 **`querysuite`** - **CodeQL Query Suite to use for analysis.**<br>
-`string`. Allowed values: `Select a query suite...`, `code-scanning`, `security-extended` (security-extended (default)), `security-experimental`, `security-and-quality`. Default value: `Select a query suite...`.<br>
+`string`. Allowed values: `Select a query suite...`, `code-scanning`, `security-extended`, `security-experimental`, `security-and-quality`. Default value: `Select a query suite...`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The query suite, i.e. ruleset, used for analysis. You can specify the value here in the task, or you can specify it in a pipeline variable named `advancedsecurity.codeql.querysuite`. If both are set, the value specified in the task takes precedence. The default value is `Select a query suite...` which indicates that the query suite must be specified in the `advancedsecurity.codeql.querysuite` variable.
 <!-- :::editable-content-end::: -->
