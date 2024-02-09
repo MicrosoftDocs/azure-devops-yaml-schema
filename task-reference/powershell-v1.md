@@ -1,7 +1,7 @@
 ---
 title: PowerShell@1 - PowerShell v1 task
 description: Run a PowerShell script.
-ms.date: 01/22/2024
+ms.date: 02/09/2024
 monikerRange: "<=azure-pipelines"
 ---
 

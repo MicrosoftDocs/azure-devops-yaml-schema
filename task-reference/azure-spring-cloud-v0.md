@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 01/22/2024
+ms.date: 02/09/2024
 monikerRange: ">=azure-pipelines-2022"
 ---
 
