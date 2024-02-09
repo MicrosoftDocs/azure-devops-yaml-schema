@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 01/22/2024
+ms.date: 02/09/2024
 monikerRange: "<=azure-pipelines"
 ---
 
