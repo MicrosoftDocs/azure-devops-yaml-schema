@@ -606,6 +606,59 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, and more) using the Visual Studio Test runner. Along with MSTest-based tests, test frameworks that have a Visual Studio test adapter can also be executed, such as xUnit, NUnit, or Chutzpah.
+
+Tests that the target .NET core framework can be executed by specifying the appropriate target framework value in the [.runsettings file](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file).
+
+Tests can be distributed on multiple agents using version 2 of this task. For more information, see [Run tests in parallel using the Visual Studio Test task](/azure/devops/pipelines/test/parallel-testing-vstest).
+
+### Check prerequisites
+
+If you're using a Windows self-hosted agent, this prerequisite must be installed:
+
+- [.NET Framework](/dotnet/framework/install/) 4.6.2 or a later version
+
+### Demands
+
+The agent must have the following capability:
+
+**vstest**
+
+The vstest demand can be satisfied in two ways:
+
+1. Visual Studio is installed on the agent machine.
+2. By using the [Visual Studio Test Platform Installer task](visual-studio-test-platform-installer-v1.md) in the pipeline definition.
+
+### How can I run tests that use TestCase as a data source?
+
+To run automated tests that use TestCase as a data source, the following is needed:
+
+1. You must have Visual Studio 2017.6 or higher on the agent machine. Visual Studio Test Platform Installer task cannot be used to run tests that use TestCase as a data source.
+1. Create a [PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) that is authorized for the scope “Work Items (full)”.
+1. Add a secure build or release variable called `Test.TestCaseAccessToken` with the value set to the PAT created in the previous step.
+
+### I am running into issues when running data-driven xUnit and NUnit tests with some of the task options. Are there known limitations?
+
+Data-driven tests that use xUnit and NUnit test frameworks have some known limitations and cannot be used with the following task options:
+
+1. Rerun failed tests.
+1. Distributing tests on multiple agents and batching options.
+1. Test Impact Analysis.
+
+The above limitations are because of how the adapters for these test frameworks discover and report data-driven tests.
+
+### Does the VSTest task support running tests that target multiple target frameworks at a time?
+
+Yes, starting from version `17.3` VSTest does support running tests that target multiple target frameworks at a time.
+Prior to that, this wasn't possible due to a limitation from the [VSTest platform](https://github.com/microsoft/vstest/issues/2310) side.
+
+If you want to run tests that belong to multiple target frameworks, you'll need to install a compatible version of VSTest via **Visual Studio Test Platform Installer** and set `vsTestVersion` to `toolsInstaller` to use it.
+
+### While publishing the test result, getting this error: Failed to publish test results: Invalid Priority specified?
+
+This error occur if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
