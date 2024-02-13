@@ -273,6 +273,17 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\bin\**\*test.dll\n**\bin\**\*tests.dll`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+```yml
+# Example
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -284,6 +295,17 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+```yml
+# Example
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+```
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -295,6 +317,17 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+```yml
+# Example
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+```
 <!-- :::editable-content-end::: -->
 <br>
 
