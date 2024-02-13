@@ -438,7 +438,7 @@ Specifies which test platform to use.
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses the latest version (from the list of allowed values) that is installed. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -449,7 +449,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses the latest version (from the list of allowed values) that is installed. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -460,7 +460,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses Visual Studio 2017 or Visual Studio 2015 depending on what is installed. Visual Studio 2013 is not supported. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
+Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses the latest version (from the list of allowed values) that is installed. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
 <br>
 
