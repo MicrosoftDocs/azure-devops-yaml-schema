@@ -246,7 +246,7 @@ Each PowerShell session lasts only for the duration of the job in which it runs.
 
 ```yaml
 steps:
-- pwsh: Write-Host Hello $(name)
+- pwsh: Write-Host Hello $($env:name)
   displayName: Say hello
   name: firstStep
   workingDirectory: $(build.sourcesDirectory)
