@@ -1,7 +1,7 @@
 ---
 title: KubectlInstaller@0 - Kubectl tool installer v0 task
 description: Install Kubectl on agent machine.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

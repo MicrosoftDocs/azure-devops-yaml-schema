@@ -1,7 +1,7 @@
 ---
 title: MavenAuthenticate@0 - Maven Authenticate v0 task
 description: Provides credentials for Azure Artifacts feeds and external maven repositories.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 

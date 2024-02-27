@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@1 - Jenkins Queue Job v1 task
 description: Queue a job on a Jenkins server (task version 1).
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
