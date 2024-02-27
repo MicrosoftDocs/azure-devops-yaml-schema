@@ -1,7 +1,7 @@
 ---
 title: DeployVisualStudioTestAgent@2 - Visual Studio test agent deployment v2 task
 description: DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 

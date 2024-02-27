@@ -1,7 +1,7 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 

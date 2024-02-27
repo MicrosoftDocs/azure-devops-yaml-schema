@@ -1,7 +1,7 @@
 ---
 title: CargoAuthenticate@0 - Cargo authenticate (for task runners) v0 task
 description: Authentication task for the cargo client used for installing Cargo crates distribution.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 

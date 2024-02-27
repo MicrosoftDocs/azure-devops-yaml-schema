@@ -1,7 +1,7 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
