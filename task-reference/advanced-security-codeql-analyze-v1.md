@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 02/09/2024
+ms.date: 02/27/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -26,7 +26,10 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 # Advanced Security Perform CodeQL analysis v1
 # Finalizes the CodeQL database and runs the analysis queries.
 - task: AdvancedSecurity-Codeql-Analyze@1
-  inputs: # none
+  inputs:
+    #WaitForProcessing: false # boolean. Enable Wait for Processing. Default: false.
+    #WaitForProcessingInterval: '5' # string. Optional. Use when WaitForProcessing = true. Wait for Processing Time Interval. Default: 5.
+    #WaitForProcessingTimeout: '120' # string. Optional. Use when WaitForProcessing = true. Wait for Processing Timeout. Default: 120.
 ```
 
 :::moniker-end
@@ -35,10 +38,39 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="emptyCollectionValue"::: -->
+<!-- :::item name="WaitForProcessing"::: -->
 :::moniker range="=azure-pipelines"
 
-None.
+**`WaitForProcessing`** - **Enable Wait for Processing**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Wait for Advanced Security to process published SARIF file before completing.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="WaitForProcessingInterval"::: -->
+:::moniker range="=azure-pipelines"
+
+**`WaitForProcessingInterval`** - **Wait for Processing Time Interval**<br>
+`string`. Optional. Use when `WaitForProcessing = true`. Default value: `5`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Time, in seconds, to wait between each call to Advanced Security to check SARIF processing status.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="WaitForProcessingTimeout"::: -->
+:::moniker range="=azure-pipelines"
+
+**`WaitForProcessingTimeout`** - **Wait for Processing Timeout**<br>
+`string`. Optional. Use when `WaitForProcessing = true`. Default value: `120`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Time, in seconds, to wait for Advanced Security to process SARIF file before completing.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
