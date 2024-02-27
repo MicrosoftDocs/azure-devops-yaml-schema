@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.environment definition
 description: Target environment name and optionally a resource name to record the deployment history.
-ms.date: 01/23/2024
+ms.date: 02/27/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
