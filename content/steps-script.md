@@ -1,7 +1,7 @@
 ---
 title: steps.script definition
 description: Runs a script using cmd.exe on Windows and Bash on other platforms.
-ms.date: 01/23/2024
+ms.date: 02/27/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
