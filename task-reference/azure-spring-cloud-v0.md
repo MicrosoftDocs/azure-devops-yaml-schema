@@ -12,6 +12,9 @@ monikerRange: ">=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 This task deploys applications to Azure Spring Apps and manages those deployments.
+
+> [!IMPORTANT]
+> This task is supported on [Azure Spring Apps Basic/Standard and Enterprise plans](/azure/spring-apps/enterprise/plan-comparison). For more information, see [Automate application deployments to Azure Spring Apps](/azure/spring-apps/enterprise/how-to-cicd).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -412,6 +415,9 @@ After the 'Deploy' action only. Contains private URL for accessing the updated d
 ## Remarks
 
 Use this task to deploy applications to [Azure Spring Apps](/azure/spring-apps/) and to manage Azure Spring Cloud [deployments](/azure/spring-apps/concept-understand-app-and-deployment).
+
+> [!IMPORTANT]
+> This task is supported on [Azure Spring Apps Basic/Standard and Enterprise plans](/azure/spring-apps/enterprise/plan-comparison). For more information, see [Automate application deployments to Azure Spring Apps](/azure/spring-apps/enterprise/how-to-cicd).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
