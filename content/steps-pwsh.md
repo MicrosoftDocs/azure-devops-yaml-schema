@@ -22,7 +22,7 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 
 ```yaml
 steps:
-- pwsh: string # Required as first property. Inline PowerShell or reference to a PowerShell file.
+- pwsh: string # Required as first property. Inline PowerShell.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
