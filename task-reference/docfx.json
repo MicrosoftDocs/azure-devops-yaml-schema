@@ -56,20 +56,768 @@
       "MSHAttr.msprod": "ms.prod:ALM",
       "ms.prodfamily": "ALM"
     },
-    "fileMetadata":
-    {
+    "fileMetadata": {
       "recommendations": {
         "**": "false"
+      },
+      "exclude_monikers": {
+        "advanced-security-codeql-analyze-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "advanced-security-codeql-autobuild-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "advanced-security-codeql-init-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "advanced-security-dependency-scanning-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "android-build-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "android-signing-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "android-signing-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "android-signing-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "ant-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "app-center-distribute-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "app-center-distribute-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "app-center-distribute-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "app-center-distribute-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "app-center-test-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "archive-files-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "archive-files-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-app-service-manage-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-app-service-settings-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-cli-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-cli-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-cli-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-cloud-powershell-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-cloud-powershell-deployment-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-container-apps-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-container-apps-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-file-copy-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-file-copy-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-file-copy-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-file-copy-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-file-copy-v5.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-app-container-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-app-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-app-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-on-kubernetes-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-on-kubernetes-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-function-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-iot-edge-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-key-vault-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-key-vault-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-load-test-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-monitor-alerts-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-monitor-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-monitor-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-mysql-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-nlb-management-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-policy-check-gate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-powershell-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-powershell-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-powershell-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-powershell-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-powershell-v5.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-resource-group-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-resource-group-deployment-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-resource-manager-template-deployment-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-rm-web-app-deployment-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-rm-web-app-deployment-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-rm-web-app-deployment-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-spring-cloud-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-static-web-app-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-vmss-deployment-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-web-app-container-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-web-app-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "azure-web-powershell-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "bash-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "batch-script-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "cache-beta-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "cache-beta-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "cache-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "cargo-authenticate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "chef-knife-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "chef-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "cmake-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "cmd-line-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "cmd-line-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "cocoa-pods-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "conda-environment-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "conda-environment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "container-build-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "container-structure-test-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "copy-files-over-ssh-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "copy-files-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "copy-files-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "copy-publish-build-artifacts-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "curl-uploader-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "curl-uploader-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "decrypt-file-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "delay-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "delete-files-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "deploy-visual-studio-test-agent-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "deploy-visual-studio-test-agent-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "docker-compose-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "docker-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "docker-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "docker-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "docker-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "dotnet-core-cli-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "dotnet-core-cli-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "dotnet-core-cli-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "dotnet-core-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "dotnet-core-installer-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-build-artifacts-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-build-artifacts-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-fileshare-artifacts-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-github-npm-package-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-github-nuget-package-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-github-release-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-package-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-package-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-pipeline-artifact-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-pipeline-artifact-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-pipeline-artifact-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "download-secure-file-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "duffle-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "extract-files-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "file-transform-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "file-transform-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "ftp-upload-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "ftp-upload-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "func-tools-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "github-comment-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "github-release-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "github-release-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "go-tool-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "go-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "gradle-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "gradle-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "gradle-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "grunt-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "gulp-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "gulp-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "helm-deploy-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "helm-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "helm-installer-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "iisweb-app-deployment-on-machine-group-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "iisweb-app-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "iisweb-app-management-on-machine-group-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "index.md": [
+          "azure-pipelines-2018"
+        ],
+        "install-apple-certificate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "install-apple-certificate-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "install-apple-certificate-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "install-apple-provisioning-profile-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "install-apple-provisioning-profile-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "install-ssh-key-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "invoke-rest-api-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "invoke-rest-api-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "java-tool-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "jenkins-download-artifacts-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "jenkins-queue-job-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "jenkins-queue-job-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "kubectl-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "kubelogin-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "kubernetes-manifest-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "kubernetes-manifest-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "kubernetes-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "kubernetes-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "manual-intervention-v8.md": [
+          "azure-pipelines-2018"
+        ],
+        "manual-validation-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "maven-authenticate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "maven-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "maven-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "maven-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "maven-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "msbuild-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "mysql-deployment-on-machine-group-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "node-task-runner-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "node-tool-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "notation-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "npm-authenticate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "npm-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "npm-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-authenticate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-authenticate-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-command-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-packager-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-publisher-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-restore-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-tool-installer-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-tool-installer-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "nuget-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "packer-build-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "packer-build-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "pip-authenticate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "pip-authenticate-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "powershell-on-target-machines-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "powershell-on-target-machines-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "powershell-on-target-machines-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "powershell-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "powershell-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-build-artifacts-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-code-coverage-results-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-code-coverage-results-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-pipeline-artifact-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-pipeline-artifact-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-pipeline-metadata-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-symbols-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-symbols-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-test-results-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-test-results-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-to-azure-service-bus-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "publish-to-azure-service-bus-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "py-pi-publisher-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "python-script-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "query-work-items-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "review-app-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "run-visual-studio-testsusing-test-agent-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "service-fabric-compose-deploy-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "service-fabric-deploy-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "service-fabric-powershell-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "service-fabric-update-app-versions-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "service-fabric-update-manifests-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "shell-script-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "sonar-qube-analyze-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "sonar-qube-analyze-v5.md": [
+          "azure-pipelines-2018"
+        ],
+        "sonar-qube-prepare-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "sonar-qube-prepare-v5.md": [
+          "azure-pipelines-2018"
+        ],
+        "sonar-qube-publish-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "sonar-qube-publish-v5.md": [
+          "azure-pipelines-2018"
+        ],
+        "sql-azure-dacpac-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "sql-dacpac-deployment-on-machine-group-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "sql-server-dacpac-deployment-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "ssh-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "twine-authenticate-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "twine-authenticate-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "universal-packages-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "use-dotnet-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "use-node-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "use-python-version-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "use-ruby-version-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "visual-studio-test-platform-installer-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "vsbuild-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "vsmobile-center-test-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "vstest-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "vstest-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "vstest-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "windows-machine-file-copy-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "windows-machine-file-copy-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "xamarin-android-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "xamarin-component-restore-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "xamarin-ios-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "xamarin-ios-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "xamarin-license-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "xamarin-test-cloud-v1.md": [
+          "azure-pipelines-2018"
+        ],
+        "xcode-package-ios-v0.md": [
+          "azure-pipelines-2018"
+        ],
+        "xcode-v2.md": [
+          "azure-pipelines-2018"
+        ],
+        "xcode-v3.md": [
+          "azure-pipelines-2018"
+        ],
+        "xcode-v4.md": [
+          "azure-pipelines-2018"
+        ],
+        "xcode-v5.md": [
+          "azure-pipelines-2018"
+        ]
       }
     },
     "template": [],
-    "dest": "azure-devops-yaml-schema",
     "markdownEngineName": "markdig",
     "groups": {
       "all": {
         "dest": "all",
         "moniker_range": ">= azure-pipelines-2018 <= azure-pipelines"
       }
-    }
+    },
+    "dest": "azure-devops-yaml-schema"
   }
 }

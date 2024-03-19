@@ -1,5 +1,1077 @@
 {
     "redirections": [
+    {
+      "source_path": "task-reference/android-build-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/android-build-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/android-signing-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/android-signing-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/android-signing-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/android-signing-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/ant-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/ant-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/app-center-distribute-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/app-center-distribute-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/app-center-test-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/app-center-test-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/archive-files-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/archive-files-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/archive-files-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/archive-files-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-app-service-manage-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-app-service-manage-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-cli-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-cli-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-cli-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-cli-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-cloud-powershell-deployment-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-cloud-powershell-deployment-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-file-copy-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-file-copy-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-function-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-function-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-function-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-function-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-key-vault-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-key-vault-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-monitor-alerts-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-monitor-alerts-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-monitor-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-monitor-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-nlb-management-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-nlb-management-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-powershell-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-powershell-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-powershell-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-powershell-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-resource-group-deployment-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-resource-group-deployment-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-resource-group-deployment-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-resource-group-deployment-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-rm-web-app-deployment-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-rm-web-app-deployment-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-rm-web-app-deployment-v3.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-rm-web-app-deployment-v3",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-vmss-deployment-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-vmss-deployment-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/azure-web-powershell-deployment-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/azure-web-powershell-deployment-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/bash-v3.md",
+      "redirect_url": "/previous-versions/azure/devops/bash-v3",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/batch-script-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/batch-script-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/chef-knife-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/chef-knife-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/chef-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/chef-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/cmake-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/cmake-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/cmd-line-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/cmd-line-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/cmd-line-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/cmd-line-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/cocoa-pods-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/cocoa-pods-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/copy-files-over-ssh-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/copy-files-over-ssh-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/copy-files-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/copy-files-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/copy-files-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/copy-files-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/copy-publish-build-artifacts-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/copy-publish-build-artifacts-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/curl-uploader-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/curl-uploader-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/curl-uploader-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/curl-uploader-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/decrypt-file-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/decrypt-file-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/delay-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/delay-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/delete-files-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/delete-files-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/deploy-visual-studio-test-agent-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/deploy-visual-studio-test-agent-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/deploy-visual-studio-test-agent-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/deploy-visual-studio-test-agent-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/docker-compose-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/docker-compose-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/docker-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/docker-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/dotnet-core-cli-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/dotnet-core-cli-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/dotnet-core-cli-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/dotnet-core-cli-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/dotnet-core-cli-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/dotnet-core-cli-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/dotnet-core-installer-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/dotnet-core-installer-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/download-build-artifacts-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/download-build-artifacts-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/download-package-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/download-package-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/download-secure-file-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/download-secure-file-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/extract-files-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/extract-files-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/ftp-upload-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/ftp-upload-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/gradle-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/gradle-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/gradle-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/gradle-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/grunt-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/grunt-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/gulp-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/gulp-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/iisweb-app-deployment-on-machine-group-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/iisweb-app-deployment-on-machine-group-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/iisweb-app-deployment-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/iisweb-app-deployment-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/iisweb-app-management-on-machine-group-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/iisweb-app-management-on-machine-group-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/index.md",
+      "redirect_url": "/previous-versions/azure/devops/index",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/install-apple-certificate-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/install-apple-certificate-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/install-apple-certificate-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/install-apple-certificate-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/install-apple-provisioning-profile-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/install-apple-provisioning-profile-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/install-apple-provisioning-profile-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/install-apple-provisioning-profile-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/install-ssh-key-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/install-ssh-key-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/invoke-rest-api-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/invoke-rest-api-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/invoke-rest-api-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/invoke-rest-api-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/java-tool-installer-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/java-tool-installer-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/jenkins-download-artifacts-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/jenkins-download-artifacts-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/jenkins-queue-job-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/jenkins-queue-job-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/jenkins-queue-job-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/jenkins-queue-job-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/kubernetes-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/kubernetes-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/manual-intervention-v8.md",
+      "redirect_url": "/previous-versions/azure/devops/manual-intervention-v8",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/maven-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/maven-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/maven-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/maven-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/msbuild-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/msbuild-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/node-tool-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/node-tool-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/npm-authenticate-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/npm-authenticate-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/npm-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/npm-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/npm-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/npm-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-command-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-command-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-installer-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-installer-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-packager-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-packager-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-publisher-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-publisher-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-restore-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-restore-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-tool-installer-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-tool-installer-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/nuget-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/nuget-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/packer-build-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/packer-build-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/powershell-on-target-machines-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/powershell-on-target-machines-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/powershell-on-target-machines-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/powershell-on-target-machines-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/powershell-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/powershell-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/powershell-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/powershell-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-build-artifacts-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-build-artifacts-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-code-coverage-results-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-code-coverage-results-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-symbols-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-symbols-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-symbols-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-symbols-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-test-results-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-test-results-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-test-results-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-test-results-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-to-azure-service-bus-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-to-azure-service-bus-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/publish-to-azure-service-bus-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/publish-to-azure-service-bus-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/py-pi-publisher-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/py-pi-publisher-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/query-work-items-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/query-work-items-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/run-visual-studio-testsusing-test-agent-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/run-visual-studio-testsusing-test-agent-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/service-fabric-compose-deploy-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/service-fabric-compose-deploy-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/service-fabric-deploy-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/service-fabric-deploy-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/service-fabric-powershell-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/service-fabric-powershell-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/service-fabric-update-app-versions-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/service-fabric-update-app-versions-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/service-fabric-update-manifests-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/service-fabric-update-manifests-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/shell-script-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/shell-script-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/sql-azure-dacpac-deployment-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/sql-azure-dacpac-deployment-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/sql-dacpac-deployment-on-machine-group-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/sql-dacpac-deployment-on-machine-group-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/sql-server-dacpac-deployment-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/sql-server-dacpac-deployment-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/ssh-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/ssh-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/visual-studio-test-platform-installer-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/visual-studio-test-platform-installer-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/vsbuild-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/vsbuild-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/vsmobile-center-test-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/vsmobile-center-test-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/vstest-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/vstest-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/vstest-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/vstest-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/windows-machine-file-copy-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/windows-machine-file-copy-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/windows-machine-file-copy-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/windows-machine-file-copy-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xamarin-android-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/xamarin-android-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xamarin-component-restore-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/xamarin-component-restore-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xamarin-ios-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/xamarin-ios-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xamarin-license-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/xamarin-license-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xamarin-test-cloud-v1.md",
+      "redirect_url": "/previous-versions/azure/devops/xamarin-test-cloud-v1",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xcode-package-ios-v0.md",
+      "redirect_url": "/previous-versions/azure/devops/xcode-package-ios-v0",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xcode-v2.md",
+      "redirect_url": "/previous-versions/azure/devops/xcode-v2",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xcode-v3.md",
+      "redirect_url": "/previous-versions/azure/devops/xcode-v3",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
+    {
+      "source_path": "task-reference/xcode-v4.md",
+      "redirect_url": "/previous-versions/azure/devops/xcode-v4",
+      "redirect_document_id": false,
+      "monikers": [
+        "azure-pipelines-2018"
+      ]
+    },
       {
         "source_path": "content/parameters-name.md",
         "redirect_url": "/azure/devops/pipelines/yaml-schema/parameters-parameter"
