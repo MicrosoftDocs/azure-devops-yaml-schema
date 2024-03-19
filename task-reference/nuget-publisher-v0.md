@@ -64,15 +64,7 @@ NuGetPublisher@0 is deprecated. Use the “NuGet” task instead. It works with 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -114,16 +106,7 @@ Specifies the NuGet server generic service connection. Set the key `Password/Tok
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`connectedServiceName`** - **NuGet Server Endpoint**<br>
-`string`. Required when `nuGetFeedType = external`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the NuGet server generic service connection. Set the key `Password/Token Key` field to your NuGet API key.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feedName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -256,7 +239,7 @@ None.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -109,15 +109,7 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -327,15 +319,7 @@ Preserves the virtual network settings.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`Slot`** - **Slot**<br>
-`string`. Required when `Action != Swap Slots && SpecifySlot = true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ExtensionsList"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -349,16 +333,7 @@ Site extensions run on Microsoft Azure App Service. You can install a set of too
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`ExtensionsList`** - **Install Extensions**<br>
-`string`. Required when `Action = Install Extensions`. Allowed values: `Microsoft.ApplicationInsights.AzureWebSites` (Application Insights), `ComposerExtension` (Composer), `python2712x64` (Python 2.7.12 x64), `python2712x86` (Python 2.7.12 x86), `python2713x64` (Python 2.7.13 x64), `python2713x86` (Python 2.7.13 x86), `python353x64` (Python 3.5.3 x64), `python353x86` (Python 3.5.3 x86), `python360x86` (Python 3.6.0 x86), `python360x64` (Python 3.6.0 x64), `python361x86` (Python 3.6.1 x86), `python361x64` (Python 3.6.1 x64).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Site extensions run on Microsoft Azure App Service. You can install a set of tools as a site extension and better manage your Azure App Service. Restart the App Service so the latest changes take effect.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="OutputVariable"::: -->
 :::moniker range="<=azure-pipelines"
@@ -415,15 +390,7 @@ If you don't provide a web test name, the default test name is used.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SpecifySlot"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`SpecifySlot`** - **Specify Slot**<br>
-`boolean`. Optional. Use when `Action != Swap Slots`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -448,11 +415,7 @@ If you select multiple extensions, the output is a comma-separated list of local
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-None.
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->
@@ -494,20 +457,7 @@ For more information, see [Set up staging environments in Azure App Service](/az
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.102.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

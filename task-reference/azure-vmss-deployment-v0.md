@@ -70,15 +70,7 @@ This task deploys a Virtual Machine scale set image.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -148,16 +140,7 @@ Specifies the URL of the VHD image. If it's an Azure storage blob URL, the stora
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`imageUrl`** - **Image url**<br>
-`string`. Required when `action = Update image || action = UpdateImage`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the URL of the VHD image. If it's an Azure storage blob URL, the storage account location is the same as the scale set location.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customScriptsDirectory"::: -->
 :::moniker range="<=azure-pipelines"

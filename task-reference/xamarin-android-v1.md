@@ -76,15 +76,7 @@ Use this task to build an Android app with Xamarin.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -260,16 +252,7 @@ Specifies the JDK version to use during the build.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the JDK version to use during the build.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"

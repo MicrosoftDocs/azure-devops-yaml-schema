@@ -93,15 +93,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -163,20 +155,7 @@ Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to th
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`vsVersion`** - **Visual Studio Version**<br>
-`string`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The value of this input must match the version of Visual Studio used to create your solution.
-
-Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you specify **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
-
-**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArgs"::: -->
 :::moniker range="<=azure-pipelines"

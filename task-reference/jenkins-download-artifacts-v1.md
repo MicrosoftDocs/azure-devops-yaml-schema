@@ -78,15 +78,7 @@ Use this task to download artifacts produced by a Jenkins job.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -104,16 +96,7 @@ Specifies the service connection for your Jenkins instance. To create a new serv
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`jenkinsServerConnection`** - **Jenkins service endpoint**<br>
-Input alias: `serverEndpoint`. `string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection for your Jenkins instance. To create a new service connection, click the Manage link.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -214,16 +197,7 @@ Starts the build number for downloading commits and work items. If provided, all
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`startJenkinsBuildNumber`** - **Download commits and workitems from**<br>
-`string`. Optional. Use when `downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Starts the build number for downloading commits and work items. If provided, all commits and work items between the start build number and the build number given as input to download artifacts are downloaded.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactDetailsFileNameSuffix"::: -->
 :::moniker range="<=azure-pipelines"

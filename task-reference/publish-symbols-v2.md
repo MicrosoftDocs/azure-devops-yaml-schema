@@ -102,15 +102,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -178,16 +170,7 @@ Specifies where to publish symbols. Symbols published to the Azure Artifacts sym
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`SymbolServerType`** - **Symbol server type**<br>
-`string`. Required when `PublishSymbols = true`. Allowed values: `TeamServices` (Symbol Server in this account/collection (requires Package Management)), `FileShare` (File share).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies where to publish symbols. Symbols published to the Azure Artifacts symbol server are accessible by any user with access to the organization/collection. Azure DevOps Server only supports the `File share` option. See instructions to [Publish symbols for debugging](/azure/devops/pipelines/artifacts/symbols) to use Symbol Server in Azure Artifacts.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SymbolsPath"::: -->
 :::moniker range="<=azure-pipelines"

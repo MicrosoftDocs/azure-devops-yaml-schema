@@ -16,7 +16,7 @@ Use cURL to upload files.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018 || >=azure-pipelines-2019.1"
+:::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
@@ -70,15 +70,7 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -108,16 +100,7 @@ Specifies the authentication method for server authentication.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`authType`** - **Authentication Method**<br>
-`string`. Allowed values: `ServiceEndpoint` (Service Endpoint), `UserAndPass` (Username and Password). Default value: `ServiceEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the authentication method for the server authentication.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -131,16 +114,7 @@ Specifies the service connection with the credentials for the server authenticat
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`serviceEndpoint`** - **Service Endpoint**<br>
-`string`. Required when `authType = ServiceEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection with the credentials for the server authentication. Use the Generic service connection type for the service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
@@ -190,16 +164,7 @@ Optional. Specifies the sub-folder on the remote server for the URL supplied in 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`remotePath`** - **Remote Directory**<br>
-`string`. Default value: `/upload/$(Build.BuildId)/`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the sub-folder on the remote server for the URL supplied in the credentials.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"
@@ -294,7 +259,7 @@ such as FTP, FTPS, SFTP, HTTP, and more.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -146,15 +146,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -172,16 +164,7 @@ Select a Kubernetes service connection.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select a Kubernetes service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
 :::moniker range="<=azure-pipelines"
@@ -218,16 +201,7 @@ Specifies a `kubectl` command to run.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`command`** - **Command**<br>
-`string`. Required. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`. Default value: `apply`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a `kubectl` command.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useConfigurationFile"::: -->
 :::moniker range="<=azure-pipelines"
@@ -253,16 +227,7 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`configuration`** - **Configuration File**<br>
-`string`. Required when `useConfigurationFile = true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
@@ -312,16 +277,7 @@ Select a Container registry type. The task can use Azure Subscription details to
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`containerRegistryType`** - **Container Registry type**<br>
-`string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select a Container registry type. The task can use Azure Subscription details to work with an Azure Container registry. Other standard Container registries are also supported.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -335,16 +291,7 @@ Select a Docker registry service connection. Required for commands that need to 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerRegistryType = Container Registry`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -360,18 +307,7 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerRegistryType = Azure Container Registry`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Resource Manager subscription, which contains the Azure Container Registry. 
->[!NOTE]
->To configure a new service connection, select the Azure subscription from the list and click `Authorize`. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using the `Add` or `Manage` buttons.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -385,16 +321,7 @@ Specifies an Azure Container Registry which is used for pulling container images
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`azureContainerRegistry`** - **Azure Container Registry**<br>
-`string`. Optional. Use when `containerRegistryType = Azure Container Registry`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Container Registry which is used for pulling Container images and deploying applications to the Kubernetes cluster. Required for commands that need to authenticate with a registry.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -492,16 +419,7 @@ kubectl is a command line interface for running commands against Kubernetes clus
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`versionOrLocation`** - **Kubectl**<br>
-`string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-kubectl is a command line interface for running commands against Kubernetes clusters.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -515,16 +433,7 @@ Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`versionSpec`** - **Version Spec**<br>
-`string`. Optional. Use when `versionOrLocation = version`. Default value: `1.7.0`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkLatest"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -538,16 +447,7 @@ Always checks online for the latest available version (stable.txt) that satisfie
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`checkLatest`** - **Check for Latest Version**<br>
-`boolean`. Optional. Use when `versionOrLocation = version`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Always checks online for the latest available version (stable.txt) that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="specifyLocation"::: -->
 :::moniker range="<=azure-pipelines"

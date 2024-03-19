@@ -80,15 +80,7 @@ Use this task to build with Apache Ant.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -159,16 +151,7 @@ Select this option to publish JUnit test results produced by the Ant build to Az
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Ant build to TFS/Team Services. Each test results file matching `Test Results Files` will be published as a test run in TFS/Team Services.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
@@ -297,16 +280,7 @@ Attempts to discover the path to the selected JDK version and sets JAVA_HOME acc
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and sets JAVA_HOME accordingly.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkUserInputDirectory"::: -->
 :::moniker range="<=azure-pipelines"

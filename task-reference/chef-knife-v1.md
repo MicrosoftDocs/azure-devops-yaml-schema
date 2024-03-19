@@ -34,15 +34,7 @@ Run scripts with Knife commands on your Chef workstation.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-<!-- :::editable-content name="description"::: -->
-Run Scripts with knife commands on your chef workstation.
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -76,15 +68,7 @@ Run Scripts with knife commands on your chef workstation.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->

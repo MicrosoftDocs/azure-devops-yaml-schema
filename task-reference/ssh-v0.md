@@ -104,15 +104,7 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -133,19 +125,7 @@ Specifies the name of an SSH service connection containing connection details fo
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`sshEndpoint`** - **SSH endpoint**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of an [SSH service connection](/azure/devops/pipelines/library/service-endpoints#ssh-service-connection) containing connection details for the remote machine. The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
-
-- The private key and the passphrase must be specified for authentication.
-- A password can be used to authenticate to remote Linux machines, but this is not supported for macOS or Windows systems.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runOptions"::: -->
 :::moniker range="<=azure-pipelines"

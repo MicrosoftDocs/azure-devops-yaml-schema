@@ -16,7 +16,7 @@ Delete folders, or files matching a pattern.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Delete files or folders. (The minimatch patterns will only match file paths, not folder paths).
@@ -84,15 +84,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->

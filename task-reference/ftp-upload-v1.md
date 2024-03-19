@@ -70,15 +70,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -96,16 +88,7 @@ Specifies the authentication method. Use an FTP service connection or enter the 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`credentialsOption`** - **Authentication Method**<br>
-Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP Service Endpoint), `inputs` (Enter Credentials). Default value: `serviceEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the authentication method. Use an FTP service connection or enter connection credentials.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -121,18 +104,7 @@ Secure connections will always be made regardless of the specified protocol (`ft
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`serverEndpoint`** - **FTP Service Endpoint**<br>
-`string`. Required when `credsType = serviceEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection for the FTP server. To create one, click the Manage link and create a new generic service connection, and then enter the FTP server URL for the server URL, e.g. `ftp://server.example.com`, and the required credentials.
-
-Secure connections will always be made regardless of the specified protocol (`ftp://` or `ftps://`) if the target server supports FTPS. To allow only secure connections, use the `ftps://` protocol, e.g. `ftps://server.example.com`. Connections to servers not supporting FTPS will fail if `ftps://` is specified.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serverUrl"::: -->
 :::moniker range="<=azure-pipelines"

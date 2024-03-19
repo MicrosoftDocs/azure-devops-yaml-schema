@@ -16,7 +16,7 @@ Run Azure CLI commands against an Azure subscription in a shell script when runn
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Run a shell or batch script with Azure CLI commands against an Azure subscription.
@@ -68,15 +68,7 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -201,16 +193,7 @@ If this input is true, this task will fail when any errors are written to the St
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`failOnStandardError`** - **Fail on Standard Error**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If this input is true, this task will fail when any errors are written to the StandardError stream. Clear the checkbox to ignore standard errors and instead rely on exit codes to determine the status.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options

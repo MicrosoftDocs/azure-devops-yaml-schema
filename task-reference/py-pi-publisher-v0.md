@@ -48,15 +48,7 @@ Use this task to create and upload an sdist or wheel to a PyPI-compatible index 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -99,47 +91,13 @@ Specifies whether to create and publish a universal wheel package (platform inde
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceEndpoint"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`serviceEndpoint`** - **PyPI connection**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the generic service endpoint where the following PyPI server details are present:
-
-- Connection Name – Use a connection name of your choice.
-- Server URL – PyPI package server (for example: https://upload.pypi.org/legacy/).
-- User Name – PyPI registered username.
-- Password – password for your PyPI account.
-
-*Note*: To configure a new generic service endpoint, under your VSTS project, go to Settings -> Services -> New Service Endpoint -> Generic.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="wd"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`wd`** - **Python package path**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Python package directory published where `setup.py` is present.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="wheel"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`wheel`** - **Upload wheel**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, the task will build and publish a universal wheel (platform independent) of this package. More information regarding [universal wheels](https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#wheels).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -194,20 +152,7 @@ The task will install the `wheel` and `twine` packages with `python -m pip insta
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.0.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

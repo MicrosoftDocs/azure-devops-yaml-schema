@@ -50,15 +50,7 @@ Use this task to install an Apple provisioning profile, which is required in ord
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -138,17 +130,7 @@ The Name property for the selected provisioning profile.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
-
-<!-- :::item name="provisioningProfileUuid"::: -->
-**`provisioningProfileUuid`**<br><!-- :::editable-content name="Value"::: -->
-The UUID property for the selected provisioning profile.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->

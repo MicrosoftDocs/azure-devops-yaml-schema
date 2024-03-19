@@ -24,13 +24,7 @@ Publish Test Results to Azure Pipelines/TFS.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-<!-- :::editable-content name="description"::: -->
-Publish Test Results to VSTS/TFS.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -100,15 +94,7 @@ Publish Test Results to VSTS/TFS.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -155,22 +141,7 @@ For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`testResultsFiles`** - **Test results files**<br>
-`string`. Required. Default value: `**\TEST-*.xml`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies one or more test results files.
-
-* You can use a single-folder wildcard (`*`) and recursive wildcards (`**`). For example, `**/TEST-*.xml` searches for all the XML files whose names start with `TEST-` in all subdirectories. If using VSTest as the test result format, the file type should be changed to `.trx` e.g. `**/TEST-*.trx`
-* Multiple paths can be specified, separated by a newline.
-* Additionally accepts [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
-
-For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or `TEST3.xml`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="searchFolder"::: -->
 :::moniker range="<=azure-pipelines"
@@ -284,40 +255,13 @@ Optional. When this boolean's value is `true`, the task uploads all the test res
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunner"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`testRunner`** - **Test result format**<br>
-`string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`. Default value: `JUnit`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="platform"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`platform`** - **Platform**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the build platform against which the test run should be reported. For example: `x64` or `x86`. If you defined a variable for the platform in your build task, use it here.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`configuration`** - **Configuration**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the build configuration against which the test run should be reported. For example: `Debug` or `Release`. If you defined a variable for the configuration in your build task, use it here.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options

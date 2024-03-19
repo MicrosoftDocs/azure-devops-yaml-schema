@@ -16,7 +16,7 @@ Archive files using compression formats such as .7z, .tar, .gz, and .zip.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
@@ -108,15 +108,7 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->

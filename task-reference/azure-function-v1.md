@@ -60,15 +60,7 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -86,16 +78,7 @@ The URL of the Azure function to be invoked​. Example: `https://azurefunctiona
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`function`** - **Azure function url**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The URL of the Azure function to be invoked​. Example: `https://azurefunctionapp.azurewebsites.net/api/HttpTriggerJS1`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="key"::: -->
 :::moniker range="<=azure-pipelines"

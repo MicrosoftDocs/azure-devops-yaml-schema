@@ -21,7 +21,7 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
@@ -87,15 +87,7 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -268,16 +260,7 @@ Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`so that resul
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`publishNUnitResults`** - **Publish results to TFS/Team Services**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`. Results from the NUnit xml file will be published to TFS/Team Services.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options

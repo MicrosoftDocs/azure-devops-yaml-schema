@@ -97,15 +97,7 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -150,7 +142,7 @@ Specifies the path to the folder containing the target `package.json` and `.npmr
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`workingDir`** - **Working folder with package.json**<br>
 `string`.<br>
@@ -242,16 +234,7 @@ Includes the selected feed in the generated `.npmrc`. For project-scoped feeds, 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`customFeed`** - **Use packages from this VSTS/TFS registry**<br>
-`string`. Required when `customRegistry = useFeed && command = install || command = custom`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `.npmrc`. You must have Azure Artifacts installed and licensed to select a feed here. For project-scoped feeds, use `ProjectName/FeedName` or `ProjectID/FeedID`. For organization-scoped feeds, the value should be  the feed name.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2020"
@@ -276,7 +259,7 @@ Credentials to use for external registries located in the project's `.npmrc`. Le
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
 `string`. Optional. Use when `customRegistry = useNpmrc && command = install || command = custom`.<br>
@@ -401,7 +384,7 @@ None.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -119,15 +119,7 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -181,16 +173,7 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`vstsFeed`** - **Use packages from this VSTS/TFS feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeNuGetOrg"::: -->
 :::moniker range="<=azure-pipelines"
@@ -228,7 +211,7 @@ Specifies the credentials to use for external registries located in the selected
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
 Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
@@ -311,7 +294,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`nuGetFeedType`** - **Target feed location**<br>
 `string`. Required when `command = push`. Allowed values: `internal` (This account/collection), `external` (External NuGet server (including other accounts/collections)). Default value: `internal`.<br>

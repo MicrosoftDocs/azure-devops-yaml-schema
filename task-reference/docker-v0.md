@@ -154,15 +154,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -192,16 +184,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -455,16 +438,7 @@ Specifies an override of the default entry point for the Docker container.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`entrypoint`** - **Entrypoint Override**<br>
-`string`. Optional. Use when `action = Run an image`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an override of the default entry point for the Docker container.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -538,16 +512,7 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerHostEndpoint`** - **Docker Host Connection**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker host service connection. Defaults to the agent's host.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enforceDockerNamingConvention"::: -->
 :::moniker range="<=azure-pipelines"
@@ -623,11 +588,7 @@ Stores the output of the docker command
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-None.
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->

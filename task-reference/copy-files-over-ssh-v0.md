@@ -105,15 +105,7 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -134,19 +126,7 @@ The name of an [SSH service connection](/azure/devops/pipelines/library/service-
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`sshEndpoint`** - **SSH endpoint**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of an SSH service connection containing connection details for the remote machine.
-
-- The hostname or IP address of the remote machine, the port number, and the user name are required to create an SSH service connection.
-- The private key and the passphrase must be specified for authentication.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sourceFolder"::: -->
 :::moniker range="<=azure-pipelines"

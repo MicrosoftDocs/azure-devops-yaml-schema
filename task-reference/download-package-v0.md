@@ -36,13 +36,7 @@ Use this task to download a package from a package management feed in Azure Arti
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-<!-- :::editable-content name="description"::: -->
-Use this task to download a package from a package management feed in VSTS or TFS. Requires the Package Management extension.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -79,15 +73,7 @@ Use this task to download a package from a package management feed in VSTS or TF
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->

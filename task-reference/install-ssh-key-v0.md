@@ -86,15 +86,7 @@ Use this task in a pipeline to install an SSH key prior to a build or release st
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -220,7 +212,7 @@ Specifies the port of the SSH config entry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="hostName"::: -->
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`hostName`** - **Known Hosts Entry**<br>
 `string`. Required.<br>

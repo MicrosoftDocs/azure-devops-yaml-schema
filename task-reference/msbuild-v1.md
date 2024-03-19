@@ -97,15 +97,7 @@ Use this task to build with MSBuild.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -165,16 +157,7 @@ If the preferred version cannot be found, the latest version found is used inste
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`msbuildVersion`** - **MSBuild Version**<br>
-`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArchitecture"::: -->
 :::moniker range="<=azure-pipelines"

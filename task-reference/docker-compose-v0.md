@@ -152,15 +152,7 @@ Build, push or run multi-container Docker applications. Use this task with Docke
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -190,16 +182,7 @@ Specifies a Docker registry service connection. Required when commands need to a
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerRegistryEndpoint`** - **Docker Registry Connection**<br>
-`string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker registry service connection. Required when commands need to authenticate using a registry.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -410,16 +393,7 @@ Specifies an override value for the default entry point of the service container
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`entrypoint`** - **Entrypoint Override**<br>
-`string`. Optional. Use when `action = Run a specific service`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an override value for the default entry point for the service container.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -445,16 +419,7 @@ Specifies the service containers to run in the background.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`detached`** - **Run In Background**<br>
-`boolean`. Optional. Use when `action = Run services || action = Run a specific service`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service containers to run in the background.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="abortOnContainerExit"::: -->
 :::moniker range="<=azure-pipelines"
@@ -554,16 +519,7 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerHostEndpoint`** - **Docker Host Connection**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker host service connection. Defaults to the agent's host.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="nopIfNoDockerComposeFile"::: -->
 :::moniker range="<=azure-pipelines"

@@ -16,7 +16,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
@@ -240,15 +240,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -374,21 +366,7 @@ Code coverage can be collected by adding the `--collect "Code coverage"` option 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`publishTestResults`** - **Publish test results**<br>
-`boolean`. Optional. Use when `command = test`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Enabling this option will generate a `test results` TRX file in `$(Agent.TempDirectory)`, and the results will be published to the server. 
-
-This option appends the `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
-
-
-Code coverage can be collected by adding the `--collect "Code coverage"` option to the command line arguments.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -483,16 +461,7 @@ Includes the selected feed in the generated `NuGet.config`. You must have Packag
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`vstsFeed`** - **Use packages from this VSTS/TFS feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeNuGetOrg"::: -->
 :::moniker range="<=azure-pipelines"
@@ -530,16 +499,7 @@ The credentials to use for external registries located in the selected `NuGet.co
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`externalFeedCredentials`** - **Credentials for feeds outside this account/collection**<br>
-Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization/collection, leave this input blank; the build's credentials are used automatically.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="noCache"::: -->
 :::moniker range="<=azure-pipelines"
@@ -601,16 +561,7 @@ Specifies whether the target feed is internal or external.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`nuGetFeedType`** - **Target feed location**<br>
-`string`. Required when `command = push`. Allowed values: `internal` (This account/collection), `external` (External NuGet server (including other accounts/collections)). Default value: `internal`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether the target feed is internal or external.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishVstsFeed"::: -->
 :::moniker range="<=azure-pipelines"
@@ -1061,7 +1012,7 @@ However, for situations where a team of developers works on a large range of pro
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -122,15 +122,7 @@ Use this task to deploy a Service Fabric application to a cluster. This task dep
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -162,16 +154,7 @@ To connect to the cluster, the service fabric task uses the machine cert store t
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`serviceConnectionName`** - **Cluster Connection**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Service Fabric service connection to be used to connect to the cluster. The settings defined in this referenced service connection override those defined in the publish profile. Choose `Manage` to register a new service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishProfilePath"::: -->
 :::moniker range="<=azure-pipelines"
@@ -526,16 +509,7 @@ Specifies how credentials for the Docker registry are provided.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`registryCredentials`** - **Registry Credentials Source**<br>
-`string`. Required when `configureDockerSettings = true`. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Endpoint), `ContainerRegistryEndpoint` (Container Registry Endpoint), `UsernamePassword` (Username and Password). Default value: `AzureResourceManagerEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies how credentials for the Docker registry are provided.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -552,19 +526,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
-
-> [!NOTE]
-> The task tries to encrypt the registry secret before transmitting it to the service fabric cluster. However, the task needs the cluster's server certificate to be installed on the agent machine. If the certificate is not present, the registry secret will not be encrypted.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -618,15 +580,7 @@ You should encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ReplicaQuorumTimeoutSec"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`ReplicaQuorumTimeoutSec`** - **ReplicaQuorumTimeoutSec**<br>
-`string`. Optional. Use when `overridePublishProfileSettings = true && isUpgrade = true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options

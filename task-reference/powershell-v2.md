@@ -144,15 +144,7 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -219,16 +211,7 @@ Specifies the contents of the script. The maximum supported inline script length
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`script`** - **Script**<br>
-`string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorActionPreference"::: -->
 :::moniker range=">=azure-pipelines-2022"
