@@ -439,7 +439,7 @@ If Docker is on the agent, but unable to work with Linux-based images, the follo
 
 The [pack CLI](https://buildpacks.io/docs/tools/pack/) is maintained by the Cloud Native Buildpacks project and is used
 by this task to create runnable application images for the user when the application source code is provided and no
-additional Dockerfile is provided or found. A [builder](https://buildpacks.io/docs/concepts/components/builder/) was
+additional Dockerfile is provided or found. A [builder](https://buildpacks.io/docs/for-app-developers/concepts/builder/) was
 created by Oryx to take in the application source code provided to this task and produce an image that could then be
 pushed to an image registry and used within a Container App to build and run the application.
 
