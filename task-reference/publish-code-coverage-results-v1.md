@@ -1,14 +1,25 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to publish Cobertura or JaCoCo code coverage results from a build.
+
+> [!IMPORTANT]
+> This task is deprecated. Users are recommended to switch to task version 2*. For more details, see [https://devblogs.microsoft.com/devops/new-pccr-task](New version of Publish Code Coverage Results task).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Cobertura or JaCoCo code coverage results from a build.
@@ -20,7 +31,24 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Publish code coverage results v1
+# [DEPRECATION WARNING! Users are recommended to switch to version 2*.] Publish Cobertura or JaCoCo code coverage results from a build.
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
+    summaryFileLocation: # string. Required. Summary file. 
+    #pathToSources: # string. Path to Source files. 
+    #reportDirectory: # string. Report directory. 
+    #additionalCodeCoverageFiles: # string. Additional files. 
+    #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
 
 ```yaml
 # Publish code coverage results v1
@@ -162,6 +190,13 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+:::moniker range=">azure-pipelines-2022.1"
+
+> [!IMPORTANT]
+> This task is deprecated. Users are recommended to switch to task version 2*. For more details, see [https://devblogs.microsoft.com/devops/new-pccr-task](New version of Publish Code Coverage Results task).
+
+:::moniker-end
 
 > [!NOTE]
 > See [New version of Publish Code Coverage Results task](https://devblogs.microsoft.com/devops/new-pccr-task/) on the [Azure DevOps blog](https://devblogs.microsoft.com/devops/) for information about the new features in V2 of the Publish Code Coverage Results task, and migrating from V1 to V2.

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -20,7 +20,30 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure Functions Deploy v2
+# Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: # string. Alias: azureSubscription. Required. Azure Resource Manager connection. 
+    appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
+    appName: # string. Required. Azure Functions App name. 
+    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #runtimeStack: # 'DOTNET|6.0' | 'DOTNET-ISOLATED|6.0' | 'DOTNET-ISOLATED|7.0' | 'DOTNET-ISOLATED|8.0' | 'JAVA|8' | 'JAVA|11' | 'JAVA|17' | 'JAVA|21' | 'NODE|14' | 'NODE|16' | 'NODE|18' | 'NODE|20' | 'PYTHON|3.8' | 'PYTHON|3.9' | 'PYTHON|3.10' | 'PYTHON|3.11'. Optional. Use when appType = functionAppLinux. Runtime stack. 
+  # Application and Configuration Settings
+    #appSettings: # string. App settings. 
+  # Additional Deployment Options
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 ```yaml
 # Azure Functions Deploy v2
@@ -149,7 +172,18 @@ The file path to the package or folder that contains App Service content generat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+**`runtimeStack`** - **Runtime stack**<br>
+`string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `DOTNET|6.0` (DOTNET|6.0 (functionapp v4)), `DOTNET-ISOLATED|7.0` (DOTNET-ISOLATED|7.0 (functionapp v4)), `JAVA|8` (JAVA|8 (functionapp v2/v3/v4)), `JAVA|11` (JAVA|11  (functionapp v3/v4)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3/v4)), `NODE|16` (NODE|16 (functionapp v4)), `NODE|18` (NODE|18 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3/v4)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3/v4)), `PYTHON|3.9` (PYTHON|3.9 (functionapp v3/v4)), `PYTHON|3.10` (PYTHON|3.10 (functionapp v3/v4)).<br>
