@@ -1,7 +1,7 @@
 ---
 title: PowerShellOnTargetMachines@3 - PowerShell on target machines v3 task
 description: Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
