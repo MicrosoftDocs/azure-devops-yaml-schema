@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: DownloadFileshareArtifacts@1 - Download artifacts from file share v1 task
 description: Download artifacts from a file share, like \\share\drop.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

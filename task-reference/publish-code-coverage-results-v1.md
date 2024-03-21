@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 
 <!-- :::description::: -->
-:::moniker range=">azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Cobertura or JaCoCo code coverage results from a build.
@@ -19,7 +19,15 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 
 :::moniker-end
 
-:::moniker range="<azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines-2022.1"
+
+<!-- :::editable-content name="description"::: -->
+Publish Cobertura or JaCoCo code coverage results from a build.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Cobertura or JaCoCo code coverage results from a build.
