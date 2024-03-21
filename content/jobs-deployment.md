@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
