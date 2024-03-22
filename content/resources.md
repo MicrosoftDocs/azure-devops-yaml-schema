@@ -1,7 +1,7 @@
 ---
 title: resources definition
 description: Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
