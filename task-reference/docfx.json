@@ -68,7 +68,7 @@
     "groups": {
       "all": {
         "dest": "all",
-        "moniker_range": ">= azure-pipelines-2018 <= azure-pipelines"
+        "moniker_range": ">= azure-pipelines-2019 <= azure-pipelines"
       }
     }
   }
