@@ -27,13 +27,7 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or d
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-<!-- :::editable-content name="description"::: -->
-Update Azure WebApp Services On Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node based Web applications, Function Apps, Mobile Apps, Api applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -153,15 +147,7 @@ Update Azure WebApp Services On Windows, Web App on Linux with built-in images o
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -472,16 +458,7 @@ Specify the framework and version.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`RuntimeStack`** - **Runtime Stack**<br>
-`string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`. Allowed values: `node|4.4` (Node.js 4.4), `node|4.5` (Node.js 4.5), `node|6.2` (Node.js 6.2), `node|6.6` (Node.js 6.6), `node|6.9` (Node.js 6.9), `node|6.10` (Node.js 6.10), `node|6.11` (Node.js 6.11), `node|8.0` (Node.js 8.0), `node|8.1` (Node.js 8.1), `php|5.6` (PHP 5.6), `php|7.0` (PHP 7.0), `dotnetcore|1.0` (.NET Core 1.0), `dotnetcore|1.1` (.NET Core 1.1), `dotnetcore|2.0` (.NET Core 2.0), `ruby|2.3` (Ruby 2.3).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the framework and version.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StartupCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -553,16 +530,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`GenerateWebConfig`** - **Generate Web.config**<br>
-`boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-A standard `Web.config` will be generated and deployed to Azure App Service if the application does not have one. The values in `web.config` can be edited and vary based on the application framework. For example, for the `node.js` application, `web.config` will have startup file and `iis_node` module values. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WebConfigParameters"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -576,16 +544,7 @@ Edits values like startup files in the generated `web.config` file. This edit fe
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`WebConfigParameters`** - **Web.config parameters**<br>
-`string`. Required when `GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Edits values like startup files in the generated `web.config` file. This edit feature is only for the generated `web.config`. Learn more about [Azure App Service Deployment](https://go.microsoft.com/fwlink/?linkid=843471).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppSettings"::: -->
 :::moniker range="<=azure-pipelines"
@@ -720,20 +679,7 @@ XML transformations are supported only for Windows platform.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`enableXmlTransform`** - **XML transformation**<br>
-Input alias: `XmlTransformation`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The config transforms will be run for `*.Release.config` and `*.<EnvironmentName>.config` on the `*.config file`.
-
-Config transforms will be run prior to the Variable Substitution.
-
-XML transformations are supported only for Windows platform.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlVariableSubstitution"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -749,18 +695,7 @@ Note: If the same variables are defined in the release pipeline and in the envir
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
-Input alias: `XmlVariableSubstitution`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Variables defined in the build or release pipeline will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`. Variable Substitution is run after config transforms.
-
-Note: If the same variables are defined in the release pipeline and in the environment, then the environment variables will supersede the release pipeline variables.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="JSONFiles"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -792,34 +727,7 @@ Note: pipeline variables are excluded in substitution.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`JSONFiles`** - **JSON variable substitution**<br>
-`string`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != ""`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Provides a new lines-separated list of JSON files to substitute the variable values. Files names are to be provided relative to the root folder.
-
-To substitute JSON variables that are nested or hierarchical, specify them using `JSONPath` expressions.
-
-For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build/release pipeline (or the release pipeline’s environment).
-
-```json
-{
-  "Data": {
-    "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
-    }
-  }
-}
-```
-
-Variable Substitution is run after configuration transforms.
-
-Note: pipeline variables are excluded in substitution.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -876,20 +784,7 @@ There is a newer version of this task available. For more information, see [Azur
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.104.1 or greater |
-| Task category | Deploy |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

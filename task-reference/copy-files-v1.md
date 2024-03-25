@@ -41,15 +41,7 @@ Use this task to copy files from a source folder to a target folder using match 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->

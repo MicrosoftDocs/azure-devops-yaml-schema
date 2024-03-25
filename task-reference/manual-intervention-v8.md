@@ -16,7 +16,7 @@ Use this task to pause deployment in a release pipeline and wait for manual inte
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to pause deployment in a release pipeline and wait for intervention.
@@ -56,15 +56,7 @@ Use this task to pause deployment in a release pipeline and wait for interventio
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->

@@ -21,7 +21,7 @@ If you're using Azure DevOps Services, we recommend using [Download Pipeline Art
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Download Build Artifacts.
@@ -145,15 +145,7 @@ Download Build Artifacts.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -254,16 +246,7 @@ The build you want to download the artifacts from.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`buildId`** - **Build**<br>
-`string`. Required when `buildType == specific`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The build you want to download the artifacts from.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -301,16 +284,7 @@ The name of the artifact to download.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`artifactName`** - **Artifact name**<br>
-`string`. Required when `downloadType == single`. Default value: `drop`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of the artifact to download.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="itemPattern"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -326,18 +300,7 @@ The default pattern `\*\*` downloads all files across all artifacts in the build
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`itemPattern`** - **Matching pattern**<br>
-`string`. Optional. Use when `downloadType == specific`. Default value: `**`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the files to download as a multi-line minimatch pattern. For more information, see [File matching patterns reference](https://aka.ms/minimatchexamples).
-
-The default pattern `\*\*` downloads all files across all artifacts in the build if you choose the **Specific files** option. To download all the files within the artifact drop, use `drop/**`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
@@ -424,16 +387,7 @@ Extracts all downloaded files that have a `.tar` extension. This is helpful beca
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="definition"::: -->
-:::moniker range="=azure-pipelines-2018"
 
-**`definition`** - **Build definition**<br>
-`string`. Required when `buildType == specific`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the build definition name.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -470,11 +424,7 @@ Stores the build artifact source's build number.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-None.
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->

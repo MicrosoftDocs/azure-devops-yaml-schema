@@ -83,15 +83,7 @@ Use this task to queue a job on a Jenkins server.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -109,16 +101,7 @@ Specifies the service connection for your Jenkins instance.  Click the Manage li
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`serverEndpoint`** - **Jenkins service endpoint**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection for your Jenkins instance.  Click the Manage link to create a new Jenkins service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobName"::: -->
 :::moniker range="<=azure-pipelines"

@@ -16,7 +16,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to send a message to Azure Service Bus using a service connection (no agent required).
@@ -85,15 +85,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 
 
 <!-- :::syntax-end::: -->
@@ -113,16 +105,7 @@ Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/libr
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`azureSubscription`** - **Azure service bus connection**<br>
-Input alias: `connectedServiceName`. `string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Service Bus service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="messageBody"::: -->
 :::moniker range="<=azure-pipelines"
@@ -184,16 +167,7 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`signatureKey`** - **Signature Property Key**<br>
-`string`. Optional. Use when `signPayload = true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-In Message Properties, specifies the key where the signature is. If left empty, the default value is `signature`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"

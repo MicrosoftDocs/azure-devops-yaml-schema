@@ -52,15 +52,7 @@ Use this task to run a PowerShell script within the context of an Azure Service 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -78,16 +70,7 @@ Specifies the Azure Service Fabric cluster which will have an established servic
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`clusterConnection`** - **Cluster Connection**<br>
-Input alias: `serviceConnectionName`. `string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptType"::: -->
 :::moniker range="<=azure-pipelines"

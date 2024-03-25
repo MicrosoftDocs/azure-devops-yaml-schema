@@ -24,13 +24,7 @@ Deploy an Azure resource manager (ARM) template to a resource group. You can als
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-<!-- :::editable-content name="description"::: -->
-Deploy, start, stop, delete Azure Resource Groups.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -149,15 +143,7 @@ Deploy, start, stop, delete Azure Resource Groups.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -373,18 +359,7 @@ You can create a service connection using `+New` and then selecting `Token-based
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`teamServicesConnection`** - **TFS/VSTS endpoint**<br>
-Input alias: `deploymentGroupEndpoint`. `string`. Required when `enableDeploymentPrerequisites = ConfigureVMWithDGAgent && action = Create Or Update Resource Group || action = Select Resource Group`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Registering agents with the deployment group requires access to your Visual Studio project.
-
-Click `Add` to create an endpoint using a [personal access token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) with its scope restricted to `Deployment Group` and the default expiration time of 90 days. Click `Manage` to update endpoint details.​
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="teamProject"::: -->
 :::moniker range="<=azure-pipelines"

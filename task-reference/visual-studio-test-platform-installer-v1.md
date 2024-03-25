@@ -58,15 +58,7 @@ Use this task to acquire the [Microsoft test platform](https://www.nuget.org/pac
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -102,16 +94,7 @@ Installs the latest version or a specific version of the Visual Studio Test Plat
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`versionSelector`** - **Version**<br>
-`string`. Required. Allowed values: `latestPreRelease` (Latest Pre-Release), `specificVersion` (Specific Version). Default value: `latestPreRelease`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Installs the latest version or a specific version of the Visual Studio Test Platform. If you use the test platform installer to run Coded UI tests, the chosen Visual Studio Test Platform must match the major version of the Visual Studio installation that built the test binaries. For example, if the Coded UI test project was built using Visual Studio 2017 (version 15.x), you must use Test Platform version 15.x.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlatformVersion"::: -->
 :::moniker range="<=azure-pipelines"

@@ -39,15 +39,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -167,12 +159,7 @@ None.
 > [!NOTE]
 > This task can be used only in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs).
 
-::: moniker range="azure-pipelines-2018"
 
-> [!NOTE]
-> This task is available in both classic build and release pipelines starting with TFS 2018.2 In TFS 2018 RTM, this task is available only in classic release pipelines.
-
-::: moniker-end
 
 Succeeds if the API returns success and the response body parsing is successful, or when the API updates the timeline record with success.
 

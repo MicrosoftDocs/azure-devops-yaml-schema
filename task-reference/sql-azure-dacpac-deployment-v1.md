@@ -16,7 +16,7 @@ Use this task to deploy an Azure SQL Database using DACPAC, or run scripts using
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy an Azure SQL database using DACPAC, or run scripts using SQLCMD.
@@ -141,15 +141,7 @@ Use this task to deploy an Azure SQL database using DACPAC, or run scripts using
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -166,15 +158,7 @@ Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `Connecte
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`azureConnectionType`** - **Azure Connection Type**<br>
-Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -250,7 +234,7 @@ Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` o
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`ServerName`** - **Azure SQL Server Name**<br>
 `string`. Required.<br>
@@ -284,7 +268,7 @@ Specifies the name of the Azure SQL database where the files are deployed.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`DatabaseName`** - **Database Name**<br>
 `string`. Required.<br>
@@ -318,16 +302,7 @@ Specifies the Azure SQL Server administrator login or Active Directory user name
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`SqlUsername`** - **Server Admin Login**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure SQL Server administrator login or Active Directory user name.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -352,16 +327,7 @@ Specifies the password for the Azure SQL Server administrator. Variables defined
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`SqlPassword`** - **Password**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the password for the Azure SQL Server administrator. Variables defined in the build or release pipelines as `$(passwordVariable)` are accepted. You can mark the variable type as `secret` to secure it.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="aadSqlUsername"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -456,16 +422,7 @@ Specifies the location of the DACPAC file on the automation agent or on a UNC pa
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`DacpacFile`** - **DACPAC File**<br>
-`string`. Required when `TaskNameSelector = DacpacTask`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the location of the DACPAC file on the automation agent or on a UNC path that's accessible to the automation agent, like `\\BudgetIT\Web\Deploy\FabrikamDB.dacpac`. Predefined system variables, like `$(agent.releaseDirectory)`, can also be used.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="BacpacFile"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -516,17 +473,7 @@ Specifies the path to the publish profile XML file on the automation agent machi
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`PublishProfile`** - **Publish Profile**<br>
-`string`. Optional. Use when `TaskNameSelector = DacpacTask`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Provides fine-grained control over Azure SQL database creation or upgrades.  
-Specifies the path to the publish profile XML file on the automation agent machine or on a UNC share. If the publish profile contains secrets, like credentials, upload it to the [secure files](/azure/devops/pipelines/library/secure-files) library where it is securely stored with encryption. Next, use the [Download secure file](download-secure-file-v1.md) task at the start of your pipeline to download it to the agent machine when the pipeline runs. Delete it when the pipeline is complete. Predefined system variables, like `$(agent.buildDirectory)` or `$(agent.releaseDirectory)`, can also be used.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -540,16 +487,7 @@ Specifies the additional `SqlPackage.exe` arguments that will be applied when de
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`AdditionalArguments`** - **Additional SqlPackage.exe Arguments**<br>
-`string`. Optional. Use when `TaskNameSelector = DacpacTask`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the additional `SqlPackage.exe` arguments that will be applied when deploying the Azure SQL database if the DACPAC option is selected, like `/p:IgnoreAnsiNulls=True /p:IgnoreComments=True`. These arguments will override the settings in the publish profile XML file (if provided).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
@@ -634,15 +572,7 @@ If selected, after the task ends, the IP addresses specified here are deleted fr
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`TaskNameSelector`** - **Type**<br>
-`string`. Allowed values: `DacpacTask` (SQL DACPAC File), `SqlTask` (SQL Script File), `InlineSqlTask` (Inline SQL Script). Default value: `DacpacTask`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
@@ -665,11 +595,7 @@ The generated output file path when the deployment package action is `Extract`, 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-None.
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->

@@ -213,15 +213,7 @@ Build using a Gradle wrapper script.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -300,16 +292,7 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Publishes JUnit test results produced by the Gradle build to Azure Pipelines. The task publishes each test results file matching `Test Results Files` as a test run in Azure Pipelines.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -323,16 +306,7 @@ The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-m
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`testResultsFiles`** - **Test results files**<br>
-`string`. Required when `publishJUnitResults = true`. Default value: `**/build/test-results/TEST-*.xml`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) can be used. For example, `**/TEST-*.xml` for all XML files whose name starts with `TEST-`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
@@ -452,16 +426,7 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.9` (JDK 9), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6). Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and set JAVA_HOME accordingly.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"

@@ -77,15 +77,7 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -150,16 +142,7 @@ The contents of the script.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`script`** - **Script**<br>
-`string`. Required when `targetType = inline`. Default value: `# Write your commands here`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The contents of the script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"

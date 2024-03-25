@@ -72,15 +72,7 @@ Use this task to run the Grunt JavaScript task runner.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -171,16 +163,7 @@ Select this option to publish the JUnit test results produced by the Grunt build
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`publishJUnitResults`** - **Publish to TFS/Team Services**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish the JUnit test results produced by the Grunt build to TFS/Team Services.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"

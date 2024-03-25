@@ -62,15 +62,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -111,16 +103,7 @@ Specifies the generic service connection that provides the baseUrl for the call 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`serviceConnection`** - **Generic endpoint**<br>
-Input alias: `connectedServiceName`. `string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the generic service connection that provides the baseUrl for the call and the authorization to use for the task.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureServiceConnection"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -195,18 +178,7 @@ Example: If the service connection URL is `https:...TestProj/_apis/Release/relea
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`urlSuffix`** - **Url suffix and parameters**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the string to append to the baseUrl from the generic service connection while making the HTTP call.
-
-Example: If the service connection URL is `https:...TestProj/_apis/Release/releases` and the URL suffix is `/2/environments/1`, the service connection URL becomes `https:.../TestProj/_apis/Release/releases/2/environments/1`. If the URL suffix is `?definitionId=1&releaseCount=1`, then the service connection URL becomes `https//...TestProj/_apis/Release/releases?definitionId=1&releaseCount=1`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"
@@ -260,12 +232,7 @@ None.
 > [!NOTE]
 > This task can be used only in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs).
 
-::: moniker range="azure-pipelines-2018"
 
-> [!NOTE]
-> This task is available in both classic build and release pipelines starting with TFS 2018.2 In TFS 2018 RTM, this task is available only in classic release pipeines.
-
-::: moniker-end
 
 Succeeds if the API returns success and the response body parsing is successful, or when the API updates the timeline record with success.
 

@@ -123,15 +123,7 @@ Use this task in a build pipeline to publish build artifacts to Azure Pipelines,
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -149,16 +141,7 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`PathtoPublish`** - **Path to publish**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the folder or file path to publish. This can be a fully qualified path or a path relative to the root of the repository. Wildcards are not supported. [Variables](/azure/devops/pipelines/build/variables) are supported. Example: `$(Build.ArtifactStagingDirectory)`. For more information, see [Artifacts in pipelines - overview](/azure/devops/pipelines/artifacts/artifacts-overview).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ArtifactName"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -172,16 +155,7 @@ Specifies the name of the artifact to create in the publish location. The follow
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`ArtifactName`** - **Artifact name**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the artifact to create in the publish location.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishLocation"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -206,16 +180,7 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`publishLocation`** - **Artifact publish location**<br>
-Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Visual Studio Team Services/TFS), `FilePath` (A file share).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="MaxArtifactSize"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
@@ -241,16 +206,7 @@ Specifies the path to the file share where you want to copy the files. The path 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`TargetPath`** - **File share path**<br>
-`string`. Optional. Use when `ArtifactType = FilePath`. Default value: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the file share where you want to copy the files. The path must be a fully qualified path or a valid path relative to the root directory of your repository. Publishing artifacts from a Linux or macOS agent to a file share is not supported. Example: `\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Parallel"::: -->
 :::moniker range="<=azure-pipelines"
