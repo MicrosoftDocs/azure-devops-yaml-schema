@@ -122,15 +122,7 @@ Test app packages with Visual Studio App Center.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -411,16 +403,7 @@ Uses the App Center service connection or enters the credentials to connect to V
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`credentialsOption`** - **Authentication method**<br>
-Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center Connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Uses the App Center service connection or enters the credentials to connect to Visual Studio App Center.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -434,16 +417,7 @@ Selects the service connection for Visual Studio App Center. If needed, click th
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`serverEndpoint`** - **App Center connection**<br>
-`string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Selects the service connection for Visual Studio App Center. If needed, click the Manage link to create a new service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
@@ -602,7 +576,7 @@ Adds `--debug` to the Visual Studio App Center CLI.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="uitestStoreFile"::: -->
-:::moniker range="<=azure-pipelines-2019"
+:::moniker range="=azure-pipelines-2019"
 
 **`uitestStoreFile`** - **Store file**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>

@@ -238,15 +238,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -311,27 +303,7 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`testAssemblyVer2`** - **Test assemblies**<br>
-`string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
-
-```yml
-# Example
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-```
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlan"::: -->
 :::moniker range="<=azure-pipelines"
@@ -488,16 +460,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`vsTestVersion`** - **Test platform version**<br>
-`string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses the latest version (from the list of allowed values) that is installed. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstestLocation"::: -->
 :::moniker range="<=azure-pipelines"
@@ -688,17 +651,7 @@ Each of the selected test(s) will be repeated on each agent. This option is not 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dontDistribute`** - **Do not distribute tests and replicate instead when multiple agents are used in the phase**<br>
-`boolean`. Default value: `False`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Choosing this option will not distribute tests across agents when the task is running in a multi-agent phase.
-Each of the selected test(s) will be repeated on each agent. This option is not applicable when the agent phase is configured to run with no parallelism or with the multi-config option.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"

@@ -53,15 +53,7 @@ Deploy to Chef environments by editing environment attributes.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -79,16 +71,7 @@ The name of the Chef subscription service connection.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`connectedServiceName`** - **Chef Connection**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Chef subscription service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Environment"::: -->
 :::moniker range="<=azure-pipelines"

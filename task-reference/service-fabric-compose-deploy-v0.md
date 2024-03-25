@@ -74,15 +74,7 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-```yaml
-# YAML Syntax is not supported in TFS 2018.
-# Use the classic designer to add and configure tasks.
-# See the following Inputs section for details on the inputs that this task supports.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -100,16 +92,7 @@ Specifies an Azure Service Fabric service connection to be used to connect to th
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`clusterConnection`** - **Cluster Connection**<br>
-Input alias: `serviceConnectionName`. `string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="composeFilePath"::: -->
 :::moniker range="<=azure-pipelines"
@@ -154,21 +137,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`registryCredentials`** - **Registry Credentials Source**<br>
-`string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager Endpoint), `ContainerRegistryEndpoint` (Container Registry Endpoint), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies how credentials for the Docker container registry will be provided to the deployment task. The allowed values are:
-
-* `AzureResourceManagerEndpoint` (Azure Resource Manager service connection): uses `azureSubscription` to obtain a service principal ID and key for an Azure Container Registry.
-* `ContainerRegistryEndpoint` (Container Registry service connection): uses `dockerRegistryConnection` to select a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
-* `UsernamePassword` (Username and Password): uses `registryUsername` and `registryPassword` to store the username and password for the Docker registry. Passwords should be encrypted using [Invoke-ServiceFabricEncryptText](/azure/service-fabric/service-fabric-application-secret-management#encrypt-application-secrets) with the `Password Encrypted` option. If passwords are not encrypted with `Invoke-ServiceFabricEncryptText`, and a certificate matching the Server Certificate Thumbprint in the Cluster Connection is installed on the build agent, the certificate will be used to encrypt the password. Otherwise, the password will not be encrypted and will be sent in clear text.
-* `None`: No registry credentials are provided. This is used for accessing public container registries.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -182,16 +151,7 @@ Specifies a Docker registry service connection. If a certificate matching the Se
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
 
-**`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
