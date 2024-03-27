@@ -184,7 +184,7 @@ None.
 
 Works with cross-platform agents (Linux, macOS, or Windows).
 
-There is a newer version of the Archive Files task available.
+There is a newer version of the Azure Key Vault task available.
 
 * [Azure Key Vault v2](azure-key-vault-v2.md)
 
