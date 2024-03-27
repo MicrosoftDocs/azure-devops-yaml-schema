@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -181,8 +181,6 @@ Specifies a Docker registry service connection. Required when commands need to a
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -392,8 +390,6 @@ Specifies an override value for the default entry point of the service container
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -418,8 +414,6 @@ Specifies the service containers to run in the background.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="abortOnContainerExit"::: -->
 :::moniker range="<=azure-pipelines"
@@ -518,8 +512,6 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="nopIfNoDockerComposeFile"::: -->
 :::moniker range="<=azure-pipelines"

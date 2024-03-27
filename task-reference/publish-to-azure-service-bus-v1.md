@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection (no agent is required).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -104,8 +104,6 @@ Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/libr
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="messageBody"::: -->
 :::moniker range="<=azure-pipelines"
@@ -166,8 +164,6 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"

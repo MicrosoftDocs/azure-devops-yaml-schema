@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -365,8 +365,6 @@ Code coverage can be collected by adding the `--collect "Code coverage"` option 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -460,8 +458,6 @@ Includes the selected feed in the generated `NuGet.config`. You must have Packag
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="includeNuGetOrg"::: -->
 :::moniker range="<=azure-pipelines"
@@ -498,8 +494,6 @@ The credentials to use for external registries located in the selected `NuGet.co
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="noCache"::: -->
 :::moniker range="<=azure-pipelines"
@@ -560,8 +554,6 @@ Specifies whether the target feed is internal or external.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="publishVstsFeed"::: -->
 :::moniker range="<=azure-pipelines"

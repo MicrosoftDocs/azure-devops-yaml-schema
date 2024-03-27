@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -125,8 +125,6 @@ The name of an [SSH service connection](/azure/devops/pipelines/library/service-
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="sourceFolder"::: -->
 :::moniker range="<=azure-pipelines"

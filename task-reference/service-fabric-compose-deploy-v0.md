@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -91,8 +91,6 @@ Specifies an Azure Service Fabric service connection to be used to connect to th
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="composeFilePath"::: -->
 :::moniker range="<=azure-pipelines"
@@ -136,8 +134,6 @@ Specifies how credentials for the Docker container registry will be provided to 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -150,8 +146,6 @@ Specifies a Docker registry service connection. If a certificate matching the Se
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"

@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -102,8 +102,6 @@ Specifies the generic service connection that provides the baseUrl for the call 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureServiceConnection"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -177,8 +175,6 @@ Example: If the service connection URL is `https:...TestProj/_apis/Release/relea
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
 :::moniker range="<=azure-pipelines"

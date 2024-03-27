@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@0 - Azure VM scale set deployment v0 task
 description: Deploy a virtual machine scale set image.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -139,8 +139,6 @@ Specifies the URL of the VHD image. If it's an Azure storage blob URL, the stora
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="customScriptsDirectory"::: -->
 :::moniker range="<=azure-pipelines"

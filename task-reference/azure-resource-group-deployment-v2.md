@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -358,8 +358,6 @@ You can create a service connection using `+New` and then selecting `Token-based
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="teamProject"::: -->
 :::moniker range="<=azure-pipelines"

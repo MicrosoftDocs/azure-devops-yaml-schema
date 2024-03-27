@@ -1,7 +1,7 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -156,8 +156,6 @@ If the preferred version cannot be found, the latest version found is used inste
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArchitecture"::: -->
 :::moniker range="<=azure-pipelines"

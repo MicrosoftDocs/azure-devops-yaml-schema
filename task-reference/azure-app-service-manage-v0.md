@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -318,8 +318,6 @@ Preserves the virtual network settings.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="ExtensionsList"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -332,8 +330,6 @@ Site extensions run on Microsoft Azure App Service. You can install a set of too
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="OutputVariable"::: -->
 :::moniker range="<=azure-pipelines"
@@ -388,9 +384,6 @@ If you don't provide a web test name, the default test name is used.
 <br>
 
 :::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="SpecifySlot"::: -->
-
 <!-- :::item-end::: -->
 
 ### Task control options

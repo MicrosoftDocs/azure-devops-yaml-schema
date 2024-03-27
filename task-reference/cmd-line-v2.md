@@ -1,7 +1,7 @@
 ---
 title: CmdLine@2 - Command line v2 task
 description: Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -63,8 +63,6 @@ The contents of the script you want to run.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"

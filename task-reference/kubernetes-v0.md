@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -163,8 +163,6 @@ Select a Kubernetes service connection.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
 :::moniker range="<=azure-pipelines"
@@ -200,8 +198,6 @@ Specifies a `kubectl` command to run.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="useConfigurationFile"::: -->
 :::moniker range="<=azure-pipelines"
@@ -226,8 +222,6 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
 :::moniker range="<=azure-pipelines"
@@ -276,8 +270,6 @@ Select a Container registry type. The task can use Azure Subscription details to
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -290,8 +282,6 @@ Select a Docker registry service connection. Required for commands that need to 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -306,8 +296,6 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -320,8 +308,6 @@ Specifies an Azure Container Registry which is used for pulling container images
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="secretName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -418,8 +404,6 @@ kubectl is a command line interface for running commands against Kubernetes clus
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -432,8 +416,6 @@ Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="checkLatest"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -446,8 +428,6 @@ Always checks online for the latest available version (stable.txt) that satisfie
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="specifyLocation"::: -->
 :::moniker range="<=azure-pipelines"

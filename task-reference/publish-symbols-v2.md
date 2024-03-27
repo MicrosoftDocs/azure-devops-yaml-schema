@@ -1,7 +1,7 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -169,8 +169,6 @@ Specifies where to publish symbols. Symbols published to the Azure Artifacts sym
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="SymbolsPath"::: -->
 :::moniker range="<=azure-pipelines"

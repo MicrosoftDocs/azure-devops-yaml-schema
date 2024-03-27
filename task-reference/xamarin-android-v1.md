@@ -1,7 +1,7 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -251,8 +251,6 @@ Specifies the JDK version to use during the build.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"

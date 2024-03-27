@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -245,8 +245,6 @@ The build you want to download the artifacts from.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -283,8 +281,6 @@ The name of the artifact to download.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="itemPattern"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -299,8 +295,6 @@ The default pattern `\*\*` downloads all files across all artifacts in the build
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="downloadPath"::: -->
 :::moniker range="<=azure-pipelines"
@@ -385,9 +379,6 @@ Extracts all downloaded files that have a `.tar` extension. This is helpful beca
 <br>
 
 :::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="definition"::: -->
-
 <!-- :::item-end::: -->
 
 ### Task control options

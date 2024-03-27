@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -140,8 +140,6 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="ArtifactName"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -154,8 +152,6 @@ Specifies the name of the artifact to create in the publish location. The follow
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="publishLocation"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -179,8 +175,6 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="MaxArtifactSize"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
@@ -205,8 +199,6 @@ Specifies the path to the file share where you want to copy the files. The path 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="Parallel"::: -->
 :::moniker range="<=azure-pipelines"

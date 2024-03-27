@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -457,8 +457,6 @@ Specify the framework and version.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="StartupCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -529,8 +527,6 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="WebConfigParameters"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -543,8 +539,6 @@ Edits values like startup files in the generated `web.config` file. This edit fe
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="AppSettings"::: -->
 :::moniker range="<=azure-pipelines"
@@ -678,8 +672,6 @@ XML transformations are supported only for Windows platform.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlVariableSubstitution"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -694,8 +686,6 @@ Note: If the same variables are defined in the release pipeline and in the envir
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="JSONFiles"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -726,8 +716,6 @@ Note: pipeline variables are excluded in substitution.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 
 ### Task control options

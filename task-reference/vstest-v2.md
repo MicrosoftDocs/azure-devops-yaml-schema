@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (task version 2).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -302,8 +302,6 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testPlan"::: -->
 :::moniker range="<=azure-pipelines"
@@ -459,8 +457,6 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="vstestLocation"::: -->
 :::moniker range="<=azure-pipelines"
@@ -650,8 +646,6 @@ Each of the selected test(s) will be repeated on each agent. This option is not 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"

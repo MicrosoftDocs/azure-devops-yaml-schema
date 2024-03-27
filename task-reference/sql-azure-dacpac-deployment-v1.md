@@ -1,7 +1,7 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -157,8 +157,6 @@ Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `Connecte
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureClassicSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -301,8 +299,6 @@ Specifies the Azure SQL Server administrator login or Active Directory user name
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="SqlPassword"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -326,8 +322,6 @@ Specifies the password for the Azure SQL Server administrator. Variables defined
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="aadSqlUsername"::: -->
 :::moniker range=">=azure-pipelines-2019.1"
@@ -421,8 +415,6 @@ Specifies the location of the DACPAC file on the automation agent or on a UNC pa
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="BacpacFile"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -472,8 +464,6 @@ Specifies the path to the publish profile XML file on the automation agent machi
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="AdditionalArguments"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -486,8 +476,6 @@ Specifies the additional `SqlPackage.exe` arguments that will be applied when de
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="SqlAdditionalArguments"::: -->
 :::moniker range="<=azure-pipelines"
@@ -571,8 +559,6 @@ If selected, after the task ends, the IP addresses specified here are deleted fr
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 
 ### Task control options
