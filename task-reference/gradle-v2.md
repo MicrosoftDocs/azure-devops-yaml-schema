@@ -1,7 +1,7 @@
 ---
 title: Gradle@2 - Gradle v2 task
 description: Build using a Gradle wrapper script (task version 2).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -291,8 +291,6 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -305,8 +303,6 @@ The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-m
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
 :::moniker range="<=azure-pipelines"
@@ -425,8 +421,6 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"

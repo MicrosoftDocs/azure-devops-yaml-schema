@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -153,8 +153,6 @@ To connect to the cluster, the service fabric task uses the machine cert store t
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="publishProfilePath"::: -->
 :::moniker range="<=azure-pipelines"
@@ -508,8 +506,6 @@ Specifies how credentials for the Docker registry are provided.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -525,8 +521,6 @@ Specifies a Docker registry service connection. Required for commands that need 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -578,9 +572,6 @@ You should encrypt your password using [Invoke-ServiceFabricEncryptText](/azure/
 <br>
 
 :::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="ReplicaQuorumTimeoutSec"::: -->
-
 <!-- :::item-end::: -->
 
 ### Task control options

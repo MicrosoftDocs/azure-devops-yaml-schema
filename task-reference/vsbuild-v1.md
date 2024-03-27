@@ -1,7 +1,7 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -154,8 +154,6 @@ Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to th
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArgs"::: -->
 :::moniker range="<=azure-pipelines"

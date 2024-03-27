@@ -1,7 +1,7 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -183,8 +183,6 @@ Specifies a Docker registry service connection. Required for commands that need 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -437,8 +435,6 @@ Specifies an override of the default entry point for the Docker container.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -511,8 +507,6 @@ Specifies a Docker host service connection. Defaults to the agent's host.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="enforceDockerNamingConvention"::: -->
 :::moniker range="<=azure-pipelines"

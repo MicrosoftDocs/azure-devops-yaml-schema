@@ -1,7 +1,7 @@
 ---
 title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -402,8 +402,6 @@ Uses the App Center service connection or enters the credentials to connect to V
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -416,8 +414,6 @@ Selects the service connection for Visual Studio App Center. If needed, click th
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"

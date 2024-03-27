@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -140,8 +140,6 @@ For example, `!TEST[1-3].xml` excludes files named `TEST1.xml`, `TEST2.xml`, or 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="searchFolder"::: -->
 :::moniker range="<=azure-pipelines"
@@ -253,15 +251,6 @@ Optional. When this boolean's value is `true`, the task uploads all the test res
 <br>
 
 :::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="testRunner"::: -->
-
-<!-- :::item-end::: -->
-<!-- :::item name="platform"::: -->
-
-<!-- :::item-end::: -->
-<!-- :::item name="configuration"::: -->
-
 <!-- :::item-end::: -->
 
 ### Task control options

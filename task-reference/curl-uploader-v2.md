@@ -1,25 +1,25 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # cURLUploader@2 - cURL Upload Files v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use cURL to upload files.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2019"
+
+<!-- :::editable-content name="description"::: -->
+Use cURL to upload files.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -99,8 +99,6 @@ Specifies the authentication method for server authentication.
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="serviceEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -113,8 +111,6 @@ Specifies the service connection with the credentials for the server authenticat
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="username"::: -->
 :::moniker range="<=azure-pipelines"
@@ -163,8 +159,6 @@ Optional. Specifies the sub-folder on the remote server for the URL supplied in 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
 :::moniker range="<=azure-pipelines"

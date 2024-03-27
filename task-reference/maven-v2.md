@@ -1,7 +1,7 @@
 ---
 title: Maven@2 - Maven v2 task
 description: Build, test, and deploy with Apache Maven (task version 2).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -290,8 +290,6 @@ Specifies the option to publish the JUnit test results produced by the Maven bui
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
@@ -439,8 +437,6 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"

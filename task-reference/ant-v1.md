@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -150,8 +150,6 @@ Select this option to publish JUnit test results produced by the Ant build to Az
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
 :::moniker range="<=azure-pipelines"
@@ -279,8 +277,6 @@ Attempts to discover the path to the selected JDK version and sets JAVA_HOME acc
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="jdkUserInputDirectory"::: -->
 :::moniker range="<=azure-pipelines"

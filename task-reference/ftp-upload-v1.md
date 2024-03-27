@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@1 - FTP upload v1 task
 description: Upload files using FTP (task version 1).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -87,8 +87,6 @@ Specifies the authentication method. Use an FTP service connection or enter the 
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
 :::moniker range=">=azure-pipelines-2019"
@@ -103,8 +101,6 @@ Secure connections will always be made regardless of the specified protocol (`ft
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="serverUrl"::: -->
 :::moniker range="<=azure-pipelines"

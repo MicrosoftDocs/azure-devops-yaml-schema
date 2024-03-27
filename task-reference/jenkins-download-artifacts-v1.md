@@ -1,7 +1,7 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
 description: Download artifacts produced by a Jenkins job.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -95,8 +95,6 @@ Specifies the service connection for your Jenkins instance. To create a new serv
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="jobName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -196,8 +194,6 @@ Starts the build number for downloading commits and work items. If provided, all
 <br>
 
 :::moniker-end
-
-
 <!-- :::item-end::: -->
 <!-- :::item name="artifactDetailsFileNameSuffix"::: -->
 :::moniker range="<=azure-pipelines"
