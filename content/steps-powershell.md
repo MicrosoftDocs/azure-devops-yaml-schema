@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,7 +22,7 @@ The `powershell` step runs a script using either Windows PowerShell (on Windows)
 
 ```yaml
 steps:
-- powershell: string # Required as first property. Inline PowerShell or reference to a PowerShell file.
+- powershell: string # Required as first property. Inline PowerShell script.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
@@ -45,7 +45,7 @@ steps:
 
 ```yaml
 steps:
-- powershell: string # Required as first property. Inline PowerShell or reference to a PowerShell file.
+- powershell: string # Required as first property. Inline PowerShell script.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
@@ -67,7 +67,7 @@ steps:
 
 ```yaml
 steps:
-- powershell: string # Required as first property. Inline PowerShell or reference to a PowerShell file.
+- powershell: string # Required as first property. Inline PowerShell script.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
@@ -100,7 +100,7 @@ Definitions that reference this definition: [steps](steps.md)
 :::moniker range=">=azure-pipelines-2019"
 
 **`powershell`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
-Inline PowerShell or reference to a PowerShell file.
+Inline PowerShell script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

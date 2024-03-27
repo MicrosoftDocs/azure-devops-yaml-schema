@@ -1,7 +1,7 @@
 ---
 title: steps.pwsh definition
 description: Runs a script in PowerShell Core on Windows, macOS, and Linux.
-ms.date: 03/21/2024
+ms.date: 03/27/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,7 +22,7 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 
 ```yaml
 steps:
-- pwsh: string # Required as first property. Inline PowerShell.
+- pwsh: string # Required as first property. Inline PowerShell script.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
@@ -45,7 +45,7 @@ steps:
 
 ```yaml
 steps:
-- pwsh: string # Required as first property. Inline PowerShell or reference to a PowerShell file.
+- pwsh: string # Required as first property. Inline PowerShell script.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
@@ -67,7 +67,7 @@ steps:
 
 ```yaml
 steps:
-- pwsh: string # Required as first property. Inline PowerShell or reference to a PowerShell file.
+- pwsh: string # Required as first property. Inline PowerShell script.
   errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
   failOnStderr: string # Fail the task if output is sent to Stderr?
   ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
@@ -100,7 +100,7 @@ Definitions that reference this definition: [steps](steps.md)
 :::moniker range=">=azure-pipelines-2019"
 
 **`pwsh`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
-Inline PowerShell or reference to a PowerShell file.
+Inline PowerShell script.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
