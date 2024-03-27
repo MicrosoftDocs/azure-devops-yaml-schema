@@ -256,18 +256,6 @@ If no optional arguments are specified, the following are added by default:
 
 :::moniker-end
 <!-- :::item-end::: -->
-<!-- :::item name="sasTokenTimeOutInMinutes"::: -->
-:::moniker range="=azure-pipelines"
-
-**`sasTokenTimeOutInMinutes`** - **SAS Token Expiration Period In Minutes**<br>
-`string`. Optional. Use when `Destination = AzureBlob`. Default value: `240`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the time in minutes after which the SAS token for the container will expire. By default, this token expires after 4 hours.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
 <!-- :::item name="enableCopyPrerequisites"::: -->
 :::moniker range="=azure-pipelines"
 
