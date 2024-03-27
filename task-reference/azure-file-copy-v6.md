@@ -13,7 +13,8 @@ monikerRange: "=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
 
-This version of the task supports Workload Identity Federation and does not support SAS tokens. For more information, see the [Remarks](#remarks) section.
+This version of the task supports Workload Identity Federation and uses Azure RBAC to access Azure Storage.
+As a result of us using Azure RBAC, SAS tokens are no longer used. For more information, see the [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -337,11 +338,12 @@ Uri of the container where the files were copied to. Valid only when the selecte
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-`AzureFileCopy@6` does not support SAS token authentication, and the `sasTokenTimeOutInMinutes` task input is removed.
+`AzureFileCopy@6` supports Workload Identity Federation and uses Azure RBAC to access Azure Storage.
+As a result of using Azure RBAC, SAS tokens are no longer used and the `sasTokenTimeOutInMinutes` task input is removed.
 
 You might [block](/azure/storage/common/shared-key-authorization-prevent) the use of storage account keys and SAS tokens on your storage accounts. In these situations the [AzureFileCopy@5](./azure-file-copy-v5.md) task, which relies on SAS tokens, can't be used.
 
-The AzureFileCopy@6 task uses Azure RBAC to access blob storage instead. This requires the identity of the service connection used to have the appropriate RBAC role e.g. [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor). See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access).
+The `AzureFileCopy@6` task uses Azure RBAC to access blob storage instead. This requires the identity of the service connection used to have the appropriate RBAC role e.g. [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor). See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access).
 
 The AzureFileCopy@6 task also supports service connections that use [workload identity federation](https://aka.ms/azdo-rm-workload-identity).
 
