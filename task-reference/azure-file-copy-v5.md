@@ -355,6 +355,17 @@ SasToken for the container where the files were copied to. Valid only when the s
 
 AzureFileCopy@5 supports AzCopy.exe version 10.12.2.
 
+:::moniker range="=azure-pipelines"
+
+> [!NOTE]
+> You might [block](/azure/storage/common/shared-key-authorization-prevent) the use of storage account keys and SAS tokens on your storage accounts. In these situations the [AzureFileCopy@5](./azure-file-copy-v5.md) task, which relies on SAS tokens, can't be used.
+>
+> The [AzureFileCopy@6](./azure-file-copy-v6.md) task uses Azure RBAC to access blob storage instead. This requires the identity of the service connection used to have the appropriate RBAC role e.g. [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor). See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access).
+>
+> The [AzureFileCopy@6](./azure-file-copy-v6.md) task also supports service connections that use [workload identity federation](https://aka.ms/azdo-rm-workload-identity).
+
+:::moniker-end
+
 > [!NOTE]
 > This task is written in PowerShell and works **only** when run on Windows agents. If your pipelines require Linux agents and need to copy files to an Azure Storage Account, consider running `az storage blob` commands in the [Azure CLI task](azure-cli-v2.md) as an alternative.
 

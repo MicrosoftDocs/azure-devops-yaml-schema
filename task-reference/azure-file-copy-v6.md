@@ -12,6 +12,8 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.
+
+This version of the task supports Workload Identity Federation and does not support SAS tokens. For more information, see the [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -333,6 +335,89 @@ Uri of the container where the files were copied to. Valid only when the selecte
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+`AzureFileCopy@6` does not support SAS token authentication, and the `sasTokenTimeOutInMinutes` task input is removed.
+
+You might [block](/azure/storage/common/shared-key-authorization-prevent) the use of storage account keys and SAS tokens on your storage accounts. In these situations the [AzureFileCopy@5](./azure-file-copy-v5.md) task, which relies on SAS tokens, can't be used.
+
+The AzureFileCopy@6 task uses Azure RBAC to access blob storage instead. This requires the identity of the service connection used to have the appropriate RBAC role e.g. [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor). See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access).
+
+The AzureFileCopy@6 task also supports service connections that use [workload identity federation](https://aka.ms/azdo-rm-workload-identity).
+
+> [!NOTE]
+> This task is written in PowerShell and works **only** when run on Windows agents. If your pipelines require Linux agents and need to copy files to an Azure Storage Account, consider running `az storage blob` commands in the [Azure CLI task](azure-cli-v2.md) as an alternative.
+
+The task is used to copy application files and other artifacts that are required in order to install the app; such as PowerShell scripts, PowerShell-DSC modules, and more.
+
+When the target is Azure VMs, the files are first copied to an automatically generated Azure blob container and then downloaded into the VMs. The container is deleted after the files are successfully copied to the VMs.
+
+The task uses **AzCopy**, the command-line utility built for fast copying data from and to Azure storage accounts. Version 6 of the Azure File Copy task uses [AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).
+
+Azure File Copy version 6 [require Azure Storage to be authorized via Microsoft Entra ID](/azure/storage/common/storage-use-azcopy-v10#authorize-azcopy). Authentication using a service principal and managed identity are available. For managed identities, only system-wide managed identity is supported. The level of authorization required is shown in [Option 1: Use Microsoft Entra ID](/azure/storage/common/storage-use-azcopy-v10#option-1-use-azure-active-directory).
+
+To dynamically deploy Azure Resource Groups that contain virtual machines, use the
+[Azure Resource Group Deployment](azure-resource-group-deployment-v2.md) task. This task
+has a sample template that can perform the required operations to set up the WinRM HTTPS
+protocol on the VMs, open port 5986 in the firewall, and install the test certificate.
+
+> [!NOTE]
+> If you are deploying to Azure Static Websites as a container in Blob storage,
+  use **Version 2** or higher of the task in order to preserve the **$web**
+  container name.
+
+### What are the Azure PowerShell prerequisites for using this task?
+
+The task requires that Azure PowerShell is installed on the machine running the automation agent. The recommended version is 1.0.2, but the task will work with version 0.9.8 and higher. You can use the [Azure PowerShell Installer v1.0.2](https://github.com/Azure/azure-powershell/releases/tag/v1.0.2-December2015) to obtain this.
+
+### What are the WinRM prerequisites for this task?
+
+The task uses Windows Remote Management (WinRM) HTTPS protocol to copy the files from the storage Blob container to the Azure VMs. This requires that the WinRM HTTPS service is configured on the VMs, and a suitable certificate is installed.
+
+### Configure WinRM after virtual machine creation
+
+If the VMs were created without opening the WinRM HTTPS ports, perform the following:
+
+1. Configure an inbound access rule to allow HTTPS on port 5986 of each VM.
+1. Disable [UAC remote restrictions](https://support.microsoft.com/kb/951016).
+1. Specify the credentials for the task to access the VMs using an administrator-level login in the simple form **username** without any domain part.
+1. Install a certificate on the machine that runs the automation agent.
+1. If you are using a self-signed certificate, set the **Test Certificate** parameter of the task.
+
+### What type of service connection should I choose?
+  
+- For Azure Resource Manager storage accounts and Azure Resource Manager VMs, use an **Azure Resource Manager** service connection type. See [Automating Azure Resource Group deployment using a Service Principal](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/).
+  
+- While using an **Azure Resource Manager** service connection type, the task  automatically filters appropriate newer Azure Resource Manager storage accounts, and other fields. For example, the Resource Group or cloud service, and the VMs.
+
+### How do I create a school or work account for use with this task?
+
+A suitable account can be created for use in a service connection:
+
+1. Use the Azure portal to create a new user account in Azure Active Directory.
+1. Add the Azure Active Directory user account to the co-administrators group in your Azure subscription.
+1. Sign into the Azure portal with this user account and change the password.
+1. Use the credentials of this account in the service connection. Deployments are then processed using this account.
+
+### If the task fails, will the copy resume?
+
+Since AzCopy V10 does not support journal files, the task cannot resume the copy. You must run the task again to copy all the files.
+
+### Are the log files and plan files cleaned after the copy?
+
+The log and plan files are not deleted by the task. To explicitly clean-up the files, add a CLI step in the workflow using [azcopy jobs clean](/azure/storage/common/storage-ref-azcopy-jobs-clean).
+
+### How do I use the Azure file copy task to copy a file to an Azure virtual machine that doesn't have a public IP address?
+
+Make sure that you're using version 5 of the Azure file copy task. If the task fails, you can add a build step to run the command `azcopy cp "source-file-path" "destination-file-path"` to substitute the source and destination values.
+
+### Forbidden error: 'AzCopy.exe exited with non-zero exit code while uploading files to blob storage' while using Azure File Copy task
+
+The hosted agents are assigned randomly every time a build is triggered, the [agent IP addresses](/azure/devops/pipelines/agents/hosted#networking) will be different on every run. If these IP addresses are not in your allowed list of IPs, the communication between Azure DevOps and the storage account fails. In such scenarios, follow the steps outlined:
+
+1. Add a build step using Azure CLI to identify the IP address of the Microsoft Hosted Build agent at runtime. It will add the IP address to the Network rule on the Azure Storage Account.
+1. Run the build step for your Azure Storage Account.
+1. Add another build step using Azure CLI to remove the IP address of the build agent from the Azure Storage Account network rule.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
