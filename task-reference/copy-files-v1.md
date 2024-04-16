@@ -1,7 +1,7 @@
 ---
 title: CopyFiles@1 - Copy Files v1 task
 description: Copy files from source folder to target folder using minimatch patterns (The minimatch patterns will only match file paths, not folder paths).
-ms.date: 03/21/2024
+ms.date: 04/16/2024
 monikerRange: "<=azure-pipelines"
 ---
 
