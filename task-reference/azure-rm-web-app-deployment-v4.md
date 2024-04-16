@@ -1177,7 +1177,7 @@ On non-Windows agents (for any App Service type), the task relies on [Kudu REST 
   Example: `-disableLink:AppPoolExtension -disableLink:ContentExtension`.
   For more examples of Web Deploy operation settings, see [Web Deploy Operation Settings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569089(v=ws.10)).
 
-Install Web Deploy on the agent using the [Microsoft Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=wdeploynosmo). Web Deploy 3.5 must be installed without the bundled SQL support. There is no need to choose any custom settings when installing Web Deploy. Web Deploy is installed at `C:/Program Files (x86)/IIS/Microsoft Web Deploy V3`.
+Install Web Deploy on the agent from [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy). Web Deploy 3.5 must be installed without the bundled SQL support. There is no need to choose any custom settings when installing Web Deploy. Web Deploy is installed at `C:/Program Files (x86)/IIS/Microsoft Web Deploy V3`.
 
 
 #### Kudu REST APIs
