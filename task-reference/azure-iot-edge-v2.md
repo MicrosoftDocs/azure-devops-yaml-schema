@@ -286,7 +286,11 @@ Selects an Azure subscription.
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Required when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Selects an Azure Container Registry.
+Specifies an Azure Container Registry. This value should be specified in `json` format.
+
+```yml
+azureContainerRegistry: '{"loginServer": "contoso.azurecr.io"}
+```
 <!-- :::editable-content-end::: -->
 <br>
 
