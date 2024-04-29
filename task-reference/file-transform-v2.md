@@ -1,7 +1,7 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 04/16/2024
+ms.date: 04/29/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
