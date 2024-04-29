@@ -1,7 +1,7 @@
 ---
 title: NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
 description: Install specific Node.js version to run node tasks.
-ms.date: 04/16/2024
+ms.date: 04/29/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -20,7 +20,19 @@ Install specific Node.js version to run node tasks.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Node.js tasks runner installer v0
+# Install specific Node.js version to run node tasks.
+- task: NodeTaskRunnerInstaller@0
+  inputs:
+    nodeVersion: '6' # '6' | '10' | '16'. Alias: runnerVersion | installVersion. Required. Version of runner to install. Default: 6.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 ```yaml
 # Node.js tasks runner installer v0
@@ -37,7 +49,18 @@ Install specific Node.js version to run node tasks.
 ## Inputs
 
 <!-- :::item name="nodeVersion"::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+**`nodeVersion`** - **Version of runner to install**<br>
+Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1), `16` (Node.js 16.20.2). Default value: `6`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select the node version to install.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.1"
 
 **`nodeVersion`** - **Version of runner to install**<br>
 Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1). Default value: `6`.<br>
