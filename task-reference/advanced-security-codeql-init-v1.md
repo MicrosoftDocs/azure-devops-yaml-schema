@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 04/16/2024
+ms.date: 04/29/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -38,7 +38,8 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
     #codeqlpathstoinclude: # string. Set a list of additional paths to include in the CodeQL analysis. 
     #sourcesfolder: # string. Sets the folder that contains the sources to be analyzed. 
     #loglevel: '_' # '0' | '1' | '2' | '_'. Set the log level for the CodeQL analysis. Default: _.
-    #configfilepath: # string. Use this to enable custom query analysis in codeql (path must be absolute).
+    #configfilepath: # string. Use this to enable custom query analysis in codeql (path must be absolute). 
+    #codeqltoolsdirectory: # string. Set a custom CodeQL tools directory (path must be absolute).
 ```
 
 :::moniker-end
@@ -158,6 +159,18 @@ You can specify `loglevel` here in the task, or you can specify it in a pipeline
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If path is not provided, then codeql analysis will proceed with default queries.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="codeqltoolsdirectory"::: -->
+:::moniker range="=azure-pipelines"
+
+**`codeqltoolsdirectory`** - **Set a custom CodeQL tools directory (path must be absolute)**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If the path is not provided, the default value of `$agent_toolsdirectory` will be utilized.
 <!-- :::editable-content-end::: -->
 <br>
 
