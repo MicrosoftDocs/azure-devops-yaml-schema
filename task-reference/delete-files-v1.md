@@ -1,7 +1,7 @@
 ---
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
-ms.date: 04/16/2024
+ms.date: 04/29/2024
 monikerRange: "<=azure-pipelines"
 ---
 

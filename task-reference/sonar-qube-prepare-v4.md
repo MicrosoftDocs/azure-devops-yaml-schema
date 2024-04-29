@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@4 - Prepare Analysis Configuration v4 task
 description: Prepare SonarQube analysis configuration (task version 4).
-ms.date: 04/16/2024
+ms.date: 04/29/2024
 monikerRange: "=azure-pipelines"
 ---
 
