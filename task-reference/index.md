@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/29/2024
+ms.date: 05/09/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -38,6 +38,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Advanced Security AutoBuild**<br>[AdvancedSecurity-Codeql-Autobuild@1](advanced-security-codeql-autobuild-v1.md) | Attempts to build the repository by finding and building project files in the source folder. |
 | **Advanced Security Initialize CodeQL**<br>[AdvancedSecurity-Codeql-Init@1](advanced-security-codeql-init-v1.md) | Initializes the CodeQL database in preparation for building. |
 | **Advanced Security Perform CodeQL analysis**<br>[AdvancedSecurity-Codeql-Analyze@1](advanced-security-codeql-analyze-v1.md) | Finalizes the CodeQL database and runs the analysis queries. |
+| **Advanced Security Publish Results**<br>[AdvancedSecurity-Publish@1](advanced-security-publish-v1.md) | Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
