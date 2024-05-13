@@ -11,7 +11,10 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. You can run test frameworks that have a Visual Studio test adapter. Example frameworks are MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task (version 2).
+Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. You can run test frameworks that have a Visual Studio test adapter. Example frameworks are MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task.
+
+> [!NOTE]
+> VSTest@2 is the newest version of the task and should be used in your pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

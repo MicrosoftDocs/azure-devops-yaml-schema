@@ -1010,9 +1010,6 @@ items:
     displayName: Visual Studio build v1
 - name: Visual Studio Test
   items:
-  - name: VSTest@3
-    href: vstest-v3.md
-    displayName: Visual Studio Test v3
   - name: VSTest@2
     href: vstest-v2.md
     displayName: Visual Studio Test v2
