@@ -11,7 +11,11 @@ monikerRange: "<=azure-pipelines"
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to build an Android app with Xamarin.
+XamarinAndroid@1 is deprecated. Originally, this task was used to build an Android app with Xamarin.
+
+> [!NOTE]
+> This task is deprecated and was retired May 1, 2024.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
