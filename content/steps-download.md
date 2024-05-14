@@ -1,7 +1,7 @@
 ---
 title: steps.download definition
 description: Downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

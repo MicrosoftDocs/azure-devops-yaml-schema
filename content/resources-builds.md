@@ -1,7 +1,7 @@
 ---
 title: resources.builds definition
 description: List of build resources referenced by the pipeline.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
