@@ -1,7 +1,7 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 04/29/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

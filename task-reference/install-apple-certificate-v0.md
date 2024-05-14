@@ -1,7 +1,7 @@
 ---
 title: InstallAppleCertificate@0 - Install Apple Certificate v0 task
 description: Install an Apple certificate required to build on a macOS agent (task version 0).
-ms.date: 04/29/2024
+ms.date: 05/14/2024
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 04/29/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

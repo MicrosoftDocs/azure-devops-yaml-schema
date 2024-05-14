@@ -1,7 +1,7 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 04/29/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
