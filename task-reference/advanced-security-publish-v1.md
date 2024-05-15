@@ -14,6 +14,8 @@ monikerRange: "=azure-pipelines"
 Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service.
 
 > [!NOTE]
+> This task publishes the SARIF files produced by non-Microsoft tasks to [Code Scanning for GitHub Advanced Security](/azure/devops/repos/security/github-advanced-security-code-scanning). Currently, this task works with the [Infrastructure-as-Code Scanning Tasks Extension](https://marketplace.visualstudio.com/items?itemName=advancedsecurity.iac-tasks) tasks. For more information, see [Infrastructure‐as‐Code Scanning](https://github.com/microsoft/advancedsecurity/wiki/Infrastructure%E2%80%90as%E2%80%90Code-Scanning).
+>
 > This task isn't needed when using [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) tasks like [AdvancedSecurity-Dependency-Scanning@1](./advanced-security-dependency-scanning-v1.md) or [AdvancedSecurity-Codeql-Analyze@1](./advanced-security-codeql-analyze-v1.md).
 <!-- :::editable-content-end::: -->
 
@@ -122,6 +124,8 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+This task publishes the SARIF files produced by non-Microsoft tasks to [Code Scanning for GitHub Advanced Security](/azure/devops/repos/security/github-advanced-security-code-scanning). Currently, this task works with the [Infrastructure-as-Code Scanning Tasks Extension](https://marketplace.visualstudio.com/items?itemName=advancedsecurity.iac-tasks) tasks. For more information, see [Infrastructure‐as‐Code Scanning](https://github.com/microsoft/advancedsecurity/wiki/Infrastructure%E2%80%90as%E2%80%90Code-Scanning).
 
 This task isn't needed when using [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) tasks like [AdvancedSecurity-Dependency-Scanning@1](./advanced-security-dependency-scanning-v1.md) or [AdvancedSecurity-Codeql-Analyze@1](./advanced-security-codeql-analyze-v1.md).
 <!-- :::editable-content-end::: -->
