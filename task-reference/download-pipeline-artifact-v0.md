@@ -21,7 +21,7 @@ There is a newer version of this task. For more information, see [DownloadPipeli
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
@@ -31,17 +31,6 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1  || =azure-pipelines-2022.2"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
-
-> [!IMPORTANT]
-> This task is supported on Azure DevOps Services only. If you use it on Azure DevOps Server, you'll receive an error message similar to `Pipeline Artifact Task is not supported in on-premises. Please use Build Artifact Task instead.` Use [Download Build Artifacts](download-build-artifacts-v1.md) if you're using Azure DevOps Server or TFS 2018.
-<!-- :::editable-content-end::: -->
 
 :::moniker-end
 <!-- :::description-end::: -->
