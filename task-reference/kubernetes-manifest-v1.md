@@ -422,18 +422,7 @@ Specifies the name of the K8s object.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="replicas"::: -->
-:::moniker range="=azure-pipelines"
-
-**`replicas`** - **Replica count**<br>
-`string`. Required when `action = scale`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the number of replicas to scale to.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`replicas`** - **Replica count**<br>
 `string`. Required when `action = scale`.<br>

@@ -181,18 +181,7 @@ Optional. When this boolean's value is `true`, the task will fail if any of the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailureToPublishResults"::: -->
-:::moniker range="=azure-pipelines"
-
-**`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-When `true`, fails the task if there is failure in publishing test results.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
 `boolean`. Default value: `false`.<br>

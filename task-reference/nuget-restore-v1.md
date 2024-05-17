@@ -1,7 +1,7 @@
 ---
 title: NuGetRestore@1 - NuGet Restore v1 task
 description: Restores NuGet packages in preparation for a Visual Studio Build step.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -21,7 +21,17 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 
 :::moniker-end
 
-:::moniker range="<azure-pipelines"
+:::moniker range="=azure-pipelines-2022.2"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.1"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore NuGet packages in preparation for a Visual Studio Build step.
@@ -33,7 +43,7 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # NuGet Restore v1
@@ -105,6 +115,17 @@ Specifies the feed(s) to use. Specify one feed from VSTS and/or NuGet.org using 
 <!-- :::item-end::: -->
 <!-- :::item name="feed"::: -->
 :::moniker range="=azure-pipelines"
+
+**`feed`** - **Use packages from this Azure Artifacts feed**<br>
+`string`. Optional. Use when `selectOrConfig = select`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Includes the specified VSTS feed in the generated `NuGet.config` file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.2"
 
 **`feed`** - **Use packages from this Azure Artifacts feed**<br>
 `string`. Optional. Use when `selectOrConfig = select`.<br>
@@ -215,7 +236,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|

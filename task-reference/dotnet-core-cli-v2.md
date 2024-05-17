@@ -285,20 +285,7 @@ If this input is set to `true`, the `projects` property value is skipped, and th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="projects"::: -->
-:::moniker range="=azure-pipelines"
-
-**`projects`** - **Path to project(s) or solution(s)**<br>
-`string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The path to the `.csproj` or `.sln` file(s) to use. You can use wildcards (e.g. `**/*.csproj` for all `.csproj` files in all subfolders). For more information, see the [file matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
-
-This path is relative to the root of the repository regardless of the `workingDirectory` setting.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`projects`** - **Path to project(s) or solution(s)**<br>
 `string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>
