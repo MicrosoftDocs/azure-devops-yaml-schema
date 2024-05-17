@@ -114,18 +114,7 @@ Specifies the feed(s) to use. Specify one feed from VSTS and/or NuGet.org using 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feed"::: -->
-:::moniker range="=azure-pipelines"
-
-**`feed`** - **Use packages from this Azure Artifacts feed**<br>
-`string`. Optional. Use when `selectOrConfig = select`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Includes the specified VSTS feed in the generated `NuGet.config` file.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`feed`** - **Use packages from this Azure Artifacts feed**<br>
 `string`. Optional. Use when `selectOrConfig = select`.<br>
