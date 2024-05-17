@@ -21,7 +21,7 @@ Use this task to deploy a SQL Server database using DACPAC.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a SQL Server database using DACPAC.
