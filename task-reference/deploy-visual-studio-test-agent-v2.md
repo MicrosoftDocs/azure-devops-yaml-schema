@@ -19,7 +19,7 @@ monikerRange: "<=azure-pipelines"
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 > [!IMPORTANT]

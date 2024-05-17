@@ -1,7 +1,7 @@
 ---
 title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -22,7 +22,7 @@ There is a newer version of the task available. For more information, see [UseNo
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # Use Node.js ecosystem v0
@@ -192,7 +192,7 @@ Use an alternative installation mirror when sourcing the Node.js binaries.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnDownloadFails"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`retryCountOnDownloadFails`** - **Set retry count when nodes downloads failed**<br>
 `string`. Default value: `5`.<br>
@@ -204,7 +204,7 @@ Use this option when the task failed to download node binaries from the mirror. 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenRetries"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`delayBetweenRetries`** - **Set delay between retries**<br>
 `string`. Default value: `1000`.<br>

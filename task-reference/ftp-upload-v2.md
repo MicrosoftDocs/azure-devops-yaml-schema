@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@2 - FTP upload v2 task
 description: Upload files using FTP.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # FTP upload v2
@@ -164,7 +164,7 @@ Specifies the password for the FTP connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="implicitFTPS"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`implicitFTPS`** - **Use implicit FTPS**<br>
 `boolean`. Default value: `false`.<br>

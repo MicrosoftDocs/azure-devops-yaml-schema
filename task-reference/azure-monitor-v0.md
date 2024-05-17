@@ -21,7 +21,7 @@ Observe the configured classic Azure Monitor rules for active alerts.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured classic Azure Monitor rules for active alerts.

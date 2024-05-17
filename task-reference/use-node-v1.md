@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # Use Node.js ecosystem v1
@@ -105,7 +105,7 @@ Installs the x86 version of Node.js on a 64-bit Windows agent. Only works on Win
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnDownloadFails"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`retryCountOnDownloadFails`** - **Set retry count when nodes downloads failed**<br>
 `string`. Default value: `5`.<br>
@@ -117,7 +117,7 @@ Use this option when the task failed to download node binaries from the mirror. 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenRetries"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`delayBetweenRetries`** - **Set delay between retries**<br>
 `string`. Default value: `1000`.<br>

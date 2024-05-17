@@ -21,7 +21,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.

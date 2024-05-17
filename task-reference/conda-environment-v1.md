@@ -21,7 +21,7 @@ Use this task to create and activate a Conda environment.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create and activate a Conda environment.

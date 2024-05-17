@@ -21,7 +21,7 @@ Use this task to distribute app builds to testers and users via App Center and V
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to distribute app builds to testers and users via App Center and Visual Studio App Center.
