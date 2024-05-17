@@ -21,7 +21,7 @@ Installs or restores missing NuGet packages.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Installs or restores missing NuGet packages.

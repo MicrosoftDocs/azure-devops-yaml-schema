@@ -21,7 +21,7 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.1"
+:::moniker range="<azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore NuGet packages in preparation for a Visual Studio Build step.

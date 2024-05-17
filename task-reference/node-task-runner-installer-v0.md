@@ -1,7 +1,7 @@
 ---
 title: NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
 description: Install specific Node.js version to run node tasks.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -32,7 +32,7 @@ Install specific Node.js version to run node tasks.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Node.js tasks runner installer v0
@@ -60,7 +60,7 @@ Select the node version to install.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 **`nodeVersion`** - **Version of runner to install**<br>
 Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1). Default value: `6`.<br>

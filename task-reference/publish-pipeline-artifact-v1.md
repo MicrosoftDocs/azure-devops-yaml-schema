@@ -16,7 +16,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish (upload) a file or directory as a named artifact for the current run.

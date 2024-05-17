@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -423,6 +423,17 @@ Specifies the name of the K8s object.
 <!-- :::item-end::: -->
 <!-- :::item name="replicas"::: -->
 :::moniker range="=azure-pipelines"
+
+**`replicas`** - **Replica count**<br>
+`string`. Required when `action = scale`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the number of replicas to scale to.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.2"
 
 **`replicas`** - **Replica count**<br>
 `string`. Required when `action = scale`.<br>

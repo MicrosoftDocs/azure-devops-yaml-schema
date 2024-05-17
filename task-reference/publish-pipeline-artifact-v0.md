@@ -18,7 +18,7 @@ There is a newer version of this task. For more information, see [PublishPipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.

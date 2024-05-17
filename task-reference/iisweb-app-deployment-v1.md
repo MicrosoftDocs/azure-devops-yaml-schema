@@ -21,7 +21,7 @@ Use this task to deploy IIS Web App using MSDeploy, then create or update websit
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.1"
+:::moniker range="<azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.

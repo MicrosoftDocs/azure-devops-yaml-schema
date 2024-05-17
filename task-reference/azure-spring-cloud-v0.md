@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -57,7 +57,7 @@ This task deploys applications to Azure Spring Apps and manages those deployment
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Azure Spring Apps v0
@@ -380,6 +380,17 @@ Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m
 
 **`RuntimeVersion`** - **Runtime Version**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `Java_17` (Java 17), `Java_21` (Java 21), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The runtime version on which the app will run.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.2"
+
+**`RuntimeVersion`** - **Runtime Version**<br>
+`string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The runtime version on which the app will run.
 <!-- :::editable-content-end::: -->

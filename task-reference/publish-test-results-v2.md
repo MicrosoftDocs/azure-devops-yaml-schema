@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 05/14/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ Publish Test Results to Azure Pipelines/TFS.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # Publish Test Results v2
@@ -191,9 +191,20 @@ When `true`, fails the task if there is failure in publishing test results.
 <br>
 
 :::moniker-end
+
+:::moniker range="=azure-pipelines-2022.2"
+
+**`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When `true`, fails the task if there is failure in publishing test results.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnMissingResultsFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`failTaskOnMissingResultsFile`** - **Fail if no result files are found**<br>
 `boolean`. Default value: `false`.<br>
