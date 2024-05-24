@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -331,7 +331,7 @@ For OpenSSL v1.0.1 and higher, NodeJS v0.11.12 and higher (on agent):
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -44,7 +44,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
 
 | Implementation | Description |
 |---|---|
@@ -177,7 +177,7 @@ Name of the VM image you want to use; valid only in the Microsoft-hosted pool.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
 
 <!-- :::implementation-signature::: -->
 ## pool: name, demands

@@ -1,7 +1,7 @@
 ---
 title: ChefKnife@1 - Chef Knife v1 task
 description: Run scripts with Knife commands on your Chef workstation.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -21,7 +21,7 @@ Run scripts with Knife commands on your Chef workstation.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Run scripts with Knife commands on your Chef workstation.

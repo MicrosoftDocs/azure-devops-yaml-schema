@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -38,6 +38,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Advanced Security AutoBuild**<br>[AdvancedSecurity-Codeql-Autobuild@1](advanced-security-codeql-autobuild-v1.md) | Attempts to build the repository by finding and building project files in the source folder. |
 | **Advanced Security Initialize CodeQL**<br>[AdvancedSecurity-Codeql-Init@1](advanced-security-codeql-init-v1.md) | Initializes the CodeQL database in preparation for building. |
 | **Advanced Security Perform CodeQL analysis**<br>[AdvancedSecurity-Codeql-Analyze@1](advanced-security-codeql-analyze-v1.md) | Finalizes the CodeQL database and runs the analysis queries. |
+| **Advanced Security Publish Results**<br>[AdvancedSecurity-Publish@1](advanced-security-publish-v1.md) | Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -152,7 +153,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@3](vstest-v3.md)<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
@@ -234,7 +235,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ## Build tasks
 

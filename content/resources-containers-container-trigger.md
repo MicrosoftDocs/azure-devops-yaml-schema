@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container.trigger definition
 description: Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 

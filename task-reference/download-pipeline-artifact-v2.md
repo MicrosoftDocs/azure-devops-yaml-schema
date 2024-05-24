@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -19,7 +19,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.

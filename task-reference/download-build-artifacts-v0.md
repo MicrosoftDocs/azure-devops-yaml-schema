@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -33,7 +33,7 @@ Download Build Artifacts.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # Download build artifacts v0
@@ -357,7 +357,7 @@ The number of times to retry downloading a build artifact if the download fails.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryRedirectDownloadCount"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`retryRedirectDownloadCount`** - **Retry count for redirect download**<br>
 `string`. Default value: `0`.<br>

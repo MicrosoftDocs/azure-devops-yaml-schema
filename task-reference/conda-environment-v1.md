@@ -1,7 +1,7 @@
 ---
 title: CondaEnvironment@1 - Conda environment v1 task
 description: This task is deprecated. Use `conda` directly in script to work with Anaconda environments.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -21,7 +21,7 @@ Use this task to create and activate a Conda environment.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create and activate a Conda environment.

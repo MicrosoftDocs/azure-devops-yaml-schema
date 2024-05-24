@@ -1,7 +1,7 @@
 ---
 title: SqlServerDacpacDeployment@1 - SQL Server database deploy (Deprecated) v1 task
 description: Deploy a SQL Server database using DACPAC.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -21,7 +21,7 @@ Use this task to deploy a SQL Server database using DACPAC.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy a SQL Server database using DACPAC.

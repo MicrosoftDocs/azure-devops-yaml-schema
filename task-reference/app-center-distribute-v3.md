@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@3 - App Center distribute v3 task
 description: Distribute app builds to testers and users via Visual Studio App Center.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -420,7 +420,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -43,7 +43,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Azure Functions Deploy v2
@@ -148,7 +148,7 @@ Enters or selects an existing slot, excluding the Production slot.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -183,7 +183,7 @@ Specify the framework and version your function app will run on. You can use any
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `DOTNET|6.0` (DOTNET|6.0 (functionapp v4)), `DOTNET-ISOLATED|7.0` (DOTNET-ISOLATED|7.0 (functionapp v4)), `JAVA|8` (JAVA|8 (functionapp v2/v3/v4)), `JAVA|11` (JAVA|11  (functionapp v3/v4)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3/v4)), `NODE|16` (NODE|16 (functionapp v4)), `NODE|18` (NODE|18 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3/v4)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3/v4)), `PYTHON|3.9` (PYTHON|3.9 (functionapp v3/v4)), `PYTHON|3.10` (PYTHON|3.10 (functionapp v3/v4)).<br>
@@ -207,12 +207,12 @@ Enter the application settings using the syntax `-key value` (for example: `-Por
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMethod"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
 <!-- :::editable-content-end::: -->
 <br>
 

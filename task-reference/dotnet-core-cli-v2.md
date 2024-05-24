@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,7 +31,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 ```yaml
 # .NET Core v2
@@ -285,7 +285,7 @@ If this input is set to `true`, the `projects` property value is skipped, and th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="projects"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.2"
 
 **`projects`** - **Path to project(s) or solution(s)**<br>
 `string`. Optional. Use when `command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false`.<br>

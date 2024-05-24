@@ -1,7 +1,7 @@
 ---
 title: gulp@1 - gulp v1 task
 description: Run the gulp Node.js streaming task-based build system.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

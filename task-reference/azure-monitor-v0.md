@@ -1,7 +1,7 @@
 ---
 title: AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
 description: Observe the configured classic Azure Monitor rules for active alerts.
-ms.date: 04/16/2024
+ms.date: 05/14/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -21,7 +21,7 @@ Observe the configured classic Azure Monitor rules for active alerts.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured classic Azure Monitor rules for active alerts.

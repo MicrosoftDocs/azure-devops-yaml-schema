@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 04/16/2024
+ms.date: 05/17/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -19,7 +19,7 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Publish Cobertura or JaCoCo code coverage results from a build.
@@ -56,7 +56,7 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Publish code coverage results v1

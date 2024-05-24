@@ -40,6 +40,11 @@ items:
   - name: AdvancedSecurity-Codeql-Analyze@1
     href: advanced-security-codeql-analyze-v1.md
     displayName: Advanced Security Perform CodeQL analysis v1
+- name: Advanced Security Publish Results
+  items:
+  - name: AdvancedSecurity-Publish@1
+    href: advanced-security-publish-v1.md
+    displayName: Advanced Security Publish Results v1
 - name: Android Build
   items:
   - name: AndroidBuild@1
@@ -1005,9 +1010,6 @@ items:
     displayName: Visual Studio build v1
 - name: Visual Studio Test
   items:
-  - name: VSTest@3
-    href: vstest-v3.md
-    displayName: Visual Studio Test v3
   - name: VSTest@2
     href: vstest-v2.md
     displayName: Visual Studio Test v2
