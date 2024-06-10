@@ -117,7 +117,7 @@ The analysis task must appear after the initialize task for successful completio
 # Initialize CodeQL database 
 - task: AdvancedSecurity-Codeql-Init@1
   inputs: 
-    language: csharp 
+    languages: 'csharp' 
   displayName: 'Advanced Security Initialize CodeQL' 
 
 # Build project using Autobuild or your own custom build steps 
