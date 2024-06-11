@@ -1,6 +1,6 @@
 ---
 title: PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
-description: Sends a message to Azure Service Bus using a service connection (no agent is required).
+description: Sends a message to Azure Service Bus using a service connectionno, with no agent required.
 ms.date: 06/11/2024
 monikerRange: "=azure-pipelines"
 ---
@@ -52,31 +52,7 @@ Sends a message to Azure Service Bus using a service connection (no agent is req
 **`azureSubscription`** - **Azure Service Bus service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Service Bus service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="serviceBusQueueName"::: -->
-:::moniker range="=azure-pipelines"
-
-**`serviceBusQueueName`** - **Azure Service Bus Queue name**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the name of the queue for which the message is intended.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="serviceBusNamespace"::: -->
-:::moniker range="=azure-pipelines"
-
-**`serviceBusNamespace`** - **Azure Service Bus Namespace**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the namespace of your Azure Service Bus.
+Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/library/service-endpoints#azure-service-bus-service-connection).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -88,7 +64,7 @@ Specify the namespace of your Azure Service Bus.
 **`messageBody`** - **Message body**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Enter the json messageBody.
+Specifies the JSON `messageBody`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -100,7 +76,7 @@ Enter the json messageBody.
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Session id with which message is published. For session based queues, publishing fails if value not specified. For Non Session Based Queues, it will not matter.
+Specifies the session ID with which the message is published. For session-based queues, the publishing fails if a value is not specified. For non session-based queues, a value does not need to be specified.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -112,7 +88,7 @@ Session id with which message is published. For session based queues, publishing
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set to true, message will be signed provided a private certificate.
+If set to `true`, a private certificate will be added to the message.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -124,7 +100,7 @@ If this is set to true, message will be signed provided a private certificate.
 **`certificateString`** - **Certificate Variable**<br>
 `string`. Required when `signPayload = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the secret variable that contains the certificate content.  This can also be a certificate stored in an Azure key vault that is [linked](https://docs.microsoft.com/en-us/vsts/pipelines/library/variable-groups?view=vsts#link-secrets-from-an-azure-key-vault-as-variables) to a Variable Group used by this release pipeline.
+Specifies the secret variable that contains the certificate content. This can also be a certificate stored in an Azure key vault that is [linked](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault-as-variables) to a variable group used by the release pipeline.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -136,7 +112,7 @@ Specify the secret variable that contains the certificate content.  This can als
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Key where you want signature to be in Message Properties. If left Empty, default is 'signature' in message properties.
+In Message Properties, specifies the key where the signature is. If left empty, the default value is `signature`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +124,7 @@ Key where you want signature to be in Message Properties. If left Empty, default
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is true, this task will wait for TaskCompleted event for the specified task timeout.
+If set to `true`, this task will wait for the TaskCompleted event for the specified task timeout.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -157,10 +133,10 @@ If this is true, this task will wait for TaskCompleted event for the specified t
 <!-- :::item name="useDataContractSerializer"::: -->
 :::moniker range="=azure-pipelines"
 
-**`useDataContractSerializer`** - **Use .NET data contract serializer**<br>
+**`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For more details go to task documentation.
+Set `useDataContractSerializer` to `false` if you want to pass your message as a stream instead of an object.
 <!-- :::editable-content-end::: -->
 <br>
 
