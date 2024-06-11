@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 05/17/2024
+ms.date: 06/11/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
