@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 06/11/2024
+ms.date: 05/17/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
