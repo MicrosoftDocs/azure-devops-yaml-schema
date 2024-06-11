@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@4 - Prepare Analysis Configuration v4 task
 description: Prepare SonarQube analysis configuration (task version 4).
-ms.date: 05/14/2024
+ms.date: 06/11/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -12,7 +12,12 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to prepare a SonarQube analysis configuration.
+
+> [!NOTE]
+> This task is deprecated; use [SonarQubePrepare@6](./sonar-qube-prepare-v6.md).
 <!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -221,6 +226,9 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
+> [!NOTE]
+> This task is deprecated; use [SonarQubePrepare@6](./sonar-qube-prepare-v6.md).
+
 - **Support non-MSBuild projects:** This task can also configure analysis for non-MSBuild projects.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
@@ -243,7 +251,7 @@ None.
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.95.1 or greater |
+| Agent version |  2.144.0 or greater |
 | Task category | Build |
 
 :::moniker-end

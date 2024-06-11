@@ -683,6 +683,9 @@ items:
     displayName: Manual intervention v8
 - name: Manual validation
   items:
+  - name: ManualValidation@1
+    href: manual-validation-v1.md
+    displayName: Manual validation v1
   - name: ManualValidation@0
     href: manual-validation-v0.md
     displayName: Manual validation v0
@@ -815,6 +818,9 @@ items:
     displayName: PowerShell on Target Machines v1
 - name: Prepare Analysis Configuration
   items:
+  - name: SonarQubePrepare@6
+    href: sonar-qube-prepare-v6.md
+    displayName: Prepare Analysis Configuration v6
   - name: SonarQubePrepare@5
     href: sonar-qube-prepare-v5.md
     displayName: Prepare Analysis Configuration v5
@@ -849,6 +855,9 @@ items:
     displayName: Publish Pipeline Metadata v0
 - name: Publish Quality Gate Result
   items:
+  - name: SonarQubePublish@6
+    href: sonar-qube-publish-v6.md
+    displayName: Publish Quality Gate Result v6
   - name: SonarQubePublish@5
     href: sonar-qube-publish-v5.md
     displayName: Publish Quality Gate Result v5
@@ -865,6 +874,9 @@ items:
     displayName: Publish test results v1
 - name: Publish To Azure Service Bus
   items:
+  - name: PublishToAzureServiceBus@2
+    href: publish-to-azure-service-bus-v2.md
+    displayName: Publish To Azure Service Bus v2
   - name: PublishToAzureServiceBus@1
     href: publish-to-azure-service-bus-v1.md
     displayName: Publish To Azure Service Bus v1
@@ -919,6 +931,9 @@ items:
     displayName: Review App v0
 - name: Run Code Analysis
   items:
+  - name: SonarQubeAnalyze@6
+    href: sonar-qube-analyze-v6.md
+    displayName: Run Code Analysis v6
   - name: SonarQubeAnalyze@5
     href: sonar-qube-analyze-v5.md
     displayName: Run Code Analysis v5

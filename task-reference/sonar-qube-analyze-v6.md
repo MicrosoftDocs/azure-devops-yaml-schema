@@ -1,23 +1,18 @@
 ---
-title: SonarQubeAnalyze@4 - Run Code Analysis v4 task
-description: Run scanner and upload the results to the SonarQube server (task version 4).
+title: SonarQubeAnalyze@6 - Run Code Analysis v6 task
+description: Run scanner and upload the results to the SonarQube server.
 ms.date: 06/11/2024
 monikerRange: "=azure-pipelines"
 ---
 
-# SonarQubeAnalyze@4 - Run Code Analysis v4 task
+# SonarQubeAnalyze@6 - Run Code Analysis v6 task
 
 <!-- :::description::: -->
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run the scanner and upload the results to the SonarQube server.
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@6](./sonar-qube-analyze-v6.md).
+Run scanner and upload the results to the SonarQube server.
 <!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -28,10 +23,11 @@ Use this task to run the scanner and upload the results to the SonarQube server.
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Run Code Analysis v4
+# Run Code Analysis v6
 # Run scanner and upload the results to the SonarQube server.
-- task: SonarQubeAnalyze@4
-  inputs: # none
+- task: SonarQubeAnalyze@6
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64' # 'JAVA_HOME' | 'JAVA_HOME_17_X64' | 'JAVA_HOME_21_X64'. Required. JDK version source for analysis. Default: JAVA_HOME_17_X64.
 ```
 
 :::moniker-end
@@ -40,10 +36,16 @@ Use this task to run the scanner and upload the results to the SonarQube server.
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="emptyCollectionValue"::: -->
+<!-- :::item name="jdkversion"::: -->
 :::moniker range="=azure-pipelines"
 
-None.
+**`jdkversion`** - **JDK version source for analysis**<br>
+`string`. Required. Allowed values: `JAVA_HOME` (Use JAVA_HOME), `JAVA_HOME_17_X64` (Use built-in JAVA_HOME_17_X64 (hosted agent)), `JAVA_HOME_21_X64` (Use built-in JAVA_HOME_21_X64 (hosted agent)). Default value: `JAVA_HOME_17_X64`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Select the wanted Java version for the analysis : You can choose with either Self provided JAVA_HOME which will pick up the value of this env variable, or you can choose the built-in JAVA_HOME_XX_X64 value on hosted agent. 
+Default value is JAVA_HOME_11_X64, however if you choose either of the proposed value and they are not available, JAVA_HOME value will be picked up instead.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -65,12 +67,6 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-## Remarks
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@6](./sonar-qube-analyze-v6.md).
-
-This task is to be used with the new version of the `Prepare Analysis Configuration` task.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -92,7 +88,7 @@ This task is to be used with the new version of the `Prepare Analysis Configurat
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
+| Agent version |  3.218.0 or greater |
 | Task category | Build |
 
 :::moniker-end
@@ -100,8 +96,5 @@ This task is to be used with the new version of the `Prepare Analysis Configurat
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
