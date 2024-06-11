@@ -58,6 +58,30 @@ Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/libr
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="serviceBusQueueName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`serviceBusQueueName`** - **Azure Service Bus Queue name**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the name of the queue for which the message is intended.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="serviceBusNamespace"::: -->
+:::moniker range="=azure-pipelines"
+
+**`serviceBusNamespace`** - **Azure Service Bus Namespace**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the namespace of your Azure Service Bus.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="messageBody"::: -->
 :::moniker range="=azure-pipelines"
 
@@ -133,7 +157,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 <!-- :::item name="useDataContractSerializer"::: -->
 :::moniker range="=azure-pipelines"
 
-**`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
+**`useDataContractSerializer`** - **Use .NET data contract serializer**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set `useDataContractSerializer` to `false` if you want to pass your message as a stream instead of an object.
