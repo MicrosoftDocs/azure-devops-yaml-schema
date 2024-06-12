@@ -107,7 +107,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Invoke REST API**<br>[InvokeRESTAPI@1](invoke-rest-api-v1.md)<br>[InvokeRESTAPI@0](invoke-rest-api-v0.md) | Invoke a REST API as a part of your pipeline. |
 | **Kubectl**<br>[Kubernetes@1](kubernetes-v1.md)<br>[Kubernetes@0](kubernetes-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands. |
 | **Manual intervention**<br>[ManualIntervention@8](manual-intervention-v8.md) | Pause deployment and wait for manual intervention. |
-| **Manual validation**<br>[ManualValidation@1](manual-validation-v1.md)<br>[ManualValidation@0](manual-validation-v0.md) | [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
+| **Manual validation**<br>[ManualValidation@0](manual-validation-v0.md) | Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
 | **Package and deploy Helm charts**<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
 | **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
