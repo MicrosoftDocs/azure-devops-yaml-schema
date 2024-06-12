@@ -13,7 +13,7 @@ monikerRange: "=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Sends a message to Azure Service Bus using a service connection (no agent is required).
 
-This version of the task supports Entra ID and Workload identity federation through its [Azure Resource Managger service connection](/azure/devops/pipelines/library/connect-to-azure)(`azureSubscription`). For more information, see the following [Remarks](#remarks) section.
+This version of the task supports Entra ID and Workload identity federation through its [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) input (`azureSubscription`). For more information, see the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -29,7 +29,7 @@ This version of the task supports Entra ID and Workload identity federation thro
 # Sends a message to Azure Service Bus using a service connection (no agent is required).
 - task: PublishToAzureServiceBus@2
   inputs:
-    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
+    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Resource Manager service connection. 
     serviceBusQueueName: # string. Required. Azure Service Bus Queue name. 
     serviceBusNamespace: # string. Required. Azure Service Bus Namespace. 
     #messageBody: # string. Message body. 
@@ -51,10 +51,10 @@ This version of the task supports Entra ID and Workload identity federation thro
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="=azure-pipelines"
 
-**`azureSubscription`** - **Azure Service Bus service connection**<br>
+**`azureSubscription`** - **Azure Resource Manager service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/library/service-endpoints#azure-service-bus-service-connection).
+Specifies an [Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection).
 <!-- :::editable-content-end::: -->
 <br>
 
