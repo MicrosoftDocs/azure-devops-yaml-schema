@@ -193,13 +193,13 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 > [!NOTE]
 > Can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
-### Access Azure Bus from Pipelines using Entra ID authentication
+### Access Azure Service Bus from Pipelines using Entra ID authentication
 
 You can now use [Entra ID authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#microsoft-entra-id) to access Azure Service Bus from Azure Pipelines. This allows you to take advantage of Workload identity federation to remove secrets management and Azure RBAC for fine grained access control.
 
 Identities accessing Azure Service Bus will need to be granted one of the [Azure built-in roles for Azure Service Bus](/azure/service-bus-messaging/authenticate-application#azure-built-in-roles-for-azure-service-bus) on the Service Bus accessed.
 
-`PublishToAzureServiceBus@2` tasks can be configured using an Azure service connection. Create an [Azure service connection](/azure/devops/pipelines/library/connect-to-azure) and populate the `serviceBusQueueName` and `serviceBusNamespace` properties of the task:
+The `PublishToAzureServiceBus@2` task can be configured using an Azure Resource Manager service connection. Create an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) and populate the `serviceBusQueueName` and `serviceBusNamespace` properties of the task:
 
 ```yaml
 - task: PublishToAzureServiceBus@2
