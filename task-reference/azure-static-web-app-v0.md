@@ -97,7 +97,7 @@ Specifies the absolute working directory in which to execute this task. If left 
 **`app_location`** - **App location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the application source code, relative to the working directory. When used with skip_app_build: true, this value is the app's build output location.
+The directory location of the application source code, relative to the working directory. When used with `skip_app_build: true`, this value is the app's build output location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ The custom command used to run Oryx when building application source code.
 **`output_location`** - **Output location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the compiled application code after building is complete, relative to the working directory. Set this an empty string (`''`) when bypassing automatic build and only deploy is required
+The directory location of the compiled application code after building is complete, relative to the working directory. Set this an empty string (`''`) when bypassing automatic build and only deploy is required.
 <!-- :::editable-content-end::: -->
 <br>
 
