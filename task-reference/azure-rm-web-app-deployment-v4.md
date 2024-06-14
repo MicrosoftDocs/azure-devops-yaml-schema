@@ -563,7 +563,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specify the framework and version for Function App on Linux.
+Specify the framework and version.
 <!-- :::editable-content-end::: -->
 <br>
 
