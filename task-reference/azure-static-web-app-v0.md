@@ -97,7 +97,7 @@ Specifies the absolute working directory in which to execute this task. If left 
 **`app_location`** - **App location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the application source code, relative to the working directory.
+The directory location of the application source code, relative to the working directory. When used with `skip_app_build: true`, this value is the app's build output location.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -121,7 +121,7 @@ The custom command used to run Oryx when building application source code.
 **`output_location`** - **Output location**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The directory location of the compiled application code after building is complete, relative to the working directory.
+The directory location of the compiled application code after building is complete, relative to the working directory. Set this an empty string (`''`) when bypassing automatic build and only deploy is required.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -331,6 +331,35 @@ steps:
       api_location: 'api'
       output_location: '/output'
       azure_static_web_apps_api_token: $(deployment_token)
+```
+
+### Skip building front-end app and run only deploy
+```YAML
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm ci
+      npm run build
+    displayName: 'dependencies install and distribution build'
+
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location : '/dist'
+    output_location: '' # Leave this empty
+    skip_app_build: true
+    skip_api_build: true
+    azure_static_web_apps_api_token: $(deployment_token)
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
