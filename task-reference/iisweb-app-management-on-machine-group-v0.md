@@ -431,7 +431,7 @@ Specifies the thumb-print of the Secure Socket Layer certificate that the websit
 **`Bindings`** - **Add bindings**<br>
 `string`. Required when `IISDeploymentType = IISWebsite && ActionIISWebsite = CreateOrUpdateWebsite && AddBinding = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Click on the extension button `...` to add bindings for the website.
+Specifies the bindings for the website.
 
 Here's a sample binding configuration in YAML:
 
