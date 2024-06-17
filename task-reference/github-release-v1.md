@@ -98,7 +98,7 @@ Specifies the type of release operation to perform. This task can create, edit, 
 **`target`** - **Target**<br>
 `string`. Required when `action = create || action = edit`. Default value: `$(Build.SourceVersion)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the commit SHA you want to use to create the GitHub release, for example `48b11d8d6e92a22e3e9563a3f643699c16fd6e27`. You can also use a variable, like `$(myCommitSHA)`, in this field.
+Specifies the commit SHA or branch name you want to use to create the GitHub release, for example `48b11d8d6e92a22e3e9563a3f643699c16fd6e27` or `main`. You can also use a variable, like `$(myCommitSHA)`, in this field.
 <!-- :::editable-content-end::: -->
 <br>
 
