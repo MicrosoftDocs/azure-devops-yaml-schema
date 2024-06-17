@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 05/17/2024
+ms.date: 06/11/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -31,7 +31,61 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.2"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# .NET Core v2
+# Build, test, package, or publish a dotnet application, or run a custom dotnet command.
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
+    #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish web projects. Default: true.
+    #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s) or solution(s). 
+    #custom: # string. Required when command = custom. Custom command. 
+    #arguments: # string. Optional. Use when command = build || command = publish || command = run || command = test || command = custom. Arguments. 
+    #restoreArguments: # string. Optional. Use when command = restore. Arguments. 
+    #publishTestResults: true # boolean. Optional. Use when command = test. Publish test results and code coverage. Default: true.
+    #testRunTitle: # string. Optional. Use when command = test. Test run title. 
+    #zipAfterPublish: true # boolean. Optional. Use when command = publish. Zip published projects. Default: true.
+    #modifyOutputPath: true # boolean. Optional. Use when command = publish. Add project's folder name to publish path. Default: true.
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg' # string. Alias: searchPatternPush. Required when command = push. Path to NuGet package(s) to publish. Default: $(Build.ArtifactStagingDirectory)/*.nupkg.
+    #nuGetFeedType: 'internal' # 'internal' | 'external'. Required when command = push. Target feed location. Default: internal.
+    #publishVstsFeed: # string. Alias: feedPublish. Required when command = push && nuGetFeedType = internal. Target feed. 
+    #publishFeedCredentials: # string. Alias: externalEndpoint. Required when command = push && nuGetFeedType = external. NuGet server. 
+    #packagesToPack: '**/*.csproj' # string. Alias: searchPatternPack. Required when command = pack. Path to csproj or nuspec file(s) to pack. Default: **/*.csproj.
+    #configuration: '$(BuildConfiguration)' # string. Alias: configurationToPack. Optional. Use when command = pack. Configuration to Package. Default: $(BuildConfiguration).
+    #packDirectory: '$(Build.ArtifactStagingDirectory)' # string. Alias: outputDir. Optional. Use when command = pack. Package Folder. Default: $(Build.ArtifactStagingDirectory).
+    #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
+    #includesymbols: false # boolean. Optional. Use when command = pack. Include Symbols. Default: false.
+    #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
+  # Feeds and authentication
+    #feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts feed. 
+    #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
+    #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
+    #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
+  # Advanced
+    #noCache: false # boolean. Optional. Use when command = restore. Disable local cache. Default: false.
+    #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
+    #verbosityRestore: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Normal.
+  # Advanced
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+  # Pack options
+    #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
+    #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
+    #majorVersion: '1' # string. Alias: requestedMajorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Major. Default: 1.
+    #minorVersion: '0' # string. Alias: requestedMinorVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Minor. Default: 0.
+    #patchVersion: '0' # string. Alias: requestedPatchVersion. Required when versioningScheme = byPrereleaseNumber && command = pack. Patch. Default: 0.
+  # Advanced
+    #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
+    #verbosityPack: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Normal.
+  # Advanced
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2022.2"
 
 ```yaml
 # .NET Core v2
@@ -520,7 +574,18 @@ Specifies the folder in which packages are installed. If no folder is specified,
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosityRestore"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+**`verbosityRestore`** - **Verbosity**<br>
+`string`. Optional. Use when `command = restore`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Normal`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the amount of detail displayed in the output for the `restore` command.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`verbosityRestore`** - **Verbosity**<br>
 `string`. Optional. Use when `command = restore`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Detailed`.<br>
@@ -742,7 +807,18 @@ Specifies a list of `token = value` pairs, separated by semicolons, where each o
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosityPack"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+**`verbosityPack`** - **Verbosity**<br>
+`string`. Optional. Use when `command = pack`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Normal`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the amount of detail displayed in the output for the `pack` command.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`verbosityPack`** - **Verbosity**<br>
 `string`. Optional. Use when `command = pack`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Detailed`.<br>

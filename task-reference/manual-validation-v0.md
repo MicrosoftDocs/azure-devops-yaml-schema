@@ -1,6 +1,6 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
-description: Pause a YAML pipeline run to wait for manual interaction (Preview).
+description: Pause a YAML pipeline run to wait for manual interaction - Preview (task version 0).
 ms.date: 06/11/2024
 monikerRange: ">=azure-pipelines-2020.1"
 ---
