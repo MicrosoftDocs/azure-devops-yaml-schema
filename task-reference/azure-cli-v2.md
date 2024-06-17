@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 05/14/2024
+ms.date: 06/11/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -28,7 +28,32 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure CLI v2
+# Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure Resource Manager connection. 
+    scriptType: # 'ps' | 'pscore' | 'batch' | 'bash'. Required. Script Type. 
+    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
+    scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
+    #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
+    #arguments: # string. Alias: scriptArguments. Script Arguments. 
+    #powerShellErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. Optional. Use when scriptType = ps || scriptType = pscore. ErrorActionPreference. Default: stop.
+  # Advanced
+    #addSpnToEnvironment: false # boolean. Access service principal details in script. Default: false.
+    #useGlobalConfig: false # boolean. Use global Azure CLI configuration. Default: false.
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
+    #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
+    #powerShellIgnoreLASTEXITCODE: false # boolean. Optional. Use when scriptType = ps || scriptType = pscore. Ignore $LASTEXITCODE. Default: false.
+    #visibleAzLogin: true # boolean. az login output visibility. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Azure CLI v2
@@ -254,6 +279,18 @@ If this input is true, this task will fail when any errors are written to the St
 `boolean`. Optional. Use when `scriptType = ps || scriptType = pscore`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this input is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` is appended to the end of your script. This will propagate the last exit code from an external command as the exit code of PowerShell. Otherwise, the line is not appended to the end of your script.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="visibleAzLogin"::: -->
+:::moniker range="=azure-pipelines"
+
+**`visibleAzLogin`** - **az login output visibility**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set to true, az login command will output to the task. Setting it to false will suppress the az login output.
 <!-- :::editable-content-end::: -->
 <br>
 

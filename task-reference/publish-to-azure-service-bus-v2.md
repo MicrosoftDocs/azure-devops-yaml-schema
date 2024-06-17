@@ -1,25 +1,19 @@
 ---
-title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
-description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 1).
+title: PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
+description: Sends a message to Azure Service Bus using a service connectionno, with no agent required.
 ms.date: 06/11/2024
-monikerRange: "<=azure-pipelines"
+monikerRange: "=azure-pipelines"
 ---
 
-# PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
+# PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to send a message to Azure Service Bus using a service connection (no agent is required).
-<!-- :::editable-content-end::: -->
+Sends a message to Azure Service Bus using a service connection (no agent is required).
 
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to send a message to Azure Service Bus using a service connection (no agent required).
+This version of the task supports Entra ID and Workload identity federation through its [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) input (`azureSubscription`). For more information, see the following [Remarks](#remarks) section.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -28,14 +22,16 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
 
 ```yaml
-# Publish To Azure Service Bus v1
+# Publish To Azure Service Bus v2
 # Sends a message to Azure Service Bus using a service connection (no agent is required).
-- task: PublishToAzureServiceBus@1
+- task: PublishToAzureServiceBus@2
   inputs:
-    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
+    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Resource Manager service connection. 
+    serviceBusQueueName: # string. Required. Azure Service Bus Queue name. 
+    serviceBusNamespace: # string. Required. Azure Service Bus Namespace. 
     #messageBody: # string. Message body. 
     #waitForCompletion: false # boolean. Wait for task completion. Default: false.
     #useDataContractSerializer: true # boolean. Use .NET data contract serializer. Default: true.
@@ -47,63 +43,49 @@ Use this task to send a message to Azure Service Bus using a service connection 
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
-
-```yaml
-# Publish To Azure Service Bus v1
-# Sends a message to Azure Service Bus using a service connection (no agent is required).
-- task: PublishToAzureServiceBus@1
-  inputs:
-    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
-    #messageBody: # string. Message body. 
-    #waitForCompletion: false # boolean. Wait for task completion. Default: false.
-  # Advanced
-    #sessionId: # string. Session Id. 
-    #signPayload: false # boolean. Sign the Message. Default: false.
-    #certificateString: # string. Required when signPayload = true. Certificate Variable. 
-    #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Publish To Azure Service Bus v1
-# Sends a message to azure service bus using a service connection (no agent required).
-- task: PublishToAzureServiceBus@1
-  inputs:
-    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
-    #messageBody: # string. Message body. 
-    #waitForCompletion: false # boolean. Wait for task completion. Default: false.
-  # Signing Properties
-    #signPayload: false # boolean. Sign the Message. Default: false.
-    #certificateString: # string. Required when signPayload = true. Certificate Variable. 
-    #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
 
-**`azureSubscription`** - **Azure Service Bus service connection**<br>
+**`azureSubscription`** - **Azure Resource Manager service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/library/service-endpoints#azure-service-bus-service-connection).
+Specifies an [Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="serviceBusQueueName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`serviceBusQueueName`** - **Azure Service Bus Queue name**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the name of the queue for which the message is intended.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="serviceBusNamespace"::: -->
+:::moniker range="=azure-pipelines"
+
+**`serviceBusNamespace`** - **Azure Service Bus Namespace**<br>
+`string`. Required.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the namespace of your Azure Service Bus.
 <!-- :::editable-content-end::: -->
 <br>
 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="messageBody"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 **`messageBody`** - **Message body**<br>
 `string`.<br>
@@ -115,7 +97,7 @@ Specifies the JSON `messageBody`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sessionId"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
 
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
@@ -127,7 +109,7 @@ Specifies the session ID with which the message is published. For session-based 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signPayload"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Default value: `false`.<br>
@@ -139,7 +121,7 @@ If set to `true`, a private certificate will be added to the message.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="certificateString"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 **`certificateString`** - **Certificate Variable**<br>
 `string`. Required when `signPayload = true`.<br>
@@ -151,7 +133,7 @@ Specifies the secret variable that contains the certificate content. This can al
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signatureKey"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
 
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
@@ -163,7 +145,7 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Default value: `false`.<br>
@@ -175,9 +157,9 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useDataContractSerializer"::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
 
-**`useDataContractSerializer`** - **Use .NET data contract serializer.**<br>
+**`useDataContractSerializer`** - **Use .NET data contract serializer**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set `useDataContractSerializer` to `false` if you want to pass your message as a stream instead of an object.
@@ -195,7 +177,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 None.
 
@@ -210,6 +192,27 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 
 > [!NOTE]
 > Can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
+
+### Access Azure Service Bus from Pipelines using Entra ID authentication
+
+You can now use [Entra ID authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#microsoft-entra-id) to access Azure Service Bus from Azure Pipelines. This allows you to take advantage of Workload identity federation to remove secrets management and Azure RBAC for fine grained access control.
+
+Identities accessing Azure Service Bus will need to be granted one of the [Azure built-in roles for Azure Service Bus](/azure/service-bus-messaging/authenticate-application#azure-built-in-roles-for-azure-service-bus) on the Service Bus accessed.
+
+The `PublishToAzureServiceBus@2` task can be configured using an Azure Resource Manager service connection. Create an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) and populate the `serviceBusQueueName` and `serviceBusNamespace` properties of the task:
+
+```yaml
+- task: PublishToAzureServiceBus@2
+  inputs:
+    azureSubscription: my-azure-service-connection
+    serviceBusQueueName: my-service-bus-queue
+    serviceBusNamespace: my-service-bus-namespace
+    useDataContractSerializer: false
+    messageBody: |
+      {
+        "property": "value"
+      }
+```
 
 ### Where should a task signal completion?
 
@@ -236,7 +239,7 @@ In addition, a C# helper library is available to enable live logging and managin
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 05/17/2024
+ms.date: 06/11/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,32 @@ Copy files or build artifacts to a remote machine over SSH.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Copy files over SSH v0
+# Copy files or build artifacts to a remote machine over SSH.
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: # string. Required. SSH service connection. 
+    #sourceFolder: # string. Source folder. 
+    contents: '**' # string. Required. Contents. Default: **.
+    #targetFolder: # string. Target folder. 
+  # Advanced
+    #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
+    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
+    #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
+    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
+    #overwrite: true # boolean. Overwrite. Default: true.
+    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
+    #flattenFolders: false # boolean. Flatten folders. Default: false.
+    #concurrentUploads: '10' # string. Number of concurrent uploads when copying files. Default: 10.
+    #delayBetweenUploads: '50' # string. Delay between queueing uploads (in milliseconds). Default: 50.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
 
 ```yaml
 # Copy files over SSH v0
@@ -244,6 +269,30 @@ Fails if no matching files to be copied are found under the source folder.
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Flattens the folder structure and copies all files into the specified target folder on the remote machine.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="concurrentUploads"::: -->
+:::moniker range="=azure-pipelines"
+
+**`concurrentUploads`** - **Number of concurrent uploads when copying files**<br>
+`string`. Default value: `10`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Number of concurrent uploads when copying files. Default is 10.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="delayBetweenUploads"::: -->
+:::moniker range="=azure-pipelines"
+
+**`delayBetweenUploads`** - **Delay between queueing uploads (in milliseconds)**<br>
+`string`. Default value: `50`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Delay between queueing uploads (in milliseconds). Default is 50.
 <!-- :::editable-content-end::: -->
 <br>
 
