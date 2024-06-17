@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 05/17/2024
+ms.date: 06/11/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -57,9 +57,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
-| **Prepare Analysis Configuration**<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube analysis configuration. |
-| **Publish Quality Gate Result**<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
-| **Run Code Analysis**<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube server. |
+| **Prepare Analysis Configuration**<br>[SonarQubePrepare@6](sonar-qube-prepare-v6.md)<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube analysis configuration. |
+| **Publish Quality Gate Result**<br>[SonarQubePublish@6](sonar-qube-publish-v6.md)<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
+| **Run Code Analysis**<br>[SonarQubeAnalyze@6](sonar-qube-analyze-v6.md)<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube server. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
 | **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
 | **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
@@ -107,7 +107,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Invoke REST API**<br>[InvokeRESTAPI@1](invoke-rest-api-v1.md)<br>[InvokeRESTAPI@0](invoke-rest-api-v0.md) | Invoke a REST API as a part of your pipeline. |
 | **Kubectl**<br>[Kubernetes@1](kubernetes-v1.md)<br>[Kubernetes@0](kubernetes-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands. |
 | **Manual intervention**<br>[ManualIntervention@8](manual-intervention-v8.md) | Pause deployment and wait for manual intervention. |
-| **Manual validation**<br>[ManualValidation@0](manual-validation-v0.md) | [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
+| **Manual validation**<br>[ManualValidation@0](manual-validation-v0.md) | Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
 | **Package and deploy Helm charts**<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
 | **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
@@ -221,7 +221,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish build artifacts**<br>[PublishBuildArtifacts@1](publish-build-artifacts-v1.md) | Publish build artifacts to Azure Pipelines or a Windows file share. |
 | **Publish Pipeline Artifacts**<br>[PublishPipelineArtifact@1](publish-pipeline-artifact-v1.md)<br>[PublishPipelineArtifact@0](publish-pipeline-artifact-v0.md) | Publish (upload) a file or directory as a named artifact for the current run. |
 | **Publish Pipeline Metadata**<br>[PublishPipelineMetadata@0](publish-pipeline-metadata-v0.md) | Publish Pipeline Metadata to Evidence store. |
-| **Publish To Azure Service Bus**<br>[PublishToAzureServiceBus@1](publish-to-azure-service-bus-v1.md)<br>[PublishToAzureServiceBus@0](publish-to-azure-service-bus-v0.md) | Sends a message to Azure Service Bus using a service connection (no agent is required). |
+| **Publish To Azure Service Bus**<br>[PublishToAzureServiceBus@2](publish-to-azure-service-bus-v2.md)<br>[PublishToAzureServiceBus@1](publish-to-azure-service-bus-v1.md)<br>[PublishToAzureServiceBus@0](publish-to-azure-service-bus-v0.md) | Sends a message to Azure Service Bus using a service connection (no agent is required). |
 | **Python script**<br>[PythonScript@0](python-script-v0.md) | Run a Python file or inline script. |
 | **Query Azure Monitor alerts**<br>[AzureMonitor@1](azure-monitor-v1.md) | Observe the configured Azure Monitor rules for active alerts. |
 | **Query Classic Azure Monitor alerts**<br>[AzureMonitor@0](azure-monitor-v0.md) | Observe the configured classic Azure Monitor rules for active alerts. |

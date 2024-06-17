@@ -1,7 +1,7 @@
 ---
 title: SonarQubePublish@4 - Publish Quality Gate Result v4 task
 description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis (task version 4).
-ms.date: 05/14/2024
+ms.date: 06/11/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -12,7 +12,12 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish SonarQube's Quality Gate result on the Azure DevOps build result. Use this after the analysis.
+
+> [!NOTE]
+> This task is deprecated; use [SonarQubePublish@6](./sonar-qube-publish-v6.md).
 <!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -66,6 +71,10 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+> [!NOTE]
+> This task is deprecated; use [SonarQubePublish@6](./sonar-qube-publish-v6.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -87,7 +96,7 @@ None.
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.95.1 or greater |
+| Agent version |  2.144.0 or greater |
 | Task category | Build |
 
 :::moniker-end
