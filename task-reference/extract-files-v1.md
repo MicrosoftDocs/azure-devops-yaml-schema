@@ -134,7 +134,7 @@ Specifies the destination folder into which archive files should be extracted. U
 **`cleanDestinationFolder`** - **Clean destination folder before extracting**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the option to clean the destination directory before archive contents are extracted into it.
+Specifies the option to delete the entire content of the destination directory (clean) before archive contents are extracted into it.
 <!-- :::editable-content-end::: -->
 <br>
 
