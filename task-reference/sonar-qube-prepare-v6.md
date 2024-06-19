@@ -68,13 +68,13 @@ Select the SonarQube server endpoint for your project. To create one, click the 
 **`scannerMode`** - **Choose the way to run the analysis**<br>
 `string`. Required. Allowed values: `MSBuild` (Integrate with MSBuild), `Other` (Integrate with Maven or Gradle), `CLI` (Use standalone scanner). Default value: `MSBuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-####MSBuild
+#### MSBuild
 * Put this task before your MSBuild task
 * Add the 'Run Code Analysis' task after the MSBuild/VSTest tasks
-####Maven/Gradle
+#### Maven/Gradle
 * Put this task before the Maven/Gradle task
 * Tick the 'Run SonarQube Analysis' checkbox in the Maven/Gradle task configuration.
-####Others
+#### Others
 For other cases you can use the standalone scanner (sonar-scanner) and set all configuration with this task, and then add the 'Run Code Analysis' task.
 <!-- :::editable-content-end::: -->
 <br>
