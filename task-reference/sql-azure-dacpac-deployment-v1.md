@@ -215,7 +215,7 @@ Specify the option to connect to the Azure SQL Server database. You can provide 
 **`ServerName`** - **Azure SQL Server**<br>
 `string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated || AuthenticationType = servicePrincipal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` or `Fabrikam.database.windows.net`.
+Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net.placeholder,1433` or `Fabrikam.database.windows.net.placeholder`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -226,7 +226,7 @@ Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` o
 **`ServerName`** - **Azure SQL Server**<br>
 `string`. Required when `AuthenticationType = server || AuthenticationType = aadAuthenticationPassword || AuthenticationType = aadAuthenticationIntegrated`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` or `Fabrikam.database.windows.net`.
+Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net.placeholder,1433` or `Fabrikam.database.windows.net.placeholder`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -237,7 +237,7 @@ Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` o
 **`ServerName`** - **Azure SQL Server Name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net,1433` or `Fabrikam.database.windows.net`.
+Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net.placeholder,1433` or `Fabrikam.database.windows.net.placeholder`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -353,7 +353,7 @@ Specifies the password for the Active Directory user. Variables defined in the b
 **`ConnectionString`** - **Connection String**<br>
 `string`. Required when `AuthenticationType = connectionString`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Azure SQL Server connection string, like `Server=testServer.database.windows.net;Database=testdb;User ID=AccountPlaceholder;Password=$(securePassword);`.
+Specifies the Azure SQL Server connection string, like `Server=testServer.database.windows.net.placeholder;Database=testdb;User ID=AccountPlaceholder;Password=$(securePassword);`.
 <!-- :::editable-content-end::: -->
 <br>
 
