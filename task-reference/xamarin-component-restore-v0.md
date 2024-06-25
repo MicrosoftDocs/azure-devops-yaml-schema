@@ -12,6 +12,10 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task is deprecated. Use 'NuGet' instead.
+
+> [!NOTE]
+> This task is deprecated and was retired May 1, 2024.
+
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
