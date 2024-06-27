@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 06/11/2024
+ms.date: 06/27/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -49,6 +49,7 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
     #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
     #powerShellIgnoreLASTEXITCODE: false # boolean. Optional. Use when scriptType = ps || scriptType = pscore. Ignore $LASTEXITCODE. Default: false.
     #visibleAzLogin: true # boolean. az login output visibility. Default: true.
+    #keepAzSessionActive: false # boolean. [Experimental] Keep Azure CLI session active. Default: false.
 ```
 
 :::moniker-end
@@ -291,6 +292,18 @@ If this input is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXIT
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set to true, az login command will output to the task. Setting it to false will suppress the az login output.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="keepAzSessionActive"::: -->
+:::moniker range="=azure-pipelines"
+
+**`keepAzSessionActive`** - **[Experimental] Keep Azure CLI session active**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When enabled, this task will continuously sign into Azure to avoid [AADSTS700024](/azure/devops/pipelines/release/troubleshoot-workload-identity) errors when requesting access tokens beyond the IdToken expiry date. Note that this feature is EXPERIMENTAL, may not work in all scenarios and you are using it without any guarantees. Valid only for service connections using the Workload Identity Federation authentication scheme.
 <!-- :::editable-content-end::: -->
 <br>
 
