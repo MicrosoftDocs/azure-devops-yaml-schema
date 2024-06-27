@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 06/11/2024
+ms.date: 06/27/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -180,7 +180,7 @@ The file path to the package or folder that contains App Service content generat
 Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
 
 > [!NOTE]
-> This value currently doesn't update the **linuxFxVersion** that the site is running on. This means you can't update the stack from Node 18 to Node 20. The task currently only updates the app settings. 
+> This value currently doesn't update the **linuxFxVersion** that the site is running on. This means you can't update the stack from Node 18 to Node 20. The task currently only updates the app settings.
 <!-- :::editable-content-end::: -->
 <br>
 
