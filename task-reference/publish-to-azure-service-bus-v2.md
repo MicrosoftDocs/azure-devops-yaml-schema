@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
 description: Sends a message to Azure Service Bus using a service connectionno, with no agent required.
-ms.date: 06/11/2024
+ms.date: 06/27/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -26,7 +26,7 @@ This version of the task supports Entra ID and Workload identity federation thro
 
 ```yaml
 # Publish To Azure Service Bus v2
-# Sends a message to Azure Service Bus using a service connection (no agent is required).
+# Sends a message to Azure Service Bus using an Azure Resource Manager service connection (no agent is required).
 - task: PublishToAzureServiceBus@2
   inputs:
     azureSubscription: # string. Alias: connectedServiceName. Required. Azure Resource Manager service connection. 
