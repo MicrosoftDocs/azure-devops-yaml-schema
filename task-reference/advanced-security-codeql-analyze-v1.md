@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: "=azure-pipelines"
 ---
 

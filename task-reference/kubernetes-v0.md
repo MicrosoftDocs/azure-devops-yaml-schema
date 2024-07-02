@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: "<=azure-pipelines"
 ---
 

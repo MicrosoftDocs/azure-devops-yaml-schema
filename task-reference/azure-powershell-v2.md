@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@2 - Azure PowerShell v2 task
 description: Run a PowerShell script within an Azure environment (task version 2).
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: "<=azure-pipelines"
 ---
 

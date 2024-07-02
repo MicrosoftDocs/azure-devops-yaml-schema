@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 description: Deploy an Azure Cloud Service.
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 

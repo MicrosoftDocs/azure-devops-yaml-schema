@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: "<=azure-pipelines"
 ---
 
