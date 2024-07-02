@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 06/11/2024
+ms.date: 06/27/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -29,6 +29,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 # Initializes the CodeQL database in preparation for building.
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
+    #enableAutomaticCodeQLInstall: false # boolean. Enable automatic CodeQL detection and installation. Default: false.
     #languages: # 'csharp' | 'cpp' | 'go' | 'java' | 'javascript' | 'python' | 'ruby' | 'swift'. Languages to analyze. 
     #querysuite: 'Select a query suite...' # 'Select a query suite...' | 'code-scanning' | 'security-extended' | 'security-experimental' | 'security-and-quality'. CodeQL Query Suite to use for analysis. Default: Select a query suite....
   # Advanced
@@ -48,6 +49,18 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="enableAutomaticCodeQLInstall"::: -->
+:::moniker range="=azure-pipelines"
+
+**`enableAutomaticCodeQLInstall`** - **Enable automatic CodeQL detection and installation**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Selecting this option will set the task to automatically check for CodeQL on the agent. If CodeQL is not correctly configured or at the latest version, the task will automatically install the latest version.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="languages"::: -->
 :::moniker range="=azure-pipelines"
 
