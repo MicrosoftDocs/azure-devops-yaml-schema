@@ -1,7 +1,7 @@
 ---
 title: AzureWebPowerShellDeployment@1 - Azure App Service Classic (Deprecated) v1 task
 description: Create or update Azure App Service using Azure PowerShell.
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: "<=azure-pipelines"
 ---
 

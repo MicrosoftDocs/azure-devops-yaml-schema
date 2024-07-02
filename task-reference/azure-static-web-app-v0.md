@@ -1,7 +1,7 @@
 ---
 title: AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 description: Build and deploy an Azure Static Web App.
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 monikerRange: ">=azure-pipelines-2022"
 ---
 
