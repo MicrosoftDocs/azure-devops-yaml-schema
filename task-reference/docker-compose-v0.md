@@ -1,14 +1,24 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 07/02/2024
+ms.date: 07/15/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # DockerCompose@0 - Docker Compose v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Build, push or run multi-container Docker applications. Use this task with Docker or the Azure Container registry.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Build, push or run multi-container Docker applications. Use this task with Docker or the Azure Container registry.

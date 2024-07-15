@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 07/02/2024
+ms.date: 07/15/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -46,7 +46,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **CMake**<br>[CMake@1](cmake-v1.md) | Build with the CMake cross-platform build system. |
 | **Container Build**<br>[ContainerBuild@0](container-build-v0.md) | Container Build Task. |
 | **Docker**<br>[Docker@2](docker-v2.md)<br>[Docker@1](docker-v1.md)<br>[Docker@0](docker-v0.md) | Build or push Docker images, login or logout, start or stop containers, or run a Docker command. |
-| **Docker Compose**<br>[DockerCompose@0](docker-compose-v0.md) | Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry. |
+| **Docker Compose**<br>[DockerCompose@1](docker-compose-v1.md)<br>[DockerCompose@0](docker-compose-v0.md) | Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry. |
 | **Download GitHub Nuget Packages**<br>[DownloadGitHubNugetPackage@1](download-github-nuget-package-v1.md) | Restore your nuget packages using dotnet CLI. |
 | **Go**<br>[Go@0](go-v0.md) | Get, build, or test a Go application, or run a custom Go command. |
 | **Gradle**<br>[Gradle@3](gradle-v3.md)<br>[Gradle@2](gradle-v2.md)<br>[Gradle@1](gradle-v1.md) | Build using a Gradle wrapper script. |
@@ -109,7 +109,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Manual intervention**<br>[ManualIntervention@8](manual-intervention-v8.md) | Pause deployment and wait for manual intervention. |
 | **Manual validation**<br>[ManualValidation@0](manual-validation-v0.md) | [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines. |
 | **MySQL database deploy**<br>[MysqlDeploymentOnMachineGroup@1](mysql-deployment-on-machine-group-v1.md) | Run scripts and make changes to a MySQL Database. |
-| **Package and deploy Helm charts**<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
+| **Package and deploy Helm charts**<br>[HelmDeploy@1](helm-deploy-v1.md)<br>[HelmDeploy@0](helm-deploy-v0.md) | Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands. |
 | **PowerShell on target machines**<br>[PowerShellOnTargetMachines@3](powershell-on-target-machines-v3.md) | Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting. |
 | **PowerShell on Target Machines**<br>[PowerShellOnTargetMachines@2](powershell-on-target-machines-v2.md)<br>[PowerShellOnTargetMachines@1](powershell-on-target-machines-v1.md) | Execute PowerShell scripts on remote machine(s). |
 | **Service Fabric application deployment**<br>[ServiceFabricDeploy@1](service-fabric-deploy-v1.md) | Deploy an Azure Service Fabric application to a cluster. |
