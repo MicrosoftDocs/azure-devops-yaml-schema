@@ -1,14 +1,29 @@
 ---
 title: XamarinLicense@1 - Xamarin License v1 task
 description: XamarinLicense@1 is deprecated.
-ms.date: 07/02/2024
+ms.date: 07/25/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # XamarinLicense@1 - Xamarin License v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">=azure-pipelines-2019"
+
+<!-- :::editable-content name="description"::: -->
+XamarinLicense@1 is deprecated because you no longer need a Xamarin license to [build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin). You can now use the free version of [Xamarin](https://store.xamarin.com).
+
+This task was originally used in a build or release pipeline to activate or deactivate Xamarin licenses.
+
+> [!NOTE]
+> This task is deprecated and was retired May 1, 2024.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-2018"
 
 <!-- :::editable-content name="description"::: -->
 XamarinLicense@1 is deprecated because you no longer need a Xamarin license to [build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin). You can now use the free version of [Xamarin](https://store.xamarin.com).
