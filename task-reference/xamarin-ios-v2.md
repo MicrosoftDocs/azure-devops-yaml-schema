@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
-ms.date: 07/02/2024
+ms.date: 07/25/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -15,7 +15,6 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 
 > [!NOTE]
 > This task is deprecated and was retired May 1, 2024.
-
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
