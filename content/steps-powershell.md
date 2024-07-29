@@ -290,7 +290,7 @@ Learn more about [conditions](/azure/devops/pipelines/process/conditions) and [t
 
 ```yaml
 steps:
-- powershell: Write-Host Hello $(name)
+- powershell: Write-Host Hello $Env:name
   displayName: Say hello
   name: firstStep
   workingDirectory: $(build.sourcesDirectory)
