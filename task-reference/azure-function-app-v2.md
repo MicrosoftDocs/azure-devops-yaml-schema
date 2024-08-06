@@ -101,6 +101,7 @@ Select the Azure Function App type for the deployment.
 **`isFlexConsumption`** - **Is Function App on Flex Consumption Plan**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Set to `true` if function app is on a [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan).
 <!-- :::editable-content-end::: -->
 <br>
 
