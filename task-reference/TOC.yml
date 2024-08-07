@@ -436,6 +436,9 @@ items:
     displayName: Docker CLI installer v0
 - name: Docker Compose
   items:
+  - name: DockerCompose@1
+    href: docker-compose-v1.md
+    displayName: Docker Compose v1
   - name: DockerCompose@0
     href: docker-compose-v0.md
     displayName: Docker Compose v0
@@ -791,6 +794,9 @@ items:
     displayName: NuGet tool installer v0
 - name: Package and deploy Helm charts
   items:
+  - name: HelmDeploy@1
+    href: helm-deploy-v1.md
+    displayName: Package and deploy Helm charts v1
   - name: HelmDeploy@0
     href: helm-deploy-v0.md
     displayName: Package and deploy Helm charts v0
