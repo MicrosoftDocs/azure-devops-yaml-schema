@@ -1,7 +1,7 @@
 ---
 title: Cache@2 - Cache v2 task
 description: Cache files between runs.
-ms.date: 07/02/2024
+ms.date: 08/07/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -125,7 +125,7 @@ Improve build performance by caching files, like dependencies, between pipeline 
 
 | Requirement | Description |
 |-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
+| Pipeline types | YAML, Classic build |
 | Runs on | Agent, DeploymentGroup |
 | [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
