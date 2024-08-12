@@ -188,6 +188,11 @@ For more information, see [Get started with Azure Key Vault certificates](/archi
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+- [Quickstart: Use secrets from Azure Key Vault (Classic/YAML)](/azure/devops/pipelines/release/azure-key-vault)
+
+- [Tutorial: Use Azure Key Vault secrets in your YAML pipeline](/azure/devops/pipelines/release/key-vault-in-own-project)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
