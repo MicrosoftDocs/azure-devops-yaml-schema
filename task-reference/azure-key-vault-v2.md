@@ -115,6 +115,12 @@ from an [Azure Key Vault](/rest/api/keyvault/about-keys--secrets-and-certificate
 The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline.
 The task is Node-based and works with agents on Linux, macOS, and Windows.
 
+## Examples
+
+- [Quickstart: Use secrets from Azure Key Vault (Classic/YAML)](/azure/devops/pipelines/release/azure-key-vault)
+
+- [Tutorial: Use Azure Key Vault secrets in your YAML pipeline](/azure/devops/pipelines/release/key-vault-in-own-project)
+
 ### I get a `forbidden` error on pipelines at the point of getting credentials from Azure Key Vault
 
 This occurs if the required permissions are missing in the Azure key vault. To resolve the issue, [add an access policy with the correct permissions](/azure/key-vault/general/assign-access-policy-portal).
