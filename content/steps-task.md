@@ -188,7 +188,7 @@ Time to wait for this task to complete before the server kills it. For example, 
 :::moniker range=">=azure-pipelines-2022"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Number of retries if the task fails.
+Number of retries if the task fails. On Azure DevOps Server 2022.2 and lower, only supported on agent jobs. For more information, see [Azure DevOps sprint 195, November 16, 2021 - Automatic retries for a task](/azure/devops/release-notes/2021/sprint-195-update#automatic-retries-for-a-task) and [Azure DevOps sprint 240, June 14, 2025 - Retries for server tasks](/azure/devops/release-notes/2024/sprint-240-update#retries-for-server-tasks).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
