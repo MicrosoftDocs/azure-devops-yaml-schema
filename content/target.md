@@ -1,7 +1,7 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -121,7 +121,7 @@ Configure step target using a container name, commands, and settable variables.
 ```yaml
 target:
   container: string # Container to target (or 'host' for host machine).
-  commands: string # Set of allowed logging commands ('any' or 'restricted').
+  commands: any | restricted # Set of allowed logging commands ('any' or 'restricted').
   settableVariables: none | [ string ] # Restrictions on which variables that can be set.
 ```
 <!-- :::implementation-syntax-end::: -->
@@ -164,7 +164,7 @@ Configure step target with environment and allowed list of commands.
 ```yaml
 target:
   container: string # Container to target (or 'host' for host machine).
-  commands: string # Set of allowed logging commands ('any' or 'restricted').
+  commands: any | restricted # Set of allowed logging commands ('any' or 'restricted').
 ```
 <!-- :::implementation-syntax-end::: -->
 

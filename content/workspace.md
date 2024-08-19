@@ -1,7 +1,7 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -22,7 +22,7 @@ Workspace options on the agent.
 
 ```yaml
 workspace:
-  clean: string # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
 ```
 
 :::moniker-end
@@ -31,7 +31,7 @@ workspace:
 
 ```yaml
 workspace:
-  clean: string # Scorch the repo before fetching?
+  clean: outputs | resources | all # Scorch the repo before fetching?
 ```
 
 :::moniker-end

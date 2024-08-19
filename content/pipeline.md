@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: A pipeline is one or more stages that describe a CI/CD process.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -190,7 +190,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -285,7 +285,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -583,7 +583,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -680,7 +680,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -956,7 +956,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -1051,7 +1051,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -1404,7 +1404,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
 name: string # Pipeline run number.
 appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
@@ -1419,7 +1419,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -1532,7 +1532,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 parameters: [ parameter ] # Pipeline template parameters.
@@ -1546,7 +1546,7 @@ resources: # Containers and repositories used in the build.
   webhooks: [ webhook ] # List of webhooks.
   packages: [ package ] # List of package resources.
 variables: variables | [ variable ] # Variables for this pipeline.
-lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
 ```
 <!-- :::implementation-syntax-end::: -->
 
@@ -1654,7 +1654,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 parameters: [ parameter ] # Pipeline template parameters.
@@ -1770,7 +1770,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: string # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 parameters: [ parameter ] # Pipeline template parameters.
@@ -1885,7 +1885,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: string # Scorch the repo before fetching?
+  clean: outputs | resources | all # Scorch the repo before fetching?
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 pr: none | pr | [ string ] # Pull request triggers.
@@ -1992,7 +1992,7 @@ pool: string | pool # Pool where jobs in this pipeline will run unless otherwise
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: string # Scorch the repo before fetching?
+  clean: outputs | resources | all # Scorch the repo before fetching?
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 pr: none | pr | [ string ] # Pull request triggers.

@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: A job is a collection of steps run by an agent or on a server.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -36,7 +36,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -64,7 +64,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -91,7 +91,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
 ```
 
@@ -115,7 +115,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: string # Scorch the repo before fetching?
+    clean: outputs | resources | all # Scorch the repo before fetching?
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # A list of steps to run.
 ```
 
@@ -138,7 +138,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: string # Scorch the repo before fetching?
+    clean: outputs | resources | all # Scorch the repo before fetching?
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # A list of steps to run.
 ```
 

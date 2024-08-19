@@ -1,7 +1,7 @@
 ---
 title: boolean definition
 description: Represents a boolean value in a pipeline.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -39,7 +39,16 @@ Azure pipelines uses any of the previous string values to represent a boolean va
 <!-- :::string-item-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+> [!NOTE]
+> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
+
+Definitions that reference this definition: [pipeline](pipeline.md), [trigger](trigger.md), [pr](pr.md), [jobs.job.container](jobs-job-container.md), [stages.stage](stages-stage.md), [schedules.cron](schedules-cron.md), [variables.name](variables-name.md), [mountReadOnly](mount-read-only.md), [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md), [resources.containers.container](resources-containers-container.md), [resources.containers.container.trigger](resources-containers-container-trigger.md), [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
