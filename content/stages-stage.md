@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -18,7 +18,7 @@ Stages are a collection of related jobs. By default, stages run sequentially. Ea
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 stages:
@@ -29,7 +29,26 @@ stages:
   condition: string # Evaluate this condition expression to determine whether to run this stage.
   variables: variables | [ variable ] # Stage-specific variables.
   jobs: [ job | deployment | template ] # Jobs which make up the stage.
-  lockBehavior: string # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+  lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
+  trigger: manual | automatic # Stage trigger manual or automatic (default).
+  isSkippable: boolean # Setting false prevents the stage from being skipped. By default it's always true.
+  templateContext: # Stage related information passed from a pipeline when extending a template.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+
+```yaml
+stages:
+- stage: string # Required as first property. ID of the stage.
+  displayName: string # Human-readable name for the stage.
+  pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
+  dependsOn: string | [ string ] # Any stages which must complete before this one.
+  condition: string # Evaluate this condition expression to determine whether to run this stage.
+  variables: variables | [ variable ] # Stage-specific variables.
+  jobs: [ job | deployment | template ] # Jobs which make up the stage.
+  lockBehavior: sequential | runLatest # Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests.
   templateContext: # Stage related information passed from a pipeline when extending a template.
 ```
 
@@ -130,6 +149,24 @@ Jobs which make up the stage.
 
 **`lockBehavior`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Behavior lock requests from this stage should exhibit in relation to other exclusive lock requests. sequential | runLatest.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="trigger"::: -->
+:::moniker range="=azure-pipelines"
+
+**`trigger`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Stage trigger manual or automatic (default). manual | automatic.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="isSkippable"::: -->
+:::moniker range="=azure-pipelines"
+
+**`isSkippable`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+Setting false prevents the stage from being skipped. By default it's always true.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

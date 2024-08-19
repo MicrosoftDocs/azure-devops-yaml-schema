@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -35,7 +35,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -63,7 +63,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -90,7 +90,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: string # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
   container: string | container # Container resource name.
   services: # Container resources to run as a service container.
     string: string # Name/value pairs

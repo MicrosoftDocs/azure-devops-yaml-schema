@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 06/11/2024
+ms.date: 07/17/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -18,12 +18,40 @@ Use `checkout` to configure how the pipeline checks out source code.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
 
 ```yaml
 steps:
 - checkout: string # Required as first property. Configures checkout for the specified repository.
-  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
+  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
+  fetchDepth: string # Depth of Git graph to fetch.
+  fetchFilter: string # Filter Git history.
+  fetchTags: string # Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior.
+  lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
+  persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
+  submodules: string # Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
+  path: string # Where to put the repository. The root directory is $(Pipeline.Workspace).
+  workspaceRepo: true | false # When true, use the repository root directory as the default working directory for the pipeline. The default is false.
+  condition: string # Evaluate this condition expression to determine whether to run this task.
+  continueOnError: boolean # Continue running even on failure?
+  displayName: string # Human-readable name for the task.
+  target: string | target # Environment in which to run this task.
+  enabled: boolean # Run this task when the job runs?
+  env: # Variables to map into the process's environment.
+    string: string # Name/value pairs
+  name: string # ID of the step.
+  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
+  retryCountOnTaskFailure: string # Number of retries if the task fails.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
+
+```yaml
+steps:
+- checkout: string # Required as first property. Configures checkout for the specified repository.
+  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   fetchTags: string # Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. See remarks for the default behavior.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
@@ -49,7 +77,7 @@ steps:
 ```yaml
 steps:
 - checkout: string # Required as first property. Configures checkout for the specified repository.
-  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
+  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -74,7 +102,7 @@ steps:
 ```yaml
 steps:
 - checkout: string # Required as first property. Configures checkout for the specified repository.
-  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
+  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -98,7 +126,7 @@ steps:
 ```yaml
 steps:
 - checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
-  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
+  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -121,7 +149,7 @@ steps:
 ```yaml
 steps:
 - checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
-  clean: string # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
+  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
   fetchDepth: string # Depth of Git graph to fetch.
   lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
   persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -188,6 +216,15 @@ Depth of Git graph to fetch.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="fetchFilter"::: -->
+:::moniker range="=azure-pipelines"
+
+**`fetchFilter`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Use `fetchFilter` to filter Git history for partial cloning. The `fetchFilter` setting supports treeless and blobless fetches. For a treeless fetch, specify `fetchFilter: tree:0` and to specify a blobless fetch, specify `fetchFilter: blob:none`. The default is no filtering.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="fetchTags"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -229,6 +266,15 @@ Set to 'true' for a single level of submodules or 'recursive' to get submodules 
 
 **`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Where to put the repository. The root directory is $(Pipeline.Workspace). By default this folder must be under the agent working directory structure. To set a path outside of the agent working directory, set a pipeline variable named `AZP_AGENT_ALLOW_WORK_DIRECTORY_REPOSITORIES` to true, and use the prefix `../` at the start of your checkout path. Supported on agent version 3.230.0 and higher.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="workspaceRepo"::: -->
+:::moniker range="=azure-pipelines"
+
+**`workspaceRepo`** string.<br><!-- :::editable-content name="propDescription"::: -->
+When true, use the repository root directory as the default working directory for the pipeline. The default is false.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
