@@ -228,7 +228,7 @@ Set to 'true' for a single level of submodules or 'recursive' to get submodules 
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Where to put the repository. The root directory is $(Pipeline.Workspace).
+Where to put the repository. The root directory is $(Pipeline.Workspace). By default this folder must be under the agent working directory structure. To set a path outside of the agent working directory, set a pipeline variable named `AZP_AGENT_ALLOW_WORK_DIRECTORY_REPOSITORIES` to true, and use the prefix `../` at the start of your checkout path. Supported on agent version 3.230.0 and higher.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
