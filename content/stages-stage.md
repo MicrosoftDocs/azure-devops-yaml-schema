@@ -244,6 +244,19 @@ stages:
 ```
 
 :::moniker-end
+
+:::moniker range="> azure-pipelines-2022.2"
+
+### Exclusive lock at stage level
+
+Some use cases require a pipeline to access a specific resource only once at any given time. To support this case, we have the exclusive lock check described in the previous section..
+
+A similar situation arises when only one pipeline run should access a stage at any point in time. For instance, if you have a stage that deploys to an Azure resource group, you may want to prevent multiple pipeline runs from simultaneously updating the same resource group. Currently, achieving this requires using a proxy resource, such as an environment, and placing the exclusive lock check on that environment. This approach can be time-consuming, add complexity, and increase maintenance efforts.
+
+If you need to ensure only a single pipeline run at a time can access a stage, you can specify the exclusive lock at the stage level. If you have a stage with an ID and specify its `lockBehavior` property, a lock is automatically created for that stage. The sequential behavior remains consistent for both resource-level and stage-level locks. However, the `runLatest` behavior differs, as it only cancels `runLatest` builds for the same branch, not for all branches of the pipeline.
+
+:::moniker-end
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
