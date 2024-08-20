@@ -12,6 +12,8 @@ monikerRange: ">=azure-pipelines-2019"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install Helm and Kubernetes on an agent machine.
+
+This version of the task is deprecated; use [HelmInstaller@1](./helm-installer-v1.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
