@@ -1,14 +1,27 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # Docker@0 - Docker v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Build, tag, push, run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.
+
+> [!NOTE]
+> [Docker@2](docker-v2.md) is a newer version of this task that simplifies the task by removing inputs that can be passed as arguments to the command.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Build, tag, push, run Docker images, or run a Docker command. Use this task with Docker or the Azure Container registry.

@@ -1,14 +1,27 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 07/25/2024
+ms.date: 08/19/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # XamarinAndroid@1 - Xamarin.Android v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+XamarinAndroid@1 is deprecated. Originally, this task was used to build an Android app with Xamarin.
+
+> [!NOTE]
+> This task is deprecated and was retired May 1, 2024.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 XamarinAndroid@1 is deprecated. Originally, this task was used to build an Android app with Xamarin.

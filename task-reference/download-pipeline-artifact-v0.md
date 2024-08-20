@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 description: Downloads an artifact associated with a pipeline.
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

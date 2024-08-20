@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 07/15/2024
+ms.date: 08/19/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Build, push or run multi-container Docker applications. Use this task with Docker or the Azure Container registry.
+
+> [!IMPORTANT]
+> The DockerCompose@0 task is deprecated. The task uses docker-compose v1 which no longer receives update since July 2023. To use docker compose v2, use the [DockerCompose@1](./docker-compose-v1.md) task. For more information, see [DockerCompose@0 uses Docker Compose v2 in v1 compatibility mode](/azure/devops/release-notes/2024/sprint-240-update#dockercompose0-uses-docker-compose-v2-in-v1-compatibility-mode).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -602,6 +605,9 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!IMPORTANT]
+> The DockerCompose@0 task is deprecated. The task uses docker-compose v1 which no longer receives update since July 2023. To use docker compose v2, use the [DockerCompose@1](./docker-compose-v1.md) task. For more information, see [DockerCompose@0 uses Docker Compose v2 in v1 compatibility mode](/azure/devops/release-notes/2024/sprint-240-update#dockercompose0-uses-docker-compose-v2-in-v1-compatibility-mode).
 
 Use this task to build, push or run multi-container Docker applications. Use this task with a Docker registry or an Azure Container Registry.
 <!-- :::editable-content-end::: -->

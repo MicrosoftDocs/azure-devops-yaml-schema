@@ -1,14 +1,26 @@
 ---
 title: DuffleInstaller@0 - Duffle tool installer v0 task
 description: Install a specified version of Duffle for installing and managing CNAB bundles.
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # DuffleInstaller@0 - Duffle tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to install a specified version of Duffle, which is used for installing and managing CNAB bundles.
+
+This task is deprecated as the Duffle project has been archived and is no longer maintained. For more information, see [https://github.com/cnabio/duffle](https://github.com/cnabio/duffle).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install a specified version of Duffle, which is used for installing and managing CNAB bundles.

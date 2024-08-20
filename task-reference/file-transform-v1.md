@@ -1,14 +1,26 @@
 ---
 title: FileTransform@1 - File transform v1 task
 description: Replace tokens with variable values in XML or JSON configuration files (task version 1).
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # FileTransform@1 - File transform v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to replace tokens with variable values in XML or JSON configuration files.
+
+This version of the task is deprecated; use [FileTransform@2](./file-transform-v2.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to replace tokens with variable values in XML or JSON configuration files.

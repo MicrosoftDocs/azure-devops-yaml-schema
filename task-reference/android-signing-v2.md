@@ -1,14 +1,26 @@
 ---
 title: AndroidSigning@2 - Android Signing v2 task
 description: Sign and align Android APK files (task version 2).
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # AndroidSigning@2 - Android Signing v2 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task in a pipeline to sign and align Android APK files.
+
+This task is deprecated; use [AndroidSigning@3](./android-signing-v3.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task in a pipeline to sign and align Android APK files.

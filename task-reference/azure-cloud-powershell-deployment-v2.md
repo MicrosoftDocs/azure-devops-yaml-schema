@@ -1,14 +1,26 @@
 ---
 title: AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 description: Deploy an Azure Cloud Service.
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Deploy an Azure Cloud Service.
+
+This task is deprecated because Azure Cloud Services is being retired, see [Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)](/azure/cloud-services-extended-support/in-place-migration-overview).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Deploy an Azure Cloud Service.

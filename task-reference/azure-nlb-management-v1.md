@@ -1,14 +1,28 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's back-end address pool.
+
+This task is deprecated.
+
+[!INCLUDE [workload-identity](./includes/workload-identity-not-supported.md)]
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to connect or disconnect an Azure virtual machine's network interface to a load balancer's back-end address pool.

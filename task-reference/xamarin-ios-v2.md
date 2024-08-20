@@ -1,14 +1,27 @@
 ---
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
-ms.date: 07/25/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
 # XamariniOS@2 - Xamarin.iOS v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
+
+> [!NOTE]
+> This task is deprecated and was retired May 1, 2024.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
