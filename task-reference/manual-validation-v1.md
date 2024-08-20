@@ -1,17 +1,17 @@
 ---
-title: ManualValidation@0 - Manual validation v0 task
-description: Pause a YAML pipeline run to wait for manual interaction - Preview (task version 0).
-ms.date: 08/19/2024
-monikerRange: ">=azure-pipelines-2020.1"
+title: ManualValidation@1 - Manual validation v1 task
+description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
+ms.date: 08/20/2024
+monikerRange: "=azure-pipelines"
 ---
 
-# ManualValidation@0 - Manual validation v0 task
+# ManualValidation@1 - Manual validation v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to pause a YAML pipeline run to wait for manual interaction.
+Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -23,25 +23,12 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Manual validation v0
+# Manual validation v1
 # Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-- task: ManualValidation@0
+- task: ManualValidation@1
   inputs:
     notifyUsers: # string. Required. Notify users. 
-    #instructions: # string. Instructions. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
-```
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
-
-```yaml
-# Manual validation v0
-# [PREVIEW] Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-- task: ManualValidation@0
-  inputs:
-    notifyUsers: # string. Required. Notify users. 
+    #approvers: # string. Approvers. 
     #instructions: # string. Instructions. 
     #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
@@ -53,12 +40,12 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 ## Inputs
 
 <!-- :::item name="notifyUsers"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
 
 **`notifyUsers`** - **Notify users**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Sends a manual validation pending email to specific users (or groups). Only users with queue build permission can act on a manual validation. You can send an email to a group using the `[org name]\group name` syntax.
+Send a manual validation pending email to a comma separated list of specific users (or groups). You can send an email to a group using the `[org name]\group` name syntax.
 
 This task input is required, but you can specify an empty string if you don't want to notify anyone, for example during a test run: `notifyUsers: ''`.
 <!-- :::editable-content-end::: -->
@@ -66,8 +53,23 @@ This task input is required, but you can specify an empty string if you don't wa
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="approvers"::: -->
+:::moniker range="=azure-pipelines"
+
+**`approvers`** - **Approvers**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify a comma separated list of users/groups/project teams to act on a manual validation. In absence of input, users with queue build permission will be able to take action.
+
+> [!CAUTION]
+> The `approvers` feature doesn't work at this time. Any value set for `approvers` is ignored, and any user with queue build permission can act on the manual validation.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="instructions"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
 
 **`instructions`** - **Instructions**<br>
 `string`.<br>
@@ -79,7 +81,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
 
 **`onTimeout`** - **On timeout**<br>
 `string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
@@ -99,7 +101,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
 
 None.
 
@@ -109,6 +111,9 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
+
+> [!CAUTION]
+> The `approvers` feature doesn't work at this time. Any value set for `approvers` is ignored, and any user with queue build permission can act on the manual validation.
 
 Use this task in a YAML pipeline to pause a run within a stage. This is typically executed to perform various manual steps or actions and then the run is resumed or rejected.
 
@@ -143,11 +148,11 @@ a message bar with a link that opens the Manual validation dialog, which contain
     pool: server
     timeoutInMinutes: 4320 # job times out in 3 days
     steps:
-    - task: ManualValidation@0
+    - task: ManualValidation@1
       timeoutInMinutes: 1440 # task times out in 1 day
       inputs:
         notifyUsers: |
-          test@test.com
+          test@test.com,
           example@example.com
         instructions: 'Please validate the build configuration and resume'
         onTimeout: 'resume'
@@ -160,7 +165,7 @@ This example uses `timeoutInMinutes` which is a [common task property](/azure/de
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

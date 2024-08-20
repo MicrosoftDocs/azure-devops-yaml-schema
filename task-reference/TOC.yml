@@ -686,6 +686,9 @@ items:
     displayName: Manual intervention v8
 - name: Manual validation
   items:
+  - name: ManualValidation@1
+    href: manual-validation-v1.md
+    displayName: Manual validation v1
   - name: ManualValidation@0
     href: manual-validation-v0.md
     displayName: Manual validation v0
