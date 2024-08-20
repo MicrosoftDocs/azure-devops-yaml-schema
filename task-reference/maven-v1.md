@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build with Apache Maven.
+
+This version of the task is deprecated; use [Maven@4](./maven-v4.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

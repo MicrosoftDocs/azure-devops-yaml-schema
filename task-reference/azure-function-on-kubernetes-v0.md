@@ -1,14 +1,26 @@
 ---
 title: AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
 description: Deploy Azure function to Kubernetes cluster (task version 0).
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
 # AzureFunctionOnKubernetes@0 - Azure Function on Kubernetes v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Deploy Azure function to Kubernetes cluster.
+
+The AzureFunctionOnKubernetes@0 task is deprecated, use [AzureFunctionOnKubernetes@1](./azure-function-on-kubernetes-v1.md) to take advantage of the latest features like [Workload identity federation](https://aka.ms/azdo-rm-workload-identity-tasks).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Deploy Azure function to Kubernetes cluster.

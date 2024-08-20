@@ -1,14 +1,28 @@
 ---
 title: AzureFileCopy@3 - Azure file copy v3 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 3).
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # AzureFileCopy@3 - Azure file copy v3 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Copy files to Azure Blob Storage or virtual machines.
+
+This task is deprecated as this version of the AzureFileCopy task uses a retired version of AzCopy. Use the latest version of the AzureFileCopy task. See [AzCopy Migration Guide for v8 to v10](https://github.com/Azure/azure-storage-azcopy/blob/main/MigrationGuideV8toV10.md).
+
+[!INCLUDE [workload-identity](./includes/workload-identity-not-supported.md)]
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Copy files to Azure Blob Storage or virtual machines.

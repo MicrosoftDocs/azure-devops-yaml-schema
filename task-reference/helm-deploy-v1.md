@@ -563,6 +563,15 @@ Output emitted from the execution of specified Helm command
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+A major change for `HelmDeploy@1` task is that helm chart commands are removed:
+
+* The `helm chart` subcommand has been removed
+* `helm chart push` has been replaced with `helm push`
+* `helm chart remove` has been removed
+* `helm chart save` has been replaced with `helm package`
+* `helm save` has been removed
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

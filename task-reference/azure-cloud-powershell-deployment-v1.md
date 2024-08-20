@@ -1,14 +1,28 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service (task version 1).
-ms.date: 07/02/2024
+ms.date: 08/19/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Deploy an Azure Cloud Service.
+
+[!INCLUDE [workload-identity](./includes/workload-identity-not-supported.md)]
+
+This task is deprecated because Azure Cloud Services is being retired, see [Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)](/azure/cloud-services-extended-support/in-place-migration-overview).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Deploy an Azure Cloud Service.
