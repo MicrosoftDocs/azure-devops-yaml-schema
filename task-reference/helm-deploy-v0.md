@@ -1192,7 +1192,7 @@ In this section you'll learn how to package and sign Helm charts in a pipeline.
    * For a private key
 
    ```cmd
-   gpg --export-secret-key 94325E18E53EDD99DD8339C3CFD9DAF0707CB788 contoso@microsoft.com > C:/somepath/privatekeys.gpg
+   gpg --export-secret-key AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00 contoso@microsoft.com > C:/somepath/privatekeys.gpg
    ```
 
    You'll see the **privatekeys.gpg** file exported to the path which was mentioned above.
@@ -1200,7 +1200,7 @@ In this section you'll learn how to package and sign Helm charts in a pipeline.
    * For a public key
 
    ```cmd
-   gpg --export-key 94325E18E53EDD99DD8339C3CFD9DAF0707CB788 contoso@microsoft.com > C:/somepath/publickey.gpg
+   gpg --export-key AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00 contoso@microsoft.com > C:/somepath/publickey.gpg
    ```
 
    You'll see the **publickey.gpg** file exported to the path which was mentioned above.
