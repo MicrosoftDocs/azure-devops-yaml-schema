@@ -183,6 +183,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Advanced Security Dependency Scanning**<br>[AdvancedSecurity-Dependency-Scanning@1](advanced-security-dependency-scanning-v1.md) | Scan for open source dependency vulnerabilities in your source code. |
 | **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
+| **Azure App Configuration Snapshot**<br>[AzureAppConfigurationSnapshot@1](azure-app-configuration-snapshot-v1.md) | Create a snapshot in an Azure App Configuration instance. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
 | **Batch script**<br>[BatchScript@1](batch-script-v1.md) | Run a Windows command or batch script and optionally allow it to change the environment. |
