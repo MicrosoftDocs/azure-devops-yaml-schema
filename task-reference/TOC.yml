@@ -98,6 +98,11 @@ items:
   - name: AzureResourceManagerTemplateDeployment@3
     href: azure-resource-manager-template-deployment-v3.md
     displayName: ARM template deployment v3
+- name: Azure App Configuration Snapshot
+  items:
+  - name: AzureAppConfigurationSnapshot@1
+    href: azure-app-configuration-snapshot-v1.md
+    displayName: Azure App Configuration Snapshot v1
 - name: Azure App Service Classic (Deprecated)
   items:
   - name: AzureWebPowerShellDeployment@1
