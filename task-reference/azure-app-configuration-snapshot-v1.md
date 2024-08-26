@@ -86,8 +86,9 @@ Provide a name for the snapshot.
 **`CompositionType`** - **Composition Type**<br>
 `string`. Required. Allowed values: `key` (Key (default)), `key_label` (Key-Label). Default value: `key`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-'Key': The filters are applied in order for this composition type. Each key-value in the snapshot is uniquely identified by the key only. If there are multiple key-values with the same key and multiple labels, only one key-value will be retained based on the last applicable filter. 
- 'Key-Label': Filters will be applied and every key-value in resulting snapshot will be uniquely identified by the key and label together.
+* **Key** (`key`): The filters are applied in order for this composition type. Each key value in the snapshot is uniquely identified by the key only. If there are multiple key values with the same key and multiple labels, only one key value will be retained based on the last applicable filter.
+
+* **Key-label**` (key-label`): Filters will be applied and every key value in resulting snapshot will be uniquely identified by the key and label together.
 <!-- :::editable-content-end::: -->
 <br>
 
