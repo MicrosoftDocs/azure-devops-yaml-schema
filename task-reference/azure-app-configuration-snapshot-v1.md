@@ -88,7 +88,7 @@ Provide a name for the snapshot.
 <!-- :::editable-content name="helpMarkDown"::: -->
 * **Key** (`key`): The filters are applied in order for this composition type. Each key value in the snapshot is uniquely identified by the key only. If there are multiple key values with the same key and multiple labels, only one key value will be retained based on the last applicable filter.
 
-* **Key-label**` (key-label`): Filters will be applied and every key value in resulting snapshot will be uniquely identified by the key and label together.
+* **Key-Label** `(key_label`): Filters will be applied and every key value in resulting snapshot will be uniquely identified by the key and label together.
 <!-- :::editable-content-end::: -->
 <br>
 
