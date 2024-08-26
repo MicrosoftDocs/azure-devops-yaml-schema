@@ -47,13 +47,11 @@ Use this task to run a Python file or inline script.
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: filePath.
-    scriptPath: # string. Required when scriptSource = filePath. Script path. 
+    scriptPath: 'scripts/hello_world.py' # string. Required when scriptSource = filePath. Script path. 
     #script: # string. Required when scriptSource = inline. Script. 
     #arguments: # string. Arguments. 
-  # Advanced
-    #pythonInterpreter: # string. Python interpreter. 
-    #workingDirectory: # string. Working directory. 
-    #failOnStderr: false # boolean. Fail on standard error. Default: false.
+    workingDirectory: '$(Build.SourcesDirectory)/scripts' # string. Working directory.
+    failOnStderr: true # boolean. Fail on standard error. Default: false.
 ```
 
 :::moniker-end
@@ -174,6 +172,42 @@ Run [Use Python Version](use-python-version-v0.md) to put the version you want i
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+Run an inline Python script.
+
+```yml
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      print('Hello world 1')
+      print('Hello world 2')
+```
+
+Run an inline Python script that uses an environment variable.
+
+```yml
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      import os
+      print(f'Environment variable MY_VAR: {os.getenv("MY_VAR")}')
+  env:
+    MY_VAR: 'Hello, World!'
+```
+
+Run a Python script from the working directory. The task will fail if any text is written to the `stderr` stream.
+
+```yml
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: 'scripts/hello_world.py'
+    workingDirectory: '$(Build.SourcesDirectory)/scripts'
+    failOnStderr: true
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
