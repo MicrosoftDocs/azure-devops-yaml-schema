@@ -39,7 +39,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.  
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -80,7 +80,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -121,7 +121,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -158,7 +158,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -195,7 +195,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -237,7 +237,7 @@ Build using a Gradle wrapper script.
 **`gradleWrapperFile`** - **Gradle wrapper**<br>
 Input alias: `wrapperScript`. `string`. Required. Default value: `gradlew`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the `gradlew` wrapper's location within the repository that will be used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+Specifies the `gradlew` wrapper's location within the repository that will be used for the build. Agents on Windows (including Microsoft-hosted agents) must use the `gradlew.bat` wrapper. Agents on Linux or macOS can use the `gradlew` shell script. Learn more about the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html). If the Gradle wrapper isn't in the root directory, specify the path to the wrapper script.
 <!-- :::editable-content-end::: -->
 <br>
 
