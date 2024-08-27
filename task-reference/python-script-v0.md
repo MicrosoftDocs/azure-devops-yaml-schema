@@ -51,7 +51,7 @@ Use this task to run a Python file or inline script.
     #script: # string. Required when scriptSource = inline. Script. 
     #arguments: # string. Arguments. 
     #workingDirectory: # string. Working directory.
-    failOnStderr: false # boolean. Fail on standard error. Default: false.
+    #failOnStderr: false # boolean. Fail on standard error. Default: false.
 ```
 
 :::moniker-end
