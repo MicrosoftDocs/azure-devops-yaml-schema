@@ -1,14 +1,26 @@
 ---
 title: AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps (task version 0).
-ms.date: 07/02/2024
+ms.date: 08/27/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
 # AzureContainerApps@0 - Azure Container Apps Deploy v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+An Azure DevOps Task to build and deploy Azure Container Apps.
+
+This version of the task is deprecated; use [AzureContainerApps@1](./azure-container-apps-v1.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 An Azure DevOps Task to build and deploy Azure Container Apps.

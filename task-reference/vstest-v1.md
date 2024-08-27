@@ -1,14 +1,26 @@
 ---
 title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
-ms.date: 07/02/2024
+ms.date: 08/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # VSTest@1 - Visual Studio Test v1 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to run tests with Visual Studio test runner.
+
+This version of the task is deprecated; use [VSTest@2](./vstest-v2.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run tests with Visual Studio test runner.

@@ -1,14 +1,28 @@
 ---
 title: PackerBuild@0 - Build machine image v0 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment (task version 0).
-ms.date: 07/02/2024
+ms.date: 08/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # PackerBuild@0 - Build machine image v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
+
+This version of the task is deprecated; use [PackerBuild@1](./packer-build-v1.md) to take advantage of the latest features like [Workload identity federation](/azure/devops/pipelines/release/troubleshoot-workload-identity#review-pipeline-tasks).
+
+[!INCLUDE [workload-identity](./includes/workload-identity-not-supported.md)]
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.

@@ -1,14 +1,26 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 07/02/2024
+ms.date: 08/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
 # Kubernetes@0 - Kubectl v0 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running `kubectl` commands.
+
+This version of the task is deprecated; use [Kubernetes@1](./kubernetes-v1.md) to take advantage of the latest features like [Workload identity federation](/azure/devops/pipelines/release/troubleshoot-workload-identity#review-pipeline-tasks).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running `kubectl` commands.

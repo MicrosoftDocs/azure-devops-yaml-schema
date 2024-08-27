@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 description: Downloads an artifact associated with a pipeline.
-ms.date: 08/19/2024
+ms.date: 08/27/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -13,11 +13,13 @@ monikerRange: ">=azure-pipelines-2019"
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
 
-There is a newer version of this task. For more information, see [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
+This version of the task is deprecated; use [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
 
 > [!NOTE]
 > For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 
