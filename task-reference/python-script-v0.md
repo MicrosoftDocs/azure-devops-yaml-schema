@@ -1,7 +1,7 @@
 ---
 title: PythonScript@0 - Python script v0 task
 description: Run a Python file or inline script.
-ms.date: 07/02/2024
+ms.date: 08/27/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 
@@ -47,10 +47,12 @@ Use this task to run a Python file or inline script.
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: filePath.
-    scriptPath: # string. Required when scriptSource = filePath. Script path.  
+    scriptPath: # string. Required when scriptSource = filePath. Script path. 
     #script: # string. Required when scriptSource = inline. Script. 
     #arguments: # string. Arguments. 
-    #workingDirectory: # string. Working directory.
+  # Advanced
+    #pythonInterpreter: # string. Python interpreter. 
+    #workingDirectory: # string. Working directory. 
     #failOnStderr: false # boolean. Fail on standard error. Default: false.
 ```
 

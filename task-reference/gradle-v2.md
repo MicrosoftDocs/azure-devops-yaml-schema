@@ -1,7 +1,7 @@
 ---
 title: Gradle@2 - Gradle v2 task
 description: Build using a Gradle wrapper script (task version 2).
-ms.date: 08/19/2024
+ms.date: 08/27/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -39,7 +39,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.  
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -80,7 +80,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -121,7 +121,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -158,7 +158,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.
@@ -195,7 +195,7 @@ Build using a Gradle wrapper script.
 # Build using a Gradle wrapper script.
 - task: Gradle@2
   inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew. 
+    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
     #workingDirectory: # string. Alias: cwd. Working directory. 
     #options: # string. Options. 
     tasks: 'build' # string. Required. Tasks. Default: build.

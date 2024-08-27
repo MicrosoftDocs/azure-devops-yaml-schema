@@ -1,14 +1,26 @@
 ---
 title: CacheBeta@0 - Cache (Beta) v0 task
 description: Cache files between runs (task version 0).
-ms.date: 08/07/2024
+ms.date: 08/27/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
 # CacheBeta@0 - Cache (Beta) v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Improve build performance by using this task to cache files, like dependencies, between pipeline runs.
+
+This version of the task is deprecated; use [Cache@2](./cache-v2.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Improve build performance by using this task to cache files, like dependencies, between pipeline runs.

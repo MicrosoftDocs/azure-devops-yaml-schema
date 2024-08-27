@@ -1,14 +1,26 @@
 ---
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
-ms.date: 07/02/2024
+ms.date: 08/27/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
 # MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor. Since this task is server based, it appears on Deployment group jobs.
+
+This task is deprecated.
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run your scripts and make changes to your MySQL Database. There are two ways to deploy: using a script file or writing the script in our inline editor.
