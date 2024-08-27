@@ -47,11 +47,11 @@ Use this task to run a Python file or inline script.
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: filePath.
-    scriptPath: 'scripts/hello_world.py' # string. Required when scriptSource = filePath. Script path. 
+    scriptPath: # string. Required when scriptSource = filePath. Script path.  
     #script: # string. Required when scriptSource = inline. Script. 
     #arguments: # string. Arguments. 
-    workingDirectory: '$(Build.SourcesDirectory)/scripts' # string. Working directory.
-    failOnStderr: true # boolean. Fail on standard error. Default: false.
+    #workingDirectory: # string. Working directory.
+    failOnStderr: false # boolean. Fail on standard error. Default: false.
 ```
 
 :::moniker-end
