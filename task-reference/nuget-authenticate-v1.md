@@ -70,7 +70,7 @@ If this is set, `feedUrl` is required. All other inputs are ignored.
 **`feedUrl`** - **Azure Artifacts URL**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set, workloadIdentityServiceConnection is required. All other inputs are ignored. Not compatible with nuGetServiceConnections. Feed Url should be in the NuGet service index format, e.g. https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/nuget/v3/index.json/.
+If this is set, `workloadIdentityServiceConnection` is required. All other inputs are ignored. Not compatible with `nuGetServiceConnections`. Feed Url should be in the NuGet service index format: `https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/nuget/v3/index.json`.
 <!-- :::editable-content-end::: -->
 <br>
 
