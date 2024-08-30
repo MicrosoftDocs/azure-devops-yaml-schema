@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 07/02/2024
+ms.date: 08/30/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,24 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Python pip authenticate v1
+# Authentication task for the pip client used for installing Python distributions.
+- task: PipAuthenticate@1
+  inputs:
+  # Feeds and Authentication
+    #workloadIdentityServiceConnection: # string. 'Entra Workload ID-backed Azure DevOps user' Service Connection. 
+    #feedUrl: # string. Azure Artifacts Feeds url. 
+    #artifactFeeds: # string. My feeds (select below). 
+    #pythonDownloadServiceConnections: # string. Feeds from external organizations. 
+    #onlyAddExtraIndex: false # boolean. Don't set primary index URL. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 ```yaml
 # Python pip authenticate v1
@@ -39,6 +56,30 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="workloadIdentityServiceConnection"::: -->
+:::moniker range="=azure-pipelines"
+
+**`workloadIdentityServiceConnection`** - **'Entra Workload ID-backed Azure DevOps user' Service Connection**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `feedUrl` is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range="=azure-pipelines"
+
+**`feedUrl`** - **Azure Artifacts Feeds url.**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. All other inputs are ignored. Not compatible with `pythonDownloadServiceConnections`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="artifactFeeds"::: -->
 :::moniker range=">=azure-pipelines-2020"
 

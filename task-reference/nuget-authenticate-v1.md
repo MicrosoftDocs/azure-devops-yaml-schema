@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 07/02/2024
+ms.date: 08/30/2024
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -20,7 +20,22 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# NuGet authenticate v1
+# Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
+- task: NuGetAuthenticate@1
+  inputs:
+    #workloadIdentityServiceConnection: # string. 'Entra Workload ID-backed Azure DevOps user' Service Connection. 
+    #feedUrl: # string. Azure Artifacts URL. 
+    #forceReinstallCredentialProvider: false # boolean. Reinstall the credential provider even if already installed. Default: false.
+    #nuGetServiceConnections: # string. Service connection credentials for feeds outside this organization.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
 
 ```yaml
 # NuGet authenticate v1
@@ -37,13 +52,25 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="nuGetServiceConnections"::: -->
-:::moniker range=">=azure-pipelines-2022"
+<!-- :::item name="workloadIdentityServiceConnection"::: -->
+:::moniker range="=azure-pipelines"
 
-**`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
+**`workloadIdentityServiceConnection`** - **'Entra Workload ID-backed Azure DevOps user' Service Connection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. The comma-separated list of [NuGet service connection](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) names for feeds outside this organization or collection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
+If this is set, `feedUrl` is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range="=azure-pipelines"
+
+**`feedUrl`** - **Azure Artifacts URL**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, workloadIdentityServiceConnection is required. All other inputs are ignored. Not compatible with nuGetServiceConnections. Feed Url should be in the NuGet service index format, e.g. https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/nuget/v3/index.json/.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -56,6 +83,18 @@ Optional. The comma-separated list of [NuGet service connection](/azure/devops/p
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Reinstalls the credential provider to the user profile directory, even if it's already installed. If the credential provider is already installed in the user profile, the task determines if it is overwritten with the task-provided credential provider. This may upgrade (or potentially downgrade) the credential provider.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="nuGetServiceConnections"::: -->
+:::moniker range=">=azure-pipelines-2022"
+
+**`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Optional. The comma-separated list of [NuGet service connection](/azure/devops/pipelines/library/service-endpoints#nuget-service-connection) names for feeds outside this organization or collection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 

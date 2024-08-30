@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 07/02/2024
+ms.date: 08/30/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,23 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Python twine upload authenticate v1
+# Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
+- task: TwineAuthenticate@1
+  inputs:
+  # Feeds and Authentication
+    #workloadIdentityServiceConnection: # string. 'Entra Workload ID-backed Azure DevOps user' Service Connection. 
+    #feedUrl: # string. Azure Artifacts Feed url. 
+    #artifactFeed: # string. My feed name (select below). 
+    #pythonUploadServiceConnection: # string. Feed from external organizations.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Python twine upload authenticate v1
@@ -52,6 +68,30 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="workloadIdentityServiceConnection"::: -->
+:::moniker range="=azure-pipelines"
+
+**`workloadIdentityServiceConnection`** - **'Entra Workload ID-backed Azure DevOps user' Service Connection**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, feedUrl is required. All other inputs are ignored.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="feedUrl"::: -->
+:::moniker range="=azure-pipelines"
+
+**`feedUrl`** - **Azure Artifacts Feed url.**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is set, `workloadIdentityServiceConnection` is required. All other inputs are ignored. Not compatible with `pythonUploadServiceConnections`. Feed Url should be in the `pypi` upload registry format: `https://pkgs.dev.azure.com/{ORG_NAME}/{PROJECT}/_packaging/{FEED_NAME}/pypi/upload/`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="artifactFeed"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
