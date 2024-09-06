@@ -7,10 +7,6 @@
       {
         "source_path": "content/resources-webhooks-webhook-filters-path.md",
         "redirect_url": "/azure/devops/pipelines/yaml-schema/resources-webhooks-webhook-filters-filter"
-      },
-      {
-        "source_path": "task-reference/vstest-v3.md",
-        "redirect_url": "/azure/devops/pipelines/tasks/reference/vstest-v2"
       }
     ]
   }
