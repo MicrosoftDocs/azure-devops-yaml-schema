@@ -508,12 +508,12 @@ steps:
   displayName: Build and deploy Container App
   inputs:
     connectedServiceNameARM: 'azure-subscription-service-connection'
-    imageToDeploy: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+    imageToDeploy: mcr.microsoft.com/<existing-image>:latest
 ```
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
 `<container-app-name>-rg` where **no new image is built**, but an existing image named
-`mcr.microsoft.com/azuredocs/containerapps-helloworld:latest` will be used for the Container App.
+`mcr.microsoft.com/<existing-image>:latest` will be used for the Container App.
 
 ### Minimal - Use YAML configuration file with previously published image for Container App
 
@@ -527,7 +527,7 @@ steps:
 
 This will create a new Container App named `ado-task-app-<build-id>-<build-number>` in a new resource group named
 `<container-app-name>-rg` where **no new image is built**, but an existing image named
-`mcr.microsoft.com/azuredocs/containerapps-helloworld:latest` will be used for the Container App. Additional properties
+`mcr.microsoft.com/<existing-image>:latest` will be used for the Container App. Additional properties
 about the Container App will be pulled from the `simple-image-container-app.yaml` file and will override any additional
 values that would've been provided to the task as arguments **excluding `resourceGroup`**.
 
@@ -543,7 +543,7 @@ properties:
       targetPort: 80
   template:
     containers:
-      - image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+      - image: mcr.microsoft.com/<existing-image>:latest
         name: mysampleimagecontainer
 ```
 
