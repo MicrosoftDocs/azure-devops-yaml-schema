@@ -159,7 +159,7 @@ Optional. Specifies the folder to search for the test result files.
 **`mergeTestResults`** - **Merge test results**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-When this boolean's value is `true`, the task reports test results from all the files against a single [test run](/azure/devops/pipelines/test/test-glossary). If the value is `false`, the task creates a separate test run for each test result file.
+When this boolean's value is `true`, the task reports test results from all the files against a single [test run](/azure/devops/pipelines/test/test-glossary). If the value is `false`, the task creates a separate test run for each test result file. To optimize for better performance, results will be merged into a single run if there are more than 100 result files, irrespective of this option.
 
 > [!NOTE]
 > Use the merge test results setting to combine files from the same test framework to ensure results mapping and duration are calculated correctly.
