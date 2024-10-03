@@ -47,6 +47,7 @@ Definitions that reference this definition: [resources.webhooks](resources-webho
 
 **`webhook`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the webhook. Acceptable values: [-_A-Za-z0-9]*.
+For Azure DevOps webhook, `webhook` must always be a `WebHook`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -102,7 +103,9 @@ steps:
 - script: echo ${{ parameters.WebHook.resource.message.title }}
 ```
 
-To trigger your pipeline using the webhook, you need to make a `POST` request to `https://dev.azure.com/<org_name>/_apis/public/distributedtask/webhooks/<webhook_connection_name>?api-version=6.0-preview`. This endpoint is publicly available, and no authorization is needed. The request should have the following body.
+To trigger your pipeline using the webhook, you need to make a `POST` request to `https://dev.azure.com/<org_name>/_apis/public/distributedtask/webhooks/<WebHook Name>?api-version=6.0-preview`. 
+The WebHook Name must match that of the Incoming WebHook Service Connection.
+This endpoint is publicly available, and no authorization is needed. The request should have the following body.
 
 ```json
 {
