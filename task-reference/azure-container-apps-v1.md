@@ -343,7 +343,7 @@ The task has the following two usage patterns.
 
 > [!NOTE]
 > Although no task input is officially marked as "required" in the metadata of this task, some inputs will
-need to be provided in order for this task to successfully run using one of the two main usage pattenrs.
+need to be provided in order for this task to successfully run using one of the two main usage patterns.
 
 If no Dockerfile is found or provided in the provided application source, the following steps are performed by this task:
 
