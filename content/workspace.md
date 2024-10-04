@@ -1,7 +1,7 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 06/28/2024
+ms.date: 10/04/2024
 monikerRange: ">=azure-pipelines-2019"
 ---
 

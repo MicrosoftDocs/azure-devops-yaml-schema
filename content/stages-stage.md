@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 06/28/2024
+ms.date: 10/04/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -256,7 +256,6 @@ A similar situation arises when only one pipeline run should access a stage at a
 If you need to ensure only a single pipeline run at a time can access a stage, you can specify the exclusive lock at the stage level. If you have a stage with an ID and specify its `lockBehavior` property, a lock is automatically created for that stage. The sequential behavior remains consistent for both resource-level and stage-level locks. However, the `runLatest` behavior differs, as it only cancels `runLatest` builds for the same branch, not for all branches of the pipeline.
 
 :::moniker-end
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
