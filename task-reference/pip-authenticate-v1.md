@@ -108,7 +108,7 @@ This task must run before you use pip to download Python distributions to an aut
 
 ### What if I want my pipelines to be able to save from upstream sources?
 
-Check the [permissions table](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml#scoped-build-identities) to determine what permissions you want your pipeline to have. Then, determine which [identity](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml#scoped-build-identities) you want to give those permissions to. To save packages from upstream sources, your identity needs `Feed and Upstream Reader (Collaborator)` permissions.
+Check the [permissions table](https://learn.microsoft.com/azure/devops/artifacts/feeds/feed-permissions#pipelines-permissions) to determine what permissions you want your pipeline to have. Then, determine which [identity](https://learn.microsoft.com/azure/devops/pipelines/process/access-tokens#scoped-build-identities) you want to give those permissions to. To save packages from upstream sources, your identity needs `Feed and Upstream Reader (Collaborator)` permissions.
 
 ### My agent is behind a web proxy. Will PipAuthenticate set up pip to use my proxy?
 
