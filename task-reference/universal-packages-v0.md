@@ -141,7 +141,7 @@ Use this task to download, or package and publish Universal Packages.
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `download`, `publish`. Default value: `download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the NuGet command to run.
+Specifies the Universal Package command to run.
 <!-- :::editable-content-end::: -->
 <br>
 
