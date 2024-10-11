@@ -12,6 +12,8 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Run scanner and upload the results to the SonarQube server.
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -67,6 +69,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
