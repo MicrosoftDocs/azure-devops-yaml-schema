@@ -343,7 +343,7 @@ The task has the following two usage patterns.
 
 > [!NOTE]
 > Although no task input is officially marked as "required" in the metadata of this task, some inputs will
-need to be provided in order for this task to successfully run using one of the two main usage pattenrs.
+need to be provided in order for this task to successfully run using one of the two main usage patterns.
 
 If no Dockerfile is found or provided in the provided application source, the following steps are performed by this task:
 
@@ -535,7 +535,7 @@ The `simple-image-container-app.yaml` file has the following structure:
 
 ```yml
 properties:
-  managedEnvironmentId: /subscriptions/SUBSCRIPTION_ID/resourceGroup/RESOURCE_GROUP/providers/Microsoft.App/managedEnvironments/CONTAINER_APP_ENVIRONMENT
+  managedEnvironmentId: /subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.App/managedEnvironments/CONTAINER_APP_ENVIRONMENT
   configuration:
     ingress:
       external: true
