@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Push key-values to an Azure App Configuration instance.
+Import key-values to an Azure App Configuration instance.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

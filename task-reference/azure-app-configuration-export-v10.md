@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Download key-values to task variables from Azure App Configuration.
+Export key-values to task variables from Azure App Configuration.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
