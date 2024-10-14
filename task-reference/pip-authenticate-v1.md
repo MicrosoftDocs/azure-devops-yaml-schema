@@ -98,12 +98,17 @@ None.
 Provides authentication for the `pip` client that is used to install Python distributions.
 
 * [When in my pipeline should I run this task?](#when-in-my-pipeline-should-i-run-this-task)
+* [What if I want my pipelines to be able to save from upstream sources?](#what-if-i-want-my-pipelines-to-be-able-to-save-from-upstream-sources)
 * [My agent is behind a web proxy. Will PipAuthenticate set up pip to use my proxy?](#my-agent-is-behind-a-web-proxy-will-pipauthenticate-set-up-pip-to-use-my-proxy)
 * [My Pipeline needs to access a feed in a different project](#my-pipeline-needs-to-access-a-feed-in-a-different-project)
 
 ### When in my pipeline should I run this task?
 
 This task must run before you use pip to download Python distributions to an authenticated package source such as Azure Artifacts. There are no other ordering requirements. Multiple invocations of this task will not stack credentials. Every run of the task will erase any previously stored credentials.
+
+### What if I want my pipelines to be able to save from upstream sources?
+
+Check the [permissions table](/azure/devops/artifacts/feeds/feed-permissions#pipelines-permissions) to determine what permissions you want your pipeline to have. Then, determine which [identity](/azure/devops/pipelines/process/access-tokens#scoped-build-identities) you want to give those permissions to. To save packages from upstream sources, your identity needs `Feed and Upstream Reader (Collaborator)` permissions.
 
 ### My agent is behind a web proxy. Will PipAuthenticate set up pip to use my proxy?
 
