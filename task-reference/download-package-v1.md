@@ -127,7 +127,7 @@ If you don't find the package in the list, you can provide the package ID, which
 **`version`** - **Version**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of the package. Use `latest` to download the latest version of the package at runtime.
+Specifies the version of the package. Use `latest` to download the latest version of the package at runtime. Use `*` to download the latest version of a package when `packageType = upack`.
 <!-- :::editable-content-end::: -->
 <br>
 
