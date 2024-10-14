@@ -62,7 +62,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 **`AppConfigurationEndpoint`** - **App Configuration Endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the endpoint of an existing [Azure App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value).
+Provide the endpoint of an existing [Azure App Configuration]/azure/azure-app-configuration/concept-key-value).
 <!-- :::editable-content-end::: -->
 <br>
 
