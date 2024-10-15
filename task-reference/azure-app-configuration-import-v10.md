@@ -246,7 +246,7 @@ When dry run is enabled, this task will not perform any updates to App Configura
 **`ImportMode`** - **Import Mode**<br>
 `string`. Allowed values: `All`, `Ignore-Match`. Default value: `Ignore-Match`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Determines the behavior when importing key-values. The default value, 'Ignore-Match' will only import settings that have no matching key-value in App Configuration. 'All' will import all key-values in the input file to App Configuration.
+Determines the behavior when importing key-values. The default value,'Ignore-Match' will only import settings that have no matching key-value in App Configuration. 'All' will import all key-values in the input file to App Configuration.
 <!-- :::editable-content-end::: -->
 <br>
 
