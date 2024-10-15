@@ -1,6 +1,6 @@
 ---
 title: AzureAppConfigurationExport@10 - Azure App Configuration Export v10 task
-description: Download key-values to task variables from Azure App Configuration.
+description: Export key-values to task variables from Azure App Configuration.
 ms.date: 10/11/2024
 monikerRange: "=azure-pipelines"
 ---
@@ -24,7 +24,7 @@ Export key-values to task variables from Azure App Configuration.
 
 ```yaml
 # Azure App Configuration Export v10
-# Download key-values to task variables from Azure App Configuration.
+# Export key-values to task variables from Azure App Configuration.
 - task: AzureAppConfigurationExport@10
   inputs:
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
@@ -62,7 +62,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 **`AppConfigurationEndpoint`** - **App Configuration Endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Provide the endpoint of an existing [Azure App Configuration]/azure/azure-app-configuration/concept-key-value).
+Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-configuration/concept-key-value).
 <!-- :::editable-content-end::: -->
 <br>
 
