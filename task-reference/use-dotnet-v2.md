@@ -1,7 +1,7 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 07/02/2024
+ms.date: 10/10/2024
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
@@ -20,7 +20,28 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Use .NET Core v2
+# Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
+- task: UseDotNet@2
+  inputs:
+    #packageType: 'sdk' # 'runtime' | 'sdk'. Package to install. Default: sdk.
+    #useGlobalJson: false # boolean. Optional. Use when packageType = sdk. Use global json. Default: false.
+    #workingDirectory: # string. Optional. Use when useGlobalJson = true. Working Directory. 
+    #version: # string. Optional. Use when useGlobalJson = false || packageType = runtime. Version. 
+    #includePreviewVersions: false # boolean. Optional. Use when useGlobalJson = false  || packageType = runtime. Include Preview Versions. Default: false.
+    #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
+  # Advanced
+    #vsVersion: # string. Compatible Visual Studio version. 
+    #installationPath: '$(Agent.ToolsDirectory)/dotnet' # string. Path To Install .Net Core. Default: $(Agent.ToolsDirectory)/dotnet.
+    #performMultiLevelLookup: false # boolean. Perform Multi Level Lookup. Default: false.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Use .NET Core v2
@@ -230,6 +251,18 @@ Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-se
 
 > [!NOTE]
 > `performMultiLevelLookup` is only applicable to Windows based agents.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="requestTimeout"::: -->
+:::moniker range="=azure-pipelines"
+
+**`requestTimeout`** - **Set timeout for package download request**<br>
+`string`. Default value: `300000`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provide a timeout value for HTTP requests that the task makes to obtain the .NET package. The value is in milliseconds. Default is 300000 milliseconds (5 minutes). Cannot be more than 600000 milliseconds (10 minutes).
 <!-- :::editable-content-end::: -->
 <br>
 
