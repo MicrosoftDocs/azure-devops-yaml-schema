@@ -36,13 +36,13 @@ Import key-values to an Azure App Configuration instance.
     #FileFormat: # 'json' | 'yaml' | 'properties'. Optional. Use when UseFilePathExtension = false. File Format. 
   # Options
     #FileContentProfile: 'appconfig/default' # 'appconfig/default' | 'appconfig/kvset'. File Content Profile. Default: appconfig/default.
-    #Separator: # '.' | '/' | ':' | ';' | ' |' | '-' | '_' | '__'. Optional. Use when FileContentProfile is appconfig/default. Separator. 
-    #Depth: # string. Optional. Use when FileContentProfile is appconfig/default. Depth. 
-    #Prefix: # string. Optional. Use when FileContentProfile is appconfig/default. Prefix. 
-    #Label: # string. Optional. Use when FileContentProfile is appconfig/default. Label. 
-    #ContentType: # string. Optional. Use when FileContentProfile is appconfig/default. Content Type. 
-    #Tags: # string. Optional. Use when FileContentProfile is appconfig/default. Tags. 
-    #ExcludeFeatureFlags: false # boolean. Optional. Use when FileContentProfile is appconfig/default. Exclude feature flags. Default: false.
+    #Separator: # '.' | '/' | ':' | ';' | ' |' | '-' | '_' | '__'. Optional. Use when FileContentProfile = appconfig/default. Separator. 
+    #Depth: # string. Optional. Use when FileContentProfile = appconfig/default. Depth. 
+    #Prefix: # string. Optional. Use when FileContentProfile = appconfig/default. Prefix. 
+    #Label: # string. Optional. Use when FileContentProfile = appconfig/default. Label. 
+    #ContentType: # string. Optional. Use when FileContentProfile = appconfig/default. Content Type. 
+    #Tags: # string. Optional. Use when FileContentProfile = appconfig/default. Tags. 
+    #ExcludeFeatureFlags: false # boolean. Optional. Use when FileContentProfile = appconfig/default. Exclude feature flags. Default: false.
     #Strict: false # boolean. Delete key-values that are not included in the configuration file. Default: false.
     #DryRun: false # boolean. Dry run. Default: false.
     #ImportMode: 'Ignore-Match' # 'All' | 'Ignore-Match'. Import Mode. Default: Ignore-Match.
@@ -132,7 +132,7 @@ The configuration file's [content profile](/azure/azure-app-configuration/concep
 :::moniker range="=azure-pipelines"
 
 **`Separator`** - **Separator**<br>
-`string`. Optional. Use when `FileContentProfile is appconfig/default`. Allowed values: `.` (.  (Period)), `/` (/  (Forward Slash)), `:` (:  (Colon)), `;` (;  (Semicolon)), `,` (,  (Comma)), `-` (-  (Hyphen)), `_` (_  (Underscore)), `__` (__ (Double Underscore)).<br>
+`string`. Optional. Use when `FileContentProfile = appconfig/default`. Allowed values: `.` (.  (Period)), `/` (/  (Forward Slash)), `:` (:  (Colon)), `;` (;  (Semicolon)), `,` (,  (Comma)), `-` (-  (Hyphen)), `_` (_  (Underscore)), `__` (__ (Double Underscore)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Separator is used to flatten the configuration file (json & yaml files). It is required when the depth provided is greater than 1.
 <!-- :::editable-content-end::: -->
@@ -144,7 +144,7 @@ Separator is used to flatten the configuration file (json & yaml files). It is r
 :::moniker range="=azure-pipelines"
 
 **`Depth`** - **Depth**<br>
-`string`. Optional. Use when `FileContentProfile is appconfig/default`.<br>
+`string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Depth to flatten to in configuration file (json and yaml files).
 <!-- :::editable-content-end::: -->
@@ -156,7 +156,7 @@ Depth to flatten to in configuration file (json and yaml files).
 :::moniker range="=azure-pipelines"
 
 **`Prefix`** - **Prefix**<br>
-`string`. Optional. Use when `FileContentProfile is appconfig/default`.<br>
+`string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A prefix to append to all keys in the configuration file.
 <!-- :::editable-content-end::: -->
@@ -168,7 +168,7 @@ A prefix to append to all keys in the configuration file.
 :::moniker range="=azure-pipelines"
 
 **`Label`** - **Label**<br>
-`string`. Optional. Use when `FileContentProfile is appconfig/default`.<br>
+`string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a string that's added to each key-value as the label within the App Configuration store.
 <!-- :::editable-content-end::: -->
@@ -180,7 +180,7 @@ Specifies a string that's added to each key-value as the label within the App Co
 :::moniker range="=azure-pipelines"
 
 **`ContentType`** - **Content Type**<br>
-`string`. Optional. Use when `FileContentProfile is appconfig/default`.<br>
+`string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Species a string that is added as the content type to all keys in the configuration file.
 <!-- :::editable-content-end::: -->
@@ -192,7 +192,7 @@ Species a string that is added as the content type to all keys in the configurat
 :::moniker range="=azure-pipelines"
 
 **`Tags`** - **Tags**<br>
-`string`. Optional. Use when `FileContentProfile is appconfig/default`.<br>
+`string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies one or more tags that should be added to key-value settings being imported to App Configuration. Tags should be of a valid JSON format and can span multiple lines. Example: `{"tag1": "value1", "tag2": "value2"}`.
 <!-- :::editable-content-end::: -->
@@ -204,7 +204,7 @@ Specifies one or more tags that should be added to key-value settings being impo
 :::moniker range="=azure-pipelines"
 
 **`ExcludeFeatureFlags`** - **Exclude feature flags**<br>
-`boolean`. Optional. Use when `FileContentProfile is appconfig/default`. Default value: `false`.<br>
+`boolean`. Optional. Use when `FileContentProfile = appconfig/default`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether or not any feature flags provided in the configuration file will be imported to App Configuration.
 <!-- :::editable-content-end::: -->
