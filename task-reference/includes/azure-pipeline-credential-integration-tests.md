@@ -22,4 +22,4 @@ The following example shows the `connectedService` input on the `DotNetCoreCLI@2
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 ```
 
-For more information on `AzurePipelinesCredential`, see this [Improve security posture in Azure service connections with AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/).
+For more information on `AzurePipelinesCredential`, see [Improve security posture in Azure service connections with AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/).
