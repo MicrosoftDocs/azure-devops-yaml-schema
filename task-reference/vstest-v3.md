@@ -1,7 +1,7 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 08/19/2024
+ms.date: 10/10/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -30,6 +30,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 # Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2 and later).
 - task: VSTest@3
   inputs:
+    #azureSubscription: # string. Alias: ConnectedServiceName. Azure Resource Manager connection. 
   # Test selection
     testSelector: 'testAssemblies' # 'testAssemblies' | 'testPlan' | 'testRun'. Required. Select tests using. Default: testAssemblies.
     testAssemblyVer2: # string. Required when testSelector = testAssemblies. Test files. 
@@ -85,6 +86,21 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureSubscription"::: -->
+:::moniker range="=azure-pipelines"
+
+**`azureSubscription`** - **Azure Resource Manager connection**<br>
+Input alias: `ConnectedServiceName`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify an Azure Resource Manager service connection configured with workload identity federation to use [AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/) in integration tests. For more information, see [Use AzurePipelinesCredential in integration tests](#use-azurepipelinescredential-in-integration-tests).
+
+> [!NOTE]
+> This input only supports ARM service connections that are configured to use workload identity federation.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="testSelector"::: -->
 :::moniker range="=azure-pipelines"
 
@@ -103,7 +119,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 :::moniker range="=azure-pipelines"
 
 **`testAssemblyVer2`** - **Test files**<br>
-`string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
+`string`. Required when `testSelector = testAssemblies`. Default value: `**\bin\**\*test.dll\n**\bin\**\*tests.dll`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs tests from the specified files. Ordered tests and webtests can be run by specifying the `.orderedtest` and `.webtest` files respectively. To run `.webtest`, Visual Studio 2017 Update 4 or higher is needed. The file paths are relative to the search folder. This input supports multiple lines of [minimatch patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 
@@ -675,6 +691,12 @@ If you want to run tests that belong to multiple target frameworks, you'll need 
 ### While publishing the test result, getting this error: Failed to publish test results: Invalid Priority specified?
 
 This error occur if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
+
+:::moniker range="azure-pipelines"
+
+[!INCLUDE [temp](includes/azure-pipeline-credential-integration-tests.md)]
+
+:::moniker-end
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
