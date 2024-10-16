@@ -9,15 +9,15 @@ The Azure Identity libraries for .NET, C++, Go, Java, JavaScript, and Python [pr
 
 Many customers are using Azure SDK client libraries in integration tests invoked from other tasks. The [DotNetCoreCLI@2](../dotnet-core-cli-v2.md), [Maven@4](../maven-v4.md) and [VSTest@3](../vstest-v3.md) tasks can access Azure resources using the `AzurePipelinesCredential` class.
 
-You can set the `connectedService` property to an Azure service connection configured with workload identity federation. The `AzurePipelinesCredential` requires [SYSTEM_ACCESSTOKEN](/azure/devops/pipelines/build/variables#systemaccesstoken) to be set.
+You can set the `connectedServiceName` property to an Azure service connection configured with workload identity federation. The `AzurePipelinesCredential` requires [SYSTEM_ACCESSTOKEN](/azure/devops/pipelines/build/variables#systemaccesstoken) to be set.
 
-The following example shows the `connectedService` input on the `DotNetCoreCLI@2` task. `VSTest@3` and `Maven@4` usage is similar.
+The following example shows the `connectedServiceName` input on the `DotNetCoreCLI@2` task. `VSTest@3` and `Maven@4` usage is similar.
 
 ```yaml
 - task: DotNetCoreCLI@2
   inputs:
     command: 'run'
-    connectedService: <Azure service connection configured with workload identity federation>
+    connectedServiceName: <Azure service connection configured with workload identity federation>
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 ```
