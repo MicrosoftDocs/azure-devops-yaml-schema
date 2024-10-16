@@ -17,7 +17,7 @@ The following example shows the `connectedService` input on the `DotNetCoreCLI@2
 - task: DotNetCoreCLI@2
   inputs:
     command: 'run'
-    connectedService: <Azure service connection configured with workload identity federation>
+    connectedServiceName: <Azure service connection configured with workload identity federation>
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 ```
