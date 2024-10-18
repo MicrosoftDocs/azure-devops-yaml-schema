@@ -98,6 +98,16 @@ items:
   - name: AzureResourceManagerTemplateDeployment@3
     href: azure-resource-manager-template-deployment-v3.md
     displayName: ARM template deployment v3
+- name: Azure App Configuration Export
+  items:
+  - name: AzureAppConfigurationExport@10
+    href: azure-app-configuration-export-v10.md
+    displayName: Azure App Configuration Export v10
+- name: Azure App Configuration Import
+  items:
+  - name: AzureAppConfigurationImport@10
+    href: azure-app-configuration-import-v10.md
+    displayName: Azure App Configuration Import v10
 - name: Azure App Configuration Snapshot
   items:
   - name: AzureAppConfigurationSnapshot@1
