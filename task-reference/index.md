@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 08/19/2024
+ms.date: 10/11/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -72,6 +72,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 |---|---|
 | **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **ARM template deployment**<br>[AzureResourceManagerTemplateDeployment@3](azure-resource-manager-template-deployment-v3.md) | Deploy an Azure Resource Manager (ARM) template to all the deployment scopes. |
+| **Azure App Configuration Export**<br>[AzureAppConfigurationExport@10](azure-app-configuration-export-v10.md) | Download key-values to task variables from Azure App Configuration. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md)<br>[AzureRmWebAppDeployment@2](azure-rm-web-app-deployment-v2.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
 | **Azure App Service manage**<br>[AzureAppServiceManage@0](azure-app-service-manage-v0.md) | Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service. |
@@ -183,6 +184,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Advanced Security Dependency Scanning**<br>[AdvancedSecurity-Dependency-Scanning@1](advanced-security-dependency-scanning-v1.md) | Scan for open source dependency vulnerabilities in your source code. |
 | **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
+| **Azure App Configuration Import**<br>[AzureAppConfigurationImport@10](azure-app-configuration-import-v10.md) | Push key-values to an Azure App Configuration instance. |
 | **Azure App Configuration Snapshot**<br>[AzureAppConfigurationSnapshot@1](azure-app-configuration-snapshot-v1.md) | Create a snapshot in an Azure App Configuration instance. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
