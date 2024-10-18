@@ -298,7 +298,10 @@ All tasks have control options in addition to their task inputs. For more inform
 
 :::moniker range=">=azure-pipelines-2022"
 
-None.
+This task defines the following output variables, which you can consume in downstream steps, jobs, and stages.
+
+**`AZURESTATICWEBAPP_STATIC_WEB_APP_URL`**
+Stores the URL of the deployed static web app.
 
 :::moniker-end
 <!-- :::outputVariables-end::: -->
