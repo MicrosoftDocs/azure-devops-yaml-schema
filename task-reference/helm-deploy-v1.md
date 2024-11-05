@@ -192,7 +192,7 @@ Select an Azure Resource Group, which has your Container Registry.
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Required when `command == login || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Container Registry which will be used for pushing helm charts.
+Select an Azure Container Registry which will be used for helm charts.
 <!-- :::editable-content-end::: -->
 <br>
 
