@@ -36,11 +36,11 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
     #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package. Kubernetes Service Connection. 
     #namespace: # string. Optional. Use when command != logout && command != package. Namespace. 
   # Azure Container Registry
-    #azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required when command == login || command == package || command == push. Azure subscription for Container Registry. 
-    #azureResourceGroupForACR: # string. Required when command == login || command == package || command == push. Resource group. 
-    #azureContainerRegistry: # string. Required when command == login || command == package || command == push. Azure Container Registry. 
+    #azureSubscriptionForACR: # string. Alias: azureSubscriptionEndpointForACR. Required when command == login || command == package. Azure subscription for Container Registry. 
+    #azureResourceGroupForACR: # string. Required when command == login || command == package. Resource group. 
+    #azureContainerRegistry: # string. Required when command == login || command == package. Azure Container Registry. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'push' | 'rollback' | 'upgrade' | 'uninstall'. Required. Command. Default: ls.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade' | 'uninstall'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
     chartName: # string. Required when chartType == Name. Chart Name. 
     #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
@@ -59,8 +59,8 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
     #force: false # boolean. Optional. Use when command == upgrade. Force. Default: false.
     #waitForExecution: true # boolean. Optional. Use when command == init || command == install || command == upgrade. Wait. Default: true.
     #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
-    #chartNameForACR: # string. Required when command == package || command == push. Chart Name For Azure Container Registry. 
-    #chartPathForACR: # string. Required when command == package || command == push. Chart Path for Azure Container Registry. 
+    #chartNameForACR: # string. Required when command == package. Chart Name For Azure Container Registry. 
+    #chartPathForACR: # string. Required when command == package. Chart Path for Azure Container Registry. 
   # TLS
     #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package. Enable TLS. Default: false.
     #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package. CA certificate. 
@@ -166,7 +166,7 @@ Specify K8 namespace to use. Use Tiller namespace can be specified in the advanc
 :::moniker range="=azure-pipelines"
 
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
-Input alias: `azureSubscriptionEndpointForACR`. `string`. Required when `command == login || command == package || command == push`.<br>
+Input alias: `azureSubscriptionEndpointForACR`. `string`. Required when `command == login || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription, which has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
@@ -178,7 +178,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 :::moniker range="=azure-pipelines"
 
 **`azureResourceGroupForACR`** - **Resource group**<br>
-`string`. Required when `command == login || command == package || command == push`.<br>
+`string`. Required when `command == login || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Group, which has your Container Registry.
 <!-- :::editable-content-end::: -->
@@ -190,7 +190,7 @@ Select an Azure Resource Group, which has your Container Registry.
 :::moniker range="=azure-pipelines"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
-`string`. Required when `command == login || command == package || command == push`.<br>
+`string`. Required when `command == login || command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Container Registry which will be used for pushing helm charts.
 <!-- :::editable-content-end::: -->
@@ -202,7 +202,7 @@ Select an Azure Container Registry which will be used for pushing helm charts.
 :::moniker range="=azure-pipelines"
 
 **`command`** - **Command**<br>
-`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `push`, `rollback`, `upgrade`, `uninstall`. Default value: `ls`.<br>
+`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `upgrade`, `uninstall`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a helm command.
 <!-- :::editable-content-end::: -->
@@ -514,7 +514,7 @@ If this is true, the task will collect and publish deployment metadata.
 :::moniker range="=azure-pipelines"
 
 **`chartNameForACR`** - **Chart Name For Azure Container Registry**<br>
-`string`. Required when `command == package || command == push`.<br>
+`string`. Required when `command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chart name with which the chart will be stored in Azure Container Registry.
 <!-- :::editable-content-end::: -->
@@ -526,7 +526,7 @@ Chart name with which the chart will be stored in Azure Container Registry.
 :::moniker range="=azure-pipelines"
 
 **`chartPathForACR`** - **Chart Path for Azure Container Registry**<br>
-`string`. Required when `command == package || command == push`.<br>
+`string`. Required when `command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the chart directory.
 <!-- :::editable-content-end::: -->
@@ -568,7 +568,7 @@ Output emitted from the execution of specified Helm command
 A major change for `HelmDeploy@1` task is that helm chart commands are removed:
 
 * The `helm chart` subcommand has been removed
-* `helm chart push` has been replaced with `helm push`
+* `helm chart push` has been removed
 * `helm chart remove` has been removed
 * `helm chart save` has been replaced with `helm package`
 * `helm save` has been removed
