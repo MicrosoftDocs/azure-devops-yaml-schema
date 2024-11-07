@@ -14,7 +14,7 @@ monikerRange: "=azure-pipelines"
 Use this task to run the scanner and upload the results to the SonarQube server.
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@6](./sonar-qube-analyze-v6.md).
+> This task is deprecated; use [SonarQubeAnalyze@7](./sonar-qube-analyze-v7.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -68,7 +68,7 @@ None.
 ## Remarks
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@6](./sonar-qube-analyze-v6.md).
+> This task is deprecated; use [SonarQubeAnalyze@7](./sonar-qube-analyze-v7.md).
 
 This task is to be used with the new version of the `Prepare Analysis Configuration` task.
 <!-- :::editable-content-end::: -->
