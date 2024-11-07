@@ -14,7 +14,7 @@ monikerRange: "=azure-pipelines"
 Use this task to prepare a SonarQube analysis configuration.
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubePrepare@6](./sonar-qube-prepare-v6.md).
+> This task is deprecated; use [SonarQubePrepare@7](./sonar-qube-prepare-v7.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -227,7 +227,7 @@ None.
 ## Remarks
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubePrepare@6](./sonar-qube-prepare-v6.md).
+> This task is deprecated; use [SonarQubePrepare@7](./sonar-qube-prepare-v7.md).
 
 - **Support non-MSBuild projects:** This task can also configure analysis for non-MSBuild projects.
 <!-- :::editable-content-end::: -->
