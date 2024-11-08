@@ -13,8 +13,6 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 
-> [!IMPORTANT]
-> This task is deprecated. Users are recommended to switch to [PublishCodeCoverageResults@2](./publish-code-coverage-results-v2.md). For more information, see [New version of Publish Code Coverage Results task](https://devblogs.microsoft.com/devops/new-pccr-task/).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -45,7 +43,6 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 
 ```yaml
 # Publish code coverage results v1
-# [DEPRECATION WARNING! Users are recommended to switch to version 2*.] Publish Cobertura or JaCoCo code coverage results from a build.
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
@@ -195,13 +192,8 @@ None.
 
 :::moniker range=">azure-pipelines-2022.1"
 
-> [!IMPORTANT]
-> This task is deprecated. Users are recommended to switch to [PublishCodeCoverageResults@2](./publish-code-coverage-results-v2.md). For more information, see [New version of Publish Code Coverage Results task](https://devblogs.microsoft.com/devops/new-pccr-task/).
-
 :::moniker-end
 
-> [!NOTE]
-> See [New version of Publish Code Coverage Results task](https://devblogs.microsoft.com/devops/new-pccr-task/) on the [Azure DevOps blog](https://devblogs.microsoft.com/devops/) for information about the new features in V2 of the Publish Code Coverage Results task, and migrating from V1 to V2.
 
 Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS in order to obtain coverage reporting. The task supports popular coverage result formats such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/).
 
