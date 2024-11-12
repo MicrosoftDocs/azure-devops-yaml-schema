@@ -1,7 +1,7 @@
 ---
 title: onSuccessHook definition
 description: Used to run steps for clean-up actions.
-ms.date: 10/04/2024
+ms.date: 11/12/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
