@@ -150,7 +150,7 @@ For details of how translations are processed, see [File transforms and variable
 ### File transformations
 
 * At present, file transformations are supported for only XML files.
-* To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-t ransform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
+* To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-transform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
 * File transformations are useful in many scenarios, particularly when you are deploying to an App service and want to add,
   remove or modify configurations for different environments (such as Dev, Test, or Prod) by following the standard
   [Web.config Transformation Syntax](/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations).
