@@ -83,6 +83,45 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Azure Resource Manager subscription to configure before running PowerShell.
+
+You can use template expressions to specify this value and use expressions. In the following example, the `azureSubscription` is creating using a format string and an expression based on the `environmentName` variable.
+
+```yml
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  # Format string for the service connection
+  azureSubscriptionFormat: 'connectionString-{0}-001'
+
+stages:
+- stage: Prepare
+  variables:
+    environmentName: 'test'
+    # Stage level variable with the service connection name
+    # Evaluates to conenctionString-test-001
+    azureSubscription: ${{ format(variables.azureSubscriptionFormat, variables.environmentName) }}
+
+  jobs:
+  - job: RunStuff
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        # Set this input to the computed value
+        azureSubscription: ${{ variables.azureSubscription }}
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: 'echo Hello ${{ variables.azureSubscription }}'
+
+    - task: AzurePowerShell@5
+      inputs:
+        # Set this input to the computed value
+        azureSubscription: ${{ variables.azureSubscription }}
+        azurePowerShellVersion: 'LatestVersion'
+        scriptType: 'InlineScript'
+        inline: Write-Host "Hello ${{ variables.azureSubscription }}"
+```
+
 <!-- :::editable-content-end::: -->
 <br>
 
