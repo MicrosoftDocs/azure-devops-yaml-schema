@@ -305,6 +305,8 @@ File paths to include or exclude for triggering a run.
 
 If you have many team members uploading changes often, you may want to reduce the number of runs you start. If you set `batch` to `true`, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. By default, `batch` is `false`.
 
+When specifying a branch, tag, or path, you may use an exact name or a wildcard. For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
+
 ::: moniker range=">= azure-pipelines-2020"
 
 > [!IMPORTANT]
