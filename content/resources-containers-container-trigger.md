@@ -102,7 +102,7 @@ Tag names to include or exclude for triggering a run.
 <!-- :::editable-content name="examples"::: -->
 ### Examples
 
-In the following example, the trigger is enabled for tags matching `production*`. When specifying a tag, you may use an exact name or a wildcard.For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
+In the following example, the trigger is enabled for tags matching `production*`. When specifying a tag, you may use an exact name or a wildcard. For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
 
 ```yaml
 resources:         
