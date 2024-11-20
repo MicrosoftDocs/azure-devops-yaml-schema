@@ -1,14 +1,14 @@
 ---
 title: resources.builds.build definition
 description: A build resource used to reference artifacts from a run.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.builds.build definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A build resource used to reference artifacts from a run.
@@ -33,7 +33,7 @@ builds:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 builds:
@@ -49,7 +49,7 @@ builds:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.builds](resources-builds.md)
 
@@ -60,7 +60,7 @@ Definitions that reference this definition: [resources.builds](resources-builds.
 
 <!-- :::properties::: -->
 <!-- :::item name="build"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`build`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Alias or name of build artifact. Acceptable values: [-_A-Za-z0-9]*.
@@ -69,7 +69,7 @@ Alias or name of build artifact. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the artifact type.
@@ -78,7 +78,7 @@ Name of the artifact type.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the connection. This connection will be used for all the communication related to this artifact.
@@ -87,7 +87,7 @@ Name of the connection. This connection will be used for all the communication r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="source"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`source`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the source definition/build/job.
@@ -96,7 +96,7 @@ Name of the source definition/build/job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -104,7 +104,7 @@ Name of the source definition/build/job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branch"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`branch`** string.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->

@@ -1,14 +1,14 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.repositories.repository definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `repository` keyword lets you specify an external repository. Use a repository resource to reference an additional repository in your pipeline.
@@ -46,7 +46,7 @@ repositories:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 repositories:
@@ -61,7 +61,7 @@ repositories:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.repositories](resources-repositories.md)
 
@@ -72,7 +72,7 @@ Definitions that reference this definition: [resources.repositories](resources-r
 
 <!-- :::properties::: -->
 <!-- :::item name="repository"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`repository`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
@@ -81,7 +81,7 @@ Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="endpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to this repository.
@@ -103,7 +103,7 @@ CI trigger for this repository, no CI trigger if omitted.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Repository name. Format depends on 'type'; does not accept variables.
@@ -120,7 +120,7 @@ ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by d
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`ref`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
@@ -129,7 +129,7 @@ ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by d
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Type of repository: git, github, githubenterprise, and bitbucket.

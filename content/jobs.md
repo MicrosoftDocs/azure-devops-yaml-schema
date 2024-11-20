@@ -1,8 +1,8 @@
 ---
 title: jobs definition
 description: Specifies the jobs that make up the work of a stage.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs definition
@@ -16,7 +16,7 @@ Specifies the jobs that make up the work of a stage.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
 Specifies the jobs that make up the work of a pipeline.
@@ -34,7 +34,7 @@ jobs: [ job | deployment | template ] # Specifies the jobs that make up the work
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 jobs: [ job ] # Specifies the jobs that make up the work of a pipeline.
@@ -50,7 +50,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -70,7 +70,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 | Type | Description |
 |---|---|

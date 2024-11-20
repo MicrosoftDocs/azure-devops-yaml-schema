@@ -1,14 +1,14 @@
 ---
 title: boolean definition
 description: Represents a boolean value in a pipeline.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # boolean definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Represents a boolean value in a pipeline.
@@ -18,7 +18,7 @@ Represents a boolean value in a pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 boolean: string # true | y | yes | on | false | n | no | off. 
@@ -28,7 +28,7 @@ boolean: string # true | y | yes | on | false | n | no | off.
 <!-- :::syntax-end::: -->
 
 <!-- :::string-item::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`boolean`** string. Allowed values: true | y | yes | on | false | n | no | off.<br>
 <!-- :::editable-content name="description"::: -->

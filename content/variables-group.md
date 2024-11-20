@@ -1,14 +1,14 @@
 ---
 title: variables.group definition
 description: Reference variables from a variable group.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # variables.group definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Reference variables from a variable group.
@@ -18,7 +18,7 @@ Reference variables from a variable group.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 variables:
@@ -29,7 +29,7 @@ variables:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [variables](variables.md)
 
@@ -40,7 +40,7 @@ Definitions that reference this definition: [variables](variables.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="group"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`group`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Variable group name.

@@ -1,14 +1,14 @@
 ---
 title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # steps.powershell definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `powershell` step runs a script using either Windows PowerShell (on Windows) or `pwsh` (Linux and macOS).
@@ -63,7 +63,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 steps:
@@ -86,7 +86,7 @@ steps:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps](steps.md)
 
@@ -97,7 +97,7 @@ Definitions that reference this definition: [steps](steps.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="powershell"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`powershell`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Inline PowerShell script.
@@ -106,7 +106,7 @@ Inline PowerShell script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorActionPreference"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`errorActionPreference`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
@@ -115,7 +115,7 @@ Unless otherwise specified, the error action preference defaults to the value st
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStderr"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`failOnStderr`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Fail the task if output is sent to Stderr?
@@ -124,7 +124,7 @@ Fail the task if output is sent to Stderr?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ignoreLASTEXITCODE"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ignoreLASTEXITCODE`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Check the final exit code of the script to determine whether the step succeeded?
@@ -133,7 +133,7 @@ Check the final exit code of the script to determine whether the step succeeded?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Start the script with this working directory.
@@ -142,7 +142,7 @@ Start the script with this working directory.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
@@ -151,7 +151,7 @@ Evaluate this condition expression to determine whether to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -160,7 +160,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
@@ -178,7 +178,7 @@ Environment in which to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
@@ -187,7 +187,7 @@ Run this task when the job runs?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
@@ -196,7 +196,7 @@ Variables to map into the process's environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
@@ -205,7 +205,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.

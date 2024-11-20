@@ -1,14 +1,14 @@
 ---
 title: pr definition
 description: Pull request trigger.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # pr definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A pull request trigger specifies which branches cause a pull request build to run.
@@ -18,7 +18,7 @@ A pull request trigger specifies which branches cause a pull request build to ru
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -111,7 +111,7 @@ If you specify an `exclude` clause without an `include` clause for `branches` or
 <!-- :::implementation-item name="pr: string"::: -->
 <a name="prstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## pr: none
@@ -159,7 +159,7 @@ pr: none # will disable PR builds (but not CI builds)
 <!-- :::implementation-item name="pr: string list"::: -->
 <a name="prstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## pr: string list

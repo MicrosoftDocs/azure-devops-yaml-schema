@@ -1,8 +1,8 @@
 ---
 title: YAML schema reference
 description: Azure Pipelines YAML schema reference
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # YAML schema reference for Azure Pipelines
@@ -25,7 +25,7 @@ A pipeline is one or more stages that describe a CI/CD process. The pipeline def
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 [**pipeline**](pipeline.md)<br><!-- :::editable-content name="description"::: -->
 A pipeline is one or more jobs that describe a CI/CD process.
@@ -51,7 +51,7 @@ Specifies the jobs that make up the work of a stage.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 [**jobs**](jobs.md)<br><!-- :::editable-content name="description"::: -->
 Specifies the jobs that make up the work of a pipeline.
@@ -114,7 +114,7 @@ RunOnce Deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.job"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.job**](jobs-job.md)<br><!-- :::editable-content name="description"::: -->
 A job is a collection of steps run by an agent or on a server.
@@ -132,7 +132,7 @@ Container resource name.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.job.strategy"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.job.strategy**](jobs-job-strategy.md)<br><!-- :::editable-content name="description"::: -->
 Execution strategy for this job.
@@ -177,7 +177,7 @@ Pipeline template parameters.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**pool**](pool.md)<br><!-- :::editable-content name="description"::: -->
 Which pool to use for a job of the pipeline.
@@ -186,7 +186,7 @@ Which pool to use for a job of the pipeline.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool.demands"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**pool.demands**](pool-demands.md)<br><!-- :::editable-content name="description"::: -->
 Demands (for a private pool).
@@ -195,7 +195,7 @@ Demands (for a private pool).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pr"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**pr**](pr.md)<br><!-- :::editable-content name="description"::: -->
 Pull request trigger.
@@ -204,7 +204,7 @@ Pull request trigger.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources**](resources.md)<br><!-- :::editable-content name="description"::: -->
 Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
@@ -213,7 +213,7 @@ Resources specifies builds, repositories, pipelines, and other resources used by
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.builds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.builds**](resources-builds.md)<br><!-- :::editable-content name="description"::: -->
 List of build resources referenced by the pipeline.
@@ -222,7 +222,7 @@ List of build resources referenced by the pipeline.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.builds.build"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.builds.build**](resources-builds-build.md)<br><!-- :::editable-content name="description"::: -->
 A build resource used to reference artifacts from a run.
@@ -231,7 +231,7 @@ A build resource used to reference artifacts from a run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.containers"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.containers**](resources-containers.md)<br><!-- :::editable-content name="description"::: -->
 List of container images.
@@ -240,7 +240,7 @@ List of container images.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.containers.container"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.containers.container**](resources-containers-container.md)<br><!-- :::editable-content name="description"::: -->
 A container resource used to reference a container image.
@@ -276,7 +276,7 @@ A package resource used to reference a NuGet or npm GitHub package.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.pipelines"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.pipelines**](resources-pipelines.md)<br><!-- :::editable-content name="description"::: -->
 List of pipeline resources.
@@ -285,7 +285,7 @@ List of pipeline resources.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.pipelines.pipeline"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.pipelines.pipeline**](resources-pipelines-pipeline.md)<br><!-- :::editable-content name="description"::: -->
 A pipeline resource.
@@ -312,7 +312,7 @@ Branches to include or exclude for triggering a run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.repositories"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.repositories**](resources-repositories.md)<br><!-- :::editable-content name="description"::: -->
 List of repository resources.
@@ -321,7 +321,7 @@ List of repository resources.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.repositories.repository"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**resources.repositories.repository**](resources-repositories-repository.md)<br><!-- :::editable-content name="description"::: -->
 A repository resource is used to reference an additional repository in your pipeline.
@@ -411,7 +411,7 @@ You can define a set of stages in one file and use it multiple times in other fi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps**](steps.md)<br><!-- :::editable-content name="description"::: -->
 Steps are a linear sequence of operations that make up a job.
@@ -420,7 +420,7 @@ Steps are a linear sequence of operations that make up a job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.bash"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.bash**](steps-bash.md)<br><!-- :::editable-content name="description"::: -->
 Runs a script in Bash on Windows, macOS, and Linux.
@@ -429,7 +429,7 @@ Runs a script in Bash on Windows, macOS, and Linux.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.checkout"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.checkout**](steps-checkout.md)<br><!-- :::editable-content name="description"::: -->
 Configure how the pipeline checks out source code.
@@ -438,7 +438,7 @@ Configure how the pipeline checks out source code.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.download"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.download**](steps-download.md)<br><!-- :::editable-content name="description"::: -->
 Downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
@@ -447,7 +447,7 @@ Downloads artifacts associated with the current run or from another Azure Pipeli
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.downloadBuild"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.downloadBuild**](steps-download-build.md)<br><!-- :::editable-content name="description"::: -->
 Downloads build artifacts.
@@ -465,7 +465,7 @@ Downloads a package from a package management feed in Azure Artifacts or Azure D
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.powershell"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.powershell**](steps-powershell.md)<br><!-- :::editable-content name="description"::: -->
 Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
@@ -474,7 +474,7 @@ Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and ma
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.publish"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.publish**](steps-publish.md)<br><!-- :::editable-content name="description"::: -->
 Publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume.
@@ -483,7 +483,7 @@ Publishes (uploads) a file or folder as a pipeline artifact that other jobs and 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.pwsh"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.pwsh**](steps-pwsh.md)<br><!-- :::editable-content name="description"::: -->
 Runs a script in PowerShell Core on Windows, macOS, and Linux.
@@ -501,7 +501,7 @@ Downloads creates a resource dynamically under a deploy phase provider.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.script"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.script**](steps-script.md)<br><!-- :::editable-content name="description"::: -->
 Runs a script using cmd.exe on Windows and Bash on other platforms.
@@ -510,7 +510,7 @@ Runs a script using cmd.exe on Windows and Bash on other platforms.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.task"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.task**](steps-task.md)<br><!-- :::editable-content name="description"::: -->
 Runs a task.
@@ -519,7 +519,7 @@ Runs a task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.template"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**steps.template**](steps-template.md)<br><!-- :::editable-content name="description"::: -->
 Define a set of steps in one file and use it multiple times in another file.
@@ -546,7 +546,7 @@ Restrictions on which variables that can be set.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**trigger**](trigger.md)<br><!-- :::editable-content name="description"::: -->
 Continuous integration (push) trigger.
@@ -555,7 +555,7 @@ Continuous integration (push) trigger.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**variables**](variables.md)<br><!-- :::editable-content name="description"::: -->
 Define variables using name/value pairs.
@@ -564,7 +564,7 @@ Define variables using name/value pairs.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables.group"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**variables.group**](variables-group.md)<br><!-- :::editable-content name="description"::: -->
 Reference variables from a variable group.
@@ -573,7 +573,7 @@ Reference variables from a variable group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables.name"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**variables.name**](variables-name.md)<br><!-- :::editable-content name="description"::: -->
 Define variables using name and full syntax.
@@ -582,7 +582,7 @@ Define variables using name and full syntax.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables.template"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**variables.template**](variables-template.md)<br><!-- :::editable-content name="description"::: -->
 Define variables in a template.
@@ -608,7 +608,7 @@ Used to run steps that deploy your application.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeExcludeFilters"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**includeExcludeFilters**](include-exclude-filters.md)<br><!-- :::editable-content name="description"::: -->
 Lists of items to include or exclude.
@@ -689,7 +689,7 @@ Used to run steps that serve the traffic to the updated version.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 [**workspace**](workspace.md)<br><!-- :::editable-content name="description"::: -->
 Workspace options on the agent.

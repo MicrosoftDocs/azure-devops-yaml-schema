@@ -1,14 +1,14 @@
 ---
 title: pool.demands definition
 description: Demands (for a private pool).
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # pool.demands definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Demands (for a private pool).
@@ -18,7 +18,7 @@ Demands (for a private pool).
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pool](pool.md)
 
@@ -28,7 +28,7 @@ Definitions that reference this definition: [pool](pool.md)
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -104,7 +104,7 @@ Self-hosted agents have the following system capabilities with similar names to 
 <!-- :::implementation-item name="demands: string"::: -->
 <a name="demandsstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## demands: string
@@ -154,7 +154,7 @@ pool:
 <!-- :::implementation-item name="demands: string list"::: -->
 <a name="demandsstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## demands: string list

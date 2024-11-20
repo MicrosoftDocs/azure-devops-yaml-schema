@@ -1,14 +1,14 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # workspace definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Workspace options on the agent.
@@ -27,7 +27,7 @@ workspace:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 workspace:
@@ -47,7 +47,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
@@ -69,7 +69,7 @@ Which parts of the workspace should be scorched before fetching. outputs | resou
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 **`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Scorch the repo before fetching? outputs | resources | all.

@@ -1,14 +1,14 @@
 ---
 title: includeExcludeFilters definition
 description: Lists of items to include or exclude.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # includeExcludeFilters definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Lists of items to include or exclude for trigger events.
@@ -18,7 +18,7 @@ Lists of items to include or exclude for trigger events.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 includeExcludeFilters:
@@ -39,7 +39,7 @@ Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
@@ -53,7 +53,7 @@ Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="include"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of items to include.
@@ -62,7 +62,7 @@ List of items to include.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="exclude"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of items to exclude.

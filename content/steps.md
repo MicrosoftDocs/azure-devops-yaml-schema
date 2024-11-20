@@ -1,14 +1,14 @@
 ---
 title: steps definition
 description: Steps are a linear sequence of operations that make up a job.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # steps definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Steps are a linear sequence of operations that make up a job.
@@ -26,7 +26,7 @@ steps: [ task | script | powershell | pwsh | bash | checkout | download | downlo
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # Steps are a linear sequence of operations that make up a job.
@@ -42,7 +42,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
@@ -71,7 +71,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 | Type | Description |
 |---|---|
