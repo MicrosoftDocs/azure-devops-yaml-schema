@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 08/30/2024
+ms.date: 11/20/2024
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -27,7 +27,7 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 # Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
 - task: NuGetAuthenticate@1
   inputs:
-    #workloadIdentityServiceConnection: # string. 'Entra Workload ID-backed Azure DevOps user' Service Connection. 
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
     #feedUrl: # string. Azure Artifacts URL. 
     #forceReinstallCredentialProvider: false # boolean. Reinstall the credential provider even if already installed. Default: false.
     #nuGetServiceConnections: # string. Service connection credentials for feeds outside this organization.
@@ -52,11 +52,11 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="workloadIdentityServiceConnection"::: -->
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range="=azure-pipelines"
 
-**`workloadIdentityServiceConnection`** - **'Entra Workload ID-backed Azure DevOps user' Service Connection**<br>
-`string`.<br>
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+Input alias: `workloadIdentityServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set, `feedUrl` is required. All other inputs are ignored.
 <!-- :::editable-content-end::: -->

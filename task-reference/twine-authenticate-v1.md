@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@1 - Python twine upload authenticate v1 task
 description: Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection.
-ms.date: 08/30/2024
+ms.date: 11/20/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -28,7 +28,7 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 - task: TwineAuthenticate@1
   inputs:
   # Feeds and Authentication
-    #workloadIdentityServiceConnection: # string. 'Entra Workload ID-backed Azure DevOps user' Service Connection. 
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
     #feedUrl: # string. Azure Artifacts Feed url. 
     #artifactFeed: # string. My feed name (select below). 
     #pythonUploadServiceConnection: # string. Feed from external organizations.
@@ -68,13 +68,13 @@ Use this task to authenticate uploads of Python distributions using twine. Add `
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="workloadIdentityServiceConnection"::: -->
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range="=azure-pipelines"
 
-**`workloadIdentityServiceConnection`** - **'Entra Workload ID-backed Azure DevOps user' Service Connection**<br>
-`string`.<br>
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+Input alias: `workloadIdentityServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If this is set, feedUrl is required. All other inputs are ignored.
+If this is set, `feedUrl` is required. All other inputs are ignored.
 <!-- :::editable-content-end::: -->
 <br>
 

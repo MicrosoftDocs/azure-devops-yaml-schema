@@ -1,7 +1,7 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 08/30/2024
+ms.date: 11/20/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 # Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
 - task: npmAuthenticate@0
   inputs:
-    #workloadIdentityServiceConnection: # string. 'Entra Workload ID-backed Azure DevOps user' Service Connection. 
+    #azureDevOpsServiceConnection: # string. Alias: workloadIdentityServiceConnection. 'Azure DevOps' Service Connection. 
     #feedUrl: # string. Azure Artifacts URL. 
     workingFile: # string. Required. .npmrc file to authenticate. 
     #customEndpoint: # string. Credentials for registries outside this organization/collection.
@@ -67,11 +67,11 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="workloadIdentityServiceConnection"::: -->
+<!-- :::item name="azureDevOpsServiceConnection"::: -->
 :::moniker range="=azure-pipelines"
 
-**`workloadIdentityServiceConnection`** - **'Entra Workload ID-backed Azure DevOps user' Service Connection**<br>
-`string`.<br>
+**`azureDevOpsServiceConnection`** - **'Azure DevOps' Service Connection**<br>
+Input alias: `workloadIdentityServiceConnection`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is set, `feedUrl` is required. Service Connections for external organizations/collection and custom endpoints are not compatible.
 <!-- :::editable-content-end::: -->
