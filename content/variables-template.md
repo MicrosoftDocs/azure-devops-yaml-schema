@@ -1,14 +1,14 @@
 ---
 title: variables.template definition
 description: Define variables in a template.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # variables.template definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 You can define a set of variables in one file and use it multiple times in other files.
@@ -18,7 +18,7 @@ You can define a set of variables in one file and use it multiple times in other
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 variables:
@@ -30,7 +30,7 @@ variables:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [variables](variables.md)
 
@@ -41,7 +41,7 @@ Definitions that reference this definition: [variables](variables.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="template"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Template file with variables.
@@ -50,7 +50,7 @@ Template file with variables.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Parameters to map into the template.

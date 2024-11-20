@@ -1,14 +1,14 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # pool definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `pool` keyword specifies which [pool](/azure/devops/pipelines/agents/pools-queues) to use for a job of the pipeline.
@@ -25,7 +25,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
@@ -44,7 +44,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Implementation | Description |
 |---|---|
@@ -80,7 +80,7 @@ The pool specified at the lowest level of the hierarchy is used to run the job.
 <!-- :::implementation-item name="pool: string"::: -->
 <a name="poolstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## pool: string
@@ -177,7 +177,7 @@ Name of the VM image you want to use; valid only in the Microsoft-hosted pool.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::implementation-signature::: -->
 ## pool: name, demands

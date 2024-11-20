@@ -1,8 +1,8 @@
 ---
 title: pipeline definition
 description: A pipeline is one or more stages that describe a CI/CD process.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # pipeline definition
@@ -16,7 +16,7 @@ A pipeline is one or more stages that describe a CI/CD process.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
 A pipeline is one or more jobs that describe a CI/CD process.
@@ -42,7 +42,7 @@ A pipeline is one or more jobs that describe a CI/CD process.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 | Implementation | Description |
 |---|---|
@@ -1279,7 +1279,7 @@ Variables for this pipeline.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 <!-- :::implementation-signature::: -->
 ## pipeline: jobs

@@ -1,14 +1,14 @@
 ---
 title: variables.name definition
 description: Define variables using name and full syntax.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # variables.name definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Define variables using name and full syntax.
@@ -29,7 +29,7 @@ variables:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 variables:
@@ -41,7 +41,7 @@ variables:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [variables](variables.md)
 
@@ -52,7 +52,7 @@ Definitions that reference this definition: [variables](variables.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Variable name.
@@ -61,7 +61,7 @@ Variable name.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="value"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`value`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Variable value.

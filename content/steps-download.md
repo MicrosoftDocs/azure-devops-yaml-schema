@@ -1,14 +1,14 @@
 ---
 title: steps.download definition
 description: Downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # steps.download definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `download` step downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
@@ -59,7 +59,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 steps:
@@ -80,7 +80,7 @@ steps:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps](steps.md)
 
@@ -91,7 +91,7 @@ Definitions that reference this definition: [steps](steps.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="download"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`download`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Specify current, pipeline resource identifier, or none to disable automatic download.
@@ -100,7 +100,7 @@ Specify current, pipeline resource identifier, or none to disable automatic down
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifact"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`artifact`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Artifact name.
@@ -109,7 +109,7 @@ Artifact name.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="patterns"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`patterns`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Pattern to download files from artifact.
@@ -118,7 +118,7 @@ Pattern to download files from artifact.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
@@ -127,7 +127,7 @@ Evaluate this condition expression to determine whether to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -136,7 +136,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
@@ -154,7 +154,7 @@ Environment in which to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
@@ -163,7 +163,7 @@ Run this task when the job runs?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
@@ -172,7 +172,7 @@ Variables to map into the process's environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
@@ -181,7 +181,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.

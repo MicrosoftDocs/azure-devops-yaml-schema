@@ -1,14 +1,14 @@
 ---
 title: resources definition
 description: Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
@@ -45,7 +45,7 @@ resources:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 resources:
@@ -59,7 +59,7 @@ resources:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -70,7 +70,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="builds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`builds`** [resources.builds](resources-builds.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of build resources referenced by the pipeline.
@@ -79,7 +79,7 @@ List of build resources referenced by the pipeline.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containers"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`containers`** [resources.containers](resources-containers.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of container images.
@@ -88,7 +88,7 @@ List of container images.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pipelines"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pipelines`** [resources.pipelines](resources-pipelines.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of pipeline resources.
@@ -97,7 +97,7 @@ List of pipeline resources.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repositories"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`repositories`** [resources.repositories](resources-repositories.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of repository resources.
