@@ -1,14 +1,14 @@
 ---
 title: resources.pipelines definition
 description: List of pipeline resources.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.pipelines definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 List of pipeline resources referenced by the pipeline.
@@ -18,7 +18,7 @@ List of pipeline resources referenced by the pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 pipelines: [ pipeline ] # List of pipeline resources.
@@ -28,7 +28,7 @@ pipelines: [ pipeline ] # List of pipeline resources.
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources](resources.md)
 
@@ -38,7 +38,7 @@ Definitions that reference this definition: [resources](resources.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

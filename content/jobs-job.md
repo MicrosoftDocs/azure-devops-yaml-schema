@@ -1,14 +1,14 @@
 ---
 title: jobs.job definition
 description: A job is a collection of steps run by an agent or on a server.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.job definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A [job](/azure/devops/pipelines/process/phases) is a collection of steps run by an [agent](/azure/devops/pipelines/agents/agents) or on a [server](/azure/devops/pipelines/process/phases#server-jobs).
@@ -146,7 +146,7 @@ jobs:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs](jobs.md)
 
@@ -157,7 +157,7 @@ Definitions that reference this definition: [jobs](jobs.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="job"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`job`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the job. Acceptable values: Valid names may only contain alphanumeric characters and '_' and may not start with a number.
@@ -166,7 +166,7 @@ ID of the job. Acceptable values: Valid names may only contain alphanumeric char
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the job.
@@ -175,7 +175,7 @@ Human-readable name for the job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dependsOn"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dependsOn`** string | string list.<br><!-- :::editable-content name="propDescription"::: -->
 Any jobs which must complete before this one.
@@ -184,7 +184,7 @@ Any jobs which must complete before this one.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this job.
@@ -193,7 +193,7 @@ Evaluate this condition expression to determine whether to run this job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -202,7 +202,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this job to complete before the server kills it.
@@ -211,7 +211,7 @@ Time to wait for this job to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cancelTimeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`cancelTimeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for the job to cancel before forcibly terminating it.
@@ -220,7 +220,7 @@ Time to wait for the job to cancel before forcibly terminating it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Job-specific variables.
@@ -229,7 +229,7 @@ Job-specific variables.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`strategy`** [jobs.job.strategy](jobs-job-strategy.md).<br><!-- :::editable-content name="propDescription"::: -->
 Execution strategy for this job.
@@ -238,7 +238,7 @@ Execution strategy for this job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where this job will run.
@@ -256,7 +256,7 @@ Container resource name.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="services"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`services`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Container resources to run as a service container.
@@ -265,7 +265,7 @@ Container resources to run as a service container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workspace"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent. For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
@@ -283,7 +283,7 @@ Any resources required by this job that are not already referenced. For more inf
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`steps`** [steps](steps.md).<br><!-- :::editable-content name="propDescription"::: -->
 A list of steps to run.

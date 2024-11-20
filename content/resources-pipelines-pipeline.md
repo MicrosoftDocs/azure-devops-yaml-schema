@@ -1,14 +1,14 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.pipelines.pipeline definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 If you have an Azure Pipeline that produces artifacts, your pipeline can consume the artifacts by defining a pipeline resource. In Azure DevOps Server 2020 and higher, you can also enable [pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers) using a pipeline resource.
@@ -54,7 +54,7 @@ pipelines:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 pipelines:
@@ -69,7 +69,7 @@ pipelines:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.pipelines](resources-pipelines.md)
 
@@ -80,7 +80,7 @@ Definitions that reference this definition: [resources.pipelines](resources-pipe
 
 <!-- :::properties::: -->
 <!-- :::item name="pipeline"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pipeline`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*.
@@ -89,7 +89,7 @@ ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="project"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`project`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Project for the source; defaults to current project.
@@ -98,7 +98,7 @@ Project for the source; defaults to current project.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="source"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`source`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the pipeline that produces the artifact. If the pipeline is contained in a folder, include the folder name, including the leading `\`, for example `\security pipelines\security-lib-ci`. This property is not case sensitive and does not need quotes if the name include spaces. The folder path must be specified if there are multiple pipelines with the same name.
@@ -107,7 +107,7 @@ Name of the pipeline that produces the artifact. If the pipeline is contained in
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
 The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
@@ -116,7 +116,7 @@ The pipeline run number to pick the artifact, defaults to latest pipeline succes
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branch"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`branch`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.

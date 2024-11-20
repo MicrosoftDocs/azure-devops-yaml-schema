@@ -1,14 +1,14 @@
 ---
 title: jobs.job.strategy definition
 description: Execution strategy for this job.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.job.strategy definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Execution strategy for this job.
@@ -18,7 +18,7 @@ Execution strategy for this job.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
@@ -28,7 +28,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -52,7 +52,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 <!-- :::implementation-item name="strategy: object properties"::: -->
 <a name="strategyobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## strategy: matrix, maxParallel
@@ -236,7 +236,7 @@ Only two jobs run simultaneously.
 <!-- :::implementation-item name="strategy: parallel"::: -->
 <a name="strategyparallel"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## strategy: parallel

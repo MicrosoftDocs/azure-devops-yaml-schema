@@ -1,14 +1,14 @@
 ---
 title: resources.builds definition
 description: List of build resources referenced by the pipeline.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.builds definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 List of build resources referenced by the pipeline.
@@ -18,7 +18,7 @@ List of build resources referenced by the pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 builds: [ build ] # List of build resources referenced by the pipeline.
@@ -28,7 +28,7 @@ builds: [ build ] # List of build resources referenced by the pipeline.
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources](resources.md)
 
@@ -38,7 +38,7 @@ Definitions that reference this definition: [resources](resources.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

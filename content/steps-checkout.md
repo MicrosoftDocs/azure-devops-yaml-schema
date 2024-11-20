@@ -1,14 +1,14 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # steps.checkout definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use `checkout` to configure how the pipeline checks out source code.
@@ -168,7 +168,7 @@ steps:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps](steps.md)
 
@@ -190,7 +190,7 @@ Configures checkout for the specified repository. Specify `self`, `none`, [repos
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 **`checkout`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Whether or not to check out the repository containing this pipeline definition. Specify `self` or `none`.
@@ -199,7 +199,7 @@ Whether or not to check out the repository containing this pipeline definition. 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="clean"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
 If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. true | false.
@@ -208,7 +208,7 @@ If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fetchDepth"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`fetchDepth`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Depth of Git graph to fetch.
@@ -235,7 +235,7 @@ Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="lfs"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`lfs`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' to download Git-LFS files. Default is not to download them.
@@ -244,7 +244,7 @@ Set to 'true' to download Git-LFS files. Default is not to download them.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="persistCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`persistCredentials`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
@@ -253,7 +253,7 @@ Set to 'true' to leave the OAuth token in the Git config after the initial fetch
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="submodules"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`submodules`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
@@ -280,7 +280,7 @@ When true, use the repository root directory as the default working directory fo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
@@ -289,7 +289,7 @@ Evaluate this condition expression to determine whether to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -298,7 +298,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
@@ -316,7 +316,7 @@ Environment in which to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
@@ -325,7 +325,7 @@ Run this task when the job runs?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
@@ -334,7 +334,7 @@ Variables to map into the process's environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
@@ -343,7 +343,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.

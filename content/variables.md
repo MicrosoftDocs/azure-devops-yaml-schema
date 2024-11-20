@@ -1,14 +1,14 @@
 ---
 title: variables definition
 description: Define variables using name/value pairs.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # variables definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Define variables using name/value pairs.
@@ -24,7 +24,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
 
@@ -34,7 +34,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -67,7 +67,7 @@ You can specify variables at the pipeline, stage, or job level.
 <!-- :::implementation-item name="variables: mapping"::: -->
 <a name="variablesmapping"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## variables: string dictionary
@@ -154,7 +154,7 @@ jobs:
 <!-- :::implementation-item name="variables: variable list"::: -->
 <a name="variablesvariablelist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## variables: variable list

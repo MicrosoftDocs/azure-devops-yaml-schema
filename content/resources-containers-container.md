@@ -1,14 +1,14 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 11/12/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.containers.container definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A container resource references a container image.
@@ -64,7 +64,7 @@ containers:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 ```yaml
 containers:
@@ -81,7 +81,7 @@ containers:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.containers](resources-containers.md)
 
@@ -92,7 +92,7 @@ Definitions that reference this definition: [resources.containers](resources-con
 
 <!-- :::properties::: -->
 <!-- :::item name="container"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`container`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID for the container. Acceptable values: [-_A-Za-z0-9]*.
@@ -136,7 +136,7 @@ ID of the service endpoint connecting to a private container registry.  [Templat
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
@@ -223,7 +223,7 @@ Volumes to mount read-only, the default is all false.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Azure subscription (ARM service connection) for container registry.
@@ -232,7 +232,7 @@ Azure subscription (ARM service connection) for container registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroup`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Resource group for your ACR.
@@ -241,7 +241,7 @@ Resource group for your ACR.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="registry"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`registry`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Registry for container images.
@@ -250,7 +250,7 @@ Registry for container images.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repository"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`repository`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the container image repository in ACR.
@@ -259,7 +259,7 @@ Name of the container image repository in ACR.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="localImage"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`localImage`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
