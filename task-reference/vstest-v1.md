@@ -13,7 +13,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::editable-content name="description"::: -->
 Use this task to run tests with Visual Studio test runner.
 
-This version of the task is deprecated; use [VSTest@2](./vstest-v2.md).
+This version of the task is deprecated; use [VSTest@3](./vstest-v3.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->

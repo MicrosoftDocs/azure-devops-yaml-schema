@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-ms.date: 08/20/2024
+ms.date: 09/23/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -60,9 +60,6 @@ This task input is required, but you can specify an empty string if you don't wa
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a comma separated list of users/groups/project teams to act on a manual validation. In absence of input, users with queue build permission will be able to take action.
-
-> [!CAUTION]
-> The `approvers` feature doesn't work at this time. Any value set for `approvers` is ignored, and any user with queue build permission can act on the manual validation.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -111,9 +108,6 @@ None.
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
-
-> [!CAUTION]
-> The `approvers` feature doesn't work at this time. Any value set for `approvers` is ignored, and any user with queue build permission can act on the manual validation.
 
 Use this task in a YAML pipeline to pause a run within a stage. This is typically executed to perform various manual steps or actions and then the run is resumed or rejected.
 

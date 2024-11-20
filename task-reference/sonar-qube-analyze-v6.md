@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@6 - Run Code Analysis v6 task
-description: Run scanner and upload the results to the SonarQube server.
-ms.date: 07/02/2024
+description: Run scanner and upload the results to the SonarQube server (task version 6).
+ms.date: 11/07/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -12,7 +12,11 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Run scanner and upload the results to the SonarQube server.
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -43,7 +47,7 @@ Run scanner and upload the results to the SonarQube server.
 `string`. Required. Allowed values: `JAVA_HOME` (Use JAVA_HOME), `JAVA_HOME_17_X64` (Use built-in JAVA_HOME_17_X64 (hosted agent)), `JAVA_HOME_21_X64` (Use built-in JAVA_HOME_21_X64 (hosted agent)). Default value: `JAVA_HOME_17_X64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the wanted Java version for the analysis : You can choose with either Self provided JAVA_HOME which will pick up the value of this env variable, or you can choose the built-in JAVA_HOME_XX_X64 value on hosted agent. 
-Default value is JAVA_HOME_11_X64, however if you choose either of the proposed value and they are not available, JAVA_HOME value will be picked up instead.
+Default value is JAVA_HOME_17_X64, however if you choose either of the proposed value and they are not available, JAVA_HOME value will be picked up instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -67,6 +71,9 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

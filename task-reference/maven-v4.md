@@ -1,7 +1,7 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 07/02/2024
+ms.date: 10/10/2024
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -20,7 +20,56 @@ Build, test, and deploy with Apache Maven.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Maven v4
+# Build, test, and deploy with Apache Maven.
+- task: Maven@4
+  inputs:
+    #azureSubscription: # string. Alias: ConnectedServiceName. Azure Resource Manager connection. 
+    mavenPOMFile: 'pom.xml' # string. Required. Maven POM file. Default: pom.xml.
+    #goals: 'package' # string. Goal(s). Default: package.
+    #options: # string. Options. 
+  # JUnit Test Results
+    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
+    testResultsFiles: '**/surefire-reports/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/surefire-reports/TEST-*.xml.
+    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
+    #allowBrokenSymlinks: true # boolean. Alias: allowBrokenSymbolicLinks. Optional. Use when publishJUnitResults = true. Allow broken symbolic links. Default: true.
+  # Code Coverage
+    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
+    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
+    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageTool = JaCoCo. Class files directories. 
+    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool = JaCoCo. Source files directories. 
+    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
+    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageTool != None. Restore original pom.xml after task execution. Default: false.
+  # Advanced
+    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+    #jdkVersionOption: 'default' # 'default' | '1.17' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
+    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
+    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
+    mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
+    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
+    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
+    #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
+    #mavenAuthenticateFeed: false # boolean. Alias: mavenFeedAuthenticate. Authenticate with Artifacts feeds. Default: false.
+    #effectivePomSkip: false # boolean. Alias: skipEffectivePom. Skip generating effective POM while authenticating with Artifacts feeds. Default: false.
+  # Code Analysis
+    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
+    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
+    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
+    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
+    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
+    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
+    #spotBugsRunAnalysis: false # boolean. Alias: spotBugsAnalysisEnabled. Run SpotBugs analysis. Default: false.
+    #spotBugsVersion: '4.5.3.0' # string. Alias: spotBugsMavenPluginVersion. Optional. Use when spotBugsAnalysisEnabled = true. Version number. Default: 4.5.3.0.
+    #spotBugsGoal: 'spotbugs' # 'spotbugs' | 'check'. Optional. Use when spotBugsAnalysisEnabled = true. The goal for the spotbugs plugin. Default: spotbugs.
+    #failWhenBugsFound: true # boolean. Alias: spotBugsFailWhenBugsFound | sbFailWhenBugsFound. Optional. Use when spotBugsAnalysisEnabled = true && spotBugsGoal = check. Fail when bugs are found with spotbugs:check. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Maven v4
@@ -72,6 +121,21 @@ Build, test, and deploy with Apache Maven.
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureSubscription"::: -->
+:::moniker range="=azure-pipelines"
+
+**`azureSubscription`** - **Azure Resource Manager connection**<br>
+Input alias: `ConnectedServiceName`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify an Azure Resource Manager service connection configured with workload identity federation to use [AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/) in integration tests. For more information, see [Use AzurePipelinesCredential in integration tests](#use-azurepipelinescredential-in-integration-tests).
+
+> [!NOTE]
+> This input only supports ARM service connections that are configured to use workload identity federation.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="mavenPOMFile"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -502,6 +566,12 @@ Configuration of the SonarQube analysis was moved to the [SonarQube](https://mar
 
 > [!IMPORTANT]
 > If the JDK version you want to use is already installed on your agent, set `javaHomeOption` to `path` and set the `jdkDirectory` to the path of the JDK version. These options set the `JAVA_HOME_11_X64` environment variable, which is required by the Maven task. This environment variable is set automatically if you are using the Java Tool installer task.
+
+:::moniker range="azure-pipelines"
+
+[!INCLUDE [temp](includes/azure-pipeline-credential-integration-tests.md)]
+
+:::moniker-end
 
 ### FAQ
 

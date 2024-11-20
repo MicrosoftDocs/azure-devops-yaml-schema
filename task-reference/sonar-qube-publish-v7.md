@@ -1,23 +1,20 @@
 ---
-title: SonarQubeAnalyze@4 - Run Code Analysis v4 task
-description: Run scanner and upload the results to the SonarQube server (task version 4).
-ms.date: 08/19/2024
+title: SonarQubePublish@7 - Publish Quality Gate Result v7 task
+description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+ms.date: 11/07/2024
 monikerRange: "=azure-pipelines"
 ---
 
-# SonarQubeAnalyze@4 - Run Code Analysis v4 task
+# SonarQubePublish@7 - Publish Quality Gate Result v7 task
 
 <!-- :::description::: -->
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to run the scanner and upload the results to the SonarQube server.
+Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
 
-> [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@7](./sonar-qube-analyze-v7.md).
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -28,10 +25,11 @@ Use this task to run the scanner and upload the results to the SonarQube server.
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Run Code Analysis v4
-# Run scanner and upload the results to the SonarQube server.
-- task: SonarQubeAnalyze@4
-  inputs: # none
+# Publish Quality Gate Result v7
+# Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+- task: SonarQubePublish@7
+  inputs:
+    pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: 300.
 ```
 
 :::moniker-end
@@ -40,10 +38,15 @@ Use this task to run the scanner and upload the results to the SonarQube server.
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="emptyCollectionValue"::: -->
+<!-- :::item name="pollingTimeoutSec"::: -->
 :::moniker range="=azure-pipelines"
 
-None.
+**`pollingTimeoutSec`** - **Timeout (s)**<br>
+`string`. Required. Default value: `300`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+This task will poll SonarQube until the analysis is completed, or until the timeout is reached. It also add a build property with the quality gate status of the current build(s) analyses.
+<!-- :::editable-content-end::: -->
+<br>
 
 :::moniker-end
 <!-- :::item-end::: -->
@@ -67,10 +70,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-> [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@7](./sonar-qube-analyze-v7.md).
-
-This task is to be used with the new version of the `Prepare Analysis Configuration` task.
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -88,11 +88,11 @@ This task is to be used with the new version of the `Prepare Analysis Configurat
 |-------------|-------------|
 | Pipeline types | YAML, Classic build |
 | Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: java |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
+| Agent version |  3.218.0 or greater |
 | Task category | Build |
 
 :::moniker-end
@@ -100,8 +100,5 @@ This task is to be used with the new version of the `Prepare Analysis Configurat
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

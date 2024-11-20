@@ -1,14 +1,14 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 06/11/2024
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 11/20/2024
+monikerRange: "<=azure-pipelines"
 ---
 
 # trigger definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A push trigger specifies which branches cause a continuous integration build to run.
@@ -24,7 +24,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [resources.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines-2019.1"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -101,7 +101,7 @@ If you specify an `exclude` clause without an `include` clause for `branches`, `
 <!-- :::implementation-item name="trigger: string"::: -->
 <a name="triggerstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: none
@@ -147,7 +147,7 @@ trigger: none # will disable CI builds entirely
 <!-- :::implementation-item name="trigger: string list"::: -->
 <a name="triggerstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: string list
@@ -304,6 +304,8 @@ File paths to include or exclude for triggering a run.
 ### Remarks
 
 If you have many team members uploading changes often, you may want to reduce the number of runs you start. If you set `batch` to `true`, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. By default, `batch` is `false`.
+
+When specifying a branch, tag, or path, you may use an exact name or a wildcard. For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
 
 ::: moniker range=">= azure-pipelines-2020"
 

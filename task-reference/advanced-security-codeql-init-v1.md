@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 07/02/2024
+ms.date: 09/10/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -32,6 +32,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
     #enableAutomaticCodeQLInstall: false # boolean. Enable automatic CodeQL detection and installation. Default: false.
     #languages: # 'csharp' | 'cpp' | 'go' | 'java' | 'javascript' | 'python' | 'ruby' | 'swift'. Languages to analyze. 
     #querysuite: 'Select a query suite...' # 'Select a query suite...' | 'code-scanning' | 'security-extended' | 'security-experimental' | 'security-and-quality'. CodeQL Query Suite to use for analysis. Default: Select a query suite....
+    #buildtype: 'Manual' # 'Manual' | 'None'. Select build mode (manual vs none). Default: Manual.
   # Advanced
     #ram: # string. Options to control RAM usage in MB. 
     #threads: # string. Use this many threads to evaluate queries. 
@@ -82,6 +83,20 @@ You can set the language here in the task, or you can specify the language in a 
 `string`. Allowed values: `Select a query suite...`, `code-scanning`, `security-extended`, `security-experimental`, `security-and-quality`. Default value: `Select a query suite...`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The query suite, i.e. ruleset, used for analysis. You can specify the value here in the task, or you can specify it in a pipeline variable named `advancedsecurity.codeql.querysuite`. If both are set, the value specified in the task takes precedence. The default value is `Select a query suite...` which indicates that the query suite must be specified in the `advancedsecurity.codeql.querysuite` variable.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="buildtype"::: -->
+:::moniker range="=azure-pipelines"
+
+**`buildtype`** - **Select build mode (manual vs none)**<br>
+`string`. Allowed values: `Manual`, `None`. Default value: `Manual`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify `Manual` if you want to manually build the project before running the CodeQL analysis. Specify `None` if you want to run the CodeQL analysis without building the project.
+
+For more information on the different build modes including a comparison on the benefits of each build mode, see [CodeQL code scanning for compiled languages](https://docs.github.com/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-the-codeql-analysis-workflow-and-compiled-languages). To use `autobuild`, add the [AdvancedSecurity-CodeQL-Autobuild@1](./advanced-security-codeql-autobuild-v1.md) task to your pipeline. For more information, see [Code scanning build mode customization](/azure/devops/repos/security/github-advanced-security-code-scanning#code-scanning-build-mode-customization).
 <!-- :::editable-content-end::: -->
 <br>
 

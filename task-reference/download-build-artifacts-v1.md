@@ -216,6 +216,8 @@ The default pattern `\*\*` downloads all files across all artifacts in the build
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path on the agent machine where the artifacts are downloaded.
+
+For more information on `System.ArtifactsDirectory`, see [Use variables in Classic release pipelines](/azure/devops/pipelines/release/variables).
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -14,7 +14,7 @@ monikerRange: "=azure-pipelines"
 Use this task to publish SonarQube's Quality Gate result on the Azure DevOps build result. Use this after the analysis.
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubePublish@6](./sonar-qube-publish-v6.md).
+> This task is deprecated; use [SonarQubePublish@7](./sonar-qube-publish-v7.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -74,7 +74,7 @@ None.
 ## Remarks
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubePublish@6](./sonar-qube-publish-v6.md).
+> This task is deprecated; use [SonarQubePublish@7](./sonar-qube-publish-v7.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

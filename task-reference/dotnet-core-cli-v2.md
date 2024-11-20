@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
-description: Build, test, package, or publish a dotnet application, or run a custom dotnet command.
-ms.date: 07/02/2024
+description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
+ms.date: 10/15/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "<=azure-pipelines"
 :::moniker range=">=azure-pipelines-2019.1"
 
 <!-- :::editable-content name="description"::: -->
-Build, test, package, or publish a dotnet application, or run a custom dotnet command.
+Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -35,9 +35,10 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 ```yaml
 # .NET Core v2
-# Build, test, package, or publish a dotnet application, or run a custom dotnet command.
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: DotNetCoreCLI@2
   inputs:
+    #azureSubscription: # string. Alias: ConnectedServiceName. Azure Resource Manager connection. 
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
     #publishWebProjects: true # boolean. Optional. Use when command = publish. Publish web projects. Default: true.
     #projects: # string. Optional. Use when command = build || command = restore || command = run || command = test || command = custom || publishWebProjects = false. Path to project(s) or solution(s). 
@@ -60,7 +61,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
   # Feeds and authentication
     #feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
-    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts feed. 
+    #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts feed. Select from the dropdown or enter [project name/]feed name. 
     #includeNuGetOrg: true # boolean. Optional. Use when selectOrConfig = select && command = restore. Use packages from NuGet.org. Default: true.
     #nugetConfigPath: # string. Optional. Use when selectOrConfig = config && command = restore. Path to NuGet.config. 
     #externalFeedCredentials: # string. Alias: externalEndpoints. Optional. Use when selectOrConfig = config && command = restore. Credentials for feeds outside this organization/collection. 
@@ -89,7 +90,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 ```yaml
 # .NET Core v2
-# Build, test, package, or publish a dotnet application, or run a custom dotnet command.
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
@@ -143,7 +144,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 ```yaml
 # .NET Core v2
-# Build, test, package, or publish a dotnet application, or run a custom dotnet command.
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
@@ -197,7 +198,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 ```yaml
 # .NET Core v2
-# Build, test, package, or publish a dotnet application, or run a custom dotnet command.
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
@@ -250,7 +251,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 
 ```yaml
 # .NET Core v2
-# Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet.
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build' # 'build' | 'push' | 'pack' | 'publish' | 'restore' | 'run' | 'test' | 'custom'. Required. Command. Default: build.
@@ -300,6 +301,21 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
 <!-- :::inputs::: -->
 ## Inputs
 
+<!-- :::item name="azureSubscription"::: -->
+:::moniker range="=azure-pipelines"
+
+**`azureSubscription`** - **Azure Resource Manager connection**<br>
+Input alias: `ConnectedServiceName`. `string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify an Azure Resource Manager service connection configured with workload identity federation to use [AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/) in integration tests. For more information, see [Use AzurePipelinesCredential in integration tests](#use-azurepipelinescredential-in-integration-tests).
+
+> [!NOTE]
+> This input only supports ARM service connections that are configured to use workload identity federation.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -491,7 +507,18 @@ You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or yo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeed"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="=azure-pipelines"
+
+**`vstsFeed`** - **Use packages from this Azure Artifacts feed. Select from the dropdown or enter [project name/]feed name.**<br>
+Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Includes the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to select a feed here. `projectName`/`feedName` are used for project-scoped feeds. Only `FeedName` is used for organization-scoped feeds. Note: This is not supported for the `test` command.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed**<br>
 Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
@@ -874,6 +901,12 @@ None.
 
 > [!IMPORTANT]
 > The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. The `restore` and `push` commands of this .NET Core CLI task no longer take new features and only critical bugs are addressed.
+
+:::moniker range="azure-pipelines"
+
+[!INCLUDE [temp](includes/azure-pipeline-credential-integration-tests.md)]
+
+:::moniker-end
 
 ### Why is my build, publish, or test step failing to restore packages?
 

@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 07/02/2024
+ms.date: 10/10/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
     command: 'install' # 'install' | 'sign' | 'verify'. Required. Command to run. Default: install.
   # Command Configuration
     #isCustomVersion: false # boolean. Optional. Use when command = install. Custom Version. Default: false.
-    #version: '1.1.1' # string. Required when command = install && isCustomVersion = false. Version. Default: 1.1.1.
+    #version: '1.2.0' # string. Required when command = install && isCustomVersion = false. Version. Default: 1.2.0.
     #url: # string. Required when command = install && isCustomVersion = true. Download URL. 
     #checksum: # string. Required when command = install && isCustomVersion = true. Checksum. 
     #artifactRefs: # string. Optional. Use when command = verify || command = sign. Artifact references. 
@@ -46,6 +46,9 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
     #keyid: # string. Required when plugin = azureKeyVault && command = sign. Key ID. 
     #caCertBundle: # string. Optional. Use when plugin = azureKeyVault && command = sign. Certificate Bundle File Path. 
     #selfSigned: false # boolean. Optional. Use when plugin = azureKeyVault && command = sign. Self-signed Certificate. Default: false.
+  # Timestamp
+    #timestampURL: # string. Optional. Use when command = sign. Timestamp URL. 
+    #timestampRootCert: # string. Optional. Use when command = sign. Timestamp Root Certificate.
 ```
 
 :::moniker-end
@@ -86,7 +89,7 @@ Specify `true` to provide a custom version of Notation for the task by specifyin
 :::moniker range="=azure-pipelines"
 
 **`version`** - **Version**<br>
-`string`. Required when `command = install && isCustomVersion = false`. Default value: `1.1.1`.<br>
+`string`. Required when `command = install && isCustomVersion = false`. Default value: `1.2.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of Notation to install. Example: 1.0.0, 1, 1.0, 1.0.0.
 <!-- :::editable-content-end::: -->
@@ -220,6 +223,30 @@ The certificate bundle file with root and all intermediate certificates, startin
 `boolean`. Optional. Use when `plugin = azureKeyVault && command = sign`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Whether the certificate is a self-signed certificate.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="timestampURL"::: -->
+:::moniker range="=azure-pipelines"
+
+**`timestampURL`** - **Timestamp URL**<br>
+`string`. Optional. Use when `command = sign`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+RFC 3161 Timestamping Authority (TSA) server URL. (Require Notation v1.2.0 or later).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="timestampRootCert"::: -->
+:::moniker range="=azure-pipelines"
+
+**`timestampRootCert`** - **Timestamp Root Certificate**<br>
+`string`. Optional. Use when `command = sign`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+filepath of timestamp authority root certificate. (Require Notation v1.2.0 or later).
 <!-- :::editable-content-end::: -->
 <br>
 

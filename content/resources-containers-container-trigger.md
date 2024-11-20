@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container.trigger definition
 description: Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
-ms.date: 06/11/2024
+ms.date: 11/12/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -102,7 +102,7 @@ Tag names to include or exclude for triggering a run.
 <!-- :::editable-content name="examples"::: -->
 ### Examples
 
-In the following example, the trigger is enabled for tags matching `production*`.
+In the following example, the trigger is enabled for tags matching `production*`. When specifying a tag, you may use an exact name or a wildcard. For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
 
 ```yaml
 resources:         
