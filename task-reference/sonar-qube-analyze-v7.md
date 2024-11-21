@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@7 - Run Code Analysis v7 task
 description: Run scanner and upload the results to the SonarQube server.
-ms.date: 11/07/2024
+ms.date: 11/21/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -26,7 +26,7 @@ Run scanner and upload the results to the SonarQube server.
 
 ```yaml
 # Run Code Analysis v7
-# Run scanner and upload the results to the SonarQube server.
+# Run scanner and upload the results to the SonarQube Server.
 - task: SonarQubeAnalyze@7
   inputs:
     jdkversion: 'JAVA_HOME_17_X64' # 'JAVA_HOME' | 'JAVA_HOME_17_X64' | 'JAVA_HOME_21_X64'. Required. JDK version source for analysis. Default: JAVA_HOME_17_X64.

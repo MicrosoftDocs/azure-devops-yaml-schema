@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@7 - Prepare Analysis Configuration v7 task
 description: Prepare SonarQube analysis configuration.
-ms.date: 11/07/2024
+ms.date: 11/21/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -26,7 +26,7 @@ Prepare SonarQube analysis configuration.
 
 ```yaml
 # Prepare Analysis Configuration v7
-# Prepare SonarQube analysis configuration.
+# Prepare SonarQube Server analysis configuration.
 - task: SonarQubePrepare@7
   inputs:
     SonarQube: # string. Required. SonarQube Server Endpoint. 

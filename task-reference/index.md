@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 11/07/2024
+ms.date: 11/21/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -34,7 +34,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Advanced Security AutoBuild**<br>[AdvancedSecurity-Codeql-Autobuild@1](advanced-security-codeql-autobuild-v1.md) | Attempts to build the repository by finding and building project files in the source folder. |
 | **Advanced Security Initialize CodeQL**<br>[AdvancedSecurity-Codeql-Init@1](advanced-security-codeql-init-v1.md) | Initializes the CodeQL database in preparation for building. |
 | **Advanced Security Perform CodeQL analysis**<br>[AdvancedSecurity-Codeql-Analyze@1](advanced-security-codeql-analyze-v1.md) | Finalizes the CodeQL database and runs the analysis queries. |
@@ -57,9 +57,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
-| **Prepare Analysis Configuration**<br>[SonarQubePrepare@7](sonar-qube-prepare-v7.md)<br>[SonarQubePrepare@6](sonar-qube-prepare-v6.md)<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube analysis configuration. |
-| **Publish Quality Gate Result**<br>[SonarQubePublish@7](sonar-qube-publish-v7.md)<br>[SonarQubePublish@6](sonar-qube-publish-v6.md)<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
-| **Run Code Analysis**<br>[SonarQubeAnalyze@7](sonar-qube-analyze-v7.md)<br>[SonarQubeAnalyze@6](sonar-qube-analyze-v6.md)<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube server. |
+| **Prepare Analysis Configuration**<br>[SonarQubePrepare@7](sonar-qube-prepare-v7.md)<br>[SonarQubePrepare@6](sonar-qube-prepare-v6.md)<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube Server analysis configuration. |
+| **Publish Quality Gate Result**<br>[SonarQubePublish@7](sonar-qube-publish-v7.md)<br>[SonarQubePublish@6](sonar-qube-publish-v6.md)<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
+| **Run Code Analysis**<br>[SonarQubeAnalyze@7](sonar-qube-analyze-v7.md)<br>[SonarQubeAnalyze@6](sonar-qube-analyze-v6.md)<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube Server. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
 | **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
 | **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
@@ -72,7 +72,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 |---|---|
 | **App Center distribute**<br>[AppCenterDistribute@3](app-center-distribute-v3.md)<br>[AppCenterDistribute@2](app-center-distribute-v2.md)<br>[AppCenterDistribute@1](app-center-distribute-v1.md)<br>[AppCenterDistribute@0](app-center-distribute-v0.md) | Distribute app builds to testers and users via Visual Studio App Center. |
 | **ARM template deployment**<br>[AzureResourceManagerTemplateDeployment@3](azure-resource-manager-template-deployment-v3.md) | Deploy an Azure Resource Manager (ARM) template to all the deployment scopes. |
-| **Azure App Configuration Export**<br>[AzureAppConfigurationExport@10](azure-app-configuration-export-v10.md) | Download key-values to task variables from Azure App Configuration. |
+| **Azure App Configuration Export**<br>[AzureAppConfigurationExport@10](azure-app-configuration-export-v10.md) | Export key-values to task variables from Azure App Configuration. |
 | **Azure App Service Classic (Deprecated)**<br>[AzureWebPowerShellDeployment@1](azure-web-powershell-deployment-v1.md) | Create or update Azure App Service using Azure PowerShell. |
 | **Azure App Service deploy**<br>[AzureRmWebAppDeployment@4](azure-rm-web-app-deployment-v4.md)<br>[AzureRmWebAppDeployment@3](azure-rm-web-app-deployment-v3.md)<br>[AzureRmWebAppDeployment@2](azure-rm-web-app-deployment-v2.md) | Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby. |
 | **Azure App Service manage**<br>[AzureAppServiceManage@0](azure-app-service-manage-v0.md) | Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service. |
@@ -184,7 +184,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Advanced Security Dependency Scanning**<br>[AdvancedSecurity-Dependency-Scanning@1](advanced-security-dependency-scanning-v1.md) | Scan for open source dependency vulnerabilities in your source code. |
 | **Archive files**<br>[ArchiveFiles@2](archive-files-v2.md) | Compress files into .7z, .tar.gz, or .zip. |
 | **Archive Files**<br>[ArchiveFiles@1](archive-files-v1.md) | Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip. |
-| **Azure App Configuration Import**<br>[AzureAppConfigurationImport@10](azure-app-configuration-import-v10.md) | Push key-values to an Azure App Configuration instance. |
+| **Azure App Configuration Import**<br>[AzureAppConfigurationImport@10](azure-app-configuration-import-v10.md) | Import key-values to an Azure App Configuration instance. |
 | **Azure App Configuration Snapshot**<br>[AzureAppConfigurationSnapshot@1](azure-app-configuration-snapshot-v1.md) | Create a snapshot in an Azure App Configuration instance. |
 | **Azure Network Load Balancer**<br>[AzureNLBManagement@1](azure-nlb-management-v1.md) | Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool. |
 | **Bash**<br>[Bash@3](bash-v3.md) | Run a Bash script on macOS, Linux, or Windows. |
@@ -244,7 +244,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -355,7 +355,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
@@ -440,7 +440,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -549,7 +549,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
@@ -633,7 +633,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -741,7 +741,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
@@ -824,7 +824,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -931,7 +931,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
@@ -1014,7 +1014,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -1112,7 +1112,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish test results**<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish test results to Azure Pipelines. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md) | Publish test results to Azure Pipelines. |
 | **Run functional tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
@@ -1189,7 +1189,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 
 | Task | Description |
 |---|---|
-| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a dotnet application, or run a custom dotnet command. For package commands, supports NuGet.org and authenticated feeds like Package Management and MyGet. |
+| **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Android Build**<br>[AndroidBuild@1](android-build-v1.md) | AndroidBuild@1 is deprecated. Use Gradle. |
 | **Android Signing**<br>[AndroidSigning@3](android-signing-v3.md)<br>[AndroidSigning@2](android-signing-v2.md)<br>[AndroidSigning@1](android-signing-v1.md) | Sign and align Android APK files. |
 | **Ant**<br>[Ant@1](ant-v1.md) | Build with Apache Ant. |
@@ -1277,7 +1277,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish Code Coverage Results**<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish Cobertura or JaCoCo code coverage results from a build. |
 | **Publish Test Results**<br>[PublishTestResults@2](publish-test-results-v2.md)<br>[PublishTestResults@1](publish-test-results-v1.md) | Publish Test Results to Azure Pipelines/TFS. |
 | **Run Functional Tests**<br>[RunVisualStudioTestsusingTestAgent@1](run-visual-studio-testsusing-test-agent-v1.md) | Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests. |
-| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2). |
+| **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md)<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Depreciated] Testing mobile apps with Xamarin Test Cloud using Xamarin.UITest - recommended task is now AppCenterTest. |
 ## Tool tasks

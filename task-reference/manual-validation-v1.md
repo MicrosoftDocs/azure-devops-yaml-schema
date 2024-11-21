@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-ms.date: 09/23/2024
+ms.date: 11/21/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -29,6 +29,7 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
   inputs:
     notifyUsers: # string. Required. Notify users. 
     #approvers: # string. Approvers. 
+    #allowApproversToApproveTheirOwnRuns: false # boolean. Allow approvers to approve their own run. Default: false.
     #instructions: # string. Instructions. 
     #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
@@ -60,6 +61,18 @@ This task input is required, but you can specify an empty string if you don't wa
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a comma separated list of users/groups/project teams to act on a manual validation. In absence of input, users with queue build permission will be able to take action.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="allowApproversToApproveTheirOwnRuns"::: -->
+:::moniker range="=azure-pipelines"
+
+**`allowApproversToApproveTheirOwnRuns`** - **Allow approvers to approve their own run**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this is true, approver will be able to approve their own run.
 <!-- :::editable-content-end::: -->
 <br>
 
