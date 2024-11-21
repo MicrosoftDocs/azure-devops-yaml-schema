@@ -1,7 +1,7 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 07/02/2024
+ms.date: 11/21/2024
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -20,7 +20,24 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# File transform v2
+# Replace tokens with variable values in XML or JSON configuration files.
+- task: FileTransform@2
+  inputs:
+    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #enableXmlTransform: true # boolean. XML transformation. Default: true.
+    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. Optional. Use when enableXmlTransform == true. XML Transformation rules. Default: -transform **\*.Release.config -xml **\*.config.
+  # Variable Substitution
+    #jsonTargetFiles: # string. JSON target files. 
+    #xmlTargetFiles: # string. XML target files.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 ```yaml
 # File transform v2
@@ -56,8 +73,34 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, t
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="enableXmlTransform"::: -->
+:::moniker range="=azure-pipelines"
+
+**`enableXmlTransform`** - **XML transformation**<br>
+`boolean`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Config transforms will be run prior to the Variable Substitution.
+
+XML transformations are supported only for Windows platform.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 <!-- :::item name="xmlTransformationRules"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="=azure-pipelines"
+
+**`xmlTransformationRules`** - **XML Transformation rules**<br>
+`string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provides a newline-separated list of transformation file rules using the syntax:
+`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional, and if not specified, the source configuration file will be replaced with the transformed result file.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
 
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 `string`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>

@@ -1,7 +1,7 @@
 ---
 title: SonarQubePublish@7 - Publish Quality Gate Result v7 task
 description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
-ms.date: 11/07/2024
+ms.date: 11/21/2024
 monikerRange: "=azure-pipelines"
 ---
 
@@ -26,7 +26,7 @@ Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be 
 
 ```yaml
 # Publish Quality Gate Result v7
-# Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+# Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
 - task: SonarQubePublish@7
   inputs:
     pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: 300.

@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 08/27/2024
+ms.date: 11/21/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -12,7 +12,6 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Cobertura or JaCoCo code coverage results from a build.
-
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -39,23 +38,7 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
-
-```yaml
-# Publish code coverage results v1
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
-    summaryFileLocation: # string. Required. Summary file. 
-    #pathToSources: # string. Path to Source files. 
-    #reportDirectory: # string. Report directory. 
-    #additionalCodeCoverageFiles: # string. Additional files. 
-    #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2019.1"
 
 ```yaml
 # Publish code coverage results v1

@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-ms.date: 10/15/2024
+ms.date: 11/21/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -59,6 +59,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #nobuild: false # boolean. Optional. Use when command = pack. Do not build. Default: false.
     #includesymbols: false # boolean. Optional. Use when command = pack. Include Symbols. Default: false.
     #includesource: false # boolean. Optional. Use when command = pack. Include Source. Default: false.
+    #requestTimeout: '300000' # string. Set timeout for package download request. Default: 300000.
   # Feeds and authentication
     #feedsToUse: 'select' # 'select' | 'config'. Alias: selectOrConfig. Required when command = restore. Feeds to use. Default: select.
     #vstsFeed: # string. Alias: feedRestore. Optional. Use when selectOrConfig = select && command = restore. Use packages from this Azure Artifacts feed. Select from the dropdown or enter [project name/]feed name. 
@@ -874,6 +875,18 @@ The current working directory where the script is run. `Empty` is the root of th
 `string`. Optional. Use when `command != pack && command != push && command != restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="requestTimeout"::: -->
+:::moniker range="=azure-pipelines"
+
+**`requestTimeout`** - **Set timeout for package download request**<br>
+`string`. Default value: `300000`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provide a timeout value for HTTP requests that the task makes to obtain the .NET package. The value is in milliseconds. Default is 300000 milliseconds (5 minutes). Cannot be more than 600000 milliseconds (10 minutes).
 <!-- :::editable-content-end::: -->
 <br>
 
