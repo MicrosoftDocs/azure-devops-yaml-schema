@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (task version 2).
-ms.date: 07/02/2024
+ms.date: 11/21/2024
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 ```yaml
 # Visual Studio Test v2
-# Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: VSTest@2
   inputs:
   # Test selection
@@ -83,7 +83,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 ```yaml
 # Visual Studio Test v2
-# Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: VSTest@2
   inputs:
   # Test selection
@@ -139,7 +139,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 ```yaml
 # Visual Studio Test v2
-# Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: VSTest@2
   inputs:
   # Test selection
@@ -192,7 +192,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 ```yaml
 # Visual Studio Test v2
-# Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2).
+# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
 - task: VSTest@2
   inputs:
   # Test selection
