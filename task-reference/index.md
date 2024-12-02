@@ -168,7 +168,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Go tool installer**<br>[GoTool@0](go-tool-v0.md) | Find in cache or download a specific version of Go and add it to the PATH. |
 | **Helm tool installer**<br>[HelmInstaller@1](helm-installer-v1.md)<br>[HelmInstaller@0](helm-installer-v0.md) | Install Helm on an agent machine. |
 | **Install Azure Func Core Tools**<br>[FuncToolsInstaller@0](func-tools-installer-v0.md) | Install Azure Func Core Tools. |
-| **Java tool installer**<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
+| **Java tool installer**<br>[JavaToolInstaller@1](java-tool-installer-v1.md)<br>[JavaToolInstaller@0](java-tool-installer-v0.md) | Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME. |
 | **Kubectl tool installer**<br>[KubectlInstaller@0](kubectl-installer-v0.md) | Install Kubectl on agent machine. |
 | **Kubelogin tool installer**<br>[KubeloginInstaller@0](kubelogin-installer-v0.md) | Helps to install kubelogin. |
 | **NuGet tool installer**<br>[NuGetToolInstaller@1](nuget-tool-installer-v1.md)<br>[NuGetToolInstaller@0](nuget-tool-installer-v0.md) | Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks. |
