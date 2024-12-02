@@ -660,6 +660,9 @@ items:
     displayName: Invoke REST API v0
 - name: Java tool installer
   items:
+  - name: JavaToolInstaller@1
+    href: java-tool-installer-v1.md
+    displayName: Java tool installer v1
   - name: JavaToolInstaller@0
     href: java-tool-installer-v0.md
     displayName: Java tool installer v0
