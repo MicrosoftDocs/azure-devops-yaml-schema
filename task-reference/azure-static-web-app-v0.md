@@ -311,6 +311,8 @@ URL of the Static Web App after a successful deployment.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
 > [!NOTE]
 > This task only runs on Linux agents.
 <!-- :::editable-content-end::: -->
