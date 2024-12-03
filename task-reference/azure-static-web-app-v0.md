@@ -1,7 +1,7 @@
 ---
 title: AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 description: Build and deploy an Azure Static Web App.
-ms.date: 07/02/2024
+ms.date: 12/03/2024
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -298,7 +298,13 @@ All tasks have control options in addition to their task inputs. For more inform
 
 :::moniker range=">=azure-pipelines-2022"
 
-None.
+This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
+
+<!-- :::item name="AZURESTATICWEBAPP_STATIC_WEB_APP_URL"::: -->
+**`AZURESTATICWEBAPP_STATIC_WEB_APP_URL`**<br><!-- :::editable-content name="Value"::: -->
+URL of the Static Web App after a successful deployment.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 <!-- :::outputVariables-end::: -->
