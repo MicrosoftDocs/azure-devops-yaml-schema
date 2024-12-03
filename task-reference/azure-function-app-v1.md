@@ -367,6 +367,8 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enter the application settings using the syntax `-key value` (for example: `-Port 5000` `-RequestTimeout 5000` `-WEBSITE_TIME_ZONE`). Enclose values that contain spaces in double quotes (for example: `"Eastern Standard Time"`).
+
+For more information on app settings, see [Environment variables and app settings in Azure App Service](/azure/app-service/reference-app-settings).
 <!-- :::editable-content-end::: -->
 <br>
 
