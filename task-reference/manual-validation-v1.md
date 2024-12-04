@@ -73,6 +73,9 @@ Specify a comma separated list of users/groups/project teams to act on a manual 
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, approver will be able to approve their own run.
+
+> [!IMPORTANT]
+> The functionality for `allowApproversToApproveTheirOwnRuns` is still deploying to Azure DevOps, and is currently not enabled.
 <!-- :::editable-content-end::: -->
 <br>
 
