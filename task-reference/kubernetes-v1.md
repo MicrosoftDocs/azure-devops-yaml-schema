@@ -709,7 +709,7 @@ Working directory for the Kubectl command.
 **`outputFormat`** - **Output format**<br>
 `string`. Allowed values: `json`, `yaml`, `none`. Default value: `json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Output format.
+Output format. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [output options](https://kubernetes.io/docs/reference/kubectl/#output-options) such as `jsonpath={.items[*].spec['initContainers', 'containers'][*].image}`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -720,7 +720,7 @@ Output format.
 **`outputFormat`** - **Output format**<br>
 `string`. Allowed values: `json`, `yaml`. Default value: `json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Output format.
+Output format. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [output options](https://kubernetes.io/docs/reference/kubectl/#output-options) such as `jsonpath={.items[*].spec['initContainers', 'containers'][*].image}`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -731,7 +731,7 @@ Output format.
 **`outputFormat`** - **Output format**<br>
 `string`. Optional. Use when `command != login && command != logout`. Allowed values: `json`, `yaml`. Default value: `json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Output format.
+Output format. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [output options](https://kubernetes.io/docs/reference/kubectl/#output-options) such as `jsonpath={.items[*].spec['initContainers', 'containers'][*].image}`.
 <!-- :::editable-content-end::: -->
 <br>
 
