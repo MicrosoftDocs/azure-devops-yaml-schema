@@ -1,283 +1,230 @@
+# FileTransform@2 Task in Azure DevOps
+
+## Overview
+The `FileTransform@2` task in Azure DevOps pipelines is used to transform configuration files such as JSON, XML, YAML, and more. It is particularly useful for replacing tokens or applying transformations to configuration files during deployment.
+
 ---
-title: FileTransform@2 - File transform v2 task
-description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 11/21/2024
-monikerRange: ">=azure-pipelines-2020"
+
+## Features
+
+1. **Supports Multiple Formats**:
+   - JSON, XML, and YAML file types are natively supported.
+
+2. **Token Replacement**:
+   - Replace placeholders in configuration files with values from pipeline variables, variable groups, or Key Vault secrets.
+
+3. **Custom Token Prefix/Suffix**:
+   - Customize the format of tokens in your configuration files (e.g., `__TokenName__`, `{{TokenName}}`).
+
+4. **File Type Detection**:
+   - Automatically detects the file type or allows manual specification.
+
+5. **Flexible Targeting**:
+   - Use glob patterns to target multiple files for transformation.
+
+6. **Override Parameters**:
+   - Provide custom values directly in the task for specific transformations.
+
 ---
 
-# FileTransform@2 - File transform v2 task
+## Common Use Cases
 
-<!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+1. **Environment-Specific Configurations**:
+   - Replace values like API URLs, connection strings, or other environment-specific settings.
 
-<!-- :::editable-content name="description"::: -->
-Use this task to replace tokens with variable values in XML or JSON configuration files.
-<!-- :::editable-content-end::: -->
+2. **Integration with Key Vault**:
+   - Securely replace sensitive tokens like secrets and API keys.
 
-:::moniker-end
-<!-- :::description-end::: -->
+3. **Multiple File Transformation**:
+   - Apply changes to multiple files at once using glob patterns.
 
-<!-- :::syntax::: -->
-## Syntax
+---
 
-:::moniker range="=azure-pipelines"
+## Task Schema
 
+### Basic Syntax
 ```yaml
-# File transform v2
-# Replace tokens with variable values in XML or JSON configuration files.
 - task: FileTransform@2
   inputs:
-    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #enableXmlTransform: true # boolean. XML transformation. Default: true.
-    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. Optional. Use when enableXmlTransform == true. XML Transformation rules. Default: -transform **\*.Release.config -xml **\*.config.
-  # Variable Substitution
-    #jsonTargetFiles: # string. JSON target files. 
-    #xmlTargetFiles: # string. XML target files.
+    folderPath: '<path-to-folder>'
+    targetFiles: '<glob-pattern>'
+    fileType: '<file-type>'
+    tokenPrefix: '<custom-prefix>'
+    tokenSuffix: '<custom-suffix>'
+    overrideParameters: |
+      Key1=Value1
+      Key2=Value2
 ```
 
-:::moniker-end
+---
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+## Parameters
 
-```yaml
-# File transform v2
-# Replace tokens with variable values in XML or JSON configuration files.
-- task: FileTransform@2
-  inputs:
-    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. XML Transformation rules. Default: -transform **\*.Release.config -xml **\*.config.
-  # Variable Substitution
-    #jsonTargetFiles: # string. JSON target files. 
-    #xmlTargetFiles: # string. XML target files.
-```
+### Required Inputs
+- **`folderPath`**: Path to the directory containing configuration files.
+- **`targetFiles`**: Glob pattern specifying files to transform (e.g., `**/*.json`).
 
-:::moniker-end
-<!-- :::syntax-end::: -->
+### Optional Inputs
+- **`fileType`**:
+  - Specifies the file type (`json`, `xml`, `yaml`).
+  - Default: Auto-detect based on file extension.
+- **`tokenPrefix`**: Custom prefix for tokens (e.g., `__`).
+- **`tokenSuffix`**: Custom suffix for tokens (e.g., `__`).
+- **`overrideParameters`**:
+  - Inline key-value pairs to override tokens (e.g., `Key=Value`).
 
-<!-- :::inputs::: -->
-## Inputs
+---
 
-<!-- :::item name="folderPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-**`folderPath`** - **Package or folder**<br>
-`string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-File path to the package or a folder.
-
-Variables are [Build](/azure/devops/pipelines/build/variables) and [Release](/azure/devops/pipelines/release/variables#default-variables). Wildcards are supported. 
-
-For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, the contents are extracted to the TEMP location, transformations executed, and the results zipped in original artifact location.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="enableXmlTransform"::: -->
-:::moniker range="=azure-pipelines"
-
-**`enableXmlTransform`** - **XML transformation**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Config transforms will be run prior to the Variable Substitution.
-
-XML transformations are supported only for Windows platform.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="xmlTransformationRules"::: -->
-:::moniker range="=azure-pipelines"
-
-**`xmlTransformationRules`** - **XML Transformation rules**<br>
-`string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Provides a newline-separated list of transformation file rules using the syntax:
-`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional, and if not specified, the source configuration file will be replaced with the transformed result file.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
-
-**`xmlTransformationRules`** - **XML Transformation rules**<br>
-`string`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Provides a newline-separated list of transformation file rules using the syntax:
-`-transform <pathToTransformFile>  -xml <pathToSourceConfigurationFile>`. The result file path is optional, and if not specified, the source configuration file will be replaced with the transformed result file.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="jsonTargetFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-**`jsonTargetFiles`** - **JSON target files**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
-
-For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
-
-```json
-{
-  "Data": {
-    "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
-    }
-  }
-}
-```
-
- Variable Substitution is run after configuration transforms. 
-
-
-Note: Only custom variables that are defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="xmlTargetFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
-
-**`xmlTargetFiles`** - **XML target files**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
-
-For XML, Variables defined in the build or release pipelines will be matched against the `key` or `name` entries in the `appSettings`, `applicationSettings`, and `connectionStrings` sections of any config file and `parameters.xml`.
-
-Variable Substitution is run after configuration transforms.
-
-Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-
-### Task control options
-
-All tasks have control options in addition to their task inputs. For more information, see [Control options and common task properties](/azure/devops/pipelines/yaml-schema/steps-task#common-task-properties).
-<!-- :::inputs-end::: -->
-
-<!-- :::outputVariables::: -->
-## Output variables
-
-:::moniker range=">=azure-pipelines-2020"
-
-None.
-
-:::moniker-end
-<!-- :::outputVariables-end::: -->
-
-<!-- :::remarks::: -->
-<!-- :::editable-content name="remarks"::: -->
-## Remarks
-
-What's new in File Transform version 2:
-
-* More optimized task fields that allow users to enable any/all of the transformation (XML), variable substitution (JSON and XML) features in a single task instance.
-* Task fails when any of the configured transformation/substitution is NOT applied or when the task is no-op.
-
-Use this task to apply file transformations and variable substitutions on configuration and parameters files.
-For details of how translations are processed, see [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
-
-> [!IMPORTANT]
-> This task is intended for web packages and requires a web package file. It does not work on standalone JSON files.
-
-### File transformations
-
-* At present, file transformations are supported for only XML files.
-* To apply an XML transformation to configuration files (*.config) you must specify a newline-separated list of transformation file rules using the syntax:`-t ransform <path to the transform file> -xml <path to the source file> -result <path to the result file>`
-* File transformations are useful in many scenarios, particularly when you are deploying to an App service and want to add,
-  remove or modify configurations for different environments (such as Dev, Test, or Prod) by following the standard
-  [Web.config Transformation Syntax](/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations).
-* You can also use this functionality to transform other files, including Console or Windows service application configuration files
-  (for example, `FabrikamService.exe.config`).
-* Config file transformations are run before variable substitutions.
-
-### Variable substitution
-
-* At present only XML and JSON file formats are supported for variable substitution.
-* Tokens defined in the target configuration files are updated and then replaced with variable values.
-* Variable substitutions are run after config file transformations.
-* Variable substitution is applied for only the JSON keys predefined in the object hierarchy. It does not create new keys.
-
-> [!NOTE]
-> Only custom variables defined in build and release pipelines are used in substitution. Default and system pipeline variables are excluded.
->
-> Here's a list of currently excluded prefixes:
-> * `agent.`
-> * `azure_http_user_agent`
-> * `build.`
-> * `common.`
-> * `release.`
-> * `system.`
-> * `tf_`
-> 
-> If the same variables are defined in both the release pipeline and in a stage, the stage-defined variables supersede the pipeline-defined variables.
-
-See also: [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution).
-<!-- :::editable-content-end::: -->
-<!-- :::remarks-end::: -->
-
-<!-- :::examples::: -->
-<!-- :::editable-content name="examples"::: -->
 ## Examples
 
-If you need XML transformation to run on all the configuration files named with pattern `.Production.config`,
-the transformation rule should be specified as:
-
-`-transform **\*.Production.config  -xml **\*.config`
-
-If you have a configuration file named based on the stage name in your pipeline, you can use:
-
-`-transform **\*.$(Release.EnvironmentName).config -xml **\*.config`
-
-To substitute JSON variables that are nested or hierarchical, specify them using JSONPath expressions.
-For example, to replace the value of **ConnectionString** in the sample below, you must define a variable
-as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or in a stage within the release pipeline). 
-
-```
+### **1. JSON Transformation**
+#### appsettings.json
+```json
 {
-  "Data": {
-    "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\SQLEXPRESS;Database=MyDB;Trusted_Connection=True"
-    }
+  "ApiSettings": {
+    "BaseUrl": "__ApiBaseUrl__"
   }
 }
 ```
-<!-- :::editable-content-end::: -->
-<!-- :::examples-end::: -->
 
-<!-- :::properties::: -->
-## Requirements
+#### Pipeline YAML
+```yaml
+trigger:
+- main
 
-:::moniker range=">=azure-pipelines-2020"
+stages:
+- stage: Deploy
+  variables:
+    ApiBaseUrl: "https://api.example.com"
+  jobs:
+  - job: Transform
+    steps:
+    - task: FileTransform@2
+      inputs:
+        folderPath: '$(Pipeline.Workspace)/config'
+        targetFiles: '**/appsettings.json'
+        fileType: 'json'
+        tokenPrefix: '__'
+        tokenSuffix: '__'
+```
+#### Transformed appsettings.json
+```json
+{
+  "ApiSettings": {
+    "BaseUrl": "https://api.example.com"
+  }
+}
+```
 
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
+### **2. XML Transformation**
+#### Web.config
+```xml
+<configuration>
+  <appSettings>
+    <add key="ApiBaseUrl" value="__ApiBaseUrl__" />
+  </appSettings>
+</configuration>
+```
 
-:::moniker-end
-<!-- :::properties-end::: -->
+#### Pipeline YAML
+```yaml
+variables:
+  ApiBaseUrl: "https://api.example.com"
 
-<!-- :::see-also::: -->
-<!-- :::editable-content name="seeAlso"::: -->
-## See also
+steps:
+- task: FileTransform@2
+  inputs:
+    folderPath: '$(Pipeline.Workspace)/config'
+    targetFiles: '**/Web.config'
+    fileType: 'xml'
+    tokenPrefix: '__'
+    tokenSuffix: '__'
+```
+#### Transformed Web.config
+```xml
+<configuration>
+  <appSettings>
+    <add key="ApiBaseUrl" value="https://api.example.com" />
+  </appSettings>
+</configuration>
+```
 
-* [File transforms and variable substitution reference](/azure/devops/pipelines/tasks/transforms-variable-substitution)
-<!-- :::editable-content-end::: -->
-<!-- :::see-also-end::: -->
+---
+
+## Advanced Features
+
+### 1. **Token Customization**
+Use `tokenPrefix` and `tokenSuffix` for custom token formats.
+
+#### Example:
+```yaml
+inputs:
+  tokenPrefix: '{{'
+  tokenSuffix: '}}'
+```
+Matches tokens like `{{TokenName}}`.
+
+### 2. **Override Parameters**
+Inline overrides take precedence over pipeline variables.
+
+#### Example:
+```yaml
+inputs:
+  overrideParameters: |
+    ApiBaseUrl=https://override.api.com
+    ExternalServiceBaseUrl=https://override.external.api
+```
+
+### 3. **Integration with Key Vault**
+Combine with the `AzureKeyVault@2` task to fetch secrets and inject them as pipeline variables for transformation.
+
+#### Example:
+```yaml
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: '$(azureServiceConnection)'
+    KeyVaultName: 'my-key-vault'
+
+- task: FileTransform@2
+  inputs:
+    folderPath: '$(Pipeline.Workspace)/config'
+    targetFiles: '**/appsettings.json'
+    fileType: 'json'
+```
+
+---
+
+## Debugging Tips
+
+1. **Validate Transformed Files**:
+   Add a task to print the transformed files for verification:
+   ```yaml
+   - script: |
+       cat $(Pipeline.Workspace)/config/appsettings.json
+   ```
+
+2. **Check Token Matching**:
+   Ensure your token prefix and suffix match the placeholders in your files.
+
+3. **Test with Override Parameters**:
+   Use `overrideParameters` to test specific transformations without modifying the pipeline variables.
+
+---
+
+## Best Practices
+
+1. **Use Standardized Tokens**:
+   Define a consistent token format for all configuration files.
+
+2. **Secure Secrets**:
+   Fetch sensitive values like connection strings from Azure Key Vault.
+
+3. **Minimize Variable Redundancy**:
+   Use variable groups or Key Vault to centralize configuration management.
+
+---
+
+## References
+- [Azure DevOps FileTransform Task Documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/file-transform?view=azure-devops)
+- [Azure Key Vault Task Documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-key-vault?view=azure-devops)
+
