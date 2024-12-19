@@ -82,7 +82,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Normal.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -136,7 +136,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -190,7 +190,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -861,7 +861,7 @@ Specifies the amount of detail displayed in the output for the `pack` command.
 :::moniker range=">=azure-pipelines-2020"
 
 **`workingDirectory`** - **Working directory**<br>
-`string`. Optional. Use when `command != restore && command != push && command != pack && command != pack && command != push && command != restore`.<br>
+`string`. Optional. Use when `command != restore && command != push && command != pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
