@@ -134,7 +134,7 @@ You can create a key vault:
 
 Add secrets to a key vault:
 
-* By using the PowerShell cmdlet [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
+* By using the PowerShell cmdlet [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret).
   If the secret does not exist, this cmdlet creates it. If the secret already exists, this cmdlet creates a new version of that secret.
 * By using the Azure CLI. To add a secret to a key vault, for example a secret named **SQLPassword** with the value **PlaceholderPassword**, type:
 
