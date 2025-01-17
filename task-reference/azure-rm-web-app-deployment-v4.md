@@ -1118,7 +1118,7 @@ The following prerequisites must be set up in the target machine(s) for the task
   The App Service instance can be created from the [Azure portal](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/)
   and [configured](/azure/app-service/configure-common) there.
   Alternatively, the [Azure PowerShell task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV2) can be used to run
-  [AzureRM PowerShell scripts](/powershell/module/azurerm.websites) to provision and configure the Web App.
+  [Azure PowerShell scripts](/powershell/module/az.websites) to provision and configure the Web App.
 
 * **Azure Subscription**. To deploy to Azure, an Azure subscription must be [linked to the pipeline](/azure/devops/pipelines/library/connect-to-azure).
   The task does not work with the Azure Classic service connection, and it will not list these connections in the settings of the task.
