@@ -1,7 +1,7 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 11/12/2024
+ms.date: 01/22/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 

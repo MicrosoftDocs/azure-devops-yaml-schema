@@ -1,7 +1,7 @@
 ---
 title: resources.packages definition
 description: List of external packages.
-ms.date: 11/12/2024
+ms.date: 01/22/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 
