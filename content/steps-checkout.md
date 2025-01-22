@@ -276,7 +276,7 @@ Where to put the repository. The root directory is $(Pipeline.Workspace). By def
 :::moniker range="=azure-pipelines"
 
 **`sparseCheckoutDirectories`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Specify a directory to enable sparse checkout in cone mode using directory matching.
+Specify a directory to enable sparse checkout in cone mode using directory matching. Separate multiple directories using a space.
 
 ```yml
 - checkout: repo
@@ -293,7 +293,7 @@ Specify a directory to enable sparse checkout in cone mode using directory match
 :::moniker range="=azure-pipelines"
 
 **`sparseCheckoutPatterns`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Specify a directory pattern to enable sparse checkout in non-cone mode using pattern matching.
+Specify a directory pattern to enable sparse checkout in non-cone mode using pattern matching. Separate multiple patterns using a space.
 
 ```yml
 - checkout: repo
