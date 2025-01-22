@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: Runs a task.
-ms.date: 11/20/2024
+ms.date: 01/22/2025
 monikerRange: "<=azure-pipelines"
 ---
 
