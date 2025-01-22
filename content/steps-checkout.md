@@ -283,8 +283,9 @@ Specify a directory to enable sparse checkout in cone mode using directory match
   sparseCheckoutDirectories: src
 ```
 
-> [!IMPORTANT]
-> If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+
+For more information on sparce checkout, see [Bring your monorepo down to size with sparse-checkout](https://github.blog/open-source/git/bring-your-monorepo-down-to-size-with-sparse-checkout/).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -300,8 +301,9 @@ Specify a directory pattern to enable sparse checkout in non-cone mode using pat
   sparseCheckoutPatterns: /* !/img
 ```
 
-> [!IMPORTANT]
-> If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+
+For more information on sparce checkout, see [Bring your monorepo down to size with sparse-checkout](https://github.blog/open-source/git/bring-your-monorepo-down-to-size-with-sparse-checkout/).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
