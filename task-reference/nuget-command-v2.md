@@ -695,6 +695,15 @@ If you were using `NuGetRestore@1`, configure the following inputs when using `N
 Similar to using `NuGetRestore@1` or the `NuGetInstaller@0` `restore` option, `NuGetCommand@2` has inputs to set the feed, decide between `select` or `config`, specify the path to the `NuGet.config` file, and use packages from nuget.org.
 
 For more information, see the following [examples](#examples).
+
+### Support for Newer Ubuntu Hosted Images
+
+Starting with Ubuntu 24.04, Microsft-hosted agents [will not ship with mono](https://github.com/actions/runner-images/issues/10636) which is required to run the underlying NuGet client that powers `NuGetCommand@2`. Users of this task on Ubuntu should migrate to the long term supported cross-platform task `NuGetAuthenticate@1` with .NET CLI.
+
+#### Migrating to .NET CLI on Ubuntu
+The [NuGet Authenticate](nuget-authenticate-v1.md) task will handle injecting credentials into the needed places for client tools to authenticate as your pipeline identity. Please see the linked documentation for instructions, FAQs, and examples for using `NuGet Authenticate` with dotnet.
+
+If [dotnet CLI commands](https://learn.microsoft.com/en-us/nuget/reference/dotnet-commands) do not support your scenario, please [report this to the .NET CLI team as an issue](https://github.com/NuGet/Home/issues/). You may continue to [pin your agent image](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser#designate-a-pool-in-your-pipeline) to [Ubuntu 22.04 or earlier](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#software). Ubuntu 22.04 support will continue until Ubuntu 26.04 is made generally available, no earlier than 2026.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
