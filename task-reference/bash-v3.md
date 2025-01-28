@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a Bash script on macOS, Linux, or Windows.
+
+>[!NOTE]
+> On a Windows host this runs bash from the WSL default distribution. WSL must be installed and the user that the agent runs as must have a distribution setup. WSL is installed on Microsoft-hosted Windows agent images. For more information, see [Microsoft-hosted agents - Software](/azure/devops/pipelines/agents/hosted#software).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
