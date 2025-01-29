@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 08/19/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 

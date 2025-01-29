@@ -1,7 +1,7 @@
 ---
 title: InstallAppleProvisioningProfile@1 - Install Apple provisioning profile v1 task
 description: Install an Apple provisioning profile required to build on a macOS agent machine.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 
