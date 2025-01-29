@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

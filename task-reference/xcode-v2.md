@@ -1,7 +1,7 @@
 ---
 title: Xcode@2 - Xcode Build v2 task
 description: Build an Xcode workspace on Mac OS.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 

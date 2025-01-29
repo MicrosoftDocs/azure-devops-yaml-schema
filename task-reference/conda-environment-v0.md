@@ -1,7 +1,7 @@
 ---
 title: CondaEnvironment@0 - Conda environment v0 task
 description: Create and activate a Conda environment.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: ">=azure-pipelines-2019"
 ---
 
