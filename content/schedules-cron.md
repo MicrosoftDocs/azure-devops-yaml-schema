@@ -1,7 +1,7 @@
 ---
 title: schedules.cron definition
 description: A scheduled trigger specifies a schedule on which branches are built.
-ms.date: 01/22/2025
+ms.date: 01/28/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -28,7 +28,7 @@ schedules:
     include: [ string ] # List of items to include.
     exclude: [ string ] # List of items to exclude.
   batch: boolean # Whether to run the pipeline if the previously scheduled run is in-progress; the default is false.
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
+  always: boolean # Whether to always run the pipeline or only if there have been source code or pipeline settings changes since the last successful scheduled run. The default is false.
 ```
 
 :::moniker-end
@@ -42,7 +42,7 @@ schedules:
   branches: # Branch names to include or exclude for triggering a run.
     include: [ string ] # List of items to include.
     exclude: [ string ] # List of items to exclude.
-  always: boolean # Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.
+  always: boolean # Whether to always run the pipeline or only if there have been source code or pipeline settings changes since the last successful scheduled run. The default is false.
 ```
 
 :::moniker-end
