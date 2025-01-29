@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 07/02/2024
+ms.date: 01/28/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 
@@ -36,10 +36,10 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
     #location: # string. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Location. 
   # Template
     #templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Template location. Default: Linked artifact.
-    #csmFileLink: # string. Required when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template link. 
-    #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters link. 
-    #csmFile: # string. Required when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template. 
-    #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters. 
+    #csmFileLink: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template link. 
+    #csmParametersFileLink: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template parameters link. 
+    #csmFile: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template. 
+    #csmParametersFile: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template parameters. 
     #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Override template parameters. 
     #deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment mode. Default: Incremental.
   # Advanced
@@ -67,10 +67,10 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
     #location: # string. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Location. 
   # Template
     #templateLocation: 'Linked artifact' # 'Linked artifact' | 'URL of the file'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Template location. Default: Linked artifact.
-    #csmFileLink: # string. Required when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template link. 
-    #csmParametersFileLink: # string. Optional. Use when templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters link. 
-    #csmFile: # string. Required when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template. 
-    #csmParametersFile: # string. Optional. Use when templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group. Template parameters. 
+    #csmFileLink: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template link. 
+    #csmParametersFileLink: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file. Template parameters link. 
+    #csmFile: # string. Required when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template. 
+    #csmParametersFile: # string. Optional. Use when (action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact. Template parameters. 
     #overrideParameters: # string. Optional. Use when action = Create Or Update Resource Group || deploymentScope != Resource Group. Override template parameters. 
     #deploymentMode: 'Incremental' # 'Incremental' | 'Complete' | 'Validation'. Required when action = Create Or Update Resource Group || deploymentScope != Resource Group. Deployment mode. Default: Incremental.
   # Advanced
@@ -177,7 +177,7 @@ The location of the Template and the Parameters JSON files. Choose **Linked arti
 :::moniker range=">=azure-pipelines-2020"
 
 **`csmFileLink`** - **Template link**<br>
-`string`. Required when `templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Required when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the URL of the template file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json`
 
@@ -193,7 +193,7 @@ To  view the template parameters in a grid, click on `...` next to the override 
 :::moniker range=">=azure-pipelines-2020"
 
 **`csmParametersFileLink`** - **Template parameters link**<br>
-`string`. Optional. Use when `templateLocation = URL of the file && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Optional. Use when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the URL of the parameters file. An example URL: `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json`
 
@@ -209,7 +209,7 @@ To  view the template parameters in a grid, click on `...` next to Override temp
 :::moniker range=">=azure-pipelines-2020"
 
 **`csmFile`** - **Template**<br>
-`string`. Required when `templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Required when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path or a pattern pointing to the Azure Resource Manager template. Learn more about [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates). To get started immediately, use [this sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-windows).  Supports Bicep files when the Azure CLI version > 2.20.0.
 <!-- :::editable-content-end::: -->
@@ -221,7 +221,7 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 :::moniker range=">=azure-pipelines-2020"
 
 **`csmParametersFile`** - **Template parameters**<br>
-`string`. Optional. Use when `templateLocation = Linked artifact && action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
+`string`. Optional. Use when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the path or a pattern pointing for the parameters file for the Azure Resource Manager template. Supports [Bicep Param](/azure/azure-resource-manager/bicep/parameter-files?tabs=Bicep) files when the Azure CLI version > 2.47.0.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 08/06/2024
+ms.date: 01/28/2025
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -39,7 +39,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
   # Application and Configuration Settings
     #appSettings: # string. App settings. 
   # Additional Deployment Options
-    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && isFlexConsumption = false && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
 ```
 
 :::moniker-end
@@ -243,7 +243,7 @@ For more information on app settings, see [Environment variables and app setting
 :::moniker range="=azure-pipelines"
 
 **`deploymentMethod`** - **Deployment method**<br>
-`string`. Required when `appType != "" && isFlexConsumption = false && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
+`string`. Required when `appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
 <!-- :::editable-content-end::: -->
