@@ -168,6 +168,9 @@ Specifies the location of the secure file that was downloaded.
 
 Use this task in a pipeline to download a [secure file](/azure/devops/pipelines/library/secure-files) to the agent machine. When specifying the name of the file (using the `secureFile` input), use the name you specified when uploading it, rather than the actual file name.
 
+> [!NOTE]
+> This task runs at the beginning of its stage, regardless of where it is located within its job.
+
 Once downloaded, use the `name` value that is set on the task (or "Reference name" in the classic editor) to reference the path to the secure file on the agent machine. For example, if the task is given the name `mySecureFile`, its path can be referenced in the pipeline as `$(mySecureFile.secureFilePath)`. Alternatively, downloaded secure files can be found in the directory given by `$(Agent.TempDirectory)`. See a full example [below](#examples).
 
 When the pipeline job completes, whether it succeeds, fails, or is canceled, the secure file is deleted from its download location.
