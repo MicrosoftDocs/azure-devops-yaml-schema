@@ -1,7 +1,7 @@
 ---
 title: jobs.job.strategy definition
 description: Execution strategy for this job.
-ms.date: 01/22/2025
+ms.date: 02/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -40,6 +40,9 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+To access variables from a job in a subsequent job, see [Set a multi-job output variable](/azure/devops/pipelines/process/variables#set-a-multi-job-output-variable).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
