@@ -385,8 +385,10 @@ Number of retries if the task fails.
 
 ### Shallow fetch
 
-> [!IMPORTANT]
-> New pipelines created after the [September 2022 Azure DevOps sprint 209 update](/azure/devops/release-notes/2022/sprint-209-update) have **Shallow fetch** enabled by default and configured with a depth of 1. Previously the default was not to shallow fetch. To check your pipeline, view the **Shallow fetch** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
+> [!NOTE]
+> In some organizations, new pipelines created after the [September 2022 Azure DevOps sprint 209 update](/azure/devops/release-notes/2022/sprint-209-update) have **Shallow fetch** enabled by default and configured with a depth of 1. Previously the default was not to shallow fetch.
+>
+> To check your pipeline, view the **Shallow fetch** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#shallow-fetch).
 
 To disable shallow fetch, you can perform one of the following two options.
 
