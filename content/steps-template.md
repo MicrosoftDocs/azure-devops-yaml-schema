@@ -1,7 +1,7 @@
 ---
 title: steps.template definition
 description: Define a set of steps in one file and use it multiple times in another file.
-ms.date: 01/22/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 
