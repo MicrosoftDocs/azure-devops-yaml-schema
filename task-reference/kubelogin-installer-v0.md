@@ -1,7 +1,7 @@
 ---
 title: KubeloginInstaller@0 - Kubelogin tool installer v0 task
 description: Helps to install kubelogin.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -28,6 +28,7 @@ Installs kubelogin and adds it to the PATH of your agent.
 - task: KubeloginInstaller@0
   inputs:
     #kubeloginVersion: 'latest' # string. kubelogin version. Default: latest.
+    #gitHubConnection: # string. GitHub Connection.
 ```
 
 :::moniker-end
@@ -43,6 +44,18 @@ Installs kubelogin and adds it to the PATH of your agent.
 `string`. Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of kubelogin to use, for example `0.0.30`, or `latest` to use the latest version. For more information about kubelogin versions, see [kubelogin releases](https://github.com/Azure/kubelogin/releases).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="gitHubConnection"::: -->
+:::moniker range="=azure-pipelines"
+
+**`gitHubConnection`** - **GitHub Connection**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+A GitHub connection is needed to prevent anonymous requests limits to the Github API for [Azure/kubelogin](https://github.com/azure/kubelogin) from impacting the installation. Leaving this empty may cause failures if the request limit is reached. This connection does not require ANY permissions.
 <!-- :::editable-content-end::: -->
 <br>
 

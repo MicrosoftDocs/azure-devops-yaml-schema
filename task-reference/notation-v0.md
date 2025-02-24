@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
     command: 'install' # 'install' | 'sign' | 'verify'. Required. Command to run. Default: install.
   # Command Configuration
     #isCustomVersion: false # boolean. Optional. Use when command = install. Custom Version. Default: false.
-    #version: '1.2.0' # string. Required when command = install && isCustomVersion = false. Version. Default: 1.2.0.
+    #version: '1.3.0' # string. Required when command = install && isCustomVersion = false. Version. Default: 1.3.0.
     #url: # string. Required when command = install && isCustomVersion = true. Download URL. 
     #checksum: # string. Required when command = install && isCustomVersion = true. Checksum. 
     #artifactRefs: # string. Optional. Use when command = verify || command = sign. Artifact references. 
@@ -89,7 +89,7 @@ Specify `true` to provide a custom version of Notation for the task by specifyin
 :::moniker range="=azure-pipelines"
 
 **`version`** - **Version**<br>
-`string`. Required when `command = install && isCustomVersion = false`. Default value: `1.2.0`.<br>
+`string`. Required when `command = install && isCustomVersion = false`. Default value: `1.3.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of Notation to install. Example: 1.0.0, 1, 1.0, 1.0.0.
 <!-- :::editable-content-end::: -->
@@ -172,7 +172,7 @@ Use the Referrers API to sign signatures, if not supported (returns 404), fallba
 :::moniker range="=azure-pipelines"
 
 **`akvPluginVersion`** - **Plugin Version**<br>
-`string`. Required when `plugin = azureKeyVault && command = sign`. Default value: `1.2.0`.<br>
+`string`. Required when `plugin = azureKeyVault && command = sign`. Default value: `1.2.1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of the Azure Key Vault plugin to be installed. See the [notation-azure-kv releases page](https://github.com/Azure/notation-azure-kv/releases) for the available versions.
 <!-- :::editable-content-end::: -->
