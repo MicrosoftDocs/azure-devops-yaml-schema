@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 02/21/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -295,21 +295,10 @@ Specifies a registry hosted in the account. You must have Package Management ins
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishPackageMetadata"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range=">=azure-pipelines-2019.1"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = publish && publishRegistry = useFeed && command = install || command = ci || command = publish`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Associates the build/release pipeline's metadata (the run # and source code information) with the package.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = publish && publishRegistry = useFeed && command = install || command = publish`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = publish && publishRegistry = useFeed`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Associates the build/release pipeline's metadata (the run # and source code information) with the package.
 <!-- :::editable-content-end::: -->
