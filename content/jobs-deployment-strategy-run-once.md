@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.runOnce definition
 description: RunOnce Deployment strategy.
-ms.date: 01/22/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 

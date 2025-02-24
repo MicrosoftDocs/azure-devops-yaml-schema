@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy definition
 description: Execution strategy for this deployment.
-ms.date: 01/22/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: steps definition
 description: Steps are a linear sequence of operations that make up a job.
-ms.date: 01/22/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

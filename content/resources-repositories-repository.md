@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 01/22/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 
