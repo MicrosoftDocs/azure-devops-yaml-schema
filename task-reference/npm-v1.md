@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 07/02/2024
+ms.date: 02/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -112,6 +112,8 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
 Specifies the command and arguments, which are passed to `npm` for execution.
 
 If your arguments contain double quotes (`"`), escape them with a slash (`\`), and surround the escaped string with double quotes (`"`).
+
+By default, packages are installed locally. To install packages globally, specify `install -g` as the command. For more information, see [Downloading and installing packages globally](https://docs.npmjs.com/downloading-and-installing-packages-globally) and [Downloading and installing packages locally](https://docs.npmjs.com/downloading-and-installing-packages-locally).
 <!-- :::editable-content-end::: -->
 <br>
 

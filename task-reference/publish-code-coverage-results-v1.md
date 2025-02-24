@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@1 - Publish code coverage results v1 task
 description: Publish Cobertura or JaCoCo code coverage results from a build.
-ms.date: 11/21/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -12,6 +12,8 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Cobertura or JaCoCo code coverage results from a build.
+> [!NOTE]
+> PublishCodeCoverageResults@2 is the newest version of the task and should be used in your pipelines. The v1 task will be deprecated.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->

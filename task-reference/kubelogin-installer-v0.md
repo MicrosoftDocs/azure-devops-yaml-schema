@@ -1,7 +1,7 @@
 ---
 title: KubeloginInstaller@0 - Kubelogin tool installer v0 task
 description: Helps to install kubelogin.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: "=azure-pipelines"
 ---
 

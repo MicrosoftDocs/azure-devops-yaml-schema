@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 11/21/2024
+ms.date: 02/13/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -93,7 +93,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Azure Resource Group Deployment**<br>[AzureResourceGroupDeployment@1](azure-resource-group-deployment-v1.md) | Deploy, start, stop, delete Azure Resource Groups. |
 | **Azure Spring Apps**<br>[AzureSpringCloud@0](azure-spring-cloud-v0.md) | Deploy applications to Azure Spring Apps and manage deployments. |
 | **Azure SQL Database deployment**<br>[SqlAzureDacpacDeployment@1](sql-azure-dacpac-deployment-v1.md) | Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD. |
-| **Azure VM scale set deployment**<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
+| **Azure VM scale set deployment**<br>[AzureVmssDeployment@1](azure-vmss-deployment-v1.md)<br>[AzureVmssDeployment@0](azure-vmss-deployment-v0.md) | Deploy a virtual machine scale set image. |
 | **Azure Web App**<br>[AzureWebApp@1](azure-web-app-v1.md) | Deploy an Azure Web App for Linux or Windows. |
 | **Azure Web App for Containers**<br>[AzureWebAppContainer@1](azure-web-app-container-v1.md) | Deploy containers to Azure App Service. |
 | **Build machine image**<br>[PackerBuild@1](packer-build-v1.md)<br>[PackerBuild@0](packer-build-v0.md) | Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment. |
@@ -217,7 +217,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Install Apple Provisioning Profile**<br>[InstallAppleProvisioningProfile@0](install-apple-provisioning-profile-v0.md) | Install an Apple provisioning profile required to build on a macOS agent. |
 | **Install SSH key**<br>[InstallSSHKey@0](install-ssh-key-v0.md) | Install an SSH key prior to a build or deployment. |
 | **Invoke Azure Function**<br>[AzureFunction@1](azure-function-v1.md)<br>[AzureFunction@0](azure-function-v0.md) | Invoke an Azure Function. |
-| **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
+| **Jenkins download artifacts**<br>[JenkinsDownloadArtifacts@2](jenkins-download-artifacts-v2.md)<br>[JenkinsDownloadArtifacts@1](jenkins-download-artifacts-v1.md) | Download artifacts produced by a Jenkins job. |
 | **Node.js tasks runner installer**<br>[NodeTaskRunnerInstaller@0](node-task-runner-installer-v0.md) | Install specific Node.js version to run node tasks. |
 | **Notation**<br>[Notation@0](notation-v0.md) | Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation. |
 | **PowerShell**<br>[PowerShell@2](powershell-v2.md)<br>[PowerShell@1](powershell-v1.md) | Run a PowerShell script on Linux, macOS, or Windows. |

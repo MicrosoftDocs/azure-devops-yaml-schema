@@ -1,7 +1,7 @@
 ---
 title: DeployVisualStudioTestAgent@1 - Visual Studio Test Agent Deployment v1 task
 description: Deploy and configure Test Agent to run tests on a set of machines.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 

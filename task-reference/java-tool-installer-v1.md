@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@1 - Java tool installer v1 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 12/02/2024
+ms.date: 01/29/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -12,6 +12,9 @@ monikerRange: "=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
+
+> [!NOTE]
+> This version of the task uses Azure RBAC to connect to Azure storage. For more information, see [Configure Azure RBAC to access Azure storage](#configure-azure-rbac-to-access-azure-storage).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -80,7 +83,7 @@ Specifies the architecture (`x86`, `x64`) of the JDK.
 Specifies the source for the compressed JDK. The source can be Azure blob storage or a local directory on the agent or source repository, or you can use the pre-installed version of Java (available for Microsoft-hosted agents). Please see the example below about how to use the pre-installed version of Java.
 
 > [!NOTE]
-> This version of the task accesses Azure storage using an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) configured using workload identity federation and Azure RBAC. For more information, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access).
+> This version of the task uses Azure RBAC to connect to Azure storage. For more information, see [Configure Azure RBAC to access Azure storage](#configure-azure-rbac-to-access-azure-storage).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -105,6 +108,9 @@ Specifies the path to the JDK archive file that contains the compressed JDK. The
 `string`. Required when `jdkSourceOption == AzureStorage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager subscription for the JDK.
+
+> [!NOTE]
+> This version of the task uses Azure RBAC to connect to Azure storage. For more information, see [Configure Azure RBAC to access Azure storage](#configure-azure-rbac-to-access-azure-storage).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -117,6 +123,9 @@ Specifies the Azure Resource Manager subscription for the JDK.
 `string`. Required when `jdkSourceOption == AzureStorage`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies Azure Classic or Resource Manager storage accounts. Select the storage account name in which the JDK is located.
+
+> [!NOTE]
+> This version of the task uses Azure RBAC to connect to Azure storage. For more information, see [Configure Azure RBAC to access Azure storage](#configure-azure-rbac-to-access-azure-storage).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -225,6 +234,10 @@ Use this task to change the version of Java used in Java tasks.
 > 1) Run the *sudo visudo* command. The sudoers file opens for editing.
 > 2) Go to the bottom of the file and add the following line: `user ALL=NOPASSWD: /usr/sbin/installer` (Replace user with the actual user alias).
 > 3) Save and close the file.
+
+### Configure Azure RBAC to access Azure storage
+
+This version of the task uses an [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) configured using workload identity federation and Azure RBAC to connect to Azure storage instead of storage account keys or shared access signatures (SAS). To connect to Azure storage from this task, you must assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) role on the storage account to the identity of the service connection configured for `azureResourceManagerEndpoint`. For more information, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) and [Steps to assign a role](/azure/role-based-access-control/role-assignments-steps).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

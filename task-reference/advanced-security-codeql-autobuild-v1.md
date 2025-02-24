@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Autobuild@1 - Advanced Security AutoBuild v1 task
 description: Attempts to build the repository by finding and building project files in the source folder.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: "=azure-pipelines"
 ---
 

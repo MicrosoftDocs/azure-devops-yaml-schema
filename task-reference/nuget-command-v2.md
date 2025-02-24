@@ -1,7 +1,7 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
 description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 10/10/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -50,7 +50,7 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
     #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = push. Verbosity. Default: Detailed.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
@@ -100,7 +100,7 @@ Use this task to restore, pack, or push NuGet packages, or run a NuGet command. 
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
     #verbosityPush: 'Detailed' # 'Quiet' | 'Normal' | 'Detailed'. Optional. Use when command = push. Verbosity. Default: Detailed.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
@@ -380,7 +380,7 @@ Specifies a feed hosted in this account. You must have Azure Artifacts installed
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = push && nuGetFeedType = internal && command = push`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Changes the version number of the subset of changed packages within a set of continually published packages.
 <!-- :::editable-content-end::: -->
@@ -683,7 +683,7 @@ If you were using `NuGetInstaller@0` with `restoreMode: install`, configure the 
 | NuGetCommand@2 task input | Value |
 |---------------------------|-------|
 | `command`                 | `custom` |
-| `arguments`         | What the full install command would look like in the NuGet CLI. For example, if you want to run the equivalent of `nuget install ninject -OutputDirectory c:\proj` in your pipeline, then the `arguments` parameter would be `install ninject -OutputDirectory c:\proj`.  If you were using the `NuGetInstaller@0` `nuGetRestoreArgs` parameter these also now go in `arguments`. |
+| `arguments`         | What the full install command would look like in the NuGet CLI. For example, if you want to run the equivalent of `nuget install ninject -OutputDirectory c:\proj` in your pipeline, then the `arguments` parameter would be `install ninject -OutputDirectory c:\proj`. If you were using the `NuGetInstaller@0` `nuGetRestoreArgs` parameter these also now go in `arguments`. |
 
 If you were using `NuGetRestore@1`, configure the following inputs when using `NuGetCommand@2`.
 
@@ -695,6 +695,16 @@ If you were using `NuGetRestore@1`, configure the following inputs when using `N
 Similar to using `NuGetRestore@1` or the `NuGetInstaller@0` `restore` option, `NuGetCommand@2` has inputs to set the feed, decide between `select` or `config`, specify the path to the `NuGet.config` file, and use packages from nuget.org.
 
 For more information, see the following [examples](#examples).
+
+### Support for Newer Ubuntu Hosted Images
+
+Starting with Ubuntu 24.04, Microsft-hosted agents [will not ship with mono](https://github.com/actions/runner-images/issues/10636) which is required to run the underlying NuGet client that powers `NuGetCommand@2`. Users of this task on Ubuntu should migrate to the long term supported cross-platform task `NuGetAuthenticate@1` with .NET CLI.
+
+#### Migrating to .NET CLI on Ubuntu
+
+The [NuGet Authenticate](nuget-authenticate-v1.md) task will handle injecting credentials into the needed places for client tools to authenticate as your pipeline identity. Please see the linked documentation for instructions, FAQs, and examples for using `NuGet Authenticate` with dotnet.
+
+If [dotnet CLI commands](/nuget/reference/dotnet-commands) do not support your scenario, please [report this to the .NET CLI team as an issue](https://github.com/NuGet/Home/issues/). You may continue to [pin your agent image](/azure/devops/pipelines/agents/pools-queues#designate-a-pool-in-your-pipeline) to [Ubuntu 22.04 or earlier](/azure/devops/pipelines/agents/hosted#software). Ubuntu 22.04 support will continue until Ubuntu 26.04 is made generally available, no earlier than 2026.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

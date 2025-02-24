@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@1 - Azure Container Apps Deploy v1 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps.
-ms.date: 07/02/2024
+ms.date: 01/29/2025
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -419,9 +419,7 @@ Registry. For more information on how to install Docker on the agent, please see
 [this document](https://docs.docker.com/get-docker/).
 
 In addition, users running this task with a Windows agent may encounter an issue with not being able to pull down
-Linux-based images; to resolve this, please visit
-[this site](https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-i-switch-between-windows-and-linux-containers) or
-located the `DockerCli.exe` file on your agent (typically in the `Program Files\Docker\Docker` folder) and run
+Linux-based images; to resolve this, locate the `DockerCli.exe` file on your agent (typically in the `Program Files\Docker\Docker` folder) and run
 
 ```
 & `.\DockerCli.exe` -SwitchDaemon

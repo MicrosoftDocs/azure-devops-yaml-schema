@@ -279,6 +279,9 @@ items:
     displayName: Azure SQL Database deployment v1
 - name: Azure VM scale set deployment
   items:
+  - name: AzureVmssDeployment@1
+    href: azure-vmss-deployment-v1.md
+    displayName: Azure VM scale set deployment v1
   - name: AzureVmssDeployment@0
     href: azure-vmss-deployment-v0.md
     displayName: Azure VM scale set deployment v0
@@ -668,6 +671,9 @@ items:
     displayName: Java tool installer v0
 - name: Jenkins download artifacts
   items:
+  - name: JenkinsDownloadArtifacts@2
+    href: jenkins-download-artifacts-v2.md
+    displayName: Jenkins download artifacts v2
   - name: JenkinsDownloadArtifacts@1
     href: jenkins-download-artifacts-v1.md
     displayName: Jenkins download artifacts v1

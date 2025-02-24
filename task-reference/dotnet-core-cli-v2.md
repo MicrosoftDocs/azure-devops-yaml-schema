@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-ms.date: 11/21/2024
+ms.date: 01/29/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -71,7 +71,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Normal.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -82,7 +82,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Normal' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Normal.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -125,7 +125,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -136,7 +136,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -179,7 +179,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -190,7 +190,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #buildProperties: # string. Optional. Use when command = pack. Additional build properties. 
     #verbosityPack: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = pack. Verbosity. Default: Detailed.
   # Advanced
-    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack && command != pack && command != push && command != restore. Working directory.
+    #workingDirectory: # string. Optional. Use when command != restore && command != push && command != pack. Working directory.
 ```
 
 :::moniker-end
@@ -232,7 +232,7 @@ Build, test, package, or publish a dotnet application, or run a custom dotnet co
     #restoreDirectory: # string. Alias: packagesDirectory. Optional. Use when command = restore. Destination directory. 
     #verbosityRestore: 'Detailed' # '-' | 'Quiet' | 'Minimal' | 'Normal' | 'Detailed' | 'Diagnostic'. Optional. Use when command = restore. Verbosity. Default: Detailed.
   # Advanced
-    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal && command = push. Publish pipeline metadata. Default: true.
+    #publishPackageMetadata: true # boolean. Optional. Use when command = push && nuGetFeedType = internal. Publish pipeline metadata. Default: true.
   # Pack options
     #versioningScheme: 'off' # 'off' | 'byPrereleaseNumber' | 'byEnvVar' | 'byBuildNumber'. Required when command = pack. Automatic package versioning. Default: off.
     #versionEnvVar: # string. Required when versioningScheme = byEnvVar && command = pack. Environment variable. 
@@ -664,7 +664,7 @@ Specifies a feed hosted in this organization. You must have Package Management i
 :::moniker range=">=azure-pipelines-2019.1"
 
 **`publishPackageMetadata`** - **Publish pipeline metadata**<br>
-`boolean`. Optional. Use when `command = push && nuGetFeedType = internal && command = push`. Default value: `true`.<br>
+`boolean`. Optional. Use when `command = push && nuGetFeedType = internal`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Associates this build/release pipeline's metadata (run #, source code information) with the package.
 <!-- :::editable-content-end::: -->
@@ -861,7 +861,7 @@ Specifies the amount of detail displayed in the output for the `pack` command.
 :::moniker range=">=azure-pipelines-2020"
 
 **`workingDirectory`** - **Working directory**<br>
-`string`. Optional. Use when `command != restore && command != push && command != pack && command != pack && command != push && command != restore`.<br>
+`string`. Optional. Use when `command != restore && command != push && command != pack`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The current working directory where the script is run. `Empty` is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->
