@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

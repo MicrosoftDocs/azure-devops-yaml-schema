@@ -1,7 +1,7 @@
 ---
 title: HelmInstaller@1 - Helm tool installer v1 task
 description: Install Helm on an agent machine.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 

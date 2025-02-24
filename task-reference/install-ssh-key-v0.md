@@ -1,7 +1,7 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

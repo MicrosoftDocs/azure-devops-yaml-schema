@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2019"
 ---
 

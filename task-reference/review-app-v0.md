@@ -1,7 +1,7 @@
 ---
 title: ReviewApp@0 - Review App v0 task
 description: Use this task under deploy phase provider to create a resource dynamically.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2020"
 ---
 

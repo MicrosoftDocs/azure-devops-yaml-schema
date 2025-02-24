@@ -1,7 +1,7 @@
 ---
 title: Docker@1 - Docker v1 task
 description: Build, tag, push, or run Docker images, or run a Docker command.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2019"
 ---
 

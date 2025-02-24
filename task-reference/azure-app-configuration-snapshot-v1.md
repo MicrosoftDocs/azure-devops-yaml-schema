@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
 description: Create a snapshot in an Azure App Configuration instance.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "=azure-pipelines"
 ---
 
