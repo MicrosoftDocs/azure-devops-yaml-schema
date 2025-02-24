@@ -31,6 +31,8 @@ steps:
   persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
   submodules: string # Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
   path: string # Where to put the repository. The root directory is $(Pipeline.Workspace).
+  sparseCheckoutDirectories: string # Directories for sparse checkout in cone mode and prioritized over sparseCheckoutPatterns if both properties are provided.
+  sparseCheckoutPatterns: string # Patterns for sparse checkout in non-cone mode that are ignored if sparseCheckoutDirectories is provided.
   workspaceRepo: true | false # When true, use the repository root directory as the default working directory for the pipeline. The default is false.
   condition: string # Evaluate this condition expression to determine whether to run this task.
   continueOnError: boolean # Continue running even on failure?
@@ -266,6 +268,42 @@ Set to 'true' for a single level of submodules or 'recursive' to get submodules 
 
 **`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Where to put the repository. The root directory is $(Pipeline.Workspace). By default this folder must be under the agent working directory structure. To set a path outside of the agent working directory, set a pipeline variable named `AZP_AGENT_ALLOW_WORK_DIRECTORY_REPOSITORIES` to true, and use the prefix `../` at the start of your checkout path. Supported on agent version 3.230.0 and higher.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="sparseCheckoutDirectories"::: -->
+:::moniker range="=azure-pipelines"
+
+**`sparseCheckoutDirectories`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Specify a directory to enable sparse checkout in cone mode using directory matching. Separate multiple directories using a space.
+
+```yml
+- checkout: repo
+  sparseCheckoutDirectories: src
+```
+
+If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+
+For more information on sparse checkout, see [Bring your monorepo down to size with sparse-checkout](https://github.blog/open-source/git/bring-your-monorepo-down-to-size-with-sparse-checkout/).
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="sparseCheckoutPatterns"::: -->
+:::moniker range="=azure-pipelines"
+
+**`sparseCheckoutPatterns`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Specify a pattern to enable sparse checkout in non-cone mode using pattern matching. Separate multiple patterns using a space.
+
+```yml
+- checkout: repo
+  sparseCheckoutPatterns: /* !/img
+```
+
+If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+
+For more information on sparse checkout, see [Bring your monorepo down to size with sparse-checkout](https://github.blog/open-source/git/bring-your-monorepo-down-to-size-with-sparse-checkout/).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
