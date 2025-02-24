@@ -563,6 +563,9 @@ items:
     displayName: Go tool installer v0
 - name: Gradle
   items:
+  - name: Gradle@4
+    href: gradle-v4.md
+    displayName: Gradle v4
   - name: Gradle@3
     href: gradle-v3.md
     displayName: Gradle v3
