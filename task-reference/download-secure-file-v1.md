@@ -1,7 +1,7 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

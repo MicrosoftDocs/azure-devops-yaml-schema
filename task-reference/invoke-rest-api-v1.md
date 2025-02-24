@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

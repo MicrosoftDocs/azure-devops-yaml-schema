@@ -1,7 +1,7 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

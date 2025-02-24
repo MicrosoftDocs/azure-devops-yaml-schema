@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@4 - Azure PowerShell v4 task
 description: Run a PowerShell script within an Azure environment (task version 4).
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2019.1"
 ---
 
