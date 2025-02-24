@@ -23,6 +23,7 @@ Stages are a collection of related jobs. By default, stages run sequentially. Ea
 ```yaml
 stages:
 - stage: string # Required as first property. ID of the stage.
+  group: string # Path to the group which the stage belongs to.
   displayName: string # Human-readable name for the stage.
   pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
   dependsOn: string | [ string ] # Any stages which must complete before this one.
@@ -86,6 +87,15 @@ Definitions that reference this definition: [stages](stages.md)
 
 **`stage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the stage.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="group"::: -->
+:::moniker range="=azure-pipelines"
+
+**`group`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Path to the group which the stage belongs to.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
