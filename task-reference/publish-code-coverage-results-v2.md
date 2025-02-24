@@ -98,8 +98,6 @@ None.
 
 Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS and after generating the coverage xml files in order to obtain code coverage tab and coverage reporting details in the pipeline. The task supports all kinds of coverage formats such as: .coverage, .covx, .covb, .cjson, .xml, .lcov, pycov, etc. It generates a cjson file which contains the code coverage details. It will also produce a code coverage HTML report under the build artifacts.
 
-The task also supports the [Build Quality Checks](https://marketplace.visualstudio.com/items?itemName=mspremier.BuildQualityChecks) task, which allows you to add quality gates to your build process. 
-
 Unlike the  [PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) task, v2 can generate the [diff](https://learn.microsoft.com/en-us/azure/devops/pipelines/test/codecoverage-for-pullrequests?view=azure-devops#full-coverage-diff-coverage) coverage for multiple languages in the same pipeline. Additionally, the code coverage tab of the PublishCodeCoverageResultsV2 task is the same like the one from the PublishCodeCoverageV1 task.
 
 This task is only supported in build pipelines, not release pipelines.
