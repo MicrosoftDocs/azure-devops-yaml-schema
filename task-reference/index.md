@@ -49,7 +49,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Docker Compose**<br>[DockerCompose@1](docker-compose-v1.md)<br>[DockerCompose@0](docker-compose-v0.md) | Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry. |
 | **Download GitHub Nuget Packages**<br>[DownloadGitHubNugetPackage@1](download-github-nuget-package-v1.md) | Restore your nuget packages using dotnet CLI. |
 | **Go**<br>[Go@0](go-v0.md) | Get, build, or test a Go application, or run a custom Go command. |
-| **Gradle**<br>[Gradle@3](gradle-v3.md)<br>[Gradle@2](gradle-v2.md)<br>[Gradle@1](gradle-v1.md) | Build using a Gradle wrapper script. |
+| **Gradle**<br>[Gradle@4](gradle-v4.md)<br>[Gradle@3](gradle-v3.md)<br>[Gradle@2](gradle-v2.md)<br>[Gradle@1](gradle-v1.md) | Build using a Gradle wrapper script. |
 | **Grunt**<br>[Grunt@0](grunt-v0.md) | Run the Grunt JavaScript task runner. |
 | **gulp**<br>[gulp@1](gulp-v1.md)<br>[gulp@0](gulp-v0.md) | Run the gulp Node.js streaming task-based build system. |
 | **Index sources and publish symbols**<br>[PublishSymbols@2](publish-symbols-v2.md)<br>[PublishSymbols@1](publish-symbols-v1.md) | Index your source code and publish symbols to a file share or Azure Artifacts symbol server. |
