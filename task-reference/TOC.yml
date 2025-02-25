@@ -120,6 +120,9 @@ items:
     displayName: Azure App Service Classic (Deprecated) v1
 - name: Azure App Service deploy
   items:
+  - name: AzureRmWebAppDeployment@5
+    href: azure-rm-web-app-deployment-v5.md
+    displayName: Azure App Service deploy v5
   - name: AzureRmWebAppDeployment@4
     href: azure-rm-web-app-deployment-v4.md
     displayName: Azure App Service deploy v4
