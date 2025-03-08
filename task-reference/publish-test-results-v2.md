@@ -107,6 +107,10 @@ Publish Test Results to Azure Pipelines/TFS.
 Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`, `CTest`. Default value: `JUnit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://docs.nunit.org/articles/nunit/technical-notes/usage/Test-Result-XML-Format.html), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
+
+> [!TIP]
+> `VSTest` format refers to the TRX format. So, it works also if you are producing TRX with [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview) and is not specific to VSTest. The value is VSTest for historical reason, before the introduction of MTP.
+
 <!-- :::editable-content-end::: -->
 <br>
 
