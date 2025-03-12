@@ -70,6 +70,15 @@ Selecting this option will set the task to automatically check for CodeQL on the
 <!-- :::editable-content name="helpMarkDown"::: -->
 The programming language to analyze. Multiple languages can be separated by a comma.
 
+```yml
+- task: AdvancedSecurity-Codeql-Init@1
+  inputs:
+    languages: 'cpp, java, python'
+    # This languages value is valid, the Pipelines editor 
+    # doesn't recognize all combinations and only validates
+    # correctly when a single language is specified
+```
+
 You can set the language here in the task, or you can specify the language in a pipeline variable named `advancedsecurity.codeql.language`. If both are set, the value specified in the task takes precedence.
 <!-- :::editable-content-end::: -->
 <br>
