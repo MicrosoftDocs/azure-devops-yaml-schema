@@ -128,8 +128,7 @@ The `type` value must be one of the `enum` members from the following table.
 | `stage` | a single stage |
 | `stageList` | sequence of stages |
 
-The step, stepList, job, jobList, deployment, deploymentList, stage, and stageList data types all use standard YAML schema format. This example includes string, number, boolean, object, step, and stepList. 
-
+The step, stepList, job, jobList, deployment, deploymentList, stage, and stageList data types all use standard YAML schema format. This example includes string, number, boolean, object, step, and stepList.
 
 ```yaml
 parameters:
@@ -140,17 +139,17 @@ parameters:
   type: string
   default: default
   values:
-  - default
-  - ubuntu
+    - default
+    - ubuntu
 - name: myNumber
   type: number
   default: 2
   values:
-  - 1
-  - 2
-  - 4
-  - 8
-  - 16
+    - 1
+    - 2
+    - 4
+    - 8
+    - 16
 - name: myBoolean
   type: boolean
   default: true
@@ -160,9 +159,9 @@ parameters:
     foo: FOO
     bar: BAR
     things:
-    - one
-    - two
-    - three
+      - one
+      - two
+      - three
     nested:
       one: apple
       two: pear
@@ -180,12 +179,13 @@ parameters:
 trigger: none
 
 jobs: 
-- job: stepList
-  steps: ${{ parameters.mySteplist }}
-- job: myStep
-  steps:
-    - ${{ parameters.myStep }}
+  - job: stepList
+    steps: ${{ parameters.mySteplist }}
+  - job: myStep
+    steps:
+      - ${{ parameters.myStep }}
 ```
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -201,19 +201,19 @@ parameters:
   type: string
   default: ubuntu-latest
   values:
-  - windows-latest
-  - ubuntu-latest
-  - macOS-latest
+    - windows-latest
+    - ubuntu-latest
+    - macOS-latest
 
 trigger: none
 
 jobs:
-- job: build
-  displayName: build
-  pool: 
-    vmImage: ${{ parameters.image }}
-  steps:
-  - script: echo The image parameter is ${{ parameters.image }}```
+  - job: build
+    displayName: build
+    pool: 
+      vmImage: ${{ parameters.image }}
+    steps:
+      - script: echo The image parameter is ${{ parameters.image }}
 ```
 
 You can use parameters to extend a template. In this example, the pipeline using the template supplies the values to fill into the template.
@@ -221,8 +221,8 @@ You can use parameters to extend a template. In this example, the pipeline using
 ```yaml
 # File: simple-param.yml
 parameters:
-- name: yesNo # name of the parameter; required
-  type: boolean # data type of the parameter; required
+- name: yesNo # name of param; required
+  type: boolean # data type of param; required
   default: false
 
 steps:
@@ -237,7 +237,7 @@ trigger:
 extends:
     template: simple-param.yml
     parameters:
-        yesNo: false # set to a non-boolean value to have the build fail
+        yesNo: false 
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
