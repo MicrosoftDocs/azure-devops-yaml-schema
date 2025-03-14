@@ -476,6 +476,22 @@ To configure the setting in the pipeline UI, edit your YAML pipeline, and choose
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
+There are three options for `checkout`. By default, Azure DevOps checks out the current repository with `self` for jobs. When you set `none`, no repository is checked out. If you specify another repository, that repository is checked out. To check out a different repository, set it up as a [repository resource first](resources-repositories-repository.md).
+
+```yaml
+# Checkout the current repository
+steps:
+- checkout: self
+
+# Prevent checking out any source code
+steps:
+- checkout: none
+
+# Checkout a different repository
+steps:
+- checkout: my-other-repo
+```
+
 To avoid syncing sources at all:
 
 ```yaml
