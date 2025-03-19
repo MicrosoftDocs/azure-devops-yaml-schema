@@ -20,11 +20,6 @@ items:
   - name: DotNetCoreInstaller@0
     href: dotnet-core-installer-v0.md
     displayName: .NET Core SDK/runtime installer v0
-- name: Advanced Security AutoBuild
-  items:
-  - name: AdvancedSecurity-Codeql-Autobuild@1
-    href: advanced-security-codeql-autobuild-v1.md
-    displayName: Advanced Security AutoBuild v1
 - name: Advanced Security Dependency Scanning
   items:
   - name: AdvancedSecurity-Dependency-Scanning@1
