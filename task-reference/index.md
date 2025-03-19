@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 02/24/2025
+ms.date: 03/19/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -35,7 +35,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | Task | Description |
 |---|---|
 | **.NET Core**<br>[DotNetCoreCLI@2](dotnet-core-cli-v2.md)<br>[DotNetCoreCLI@1](dotnet-core-cli-v1.md)<br>[DotNetCoreCLI@0](dotnet-core-cli-v0.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
-| **Advanced Security AutoBuild**<br>[AdvancedSecurity-Codeql-Autobuild@1](advanced-security-codeql-autobuild-v1.md) | Attempts to build the repository by finding and building project files in the source folder. |
 | **Advanced Security Initialize CodeQL**<br>[AdvancedSecurity-Codeql-Init@1](advanced-security-codeql-init-v1.md) | Initializes the CodeQL database in preparation for building. |
 | **Advanced Security Perform CodeQL analysis**<br>[AdvancedSecurity-Codeql-Analyze@1](advanced-security-codeql-analyze-v1.md) | Finalizes the CodeQL database and runs the analysis queries. |
 | **Advanced Security Publish Results**<br>[AdvancedSecurity-Publish@1](advanced-security-publish-v1.md) | Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service. |
