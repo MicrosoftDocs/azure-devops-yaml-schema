@@ -147,6 +147,7 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 |---|---|
 | **App Center test**<br>[AppCenterTest@1](app-center-test-v1.md) | Test app packages with Visual Studio App Center. |
 | **Azure Load Testing**<br>[AzureLoadTest@1](azure-load-test-v1.md) | Automate performance regression testing with Azure Load Testing. |
+| **Azure Test Plan**<br>[AzureTestPlan@0](azure-test-plan-v0.md) | Run manual and automated tests in test plan in Java and python language. |
 | **Container Structure Test**<br>[ContainerStructureTest@0](container-structure-test-v0.md) | Uses container-structure-test (https://github.com/GoogleContainerTools/container-structure-test) to validate the structure of an image based on four categories of tests - command tests, file existence tests, file content tests and metadata tests. |
 | **Mobile Center Test**<br>[VSMobileCenterTest@0](vsmobile-center-test-v0.md) | Test mobile app packages with Visual Studio Mobile Center. |
 | **Publish code coverage results**<br>[PublishCodeCoverageResults@2](publish-code-coverage-results-v2.md)<br>[PublishCodeCoverageResults@1](publish-code-coverage-results-v1.md) | Publish any of the code coverage results from a build. |

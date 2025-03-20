@@ -275,6 +275,11 @@ items:
   - name: SqlAzureDacpacDeployment@1
     href: sql-azure-dacpac-deployment-v1.md
     displayName: Azure SQL Database deployment v1
+- name: Azure Test Plan
+  items:
+  - name: AzureTestPlan@0
+    href: azure-test-plan-v0.md
+    displayName: Azure Test Plan v0
 - name: Azure VM scale set deployment
   items:
   - name: AzureVmssDeployment@1
