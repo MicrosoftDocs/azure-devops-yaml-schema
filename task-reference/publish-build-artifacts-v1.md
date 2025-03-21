@@ -159,7 +159,7 @@ Specifies the name of the artifact to create in the publish location. The follow
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines), `FilePath` (A file share). Default value: `Container`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. The input alias: `ArtifactType` is an alternative name for `publishLocation` and can be used interchangeably. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -170,7 +170,7 @@ Specifies whether to store the artifact in Azure Pipelines (Container), or to co
 **`publishLocation`** - **Artifact publish location**<br>
 Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines/TFS), `FilePath` (A file share). Default value: `Container`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
+Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. The input alias: `ArtifactType` is an alternative name for `publishLocation` and can be used interchangeably. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->
 <br>
 
