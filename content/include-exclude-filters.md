@@ -57,6 +57,37 @@ Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md)
 
 **`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of items to include.
+
+```yml
+include:
+- item1
+- item2
+```
+
+You can also specify the `include` list on a single line using the following format.
+
+```yml
+include: [ item1, item2 ]
+```
+
+For example, to specify a list of branches to match in a `pr` trigger, use the following syntax.
+
+```yml
+pr:
+  branches:
+    include:
+    - main
+    - features/*
+```
+
+You can also specify the `includes` list on a single line using the following format.
+
+```yml
+pr:
+  branches:
+    include: [ main, features/* ]
+```
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -66,6 +97,18 @@ List of items to include.
 
 **`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of items to exclude.
+
+```yml
+exclude:
+- item1
+- item2
+```
+
+You can also specify the `exclude` list on a single line using the following format.
+
+```yml
+exclude: [ item1, item2 ]
+```
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -74,6 +117,19 @@ List of items to exclude.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+The `includeExcludeFilters` definition is a supporting definition and is not intended for use directly in a pipeline; instead it is used to provide the structure of different properties in the definitions listed at the top of the article.
+
+For example, `includeExcludeFilters` is the type that defines how the `pr.branches` section is structured. See the [pr implementations](pr.md#implementations) **Full syntax for complete control** section for the `pr` properties that use `includeExcludeFilters`.
+
+```yaml
+pr:
+  branches: # Branch names to include or exclude for triggering a run.
+    include: [ string ] # List of items to include.
+    exclude: [ string ] # List of items to exclude.
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
