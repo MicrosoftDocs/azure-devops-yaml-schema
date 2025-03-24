@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task
 description: Import key-values to an Azure App Configuration instance.
-ms.date: 02/24/2025
+ms.date: 03/24/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Import key-values to an Azure App Configuration instance.
+Import settings from configuration files into Azure App Configuration through build or deployment pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -292,7 +292,7 @@ None.
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | Agent version |  2.144.0 or greater |
-| Task category | Utility |
+| Task category | Deploy |
 
 :::moniker-end
 <!-- :::properties-end::: -->
