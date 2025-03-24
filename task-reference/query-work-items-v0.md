@@ -22,7 +22,7 @@ Can only be used in an [agentless](/azure/devops/pipelines/process/phases) job o
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Query work items v0
@@ -36,22 +36,6 @@ Can only be used in an [agentless](/azure/devops/pipelines/process/phases) job o
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Query Work Items v0
-# Executes a work item query and checks for the number of items returned.
-- task: queryWorkItems@0
-  inputs:
-    queryId: # string. Required. Query. 
-    maxThreshold: '0' # string. Required. Upper threshold. Default: 0.
-  # Advanced
-    minThreshold: '0' # string. Required. Lower threshold. Default: 0.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

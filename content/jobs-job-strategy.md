@@ -122,12 +122,6 @@ If `maxParallel` is unspecified or set to 0, no limit is applied.
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-If `maxParallel` is unspecified, no limit is applied.
-
-::: moniker-end
-
 > [!NOTE]
 > The `matrix` syntax doesn't support automatic job scaling but you can implement similar
 > functionality using the `each` keyword. For an example, see [expressions](/azure/devops/pipelines/process/expressions).

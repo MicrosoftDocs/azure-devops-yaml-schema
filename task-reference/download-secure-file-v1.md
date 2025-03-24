@@ -1,14 +1,14 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadSecureFile@1 - Download secure file v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a secure file to the agent machine.
@@ -16,21 +16,6 @@ Use this task to download a secure file to the agent machine.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download a secure file to a temporary location on the agent machine.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download a secure file to a temporary location on the build or release agent.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -62,31 +47,6 @@ Use this task to download a secure file to a temporary location on the build or 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Download secure file v1
-# Download a secure file to a temporary location on the agent machine.
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: # string. Required. Secure File.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Download Secure File v1
-# Download a secure file to a temporary location on the build or release agent.
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: # string. Required. Secure File.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

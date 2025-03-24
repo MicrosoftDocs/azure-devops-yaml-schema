@@ -20,7 +20,7 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Invoke Azure Function v0
@@ -39,7 +39,6 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

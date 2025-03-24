@@ -40,7 +40,7 @@ Use this task to copy files to remote Windows machines.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Windows machine file copy v2
@@ -59,27 +59,6 @@ Use this task to copy files to remote Windows machines.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Windows Machine File Copy v2
-# Copy files to remote machine(s).
-- task: WindowsMachineFileCopy@2
-  inputs:
-    SourcePath: # string. Required. Source. 
-    #MachineNames: # string. Machines. 
-    #AdminUserName: # string. Admin Login. 
-    #AdminPassword: # string. Password. 
-    TargetPath: # string. Required. Destination Folder. 
-  # Advanced Options
-    #CleanTargetBeforeCopy: false # boolean. Clean Target. Default: false.
-    #CopyFilesInParallel: true # boolean. Copy Files in Parallel. Default: true.
-    #AdditionalArguments: # string. Additional Arguments.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

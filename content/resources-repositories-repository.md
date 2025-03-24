@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -32,7 +32,7 @@ repositories:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 ```yaml
 repositories:
@@ -46,18 +46,6 @@ repositories:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-repositories:
-- repository: string # Required as first property. Alias for the repository.
-  endpoint: string # ID of the service endpoint connecting to this repository.
-  name: string # repository name (format depends on 'type'; does not accept variables).
-  type: string # Type of repository: git, github, githubenterprise, and bitbucket.
-  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires. Does not accept variables.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -90,7 +78,7 @@ ID of the service endpoint connecting to this repository.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** [trigger](trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 CI trigger for this repository, no CI trigger if omitted.
@@ -163,12 +151,6 @@ Type of repository: git, github, githubenterprise, and bitbucket.
 
 > [!IMPORTANT]
 > `batch` is not supported in repository resource triggers.
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-If your pipeline has [templates in another repository](/azure/devops/pipelines/process/templates#using-other-repositories), you must let the system know about that repository.
 
 ::: moniker-end
 

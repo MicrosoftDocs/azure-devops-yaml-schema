@@ -43,7 +43,7 @@ Use this task to queue a job on a Jenkins server.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Jenkins queue job v2
@@ -63,34 +63,13 @@ Use this task to queue a job on a Jenkins server.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Jenkins Queue Job v2
-# Queue a job on a Jenkins server.
-- task: JenkinsQueueJob@2
-  inputs:
-    serverEndpoint: # string. Required. Jenkins service connection. 
-    jobName: # string. Required. Job name. 
-    #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
-    #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
-    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
-  # Advanced
-    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
-    #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="serverEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **Jenkins service connection**<br>
 `string`. Required.<br>

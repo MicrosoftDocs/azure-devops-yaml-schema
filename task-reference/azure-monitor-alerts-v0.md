@@ -1,14 +1,14 @@
 ---
 title: AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 description: Configure alerts on available metrics for an Azure resource (Deprecated).
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Configure alerts on available metrics for an Azure resource (Deprecated).
@@ -18,19 +18,12 @@ Configure alerts on available metrics for an Azure resource (Deprecated).
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Configure alerts on available metrics for an Azure resource.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Monitor alerts (Deprecated) v0
@@ -48,45 +41,6 @@ Configure alerts on available metrics for an Azure resource.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure Monitor alerts v0
-# Configure alerts on available metrics for an Azure resource.
-- task: AzureMonitorAlerts@0
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
-    ResourceGroupName: # string. Required. Resource Group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
-    ResourceName: # string. Required. Resource name. 
-    AlertRules: # string. Required. Alert rules. 
-  # Notify via email
-    #NotifyServiceOwners: # boolean. Subscription owners, contributors and readers. 
-    #NotifyEmails: # string. Additional administrator emails.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure Monitor Alerts v0
-# Configure alerts on available metrics for an Azure resource.
-- task: AzureMonitorAlerts@0
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
-    ResourceGroupName: # string. Required. Resource Group. 
-    ResourceType: 'Microsoft.Insights/components' # 'Microsoft.Insights/components' | 'Microsoft.Web/sites' | 'Microsoft.Storage/storageAccounts' | 'Microsoft.Compute/virtualMachines'. Required. Resource Type. Default: Microsoft.Insights/components.
-    ResourceName: # string. Required. Resource name. 
-    AlertRules: # string. Required. Alert rules. 
-  # Notify via email
-    #NotifyServiceOwners: # boolean. Subscription owners, contributors and readers. 
-    #NotifyEmails: # string. Additional administrator emails.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

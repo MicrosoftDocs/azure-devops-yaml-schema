@@ -32,7 +32,7 @@ Use this task in a pipeline to sign and align Android APK files.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Android Signing v2
@@ -53,7 +53,6 @@ Use this task in a pipeline to sign and align Android APK files.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -221,7 +220,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -236,20 +235,6 @@ None.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: JDK, AndroidSDK |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

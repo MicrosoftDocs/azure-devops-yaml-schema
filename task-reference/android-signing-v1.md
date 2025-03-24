@@ -20,7 +20,7 @@ Use this task in a pipeline to sign and align Android APK files.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Android Signing v1
@@ -41,7 +41,6 @@ Use this task in a pipeline to sign and align Android APK files.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -205,7 +204,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -219,7 +218,6 @@ None.
 | Task category | Build |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

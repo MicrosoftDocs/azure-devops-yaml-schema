@@ -1,14 +1,14 @@
 ---
 title: ContainerBuild@0 - Container Build v0 task
 description: Container Build Task.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # ContainerBuild@0 - Container Build v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Container Build Task.
@@ -20,7 +20,7 @@ Container Build Task.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Container Build v0
@@ -41,7 +41,7 @@ Container Build Task.
 ## Inputs
 
 <!-- :::item name="dockerRegistryServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryServiceConnection`** - **Docker registry service connection**<br>
 `string`.<br>
@@ -53,7 +53,7 @@ Specifies a Docker registry service connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repository"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`repository`** - **Container repository**<br>
 `string`.<br>
@@ -65,7 +65,7 @@ The name of the repository within the container registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Dockerfile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`Dockerfile`** - **Dockerfile**<br>
 `string`. Required. Default value: `Dockerfile`.<br>
@@ -77,7 +77,7 @@ The path to the Dockerfile.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildContext"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`buildContext`** - **Build context**<br>
 `string`. Default value: `.`.<br>
@@ -89,7 +89,7 @@ The path to the build context.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tags`** - **Tags**<br>
 `string`. Default value: `$(Build.BuildId)`.<br>
@@ -109,7 +109,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -129,7 +129,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

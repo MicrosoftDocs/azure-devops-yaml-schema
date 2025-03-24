@@ -1,14 +1,14 @@
 ---
 title: jobs.deployment.environment definition
 description: Target environment name and optionally a resource name to record the deployment history.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.deployment.environment definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `environment` keyword specifies the [environment](/azure/devops/pipelines/process/environments) or its resource that is targeted by a deployment job of the pipeline.
@@ -18,7 +18,7 @@ The `environment` keyword specifies the [environment](/azure/devops/pipelines/pr
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs.deployment](jobs-deployment.md)
 
@@ -28,7 +28,7 @@ Definitions that reference this definition: [jobs.deployment](jobs-deployment.md
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -74,7 +74,7 @@ strategy:
 <!-- :::implementation-item name="environment: string"::: -->
 <a name="environmentstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## environment: string
@@ -125,7 +125,7 @@ strategy:                 # deployment strategy
 <!-- :::implementation-item name="environment: object properties"::: -->
 <a name="environmentobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## environment: name, resourceName, resourceId, resourceType, tags

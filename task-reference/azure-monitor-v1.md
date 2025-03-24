@@ -2,13 +2,13 @@
 title: AzureMonitor@1 - Query Azure Monitor alerts v1 task
 description: Observe the configured Azure Monitor rules for active alerts.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureMonitor@1 - Query Azure Monitor alerts v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured Azure Monitor rules for active alerts.
@@ -20,7 +20,7 @@ Observe the configured Azure Monitor rules for active alerts.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Query Azure Monitor alerts v1
@@ -46,7 +46,7 @@ Observe the configured Azure Monitor rules for active alerts.
 ## Inputs
 
 <!-- :::item name="connectedServiceNameARM"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`connectedServiceNameARM`** - **Azure subscription**<br>
 `string`. Required.<br>
@@ -58,7 +58,7 @@ Selects an Azure Resource Manager subscription to monitor.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
@@ -70,7 +70,7 @@ Provides the name of a resource group to monitor in the subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="filterType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`filterType`** - **Filter type**<br>
 `string`. Required. Allowed values: `resource` (By resource), `alertrule` (By alert rule), `none`. Default value: `none`.<br>
@@ -82,7 +82,7 @@ Filters the type by a specific resource or alert rule.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resource"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resource`** - **Resource**<br>
 `string`. Required when `filterType = resource`.<br>
@@ -94,7 +94,7 @@ Selects the Azure resource to monitor.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="alertRule"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`alertRule`** - **Alert rule**<br>
 `string`. Required when `filterType = alertrule`.<br>
@@ -108,7 +108,7 @@ The default value is to select all.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="severity"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`severity`** - **Severity**<br>
 `string`. Allowed values: `Sev0`, `Sev1`, `Sev2`, `Sev3`, `Sev4`. Default value: `Sev0,Sev1,Sev2,Sev3,Sev4`.<br>
@@ -120,7 +120,7 @@ Filters by severity.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeRange"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`timeRange`** - **Time range**<br>
 `string`. Allowed values: `1h` (Past hour), `1d` (Past 24 hours), `7d` (Past 7 days), `30d` (Past 30 days). Default value: `1h`.<br>
@@ -132,7 +132,7 @@ Filters by the time range.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="alertState"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`alertState`** - **Alert state**<br>
 `string`. Allowed values: `New`, `Acknowledged`, `Closed`. Default value: `Acknowledged,New`.<br>
@@ -144,7 +144,7 @@ Filters by the state of the alert instance.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="monitorCondition"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`monitorCondition`** - **Monitor condition**<br>
 `string`. Allowed values: `Fired ` (Fired), `Resolved`. Default value: `Fired`.<br>
@@ -164,7 +164,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -194,7 +194,7 @@ For more information about using this task, see [Approvals and gates overview](/
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

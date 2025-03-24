@@ -2,13 +2,13 @@
 title: DownloadGitHubRelease@0 - Download GitHub Release v0 task
 description: Downloads a GitHub Release from a repository.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadGitHubRelease@0 - Download GitHub Release v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a GitHub release from a repository.
@@ -20,7 +20,7 @@ Use this task to download a GitHub release from a repository.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download GitHub Release v0
@@ -42,7 +42,7 @@ Use this task to download a GitHub release from a repository.
 ## Inputs
 
 <!-- :::item name="connection"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`connection`** - **GitHub Connection**<br>
 `string`. Required.<br>
@@ -54,7 +54,7 @@ Specifies the GitHub service connection name. Learn more about [service connecti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="userRepository"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`userRepository`** - **Repository**<br>
 `string`. Required.<br>
@@ -66,7 +66,7 @@ Specifies the name of the GitHub repository that GitHub releases are downloaded 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="defaultVersionType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`defaultVersionType`** - **Default version**<br>
 `string`. Required. Allowed values: `latest` (Latest Release), `specificVersion` (Specific Version), `specificTag` (Specific Tag). Default value: `latest`.<br>
@@ -78,7 +78,7 @@ Downloads assets from the latest GitHub release or a specific GitHub release ver
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Release**<br>
 `string`. Required when `defaultVersionType != latest`.<br>
@@ -90,7 +90,7 @@ Defines the GitHub release version/tag to download. This option appears if `spec
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="itemPattern"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
@@ -102,7 +102,7 @@ The minimatch pattern that filters files to be downloaded. To download all files
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="downloadPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
@@ -122,7 +122,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -163,7 +163,7 @@ This task requires a [GitHub service connection](/azure/devops/pipelines/library
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

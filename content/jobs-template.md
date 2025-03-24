@@ -1,14 +1,14 @@
 ---
 title: jobs.template definition
 description: A set of jobs defined in a template.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.template definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A set of jobs defined in a template.
@@ -18,7 +18,7 @@ A set of jobs defined in a template.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 jobs:
@@ -30,7 +30,7 @@ jobs:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs](jobs.md)
 
@@ -41,7 +41,7 @@ Definitions that reference this definition: [jobs](jobs.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="template"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Reference to a template for this deployment.
@@ -50,7 +50,7 @@ Reference to a template for this deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Parameters used in a deployment template.

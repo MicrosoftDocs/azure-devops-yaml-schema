@@ -36,7 +36,7 @@ Copy files to Azure Blob Storage or virtual machines.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure file copy v1
@@ -70,42 +70,6 @@ Copy files to Azure Blob Storage or virtual machines.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure File Copy v1
-# Copy files to Azure blob or VM(s).
-- task: AzureFileCopy@1
-  inputs:
-    SourcePath: # string. Required. Source. 
-    #azureConnectionType: 'ConnectedServiceNameARM' # 'ConnectedServiceName' | 'ConnectedServiceNameARM'. Alias: ConnectedServiceNameSelector. Azure Connection Type. Default: ConnectedServiceNameARM.
-    #azureClassicSubscription: # string. Alias: ConnectedServiceName. Required when ConnectedServiceNameSelector = ConnectedServiceName. Azure Classic Subscription. 
-    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. Azure Subscription. 
-    Destination: # 'AzureBlob' | 'AzureVMs'. Required. Destination Type. 
-    #classicStorage: # string. Alias: StorageAccount. Required when ConnectedServiceNameSelector = ConnectedServiceName. Classic Storage Account. 
-    storage: # string. Alias: StorageAccountRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM. RM Storage Account. 
-    #ContainerName: # string. Required when Destination = AzureBlob. Container Name. 
-    #BlobPrefix: # string. Optional. Use when Destination = AzureBlob. Blob Prefix. 
-    #cloudService: # string. Alias: EnvironmentName. Required when ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs. Cloud Service. 
-    #resourceGroup: # string. Alias: EnvironmentNameRM. Required when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Resource Group. 
-    #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Optional. Use when Destination = AzureVMs. Select Machines By. Default: machineNames.
-    #MachineNames: # string. Optional. Use when Destination = AzureVMs. Filter Criteria. 
-    #vmsAdminUserName: # string. Required when Destination = AzureVMs. Admin Login. 
-    #vmsAdminPassword: # string. Required when Destination = AzureVMs. Password. 
-    #TargetPath: # string. Required when Destination = AzureVMs. Destination Folder. 
-    #AdditionalArguments: # string. Additional Arguments. 
-    #enableCopyPrerequisites: false # boolean. Optional. Use when ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs. Enable Copy Prerequisites. Default: false.
-    #CopyFilesInParallel: true # boolean. Optional. Use when Destination = AzureVMs. Copy in Parallel. Default: true.
-    #CleanTargetBeforeCopy: false # boolean. Optional. Use when Destination = AzureVMs. Clean Target. Default: false.
-    #skipCACheck: true # boolean. Optional. Use when Destination = AzureVMs. Test Certificate. Default: true.
-  # Output
-    #outputStorageUri: # string. Storage Container URI. 
-    #outputStorageContainerSasToken: # string. Storage Container SAS Token.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

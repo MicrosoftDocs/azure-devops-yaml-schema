@@ -1,14 +1,14 @@
 ---
 title: schedules definition
 description: The schedules list specifies the scheduled triggers for the pipeline.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # schedules definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The schedules list specifies the scheduled triggers for the pipeline.
@@ -18,7 +18,7 @@ The schedules list specifies the scheduled triggers for the pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 schedules: [ cron ] # The schedules list specifies the scheduled triggers for the pipeline.
@@ -28,7 +28,7 @@ schedules: [ cron ] # The schedules list specifies the scheduled triggers for th
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -38,7 +38,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

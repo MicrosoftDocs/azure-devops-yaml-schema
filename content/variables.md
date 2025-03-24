@@ -1,7 +1,7 @@
 ---
 title: variables definition
 description: Define variables using name/value pairs.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -18,17 +18,12 @@ Define variables using name/value pairs.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [stages.stage](stages-stage.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Implementations
@@ -128,23 +123,6 @@ stages:
       JOB_VAR: 'a job var'
     steps:
     - script: echo $(MY_VAR) $(STAGE_VAR) $(JOB_VAR)
-```
-
-::: moniker-end
-
-::: moniker range=">= azure-pipelines-2019 <= azure-pipelines-2019.1"
-
-```yaml
-variables:      # pipeline-level
-  MY_VAR: 'my value'
-  ANOTHER_VAR: 'another value'
-
-jobs:
-- job: FirstJob
-  variables:  # job-level
-    JOB_VAR: 'a job var'
-  steps:
-  - script: echo $(MY_VAR) $(STAGE_VAR) $(JOB_VAR)
 ```
 
 ::: moniker-end

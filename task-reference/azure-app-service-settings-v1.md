@@ -1,14 +1,14 @@
 ---
 title: AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 description: Update/Add App settings an Azure Web App for Linux or Windows.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureAppServiceSettings@1 - Azure App Service Settings v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Updates or adds app service settings in an Azure Web App for Linux or Windows.
@@ -20,7 +20,7 @@ Updates or adds app service settings in an Azure Web App for Linux or Windows.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure App Service Settings v1
@@ -44,7 +44,7 @@ Updates or adds app service settings in an Azure Web App for Linux or Windows.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
@@ -56,7 +56,7 @@ Selects the Azure Resource Manager subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`appName`** - **App Service name**<br>
 `string`. Required.<br>
@@ -68,7 +68,7 @@ Enters or selects the name of an existing Azure App Service.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required.<br>
@@ -80,7 +80,7 @@ Enters or selects the Azure Resource Group that contains the Azure App Service s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Slot**<br>
 `string`. Default value: `production`.<br>
@@ -92,7 +92,7 @@ Enters or selects an existing slot. If you don't select a slot, changes are made
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSettings"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`appSettings`** - **App settings**<br>
 `string`.<br>
@@ -121,7 +121,7 @@ The following is an example of the JSON syntax:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="generalSettings"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`generalSettings`** - **General settings**<br>
 `string`.<br>
@@ -144,7 +144,7 @@ The following is an example of the JSON syntax:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connectionStrings"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`connectionStrings`** - **Connection Strings**<br>
 `string`.<br>
@@ -183,7 +183,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -267,7 +267,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

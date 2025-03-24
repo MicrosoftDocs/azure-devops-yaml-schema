@@ -51,7 +51,7 @@ Use this task to extract a variety of archive and compression files, such as .7z
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 # Extract files v1
@@ -64,21 +64,6 @@ Use this task to extract a variety of archive and compression files, such as .7z
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Extract Files v1
-# Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-- task: ExtractFiles@1
-  inputs:
-    archiveFilePatterns: '*.zip' # string. Required. Archive file patterns. Default: *.zip.
-    destinationFolder: # string. Required. Destination folder. 
-    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -105,7 +90,7 @@ The pattern is used to match only archive file paths, not folder paths, and not 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 `string`. Required. Default value: `*.zip`.<br>

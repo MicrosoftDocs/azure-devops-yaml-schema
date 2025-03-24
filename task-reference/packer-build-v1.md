@@ -1,14 +1,14 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # PackerBuild@1 - Build machine image v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
@@ -20,7 +20,7 @@ Use this task to build a machine image using Packer, which may be used for Azure
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Build machine image v1
@@ -56,47 +56,13 @@ Use this task to build a machine image using Packer, which may be used for Azure
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Build machine image v1
-# Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-- task: PackerBuild@1
-  inputs:
-    templateType: 'builtin' # 'builtin' | 'custom'. Required. Packer template. Default: builtin.
-    #customTemplateLocation: # string. Required when templateType = custom. Packer template location. 
-    #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: {}.
-  # Azure Details
-    ConnectedServiceName: # string. Required when templateType = builtin. Azure subscription. 
-    #isManagedImage: true # boolean. Optional. Use when templateType = builtin. Managed VM disk image. Default: true.
-    #managedImageName: # string. Required when isManagedImage = true && templateType = builtin. Managed VM Disk Image Name. 
-    location: # string. Required when templateType = builtin. Storage location. 
-    storageAccountName: # string. Required when templateType = builtin. Storage account. 
-    azureResourceGroup: # string. Required when templateType = builtin. Resource group. 
-  # Deployment Inputs
-    baseImageSource: 'default' # 'default' | 'customVhd'. Required when templateType = builtin. Base image source. Default: default.
-    #baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' # 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows' | 'Canonical:UbuntuServer:14.04.4-LTS:linux' | 'Canonical:UbuntuServer:16.04-LTS:linux' | 'RedHat:RHEL:7.2:linux' | 'RedHat:RHEL:6.8:linux' | 'OpenLogic:CentOS:7.2:linux' | 'OpenLogic:CentOS:6.8:linux' | 'credativ:Debian:8:linux' | 'credativ:Debian:7:linux' | 'SUSE:openSUSE-Leap:42.2:linux' | 'SUSE:SLES:12-SP2:linux' | 'SUSE:SLES:11-SP4:linux'. Required when baseImageSource = default && templateType = builtin. Base image. Default: MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows.
-    #customImageUrl: # string. Required when baseImageSource = customVhd && templateType = builtin. Base image URL. 
-    #customImageOSType: 'windows' # 'windows' | 'linux'. Required when baseImageSource = customVhd && templateType = builtin. Base image OS. Default: windows.
-    packagePath: # string. Required when templateType = builtin. Deployment Package. 
-    deployScriptPath: # string. Required when templateType = builtin. Deployment script. 
-    #deployScriptArguments: # string. Optional. Use when templateType = builtin. Deployment script arguments. 
-  # Advanced
-    #additionalBuilderParameters: '{"vm_size":"Standard_D3_v2"}' # string. Optional. Use when templateType = builtin. Additional Builder parameters. Default: {"vm_size":"Standard_D3_v2"}.
-    #skipTempFileCleanupDuringVMDeprovision: true # boolean. Optional. Use when templateType = builtin. Skip temporary file cleanup during deprovision. Default: true.
-  # Output
-    #imageUri: # string. Image URL or Name. 
-    #imageId: # string. Azure Resource Id.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="templateType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`templateType`** - **Packer template**<br>
 `string`. Required. Allowed values: `builtin` (Auto generated), `custom` (User provided). Default value: `builtin`.<br>
@@ -108,7 +74,7 @@ Specifies whether the task auto generates a Packer template or uses a custom tem
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customTemplateLocation"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`customTemplateLocation`** - **Packer template location**<br>
 `string`. Required when `templateType = custom`.<br>
@@ -120,7 +86,7 @@ Specifies the path to a custom user-provided template.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customTemplateParameters"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`customTemplateParameters`** - **Template parameters**<br>
 `string`. Optional. Use when `templateType = custom`. Default value: `{}`.<br>
@@ -132,7 +98,7 @@ Specifies the parameters which will be passed to the Packer for building a custo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ConnectedServiceName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`ConnectedServiceName`** - **Azure subscription**<br>
 `string`. Required when `templateType = builtin`.<br>
@@ -144,7 +110,7 @@ Specifies the Azure Resource Manager subscription for baking and storing the mac
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isManagedImage"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`isManagedImage`** - **Managed VM disk image**<br>
 `boolean`. Optional. Use when `templateType = builtin`. Default value: `true`.<br>
@@ -156,7 +122,7 @@ Checks if the generated image should be a managed image.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="managedImageName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`managedImageName`** - **Managed VM Disk Image Name**<br>
 `string`. Required when `isManagedImage = true && templateType = builtin`.<br>
@@ -168,7 +134,7 @@ Specifies the name of the Managed disk image for auto-generated templates.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="location"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`location`** - **Storage location**<br>
 `string`. Required when `templateType = builtin`.<br>
@@ -180,7 +146,7 @@ Specifies the location for storing the built machine image. This location will a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="storageAccountName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`storageAccountName`** - **Storage account**<br>
 `string`. Required when `templateType = builtin`.<br>
@@ -192,7 +158,7 @@ Specifies the storage account for storing the built machine image. This storage 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `templateType = builtin`.<br>
@@ -204,7 +170,7 @@ Specifies the Azure Resource group that contains the selected storage account.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baseImageSource"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`baseImageSource`** - **Base image source**<br>
 `string`. Required when `templateType = builtin`. Allowed values: `default` (Gallery), `customVhd` (Custom). Default value: `default`.<br>
@@ -218,7 +184,7 @@ Specifies the source of the base image. You can either choose from a curated gal
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baseImage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`baseImage`** - **Base image**<br>
 `string`. Required when `baseImageSource = default && templateType = builtin`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `Canonical:UbuntuServer:18.04-LTS:linux` (Ubuntu 18.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
@@ -228,20 +194,9 @@ Chooses from a curated list of OS images. This will be used for installing pre-r
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`baseImage`** - **Base image**<br>
-`string`. Required when `baseImageSource = default && templateType = builtin`. Allowed values: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows` (Windows 2012-R2-Datacenter), `MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows` (Windows 2016-Datacenter), `MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows` (Windows 2012-Datacenter), `MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows` (Windows 2008-R2-SP1), `Canonical:UbuntuServer:14.04.4-LTS:linux` (Ubuntu 14.04.4-LTS), `Canonical:UbuntuServer:16.04-LTS:linux` (Ubuntu 16.04-LTS), `RedHat:RHEL:7.2:linux` (RHEL 7.2), `RedHat:RHEL:6.8:linux` (RHEL 6.8), `OpenLogic:CentOS:7.2:linux` (CentOS 7.2), `OpenLogic:CentOS:6.8:linux` (CentOS 6.8), `credativ:Debian:8:linux` (Debian 8), `credativ:Debian:7:linux` (Debian 7), `SUSE:openSUSE-Leap:42.2:linux` (openSUSE-Leap 42.2), `SUSE:SLES:12-SP2:linux` (SLES 12-SP2), `SUSE:SLES:11-SP4:linux` (SLES 11-SP4). Default value: `MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Chooses from a curated list of OS images. This will be used for installing pre-requisite(s) and application(s) before capturing a machine image.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customImageUrl"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`customImageUrl`** - **Base image URL**<br>
 `string`. Required when `baseImageSource = customVhd && templateType = builtin`.<br>
@@ -253,7 +208,7 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customImageOSType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`customImageOSType`** - **Base image OS**<br>
 `string`. Required when `baseImageSource = customVhd && templateType = builtin`. Allowed values: `windows`, `linux`. Default value: `windows`.<br>
@@ -264,7 +219,7 @@ Specifies the URL of a base image. This will be used for installing pre-requisit
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packagePath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`packagePath`** - **Deployment Package**<br>
 `string`. Required when `templateType = builtin`.<br>
@@ -279,7 +234,7 @@ Specifies the path for a deployment package directory relative to `$(System.Defa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployScriptPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deployScriptPath`** - **Deployment script**<br>
 `string`. Required when `templateType = builtin`.<br>
@@ -291,7 +246,7 @@ Specifies the relative path to the powershell script (for Windows) or the shell 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployScriptArguments"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deployScriptArguments`** - **Deployment script arguments**<br>
 `string`. Optional. Use when `templateType = builtin`.<br>
@@ -303,7 +258,7 @@ Specifies the arguments to be passed to the deployment script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="additionalBuilderParameters"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`additionalBuilderParameters`** - **Additional Builder parameters**<br>
 `string`. Optional. Use when `templateType = builtin`. Default value: `{"vm_size":"Standard_D3_v2"}`.<br>
@@ -316,7 +271,7 @@ To view/edit the additional parameters in a grid, click on `…` next to text bo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="skipTempFileCleanupDuringVMDeprovision"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`skipTempFileCleanupDuringVMDeprovision`** - **Skip temporary file cleanup during deprovision**<br>
 `boolean`. Optional. Use when `templateType = builtin`. Default value: `true`.<br>
@@ -328,7 +283,7 @@ During the deprovisioning of a VM, skips the cleanup of temporary files uploaded
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packerVersion"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`packerVersion`** - **Packer Version**<br>
 `string`. Optional. Use when `templateType = custom`.<br>
@@ -340,7 +295,7 @@ Specifies the version of Packer to install. This will work only with custom temp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageUri"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`imageUri`** - **Image URL or Name**<br>
 `string`.<br>
@@ -352,7 +307,7 @@ Specifies a name for the output variable which will store the generated machine 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageId"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`imageId`** - **Azure Resource Id**<br>
 `string`.<br>
@@ -372,7 +327,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -398,7 +353,7 @@ Use this task to build a machine image using Packer. This image can be used for 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

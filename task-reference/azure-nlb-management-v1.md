@@ -36,7 +36,7 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Network Load Balancer v1
@@ -50,22 +50,6 @@ Use this task to connect or disconnect an Azure virtual machine's network interf
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure Network Load Balancer v1
-# Connect/Disconnect an Azure virtual machine's network interface to a Load Balancer's backend address pool.
-- task: AzureNLBManagement@1
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
-    ResourceGroupName: # string. Required. Resource Group. 
-    LoadBalancer: # string. Required. Load Balancer Name. 
-    Action: # 'Disconnect' | 'Connect'. Required. Action.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

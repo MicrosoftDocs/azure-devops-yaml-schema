@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to build with Apache Ant.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Ant v1
@@ -49,37 +49,6 @@ Use this task to build with Apache Ant.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Ant v1
-# Build with Apache Ant.
-- task: Ant@1
-  inputs:
-    buildFile: 'build.xml' # string. Alias: antBuildFile. Required. Ant build file. Default: build.xml.
-    #options: # string. Options. 
-    #targets: # string. Target(s). 
-  # JUnit Test Results
-    #publishJUnitResults: true # boolean. Publish to Azure Pipelines/TFS. Default: true.
-    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
-  # Code Coverage
-    #codeCoverageToolOptions: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    codeCoverageClassFilesDirectories: '.' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: ..
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool != None. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-  # Advanced
-    #antHomeDirectory: # string. Alias: antHomeUserInputPath. Set ANT_HOME path. 
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkUserInputDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -129,20 +98,9 @@ See [Using Apache Ant Targets](http://ant.apache.org/manual/targets.html#targets
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish JUnit test results produced by the Ant build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish JUnit test results produced by the Ant build to Azure Pipelines. Each test results file matching `Test Results Files` will be published as a test run in Azure Pipelines.
@@ -267,7 +225,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>

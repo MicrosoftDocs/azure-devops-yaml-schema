@@ -1,7 +1,7 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -85,33 +85,13 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# SSH v0
-# Run shell commands or a script on a remote machine using SSH.
-- task: SSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
-    commands: # string. Required when runOptions = commands. Commands. 
-    #scriptPath: # string. Required when runOptions = script. Shell script path. 
-    #inline: # string. Required when runOptions = inline. Inline Script. 
-    #args: # string. Optional. Use when runOptions = script. Arguments. 
-  # Advanced
-    #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="sshEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`sshEndpoint`** - **SSH service connection**<br>
 `string`. Required.<br>
@@ -225,7 +205,7 @@ Starts an interactive session. Password requests are filled by the user's passwo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="readyTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`readyTimeout`** - **SSH handshake timeout**<br>
 `string`. Required. Default value: `20000`.<br>
@@ -346,7 +326,7 @@ For OpenSSL v1.0.1 and higher, NodeJS v0.11.12 and higher (on agent):
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 | Requirement | Description |
 |-------------|-------------|

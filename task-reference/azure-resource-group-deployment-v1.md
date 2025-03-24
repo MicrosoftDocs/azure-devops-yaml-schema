@@ -24,7 +24,7 @@ This task is deprecated; use [AzureResourceGroupDeployment@2](./azure-resource-g
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Resource Group Deployment v1
@@ -50,7 +50,6 @@ This task is deprecated; use [AzureResourceGroupDeployment@2](./azure-resource-g
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -301,7 +300,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -315,7 +314,6 @@ None.
 | Task category | Deploy |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

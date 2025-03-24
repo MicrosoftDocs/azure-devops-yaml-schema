@@ -22,7 +22,7 @@ RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Run functional tests v1
@@ -52,38 +52,6 @@ RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Run Functional Tests v1
-# Deprecated: This task and it’s companion task (Visual Studio Test Agent Deployment) are deprecated. Use the 'Visual Studio Test' task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests.
-- task: RunVisualStudioTestsusingTestAgent@1
-  inputs:
-  # Setup Options
-    testMachineGroup: # string. Required. Machines. 
-    dropLocation: # string. Required. Test Drop Location. 
-  # Execution Options
-    testSelection: 'testAssembly' # 'testAssembly' | 'testPlan'. Required. Test Selection. Default: testAssembly.
-    #testPlan: # string. Required when testSelection = testPlan. Test Plan. 
-    #testSuite: # string. Required when testSelection = testPlan. Test Suite. 
-    #testConfiguration: # string. Required when testSelection = testPlan. Test Configuration. 
-    sourcefilters: '**\*test*.dll' # string. Required when testSelection = testAssembly. Test Assembly. Default: **\*test*.dll.
-    #testFilterCriteria: # string. Optional. Use when testSelection = testAssembly. Test Filter criteria. 
-    #runSettingsFile: # string. Run Settings File. 
-    #overrideRunParams: # string. Override Test Run Parameters. 
-    #codeCoverageEnabled: false # boolean. Code Coverage Enabled. Default: false.
-    #customSlicingEnabled: false # boolean. Distribute tests by number of machines. Default: false.
-  # Reporting Options
-    #testRunTitle: # string. Test Run Title. 
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #testConfigurations: # string. Test Configurations. 
-    #autMachineGroup: # string. Application Under Test Machines.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

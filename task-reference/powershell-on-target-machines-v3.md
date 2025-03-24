@@ -2,13 +2,13 @@
 title: PowerShellOnTargetMachines@3 - PowerShell on target machines v3 task
 description: Execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # PowerShellOnTargetMachines@3 - PowerShell on target machines v3 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to execute PowerShell scripts on remote machines using PSSession and Invoke-Command for remoting.
@@ -16,19 +16,12 @@ Use this task to execute PowerShell scripts on remote machines using PSSession a
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to execute PowerShell scripts on remote machine(s). This version of the task uses PSSession and Invoke-Command for remoting.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # PowerShell on target machines v3
@@ -60,44 +53,13 @@ Use this task to execute PowerShell scripts on remote machine(s). This version o
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# PowerShell on Target Machines v3
-# Execute PowerShell scripts on remote machine(s). This version of the task uses PSSession and Invoke-Command for remoting.
-- task: PowerShellOnTargetMachines@3
-  inputs:
-    Machines: # string. Required. Machines. 
-    #UserName: # string. Username. 
-    #UserPassword: # string. Password. 
-  # Script options
-    #ScriptType: 'Inline' # 'FilePath' | 'Inline'. Script Type. Default: Inline.
-    #ScriptPath: # string. Required when ScriptType = FilePath. Script File Path. 
-    InlineScript: # string. Required when ScriptType = Inline. Script. 
-    #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
-    #InitializationScript: # string. Optional. Use when ScriptType = FilePath. Initialization script. 
-    #SessionVariables: # string. Optional. Use when ScriptType = FilePath. Session Variables. 
-  # PSSession options
-    #CommunicationProtocol: 'Https' # 'Http' | 'Https'. Protocol. Default: Https.
-    #AuthenticationMechanism: 'Default' # 'Default' | 'Credssp'. Authentication. Default: Default.
-    #NewPsSessionOptionArguments: '-SkipCACheck -IdleTimeout 7200000 -OperationTimeout 0 -OutputBufferingMode Block' # string. Session Option parameters. Default: -SkipCACheck -IdleTimeout 7200000 -OperationTimeout 0 -OutputBufferingMode Block.
-  # Error handling options
-    #ErrorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-  # Advanced
-    #WorkingDirectory: # string. Working Directory. 
-    #RunPowershellInParallel: true # boolean. Run PowerShell in Parallel. Default: true.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="Machines"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`Machines`** - **Machines**<br>
 `string`. Required.<br>
@@ -115,7 +77,7 @@ If you do not specify a port, the default WinRM port is used. This depends on th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UserName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`UserName`** - **Username**<br>
 `string`.<br>
@@ -130,7 +92,7 @@ Specifies the username of a domain or a local administrative account on the targ
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UserPassword"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`UserPassword`** - **Password**<br>
 `string`.<br>
@@ -142,7 +104,7 @@ Specifies the password for the target machines. Variables defined in build/relea
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ScriptType`** - **Script Type**<br>
 `string`. Allowed values: `FilePath` (File Path), `Inline`. Default value: `Inline`.<br>
@@ -154,7 +116,7 @@ Specifies the type of script to execute: Inline or File Path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ScriptPath`** - **Script File Path**<br>
 `string`. Required when `ScriptType = FilePath`.<br>
@@ -166,7 +128,7 @@ Specifies the location of the PowerShell script on the target machines or on a U
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="InlineScript"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`InlineScript`** - **Script**<br>
 `string`. Required when `ScriptType = Inline`. Default value: `# Write your powershell commands here.\n\nWrite-Output "Hello World"`.<br>
@@ -177,7 +139,7 @@ Specifies the location of the PowerShell script on the target machines or on a U
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ScriptArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ScriptArguments`** - **Script Arguments**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
@@ -189,7 +151,7 @@ Specifies the arguments for the PowerShell script. Can be ordinal or named param
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="InitializationScript"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`InitializationScript`** - **Initialization script**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
@@ -201,7 +163,7 @@ Specifies the location of the data script for the DSC on the target machines or 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SessionVariables"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SessionVariables`** - **Session Variables**<br>
 `string`. Optional. Use when `ScriptType = FilePath`.<br>
@@ -214,7 +176,7 @@ Specifies a comma-separated list, such as `$varx=valuex, $vary=valuey`. Most com
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CommunicationProtocol"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`CommunicationProtocol`** - **Protocol**<br>
 `string`. Allowed values: `Http`, `Https`. Default value: `Https`.<br>
@@ -226,7 +188,7 @@ Specifies the protocol to use for the WinRM service connection with the machine(
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AuthenticationMechanism"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`AuthenticationMechanism`** - **Authentication**<br>
 `string`. Allowed values: `Default`, `Credssp`. Default value: `Default`.<br>
@@ -238,7 +200,7 @@ Specifies the authentication mechanism used for creating the PSSession. For `Cre
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="NewPsSessionOptionArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`NewPsSessionOptionArguments`** - **Session Option parameters**<br>
 `string`. Default value: `-SkipCACheck -IdleTimeout 7200000 -OperationTimeout 0 -OutputBufferingMode Block`.<br>
@@ -250,7 +212,7 @@ Advanced options for a remote session (New-PSSessionOption). For example, `-Skip
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ErrorActionPreference"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ErrorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
@@ -262,7 +224,7 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStderr"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>
@@ -274,7 +236,7 @@ If set to `true`, fails if any errors are written to the error pipeline or if an
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ignoreLASTEXITCODE"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ignoreLASTEXITCODE`** - **Ignore $LASTEXITCODE**<br>
 `boolean`. Default value: `false`.<br>
@@ -286,7 +248,7 @@ If set to `false`, the line `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WorkingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`WorkingDirectory`** - **Working Directory**<br>
 `string`.<br>
@@ -298,7 +260,7 @@ Specifies the working directory where the script is run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RunPowershellInParallel"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`RunPowershellInParallel`** - **Run PowerShell in Parallel**<br>
 `boolean`. Default value: `true`.<br>
@@ -318,7 +280,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -357,7 +319,7 @@ This task can run both PowerShell scripts and PowerShell-DSC scripts:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

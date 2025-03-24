@@ -21,7 +21,7 @@ Run scripts with Knife commands on your Chef workstation.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Run scripts with Knife commands on your Chef workstation.
@@ -34,13 +34,12 @@ Run scripts with Knife commands on your Chef workstation.
 
 :::moniker-end
 
-
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Chef Knife v1
@@ -53,21 +52,6 @@ Run scripts with Knife commands on your Chef workstation.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Chef Knife v1
-# Run Scripts with knife commands on your chef workstation.
-- task: ChefKnife@1
-  inputs:
-    ConnectedServiceName: # string. Required. Chef Subscription. 
-    ScriptPath: # string. Required. Script Path. 
-    #ScriptArguments: # string. Script Arguments.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

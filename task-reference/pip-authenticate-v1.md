@@ -1,14 +1,14 @@
 ---
 title: PipAuthenticate@1 - Python pip authenticate v1 task
 description: Authentication task for the pip client used for installing Python distributions.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # PipAuthenticate@1 - Python pip authenticate v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to provide authentication for the `pip` client that installs Python distributions.
@@ -20,7 +20,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Python pip authenticate v1
@@ -40,7 +40,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 ## Inputs
 
 <!-- :::item name="artifactFeeds"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
 `string`.<br>
@@ -52,7 +52,7 @@ Specifies a comma-separated list of Azure Artifacts feeds to authenticate with p
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pythonDownloadServiceConnections"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pythonDownloadServiceConnections`** - **Feeds from external organizations**<br>
 `string`.<br>
@@ -64,7 +64,7 @@ Specifies a comma-separated list of [pip service connection](/azure/devops/pipel
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onlyAddExtraIndex"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`onlyAddExtraIndex`** - **Don't set primary index URL**<br>
 `boolean`. Default value: `false`.<br>
@@ -84,7 +84,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -207,7 +207,7 @@ In this example, we are setting authentication for downloading from an external 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

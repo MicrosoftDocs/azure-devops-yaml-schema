@@ -1,14 +1,14 @@
 ---
 title: jobs.job.container definition
 description: Container resource name.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.job.container definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Container jobs allow you to run jobs on a container instead of the agent host.
@@ -18,23 +18,18 @@ Container jobs allow you to run jobs on a container instead of the agent host.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [jobs.deployment](jobs-deployment.md)
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -58,7 +53,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 <!-- :::implementation-item name="container: string"::: -->
 <a name="containerstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## container: string
@@ -261,67 +256,6 @@ Volumes to mount on the container.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::implementation-signature::: -->
-## container: image
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Specify job container using image tag and options.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-container:
-  image: string # Required. Container image tag.
-  endpoint: string # ID of the service endpoint connecting to a private container registry.
-  env: # Variables to map into the container's environment.
-    string: string # Name/value pairs
-  options: string # Options to pass into container host.
-  ports: [ string ] # Ports to expose on the container.
-  volumes: [ string ] # Volumes to mount on the container.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="image"::: -->
-**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
-Container image tag.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to a private container registry.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
-Variables to map into the container's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="options"::: -->
-**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Options to pass into container host.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ports"::: -->
-**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
-Ports to expose on the container.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="volumes"::: -->
-**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
-Volumes to mount on the container.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
 <!-- :::objectAnyOf-end::: -->
 
 <!-- :::remarks::: -->

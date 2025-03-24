@@ -1,14 +1,14 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # FileTransform@2 - File transform v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to replace tokens with variable values in XML or JSON configuration files.
@@ -37,7 +37,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # File transform v2
@@ -58,7 +58,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
 ## Inputs
 
 <!-- :::item name="folderPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`folderPath`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
@@ -100,7 +100,7 @@ Provides a newline-separated list of transformation file rules using the syntax:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 `string`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
@@ -113,7 +113,7 @@ Provides a newline-separated list of transformation file rules using the syntax:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jsonTargetFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`jsonTargetFiles`** - **JSON target files**<br>
 `string`.<br>
@@ -142,7 +142,7 @@ Note: Only custom variables that are defined in build/release pipelines are used
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xmlTargetFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`xmlTargetFiles`** - **XML target files**<br>
 `string`.<br>
@@ -168,7 +168,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -258,7 +258,7 @@ as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (o
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -20,7 +20,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Update Service Fabric manifests v2
@@ -42,30 +42,6 @@ Use this task in a build pipeline to automatically update the versions of a pack
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Update Service Fabric Manifests v2
-# Automatically updates portions of the application and service manifests within a packaged Service Fabric application.
-- task: ServiceFabricUpdateManifests@2
-  inputs:
-    updateType: 'Manifest versions' # 'Manifest versions' | 'Docker image settings'. Required. Update Type. Default: Manifest versions.
-    applicationPackagePath: # string. Required. Application Package. 
-    #versionSuffix: '.$(Build.BuildNumber)' # string. Required when updateType = Manifest versions. Version Value. Default: .$(Build.BuildNumber).
-    #versionBehavior: 'Append' # 'Append' | 'Replace'. Optional. Use when updateType = Manifest versions. Version Behavior. Default: Append.
-    #updateOnlyChanged: false # boolean. Optional. Use when updateType = Manifest versions. Update only if changed. Default: false.
-    #pkgArtifactName: # string. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Package Artifact Name. 
-    #logAllChanges: true # boolean. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Log all changes. Default: true.
-    #compareType: 'LastSuccessful' # 'LastSuccessful' | 'Specific'. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Compare against. Default: LastSuccessful.
-    #buildNumber: # string. Optional. Use when updateType = Manifest versions && compareType = Specific. Build Number. 
-    #overwriteExistingPkgArtifact: true # boolean. Optional. Use when updateType = Manifest versions && updateOnlyChanged = true. Overwrite Existing Package Artifact. Default: true.
-    #imageNamesPath: # string. Optional. Use when updateType = Docker image settings. Image Names Path. 
-    #imageDigestsPath: # string. Required when updateType = Docker image settings. Image Digests Path.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -204,7 +180,7 @@ Downloads a new copy of the artifact. Otherwise, this boolean uses an existing c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageNamesPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`imageNamesPath`** - **Image Names Path**<br>
 `string`. Optional. Use when `updateType = Docker image settings`.<br>

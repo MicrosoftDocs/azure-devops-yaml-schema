@@ -1,14 +1,14 @@
 ---
 title: resources.pipelines.pipeline.trigger.branches definition
 description: Branches to include or exclude for triggering a run using a pipeline resource.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.pipelines.pipeline.trigger.branches definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Branches to include or exclude for triggering a run using a pipeline resource.
@@ -18,7 +18,7 @@ Branches to include or exclude for triggering a run using a pipeline resource.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
 
@@ -28,7 +28,7 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -52,7 +52,7 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 <!-- :::implementation-item name="branches: object properties"::: -->
 <a name="branchesobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## branches: include, exclude
@@ -101,7 +101,7 @@ branches:
 <!-- :::implementation-item name="branches: string list"::: -->
 <a name="branchesstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## branches: string list

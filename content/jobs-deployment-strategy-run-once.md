@@ -1,14 +1,14 @@
 ---
 title: jobs.deployment.strategy.runOnce definition
 description: RunOnce Deployment strategy.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.deployment.strategy.runOnce definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The runOnce deployment strategy rolls out changes by executing each of its steps one time.
@@ -18,7 +18,7 @@ The runOnce deployment strategy rolls out changes by executing each of its steps
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 runOnce:
@@ -47,7 +47,7 @@ runOnce:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs.deployment.strategy](jobs-deployment-strategy.md)
 
@@ -58,7 +58,7 @@ Definitions that reference this definition: [jobs.deployment.strategy](jobs-depl
 
 <!-- :::properties::: -->
 <!-- :::item name="preDeploy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`preDeploy`** [preDeployHook](pre-deploy-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pre deploy hook for runOnce deployment strategy.
@@ -67,7 +67,7 @@ Pre deploy hook for runOnce deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploy`** [deployHook](deploy-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Deploy hook for runOnce deployment strategy.
@@ -76,7 +76,7 @@ Deploy hook for runOnce deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="routeTraffic"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`routeTraffic`** [routeTrafficHook](route-traffic-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Route traffic hook for runOnce deployment strategy.
@@ -85,7 +85,7 @@ Route traffic hook for runOnce deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="postRouteTraffic"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`postRouteTraffic`** [postRouteTrafficHook](post-route-traffic-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Post route traffic hook for runOnce deployment strategy.
@@ -94,7 +94,7 @@ Post route traffic hook for runOnce deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="on"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`on`** [onSuccessOrFailureHook](on-success-or-failure-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 On success or failure hook for runOnce deployment strategy.

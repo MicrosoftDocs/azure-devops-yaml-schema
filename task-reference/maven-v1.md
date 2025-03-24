@@ -22,7 +22,7 @@ This version of the task is deprecated; use [Maven@4](./maven-v4.md).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Maven v1
@@ -70,7 +70,6 @@ This version of the task is deprecated; use [Maven@4](./maven-v4.md).
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

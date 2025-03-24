@@ -20,7 +20,7 @@ Use this task to install an Apple provisioning profile, which is required in ord
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Install Apple provisioning profile v1
@@ -34,22 +34,6 @@ Use this task to install an Apple provisioning profile, which is required in ord
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Install Apple Provisioning Profile v1
-# Install an Apple provisioning profile required to build on a macOS agent.
-- task: InstallAppleProvisioningProfile@1
-  inputs:
-    provisioningProfileLocation: 'secureFiles' # 'secureFiles' | 'sourceRepository'. Required. Provisioning profile location. Default: secureFiles.
-    provProfileSecureFile: # string. Required when provisioningProfileLocation == secureFiles. Provisioning profile. 
-    #provProfileSourceRepository: # string. Required when provisioningProfileLocation == sourceRepository. Provisioning profile. 
-    #removeProfile: true # boolean. Remove profile after build. Default: true.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -113,7 +97,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -129,7 +113,6 @@ The Name property for the selected provisioning profile.
 <!-- :::item-end::: -->
 
 :::moniker-end
-
 
 <!-- :::outputVariables-end::: -->
 

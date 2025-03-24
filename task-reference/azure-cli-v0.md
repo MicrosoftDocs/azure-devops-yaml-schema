@@ -20,7 +20,7 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure CLI Preview v0
@@ -40,7 +40,6 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

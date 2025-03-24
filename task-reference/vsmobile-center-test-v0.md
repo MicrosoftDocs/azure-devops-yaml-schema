@@ -20,7 +20,7 @@ Use this task to test mobile app packages with Visual Studio Mobile Center.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Mobile Center Test v0
@@ -70,7 +70,6 @@ Use this task to test mobile app packages with Visual Studio Mobile Center.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -549,7 +548,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -563,7 +562,6 @@ None.
 | Task category | Test |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

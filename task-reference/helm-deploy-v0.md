@@ -1,14 +1,14 @@
 ---
 title: HelmDeploy@0 - Package and deploy Helm charts v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands (task version 0).
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # HelmDeploy@0 - Package and deploy Helm charts v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy, configure, or update a Kubernetes cluster in Azure Container Service by running helm commands.
@@ -16,13 +16,6 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to deploy, configure, or update your Kubernetes cluster in Azure Container Service by running helm commands.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -183,95 +176,6 @@ Use this task to deploy, configure, or update your Kubernetes cluster in Azure C
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Package and deploy Helm charts v0
-# Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-- task: HelmDeploy@0
-  inputs:
-  # Kubernetes Cluster
-    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Kubernetes cluster. 
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package. Kubernetes Service Connection. 
-    #namespace: # string. Optional. Use when command != logout && command != package. Namespace. 
-  # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
-    chartName: # string. Required when chartType == Name. Chart Name. 
-    #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Alias: version. Optional. Use when command == package. Version. 
-    #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
-    #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
-    #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
-    #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
-    #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
-    #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
-    #save: true # boolean. Optional. Use when command == package. Save. Default: true.
-    #install: true # boolean. Optional. Use when command == upgrade. Install if release not present. Default: true.
-    #recreate: false # boolean. Optional. Use when command == upgrade. Recreate Pods. Default: false.
-    #resetValues: false # boolean. Optional. Use when command == upgrade. Reset Values. Default: false.
-    #force: false # boolean. Optional. Use when command == upgrade. Force. Default: false.
-    #waitForExecution: true # boolean. Optional. Use when command == init || command == install || command == upgrade. Wait. Default: true.
-    #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
-  # TLS
-    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package. CA certificate. 
-    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package. Certificate. 
-    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package. Key. 
-  # Advanced
-    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package. Tiller namespace.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Package and deploy Helm charts v0
-# Deploy, configure, update your Kubernetes cluster in Azure Container Service by running helm commands.
-- task: HelmDeploy@0
-  inputs:
-  # Kubernetes Cluster
-    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout && command != package. Connection Type. Default: Azure Resource Manager.
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when connectionType = Azure Resource Manager && command != logout && command != package. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout && command != package. Kubernetes cluster. 
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when connectionType = Kubernetes Service Connection && command != logout && command != package. Kubernetes Service Connection. 
-    #namespace: # string. Optional. Use when command != logout && command != package. Namespace. 
-  # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade'. Required. Command. Default: ls.
-    #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
-    chartName: # string. Required when chartType == Name. Chart Name. 
-    #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
-    #chartVersion: # string. Alias: version. Optional. Use when command == package. Version. 
-    #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
-    #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
-    #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
-    #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
-    #canaryimage: false # boolean. Optional. Use when command == init. Use canary image version. Default: false.
-    #upgradetiller: true # boolean. Optional. Use when command == init. Upgrade Tiller. Default: true.
-    #updatedependency: false # boolean. Optional. Use when command == install || command == package. Update Dependency. Default: false.
-    #save: true # boolean. Optional. Use when command == package. Save. Default: true.
-    #install: true # boolean. Optional. Use when command == upgrade. Install if release not present. Default: true.
-    #recreate: false # boolean. Optional. Use when command == upgrade. Recreate Pods. Default: false.
-    #resetValues: false # boolean. Optional. Use when command == upgrade. Reset Values. Default: false.
-    #force: false # boolean. Optional. Use when command == upgrade. Force. Default: false.
-    #waitForExecution: true # boolean. Optional. Use when command == init || command == install || command == upgrade. Wait. Default: true.
-    #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
-  # TLS
-    #enableTls: false # boolean. Optional. Use when command != login && command != logout && command != package. Enable TLS. Default: false.
-    #caCert: # string. Required when enableTls == true && command != login && command != logout && command != package. CA certificate. 
-    #certificate: # string. Required when enableTls == true && command != login && command != logout && command != package. Certificate. 
-    #privatekey: # string. Required when enableTls == true && command != login && command != logout && command != package. Key. 
-  # Advanced
-    #tillernamespace: # string. Optional. Use when command != login && command != logout && command != package. Tiller namespace.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -295,7 +199,7 @@ For more information, see [Service connection](#service-connection) in the follo
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`connectionType`** - **Connection Type**<br>
 `string`. Required when `command != logout && command != package`. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
@@ -324,7 +228,7 @@ The name of the Azure Service Connection. Specify an Azure subscription that has
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
@@ -347,7 +251,7 @@ The name of the resource group within the subscription. Specify an Azure Resourc
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
@@ -370,7 +274,7 @@ The name of the AKS cluster. Specify an Azure Managed Cluster.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
@@ -416,7 +320,7 @@ Specifies a Kubernetes Service Connection.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
@@ -439,7 +343,7 @@ The namespace on which you run the `kubectl` commands. If not specified, the tas
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`namespace`** - **Namespace**<br>
 `string`. Optional. Use when `command != logout && command != package`.<br>
@@ -509,7 +413,7 @@ Specifies a Helm command.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `upgrade`. Default value: `ls`.<br>
@@ -521,7 +425,7 @@ Specifies a Helm command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`chartType`** - **Chart Type**<br>
 `string`. Required when `command == install || command == upgrade`. Allowed values: `Name`, `FilePath` (File Path). Default value: `Name`.<br>
@@ -533,7 +437,7 @@ Specifies how you want to enter chart information. You can either provide the na
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`chartName`** - **Chart Name**<br>
 `string`. Required when `chartType == Name`.<br>
@@ -545,7 +449,7 @@ The name of the chart reference to install. This can be a url or a chart name. F
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`chartPath`** - **Chart Path**<br>
 `string`. Required when `chartType == FilePath || command == package`.<br>
@@ -568,7 +472,7 @@ Specifies the exact chart version to install. If you don't specify the chart ver
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`chartVersion`** - **Version**<br>
 Input alias: `version`. `string`. Optional. Use when `command == package`.<br>
@@ -580,7 +484,7 @@ Specifies the exact chart version to install. If you don't specify the chart ver
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`releaseName`** - **Release Name**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
@@ -592,7 +496,7 @@ The release name. If you don't specify the release name, the task autogenerates 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideValues"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`overrideValues`** - **Set Values**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
@@ -611,7 +515,7 @@ If you have a value that contains new lines, use the `valueFile` option. Otherwi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="valueFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`valueFile`** - **Value File**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
@@ -623,7 +527,7 @@ Specifies values in a YAML file or a URL. For example, specifying `myvalues.yaml
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destination"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`destination`** - **Destination**<br>
 `string`. Optional. Use when `command == package`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
@@ -635,7 +539,7 @@ Specifies values in a YAML file or a URL.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="canaryimage"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`canaryimage`** - **Use canary image version.**<br>
 `boolean`. Optional. Use when `command == init`. Default value: `false`.<br>
@@ -647,7 +551,7 @@ Specifies the canary Tiller image. Use the latest pre-release version of Tiller.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="upgradetiller"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`upgradetiller`** - **Upgrade Tiller**<br>
 `boolean`. Optional. Use when `command == init`. Default value: `true`.<br>
@@ -659,7 +563,7 @@ If `true`, this input upgrades Tiller if Tiller is already installed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="updatedependency"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`updatedependency`** - **Update Dependency**<br>
 `boolean`. Optional. Use when `command == install || command == package`. Default value: `false`.<br>
@@ -671,7 +575,7 @@ If `true`, this input updates a Helm dependency update before installing the cha
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="save"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`save`** - **Save**<br>
 `boolean`. Optional. Use when `command == package`. Default value: `true`.<br>
@@ -683,7 +587,7 @@ Saves the packaged chart to the local chart repository when set to `true​`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="install"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`install`** - **Install if release not present.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `true`.<br>
@@ -695,7 +599,7 @@ If a release by this name doesn't already exist, this input runs an install​.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="recreate"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`recreate`** - **Recreate Pods.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
@@ -707,7 +611,7 @@ Performs pods restart for the resource, if applicable.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resetValues"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`resetValues`** - **Reset Values.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
@@ -719,7 +623,7 @@ Resets the values to the values built into the chart.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="force"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`force`** - **Force**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
@@ -731,7 +635,7 @@ Forces a resource update through a delete or recreate action, if needed​.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForExecution"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`waitForExecution`** - **Wait**<br>
 `boolean`. Optional. Use when `command == init || command == install || command == upgrade`. Default value: `true`.<br>
@@ -743,7 +647,7 @@ Blocks the action until the command execution completes.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
@@ -766,7 +670,7 @@ Enables using SSL between Helm and Tiller.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`enableTls`** - **Enable TLS**<br>
 `boolean`. Optional. Use when `command != login && command != logout && command != package`. Default value: `false`.<br>
@@ -789,7 +693,7 @@ The CA cert used to issue a certificate for the Tiller and Helm client.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`caCert`** - **CA certificate**<br>
 `string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
@@ -812,7 +716,7 @@ Specify the Tiller certificate or the Helm client certificate.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`certificate`** - **Certificate**<br>
 `string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
@@ -835,7 +739,7 @@ Specify the Tiller key or the Helm client key.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`privatekey`** - **Key**<br>
 `string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
@@ -858,7 +762,7 @@ Specify Tiller's Kubernetes namespace.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`tillernamespace`** - **Tiller namespace**<br>
 `string`. Optional. Use when `command != login && command != logout && command != package`.<br>
@@ -937,7 +841,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -954,11 +858,6 @@ The output emitted from the execution of specified Helm command.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-None.
-
-:::moniker-end
 <!-- :::outputVariables-end::: -->
 
 <!-- :::remarks::: -->
@@ -1259,7 +1158,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

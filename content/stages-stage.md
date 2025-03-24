@@ -1,14 +1,14 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 03/03/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # stages.stage definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Stages are a collection of related jobs. By default, stages run sequentially. Each stage starts only after the preceding stage is complete unless otherwise specified via the `dependsOn` property.
@@ -54,7 +54,7 @@ stages:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 stages:
@@ -71,7 +71,7 @@ stages:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [stages](stages.md)
 
@@ -82,7 +82,7 @@ Definitions that reference this definition: [stages](stages.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="stage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`stage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the stage.
@@ -91,7 +91,7 @@ ID of the stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the stage.
@@ -100,7 +100,7 @@ Human-readable name for the stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pool"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pool`** [pool](pool.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pool where jobs in this stage will run unless otherwise specified.
@@ -109,7 +109,7 @@ Pool where jobs in this stage will run unless otherwise specified.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dependsOn"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`dependsOn`** string | string list.<br><!-- :::editable-content name="propDescription"::: -->
 Any stages which must complete before this one. By default stages are run sequentially in the order defined in the pipeline. Specify `dependsOn: []` for a stage if it shouldn't depend on the previous stage in the pipeline.
@@ -118,7 +118,7 @@ Any stages which must complete before this one. By default stages are run sequen
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this stage.
@@ -127,7 +127,7 @@ Evaluate this condition expression to determine whether to run this stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="variables"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`variables`** [variables](variables.md).<br><!-- :::editable-content name="propDescription"::: -->
 Stage-specific variables.
@@ -136,7 +136,7 @@ Stage-specific variables.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`jobs`** [jobs](jobs.md).<br><!-- :::editable-content name="propDescription"::: -->
 Jobs which make up the stage.

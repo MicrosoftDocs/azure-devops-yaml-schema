@@ -1,8 +1,8 @@
 ---
 title: DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
 description: Acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # DotNetCoreInstaller@1 - .NET Core SDK/runtime installer v1 task
@@ -21,7 +21,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to acquire a specific version of the .NET Core SDK from the internet or local cache and add it to the PATH.
@@ -34,19 +34,12 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Acquires a specific version of the .NET Core SDK from the internet or local cache and adds it to the PATH.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # .NET Core SDK/runtime installer v1
@@ -68,7 +61,7 @@ Acquires a specific version of the .NET Core SDK from the internet or local cach
 ## Inputs
 
 <!-- :::item name="packageType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`packageType`** - **Package to install**<br>
 `string`. Required. Allowed values: `runtime` (Only Runtime), `sdk` (SDK (contains runtime)). Default value: `sdk`.<br>
@@ -80,7 +73,7 @@ Specifies whether to install only Runtime or the full SDK.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
 `string`. Required. Default value: `2.2.x`.<br>
@@ -100,7 +93,7 @@ Find the value of `version` for installing SDK/Runtime in the [releases-index fi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includePreviewVersions"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`includePreviewVersions`** - **Include Preview Versions**<br>
 `boolean`. Default value: `false`.<br>
@@ -112,7 +105,7 @@ Specifies if you want preview versions to be included while searching for latest
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="installationPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`installationPath`** - **Path To Install .Net Core**<br>
 `string`. Default value: `$(Agent.ToolsDirectory)/dotnet`.<br>
@@ -130,7 +123,7 @@ You can also configure the Multi-Level Lookup setting. This setting can configur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="performMultiLevelLookup"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`performMultiLevelLookup`** - **Perform Multi Level Lookup**<br>
 `boolean`. Default value: `false`.<br>
@@ -156,7 +149,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -184,7 +177,7 @@ What's new in this task version.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run the Grunt JavaScript task runner.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Grunt v0
@@ -45,33 +45,6 @@ Use this task to run the Grunt JavaScript task runner.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Grunt v0
-# The JavaScript Task Runner.
-- task: Grunt@0
-  inputs:
-    gruntFile: 'gruntfile.js' # string. Required. Grunt File Path. Default: gruntfile.js.
-    #targets: # string. Grunt Task(s). 
-    #arguments: # string. Arguments. 
-  # Advanced
-    #workingDirectory: # string. Alias: cwd. Working Directory. 
-    gruntCli: 'node_modules/grunt-cli/bin/grunt' # string. Required. grunt-cli location. Default: node_modules/grunt-cli/bin/grunt.
-  # JUnit Test Results
-    #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.
-    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
-  # Code Coverage
-    #enableCodeCoverage: false # boolean. Enable Code Coverage. Default: false.
-    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
-    #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
-    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -141,20 +114,9 @@ Specifies the grunt-cli to run when the agent can't find the globally installed 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select this option to publish the JUnit test results produced by the Grunt build to Azure Pipelines/TFS.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select this option to publish the JUnit test results produced by the Grunt build to Azure Pipelines/TFS.

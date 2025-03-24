@@ -1,14 +1,14 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # target definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Tasks run in an execution context, which is either the agent host or a container.
@@ -18,7 +18,7 @@ Tasks run in an execution context, which is either the agent host or a container
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md)
 
@@ -37,7 +37,7 @@ Definitions that reference this definition: [steps.task](steps-task.md), [steps.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 | Implementation | Description |
 |---|---|
@@ -64,7 +64,7 @@ An individual step may override its context by specifying a `target`, and option
 <!-- :::implementation-item name="target: string"::: -->
 <a name="targetstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## target: string
@@ -148,7 +148,7 @@ Restrictions on which variables that can be set.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 <!-- :::implementation-signature::: -->
 ## target: container, commands

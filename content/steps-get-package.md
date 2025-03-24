@@ -1,14 +1,14 @@
 ---
 title: steps.getPackage definition
 description: Downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # steps.getPackage definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 The `getPackage` step downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
@@ -38,7 +38,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 steps:
@@ -59,7 +59,7 @@ steps:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [steps](steps.md)
 
@@ -70,7 +70,7 @@ Definitions that reference this definition: [steps](steps.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="getPackage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`getPackage`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 ID for the package resource.
@@ -79,7 +79,7 @@ ID for the package resource.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Path to download the package into.
@@ -88,7 +88,7 @@ Path to download the package into.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="condition"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`condition`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Evaluate this condition expression to determine whether to run this task.
@@ -97,7 +97,7 @@ Evaluate this condition expression to determine whether to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="continueOnError"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`continueOnError`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Continue running even on failure?
@@ -106,7 +106,7 @@ Continue running even on failure?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the task.
@@ -115,7 +115,7 @@ Human-readable name for the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
@@ -124,7 +124,7 @@ Environment in which to run this task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enabled"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`enabled`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Run this task when the job runs?
@@ -133,7 +133,7 @@ Run this task when the job runs?
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the process's environment.
@@ -142,7 +142,7 @@ Variables to map into the process's environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the step. Acceptable values: [-_A-Za-z0-9]*.
@@ -151,7 +151,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timeoutInMinutes"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it.

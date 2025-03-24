@@ -1,7 +1,7 @@
 ---
 title: CmdLine@2 - Command line v2 task
 description: Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run a command line script using Bash on Linux, macOS, and cmd.e
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Command Line v2
@@ -35,28 +35,16 @@ Use this task to run a command line script using Bash on Linux, macOS, and cmd.e
 
 :::moniker-end
 
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`script`** - **Script**<br>
 `string`. Required. Default value: `echo Write your commands here\n\necho Hello world`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The contents of the script you want to run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`script`** - **Script**<br>
-`string`. Required. Default value: `echo Write your commands here\n\necho Use the environment variables input below to pass secret variables to this script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The contents of the script you want to run.
 <!-- :::editable-content-end::: -->

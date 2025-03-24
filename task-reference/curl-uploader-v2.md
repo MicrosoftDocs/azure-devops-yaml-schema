@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # cURLUploader@2 - cURL Upload Files v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data transfer protocols include FTP, FTPS, SFTP, HTTP, and others.
@@ -16,19 +16,12 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use cURL to upload files.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # cURL Upload Files v2
@@ -49,28 +42,6 @@ Use cURL to upload files.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# cURL Upload Files v2
-# Use cURL to upload files.
-- task: cURLUploader@2
-  inputs:
-    files: # string. Required. Files. 
-    #authType: 'ServiceEndpoint' # 'ServiceEndpoint' | 'UserAndPass'. Authentication Method. Default: ServiceEndpoint.
-    serviceEndpoint: # string. Required when authType = ServiceEndpoint. Service Connection. 
-    #username: # string. Optional. Use when authType = UserAndPass. Username. 
-    #password: # string. Optional. Use when authType = UserAndPass. Password. 
-    #url: # string. Required when authType = UserAndPass. URL. 
-    #remotePath: 'upload/$(Build.BuildId)/' # string. Remote Directory. Default: upload/$(Build.BuildId)/.
-    #options: # string. Optional Arguments. 
-  # Advanced
-    #redirectStderr: true # boolean. Redirect Standard Error to Standard Out. Default: true.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -89,7 +60,7 @@ File(s) to be uploaded. Wildcards can be used. For example, `**/*.zip` for all Z
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="authType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`authType`** - **Authentication Method**<br>
 `string`. Allowed values: `ServiceEndpoint` (Service connection), `UserAndPass` (Username and password). Default value: `ServiceEndpoint`.<br>
@@ -101,7 +72,7 @@ Specifies the authentication method for server authentication.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serviceEndpoint`** - **Service Connection**<br>
 `string`. Required when `authType = ServiceEndpoint`.<br>
@@ -149,7 +120,7 @@ Specifies the URL to where the file(s) will be uploaded. The directory should en
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="remotePath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`remotePath`** - **Remote Directory**<br>
 `string`. Default value: `upload/$(Build.BuildId)/`.<br>
@@ -238,7 +209,7 @@ such as FTP, FTPS, SFTP, HTTP, and more.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -253,20 +224,6 @@ such as FTP, FTPS, SFTP, HTTP, and more.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: curl |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

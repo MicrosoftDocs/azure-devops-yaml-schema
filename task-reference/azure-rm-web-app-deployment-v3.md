@@ -23,7 +23,7 @@ This version of the task is deprecated; use [AzureRmWebAppDeployment@4](./azure-
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
@@ -34,21 +34,12 @@ Use this task to deploy to Azure App Service a web, mobile, or API app using Doc
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Update Azure App Services on Windows, Web App on Linux with built-in images or docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure App Service deploy v3
@@ -104,64 +95,6 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or d
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure App Service Deploy v3
-# Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs.
-- task: AzureRmWebAppDeployment@3
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    appType: 'app' # 'app' | 'applinux' | 'functionapp' | 'api' | 'mobileapp'. Alias: WebAppKind. Required. App type. Default: app.
-    WebAppName: # string. Required. App Service name. 
-    #DeployToSlotFlag: false # boolean. Optional. Use when WebAppKind != "". Deploy to slot. Default: false.
-    #ResourceGroupName: # string. Required when DeployToSlotFlag = true. Resource group. 
-    #SlotName: # string. Required when DeployToSlotFlag = true. Slot. 
-    #ImageSource: 'Registry' # 'Registry' | 'Builtin'. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Image Source. Default: Registry.
-    #AzureContainerRegistry: # string. Required when ImageSource = AzureContainerRegistry. Registry. 
-    #AzureContainerRegistryLoginServer: # string. Optional. Use when ImageSource = invalidimagesource. Registry Login Server Name. 
-    #AzureContainerRegistryImage: # string. Required when ImageSource = AzureContainerRegistry. Image. 
-    #AzureContainerRegistryTag: # string. Optional. Use when ImageSource = AzureContainerRegistry. Tag. 
-    #DockerRepositoryAccess: 'public' # 'private' | 'public'. Required when ImageSource = invalidImage. Repository Access. Default: public.
-    #dockerRegistryConnection: # string. Alias: RegistryConnectedServiceName. Required when DockerRepositoryAccess = private || ImageSource = PrivateRegistry. Registry Connection. 
-    #PrivateRegistryImage: # string. Required when ImageSource = PrivateRegistry. Image. 
-    #PrivateRegistryTag: # string. Optional. Use when ImageSource = PrivateRegistry. Tag. 
-    #DockerNamespace: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Registry or Namespace. 
-    #DockerRepository: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Image. 
-    #DockerImageTag: # string. Optional. Use when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource  = Registry. Tag. 
-    #VirtualApplication: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Virtual application. 
-    #Package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required when WebAppKind != linux && WebAppKind != applinux &&  WebAppKind != "". Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: BuiltinLinuxPackage. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #RuntimeStack: # string. Required when WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin. Runtime Stack. 
-    #StartupCommand: # string. Optional. Use when WebAppKind = applinux || WebAppKind = linux. Startup command. 
-  # Output
-    #WebAppUri: # string. Optional. Use when WebAppKind != "". App Service URL. 
-  # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when WebAppKind != "". Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && WebAppKind != "". Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path && WebAppKind != "". Deployment script path. 
-  # File Transforms & Variable Substitution Options
-    #GenerateWebConfig: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. Generate Web.config. Default: false.
-    #WebConfigParameters: # string. Required when GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. Web.config parameters. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. XML variable substitution. Default: false.
-    #JSONFiles: # string. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war. JSON variable substitution. 
-  # Application and Configuration Settings
-    #AppSettings: # string. App settings. 
-    #ConfigurationSettings: # string. Configuration settings. 
-  # Additional Deployment Options
-    #TakeAppOfflineFlag: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Take App Offline. Default: false.
-    #UseWebDeploy: false # boolean. Optional. Use when WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Publish using Web Deploy. Default: false.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Exclude files from the App_Data folder. Default: false.
-    #AdditionalArguments: # string. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Additional arguments. 
-    #RenameFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "". Rename locked files. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -462,7 +395,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RuntimeStack"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Required when `WebAppKind != app && WebAppKind != functionapp && WebAppKind != api && WebAppKind != mobileapp && ImageSource = Builtin`.<br>
@@ -532,7 +465,7 @@ Customizes the deployment by providing a script that will run on the Azure App s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="GenerateWebConfig"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`GenerateWebConfig`** - **Generate Web.config**<br>
 `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`. Default value: `false`.<br>
@@ -544,7 +477,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WebConfigParameters"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`WebConfigParameters`** - **Web.config parameters**<br>
 `string`. Required when `GenerateWebConfig == true && WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`.<br>
@@ -673,7 +606,7 @@ Use this option to enable msdeploy flag `MSDEPLOY_RENAME_LOCKED_FILES=1` in Azur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlTransform"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`enableXmlTransform`** - **XML transformation**<br>
 Input alias: `XmlTransformation`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`. Default value: `false`.<br>
@@ -689,7 +622,7 @@ XML transformations are supported only for Windows platform.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlVariableSubstitution"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
 Input alias: `XmlVariableSubstitution`. `boolean`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`. Default value: `false`.<br>
@@ -703,7 +636,7 @@ Note: If the same variables are defined in the release pipeline and in the envir
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="JSONFiles"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`JSONFiles`** - **JSON variable substitution**<br>
 `string`. Optional. Use when `WebAppKind != linux && WebAppKind != applinux && WebAppKind != "" && Package NotEndsWith .war`.<br>
@@ -772,7 +705,7 @@ There is a newer version of this task available. For more information, see [Azur
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -786,7 +719,6 @@ There is a newer version of this task available. For more information, see [Azur
 | Task category | Deploy |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

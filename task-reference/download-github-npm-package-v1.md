@@ -1,14 +1,14 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install npm packages from GitHub.
@@ -20,7 +20,7 @@ Use this task to install npm packages from GitHub.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download Github Npm Package v1
@@ -40,7 +40,7 @@ Use this task to install npm packages from GitHub.
 ## Inputs
 
 <!-- :::item name="packageName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`packageName`** - **Package Name**<br>
 `string`. Required.<br>
@@ -52,7 +52,7 @@ Specifies the name of the package to download from GitHub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Package Version**<br>
 `string`. Required.<br>
@@ -64,7 +64,7 @@ Specifies the version of the package to download from GitHub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalRegistryCredentials"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`externalRegistryCredentials`** - **Credentials for registry from GitHub**<br>
 Input alias: `externalEndpoints`. `string`. Required.<br>
@@ -76,7 +76,7 @@ Specifies the credentials to use for external registry from GitHub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="installDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`installDirectory`** - **Destination directory**<br>
 Input alias: `packagesDirectory`. `string`.<br>
@@ -96,7 +96,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -131,7 +131,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

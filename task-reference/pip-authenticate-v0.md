@@ -2,13 +2,13 @@
 title: PipAuthenticate@0 - Python pip authenticate v0 task
 description: Authentication task for the pip client used for installing Python distributions (task version 0).
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # PipAuthenticate@0 - Python pip authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to provide authentication for the `pip` client that installs Python distributions.
@@ -20,7 +20,7 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Python pip authenticate v0
@@ -34,26 +34,13 @@ Use this task to provide authentication for the `pip` client that installs Pytho
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Python Pip Authenticate v0
-# Authentication task for pip client used for installing python distributions.
-- task: PipAuthenticate@0
-  inputs:
-  # Feeds and Authentication
-    #artifactFeeds: # string. Alias: feedList. My feeds (select below). 
-    #externalFeeds: # string. Alias: externalSources. Feeds from external organizations.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="artifactFeeds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
 Input alias: `feedList`. `string`.<br>
@@ -65,7 +52,7 @@ Specifies the feeds to authenticate as present in the organization.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalFeeds"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`externalFeeds`** - **Feeds from external organizations**<br>
 Input alias: `externalSources`. `string`.<br>
@@ -85,7 +72,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -120,7 +107,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

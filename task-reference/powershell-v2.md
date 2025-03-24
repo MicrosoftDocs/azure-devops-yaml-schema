@@ -1,7 +1,7 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -102,7 +102,7 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 # PowerShell v2
@@ -122,28 +122,6 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# PowerShell v2
-# Run a PowerShell script on Windows, macOS, or Linux.
-- task: PowerShell@2
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-  # Advanced
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -189,21 +167,10 @@ Specifies the arguments passed to the PowerShell script. Arguments can be ordina
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your PowerShell commands here.\n\nWrite-Host "Hello World"`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`script`** - **Script**<br>
-`string`. Required when `targetType = inline`. Default value: `# Write your powershell commands here.\n\nWrite-Host "Hello World"\n\n# Use the environment variables input below to pass secret variables to this script.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the contents of the script. The maximum supported inline script length is 20000 characters. Use a script from a file if you want to use a longer script.
 <!-- :::editable-content-end::: -->
@@ -331,7 +298,7 @@ If the value is set to `false`, the line `if ((Test-Path -LiteralPath variable:\
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pwsh"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pwsh`** - **Use PowerShell Core**<br>
 `boolean`. Default value: `false`.<br>

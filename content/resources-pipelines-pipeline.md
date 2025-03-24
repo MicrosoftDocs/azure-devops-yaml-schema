@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -54,18 +54,6 @@ pipelines:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.
-  project: string # Project for the source; defaults to current project.
-  source: string # Name of the pipeline that produces the artifact.
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -125,7 +113,7 @@ Branch to pick the artifact. Optional; defaults to all branches, used only for m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tags`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
@@ -134,7 +122,7 @@ List of tags required on the pipeline to pickup default artifacts. Optional; use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
@@ -342,7 +330,6 @@ RESOURCES_PIPELINE_SOURCE-PIPELINE_PROJECTNAME=FabrikamFiber
 :::moniker-end
 
 You can consume artifacts from a pipeline resource by using a `download` task. See the [steps.download](steps-download.md) keyword.
-
 
 ## Examples
 

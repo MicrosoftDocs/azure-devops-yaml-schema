@@ -24,7 +24,7 @@ This task is deprecated.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure App Service Classic (Deprecated) v1
@@ -41,7 +41,6 @@ This task is deprecated.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

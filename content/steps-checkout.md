@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -99,7 +99,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 steps:
@@ -123,50 +123,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-steps:
-- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
-  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
-  fetchDepth: string # Depth of Git graph to fetch.
-  lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
-  persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: string # Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-  path: string # Where to put the repository. The root directory is $(Pipeline.Workspace).
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-steps:
-- checkout: string # Required as first property. Whether or not to check out the repository containing this pipeline definition.
-  clean: true | false # If true, run git clean -ffdx followed by git reset --hard HEAD before fetching.
-  fetchDepth: string # Depth of Git graph to fetch.
-  lfs: string # Set to 'true' to download Git-LFS files. Default is not to download them.
-  persistCredentials: string # Set to 'true' to leave the OAuth token in the Git config after the initial fetch. The default is not to leave it.
-  submodules: string # Set to 'true' for a single level of submodules or 'recursive' to get submodules of submodules. Default is not to fetch submodules.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -181,21 +137,13 @@ Definitions that reference this definition: [steps](steps.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="checkout"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`checkout`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Configures checkout for the specified repository. Specify `self`, `none`, [repository name](/azure/devops/pipelines/repos/multi-repo-checkout#inline-syntax-checkout), or [repository resource](/azure/devops/pipelines/repos/multi-repo-checkout#repository-resource-definition). For more information, see [Check out multiple repositories in your pipeline](/azure/devops/pipelines/repos/multi-repo-checkout).
 
 > [!NOTE]
 > If no `checkout` step is present, it defaults to `self` for `jobs.job.step.checkout` and `none` for `jobs.deployment.steps.checkout`.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`checkout`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
-Whether or not to check out the repository containing this pipeline definition. Specify `self` or `none`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -264,7 +212,7 @@ Set to 'true' for a single level of submodules or 'recursive' to get submodules 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="path"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`path`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Where to put the repository. The root directory is $(Pipeline.Workspace). By default this folder must be under the agent working directory structure. To set a path outside of the agent working directory, set a pipeline variable named `AZP_AGENT_ALLOW_WORK_DIRECTORY_REPOSITORIES` to true, and use the prefix `../` at the start of your checkout path. Supported on agent version 3.230.0 and higher.
@@ -345,7 +293,7 @@ Human-readable name for the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.

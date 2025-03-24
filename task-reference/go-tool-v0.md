@@ -2,13 +2,13 @@
 title: GoTool@0 - Go tool installer v0 task
 description: Find in cache or download a specific version of Go and add it to the PATH.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # GoTool@0 - Go tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to find in the tools cache or download a specific version of Go and add it to the PATH.
@@ -16,19 +16,12 @@ Use this task to find in the tools cache or download a specific version of Go an
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this task to set the version of Go used in subsequent tasks.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Go tool installer v0
@@ -43,27 +36,13 @@ Finds or downloads a specific version of Go in the tools cache and adds it to th
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Go Tool Installer v0
-# Finds or downloads a specific version of Go in the tools cache and adds it to the PATH. Use this to set the version of Go used in subsequent tasks.
-- task: GoTool@0
-  inputs:
-    version: '1.10' # string. Required. Version. Default: 1.10.
-  # Advanced
-    #goPath: # string. GOPATH. 
-    #goBin: # string. GOBIN.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
 `string`. Required. Default value: `1.10`.<br>
@@ -75,7 +54,7 @@ The Go version to download (if necessary) and use, for example `1.9.3`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="goPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`goPath`** - **GOPATH**<br>
 `string`.<br>
@@ -87,7 +66,7 @@ A custom value for the GOPATH environment variable.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="goBin"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`goBin`** - **GOBIN**<br>
 `string`.<br>
@@ -107,7 +86,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -130,7 +109,7 @@ Use this task to find or download a specific version of the Go tool into the too
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

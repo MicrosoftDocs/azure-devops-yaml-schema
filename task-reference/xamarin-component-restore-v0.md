@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # XamarinComponentRestore@0 - Xamarin Component Restore v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task is deprecated. Use 'NuGet' instead.
@@ -21,13 +21,12 @@ This task is deprecated. Use 'NuGet' instead.
 
 :::moniker-end
 
-
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xamarin Component Restore v0
@@ -40,7 +39,6 @@ This task is deprecated. Use 'NuGet' instead.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

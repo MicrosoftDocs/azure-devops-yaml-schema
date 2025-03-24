@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -37,11 +37,11 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
     #trustPolicy: # string. Required when command = verify. Trust Policy File Path. 
     #trustStore: # string. Required when command = verify. Trust Store Folder Path. 
   # Advanced Configuration
-    #signatureFormat: 'cose' # 'cose' | 'jws'. Optional. Use when command = sign && command = sign || command = verify. Signature Format. Default: cose.
+    #signatureFormat: 'cose' # 'cose' | 'jws'. Optional. Use when (command = sign || command = verify) && command = sign. Signature Format. Default: cose.
     #allowReferrersAPI: false # boolean. Optional. Use when command = sign || command = verify. [Experimental] Allow Referrers API. Default: false.
   # Plugin Configuration
     #plugin: 'azureKeyVault' # 'azureKeyVault'. Required when command = sign. Plugin. Default: azureKeyVault.
-    #akvPluginVersion: '1.2.0' # string. Required when plugin = azureKeyVault && command = sign. Plugin Version. Default: 1.2.0.
+    #akvPluginVersion: '1.2.1' # string. Required when plugin = azureKeyVault && command = sign. Plugin Version. Default: 1.2.1.
     #azurekvServiceConection: # string. Optional. Use when plugin = azureKeyVault && command = sign. Azure Key Vault service connection. 
     #keyid: # string. Required when plugin = azureKeyVault && command = sign. Key ID. 
     #caCertBundle: # string. Optional. Use when plugin = azureKeyVault && command = sign. Certificate Bundle File Path. 
@@ -137,7 +137,7 @@ Container artifact references for signing. If not specified, the task uses the a
 :::moniker range="=azure-pipelines"
 
 **`signatureFormat`** - **Signature Format**<br>
-`string`. Optional. Use when `command = sign && command = sign || command = verify`. Allowed values: `cose`, `jws`. Default value: `cose`.<br>
+`string`. Optional. Use when `(command = sign || command = verify) && command = sign`. Allowed values: `cose`, `jws`. Default value: `cose`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Signature envelope format.
 <!-- :::editable-content-end::: -->

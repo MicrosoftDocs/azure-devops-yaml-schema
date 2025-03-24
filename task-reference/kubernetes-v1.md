@@ -1,14 +1,14 @@
 ---
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # Kubernetes@1 - Kubectl v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
@@ -16,13 +16,6 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Deploy, configure, update your Kubernetes cluster in Azure Container Service by running kubectl commands.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -124,105 +117,13 @@ Deploy, configure, update your Kubernetes cluster in Azure Container Service by 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Deploy to Kubernetes v1
-# Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-- task: Kubernetes@1
-  inputs:
-  # Kubernetes Cluster
-    #connectionType: 'Kubernetes Service Connection' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout. Service connection type. Default: Kubernetes Service Connection.
-    #kubernetesServiceEndpoint: # string. Required when connectionType = Kubernetes Service Connection && command != logout. Kubernetes service connection. 
-    #azureSubscriptionEndpoint: # string. Required when connectionType = Azure Resource Manager && command != logout. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout. Kubernetes cluster. 
-    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager && command != logout. Use cluster admin credentials. Default: false.
-    #namespace: # string. Optional. Use when command != logout. Namespace. 
-  # Commands
-    #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'login' | 'logout' | 'logs' | 'run' | 'set' | 'top'. Command. 
-    #useConfigurationFile: false # boolean. Optional. Use when command != login && command != logout. Use configuration. Default: false.
-    #configurationType: 'configuration' # 'configuration' | 'inline'. Optional. Use when useConfigurationFile = true. Configuration type. Default: configuration.
-    configuration: # string. Required when configurationType = configuration. File path. 
-    #inline: # string. Required when configurationType = inline. Inline configuration. 
-    #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
-  # Secrets
-    #secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required when command != login && command != logout. Type of secret. Default: dockerRegistry.
-    #secretArguments: # string. Optional. Use when secretType = generic && command != login && command != logout. Arguments. 
-    #containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry && command != login && command != logout. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry && command != login && command != logout. Docker registry service connection. 
-    #azureSubscriptionEndpointForSecrets: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout. Azure container registry. 
-    #secretName: # string. Optional. Use when command != login && command != logout. Secret name. 
-    #forceUpdate: true # boolean. Optional. Use when command != login && command != logout. Force update secret. Default: true.
-  # ConfigMaps
-    #configMapName: # string. Optional. Use when command != login && command != logout. ConfigMap name. 
-    #forceUpdateConfigMap: false # boolean. Optional. Use when command != login && command != logout. Force update configmap. Default: false.
-    #useConfigMapFile: false # boolean. Optional. Use when command != login && command != logout. Use file. Default: false.
-    #configMapFile: # string. Required when useConfigMapFile = true && command != login && command != logout. ConfigMap file. 
-    #configMapArguments: # string. Optional. Use when useConfigMapFile = false && command != login && command != logout. Arguments. 
-  # Advanced
-    #versionOrLocation: 'version' # 'version' | 'location'. Kubectl. Default: version.
-    #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
-    #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
-    #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
-    #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Deploy to Kubernetes v1
-# Deploy, configure, update your Kubernetes cluster in Azure Container Service by running kubectl commands.
-- task: Kubernetes@1
-  inputs:
-  # Kubernetes Cluster
-    #connectionType: 'Azure Resource Manager' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout. Service connection type. Default: Azure Resource Manager.
-    #kubernetesServiceEndpoint: # string. Required when connectionType = Kubernetes Service Connection && command != logout. Kubernetes service connection. 
-    #azureSubscriptionEndpoint: # string. Required when connectionType = Azure Resource Manager && command != logout. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout. Kubernetes cluster. 
-    #namespace: # string. Optional. Use when command != logout. Namespace. 
-  # Commands
-    command: 'apply' # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'login' | 'logout' | 'logs' | 'run' | 'set' | 'top'. Required. Command. Default: apply.
-    #useConfigurationFile: false # boolean. Optional. Use when command != login && command != logout. Use configuration files. Default: false.
-    #configuration: # string. Required when useConfigurationFile = true. Configuration file. 
-    #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
-  # Secrets
-    #secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required when command != login && command != logout. Type of secret. Default: dockerRegistry.
-    #secretArguments: # string. Optional. Use when secretType = generic && command != login && command != logout. Arguments. 
-    #containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry && command != login && command != logout. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry && command != login && command != logout. Docker registry service connection. 
-    #azureSubscriptionEndpointForSecrets: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout. Azure container registry. 
-    #secretName: # string. Optional. Use when command != login && command != logout. Secret name. 
-    #forceUpdate: true # boolean. Optional. Use when command != login && command != logout. Force update secret. Default: true.
-  # ConfigMaps
-    #configMapName: # string. Optional. Use when command != login && command != logout. ConfigMap name. 
-    #forceUpdateConfigMap: false # boolean. Optional. Use when command != login && command != logout. Force update configmap. Default: false.
-    #useConfigMapFile: false # boolean. Optional. Use when command != login && command != logout. Use file. Default: false.
-    #configMapFile: # string. Required when useConfigMapFile = true && command != login && command != logout. ConfigMap file. 
-    #configMapArguments: # string. Optional. Use when useConfigMapFile = false && command != login && command != logout. Arguments. 
-  # Advanced
-    #versionOrLocation: 'version' # 'version' | 'location'. Optional. Use when command != login && command != logout. Kubectl. Default: version.
-    #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version && command != login && command != logout. Version spec. Default: 1.7.0.
-    #checkLatest: false # boolean. Optional. Use when versionOrLocation = version && command != login && command != logout. Check for latest version. Default: false.
-    #specifyLocation: # string. Required when versionOrLocation = location && command != login && command != logout. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Optional. Use when command != login && command != logout. Working directory. Default: $(System.DefaultWorkingDirectory).
-    #outputFormat: 'json' # 'json' | 'yaml'. Optional. Use when command != login && command != logout. Output format. Default: json.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="connectionType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`connectionType`** - **Service connection type**<br>
 `string`. Required when `command != logout`. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Kubernetes Service Connection`.<br>
@@ -238,20 +139,9 @@ For more information, see [Service connection](#service-connection) in the follo
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`connectionType`** - **Service connection type**<br>
-`string`. Required when `command != logout`. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the service connection type: Azure Resource Manager when using Azure Kubernetes Service or Kubernetes Service Connection for any other cluster.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`kubernetesServiceEndpoint`** - **Kubernetes service connection**<br>
 `string`. Required when `connectionType = Kubernetes Service Connection && command != logout`.<br>
@@ -263,7 +153,7 @@ Select a Kubernetes service connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout`.<br>
@@ -277,7 +167,7 @@ Specifies the Azure Resource Manager subscription, which contains the Azure Cont
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout`.<br>
@@ -289,7 +179,7 @@ Select an Azure resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesCluster"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout`.<br>
@@ -301,7 +191,7 @@ Select an Azure managed cluster.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useClusterAdmin"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`useClusterAdmin`** - **Use cluster admin credentials**<br>
 `boolean`. Optional. Use when `connectionType = Azure Resource Manager && command != logout`. Default value: `false`.<br>
@@ -313,7 +203,7 @@ Use cluster administrator credentials instead of default cluster user credential
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`namespace`** - **Namespace**<br>
 `string`. Optional. Use when `command != logout`.<br>
@@ -325,7 +215,7 @@ Set the namespace for the kubectl command by using the –namespace flag. If the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
 `string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `login`, `logout`, `logs`, `run`, `set`, `top`.<br>
@@ -335,20 +225,9 @@ Select or specify a kubectl command to run. The list of allowed values provides 
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`command`** - **Command**<br>
-`string`. Required. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `login`, `logout`, `logs`, `run`, `set`, `top`. Default value: `apply`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select or specify a kubectl command to run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useConfigurationFile"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`useConfigurationFile`** - **Use configuration**<br>
 `boolean`. Optional. Use when `command != login && command != logout`. Default value: `false`.<br>
@@ -358,20 +237,9 @@ Specifies the Kubernetes configuration to use with the `kubectl` command. The in
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`useConfigurationFile`** - **Use configuration files**<br>
-`boolean`. Optional. Use when `command != login && command != logout`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Kubernetes configuration to use with the `kubectl` command. The inline script, filename, directory, or URL to Kubernetes configuration files can be provided.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configurationType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`configurationType`** - **Configuration type**<br>
 `string`. Optional. Use when `useConfigurationFile = true`. Allowed values: `configuration` (File path), `inline` (Inline configuration). Default value: `configuration`.<br>
@@ -383,7 +251,7 @@ Specifies the type of Kubernetes configuration for the `kubectl` command. It can
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`configuration`** - **File path**<br>
 `string`. Required when `configurationType = configuration`.<br>
@@ -393,20 +261,9 @@ Specifies the filename, directory, or URL to kubernetes configuration files that
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`configuration`** - **Configuration file**<br>
-`string`. Required when `useConfigurationFile = true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the filename, directory, or URL to kubernetes configuration files that is used with the commands.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="inline"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`inline`** - **Inline configuration**<br>
 `string`. Required when `configurationType = inline`.<br>
@@ -418,7 +275,7 @@ Specifies the inline deployment configuration for the `kubectl` command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
@@ -430,7 +287,7 @@ Arguments to the specified kubectl command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`secretType`** - **Type of secret**<br>
 `string`. Required when `command != login && command != logout`. Allowed values: `dockerRegistry`, `generic`. Default value: `dockerRegistry`.<br>
@@ -442,7 +299,7 @@ Create/update a generic or docker imagepullsecret. Select dockerRegistry to crea
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `secretType = generic && command != login && command != logout`.<br>
@@ -454,7 +311,7 @@ Specifies the keys and literal values to insert in secret. For example, `--from-
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerRegistryType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`containerRegistryType`** - **Container registry type**<br>
 `string`. Required when `secretType = dockerRegistry && command != login && command != logout`. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
@@ -466,7 +323,7 @@ Select a Container registry type. The task can use Azure Subscription details to
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Container Registry && command != login && command != logout`.<br>
@@ -478,7 +335,7 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionEndpointForSecrets"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscriptionEndpointForSecrets`** - **Azure subscription**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout`.<br>
@@ -492,7 +349,7 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureContainerRegistry`** - **Azure container registry**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout`.<br>
@@ -504,7 +361,7 @@ Specifies an Azure Container Registry which is used for pulling container images
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`secretName`** - **Secret name**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
@@ -516,7 +373,7 @@ Name of the secret. You can use this secret name in the Kubernetes YAML configur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="forceUpdate"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`forceUpdate`** - **Force update secret**<br>
 `boolean`. Optional. Use when `command != login && command != logout`. Default value: `true`.<br>
@@ -528,7 +385,7 @@ Delete the secret if it exists and create a new one with updated values.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMapName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configMapName`** - **ConfigMap name**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
@@ -540,7 +397,7 @@ ConfigMaps allow you to decouple configuration artifacts from image content to k
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="forceUpdateConfigMap"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`forceUpdateConfigMap`** - **Force update configmap**<br>
 `boolean`. Optional. Use when `command != login && command != logout`. Default value: `false`.<br>
@@ -552,7 +409,7 @@ Delete the configmap if it exists and create a new one with updated values.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useConfigMapFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`useConfigMapFile`** - **Use file**<br>
 `boolean`. Optional. Use when `command != login && command != logout`. Default value: `false`.<br>
@@ -564,7 +421,7 @@ Creates a `ConfigMap` from an individual file or from multiple files by specifyi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMapFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configMapFile`** - **ConfigMap file**<br>
 `string`. Required when `useConfigMapFile = true && command != login && command != logout`.<br>
@@ -576,7 +433,7 @@ Specify a file or directory that contains the configMaps.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMapArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configMapArguments`** - **Arguments**<br>
 `string`. Optional. Use when `useConfigMapFile = false && command != login && command != logout`.<br>
@@ -588,7 +445,7 @@ Specifies the keys and literal values to insert in `configMap`. For example, `--
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionOrLocation"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`versionOrLocation`** - **Kubectl**<br>
 `string`. Allowed values: `version`, `location` (Specify location). Default value: `version`.<br>
@@ -598,20 +455,9 @@ kubectl is a command line interface for running commands against Kubernetes clus
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`versionOrLocation`** - **Kubectl**<br>
-`string`. Optional. Use when `command != login && command != logout`. Allowed values: `version`, `location` (Specify location). Default value: `version`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-kubectl is a command line interface for running commands against Kubernetes clusters.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.13.2`.<br>
@@ -621,21 +467,9 @@ Specifies the version spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`versionSpec`** - **Version spec**<br>
-`string`. Optional. Use when `versionOrLocation = version && command != login && command != logout`. Default value: `1.7.0`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
--18-2
-Specifies the version spec of the version to get.  Examples: `1.7.0`, `1.x.0`, `4.x.0`, `6.10.0`, `>=6.10.0`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkLatest"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`checkLatest`** - **Check for latest version**<br>
 `boolean`. Optional. Use when `versionOrLocation = version`. Default value: `false`.<br>
@@ -645,20 +479,9 @@ Always checks online for the latest available version (stable.txt) that satisfie
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`checkLatest`** - **Check for latest version**<br>
-`boolean`. Optional. Use when `versionOrLocation = version && command != login && command != logout`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Always checks online for the latest available version (stable.txt) that satisfies the version spec. This is typically false unless you have a specific scenario to always get latest. This will cause it to incur download costs when potentially not necessary, especially with the hosted build pool.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="specifyLocation"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`specifyLocation`** - **Path to kubectl**<br>
 `string`. Required when `versionOrLocation = location`.<br>
@@ -668,34 +491,12 @@ Specifies the full path to the `kubectl.exe` file.
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`specifyLocation`** - **Path to kubectl**<br>
-`string`. Required when `versionOrLocation = location && command != login && command != logout`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the full path to the `kubectl.exe` file.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Working directory for the Kubectl command.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`. Optional. Use when `command != login && command != logout`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory for the Kubectl command.
 <!-- :::editable-content-end::: -->
@@ -715,21 +516,10 @@ Output format. The list of allowed values provides some common choices for ease 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`outputFormat`** - **Output format**<br>
 `string`. Allowed values: `json`, `yaml`. Default value: `json`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Output format. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [output options](https://kubernetes.io/docs/reference/kubectl/#output-options) such as `jsonpath={.items[*].spec['initContainers', 'containers'][*].image}`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`outputFormat`** - **Output format**<br>
-`string`. Optional. Use when `command != login && command != logout`. Allowed values: `json`, `yaml`. Default value: `json`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Output format. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [output options](https://kubernetes.io/docs/reference/kubectl/#output-options) such as `jsonpath={.items[*].spec['initContainers', 'containers'][*].image}`.
 <!-- :::editable-content-end::: -->
@@ -746,7 +536,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -989,7 +779,7 @@ You can grant hosted agents access through your firewall by allowing the IP addr
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

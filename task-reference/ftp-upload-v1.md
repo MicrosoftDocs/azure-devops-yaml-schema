@@ -32,7 +32,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # FTP upload v1
@@ -57,39 +57,13 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# FTP Upload v1
-# FTP Upload.
-- task: FtpUpload@1
-  inputs:
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required. Authentication Method. Default: serviceEndpoint.
-    serverEndpoint: # string. Required when credsType = serviceEndpoint. FTP Service Connection. 
-    #serverUrl: # string. Required when credsType = inputs. Server URL. 
-    #username: # string. Required when credsType = inputs. Username. 
-    #password: # string. Required when credsType = inputs. Password. 
-    rootDirectory: # string. Alias: rootFolder. Required. Root folder. 
-    filePatterns: '**' # string. Required. File patterns. Default: **.
-    remoteDirectory: '/upload/$(Build.BuildId)/' # string. Alias: remotePath. Required. Remote directory. Default: /upload/$(Build.BuildId)/.
-  # Advanced
-    #clean: false # boolean. Delete remote directory. Default: false.
-    #cleanContents: false # boolean. Optional. Use when clean = false. Clear remote directory contents. Default: false.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #preservePaths: false # boolean. Preserve file paths. Default: false.
-    #trustSSL: false # boolean. Trust server certificate. Default: false.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="credentialsOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`credentialsOption`** - **Authentication Method**<br>
 Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
@@ -101,7 +75,7 @@ Specifies the authentication method. Use an FTP service connection or enter the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **FTP Service Connection**<br>
 `string`. Required when `credsType = serviceEndpoint`.<br>
@@ -270,7 +244,7 @@ None.
 
 Use this task to upload files to a remote machine using FTP or securely with FTPS.
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
 > There is a newer version of this task available at [FtpUpload@2](./ftp-upload-v2.md).

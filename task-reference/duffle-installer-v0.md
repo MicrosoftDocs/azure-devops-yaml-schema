@@ -2,7 +2,7 @@
 title: DuffleInstaller@0 - Duffle tool installer v0 task
 description: Install a specified version of Duffle for installing and managing CNAB bundles.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # DuffleInstaller@0 - Duffle tool installer v0 task
@@ -20,7 +20,7 @@ This task is deprecated as the Duffle project has been archived and is no longer
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install a specified version of Duffle, which is used for installing and managing CNAB bundles.
@@ -32,7 +32,7 @@ Use this task to install a specified version of Duffle, which is used for instal
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Duffle tool installer v0
@@ -50,7 +50,7 @@ Use this task to install a specified version of Duffle, which is used for instal
 ## Inputs
 
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
 `string`. Required. Default value: `0.1.0-ralpha.4+dramallamabuie`.<br>
@@ -62,7 +62,7 @@ Specifies the version of Duffle to install.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkLatestVersion"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`checkLatestVersion`** - **Check for latest version**<br>
 `boolean`. Default value: `false`.<br>
@@ -82,7 +82,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -102,7 +102,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,14 +1,14 @@
 ---
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # DeleteFiles@1 - Delete files v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Delete folders, or files matching a pattern.
@@ -16,13 +16,6 @@ Delete folders, or files matching a pattern.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Delete files or folders. (The minimatch patterns will only match file paths, not folder paths).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -44,7 +37,7 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Delete files v1
@@ -57,33 +50,6 @@ Delete files or folders. (The minimatch patterns will only match file paths, not
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Delete files v1
-# Delete folders, or files matching a pattern.
-- task: DeleteFiles@1
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Delete Files v1
-# Delete files or folders. (The minimatch patterns will only match file paths, not folder paths).
-- task: DeleteFiles@1
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -123,7 +89,7 @@ For example:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RemoveSourceFolder"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`RemoveSourceFolder`** - **Remove SourceFolder**<br>
 `boolean`. Default value: `false`.<br>

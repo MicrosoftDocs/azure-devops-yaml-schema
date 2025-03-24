@@ -38,7 +38,7 @@ Use this task to deploy IIS Web App using MSDeploy, then create or update websit
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # IIS Web App deployment (Deprecated) v1
@@ -87,57 +87,6 @@ Use this task to deploy IIS Web App using MSDeploy, then create or update websit
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# IIS Web App deployment (Deprecated) v1
-# Deploy by MSDeploy, create/update website & app pools.
-- task: IISWebAppDeployment@1
-  inputs:
-    EnvironmentName: # string. Required. Machines. 
-    #AdminUserName: # string. Admin Login. 
-    #AdminPassword: # string. Password. 
-    #WinRMProtocol: # 'Http' | 'Https'. Protocol. 
-    #TestCertificate: true # boolean. Optional. Use when WinRMProtocol = Https. Test Certificate. Default: true.
-  # Deployment
-    WebDeployPackage: # string. Required. Web Deploy Package. 
-    #WebDeployParamFile: # string. Web Deploy Parameter File. 
-    #OverRideParams: # string. Override Parameters. 
-  # Website
-    #CreateWebSite: false # boolean. Create or Update Website. Default: false.
-    #WebSiteName: # string. Required when CreateWebSite = true. Website Name. 
-    #WebSitePhysicalPath: '%SystemDrive%\inetpub\wwwroot' # string. Required when CreateWebSite = true. Physical Path. Default: %SystemDrive%\inetpub\wwwroot.
-    #WebSitePhysicalPathAuth: 'Application User (Pass-through)' # 'WebSiteUserPassThrough' | 'WebSiteWindowsAuth'. Required when CreateWebSite = true. Physical Path Authentication. Default: Application User (Pass-through).
-    #WebSiteAuthUserName: # string. Required when WebSitePhysicalPathAuth = WebSiteWindowsAuth. User Name. 
-    #WebSiteAuthUserPassword: # string. Optional. Use when WebSitePhysicalPathAuth = WebSiteWindowsAuth. Password. 
-    #AddBinding: true # boolean. Optional. Use when CreateWebSite = true. Add Binding. Default: true.
-    #AssignDuplicateBinding: false # boolean. Optional. Use when AddBinding = true. Assign Duplicate Binding. Default: false.
-    Protocol: 'http' # 'https' | 'http'. Required when AddBinding = true. Protocol. Default: http.
-    IPAddress: 'All Unassigned' # string. Required when AddBinding = true. IP Address. Default: All Unassigned.
-    Port: '80' # string. Required when AddBinding = true. Port. Default: 80.
-    #ServerNameIndication: false # boolean. Optional. Use when Protocol = https. Server Name Indication Required. Default: false.
-    #HostNameWithOutSNI: # string. Optional. Use when ServerNameIndication = false. Host Name. 
-    #HostNameWithHttp: # string. Optional. Use when Protocol = http. Host Name. 
-    #HostNameWithSNI: # string. Required when ServerNameIndication = true. Host Name. 
-    #SSLCertThumbPrint: # string. Required when Protocol = https. SSL Certificate Thumb Print. 
-  # Application Pool
-    #CreateAppPool: false # boolean. Create or Update Application Pool. Default: false.
-    #AppPoolName: # string. Required when CreateAppPool = true. Name. 
-    #DotNetVersion: 'v4.0' # 'v4.0' | 'v2.0' | 'No Managed Code'. Required when CreateAppPool = true. .NET Version. Default: v4.0.
-    #PipeLineMode: 'Integrated' # 'Integrated' | 'Classic'. Required when CreateAppPool = true. Managed Pipeline Mode. Default: Integrated.
-    #AppPoolIdentity: 'ApplicationPoolIdentity' # 'ApplicationPoolIdentity' | 'LocalService' | 'LocalSystem' | 'NetworkService' | 'SpecificUser'. Required when CreateAppPool = true. Identity. Default: ApplicationPoolIdentity.
-    #AppPoolUsername: # string. Required when AppPoolIdentity = SpecificUser. Username. 
-    #AppPoolPassword: # string. Optional. Use when AppPoolIdentity = SpecificUser. Password. 
-  # Advanced
-    #AppCmdCommands: # string. Additional AppCmd.exe Commands. 
-    #DeployInParallel: true # boolean. Deploy in Parallel. Default: true.
-    #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Select Machines By. Default: machineNames.
-    #MachineFilter: # string. Deploy to Machines.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

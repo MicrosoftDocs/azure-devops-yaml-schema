@@ -20,7 +20,7 @@ Use this task to execute PowerShell scripts on remote machine(s).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # PowerShell on Target Machines v2
@@ -44,7 +44,6 @@ Use this task to execute PowerShell scripts on remote machine(s).
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -1,14 +1,14 @@
 ---
 title: jobs.deployment.strategy definition
 description: Execution strategy for this deployment.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.deployment.strategy definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A deployment strategy enables you to configure how the update is delivered.
@@ -18,7 +18,7 @@ A deployment strategy enables you to configure how the update is delivered.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs.deployment](jobs-deployment.md)
 
@@ -28,7 +28,7 @@ Definitions that reference this definition: [jobs.deployment](jobs-deployment.md
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -78,7 +78,7 @@ If you are using self-hosted agents, you can use the workspace clean options to 
 <!-- :::implementation-item name="strategy: runOnce"::: -->
 <a name="strategyrunonce"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## strategy: runOnce
@@ -145,7 +145,7 @@ RunOnce Deployment strategy.
 <!-- :::implementation-item name="strategy: rolling"::: -->
 <a name="strategyrolling"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## strategy: rolling
@@ -210,7 +210,7 @@ Rolling Deployment strategy.
 <!-- :::implementation-item name="strategy: canary"::: -->
 <a name="strategycanary"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## strategy: canary

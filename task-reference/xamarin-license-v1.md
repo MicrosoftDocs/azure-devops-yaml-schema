@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # XamarinLicense@1 - Xamarin License v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 XamarinLicense@1 is deprecated because you no longer need a Xamarin license to [build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin). You can now use the free version of [Xamarin](https://store.xamarin.com).
@@ -23,27 +23,12 @@ This task was originally used in a build or release pipeline to activate or deac
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
-
-<!-- :::editable-content name="description"::: -->
-XamarinLicense@1 is deprecated because you no longer need a Xamarin license to [build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin). You can now use the free version of [Xamarin](https://store.xamarin.com).
-
-This task was originally used in a build or release pipeline to activate or deactivate Xamarin licenses.
-
-> [!NOTE]
-> This task is deprecated and was retired May 1, 2024.
-
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xamarin License v1
@@ -59,7 +44,6 @@ This task was originally used in a build or release pipeline to activate or deac
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -48,7 +48,7 @@ Deploy to Chef environments by editing environment attributes.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Chef v1
@@ -63,14 +63,13 @@ Deploy to Chef environments by editing environment attributes.
 
 :::moniker-end
 
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="connectedServiceName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`connectedServiceName`** - **Chef Service Connection**<br>
 `string`. Required.<br>

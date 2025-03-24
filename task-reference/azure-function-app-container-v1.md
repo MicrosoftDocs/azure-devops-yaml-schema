@@ -1,14 +1,14 @@
 ---
 title: AzureFunctionAppContainer@1 - Azure Functions for container v1 task
 description: Update a function app with a Docker container.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureFunctionAppContainer@1 - Azure Functions for container v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Update a function app with a Docker container.
@@ -16,19 +16,12 @@ Update a function app with a Docker container.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Update Function Apps with Docker containers.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Functions for container v1
@@ -49,33 +42,13 @@ Update Function Apps with Docker containers.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure Function for container v1
-# Update Function Apps with Docker containers.
-- task: AzureFunctionAppContainer@1
-  inputs:
-    azureSubscription: # string. Required. Azure subscription. 
-    appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
-    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    imageName: # string. Required. Image name. 
-    #containerCommand: # string. Startup command. 
-  # Application and Configuration Settings
-    #appSettings: # string. App settings. 
-    #configurationStrings: # string. Configuration settings.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
@@ -87,7 +60,7 @@ Selects the [Azure Resource Manager subscription](/azure/devops/pipelines/librar
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appName`** - **App name**<br>
 `string`. Required.<br>
@@ -99,7 +72,7 @@ The name of the Function App for Containers.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
@@ -111,7 +84,7 @@ Set this input to `true` to deploy to an existing deployment slot or Azure App S
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
@@ -123,7 +96,7 @@ The name of the Resource Group that contains the Function App for Containers.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -135,7 +108,7 @@ Enters or selects an existing slot, excluding the **production** slot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`imageName`** - **Image name**<br>
 `string`. Required.<br>
@@ -149,7 +122,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`containerCommand`** - **Startup command**<br>
 `string`.<br>
@@ -161,7 +134,7 @@ The startup command that executes after deployment. For example, `dotnet run` `d
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSettings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appSettings`** - **App settings**<br>
 `string`.<br>
@@ -173,7 +146,7 @@ Enter the application settings using the syntax `-key value` (for example: `-Por
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configurationStrings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
@@ -193,7 +166,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -246,7 +219,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

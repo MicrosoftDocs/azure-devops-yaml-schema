@@ -1,7 +1,7 @@
 ---
 title: ShellScript@2 - Shell script v2 task
 description: Run a shell script using Bash.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to run a shell script using `bash`.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Shell script v2
@@ -36,24 +36,6 @@ Use this task to run a shell script using `bash`.
 ```
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# Shell Script v2
-# Run a shell script using bash.
-- task: ShellScript@2
-  inputs:
-    scriptPath: # string. Required. Script Path. 
-    #args: # string. Arguments. 
-  # Advanced
-    #disableAutoCwd: false # boolean. Specify Working Directory. Default: false.
-    #cwd: # string. Optional. Use when disableAutoCwd = true. Working Directory. 
-    #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

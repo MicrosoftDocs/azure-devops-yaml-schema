@@ -20,7 +20,7 @@ Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` o
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Batch script v1
@@ -36,24 +36,6 @@ Use this task to run a Windows `.bat` or `.cmd` script. Optionally, the `.bat` o
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Batch Script v1
-# Run a windows cmd or bat script and optionally allow it to change the environment.
-- task: BatchScript@1
-  inputs:
-    filename: # string. Required. Path. 
-    #arguments: # string. Arguments. 
-    #modifyEnvironment: False # boolean. Modify Environment. Default: False.
-  # Advanced
-    #workingFolder: # string. Working folder. 
-    #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

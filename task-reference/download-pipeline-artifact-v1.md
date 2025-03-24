@@ -1,8 +1,8 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
@@ -21,7 +21,7 @@ There is a newer version of this task. For more information, see [DownloadPipeli
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
@@ -38,7 +38,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download Pipeline Artifacts v1
@@ -60,34 +60,13 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Download Pipeline Artifacts v1
-# Download Pipeline Artifact.
-- task: DownloadPipelineArtifact@1
-  inputs:
-    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
-    #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
-    #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
-    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
-    #branchName: 'refs/heads/master' # string. Required when buildType == specific && buildVersionToDownload == latestFromBranch. Branch name. Default: refs/heads/master.
-    #pipelineId: # string. Alias: buildId. Required when buildType == specific && buildVersionToDownload == specific. Build. 
-    #tags: # string. Optional. Use when buildType == specific && buildVersionToDownload != specific. Build Tags. 
-    #artifactName: # string. Artifact name. 
-    #itemPattern: '**' # string. Matching pattern. Default: **.
-    targetPath: '$(System.ArtifactsDirectory)' # string. Alias: downloadPath. Required. Destination directory. Default: $(System.ArtifactsDirectory).
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="buildType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`buildType`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `current` (Current build), `specific` (Specific build). Default value: `current`.<br>
@@ -99,7 +78,7 @@ Downloads artifacts produced by the current pipeline run or from a specific pipe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="project"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`project`** - **Project**<br>
 `string`. Required when `buildType == specific`.<br>
@@ -111,7 +90,7 @@ Specifies the project name or GUID from which to download the pipeline artifacts
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pipeline"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`pipeline`** - **Build pipeline**<br>
 Input alias: `definition`. `string`. Required when `buildType == specific`.<br>
@@ -123,7 +102,7 @@ The definition ID of the pipeline. In a running pipeline the `definitionId` can 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="specificBuildWithTriggering"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
 `boolean`. Optional. Use when `buildType == specific`. Default value: `false`.<br>
@@ -135,7 +114,7 @@ If checked, the task downloads artifacts from the triggering build. If there is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildVersionToDownload"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`buildVersionToDownload`** - **Build version to download**<br>
 `string`. Required when `buildType == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
@@ -147,7 +126,7 @@ Specifies the build version to download.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branchName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`branchName`** - **Branch name**<br>
 `string`. Required when `buildType == specific && buildVersionToDownload == latestFromBranch`. Default value: `refs/heads/master`.<br>
@@ -159,7 +138,7 @@ Specifies the filter on the branch/ref name. For example: ```refs/heads/develop`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pipelineId"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`pipelineId`** - **Build**<br>
 Input alias: `buildId`. `string`. Required when `buildType == specific && buildVersionToDownload == specific`.<br>
@@ -171,7 +150,7 @@ The identifier of the pipeline run from which to download the artifacts. In a ru
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`tags`** - **Build Tags**<br>
 `string`. Optional. Use when `buildType == specific && buildVersionToDownload != specific`.<br>
@@ -183,7 +162,7 @@ The comma-delimited list of tags that the task uses to return tagged builds. Unt
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`artifactName`** - **Artifact name**<br>
 `string`.<br>
@@ -195,7 +174,7 @@ Specifies the name of the artifact to download. If the value is left empty, the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="itemPattern"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`itemPattern`** - **Matching pattern**<br>
 `string`. Default value: `**`.<br>
@@ -207,7 +186,7 @@ The file matching patterns that limit downloaded files. The value can be one or 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targetPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **Destination directory**<br>
 Input alias: `downloadPath`. `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
@@ -227,7 +206,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -265,7 +244,7 @@ The identifier of the pipeline run from which to download the artifacts. In a ru
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -280,20 +259,6 @@ The identifier of the pipeline run from which to download the artifacts. In a ru
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.150.3 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

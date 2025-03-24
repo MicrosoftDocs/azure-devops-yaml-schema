@@ -20,7 +20,7 @@ Use this task to queue a job on a Jenkins server.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Jenkins Queue Job v1
@@ -39,7 +39,6 @@ Use this task to queue a job on a Jenkins server.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -182,7 +181,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -196,7 +195,6 @@ None.
 | Task category | Build |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to send a message to Azure Service Bus using a service connection (no agent is required).
@@ -16,13 +16,6 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to send a message to Azure Service Bus using a service connection (no agent required).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -48,7 +41,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 ```yaml
 # Publish To Azure Service Bus v1
@@ -67,31 +60,13 @@ Use this task to send a message to Azure Service Bus using a service connection 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Publish To Azure Service Bus v1
-# Sends a message to azure service bus using a service connection (no agent required).
-- task: PublishToAzureServiceBus@1
-  inputs:
-    azureSubscription: # string. Alias: connectedServiceName. Required. Azure Service Bus service connection. 
-    #messageBody: # string. Message body. 
-    #waitForCompletion: false # boolean. Wait for task completion. Default: false.
-  # Signing Properties
-    #signPayload: false # boolean. Sign the Message. Default: false.
-    #certificateString: # string. Required when signPayload = true. Certificate Variable. 
-    #signatureKey: 'signature' # string. Optional. Use when signPayload = true. Signature Property Key. Default: signature.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Service Bus service connection**<br>
 Input alias: `connectedServiceName`. `string`. Required.<br>
@@ -115,7 +90,7 @@ Specifies the JSON `messageBody`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sessionId"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
@@ -151,7 +126,7 @@ Specifies the secret variable that contains the certificate content. This can al
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signatureKey"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>

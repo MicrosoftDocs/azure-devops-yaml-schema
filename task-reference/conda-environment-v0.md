@@ -2,13 +2,13 @@
 title: CondaEnvironment@0 - Conda environment v0 task
 description: Create and activate a Conda environment.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # CondaEnvironment@0 - Conda environment v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to create and activate a Conda environment.
@@ -23,7 +23,7 @@ Use this task to create and activate a Conda environment.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Conda environment v0
@@ -40,29 +40,13 @@ Use this task to create and activate a Conda environment.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Conda Environment v0
-# Create and activate a Conda environment.
-- task: CondaEnvironment@0
-  inputs:
-    environmentName: # string. Required. Environment name. 
-    #packageSpecs: 'python=3' # string. Package specs. Default: python=3.
-    #updateConda: true # boolean. Update to the latest Conda. Default: true.
-  # Advanced
-    #createOptions: # string. Environment creation options. 
-    #cleanEnvironment: false # boolean. Clean the environment. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="environmentName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`environmentName`** - **Environment name**<br>
 `string`. Required.<br>
@@ -74,7 +58,7 @@ The name of the Conda environment to create and activate, or reactivate if it al
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packageSpecs"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageSpecs`** - **Package specs**<br>
 `string`. Default value: `python=3`.<br>
@@ -86,7 +70,7 @@ The space-delimited list of packages to install in the environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="updateConda"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`updateConda`** - **Update to the latest Conda**<br>
 `boolean`. Default value: `true`.<br>
@@ -98,7 +82,7 @@ Updates Conda to the latest version. This applies to the Conda installation foun
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="createOptions"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`createOptions`** - **Environment creation options**<br>
 `string`.<br>
@@ -110,7 +94,7 @@ The space-delimited list of additional options to pass to the `conda create` com
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanEnvironment"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`cleanEnvironment`** - **Clean the environment**<br>
 `boolean`. Default value: `false`.<br>
@@ -130,7 +114,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -184,7 +168,7 @@ Alternatively, you can set the `CONDA` environment variable to the root of the C
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

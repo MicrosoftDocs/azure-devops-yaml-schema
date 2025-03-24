@@ -2,13 +2,13 @@
 title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadPackage@1 - Download package v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a package from a package management feed in Azure Artifacts.
@@ -40,7 +40,7 @@ Use this task to download a package from a package management feed in Azure Arti
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 ```yaml
 # Download package v1
@@ -75,7 +75,7 @@ Use this task to download a package from a package management feed in Azure Arti
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`packageType`** - **Package Type**<br>
 `string`. Required. Allowed values: `maven`, `npm`, `nuget`, `pypi` (Python), `upack` (Universal). Default value: `nuget`.<br>
@@ -86,7 +86,7 @@ Use this task to download a package from a package management feed in Azure Arti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="feed"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`feed`** - **Feed**<br>
 `string`. Required.<br>
@@ -98,7 +98,7 @@ For project-scoped feeds, the format is `projectID/feedID`. See the following [r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="view"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`view`** - **View**<br>
 `string`.<br>
@@ -110,7 +110,7 @@ Specifies a view that only uses versions promoted to that specific view.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="definition"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`definition`** - **Package**<br>
 `string`. Required.<br>
@@ -122,7 +122,7 @@ If you don't find the package in the list, you can provide the package ID, which
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Version**<br>
 `string`. Required.<br>
@@ -134,7 +134,7 @@ Specifies the version of the package. Use `latest` to download the latest versio
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="files"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`files`** - **Files**<br>
 `string`. Optional. Use when `packageType = maven || packageType = pypi || packageType = upack`. Default value: `**`.<br>
@@ -146,7 +146,7 @@ Specifies which files to download using [file matching patterns](https://go.micr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="extract"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`extract`** - **Extract package contents**<br>
 `boolean`. Optional. Use when `packageType = nuget || packageType = npm`. Default value: `true`.<br>
@@ -158,7 +158,7 @@ Extracts the package contents and contains the package archive in the artifact f
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="downloadPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`downloadPath`** - **Destination directory**<br>
 `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
@@ -178,7 +178,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -256,7 +256,7 @@ Yes, you can use the project or feed name in your definition. However, if your p
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,14 +1,14 @@
 ---
 title: gulp@1 - gulp v1 task
 description: Run the gulp Node.js streaming task-based build system.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # gulp@1 - gulp v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run the gulp Node.js streaming task-based build system.
@@ -16,19 +16,12 @@ Use this task to run the gulp Node.js streaming task-based build system.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Node.js streaming task based build system.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # gulp v1
@@ -54,38 +47,13 @@ Node.js streaming task based build system.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Gulp v1
-# Node.js streaming task based build system.
-- task: Gulp@1
-  inputs:
-    gulpFile: 'gulpfile.js' # string. Required. Gulp File Path. Default: gulpfile.js.
-    #targets: # string. Gulp Task(s). 
-    #arguments: # string. Arguments. 
-  # Advanced
-    #workingDirectory: # string. Alias: cwd. Working Directory. 
-    #gulpjs: # string. gulp.js location. 
-  # JUnit Test Results
-    #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.
-    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
-  # Code Coverage
-    #enableCodeCoverage: false # boolean. Enable code Coverage. Default: false.
-    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
-    #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
-    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="gulpFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`gulpFile`** - **gulp File Path**<br>
 `string`. Default value: `gulpfile.js`.<br>
@@ -95,20 +63,9 @@ The relative path from the repo root of the gulp file script file you want to ru
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`gulpFile`** - **Gulp File Path**<br>
-`string`. Required. Default value: `gulpfile.js`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The relative path from the repo root of the gulp file script file you want to run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targets"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`targets`** - **gulp Task(s)**<br>
 `string`.<br>
@@ -118,20 +75,9 @@ Optional space-delimited list of tasks to run. If this input isn't specified, th
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`targets`** - **Gulp Task(s)**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
@@ -143,7 +89,7 @@ Additional arguments passed to gulp. `--gulpfile` is not needed since it's alrea
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
 Input alias: `cwd`. `string`.<br>
@@ -155,7 +101,7 @@ The current working directory to use when the script is run. This input defaults
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="gulpjs"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`gulpjs`** - **gulp.js location**<br>
 `string`.<br>
@@ -167,7 +113,7 @@ Path to an alternative `gulp.js`, relative to the working directory.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 `boolean`. Default value: `false`.<br>
@@ -177,20 +123,9 @@ Publishes JUnit test results produced by the gulp build to Azure Pipelines/TFS.
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Publishes JUnit test results produced by the gulp build to Azure Pipelines/TFS.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`testResultsFiles`** - **Test Results Files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
@@ -202,7 +137,7 @@ Test results files path. You can use wildcards. For example, you can use `**/TES
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`testRunTitle`** - **Test Run Title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
@@ -214,7 +149,7 @@ Provides a name for the test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableCodeCoverage"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`enableCodeCoverage`** - **Enable code Coverage**<br>
 `boolean`. Default value: `false`.<br>
@@ -226,7 +161,7 @@ Enables Code Coverage using Istanbul.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testFramework"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`testFramework`** - **Test Framework**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`. Allowed values: `Mocha`, `Jasmine`. Default value: `Mocha`.<br>
@@ -238,7 +173,7 @@ Specifies your test framework.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="srcFiles"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`srcFiles`** - **Source Files**<br>
 `string`. Optional. Use when `enableCodeCoverage = true`.<br>
@@ -250,7 +185,7 @@ Provides the path to the source files you want to hookRequire().
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testFiles"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`testFiles`** - **Test Script Files**<br>
 `string`. Required when `enableCodeCoverage = true`. Default value: `test/*.js`.<br>
@@ -270,7 +205,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -314,7 +249,7 @@ Use this task to run gulp tasks using the Node.js streaming task-based build sys
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

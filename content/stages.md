@@ -1,14 +1,14 @@
 ---
 title: stages definition
 description: Stages are a collection of related jobs.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # stages definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Stages are a collection of related jobs.
@@ -18,7 +18,7 @@ Stages are a collection of related jobs.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 stages: [ stage | template ] # Stages are a collection of related jobs.
@@ -28,7 +28,7 @@ stages: [ stage | template ] # Stages are a collection of related jobs.
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -38,7 +38,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

@@ -32,7 +32,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure PowerShell v2
@@ -51,7 +51,6 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

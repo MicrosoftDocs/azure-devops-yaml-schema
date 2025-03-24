@@ -20,7 +20,7 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Archive Files v1
@@ -37,7 +37,6 @@ Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

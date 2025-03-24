@@ -1,7 +1,7 @@
 ---
 title: YAML schema reference
 description: Azure Pipelines YAML schema reference
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -17,24 +17,16 @@ The YAML schema reference does not cover tasks. For more information about tasks
 
 <!-- :::definitionIndex::: -->
 <!-- :::item name="pipeline"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**pipeline**](pipeline.md)<br><!-- :::editable-content name="description"::: -->
 A pipeline is one or more stages that describe a CI/CD process. The pipeline definition contains the documentation for root level properties like `name`.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-[**pipeline**](pipeline.md)<br><!-- :::editable-content name="description"::: -->
-A pipeline is one or more jobs that describe a CI/CD process.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="extends"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**extends**](extends.md)<br><!-- :::editable-content name="description"::: -->
 Extends a pipeline using a template.
@@ -43,24 +35,16 @@ Extends a pipeline using a template.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs**](jobs.md)<br><!-- :::editable-content name="description"::: -->
 Specifies the jobs that make up the work of a stage.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-[**jobs**](jobs.md)<br><!-- :::editable-content name="description"::: -->
-Specifies the jobs that make up the work of a pipeline.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.deployment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.deployment**](jobs-deployment.md)<br><!-- :::editable-content name="description"::: -->
 A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
@@ -69,7 +53,7 @@ A deployment job is a special type of job. It's a collection of steps to run seq
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.deployment.environment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.deployment.environment**](jobs-deployment-environment.md)<br><!-- :::editable-content name="description"::: -->
 Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
@@ -78,7 +62,7 @@ Target environment name and optionally a resource name to record the deployment 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.deployment.strategy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.deployment.strategy**](jobs-deployment-strategy.md)<br><!-- :::editable-content name="description"::: -->
 Execution strategy for this deployment.
@@ -87,7 +71,7 @@ Execution strategy for this deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.deployment.strategy.canary"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.deployment.strategy.canary**](jobs-deployment-strategy-canary.md)<br><!-- :::editable-content name="description"::: -->
 Canary Deployment strategy.
@@ -96,7 +80,7 @@ Canary Deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.deployment.strategy.rolling"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.deployment.strategy.rolling**](jobs-deployment-strategy-rolling.md)<br><!-- :::editable-content name="description"::: -->
 Rolling Deployment strategy.
@@ -105,7 +89,7 @@ Rolling Deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.deployment.strategy.runOnce"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.deployment.strategy.runOnce**](jobs-deployment-strategy-run-once.md)<br><!-- :::editable-content name="description"::: -->
 RunOnce Deployment strategy.
@@ -123,7 +107,7 @@ A job is a collection of steps run by an agent or on a server.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.job.container"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.job.container**](jobs-job-container.md)<br><!-- :::editable-content name="description"::: -->
 Container resource name.
@@ -150,7 +134,7 @@ Any resources required by this job that are not already referenced.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.template"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.template**](jobs-template.md)<br><!-- :::editable-content name="description"::: -->
 A set of jobs defined in a template.
@@ -159,7 +143,7 @@ A set of jobs defined in a template.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**parameters**](parameters.md)<br><!-- :::editable-content name="description"::: -->
 Specifies the runtime parameters passed to a pipeline.
@@ -168,7 +152,7 @@ Specifies the runtime parameters passed to a pipeline.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parameters.parameter"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**parameters.parameter**](parameters-parameter.md)<br><!-- :::editable-content name="description"::: -->
 Pipeline template parameters.
@@ -249,7 +233,7 @@ A container resource used to reference a container image.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.containers.container.trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**resources.containers.container.trigger**](resources-containers-container-trigger.md)<br><!-- :::editable-content name="description"::: -->
 Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
@@ -258,7 +242,7 @@ Specify none to disable, true to trigger on all image tags, or use the full synt
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.packages"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**resources.packages**](resources-packages.md)<br><!-- :::editable-content name="description"::: -->
 List of package resources.
@@ -267,7 +251,7 @@ List of package resources.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.packages.package"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**resources.packages.package**](resources-packages-package.md)<br><!-- :::editable-content name="description"::: -->
 A package resource used to reference a NuGet or npm GitHub package.
@@ -294,7 +278,7 @@ A pipeline resource.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.pipelines.pipeline.trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**resources.pipelines.pipeline.trigger**](resources-pipelines-pipeline-trigger.md)<br><!-- :::editable-content name="description"::: -->
 Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
@@ -303,7 +287,7 @@ Specify none to disable, true to include all branches, or use the full syntax as
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.pipelines.pipeline.trigger.branches"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**resources.pipelines.pipeline.trigger.branches**](resources-pipelines-pipeline-trigger-branches.md)<br><!-- :::editable-content name="description"::: -->
 Branches to include or exclude for triggering a run.
@@ -366,7 +350,7 @@ Webhook resource trigger filter.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="schedules"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**schedules**](schedules.md)<br><!-- :::editable-content name="description"::: -->
 The schedules list specifies the scheduled triggers for the pipeline.
@@ -375,7 +359,7 @@ The schedules list specifies the scheduled triggers for the pipeline.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="schedules.cron"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**schedules.cron**](schedules-cron.md)<br><!-- :::editable-content name="description"::: -->
 A scheduled trigger specifies a schedule on which branches are built.
@@ -384,7 +368,7 @@ A scheduled trigger specifies a schedule on which branches are built.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="stages"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**stages**](stages.md)<br><!-- :::editable-content name="description"::: -->
 Stages are a collection of related jobs.
@@ -393,7 +377,7 @@ Stages are a collection of related jobs.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="stages.stage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**stages.stage**](stages-stage.md)<br><!-- :::editable-content name="description"::: -->
 A stage is a collection of related jobs.
@@ -402,7 +386,7 @@ A stage is a collection of related jobs.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="stages.template"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**stages.template**](stages-template.md)<br><!-- :::editable-content name="description"::: -->
 You can define a set of stages in one file and use it multiple times in other files.
@@ -456,7 +440,7 @@ Downloads build artifacts.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.getPackage"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**steps.getPackage**](steps-get-package.md)<br><!-- :::editable-content name="description"::: -->
 Downloads a package from a package management feed in Azure Artifacts or Azure DevOps Server.
@@ -492,7 +476,7 @@ Runs a script in PowerShell Core on Windows, macOS, and Linux.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="steps.reviewApp"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**steps.reviewApp**](steps-review-app.md)<br><!-- :::editable-content name="description"::: -->
 Downloads creates a resource dynamically under a deploy phase provider.
@@ -528,7 +512,7 @@ Define a set of steps in one file and use it multiple times in another file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**target**](target.md)<br><!-- :::editable-content name="description"::: -->
 Tasks run in an execution context, which is either the agent host or a container.
@@ -599,7 +583,7 @@ Define variables in a template.
 
 <!-- :::supportingDefinitionIndex::: -->
 <!-- :::item name="deployHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**deployHook**](deploy-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps that deploy your application.
@@ -617,7 +601,7 @@ Lists of items to include or exclude.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeExcludeStringFilters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**includeExcludeStringFilters**](include-exclude-string-filters.md)<br><!-- :::editable-content name="description"::: -->
 Items to include or exclude.
@@ -635,7 +619,7 @@ Volumes to mount read-only, the default is all false.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onFailureHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**onFailureHook**](on-failure-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
@@ -644,7 +628,7 @@ Used to run steps for rollback actions or clean-up.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onSuccessHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**onSuccessHook**](on-success-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
@@ -653,7 +637,7 @@ Used to run steps for rollback actions or clean-up.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onSuccessOrFailureHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**onSuccessOrFailureHook**](on-success-or-failure-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps for rollback actions or clean-up.
@@ -662,7 +646,7 @@ Used to run steps for rollback actions or clean-up.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="postRouteTrafficHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**postRouteTrafficHook**](post-route-traffic-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run the steps after the traffic is routed. Typically, these tasks monitor the health of the updated version for defined interval.
@@ -671,7 +655,7 @@ Used to run the steps after the traffic is routed. Typically, these tasks monito
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="preDeployHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**preDeployHook**](pre-deploy-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps that initialize resources before application deployment starts.
@@ -680,7 +664,7 @@ Used to run steps that initialize resources before application deployment starts
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="routeTrafficHook"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 [**routeTrafficHook**](route-traffic-hook.md)<br><!-- :::editable-content name="description"::: -->
 Used to run steps that serve the traffic to the updated version.

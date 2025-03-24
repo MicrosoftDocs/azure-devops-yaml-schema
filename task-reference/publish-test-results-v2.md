@@ -1,29 +1,20 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # PublishTestResults@2 - Publish Test Results v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Publish test results to Azure Pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Publish Test Results to Azure Pipelines/TFS.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
 
 <!-- :::description-end::: -->
 
@@ -53,7 +44,7 @@ Publish Test Results to Azure Pipelines/TFS.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 ```yaml
 # Publish Test Results v2
@@ -74,34 +65,13 @@ Publish Test Results to Azure Pipelines/TFS.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Publish Test Results v2
-# Publish Test Results to Azure Pipelines/TFS.
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Alias: testRunner. Required. Test result format. Default: JUnit.
-    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
-    #searchFolder: '$(System.DefaultWorkingDirectory)' # string. Search folder. Default: $(System.DefaultWorkingDirectory).
-    #mergeTestResults: false # boolean. Merge test results. Default: false.
-    #testRunTitle: # string. Test run title. 
-  # Advanced
-    #buildPlatform: # string. Alias: platform. Build Platform. 
-    #buildConfiguration: # string. Alias: configuration. Build Configuration. 
-    #publishRunAttachments: true # boolean. Upload test results files. Default: true.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="testResultsFormat"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`testResultsFormat`** - **Test result format**<br>
 Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`, `CTest`. Default value: `JUnit`.<br>
@@ -111,20 +81,9 @@ Specifies the format of the results files you want to publish. The following for
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`testResultsFormat`** - **Test result format**<br>
-Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`. Default value: `JUnit`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://github.com/nunit/docs/wiki/Test-Result-XML-Format), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required. Default value: `**/TEST-*.xml`.<br>
@@ -169,7 +128,7 @@ When this boolean's value is `true`, the task reports test results from all the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailedTests"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`failTaskOnFailedTests`** - **Fail if there are test failures**<br>
 `boolean`. Default value: `false`.<br>
@@ -217,7 +176,7 @@ Optional. Specifies a name for the test run against which the results will be re
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildPlatform"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`buildPlatform`** - **Build Platform**<br>
 Input alias: `platform`. `string`.<br>
@@ -229,7 +188,7 @@ Optional. Specifies the build platform against which the test run should be repo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildConfiguration"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`buildConfiguration`** - **Build Configuration**<br>
 Input alias: `configuration`. `string`.<br>
@@ -282,7 +241,6 @@ This task publishes test results to Azure Pipelines or TFS when tests are execut
 Other built-in tasks, such as [Visual Studio Test task](vstest-v2.md) and [Dot NetCore CLI task](dotnet-core-cli-v2.md) automatically publish test results to the pipeline. Tasks such as [Ant](ant-v1.md), [Maven](maven-v3.md), [Gulp](gulp-v1.md), [Grunt](grunt-v0.md), and [Xcode](xcode-v5.md) provide publishing results as an option within the task, or build libraries such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/). If you are using any of these tasks, you do not need a separate **Publish Test Results** task in the pipeline.
 
 The published test results are displayed in the [Tests tab](/azure/devops/pipelines/test/review-continuous-test-results-after-build) in the pipeline summary. The results help you to measure pipeline quality, review traceability, troubleshoot failures, and drive failure ownership.
-
 
 The following example shows the task is configured to publish test results.
 
@@ -463,7 +421,6 @@ This table lists the fields reported in the [Tests tab](/azure/devops/pipelines/
 > **While publishing the test result, you may get this error: Failed to publish test results: Invalid Priority specified**
 >
 > This error occurs if any of the test methods has priority set above 255, fix the test method priority in the code and execute the tests again. You can review the trx file generated to see all the tests having priority greater than 255.
-
 
 ### Attachments support
 

@@ -36,7 +36,7 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Service Fabric Compose deploy v0
@@ -62,40 +62,13 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Service Fabric Compose Deploy v0
-# Deploy a docker-compose application to a Service Fabric cluster.
-- task: ServiceFabricComposeDeploy@0
-  inputs:
-    clusterConnection: # string. Alias: serviceConnectionName. Required. Cluster Service Connection. 
-    composeFilePath: '**/docker-compose.yml' # string. Required. Compose File Path. Default: **/docker-compose.yml.
-    applicationName: 'fabric:/Application1' # string. Required. Application Name. Default: fabric:/Application1.
-  # Registry Settings
-    registryCredentials: 'AzureResourceManagerEndpoint' # 'AzureResourceManagerEndpoint' | 'ContainerRegistryEndpoint' | 'UsernamePassword' | 'None'. Required. Registry Credentials Source. Default: AzureResourceManagerEndpoint.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpointName. Optional. Use when registryCredentials = ContainerRegistryEndpoint. Docker Registry Service Connection. 
-    azureSubscription: # string. Alias: azureSubscriptionEndpoint. Required when registryCredentials = AzureResourceManagerEndpoint. Azure subscription. 
-    #registryUserName: # string. Optional. Use when registryCredentials = UsernamePassword. Registry User Name. 
-    #registryPassword: # string. Optional. Use when registryCredentials = UsernamePassword. Registry Password. 
-    #passwordEncrypted: true # boolean. Optional. Use when registryCredentials = UsernamePassword. Password Encrypted. Default: true.
-  # Advanced Settings
-    #upgrade: false # boolean. Upgrade. Default: false.
-    #deployTimeoutSec: # string. Deploy Timeout (s). 
-    #removeTimeoutSec: # string. Remove Timeout (s). 
-    #getStatusTimeoutSec: # string. Get Status Timeout (s).
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="clusterConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`clusterConnection`** - **Cluster Service Connection**<br>
 Input alias: `serviceConnectionName`. `string`. Required.<br>
@@ -133,7 +106,7 @@ Specifies the Service Fabric application name of the deployed application. Use `
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="registryCredentials"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`registryCredentials`** - **Registry Credentials Source**<br>
 `string`. Required. Allowed values: `AzureResourceManagerEndpoint` (Azure Resource Manager service connection), `ContainerRegistryEndpoint` (Container Registry service connection), `UsernamePassword` (Username and Password), `None`. Default value: `AzureResourceManagerEndpoint`.<br>
@@ -150,7 +123,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
 Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
@@ -210,7 +183,7 @@ Encrypts your password using [Invoke-ServiceFabricEncryptText](/azure/service-fa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="upgrade"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`upgrade`** - **Upgrade**<br>
 `boolean`. Default value: `false`.<br>

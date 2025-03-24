@@ -63,7 +63,7 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 ```yaml
 # NuGet Restore v1
@@ -82,7 +82,6 @@ Use this task to restore NuGet packages in preparation for a Visual Studio Build
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

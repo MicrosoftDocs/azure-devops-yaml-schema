@@ -20,7 +20,7 @@ Use this task in a build pipeline to automatically update the versions of a pack
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Update Service Fabric App Versions v1
@@ -38,7 +38,6 @@ Use this task in a build pipeline to automatically update the versions of a pack
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

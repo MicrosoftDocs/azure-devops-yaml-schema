@@ -40,7 +40,7 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish code coverage results v1
@@ -56,23 +56,6 @@ Use this task to publish Cobertura or JaCoCo code coverage results from a build.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Publish Code Coverage Results v1
-# Publish Cobertura or JaCoCo code coverage results from a build.
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
-    summaryFileLocation: # string. Required. Summary file. 
-    #reportDirectory: # string. Report directory. 
-    #additionalCodeCoverageFiles: # string. Additional files. 
-    #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -104,7 +87,7 @@ Specifies the path of the summary file containing code coverage statistics, such
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pathToSources"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`pathToSources`** - **Path to Source files**<br>
 `string`.<br>
@@ -178,7 +161,6 @@ None.
 :::moniker range=">azure-pipelines-2022.1"
 
 :::moniker-end
-
 
 Use this task in a build pipeline to publish code coverage results produced when running tests to Azure Pipelines or TFS in order to obtain coverage reporting. The task supports popular coverage result formats such as [Cobertura](https://cobertura.github.io/cobertura/) and [JaCoCo](https://www.eclemma.org/jacoco/).
 

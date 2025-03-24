@@ -32,7 +32,7 @@ Use this task to run tests with Visual Studio test runner.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio Test v1
@@ -60,7 +60,6 @@ Use this task to run tests with Visual Studio test runner.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
