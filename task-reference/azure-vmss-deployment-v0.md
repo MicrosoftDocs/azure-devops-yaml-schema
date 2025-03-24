@@ -20,7 +20,7 @@ This task deploys a Virtual Machine scale set image.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure VM scale set deployment v0
@@ -44,32 +44,6 @@ This task deploys a Virtual Machine scale set image.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure VM scale set Deployment v0
-# Deploy Virtual Machine scale set image.
-- task: AzureVmssDeployment@0
-  inputs:
-  # Azure Details
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    action: 'Update image' # 'Update image' | 'Configure application startup'. Required. Action. Default: Update image.
-    vmssName: # string. Required. Virtual Machine scale set name. 
-    vmssOsType: # 'Windows' | 'Linux'. Required. OS type. 
-  # Image Details
-    #imageUrl: # string. Required when action = Update image || action = UpdateImage. Image URL. 
-  # Configure start-up
-    #customScriptsDirectory: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Custom script directory. 
-    #customScript: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Command. 
-    #customScriptArguments: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Arguments. 
-    #customScriptsStorageAccount: # string. Optional. Use when action = Configure application startup || action = Update image || action = UpdateImage. Azure storage account where custom scripts will be uploaded. 
-  # Advanced
-    #skipArchivingCustomScripts: false # boolean. Skip Archiving custom scripts. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -129,7 +103,7 @@ Specifies the operating system type of the VM scale set.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageUrl"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`imageUrl`** - **Image URL**<br>
 `string`. Required when `action = Update image || action = UpdateImage`.<br>

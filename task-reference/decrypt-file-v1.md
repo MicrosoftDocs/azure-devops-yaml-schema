@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to decrypt files using OpenSSL.
@@ -16,19 +16,12 @@ Use this task to decrypt files using OpenSSL.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-A thin utility task for file decryption using OpenSSL.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Decrypt file (OpenSSL) v1
@@ -44,24 +37,6 @@ A thin utility task for file decryption using OpenSSL.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Decrypt File (OpenSSL) v1
-# A thin utility task for file decryption using OpenSSL.
-- task: DecryptFile@1
-  inputs:
-    cipher: 'des3' # string. Required. Cypher. Default: des3.
-    inFile: # string. Required. Encrypted file. 
-    passphrase: # string. Required. Passphrase. 
-    #outFile: # string. Decrypted file path. 
-  # Advanced
-    #workingDirectory: # string. Alias: cwd. Working directory.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

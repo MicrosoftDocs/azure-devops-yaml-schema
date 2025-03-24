@@ -34,7 +34,7 @@ monikerRange: "<=azure-pipelines"
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio test agent deployment v2
@@ -59,33 +59,6 @@ monikerRange: "<=azure-pipelines"
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Visual Studio Test Agent Deployment v2
-# DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests.
-- task: DeployVisualStudioTestAgent@2
-  inputs:
-  # Test Machines
-    testMachines: # string. Required. Machines. 
-    adminUserName: # string. Required. Admin login. 
-    adminPassword: # string. Required. Admin password. 
-    winRmProtocol: 'Http' # 'Http' | 'Https'. Required. Protocol. Default: Http.
-    #testCertificate: true # boolean. Optional. Use when winRmProtocol = Https. Test Certificate. Default: true.
-  # Agent Configuration
-    machineUserName: # string. Required. Username. 
-    machinePassword: # string. Required. Password. 
-    #runAsProcess: false # boolean. Run UI tests. Default: false.
-    #isDataCollectionOnly: false # boolean. Enable data collection only. Default: false.
-  # Advanced
-    #testPlatform: '14.0' # '15.0' | '14.0'. Test agent version. Default: 14.0.
-    #agentLocation: # string. Test agent location. 
-    #updateTestAgent: false # boolean. Update test agent. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -20,7 +20,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish To Azure Service Bus v0
@@ -33,7 +33,6 @@ Use this task to send a message to Azure Service Bus using a service connection 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -1,14 +1,14 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy an Azure Resource Manager (ARM) template to all deployment scopes.
@@ -51,7 +51,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 ```yaml
 # ARM template deployment v3
@@ -86,7 +86,7 @@ Use this task to deploy an Azure Resource Manager (ARM) template to all deployme
 ## Inputs
 
 <!-- :::item name="deploymentScope"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentScope`** - **Deployment scope**<br>
 `string`. Required. Allowed values: `Management Group`, `Subscription`, `Resource Group`. Default value: `Resource Group`.<br>
@@ -98,7 +98,7 @@ The scope of the deployment. Learn more about [deployment scopes](/Azure/azure-r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceManagerConnection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`azureResourceManagerConnection`** - **Azure Resource Manager connection**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
@@ -110,7 +110,7 @@ Specifies the Azure Resource Manager service connection with access to the selec
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="subscriptionId"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`subscriptionId`** - **Subscription**<br>
 Input alias: `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
@@ -125,7 +125,7 @@ Specifies the Azure subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="action"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
 `string`. Required when `deploymentScope = Resource Group`. Allowed values: `Create Or Update Resource Group`, `DeleteRG` (Delete resource group). Default value: `Create Or Update Resource Group`.<br>
@@ -137,7 +137,7 @@ The action to be performed on the Azure resources or resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deploymentScope = Resource Group`.<br>
@@ -149,7 +149,7 @@ Provides the name of a resource group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="location"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`location`** - **Location**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -162,7 +162,7 @@ Other deployment scopes: The location to store deployment metadata.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateLocation"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`templateLocation`** - **Template location**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Allowed values: `Linked artifact`, `URL of the file`. Default value: `Linked artifact`.<br>
@@ -174,7 +174,7 @@ The location of the Template and the Parameters JSON files. Choose **Linked arti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmFileLink"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmFileLink`** - **Template link**<br>
 `string`. Required when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file`.<br>
@@ -190,7 +190,7 @@ To  view the template parameters in a grid, click on `...` next to the override 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmParametersFileLink"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmParametersFileLink`** - **Template parameters link**<br>
 `string`. Optional. Use when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = URL of the file`.<br>
@@ -206,7 +206,7 @@ To  view the template parameters in a grid, click on `...` next to Override temp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmFile`** - **Template**<br>
 `string`. Required when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact`.<br>
@@ -218,7 +218,7 @@ Specifies the path or a pattern pointing to the Azure Resource Manager template.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="csmParametersFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`csmParametersFile`** - **Template parameters**<br>
 `string`. Optional. Use when `(action = Create Or Update Resource Group || deploymentScope != Resource Group) && templateLocation = Linked artifact`.<br>
@@ -230,7 +230,7 @@ Specify the path or a pattern pointing for the parameters file for the Azure Res
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideParameters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`overrideParameters`** - **Override template parameters**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -251,7 +251,7 @@ For example, `-options ["option1"] -map {"key1": "value1" }`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMode"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentMode`** - **Deployment mode**<br>
 `string`. Required when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Allowed values: `Incremental`, `Complete`, `Validation` (Validation only). Default value: `Incremental`.<br>
@@ -273,7 +273,7 @@ Learn more about [deployment modes](/azure/azure-resource-manager/deployment-mod
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentName`** - **Deployment name**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -285,7 +285,7 @@ Specifies the name of the resource group deployment to create.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentOutputs"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentOutputs`** - **Deployment outputs**<br>
 `string`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`.<br>
@@ -297,7 +297,7 @@ Provides a name for the variable for the output variable, which contains the out
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addSpnToEnvironment"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`addSpnToEnvironment`** - **Access service principal details in override parameters**<br>
 `boolean`. Optional. Use when `action = Create Or Update Resource Group || deploymentScope != Resource Group`. Default value: `false`.<br>
@@ -329,7 +329,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -356,7 +356,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

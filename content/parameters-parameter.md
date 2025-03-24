@@ -1,14 +1,14 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # pipeline.parameters.parameter definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A parameter represents a value passed to a pipeline.
@@ -18,7 +18,7 @@ A parameter represents a value passed to a pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 parameters:
@@ -33,7 +33,7 @@ parameters:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [parameters](parameters.md)
 
@@ -44,7 +44,7 @@ Definitions that reference this definition: [parameters](parameters.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -52,7 +52,7 @@ Definitions that reference this definition: [parameters](parameters.md)
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Human-readable name for the parameter.
@@ -78,7 +78,7 @@ boolean | deployment | deploymentList | environment | filePath | job | jobList |
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="default"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`default`** parameters.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -86,7 +86,7 @@ boolean | deployment | deploymentList | environment | filePath | job | jobList |
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="values"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`values`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -185,7 +185,6 @@ jobs:
     steps:
       - ${{ parameters.myStep }}
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

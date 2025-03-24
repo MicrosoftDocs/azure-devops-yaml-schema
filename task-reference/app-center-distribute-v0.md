@@ -23,7 +23,7 @@ Use this task to distribute app builds to testers and users via App Center.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # App Center distribute v0
@@ -47,7 +47,6 @@ Use this task to distribute app builds to testers and users via App Center.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

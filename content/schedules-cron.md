@@ -1,14 +1,14 @@
 ---
 title: schedules.cron definition
 description: A scheduled trigger specifies a schedule on which branches are built.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # schedules.cron definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A scheduled trigger specifies a schedule on which branches are built.
@@ -33,7 +33,7 @@ schedules:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 ```yaml
 schedules:
@@ -49,7 +49,7 @@ schedules:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [schedules](schedules.md)
 
@@ -60,7 +60,7 @@ Definitions that reference this definition: [schedules](schedules.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="cron"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`cron`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Cron syntax defining a schedule in UTC time.
@@ -69,7 +69,7 @@ Cron syntax defining a schedule in UTC time.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="displayName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`displayName`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Optional friendly name given to a specific schedule.
@@ -78,7 +78,7 @@ Optional friendly name given to a specific schedule.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branches"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 Branch names to include or exclude for triggering a run.
@@ -105,7 +105,7 @@ The `batch` property is affected by the setting of the `always` property. When `
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="always"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`always`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run; the default is false.

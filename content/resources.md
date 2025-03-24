@@ -1,7 +1,7 @@
 ---
 title: resources definition
 description: Resources specifies builds, repositories, pipelines, and other resources used by the pipeline.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -45,17 +45,6 @@ resources:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-resources:
-  builds: [ build ] # List of build resources referenced by the pipeline.
-  containers: [ container ] # List of container images.
-  pipelines: [ pipeline ] # List of pipeline resources.
-  repositories: [ repository ] # List of repository resources.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -115,7 +104,7 @@ List of webhooks.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packages"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`packages`** [resources.packages](resources-packages.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of package resources.

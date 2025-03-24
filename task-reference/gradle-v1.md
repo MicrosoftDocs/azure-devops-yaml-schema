@@ -20,7 +20,7 @@ Build using a Gradle wrapper script.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Gradle v1
@@ -65,7 +65,6 @@ Build using a Gradle wrapper script.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

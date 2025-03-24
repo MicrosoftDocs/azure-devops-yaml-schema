@@ -1,14 +1,14 @@
 ---
 title: resources.packages.package definition
 description: A package resource used to reference a NuGet or npm GitHub package.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.packages.package definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 You can consume NuGet and npm GitHub packages as a resource in YAML pipelines. When specifying package resources, set the package as `NuGet` or `npm`.
@@ -18,7 +18,7 @@ You can consume NuGet and npm GitHub packages as a resource in YAML pipelines. W
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 packages:
@@ -35,7 +35,7 @@ packages:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.packages](resources-packages.md)
 
@@ -46,7 +46,7 @@ Definitions that reference this definition: [resources.packages](resources-packa
 
 <!-- :::properties::: -->
 <!-- :::item name="package"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`package`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Alias of package artifact. Acceptable values: [-_A-Za-z0-9]*.
@@ -55,7 +55,7 @@ Alias of package artifact. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Type of the package. Ex - NuGet, NPM etc.
@@ -64,7 +64,7 @@ Type of the package. Ex - NuGet, NPM etc.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connection"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the connection. This connection will be used for all the communication related to this artifact.
@@ -73,7 +73,7 @@ Name of the connection. This connection will be used for all the communication r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`name`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the package.
@@ -82,7 +82,7 @@ Name of the package.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`version`** string.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -90,7 +90,7 @@ Name of the package.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tag"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tag`** string.<br><!-- :::editable-content name="propDescription"::: -->
 <!-- :::editable-content-end::: -->
@@ -98,7 +98,7 @@ Name of the package.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Trigger a new pipeline run when a new version of this package is available. none | true.

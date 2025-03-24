@@ -1,14 +1,14 @@
 ---
 title: PublishPipelineMetadata@0 - Publish Pipeline Metadata v0 task
 description: Publish Pipeline Metadata to Evidence store.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # PublishPipelineMetadata@0 - Publish Pipeline Metadata v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish Pipeline Metadata to the Evidence store.
@@ -20,7 +20,7 @@ Use this task to publish Pipeline Metadata to the Evidence store.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish Pipeline Metadata v0
@@ -36,7 +36,7 @@ Use this task to publish Pipeline Metadata to the Evidence store.
 ## Inputs
 
 <!-- :::item name="emptyCollectionValue"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -51,7 +51,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -86,7 +86,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

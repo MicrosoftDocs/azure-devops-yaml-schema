@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -64,20 +64,6 @@ containers:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-containers:
-- container: string # Required as first property. Alias of the container.
-  endpoint: string # ID of the service endpoint connecting to a private container registry.
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry.
-  resourceGroup: string # Resource group for your ACR.
-  registry: string # Registry for container images.
-  repository: string # Name of the container image repository in ACR.
-  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -110,7 +96,7 @@ Container image tag.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Type of the registry like ACR or GCR.
@@ -119,7 +105,7 @@ Type of the registry like ACR or GCR.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trigger"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.

@@ -20,7 +20,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Invoke REST API v0
@@ -38,7 +38,6 @@ Use this task to invoke a REST API as a part of your pipeline.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -158,8 +157,6 @@ None.
 
 > [!NOTE]
 > This task can be used only in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs).
-
-
 
 Succeeds if the API returns success and the response body parsing is successful, or when the API updates the timeline record with success.
 

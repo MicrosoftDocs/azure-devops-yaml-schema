@@ -97,52 +97,6 @@ jobs:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-jobs:
-- job: string # Required as first property. ID of the job.
-  displayName: string # Human-readable name for the job.
-  dependsOn: string | [ string ] # Any jobs which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this job.
-  continueOnError: string # Continue running even on failure?
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
-  variables: variables | [ variable ] # Job-specific variables.
-  strategy: strategy # Execution strategy for this job.
-  pool: string | pool # Pool where this job will run.
-  container: string | container # Container resource name.
-  services: # Container resources to run as a service container.
-    string: string # Name/value pairs
-  workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Scorch the repo before fetching?
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # A list of steps to run.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-jobs:
-- job: string # Required as first property. ID of the job.
-  displayName: string # Human-readable name for the job.
-  dependsOn: string | [ string ] # Any jobs which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this job.
-  continueOnError: string # Continue running even on failure?
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
-  variables: variables | [ variable ] # Job-specific variables.
-  strategy: strategy # Execution strategy for this job.
-  pool: string | pool # Pool where this job will run.
-  services: # Container resources to run as a service container.
-    string: string # Name/value pairs
-  workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Scorch the repo before fetching?
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # A list of steps to run.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -247,7 +201,7 @@ Pool where this job will run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`container`** [jobs.job.container](jobs-job-container.md).<br><!-- :::editable-content name="propDescription"::: -->
 Container resource name.

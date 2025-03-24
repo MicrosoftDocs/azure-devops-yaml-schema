@@ -1,14 +1,14 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureFunctionApp@1 - Azure Functions v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
@@ -16,13 +16,6 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Deploy an Azure Function for Linux or Windows.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -158,38 +151,13 @@ Deploy an Azure Function for Linux or Windows.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure Functions Deploy v1
-# Deploy an Azure Function for Linux or Windows.
-- task: AzureFunctionApp@1
-  inputs:
-    azureSubscription: # string. Required. Azure Resource Manager connection. 
-    appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
-    appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
-    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #runtimeStack: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when appType = functionAppLinux. Runtime stack. 
-    #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
-  # Application and Configuration Settings
-    #customWebConfig: # string. Optional. Use when appType != functionAppLinux && package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #appSettings: # string. App settings. 
-    #configurationStrings: # string. Configuration settings. 
-  # Additional Deployment Options
-    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 `string`. Required.<br>
@@ -201,7 +169,7 @@ Selects the Azure Resource Manager subscription for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appType`** - **App type**<br>
 `string`. Required. Allowed values: `functionApp` (Function App on Windows), `functionAppLinux` (Function App on Linux).<br>
@@ -223,7 +191,7 @@ Enters or selects the name of an existing Azure Functions App. The Function Apps
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`appName`** - **App name**<br>
 `string`. Required.<br>
@@ -235,7 +203,7 @@ Enters or selects the name of an existing Azure Functions App. The Function Apps
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Default value: `false`.<br>
@@ -251,7 +219,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
@@ -265,7 +233,7 @@ Enters or selects the Azure Resource group that contains the Azure App Service s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -277,7 +245,7 @@ Enters or selects an existing slot, excluding the Production slot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="package"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`package`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
@@ -322,7 +290,7 @@ Specify the framework and version your function app will run on. You can use any
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
@@ -334,7 +302,7 @@ Specify the framework and version your function app will run on. You can use any
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="startUpCommand"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`startUpCommand`** - **Startup command**<br>
 `string`. Optional. Use when `appType = functionAppLinux`.<br>
@@ -349,7 +317,7 @@ Enters the start up command. For example:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customWebConfig"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`customWebConfig`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`. Optional. Use when `appType != functionAppLinux && package NotEndsWith .war`.<br>
@@ -361,7 +329,7 @@ A standard Web.config will be generated and deployed to Azure App Service if the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSettings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appSettings`** - **App settings**<br>
 `string`.<br>
@@ -375,7 +343,7 @@ For more information on app settings, see [Environment variables and app setting
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configurationStrings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
@@ -398,7 +366,7 @@ Chooses the [deployment method](#deployment-methods) for the app.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
@@ -418,7 +386,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -485,7 +453,6 @@ This problem could occur if a web.config file isn't present in your app. You can
 
    :::image type="content" source="media/azure-rm-function-app-01.png" alt-text="Screenshot that shows the Generate web.config parameters section.":::
 
-
 1. Select the More button (...) under **Generate web.config parameters for Python, Node.js, Go and Java apps** to edit the parameters:
 
    :::image type="content" source="media/azure-rm-web-app-deployment-02.png" alt-text="Screenshot that shows the Generate web.config parameters.":::
@@ -536,7 +503,7 @@ For a walkthrough that shows how to create a CI/CD pipeline, see [Build and depl
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

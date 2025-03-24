@@ -1,7 +1,7 @@
 ---
 title: npmAuthenticate@0 - npm authenticate (for task runners) v0 task
 description: Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # npm authenticate (for task runners) v0
@@ -33,27 +33,13 @@ Use this task to provide `npm` credentials to an `.npmrc` file in your repositor
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# npm Authenticate (for task runners) v0
-# Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like Gulp and Grunt to authenticate with private registries.
-- task: npmAuthenticate@0
-  inputs:
-    #workingFile: # string. .npmrc file to authenticate. 
-    #customEndpoint: # string. Credentials for registries outside this account/collection.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="workingFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`workingFile`** - **.npmrc file to authenticate**<br>
 `string`. Required.<br>
@@ -63,33 +49,11 @@ The path to the `.npmrc` file that specifies the registries you want to work wit
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`workingFile`** - **.npmrc file to authenticate**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The path to the `.npmrc` file that specifies the registries you want to work with. Select the file, not the folder, such as `/packages/mypackage.npmrc`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`customEndpoint`** - **Credentials for registries outside this organization/collection**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization or collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization or collection, leave this blank. The build's credentials are used automatically.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`customEndpoint`** - **Credentials for registries outside this account/collection**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The comma-separated list of [npm service connection](/azure/devops/pipelines/library/service-endpoints) names for registries outside this organization or collection. The specified `.npmrc` file must contain registry entries corresponding to the service connections. If you only need registries in this organization or collection, leave this blank. The build's credentials are used automatically.

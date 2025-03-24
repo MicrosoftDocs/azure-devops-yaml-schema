@@ -1,14 +1,14 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # AzureAppServiceManage@0 - Azure App Service manage v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Start, stop, restart, slot swap, slot delete, install site extensions, or enable continuous monitoring for an Azure App Service.
@@ -16,19 +16,12 @@ Start, stop, restart, slot swap, slot delete, install site extensions, or enable
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Start, stop, restart, slot swap, install site extensions, or enable continuous monitoring for an Azure App Service.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure App Service manage v0
@@ -55,61 +48,6 @@ Start, stop, restart, slot swap, install site extensions, or enable continuous m
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure App Service manage v0
-# Start, stop, restart, slot swap, install site extensions or enable continuous monitoring for an Azure App Service.
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    #Action: 'Swap Slots' # 'Swap Slots' | 'Start Azure App Service' | 'Stop Azure App Service' | 'Restart Azure App Service' | 'Install Extensions' | 'Enable Continuous Monitoring' | 'Start all continuous webjobs' | 'Stop all continuous webjobs'. Action. Default: Swap Slots.
-    WebAppName: # string. Required. App Service name. 
-    #SpecifySlotOrASE: false # boolean. Alias: SpecifySlot. Optional. Use when Action != Swap Slots. Specify Slot or App Service Environment. Default: false.
-    #ResourceGroupName: # string. Required when Action = Swap Slots || SpecifySlot = true. Resource group. 
-    #SourceSlot: # string. Required when Action = Swap Slots. Source Slot. 
-    #SwapWithProduction: true # boolean. Optional. Use when Action = Swap Slots. Swap with Production. Default: true.
-    #TargetSlot: # string. Required when Action = Swap Slots && SwapWithProduction = false. Target Slot. 
-    #PreserveVnet: false # boolean. Optional. Use when Action = Swap Slots. Preserve Vnet. Default: false.
-    #Slot: 'production' # string. Required when Action != Swap Slots && SpecifySlot = true. Slot. Default: production.
-    #ExtensionsList: # string. Required when Action = Install Extensions. Install Extensions. 
-    #OutputVariable: # string. Optional. Use when Action = Install Extensions. Output variable. 
-    #AppInsightsResourceGroupName: # string. Required when Action == Enable Continuous Monitoring. Resource Group name for Application Insights. 
-    #ApplicationInsightsResourceName: # string. Required when Action == Enable Continuous Monitoring. Application Insights resource name. 
-  # Advanced Settings
-    #ApplicationInsightsWebTestName: # string. Optional. Use when Action == Enable Continuous Monitoring. Application Insights web test name.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure App Service Manage v0
-# Start, Stop, Restart, Slot swap, Install site extensions or Enable Continuous Monitoring for an Azure App Service.
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    #Action: 'Swap Slots' # 'Swap Slots' | 'Start Azure App Service' | 'Stop Azure App Service' | 'Restart Azure App Service' | 'Install Extensions' | 'Enable Continuous Monitoring' | 'Start all continuous webjobs' | 'Stop all continuous webjobs'. Action. Default: Swap Slots.
-    WebAppName: # string. Required. App Service name. 
-    #SpecifySlotOrASE: false # boolean. Alias: SpecifySlot. Optional. Use when Action != Swap Slots. Specify Slot or App Service Environment. Default: false.
-    #ResourceGroupName: # string. Required when Action = Swap Slots || SpecifySlot = true. Resource group. 
-    #SourceSlot: # string. Required when Action = Swap Slots. Source Slot. 
-    #SwapWithProduction: true # boolean. Optional. Use when Action = Swap Slots. Swap with Production. Default: true.
-    #TargetSlot: # string. Required when Action = Swap Slots && SwapWithProduction = false. Target Slot. 
-    #PreserveVnet: false # boolean. Optional. Use when Action = Swap Slots. Preserve Vnet. Default: false.
-    #Slot: 'production' # string. Required when Action != Swap Slots && SpecifySlot = true. Slot. Default: production.
-    #ExtensionsList: # string. Required when Action = Install Extensions. Install Extensions. 
-    #OutputVariable: # string. Optional. Use when Action = Install Extensions. Output variable. 
-    #AppInsightsResourceGroupName: # string. Required when Action == Enable Continuous Monitoring. Resource Group name for Application Insights. 
-    #ApplicationInsightsResourceName: # string. Required when Action == Enable Continuous Monitoring. Application Insights resource name. 
-  # Advanced Settings
-    #ApplicationInsightsWebTestName: # string. Optional. Use when Action == Enable Continuous Monitoring. Application Insights web test name.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -128,21 +66,10 @@ Selects the Azure Resource Manager subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Action"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`Action`** - **Action**<br>
 `string`. Allowed values: `Swap Slots`, `Start Azure App Service` (Start App Service), `Stop Azure App Service` (Stop App Service), `Restart Azure App Service` (Restart App Service), `Start Swap With Preview`, `Complete Swap` (Complete Swap With Preview), `Cancel Swap` (Cancel Swap With Preview), `Delete Slot`, `Install Extensions`, `Enable Continuous Monitoring`, `Start all continuous webjobs`, `Stop all continuous webjobs`. Default value: `Swap Slots`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Defines the action to perform on the App Service. You can start, stop, restart, slot swap, start swap with a preview, complete swap with a preview, cancel swap with a preview, install site extensions, or enable continuous monitoring for an Azure App Service.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`Action`** - **Action**<br>
-`string`. Allowed values: `Swap Slots`, `Start Azure App Service` (Start App Service), `Stop Azure App Service` (Stop App Service), `Restart Azure App Service` (Restart App Service), `Install Extensions`, `Enable Continuous Monitoring`, `Start all continuous webjobs`, `Stop all continuous webjobs`. Default value: `Swap Slots`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Defines the action to perform on the App Service. You can start, stop, restart, slot swap, start swap with a preview, complete swap with a preview, cancel swap with a preview, install site extensions, or enable continuous monitoring for an Azure App Service.
 <!-- :::editable-content-end::: -->
@@ -163,7 +90,7 @@ Enters or selects the name of an existing Azure App Service.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SpecifySlotOrASE"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`SpecifySlotOrASE`** - **Specify Slot or App Service Environment**<br>
 Input alias: `SpecifySlot`. `boolean`. Optional. Use when `Action != Swap Slots && Action != Delete Slot && Action != Start Swap With Preview && Action != Complete Swap && Action != Cancel Swap`. Default value: `false`.<br>
@@ -172,19 +99,9 @@ Input alias: `SpecifySlot`. `boolean`. Optional. Use when `Action != Swap Slots 
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`SpecifySlotOrASE`** - **Specify Slot or App Service Environment**<br>
-Input alias: `SpecifySlot`. `boolean`. Optional. Use when `Action != Swap Slots`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `Action = Swap Slots || Action = Delete Slot || SpecifySlot = true || Action = Start Swap With Preview || Action = Complete Swap || Action = Cancel Swap`.<br>
@@ -194,20 +111,9 @@ Enters or selects the Azure Resource Group that contains the Azure App Service s
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`ResourceGroupName`** - **Resource group**<br>
-`string`. Required when `Action = Swap Slots || SpecifySlot = true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the Azure Resource Group that contains the Azure App Service specified above.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SourceSlot"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`SourceSlot`** - **Source Slot**<br>
 `string`. Required when `Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap`.<br>
@@ -217,20 +123,9 @@ Used as source slot when `action == Swap Slots`. The swap action directs destina
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`SourceSlot`** - **Source Slot**<br>
-`string`. Required when `Action = Swap Slots`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Used as the source slot when `action == Swap Slots`. The swap action directs destination slot's traffic to the source slot.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SwapWithProduction"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`SwapWithProduction`** - **Swap with Production**<br>
 `boolean`. Optional. Use when `Action = Swap Slots || Action = Start Swap With Preview  || Action = Complete Swap`. Default value: `true`.<br>
@@ -240,20 +135,9 @@ Swaps the traffic of the source slot with production. If you don't select this o
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`SwapWithProduction`** - **Swap with Production**<br>
-`boolean`. Optional. Use when `Action = Swap Slots`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Swaps the traffic of the source slot with production. If you don't select this option, then you need to provide the source and target slot names.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TargetSlot"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`TargetSlot`** - **Target Slot**<br>
 `string`. Required when `SwapWithProduction = false`.<br>
@@ -263,20 +147,9 @@ Use as the destination slot when `action == Swap Slots`. The swap action directs
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`TargetSlot`** - **Target Slot**<br>
-`string`. Required when `Action = Swap Slots && SwapWithProduction = false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Use as the destination slot when `action == Swap Slots`. The swap action directs the destination slot's traffic to the source slot.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="PreserveVnet"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`PreserveVnet`** - **Preserve Vnet**<br>
 `boolean`. Optional. Use when `Action = Swap Slots || Action = Start Swap With Preview || Action = Complete Swap`. Default value: `false`.<br>
@@ -286,20 +159,9 @@ Preserves the virtual network settings.
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`PreserveVnet`** - **Preserve Vnet**<br>
-`boolean`. Optional. Use when `Action = Swap Slots`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Preserves the virtual network settings.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Slot"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`Slot`** - **Slot**<br>
 `string`. Required when `Action = Delete Slot || Action = Cancel Swap || SpecifySlot = true`. Default value: `production`.<br>
@@ -308,19 +170,9 @@ Preserves the virtual network settings.
 <br>
 
 :::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`Slot`** - **Slot**<br>
-`string`. Required when `Action != Swap Slots && SpecifySlot = true`. Default value: `production`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ExtensionsList"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ExtensionsList`** - **Install Extensions**<br>
 `string`. Required when `Action = Install Extensions`.<br>
@@ -372,7 +224,7 @@ If your Application Insights resource is not listed here and you want to create 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ApplicationInsightsWebTestName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ApplicationInsightsWebTestName`** - **Application Insights web test name**<br>
 `string`. Optional. Use when `Action == Enable Continuous Monitoring`.<br>
@@ -394,7 +246,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -407,7 +259,6 @@ If you select multiple extensions, the output is a comma-separated list of local
 <!-- :::item-end::: -->
 
 :::moniker-end
-
 
 <!-- :::outputVariables-end::: -->
 
@@ -435,7 +286,7 @@ For more information, see [Set up staging environments in Azure App Service](/az
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -449,7 +300,6 @@ For more information, see [Set up staging environments in Azure App Service](/az
 | Task category | Deploy |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

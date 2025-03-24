@@ -1,14 +1,14 @@
 ---
 title: resources.pipelines.pipeline.trigger definition
 description: Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # resources.pipelines.pipeline.trigger definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
@@ -18,7 +18,7 @@ Specify none to disable, true to include all branches, or use the full syntax as
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.pipelines.pipeline](resources-pipelines-pipeline.md)
 
@@ -239,7 +239,7 @@ Branch names to include or exclude for triggering a run.
 <!-- :::implementation-item name="trigger: string"::: -->
 <a name="triggerstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## trigger: none | true

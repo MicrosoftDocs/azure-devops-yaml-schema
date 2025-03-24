@@ -22,7 +22,7 @@ For a newer version of this task, see [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # .NET Core v1
@@ -37,7 +37,6 @@ For a newer version of this task, see [DotNetCoreCLI@2](dotnet-core-cli-v2.md).
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

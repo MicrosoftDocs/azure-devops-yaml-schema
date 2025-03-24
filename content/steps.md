@@ -1,7 +1,7 @@
 ---
 title: steps definition
 description: Steps are a linear sequence of operations that make up a job.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -18,7 +18,7 @@ Steps are a linear sequence of operations that make up a job.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # Steps are a linear sequence of operations that make up a job.
@@ -26,33 +26,21 @@ steps: [ task | script | powershell | pwsh | bash | checkout | download | downlo
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | publish | template ] # Steps are a linear sequence of operations that make up a job.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md), [preDeployHook](pre-deploy-hook.md), [deployHook](deploy-hook.md), [routeTrafficHook](route-traffic-hook.md), [postRouteTrafficHook](post-route-traffic-hook.md), [onFailureHook](on-failure-hook.md), [onSuccessHook](on-success-hook.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](jobs-job.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|
@@ -71,22 +59,6 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-| Type | Description |
-|---|---|
-| [steps.task](steps-task.md) | Runs a task. |
-| [steps.script](steps-script.md) | Runs a script using cmd.exe on Windows and Bash on other platforms. |
-| [steps.powershell](steps-powershell.md) | Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS). |
-| [steps.pwsh](steps-pwsh.md) | Runs a script in PowerShell Core on Windows, macOS, and Linux. |
-| [steps.bash](steps-bash.md) | Runs a script in Bash on Windows, macOS, and Linux. |
-| [steps.checkout](steps-checkout.md) | Configure how the pipeline checks out source code. |
-| [steps.download](steps-download.md) | Downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource. |
-| [steps.downloadBuild](steps-download-build.md) | Downloads build artifacts. |
-| [steps.publish](steps-publish.md) | Publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume. |
-| [steps.template](steps-template.md) | Define a set of steps in one file and use it multiple times in another file. |
-
-:::moniker-end
 <!-- :::list-types-end::: -->
 
 <!-- :::remarks::: -->

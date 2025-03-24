@@ -1,7 +1,7 @@
 ---
 title: includeExcludeFilters definition
 description: Lists of items to include or exclude.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,7 +30,7 @@ includeExcludeFilters:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
@@ -39,14 +39,6 @@ Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-> [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
-
-Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 ## Properties

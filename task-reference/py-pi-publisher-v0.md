@@ -20,7 +20,7 @@ Use this task to create and upload an sdist or wheel to a PyPI-compatible index 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # PyPI publisher v0
@@ -34,28 +34,13 @@ Use this task to create and upload an sdist or wheel to a PyPI-compatible index 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# PyPI Publisher v0
-# Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-- task: PyPIPublisher@0
-  inputs:
-    pypiConnection: # string. Alias: serviceEndpoint. Required. PyPI service connection. 
-    packageDirectory: # string. Alias: wd. Required. Python package directory. 
-    #alsoPublishWheel: false # boolean. Alias: wheel. Also publish a wheel. Default: false.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="pypiConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pypiConnection`** - **PyPI service connection**<br>
 Input alias: `serviceEndpoint`. `string`. Required.<br>
@@ -67,7 +52,7 @@ Specifies a generic service connection for connecting to the package index.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packageDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageDirectory`** - **Python package directory**<br>
 Input alias: `wd`. `string`. Required.<br>
@@ -79,7 +64,7 @@ Specifies the directory of the Python package that is created and published wher
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="alsoPublishWheel"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`alsoPublishWheel`** - **Also publish a wheel**<br>
 Input alias: `wheel`. `boolean`. Default value: `false`.<br>
@@ -128,7 +113,7 @@ The task will install the `wheel` and `twine` packages with `python -m pip insta
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -142,7 +127,6 @@ The task will install the `wheel` and `twine` packages with `python -m pip insta
 | Task category | Package |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

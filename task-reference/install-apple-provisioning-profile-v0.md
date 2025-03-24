@@ -20,7 +20,7 @@ Use this task to install an Apple provisioning profile, which is required in ord
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Install Apple Provisioning Profile v0
@@ -32,7 +32,6 @@ Use this task to install an Apple provisioning profile, which is required in ord
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

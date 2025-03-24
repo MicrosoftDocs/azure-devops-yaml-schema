@@ -1,14 +1,14 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
@@ -21,23 +21,12 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or release pipeline to test mobile apps with Xamarin Test Cloud using Xamarin.UITest.
->[!NOTE]
-> You can now [sign up with App Center](https://appcenter.ms/signup) and use the [AppCenterDistrivbute#3](./app-center-distribute-v3.md) task instead.
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xamarin Test Cloud v1
@@ -61,32 +50,6 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Xamarin Test Cloud v1
-# [Depreciated] Testing mobile apps with Xamarin Test Cloud using Xamarin.UITest - recommended task is now AppCenterTest.
-- task: XamarinTestCloud@1
-  inputs:
-    appFile: # string. Alias: app. Required. App file. 
-    #dsymFile: # string. Alias: dsym. dSYM file (iOS only). 
-    teamApiKey: # string. Required. Team API key. 
-    email: # string. Alias: user. Required. User email. 
-    devices: # string. Required. Devices. 
-    series: 'master' # string. Required. Series. Default: master.
-    testAssemblyDirectory: # string. Alias: testDir. Required. Test assembly directory. 
-  # Advanced
-    parallelizationOption: 'none' # 'none' | '--fixture-chunk' | '--test-chunk'. Alias: parallelization. Required. Parallelization. Default: none.
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required. System language. Default: en_US.
-    #userDefinedLocale: # string. Optional. Use when locale = user. Other locale. 
-    testCloudFile: '**/packages/**/tools/test-cloud.exe' # string. Alias: testCloudLocation. Required. test-cloud.exe location. Default: **/packages/**/tools/test-cloud.exe.
-    #optionalArgs: # string. Optional arguments. 
-    #publishNUnitResults: true # boolean. Publish results to Azure Pipelines/TFS. Default: true.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -238,23 +201,12 @@ Specifies the additional arguments passed to `test-cloud.exe`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishNUnitResults"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`publishNUnitResults`** - **Publish results to Azure Pipelines**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`so that results from the NUnit xml file are be published to Azure Pipelines.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`publishNUnitResults`** - **Publish results to Azure Pipelines/TFS**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the `--nunit-xml` option to be passed to `test-cloud.exe`so that results from the NUnit xml file are be published to TFS or Azure Pipelines.
 <!-- :::editable-content-end::: -->
 <br>
 

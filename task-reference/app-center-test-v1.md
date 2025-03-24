@@ -1,7 +1,7 @@
 ---
 title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ Test app packages with Visual Studio App Center.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # App Center test v1
@@ -70,58 +70,6 @@ Test app packages with Visual Studio App Center.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# App Center Test v1
-# Test app packages with Visual Studio App Center.
-- task: AppCenterTest@1
-  inputs:
-    appFile: # string. Alias: app. Required. Binary application file path. 
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest' # string. Alias: artifactsDir. Required. Artifacts directory. Default: $(Build.ArtifactStagingDirectory)/AppCenterTest.
-  # Prepare Tests
-    #prepareTests: true # boolean. Alias: enablePrepare. Prepare tests. Default: true.
-    frameworkOption: 'appium' # 'appium' | 'espresso' | 'calabash' | 'uitest' | 'xcuitest'. Alias: framework. Required when enablePrepare = true. Test framework. Default: appium.
-    #appiumBuildDirectory: # string. Alias: appiumBuildDir. Required when enablePrepare = true && framework = appium. Build directory. 
-    #espressoBuildDirectory: # string. Alias: espressoBuildDir. Optional. Use when enablePrepare = true && framework = espresso. Build directory. 
-    #espressoTestApkFile: # string. Alias: espressoTestApkPath. Optional. Use when enablePrepare = true && framework = espresso. Test APK path. 
-    #calabashProjectDirectory: # string. Alias: calabashProjectDir. Required when enablePrepare = true && framework = calabash. Project directory. 
-    #calabashConfigFile: # string. Optional. Use when enablePrepare = true && framework = calabash. Cucumber config file. 
-    #calabashProfile: # string. Optional. Use when enablePrepare = true && framework = calabash. Profile to run. 
-    #calabashSkipConfigCheck: false # boolean. Optional. Use when enablePrepare = true && framework = calabash. Skip Configuration Check. Default: false.
-    #uiTestBuildDirectory: # string. Alias: uitestBuildDir. Required when enablePrepare = true && framework = uitest. Build directory. 
-    #uitestStoreFile: # string. Optional. Use when enablePrepare = true && framework = uitest. Store file. 
-    #uiTestStorePassword: # string. Alias: uitestStorePass. Optional. Use when enablePrepare = true && framework = uitest. Store password. 
-    #uitestKeyAlias: # string. Optional. Use when enablePrepare = true && framework = uitest. Key alias. 
-    #uiTestKeyPassword: # string. Alias: uitestKeyPass. Optional. Use when enablePrepare = true && framework = uitest. Key password. 
-    #uiTestToolsDirectory: # string. Alias: uitestToolsDir. Optional. Use when enablePrepare = true && framework = uitest. Test tools directory. 
-    #signInfo: # string. Optional. Use when framework = calabash || framework = uitest. Signing information. 
-    #xcUITestBuildDirectory: # string. Alias: xcuitestBuildDir. Optional. Use when enablePrepare = true && framework = xcuitest. Build directory. 
-    #xcUITestIpaFile: # string. Alias: xcuitestTestIpaPath. Optional. Use when enablePrepare = true && framework = xcuitest. Test IPA path. 
-    #prepareOptions: # string. Alias: prepareOpts. Optional. Use when enablePrepare = true. Additional options. 
-  # Run Tests
-    #runTests: true # boolean. Alias: enableRun. Run tests. Default: true.
-    credentialsOption: 'serviceEndpoint' # 'serviceEndpoint' | 'inputs'. Alias: credsType. Required when enableRun = true. Authentication method. Default: serviceEndpoint.
-    #serverEndpoint: # string. Required when enableRun = true && credsType = serviceEndpoint. App Center service connection. 
-    #username: # string. Required when enableRun = true && credsType = inputs. App Center username. 
-    #password: # string. Required when enableRun = true && credsType = inputs. App Center password. 
-    appSlug: # string. Required when enableRun = true. App slug. 
-    devices: # string. Required when enableRun = true. Devices. 
-    #series: 'master' # string. Optional. Use when enableRun = true. Test series. Default: master.
-    #dsymDirectory: # string. Alias: dsymDir. Optional. Use when enableRun = true. dSYM directory. 
-    localeOption: 'en_US' # 'da_DK' | 'nl_NL' | 'en_GB' | 'en_US' | 'fr_FR' | 'de_DE' | 'ja_JP' | 'ru_RU' | 'es_MX' | 'es_ES' | 'user'. Alias: locale. Required when enableRun = true. System language. Default: en_US.
-    #userDefinedLocale: # string. Optional. Use when enableRun = true && locale = user. Other locale. 
-    #loginOptions: # string. Alias: loginOpts. Optional. Use when enableRun = true && credsType = inputs. Additional options for login. 
-    #runOptions: # string. Alias: runOpts. Optional. Use when enableRun = true. Additional options for run. 
-    #skipWaitingForResults: false # boolean. Alias: async. Optional. Use when enableRun = true. Do not wait for test result. Default: false.
-  # Advanced
-    #cliFile: # string. Alias: cliLocationOverride. App Center CLI location. 
-    #showDebugOutput: false # boolean. Alias: debug. Enable debug output. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -272,7 +220,7 @@ The path to the directory with the built test assemblies.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="uitestStorePath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`uitestStorePath`** - **Store file**<br>
 `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
@@ -392,7 +340,7 @@ Runs the tests.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="credentialsOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`credentialsOption`** - **Authentication method**<br>
 Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center service connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
@@ -404,7 +352,7 @@ Uses the App Center service connection or enters the credentials to connect to V
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serverEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **App Center service connection**<br>
 `string`. Required when `enableRun = true && credsType = serviceEndpoint`.<br>
@@ -566,17 +514,6 @@ The path to the Visual Studio App Center CLI on the build or release agent.
 Input alias: `debug`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds `--debug` to the Visual Studio App Center CLI.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="uitestStoreFile"::: -->
-:::moniker range="=azure-pipelines-2019"
-
-**`uitestStoreFile`** - **Store file**<br>
-`string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
 

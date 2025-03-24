@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # ManualIntervention@8 - Manual intervention v8 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to pause deployment in a release pipeline and wait for manual intervention.
@@ -16,19 +16,12 @@ Use this task to pause deployment in a release pipeline and wait for manual inte
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to pause deployment in a release pipeline and wait for intervention.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Manual intervention v8
@@ -41,21 +34,6 @@ Use this task to pause deployment in a release pipeline and wait for interventio
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Manual Intervention v8
-# Pause deployment and wait for intervention.
-- task: ManualIntervention@8
-  inputs:
-    #instructions: # string. Instructions. 
-    #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

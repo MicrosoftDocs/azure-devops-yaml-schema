@@ -20,7 +20,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xcode v4
@@ -63,7 +63,6 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

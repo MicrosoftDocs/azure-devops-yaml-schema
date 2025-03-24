@@ -23,7 +23,7 @@ This task deploys and configures the Test Agent to run tests on a set of machine
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio Test Agent Deployment v1
@@ -49,7 +49,6 @@ This task deploys and configures the Test Agent to run tests on a set of machine
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -243,7 +242,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -257,7 +256,6 @@ None.
 | Task category | Test |
 
 :::moniker-end
-
 
 <!-- :::properties-end::: -->
 

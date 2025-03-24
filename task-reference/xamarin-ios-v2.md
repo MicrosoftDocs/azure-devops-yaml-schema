@@ -2,7 +2,7 @@
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # XamariniOS@2 - Xamarin.iOS v2 task
@@ -21,7 +21,7 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
@@ -36,7 +36,7 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xamarin.iOS v2
@@ -65,7 +65,7 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 ## Inputs
 
 <!-- :::item name="solutionFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`solutionFile`** - **Solution**<br>
 Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
@@ -77,7 +77,7 @@ Specifies the relative path from the repository root of the `Xamarin.iOS` soluti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration**<br>
 `string`. Required. Default value: `Release`.<br>
@@ -89,7 +89,7 @@ Specifies the configuration. Standard configurations are Ad-Hoc, AppStore, Debug
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="clean"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
@@ -101,7 +101,7 @@ Optional. Runs a clean build (`/t:clean`) prior to the build.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packageApp"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageApp`** - **Create app package**<br>
 `boolean`. Default value: `true`.<br>
@@ -113,7 +113,7 @@ If set to `true`, generates an IPA as a part of the build.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildForSimulator"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`buildForSimulator`** - **Build for iOS Simulator**<br>
 Input alias: `forSimulator`. `boolean`. Default value: `false`.<br>
@@ -125,7 +125,7 @@ Optional. Builds for the iOS Simulator instead of physical iOS devices.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runNugetRestore"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`runNugetRestore`** - **Run NuGet restore**<br>
 `boolean`. Default value: `false`.<br>
@@ -137,7 +137,7 @@ Runs `nuget restore` on the Xamarin iOS solution to install all referenced packa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="args"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`args`** - **Arguments**<br>
 `string`.<br>
@@ -149,7 +149,7 @@ Optional. Specifies additional command line arguments that are used to build.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
 Input alias: `cwd`. `string`.<br>
@@ -161,7 +161,7 @@ Optional. Specifies the working directory in which builds will run. If the value
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mdtoolFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`mdtoolFile`** - **Build tool path**<br>
 Input alias: `buildToolLocation | mdtoolLocation`. `string`.<br>
@@ -173,7 +173,7 @@ Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MS
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signingIdentity"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`signingIdentity`** - **Signing identity**<br>
 Input alias: `iosSigningIdentity`. `string`.<br>
@@ -185,7 +185,7 @@ Optional. Overrides the signing identity that will be used to sign the build. If
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signingProvisioningProfileID"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`signingProvisioningProfileID`** - **Provisioning profile UUID**<br>
 Input alias: `provProfileUuid`. `string`.<br>
@@ -205,7 +205,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -235,7 +235,7 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

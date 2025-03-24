@@ -1,14 +1,14 @@
 ---
 title: gulp@0 - gulp v0 task
 description: Run the gulp Node.js streaming task-based build system (task version 0).
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # gulp@0 - gulp v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run the gulp Node.js streaming task-based build system.
@@ -16,19 +16,12 @@ Use this task to run the gulp Node.js streaming task-based build system.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-<!-- :::editable-content name="description"::: -->
-Node.js streaming task based build system.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # gulp v0
@@ -54,40 +47,13 @@ Node.js streaming task based build system.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-```yaml
-# Gulp v0
-# Node.js streaming task based build system.
-- task: Gulp@0
-  inputs:
-    gulpFile: 'gulpfile.js' # string. Required. Gulp File Path. Default: gulpfile.js.
-    #targets: # string. Gulp Task(s). 
-    #arguments: # string. Arguments. 
-  # Advanced
-    #workingDirectory: # string. Alias: cwd. Working Directory. 
-    gulpjs: 'node_modules/gulp/bin/gulp.js' # string. Required. gulp.js location. Default: node_modules/gulp/bin/gulp.js.
-  # JUnit Test Results
-    #publishJUnitResults: false # boolean. Publish to Azure Pipelines/TFS. Default: false.
-    #testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test Results Files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test Run Title. 
-  # Code Coverage
-    #enableCodeCoverage: false # boolean. Enable code Coverage. Default: false.
-    #testFramework: 'Mocha' # 'Mocha' | 'Jasmine'. Optional. Use when enableCodeCoverage = true. Test Framework. Default: Mocha.
-    #srcFiles: # string. Optional. Use when enableCodeCoverage = true. Source Files. 
-    #testFiles: 'test/*.js' # string. Required when enableCodeCoverage = true. Test Script Files. Default: test/*.js.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="gulpFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`gulpFile`** - **gulp File Path**<br>
 `string`. Required. Default value: `gulpfile.js`.<br>
@@ -97,33 +63,11 @@ The relative path from the repo root of the gulp file script file you want to ru
 <br>
 
 :::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`gulpFile`** - **Gulp File Path**<br>
-`string`. Required. Default value: `gulpfile.js`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The relative path from the repo root of the gulp file script file you want to run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targets"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`targets`** - **gulp Task(s)**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`targets`** - **Gulp Task(s)**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional space-delimited list of tasks to run. If this input isn't specified, the default task will run.
@@ -169,20 +113,9 @@ Runs `gulp.js` when the agent can't find global-installed gulp.  This input defa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
-`boolean`. Default value: `false`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Publishes JUnit test results from the gulp build to Azure Pipelines/TFS.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`publishJUnitResults`** - **Publish to Azure Pipelines/TFS**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Publishes JUnit test results from the gulp build to Azure Pipelines/TFS.
@@ -283,7 +216,7 @@ None.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 > [!NOTE]
 > THere is a newer version of this task available at [gulp@1](./gulp-v1.md).

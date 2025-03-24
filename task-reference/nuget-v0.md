@@ -22,7 +22,7 @@ NuGet@0 is deprecated. Use the [NuGetCommand](nuget-command-v2.md) task instead.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet command v0
@@ -34,20 +34,6 @@ NuGet@0 is deprecated. Use the [NuGetCommand](nuget-command-v2.md) task instead.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# NuGet Command v0
-# Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
-- task: NuGet@0
-  inputs:
-    command: # string. Required. Command. 
-    #arguments: # string. Arguments.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

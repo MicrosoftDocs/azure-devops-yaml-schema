@@ -2,13 +2,13 @@
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # AndroidSigning@3 - Android Signing v3 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task in a pipeline to sign and align Android APK files.
@@ -45,7 +45,7 @@ Use this task in a pipeline to sign and align Android APK files.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 # Android Signing v3
@@ -73,7 +73,7 @@ Use this task in a pipeline to sign and align Android APK files.
 ## Inputs
 
 <!-- :::item name="apkFiles"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apkFiles`** - **APK files**<br>
 Input alias: `files`. `string`. Required. Default value: `**/*.apk`.<br>
@@ -88,7 +88,7 @@ The relative path from the repo root to the APK(s) you want to sign. You can use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksign"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksign`** - **Sign the APK**<br>
 `boolean`. Default value: `true`.<br>
@@ -100,7 +100,7 @@ Signs the APK with a provided Android Keystore file. Unsigned APKs can only run 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerKeystoreFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerKeystoreFile`** - **Keystore file**<br>
 Input alias: `keystoreFile`. `string`. Required when `apksign = true`.<br>
@@ -114,7 +114,7 @@ The file can either be checked into source control or placed on the build machin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerKeystorePassword"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerKeystorePassword`** - **Keystore password**<br>
 Input alias: `keystorePass`. `string`. Optional. Use when `apksign = true`.<br>
@@ -128,7 +128,7 @@ The key password for the provided Android Keystore file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerKeystoreAlias"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerKeystoreAlias`** - **Alias**<br>
 Input alias: `keystoreAlias`. `string`. Optional. Use when `apksign = true`.<br>
@@ -140,7 +140,7 @@ The alias that identifies the public/private key pair to be used in the Android 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerKeyPassword"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerKeyPassword`** - **Key password**<br>
 Input alias: `keyPass`. `string`. Optional. Use when `apksign = true`.<br>
@@ -167,7 +167,7 @@ The Android SDK build-tools version that the `apksigner` executable uses for the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerArguments`** - **apksigner arguments**<br>
 `string`. Optional. Use when `apksign = true`. Default value: `--verbose`.<br>
@@ -179,7 +179,7 @@ Provides options to pass to the `apksigner` command line. See the [apksigner doc
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerFile`** - **apksigner location**<br>
 Input alias: `apksignerLocation`. `string`. Optional. Use when `apksign = true`.<br>
@@ -191,7 +191,7 @@ Specifies the location of the apksigner executable used during signing. This def
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="zipalign"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`zipalign`** - **Zipalign**<br>
 `boolean`. Default value: `true`.<br>
@@ -215,7 +215,7 @@ The Android SDK build-tools version that the `zipalign` executable uses for the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="zipalignFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`zipalignFile`** - **Zipalign location**<br>
 Input alias: `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
@@ -235,7 +235,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -275,7 +275,7 @@ This version of the task uses apksigner instead of jarsigner to sign APKs.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -290,20 +290,6 @@ This version of the task uses apksigner instead of jarsigner to sign APKs.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: JDK, AndroidSDK |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

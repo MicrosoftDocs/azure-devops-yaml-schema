@@ -1,14 +1,14 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore your NuGet packages using dotnet CLI.
@@ -20,7 +20,7 @@ Use this task to restore your NuGet packages using dotnet CLI.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download GitHub Nuget Packages v1
@@ -42,7 +42,7 @@ Use this task to restore your NuGet packages using dotnet CLI.
 ## Inputs
 
 <!-- :::item name="packageName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`packageName`** - **Package Name**<br>
 `string`. Required.<br>
@@ -54,7 +54,7 @@ Specifies the name of the package to download from GitHub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`version`** - **Package Version**<br>
 `string`. Required.<br>
@@ -66,7 +66,7 @@ Specifies the version of the package to download from GitHub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="externalFeedCredentials"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **Credentials for feed from GitHub**<br>
 Input alias: `externalEndpoints`. `string`. Required when `selectOrConfig = config && command = restore`.<br>
@@ -78,7 +78,7 @@ Specifies the credentials to use for external registry from GitHub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="restoreDirectory"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`restoreDirectory`** - **Destination directory**<br>
 Input alias: `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
@@ -98,7 +98,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -133,7 +133,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

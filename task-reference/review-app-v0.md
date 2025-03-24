@@ -1,14 +1,14 @@
 ---
 title: ReviewApp@0 - Review App v0 task
 description: Use this task under deploy phase provider to create a resource dynamically.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # ReviewApp@0 - Review App v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task under a deploy phase provider to create a resource dynamically.
@@ -20,7 +20,7 @@ Use this task under a deploy phase provider to create a resource dynamically.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Review App v0
@@ -39,7 +39,7 @@ Use this task under a deploy phase provider to create a resource dynamically.
 ## Inputs
 
 <!-- :::item name="resourceName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`resourceName`** - **Resource name**<br>
 `string`. Required.<br>
@@ -51,7 +51,7 @@ Specifies the name of an existing resource in the environment, which will be use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baseEnvironmentName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`baseEnvironmentName`** - **Environment name**<br>
 `string`.<br>
@@ -62,7 +62,7 @@ Specifies the name of an existing resource in the environment, which will be use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="reviewResourceName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`reviewResourceName`** - **Review Resource Name**<br>
 `string`.<br>
@@ -81,7 +81,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -104,7 +104,7 @@ Use this task under a deploy phase provider to create a resource dynamically.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

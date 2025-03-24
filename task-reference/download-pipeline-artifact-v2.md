@@ -1,8 +1,8 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
@@ -19,7 +19,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
@@ -34,7 +34,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download Pipeline Artifacts v2
@@ -63,7 +63,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 ## Inputs
 
 <!-- :::item name="buildType"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`buildType`** - **Download artifacts produced by**<br>
 Input alias: `source`. `string`. Required. Allowed values: `current` (Current run), `specific` (Specific run). Default value: `current`.<br>
@@ -75,7 +75,7 @@ Downloads artifacts produced by the current pipeline run or from a specific pipe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="project"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`project`** - **Project**<br>
 `string`. Required when `source == specific`.<br>
@@ -87,7 +87,7 @@ Specifies the project name or GUID from which to download the pipeline artifacts
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="definition"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`definition`** - **Build pipeline**<br>
 Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
@@ -99,7 +99,7 @@ The definition ID of the pipeline. In a running pipeline the `definitionId` can 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="specificBuildWithTriggering"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
 Input alias: `preferTriggeringPipeline`. `boolean`. Optional. Use when `source == specific`. Default value: `false`.<br>
@@ -111,7 +111,7 @@ If checked, the task downloads artifacts from the triggering build. If there is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildVersionToDownload"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`buildVersionToDownload`** - **Build version to download**<br>
 Input alias: `runVersion`. `string`. Required when `source == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
@@ -123,7 +123,7 @@ Specifies the build version to download.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="branchName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`branchName`** - **Branch name**<br>
 Input alias: `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/master`.<br>
@@ -135,7 +135,7 @@ Specifies the filter on the branch/ref name. For example: ```refs/heads/develop`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pipelineId"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`pipelineId`** - **Build**<br>
 Input alias: `runId | buildId`. `string`. Required when `source == specific && runVersion == specific`.<br>
@@ -147,7 +147,7 @@ The identifier of the pipeline run from which to download the artifacts. In a ru
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`tags`** - **Build Tags**<br>
 `string`. Optional. Use when `source == specific && runVersion != specific`.<br>
@@ -159,7 +159,7 @@ The comma-delimited list of tags that the task uses to return tagged builds. Unt
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowPartiallySucceededBuilds"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`allowPartiallySucceededBuilds`** - **Download artifacts from partially succeeded builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
@@ -171,7 +171,7 @@ Specifies if the build task downloads artifacts whether the build succeeds or pa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowFailedBuilds"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`allowFailedBuilds`** - **Download artifacts from failed builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
@@ -183,7 +183,7 @@ If checked, the build task downloads artifacts whether the build succeeds or fai
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`artifactName`** - **Artifact name**<br>
 Input alias: `artifact`. `string`.<br>
@@ -195,7 +195,7 @@ Specifies the name of the artifact to download. If the value is left empty, the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="itemPattern"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`itemPattern`** - **Matching patterns**<br>
 Input alias: `patterns`. `string`. Default value: `**`.<br>
@@ -207,7 +207,7 @@ The file matching patterns that limit downloaded files. The value can be one or 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targetPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **Destination directory**<br>
 Input alias: `path | downloadPath`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
@@ -339,7 +339,7 @@ The identifier of the pipeline run from which to download the artifacts. In a ru
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

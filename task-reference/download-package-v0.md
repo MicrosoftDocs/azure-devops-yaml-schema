@@ -20,7 +20,7 @@ This task is deprecated; use [DownloadPackage@1](./download-package-v1.md).
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download a package from a package management feed in Azure Artifacts.
@@ -28,21 +28,12 @@ Use this task to download a package from a package management feed in Azure Arti
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download a package from a package management feed in Azure Artifacts or TFS. Requires the Package Management extension.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download package v0
@@ -56,23 +47,6 @@ Use this task to download a package from a package management feed in Azure Arti
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Download Package v0
-# Download a package from a Package Management feed in Azure Artifacts or TFS. 
- Requires the Package Management extension.
-- task: DownloadPackage@0
-  inputs:
-    feed: # string. Required. Feed. 
-    definition: # string. Required. Package. 
-    version: # string. Required. Version. 
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -145,7 +119,7 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ## Remarks
 

@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -41,7 +41,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 steps:
@@ -63,26 +63,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2019.1"
-
-```yaml
-steps:
-- powershell: string # Required as first property. Inline PowerShell script.
-  errorActionPreference: string # Unless otherwise specified, the error action preference defaults to the value stop. See the following section for more information.
-  failOnStderr: string # Fail the task if output is sent to Stderr?
-  ignoreLASTEXITCODE: string # Check the final exit code of the script to determine whether the step succeeded?
-  workingDirectory: string # Start the script with this working directory.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -169,7 +149,7 @@ Human-readable name for the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`target`** [target](target.md).<br><!-- :::editable-content name="propDescription"::: -->
 Environment in which to run this task.
@@ -244,7 +224,6 @@ Unless otherwise specified, the error action preference defaults to the value `s
 When the error action preference is set to stop, errors cause PowerShell to terminate the task and return a nonzero exit code.
 The task is also marked as Failed.
 
-
 ```yaml
 errorActionPreference: stop | continue | silentlyContinue
 ```
@@ -266,8 +245,6 @@ A nonzero code indicates a step failure, in which case the system appends your s
 `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }`
 
 If you don't want this behavior, specify `ignoreLASTEXITCODE: true`.
-
-
 
 ```yaml
 ignoreLASTEXITCODE: boolean

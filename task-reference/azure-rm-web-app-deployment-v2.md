@@ -20,7 +20,7 @@ Use this task to update Azure App Service using Web Deploy/[Kudu REST APIs](http
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure App Service deploy v2
@@ -46,7 +46,6 @@ Use this task to update Azure App Service using Web Deploy/[Kudu REST APIs](http
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

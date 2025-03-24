@@ -1,14 +1,14 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # extends definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Extend a pipeline using a template.
@@ -18,7 +18,7 @@ Extend a pipeline using a template.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 extends:
@@ -30,7 +30,7 @@ extends:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [pipeline](pipeline.md)
 
@@ -41,7 +41,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="template"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`template`** string.<br><!-- :::editable-content name="propDescription"::: -->
 The template referenced by the pipeline to extend.
@@ -50,7 +50,7 @@ The template referenced by the pipeline to extend.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Parameters used in the extend.

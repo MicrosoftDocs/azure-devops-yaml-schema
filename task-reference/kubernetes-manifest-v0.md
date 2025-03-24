@@ -1,8 +1,8 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts (task version 0).
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # KubernetesManifest@0 - Deploy to Kubernetes v0 task
@@ -20,7 +20,7 @@ This version of the task is deprecated; use [KubernetesManifest@1](./kubernetes-
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use a Kubernetes manifest task in a build or release pipeline to bake and deploy manifests to Kubernetes clusters using Helm charts.
@@ -32,7 +32,7 @@ Use a Kubernetes manifest task in a build or release pipeline to bake and deploy
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Deploy to Kubernetes v0
@@ -73,48 +73,13 @@ Use a Kubernetes manifest task in a build or release pipeline to bake and deploy
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Deploy Kubernetes manifests v0
-# Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-- task: KubernetesManifest@0
-  inputs:
-    #action: 'deploy' # 'bake' | 'createSecret' | 'delete' | 'deploy' | 'patch' | 'promote' | 'scale' | 'reject'. Action. Default: deploy.
-    #kubernetesServiceConnection: # string. Required when action != bake. Kubernetes service connection. 
-    #namespace: 'default' # string. Required when action != bake. Namespace. Default: default.
-    #strategy: 'none' # 'canary' | 'none'. Optional. Use when action = deploy || action = promote || action = reject. Strategy. Default: none.
-    #percentage: '0' # string. Required when strategy = Canary && action = deploy. Percentage. Default: 0.
-    #manifests: # string. Required when action = deploy || action = promote || action = reject. Manifests. 
-    #containers: # string. Optional. Use when action = deploy || action = promote. Containers. 
-    #imagePullSecrets: # string. Optional. Use when action = deploy || action = promote. ImagePullSecrets. 
-    #renderType: 'helm2' # 'helm2'. Optional. Use when action = bake. Render Engine. Default: helm2.
-    #helmChart: # string. Required when action = bake && renderType = helm2. Helm Chart. 
-    #releaseName: # string. Optional. Use when action = bake && renderType = helm2. Helm Release Name. 
-    #overrideFiles: # string. Optional. Use when action = bake && renderType = helm2. Override Files. 
-    #overrides: # string. Optional. Use when action = bake && renderType = helm2. Overrides. 
-    #resourceToPatch: 'file' # 'file' | 'name'. Required when action = patch. Resource to patch. Default: file.
-    #resourceFileToPatch: # string. Required when action = patch && resourceToPatch = file. File path. 
-    #kind: # 'deployment' | 'replicaset' | 'statefulset'. Required when action = scale || resourceToPatch = name. Kind. 
-    #name: # string. Required when action = scale || resourceToPatch = name. Name. 
-    #replicas: # string. Required when action = scale. Replica count. 
-    #mergeStrategy: 'strategic' # 'json' | 'merge' | 'strategic'. Required when action = patch. Merge Strategy. Default: strategic.
-    #arguments: # string. Optional. Use when action = delete. Arguments. 
-    #patch: # string. Required when action = patch. Patch. 
-    #secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required when action = createSecret. Type of secret. Default: dockerRegistry.
-    #secretName: # string. Optional. Use when action = createSecret. Secret name. 
-    #secretArguments: # string. Optional. Use when action = createSecret && secretType = generic. Arguments. 
-    #dockerRegistryEndpoint: # string. Optional. Use when action = createSecret && secretType = dockerRegistry. Docker registry service connection.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="action"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
 `string`. Allowed values: `bake`, `createSecret` (create secret), `delete`, `deploy`, `patch`, `promote`, `scale`, `reject`. Default value: `deploy`.<br>
@@ -126,7 +91,7 @@ Specifies the action to be performed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 `string`. Required when `action != bake`.<br>
@@ -138,7 +103,7 @@ Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/serv
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`namespace`** - **Namespace**<br>
 `string`.<br>
@@ -148,20 +113,9 @@ Specifies the namespace for the commands by using the `–namespace` flag. If th
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`namespace`** - **Namespace**<br>
-`string`. Required when `action != bake`. Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the namespace for the commands by using the `–namespace` flag. If the namespace is not provided, the commands will run in the default namespace.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="strategy"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`strategy`** - **Strategy**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = reject`. Allowed values: `canary`, `none`. Default value: `none`.<br>
@@ -173,7 +127,7 @@ Specifies the deployment strategy used in the `deploy` action before a `promote`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trafficSplitMethod"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`trafficSplitMethod`** - **Traffic split method**<br>
 `string`. Optional. Use when `strategy = canary`. Allowed values: `pod`, `smi`. Default value: `pod`.<br>
@@ -187,7 +141,7 @@ For the value `pod`, the percentage split isn't possible at the request level in
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="percentage"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`percentage`** - **Percentage**<br>
 `string`. Required when `strategy = Canary && action = deploy`. Default value: `0`.<br>
@@ -215,7 +169,7 @@ In this case, the deployments `hello-world-baseline` and `hello-world-canary` ar
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baselineAndCanaryReplicas"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`baselineAndCanaryReplicas`** - **Baseline and canary replicas**<br>
 `string`. Required when `strategy = Canary && action = deploy && trafficSplitMethod = SMI`. Default value: `1`.<br>
@@ -238,7 +192,7 @@ In this case, the stable variant receives 80% of the traffic, while the baseline
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="manifests"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`manifests`** - **Manifests**<br>
 `string`. Required when `action = deploy || action = promote || action = reject`.<br>
@@ -250,7 +204,7 @@ Specifies the path to the manifest files to be used for deployment. Each line re
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containers"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`containers`** - **Containers**<br>
 `string`. Optional. Use when `action = deploy || action = promote || action = bake`.<br>
@@ -260,28 +214,9 @@ Specifies the fully qualified resource URL of the image to be used for substitut
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`containers`** - **Containers**<br>
-`string`. Optional. Use when `action = deploy || action = promote`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the fully qualified URL of the image to be used for substitutions on the manifest files. This input accepts the specification of multiple artifact substitutions in a newline-separated form. Here's an example:
-
-```
-containers: |
-  contosodemo.azurecr.io/foo:test1
-  contosodemo.azurecr.io/bar:test2
-```
-
-In this example, all references to `contosodemo.azurecr.io/foo` and `contosodemo.azurecr.io/bar` are searched for in the image field of the input manifest files. For each match found, the tag `test1` or `test2` replaces the matched reference.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imagePullSecrets"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`imagePullSecrets`** - **ImagePullSecrets**<br>
 `string`. Optional. Use when `action = deploy || action = promote`.<br>
@@ -293,7 +228,7 @@ Specifies a multiline input where each line contains the name of a Docker regist
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="renderType"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`renderType`** - **Render Engine**<br>
 `string`. Optional. Use when `action = bake`. Allowed values: `helm`, `kompose`, `kustomize`. Default value: `helm`.<br>
@@ -303,20 +238,9 @@ Specifies the render type used to produce the manifest files.
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`renderType`** - **Render Engine**<br>
-`string`. Optional. Use when `action = bake`. Allowed values: `helm2` (Helm 2). Default value: `helm2`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the render type used to produce the manifest files.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposeFile"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`dockerComposeFile`** - **Path to docker compose file**<br>
 `string`. Required when `action = bake && renderType = kompose`.<br>
@@ -328,7 +252,7 @@ Specifies a docker-compose file path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="helmChart"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`helmChart`** - **Helm Chart**<br>
 `string`. Required when `action = bake && renderType = helm`.<br>
@@ -338,34 +262,12 @@ Specifies the Helm chart path to bake.
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`helmChart`** - **Helm Chart**<br>
-`string`. Required when `action = bake && renderType = helm2`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Helm chart path to bake.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseName"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`releaseName`** - **Helm Release Name**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Helm release name to use.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`releaseName`** - **Helm Release Name**<br>
-`string`. Optional. Use when `action = bake && renderType = helm2`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Helm release name to use.
 <!-- :::editable-content-end::: -->
@@ -374,7 +276,7 @@ Specifies the Helm release name to use.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideFiles"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`overrideFiles`** - **Override Files**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
@@ -384,20 +286,9 @@ Specifies a multiline input that accepts the path to the override files. The fil
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`overrideFiles`** - **Override Files**<br>
-`string`. Optional. Use when `action = bake && renderType = helm2`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a multiline input that accepts the path to the override files. The files are used when manifest files from Helm charts are baked.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrides"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`overrides`** - **Overrides**<br>
 `string`. Optional. Use when `action = bake && renderType = helm`.<br>
@@ -407,22 +298,9 @@ Specifies the override values to set.
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`overrides`** - **Overrides**<br>
-`string`. Optional. Use when `action = bake && renderType = helm2`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies additional override values that are used via the command-line switch `--set` when manifest files using Helm are baked.
-
-Specify override values as `key-value` pairs in the format *`key:value`*. If you use multiple overriding `key-value` pairs, specify each `key-value` pair in a separate line. Use a newline character as the delimiter between different `key-value` pairs.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kustomizationPath"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`kustomizationPath`** - **Kustomization Path**<br>
 `string`. Optional. Use when `action = bake && renderType = kustomize`.<br>
@@ -434,7 +312,7 @@ Specifies the argument that must be the path to the directory containing the fil
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceToPatch"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resourceToPatch`** - **Resource to patch**<br>
 `string`. Required when `action = patch`. Allowed values: `file`, `name`. Default value: `file`.<br>
@@ -451,7 +329,7 @@ Acceptable values are **file** and **name**.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceFileToPatch"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resourceFileToPatch`** - **File path**<br>
 `string`. Required when `action = patch && resourceToPatch = file`.<br>
@@ -463,7 +341,7 @@ Specifies the path to the file used for a patch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kind"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`kind`** - **Kind**<br>
 `string`. Required when `action = scale || resourceToPatch = name`. Allowed values: `deployment`, `replicaset`, `statefulset`.<br>
@@ -475,7 +353,7 @@ Specifies the kind of K8s object, such as `deployment`, `replicaSet` and more.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`name`** - **Name**<br>
 `string`. Required when `action = scale || resourceToPatch = name`.<br>
@@ -487,7 +365,7 @@ Specifies the name of the K8s object.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="replicas"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`replicas`** - **Replica count**<br>
 `string`. Required when `action = scale`.<br>
@@ -499,7 +377,7 @@ Specifies the number of replicas to scale to.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mergeStrategy"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`mergeStrategy`** - **Merge Strategy**<br>
 `string`. Required when `action = patch`. Allowed values: `json`, `merge`, `strategic`. Default value: `strategic`.<br>
@@ -511,7 +389,7 @@ Specifies the type of patch being provided.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = delete`.<br>
@@ -524,7 +402,7 @@ Specifies the arguments for the `kubectl delete` command. An example is:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="patch"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`patch`** - **Patch**<br>
 `string`. Required when `action = patch`.<br>
@@ -536,7 +414,7 @@ Specifies the contents of the patch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`secretType`** - **Type of secret**<br>
 `string`. Required when `action = createSecret`. Allowed values: `dockerRegistry`, `generic`. Default value: `dockerRegistry`.<br>
@@ -548,7 +426,7 @@ Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`secretName`** - **Secret name**<br>
 `string`. Optional. Use when `action = createSecret`.<br>
@@ -560,7 +438,7 @@ Specifies the name of the secret. You can use this secret name in the Kubernetes
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretArguments"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = createSecret && secretType = generic`.<br>
@@ -572,7 +450,7 @@ Specifies keys and literal values to insert in secret. For example, `--from-lite
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryEndpoint`** - **Docker registry service connection**<br>
 `string`. Optional. Use when `action = createSecret && secretType = dockerRegistry`.<br>
@@ -584,7 +462,7 @@ Specifies the credentials of the specified service connection that are used to c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rolloutStatusTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`rolloutStatusTimeout`** - **Timeout for rollout status**<br>
 `string`. Optional. Use when `action = deploy || action = patch || action = scale || action = promote`. Default value: `0`.<br>
@@ -604,7 +482,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -795,7 +673,6 @@ steps:
     manifests: $(bake.manifestsBundle)
 ```
 
-
 ### Scale action
 
 The following YAML code shows an example of scaling objects:
@@ -872,7 +749,7 @@ The`action: promote` and `strategy: canary` or `action: reject` and `strategy: c
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

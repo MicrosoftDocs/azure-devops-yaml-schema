@@ -1,14 +1,14 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 4).
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
@@ -19,13 +19,6 @@ Use this task to deploy to Azure App Service a web, mobile, or API app using Doc
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, and Web Jobs using Web Deploy/[Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -178,7 +171,7 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 # Azure App Service deploy v4
@@ -227,61 +220,13 @@ Update Azure App Services on Windows, Web App on Linux with built-in images or D
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure App Service Deploy v4
-# Update Azure App Services on Windows, Web App on Linux with built-in images or Docker containers, ASP.NET, .NET Core, PHP, Python or Node.js based Web applications, Function Apps on Windows or Linux with Docker Containers, Mobile Apps, API applications, Web Jobs using Web Deploy / Kudu REST APIs.
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM' # 'AzureRM' | 'PublishProfile'. Required. Connection type. Default: AzureRM.
-    azureSubscription: # string. Alias: ConnectedServiceName. Required when ConnectionType = AzureRM. Azure subscription. 
-    #PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml' # string. Required when ConnectionType = PublishProfile. Publish profile path. Default: $(System.DefaultWorkingDirectory)/**/*.pubxml.
-    #PublishProfilePassword: # string. Required when ConnectionType = PublishProfile. Publish profile password. 
-    appType: 'webApp' # 'webApp' | 'webAppLinux' | 'webAppContainer' | 'functionApp' | 'functionAppLinux' | 'functionAppContainer' | 'apiApp' | 'mobileApp'. Alias: WebAppKind. Required when ConnectionType = AzureRM. App Service type. Default: webApp.
-    WebAppName: # string. Required when ConnectionType = AzureRM. App Service name. 
-    #deployToSlotOrASE: false # boolean. Alias: DeployToSlotOrASEFlag. Optional. Use when ConnectionType = AzureRM && WebAppKind != "". Deploy to Slot or App Service Environment. Default: false.
-    #ResourceGroupName: # string. Required when DeployToSlotOrASEFlag = true. Resource group. 
-    #SlotName: 'production' # string. Required when DeployToSlotOrASEFlag = true. Slot. Default: production.
-    #DockerNamespace: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Registry or Namespace. 
-    #DockerRepository: # string. Required when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Image. 
-    #DockerImageTag: # string. Optional. Use when WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Tag. 
-    #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
-    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #RuntimeStack: # string. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
-    #RuntimeStackFunction: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
-    #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer. Startup command. 
-  # Post Deployment Action
-    #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script type. 
-    #InlineScript: ':: You can provide your deployment commands here. One command per line.' # string. Required when ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Inline Script. Default: :: You can provide your deployment commands here. One command per line..
-    #ScriptPath: # string. Required when ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer. Deployment script path. 
-  # File Transforms & Variable Substitution Options
-    #WebConfigParameters: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #enableXmlTransform: false # boolean. Alias: XmlTransformation. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML transformation. Default: false.
-    #enableXmlVariableSubstitution: false # boolean. Alias: XmlVariableSubstitution. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. XML variable substitution. Default: false.
-    #JSONFiles: # string. Optional. Use when WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war. JSON variable substitution. 
-  # Application and Configuration Settings
-    #AppSettings: # string. Optional. Use when ConnectionType = AzureRM. App settings. 
-    #ConfigurationSettings: # string. Optional. Use when ConnectionType = AzureRM. Configuration settings. 
-  # Additional Deployment Options
-    #enableCustomDeployment: false # boolean. Alias: UseWebDeploy. Optional. Use when ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Select deployment method. Default: false.
-    #DeploymentType: 'webDeploy' # 'webDeploy' | 'zipDeploy' | 'runFromZip'. Required when UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: webDeploy.
-    #TakeAppOfflineFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Take App Offline. Default: true.
-    #SetParametersFile: # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. SetParameters file. 
-    #RemoveAdditionalFilesFlag: false # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Remove additional files at destination. Default: false.
-    #ExcludeFilesFromAppDataFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Exclude files from the App_Data folder. Default: true.
-    #AdditionalArguments: '-retryAttempts:6 -retryInterval:10000' # string. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Additional arguments. Default: -retryAttempts:6 -retryInterval:10000.
-    #RenameFilesFlag: true # boolean. Optional. Use when UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar. Rename locked files. Default: true.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="ConnectionType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`ConnectionType`** - **Connection type**<br>
 `string`. Required. Allowed values: `AzureRM` (Azure Resource Manager), `PublishProfile` (Publish Profile). Default value: `AzureRM`.<br>
@@ -293,20 +238,9 @@ Specify `Publish Profile` for using Visual Studio created [Publish profiles](htt
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`ConnectionType`** - **Connection type**<br>
-`string`. Required. Allowed values: `AzureRM` (Azure Resource Manager), `PublishProfile` (Publish Profile). Default value: `AzureRM`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the service connection type to use to deploy the Web App.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required when `ConnectionType = AzureRM`.<br>
@@ -318,7 +252,7 @@ Specify the Azure Resource Manager subscription for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="PublishProfilePath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`PublishProfilePath`** - **Publish profile path**<br>
 `string`. Required when `ConnectionType = PublishProfile`. Default value: `$(System.DefaultWorkingDirectory)/**/*.pubxml`.<br>
@@ -330,7 +264,7 @@ The path of the [publish profile](https://aka.ms/vsPublishProfile) created from 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="PublishProfilePassword"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`PublishProfilePassword`** - **Publish profile password**<br>
 `string`. Required when `ConnectionType = PublishProfile`.<br>
@@ -353,7 +287,7 @@ Choose from Web App On Windows, Web App On Linux, Web App for Containers, Functi
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`appType`** - **App Service type**<br>
 Input alias: `WebAppKind`. `string`. Required when `ConnectionType = AzureRM`. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux), `webAppContainer` (Web App for Containers (Linux)), `functionApp` (Function App on Windows), `functionAppLinux` (Function App on Linux), `functionAppContainer` (Function App for Containers (Linux)), `apiApp` (API App), `mobileApp` (Mobile App). Default value: `webApp`.<br>
@@ -365,7 +299,7 @@ Choose from Web App On Windows, Web App On Linux, Web App for Containers, Functi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WebAppName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`WebAppName`** - **App Service name**<br>
 `string`. Required when `ConnectionType = AzureRM`.<br>
@@ -377,7 +311,7 @@ Specify the name of an existing Azure App Service. App services based on the sel
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 Input alias: `DeployToSlotOrASEFlag`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != ""`. Default value: `false`.<br>
@@ -391,7 +325,7 @@ If the deployment target is an Azure App Service environment, leave the slot nam
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ResourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ResourceGroupName`** - **Resource group**<br>
 `string`. Required when `DeployToSlotOrASEFlag = true`.<br>
@@ -405,7 +339,7 @@ Specify the Azure Resource group that contains the Azure App Service specified a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SlotName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SlotName`** - **Slot**<br>
 `string`. Required when `DeployToSlotOrASEFlag = true`. Default value: `production`.<br>
@@ -439,7 +373,7 @@ A globally unique top-level domain name for your specific registry or namespace.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`DockerNamespace`** - **Registry or Namespace**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
@@ -473,7 +407,7 @@ The name of the repository where the container images are stored. Note: The full
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`DockerRepository`** - **Image**<br>
 `string`. Required when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
@@ -507,7 +441,7 @@ Tags are the mechanism that registries use to apply version information to Docke
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`DockerImageTag`** - **Tag**<br>
 `string`. Optional. Use when `WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
@@ -530,7 +464,7 @@ Specify the name of the Virtual Application that has been configured in the Azur
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`VirtualApplication`** - **Virtual application**<br>
 `string`. Optional. Use when `WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != ""`.<br>
@@ -542,7 +476,7 @@ Specify the name of the Virtual Application that has been configured in the Azur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="packageForLinux"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`packageForLinux`** - **Package or folder**<br>
 Input alias: `Package`. `string`. Required when `ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux`. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
@@ -558,7 +492,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RuntimeStack"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`RuntimeStack`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux`.<br>
@@ -581,7 +515,7 @@ Specify the framework and version. Refer to the [Azure Functions runtime version
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
@@ -623,7 +557,7 @@ dotnet `filename.dll`.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`StartupCommand`** - **Startup command**<br>
 `string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
@@ -633,28 +567,6 @@ Specify the Startup command. For example:
 dotnet exec `filename.dll`
 
 dotnet `filename.dll`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-**`StartupCommand`** - **Startup command**<br>
-`string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Startup command. For example, `dotnet run` `dotnet filename.dll`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`StartupCommand`** - **Startup command**<br>
-`string`. Optional. Use when `WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the Startup command.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -672,7 +584,7 @@ Customizes the deployment by providing a script that runs on the Azure App Servi
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`ScriptType`** - **Deployment script type**<br>
 `string`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer`. Allowed values: `Inline Script`, `File Path` (Script File Path).<br>
@@ -695,7 +607,7 @@ The script to execute. You can provide your deployment commands here, one comman
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`InlineScript`** - **Inline Script**<br>
 `string`. Required when `ScriptType == Inline Script && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer`. Default value: `:: You can provide your deployment commands here. One command per line.`.<br>
@@ -718,7 +630,7 @@ The path and name of the script to execute.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`ScriptPath`** - **Deployment script path**<br>
 `string`. Required when `ScriptType == File Path && ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppkind != functionAppContainer`.<br>
@@ -741,7 +653,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`WebConfigParameters`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`.<br>
@@ -753,7 +665,7 @@ A standard `Web.config` will be generated and deployed to Azure App Service if t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppSettings"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`AppSettings`** - **App settings**<br>
 `string`. Optional. Use when `ConnectionType = AzureRM`.<br>
@@ -765,7 +677,7 @@ Edits web app application settings using the syntax `-key value`. Values contain
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ConfigurationSettings"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ConfigurationSettings`** - **Configuration settings**<br>
 `string`. Optional. Use when `ConnectionType = AzureRM`.<br>
@@ -788,7 +700,7 @@ If unchecked or false, the task auto-detects the best deployment method based on
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`enableCustomDeployment`** - **Select deployment method**<br>
 Input alias: `UseWebDeploy`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
@@ -811,7 +723,7 @@ Determines the deployment method for the app.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`DeploymentType`** - **Deployment method**<br>
 `string`. Required when `UseWebDeploy == true && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `webDeploy` (Web Deploy), `zipDeploy` (Zip Deploy), `runFromZip` (Run From Package). Default value: `webDeploy`.<br>
@@ -834,7 +746,7 @@ Specify this option to take the Azure App Service offline by placing an `app_off
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`TakeAppOfflineFlag`** - **Take App Offline**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType != runFromZip && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `true`.<br>
@@ -857,7 +769,7 @@ The location of the `SetParameters.xml` file to use.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`SetParametersFile`** - **SetParameters file**<br>
 `string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`.<br>
@@ -880,7 +792,7 @@ Specify 'true' to delete files on the Azure App Service that have no matching fi
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`RemoveAdditionalFilesFlag`** - **Remove additional files at destination**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
@@ -903,7 +815,7 @@ Specify the option to prevent files in the `App_Data` folder from being deployed
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`ExcludeFilesFromAppDataFlag`** - **Exclude files from the App_Data folder**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `true`.<br>
@@ -926,7 +838,7 @@ Additional Web Deploy arguments following the syntax `-key:value`. These will be
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`AdditionalArguments`** - **Additional arguments**<br>
 `string`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `-retryAttempts:6 -retryInterval:10000`.<br>
@@ -949,7 +861,7 @@ Specify the default value to enable the msdeploy flag `MSDEPLOY_RENAME_LOCKED_FI
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`RenameFilesFlag`** - **Rename locked files**<br>
 `boolean`. Optional. Use when `UseWebDeploy == true && DeploymentType == webDeploy && ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `true`.<br>
@@ -972,7 +884,7 @@ The config transforms will be run for `*.Release.config` and `*.<EnvironmentName
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`enableXmlTransform`** - **XML transformation**<br>
 Input alias: `XmlTransformation`. `boolean`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`. Default value: `false`.<br>
@@ -997,7 +909,7 @@ If the same variables are defined in the release pipeline and in the stage, the 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`enableXmlVariableSubstitution`** - **XML variable substitution**<br>
 Input alias: `XmlVariableSubstitution`. `boolean`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`. Default value: `false`.<br>
@@ -1034,7 +946,7 @@ A variable substitution runs after configuration transformations. Note: Build an
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 **`JSONFiles`** - **JSON variable substitution**<br>
 `string`. Optional. Use when `WebAppKind != webAppContainer && WebAppkind != functionAppContainer && WebAppKind != webAppLinux && webAppKind != functionAppLinux && Package NotEndsWith .war`.<br>
@@ -1066,7 +978,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -1179,18 +1091,15 @@ On non-Windows agents (for any App Service type), the task relies on [Kudu REST 
 
 Install Web Deploy on the agent from [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy). Web Deploy 3.5 must be installed without the bundled SQL support. There is no need to choose any custom settings when installing Web Deploy. Web Deploy is installed at `C:/Program Files (x86)/IIS/Microsoft Web Deploy V3`.
 
-
 #### Kudu REST APIs
 
 [Kudu REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) work on both Windows and Linux automation agents when the target is a
 Web App on Windows, Web App on Linux (built-in source), or Function App. The task uses Kudu to copy files to the Azure App service.
 
-
 #### Container Registry
 
 Works on both Windows and Linux automation agents when the target is a Web App for Containers. The task updates the app by setting the appropriate
 container registry, repository, image name, and tag information. You can also use the task to pass a startup command for the container image.
-
 
 #### Zip Deploy
 
@@ -1421,7 +1330,7 @@ if %errorlevel% NEQ 0 (
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

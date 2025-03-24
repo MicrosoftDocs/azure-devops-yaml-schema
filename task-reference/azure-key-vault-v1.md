@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -20,7 +20,7 @@ This version of the task is deprecated; use [AzureKeyVault@2](./azure-key-vault-
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords from an [Azure Key Vault](/rest/api/keyvault/about-keys--secrets-and-certificates) instance. The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline. The task is Node-based and works with agents on Linux, macOS, and Windows.
@@ -28,13 +28,6 @@ Use this task to download secrets, such as authentication keys, storage account 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords from an Azure Key Vault instance. The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline. The task is Node-based and works with agents on Linux, macOS, and Windows.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -55,7 +48,7 @@ Use this task to download secrets, such as authentication keys, storage account 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Azure Key Vault v1
@@ -69,35 +62,6 @@ Use this task to download secrets, such as authentication keys, storage account 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure Key Vault v1
-# Download Azure Key Vault secrets.
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure Key Vault v1
-# Download Azure Key Vault Secrets.
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 
-    KeyVaultName: # string. Required. Key vault. 
-    SecretsFilter: '*' # 'EditableOptions'. Required. Secrets filter. Default: *.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -163,7 +127,7 @@ Runs the task before the job execution begins. Exposes secrets to all tasks in t
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
 `boolean`. Allowed values: `EditableOptions` (True). Default value: `false`.<br>

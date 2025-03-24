@@ -2,13 +2,13 @@
 title: DockerInstaller@0 - Docker CLI installer v0 task
 description: Install Docker CLI on agent machine.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # DockerInstaller@0 - Docker CLI installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Install the Docker CLI on an agent machine.
@@ -20,7 +20,7 @@ Install the Docker CLI on an agent machine.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Docker CLI installer v0
@@ -38,7 +38,7 @@ Install the Docker CLI on an agent machine.
 ## Inputs
 
 <!-- :::item name="dockerVersion"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`dockerVersion`** - **Docker Version**<br>
 `string`. Required. Default value: `17.09.0-ce`.<br>
@@ -50,7 +50,7 @@ Specifies the version of the Docker CLI to install. For more information on dock
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`releaseType`** - **Release type**<br>
 `string`. Allowed values: `stable`, `edge`, `test`, `nightly`. Default value: `stable`.<br>
@@ -70,7 +70,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -105,7 +105,7 @@ This YAML example installs the Docker CLI on the agent machine:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

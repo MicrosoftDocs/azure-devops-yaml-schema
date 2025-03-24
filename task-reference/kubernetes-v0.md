@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -32,7 +32,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Kubectl v0
@@ -74,98 +74,13 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Deploy to Kubernetes v0
-# Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-- task: Kubernetes@0
-  inputs:
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
-    #namespace: # string. Namespace. 
-  # Commands
-    #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Command. 
-    #useConfigurationFile: false # boolean. Use Configuration files. Default: false.
-    #configuration: # string. Required when useConfigurationFile = true. Configuration file. 
-    #arguments: # string. Arguments. 
-  # Secrets
-    secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
-    #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
-    containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
-    #secretName: # string. Secret name. 
-    #forceUpdate: true # boolean. Force update secret. Default: true.
-  # ConfigMaps
-    #configMapName: # string. ConfigMap name. 
-    #forceUpdateConfigMap: false # boolean. Force update configmap. Default: false.
-    #useConfigMapFile: false # boolean. Use file. Default: false.
-    #configMapFile: # string. Required when useConfigMapFile = true. ConfigMap file. 
-    #configMapArguments: # string. Optional. Use when useConfigMapFile = false. Arguments. 
-  # Advanced
-    #versionOrLocation: 'version' # 'version' | 'location'. Kubectl. Default: version.
-    #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
-    #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
-    #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
-  # Output
-    #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
-    #kubectlOutput: # string. Output variable name.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Deploy to Kubernetes v0
-# Deploy, configure, update your Kubernetes cluster in Azure Container Service by running kubectl commands.
-- task: Kubernetes@0
-  inputs:
-    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Kubernetes service connection. 
-    #namespace: # string. Namespace. 
-  # Commands
-    command: 'apply' # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'logs' | 'run' | 'set' | 'top'. Required. Command. Default: apply.
-    #useConfigurationFile: false # boolean. Use Configuration files. Default: false.
-    #configuration: # string. Required when useConfigurationFile = true. Configuration file. 
-    #arguments: # string. Arguments. 
-  # Secrets
-    secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required. Type of secret. Default: dockerRegistry.
-    #secretArguments: # string. Optional. Use when secretType = generic. Arguments. 
-    containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry. Container Registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry. Docker Registry service connection. 
-    #azureSubscription: # string. Alias: azureSubscriptionEndpoint. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry. Azure Container Registry. 
-    #secretName: # string. Secret name. 
-    #forceUpdate: true # boolean. Force update secret. Default: true.
-  # ConfigMaps
-    #configMapName: # string. ConfigMap name. 
-    #forceUpdateConfigMap: false # boolean. Force update configmap. Default: false.
-    #useConfigMapFile: false # boolean. Use file. Default: false.
-    #configMapFile: # string. Required when useConfigMapFile = true. ConfigMap file. 
-    #configMapArguments: # string. Optional. Use when useConfigMapFile = false. Arguments. 
-  # Advanced
-    #versionOrLocation: 'version' # 'version' | 'location'. Kubectl. Default: version.
-    #versionSpec: '1.7.0' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.7.0.
-    #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
-    #specifyLocation: # string. Required when versionOrLocation = location. Path to Kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
-  # Output
-    #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
-    #kubectlOutput: # string. Output variable name.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="kubernetesServiceConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
 Input alias: `kubernetesServiceEndpoint`. `string`.<br>
@@ -189,21 +104,10 @@ Specifies the namespace for the `kubectl` command by using the `–namespace` fl
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
 `string`. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a `kubectl` command to run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`command`** - **Command**<br>
-`string`. Required. Allowed values: `apply`, `create`, `delete`, `exec`, `expose`, `get`, `logs`, `run`, `set`, `top`. Default value: `apply`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a `kubectl` command to run.
 <!-- :::editable-content-end::: -->
@@ -224,7 +128,7 @@ Use Kubernetes configuration file with the kubectl command. Filename, directory,
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration file**<br>
 `string`. Required when `useConfigurationFile = true`.<br>
@@ -248,7 +152,7 @@ Specifies the arguments to the specified `kubectl` command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`secretType`** - **Type of secret**<br>
 `string`. Required. Allowed values: `dockerRegistry`, `generic`. Default value: `dockerRegistry`.<br>
@@ -260,7 +164,7 @@ Creates or updates a generic or docker `imagepullsecret`. Specify `dockerRegistr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secretArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`secretArguments`** - **Arguments**<br>
 `string`. Optional. Use when `secretType = generic`.<br>
@@ -272,7 +176,7 @@ Specifies keys and literal values to insert in secret. For example, `--from-lite
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerRegistryType"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`containerRegistryType`** - **Container Registry type**<br>
 `string`. Required when `secretType = dockerRegistry`. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
@@ -284,7 +188,7 @@ Select a Container registry type. The task can use Azure Subscription details to
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry service connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Container Registry`.<br>
@@ -296,7 +200,7 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
@@ -310,7 +214,7 @@ Specifies the Azure Resource Manager subscription, which contains Azure Containe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
@@ -346,7 +250,7 @@ Delete the secret if it exists and create a new one with updated values.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMapName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configMapName`** - **ConfigMap name**<br>
 `string`.<br>
@@ -358,7 +262,7 @@ ConfigMaps allow you to decouple configuration artifacts from image content to k
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="forceUpdateConfigMap"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`forceUpdateConfigMap`** - **Force update configmap**<br>
 `boolean`. Default value: `false`.<br>
@@ -370,7 +274,7 @@ Delete the configmap if it exists and create a new one with updated values.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useConfigMapFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`useConfigMapFile`** - **Use file**<br>
 `boolean`. Default value: `false`.<br>
@@ -382,7 +286,7 @@ Create a ConfigMap from an individual file, or from multiple files by specifying
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMapFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configMapFile`** - **ConfigMap file**<br>
 `string`. Required when `useConfigMapFile = true`.<br>
@@ -394,7 +298,7 @@ Specify a file or directory that contains the configMaps.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMapArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`configMapArguments`** - **Arguments**<br>
 `string`. Optional. Use when `useConfigMapFile = false`.<br>
@@ -406,7 +310,7 @@ Specifies keys and literal values to insert in `configMap` .For example, `--from
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionOrLocation"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionOrLocation`** - **Kubectl**<br>
 `string`. Allowed values: `version`, `location` (Specify location). Default value: `version`.<br>
@@ -418,7 +322,7 @@ kubectl is a command line interface for running commands against Kubernetes clus
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="versionSpec"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`versionSpec`** - **Version spec**<br>
 `string`. Optional. Use when `versionOrLocation = version`. Default value: `1.7.0`.<br>
@@ -430,7 +334,7 @@ Specifies the Version Spec of the version to get. Examples: `1.7.0`, `1.x.0`, `4
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkLatest"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`checkLatest`** - **Check for latest version**<br>
 `boolean`. Optional. Use when `versionOrLocation = version`. Default value: `false`.<br>

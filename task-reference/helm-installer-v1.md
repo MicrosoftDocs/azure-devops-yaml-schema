@@ -2,13 +2,13 @@
 title: HelmInstaller@1 - Helm tool installer v1 task
 description: Install Helm on an agent machine.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # HelmInstaller@1 - Helm tool installer v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to install Helm on an agent machine.
@@ -20,7 +20,7 @@ Use this task to install Helm on an agent machine.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Helm tool installer v1
@@ -37,7 +37,7 @@ Use this task to install Helm on an agent machine.
 ## Inputs
 
 <!-- :::item name="helmVersionToInstall"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`helmVersionToInstall`** - **Helm Version Spec**<br>
 `string`. Default value: `latest`.<br>
@@ -57,7 +57,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -105,7 +105,7 @@ The following YAML example demonstrates the use of an explicit version string ra
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

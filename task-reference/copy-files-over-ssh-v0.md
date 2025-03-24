@@ -1,7 +1,7 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -68,7 +68,7 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Copy files over SSH v0
@@ -90,54 +90,13 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Copy files over SSH v0
-# Copy files or build artifacts to a remote machine over SSH.
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: **.
-    #targetFolder: # string. Target folder. 
-  # Advanced
-    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-    #flattenFolders: false # boolean. Flatten folders. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Copy Files Over SSH v0
-# Copy files or build artifacts to a remote machine over SSH.
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: **.
-    #targetFolder: # string. Target folder. 
-  # Advanced
-    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-    #flattenFolders: false # boolean. Flatten folders. Default: false.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="sshEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`sshEndpoint`** - **SSH service connection**<br>
 `string`. Required.<br>
@@ -191,7 +150,7 @@ The target folder on the remote machine, where files will be copied. Example: `/
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isWindowsOnTarget"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`isWindowsOnTarget`** - **Target machine running Windows**<br>
 `boolean`. Default value: `false`.<br>
@@ -227,7 +186,7 @@ When set to `true`, removes hidden files in the target folder.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="readyTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`readyTimeout`** - **SSH handshake timeout**<br>
 `string`. Required. Default value: `20000`.<br>
@@ -372,7 +331,7 @@ None.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -20,7 +20,7 @@ Use this task to download artifacts produced by a Jenkins job.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Jenkins download artifacts v1
@@ -49,43 +49,13 @@ Use this task to download artifacts produced by a Jenkins job.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Jenkins Download Artifacts v1
-# Download artifacts produced by a Jenkins job.
-- task: JenkinsDownloadArtifacts@1
-  inputs:
-    jenkinsServerConnection: # string. Alias: serverEndpoint. Required. Jenkins service connection. 
-    jobName: # string. Required. Job name. 
-    #jenkinsJobType: # string. Optional. Use when jobName = invalidjobName. Jenkins job type. 
-    saveTo: 'jenkinsArtifacts' # string. Required. Save to. Default: jenkinsArtifacts.
-  # Advanced
-    jenkinsBuild: 'LastSuccessfulBuild' # 'LastSuccessfulBuild' | 'BuildNumber'. Required. Download artifacts produced by. Default: LastSuccessfulBuild.
-    #jenkinsBuildNumber: '1' # string. Required when jenkinsBuild == BuildNumber. Jenkins build number. Default: 1.
-    #itemPattern: '**' # string. Item Pattern. Default: **.
-    #downloadCommitsAndWorkItems: false # boolean. Download Commits and WorkItems. Default: false.
-    #startJenkinsBuildNumber: # string. Optional. Use when downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber. Download commits and work items from. 
-    #artifactDetailsFileNameSuffix: # string. Optional. Use when downloadCommitsAndWorkItems == invalid. Commit and WorkItem FileName. 
-  # Propagated Artifacts
-    #propagatedArtifacts: false # boolean. Artifacts are propagated to Azure. Default: false.
-    #artifactProvider: 'azureStorage' # 'azureStorage'. Required when propagatedArtifacts == notValid. Artifact Provider. Default: azureStorage.
-    #ConnectedServiceNameARM: # string. Required when propagatedArtifacts == true. Azure Subscription. 
-    #storageAccountName: # string. Required when propagatedArtifacts == true. Storage Account Name. 
-    #containerName: # string. Required when propagatedArtifacts == true. Container Name. 
-    #commonVirtualPath: # string. Optional. Use when propagatedArtifacts == true. Common Virtual Path.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="jenkinsServerConnection"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
 Input alias: `serverEndpoint`. `string`. Required.<br>
@@ -184,7 +154,7 @@ Enables downloading the commits and work item details associated with the Jenkin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="startJenkinsBuildNumber"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`startJenkinsBuildNumber`** - **Download commits and work items from**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber`.<br>

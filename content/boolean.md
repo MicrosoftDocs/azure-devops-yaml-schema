@@ -75,23 +75,6 @@ Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-> [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
-
-Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.publish](steps-publish.md), [resources.containers.container](resources-containers-container.md)
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-> [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information on using the definitions that this type supports, see the following definition links.
-
-Definitions that reference this definition: [trigger](trigger.md), [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.publish](steps-publish.md), [resources.containers.container](resources-containers-container.md)
-
-:::moniker-end
 <!-- :::parents-end::: -->
 
 <!-- :::remarks::: -->

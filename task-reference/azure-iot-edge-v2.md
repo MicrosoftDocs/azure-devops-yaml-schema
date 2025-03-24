@@ -1,14 +1,14 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureIoTEdge@2 - Azure IoT Edge v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build and deploy images quickly and efficiently to Azure IoT Edge.
@@ -56,7 +56,7 @@ This task supports custom variables. If you're not familiar with how to use vari
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Azure IoT Edge v2
@@ -88,43 +88,13 @@ This task supports custom variables. If you're not familiar with how to use vari
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure IoT Edge v2
-# Build and deploy an Azure IoT Edge image.
-- task: AzureIoTEdge@2
-  inputs:
-    action: 'Build module images' # 'Build module images' | 'Push module images' | 'Generate deployment manifest' | 'Deploy to IoT Edge devices'. Required. Action. Default: Build module images.
-    #deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Deploy to IoT Edge devices. Deployment file. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
-    #azureSubscription: # string. Alias: connectedServiceNameARM. Required when action == Deploy to IoT Edge devices. Azure subscription contains IoT Hub. 
-    #iothubname: # string. Required when action == Deploy to IoT Edge devices. IoT Hub name. 
-    #deviceOption: # 'Single Device' | 'Multiple Devices'. Required when action == Deploy to IoT Edge devices. Choose single/multiple device. 
-    #deviceId: # string. Required when deviceOption == Single Device. IoT Edge device ID. 
-    #targetcondition: # string. Required when deviceOption == Multiple Devices. IoT Edge device target condition. 
-    #containerregistrytype: 'Azure Container Registry' # 'Azure Container Registry' | 'Generic Container Registry'. Required when action = Push module images. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryConnection: # string. Alias: dockerRegistryEndpoint. Required when containerregistrytype = Generic Container Registry. Docker Registry Connection. 
-    #azureSubscriptionEndpoint: # string. Optional. Use when containerregistrytype = Azure Container Registry. Azure subscription. 
-    #azureContainerRegistry: # string. Required when containerregistrytype = Azure Container Registry. Azure Container Registry. 
-    #templateFilePath: 'deployment.template.json' # string. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. .template.json file. Default: deployment.template.json.
-    #defaultPlatform: 'amd64' # 'amd64' | 'windows-amd64' | 'arm32v7'. Required when action = Build module images || action = Push module images || action = Generate deployment manifest. Default platform. Default: amd64.
-    #fillRegistryCredential: 'true' # 'true' | 'false'. Required when action = Push module images. Add registry credential to deployment manifest. Default: true.
-    #deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json' # string. Required when action == Generate deployment manifest. Output path. Default: $(System.DefaultWorkingDirectory)/config/deployment.json.
-  # Advanced
-    #deploymentid: '$(System.TeamProject)-devops-deployment' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment ID. Default: $(System.TeamProject)-devops-deployment.
-    #priority: '0' # string. Required when action = Deploy to IoT Edge devices. IoT Edge deployment priority. Default: 0.
-  # Advanced
-    #bypassModules: # string. Optional. Use when action = Push module images. Bypass module(s).
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="action"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Build module images`, `Push module images`, `Generate deployment manifest`, `Deploy to IoT Edge devices`. Default value: `Build module images`.<br>
@@ -142,7 +112,7 @@ Selects an Azure IoT Edge action.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentFilePath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentFilePath`** - **Deployment file**<br>
 `string`. Required when `action == Deploy to IoT Edge devices`. Default value: `$(System.DefaultWorkingDirectory)/config/deployment.json`.<br>
@@ -156,7 +126,7 @@ Selects the deployment json file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription contains IoT Hub**<br>
 Input alias: `connectedServiceNameARM`. `string`. Required when `action == Deploy to IoT Edge devices`.<br>
@@ -168,7 +138,7 @@ Selects an Azure subscription that contains IoT Hub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="iothubname"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`iothubname`** - **IoT Hub name**<br>
 `string`. Required when `action == Deploy to IoT Edge devices`.<br>
@@ -180,7 +150,7 @@ Selects the IoT Hub.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentid"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentid`** - **IoT Edge deployment ID**<br>
 `string`. Required when `action = Deploy to IoT Edge devices`. Default value: `$(System.TeamProject)-devops-deployment`.<br>
@@ -194,7 +164,7 @@ Inputs the IoT Edge Deployment ID. If the ID already exists, it will be overridd
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="priority"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`priority`** - **IoT Edge deployment priority**<br>
 `string`. Required when `action = Deploy to IoT Edge devices`. Default value: `0`.<br>
@@ -207,7 +177,7 @@ Sets the `priority` to a positive integer to resolve deployment conflicts.  When
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deviceOption"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deviceOption`** - **Choose single/multiple device**<br>
 `string`. Required when `action == Deploy to IoT Edge devices`. Allowed values: `Single Device`, `Multiple Devices`.<br>
@@ -219,7 +189,7 @@ According to tags, chooses to deploy to single or multiple devices.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deviceId"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deviceId`** - **IoT Edge device ID**<br>
 `string`. Required when `deviceOption == Single Device`.<br>
@@ -231,7 +201,7 @@ Inputs the IoT Edge `device ID`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="targetcondition"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`targetcondition`** - **IoT Edge device target condition**<br>
 `string`. Required when `deviceOption == Multiple Devices`.<br>
@@ -244,7 +214,7 @@ Inputs the `target condition` of devices you would like to deploy. Do not use do
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerregistrytype"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`containerregistrytype`** - **Container registry type**<br>
 `string`. Required when `action = Push module images`. Allowed values: `Azure Container Registry`, `Generic Container Registry`. Default value: `Azure Container Registry`.<br>
@@ -257,7 +227,7 @@ Selects a `Container Registry Type`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryConnection"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
 Input alias: `dockerRegistryEndpoint`. `string`. Required when `containerregistrytype = Generic Container Registry`.<br>
@@ -269,7 +239,7 @@ Selects a generic Docker registry connection. This is required for build and pus
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscriptionEndpoint`** - **Azure subscription**<br>
 `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
@@ -281,7 +251,7 @@ Selects an Azure subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Required when `containerregistrytype = Azure Container Registry`.<br>
@@ -297,7 +267,7 @@ azureContainerRegistry: '{"loginServer": "contoso.azurecr.io"}
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateFilePath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`templateFilePath`** - **.template.json file**<br>
 `string`. Required when `action = Build module images || action = Push module images || action = Generate deployment manifest`. Default value: `deployment.template.json`.<br>
@@ -320,7 +290,7 @@ In your `.template.json`, you can leave the modules platform unspecified. For th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`defaultPlatform`** - **Default platform**<br>
 `string`. Required when `action = Build module images || action = Push module images || action = Generate deployment manifest`. Allowed values: `amd64`, `windows-amd64`, `arm32v7`. Default value: `amd64`.<br>
@@ -332,7 +302,7 @@ In your `.template.json`, you can leave the modules platform unspecified. For th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fillRegistryCredential"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`fillRegistryCredential`** - **Add registry credential to deployment manifest**<br>
 `string`. Required when `action = Push module images`. Allowed values: `true`, `false`. Default value: `true`.<br>
@@ -344,7 +314,7 @@ Adds the registry credential for pushing docker images to the deployment manifes
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentManifestOutputPath"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentManifestOutputPath`** - **Output path**<br>
 `string`. Required when `action == Generate deployment manifest`. Default value: `$(System.DefaultWorkingDirectory)/config/deployment.json`.<br>
@@ -356,7 +326,7 @@ The output path of the generated deployment manifest.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="validateGeneratedDeploymentManifest"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`validateGeneratedDeploymentManifest`** - **Validate the schema of generated deployment manifest**<br>
 `string`. Required when `action = Generate deployment manifest`. Allowed values: `true`, `false`. Default value: `false`.<br>
@@ -368,7 +338,7 @@ Fail this step if the generated deployment manifest does not pass schema validat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="bypassModules"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`bypassModules`** - **Bypass module(s)**<br>
 `string`. Optional. Use when `action = Push module images`.<br>
@@ -389,7 +359,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -498,7 +468,7 @@ For step-by-step examples of how to use these actions in Azure Pipelines, see th
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

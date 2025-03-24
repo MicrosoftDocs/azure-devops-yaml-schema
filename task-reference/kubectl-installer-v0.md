@@ -2,13 +2,13 @@
 title: KubectlInstaller@0 - Kubectl tool installer v0 task
 description: Install Kubectl on agent machine.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+monikerRange: "<=azure-pipelines"
 ---
 
 # KubectlInstaller@0 - Kubectl tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task for installing a specific version of kubectl binary on agents.
@@ -20,7 +20,7 @@ Use this task for installing a specific version of kubectl binary on agents.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Kubectl tool installer v0
@@ -37,7 +37,7 @@ Use this task for installing a specific version of kubectl binary on agents.
 ## Inputs
 
 <!-- :::item name="kubectlVersion"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`kubectlVersion`** - **Kubectl Version Spec**<br>
 `string`. Default value: `latest`.<br>
@@ -57,7 +57,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -99,7 +99,7 @@ The following YAML example demonstrates the use of an explicit version string ra
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

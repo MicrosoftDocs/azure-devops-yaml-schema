@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # NuGetPackager@0 - NuGet packager v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default.
@@ -18,21 +18,12 @@ NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
-<!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet packager v0
@@ -56,32 +47,6 @@ NuGetPackager@0 is deprecated. Use the NuGet task instead. It works with the new
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# NuGet Packager v0
-# Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this account/collection, and uses NuGet 4 by default.
-- task: NuGetPackager@0
-  inputs:
-    searchPattern: '**\*.csproj' # string. Required. Path to csproj or nuspec file(s) to pack. Default: **\*.csproj.
-    #outputdir: # string. Package Folder. 
-  # Pack options
-    #includeReferencedProjects: false # boolean. Include referenced projects. Default: false.
-    versionByBuild: 'false' # 'false' | 'byPrereleaseNumber' | 'byEnvVar' | 'true'. Required. Automatic package versioning. Default: false.
-    #versionEnvVar: # string. Required when versionByBuild = byEnvVar. Environment variable. 
-    #requestedMajorVersion: '1' # string. Required when versionByBuild = byPrereleaseNumber. Major. Default: 1.
-    #requestedMinorVersion: '0' # string. Required when versionByBuild = byPrereleaseNumber. Minor. Default: 0.
-    #requestedPatchVersion: '0' # string. Required when versionByBuild = byPrereleaseNumber. Patch. Default: 0.
-  # Advanced
-    #configurationToPack: '$(BuildConfiguration)' # string. Configuration to Package. Default: $(BuildConfiguration).
-    #buildProperties: # string. Additional build properties. 
-    #nuGetAdditionalArgs: # string. NuGet Arguments. 
-    #nuGetPath: # string. Path to NuGet.exe.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

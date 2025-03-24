@@ -1,8 +1,8 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # Docker@2 - Docker v2 task
@@ -16,7 +16,7 @@ Build or push Docker images, log in or log out, start or stop containers, or run
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 <!-- :::editable-content name="description"::: -->
 Build or push Docker images, log in or log out, or run a Docker command.
@@ -94,32 +94,13 @@ Build or push Docker images, log in or log out, or run a Docker command.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Docker v2
-# Build or push Docker images, login or logout, or run a Docker command.
-- task: Docker@2
-  inputs:
-  # Container Repository
-    #containerRegistry: # string. Container registry. 
-    #repository: # string. Optional. Use when command != login && command != logout. Container repository. 
-  # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout'. Required. Command. Default: buildAndPush.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
-    #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="containerRegistry"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`containerRegistry`** - **Container registry**<br>
 `string`.<br>
@@ -142,7 +123,7 @@ Specifies the name of the repository.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`repository`** - **Container repository**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
@@ -165,7 +146,7 @@ Specifies the Docker command to run.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`. Default value: `buildAndPush`.<br>
@@ -177,7 +158,7 @@ Specifies the Docker command to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Dockerfile"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`Dockerfile`** - **Dockerfile**<br>
 `string`. Required when `command = build || command = buildAndPush`. Default value: `**/Dockerfile`.<br>
@@ -189,7 +170,7 @@ Specifies the path to the Docker file. The task uses the first Docker file it fi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildContext"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`buildContext`** - **Build context**<br>
 `string`. Optional. Use when `command = build || command = buildAndPush`. Default value: `**`.<br>
@@ -201,7 +182,7 @@ Specifies the path to the build context. Pass `**` to indicate the directory tha
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tags"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`tags`** - **Tags**<br>
 `string`. Optional. Use when `command = build || command = push || command = buildAndPush`. Default value: `$(Build.BuildId)`.<br>
@@ -213,7 +194,7 @@ Specifies a list of comma-separated tags. These tags are used in `build`, `push`
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout && command != buildAndPush`.<br>
@@ -227,7 +208,7 @@ Example: Using the build command, `--build-arg HTTP_PROXY=http://10.20.30.2:1234
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addPipelineData"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`addPipelineData`** - **Add Pipeline metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
@@ -271,7 +252,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -494,7 +475,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 | Requirement | Description |
 |-------------|-------------|

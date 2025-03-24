@@ -1,14 +1,14 @@
 ---
 title: MavenAuthenticate@0 - Maven Authenticate v0 task
 description: Provides credentials for Azure Artifacts feeds and external maven repositories.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # MavenAuthenticate@0 - Maven Authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to provide credentials for Azure Artifacts feeds and external Maven repositories.
@@ -20,7 +20,7 @@ Use this task to provide credentials for Azure Artifacts feeds and external Mave
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Maven Authenticate v0
@@ -38,7 +38,7 @@ Use this task to provide credentials for Azure Artifacts feeds and external Mave
 ## Inputs
 
 <!-- :::item name="artifactsFeeds"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`artifactsFeeds`** - **Feeds**<br>
 `string`.<br>
@@ -50,7 +50,7 @@ Specifies a comma-separated list of Azure Artifacts feed names to authenticate w
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mavenServiceConnections"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`mavenServiceConnections`** - **Credentials for repositories outside this organization/collection**<br>
 `string`.<br>
@@ -70,7 +70,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -253,7 +253,7 @@ To correctly authenticate the task, set the repositories in your project's `pom.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

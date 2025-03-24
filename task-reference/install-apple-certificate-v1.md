@@ -20,7 +20,7 @@ Use this task to install the Apple certificate that is required to build on a ma
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Install Apple Certificate v1
@@ -39,7 +39,6 @@ Use this task to install the Apple certificate that is required to build on a ma
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

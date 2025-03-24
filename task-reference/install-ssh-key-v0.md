@@ -1,7 +1,7 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -56,44 +56,13 @@ Use this task in a pipeline to install an SSH key prior to a build or release st
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Install SSH key v0
-# Install an SSH key prior to a build or deployment.
-- task: InstallSSHKey@0
-  inputs:
-    knownHostsEntry: # string. Alias: hostName. Required. Known Hosts Entry. 
-    sshPublicKey: # string. Required. SSH Public Key. 
-    #sshPassphrase: # string. SSH Passphrase. 
-    sshKeySecureFile: # string. Required. SSH Key.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Install SSH Key v0
-# Install an SSH key prior to a build or release.
-- task: InstallSSHKey@0
-  inputs:
-    hostName: # string. Required. Known Hosts Entry. 
-    sshPublicKey: # string. Required. SSH Public Key. 
-    #sshPassphrase: # string. SSH Passphrase. 
-    sshKeySecureFile: # string. Required. SSH Key.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="knownHostsEntry"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`knownHostsEntry`** - **Known Hosts Entry**<br>
 Input alias: `hostName`. `string`. Required.<br>
@@ -105,23 +74,12 @@ Specifies the SSH key entry for the known_hosts file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sshPublicKey"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`sshPublicKey`** - **SSH Public Key**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the contents of the public SSH key.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2019.1"
-
-**`sshPublicKey`** - **SSH Public Key**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the contents of the public SSH key.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -206,18 +164,6 @@ Specifies the user name property of the SSH config entry.
 `string`. Optional. Use when `addEntryToConfig = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the port of the SSH config entry.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="hostName"::: -->
-:::moniker range="=azure-pipelines-2019"
-
-**`hostName`** - **Known Hosts Entry**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SSH key entry for the known_hosts file.
 <!-- :::editable-content-end::: -->
 <br>
 

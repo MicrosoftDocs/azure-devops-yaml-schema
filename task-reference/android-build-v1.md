@@ -24,7 +24,7 @@ The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipel
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Android Build v1
@@ -51,7 +51,6 @@ The AndroidBuild@1 task is deprecated. Use the [Gradle task](/azure/devops/pipel
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

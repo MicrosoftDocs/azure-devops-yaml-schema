@@ -2,13 +2,13 @@
 title: AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
 description: Run your scripts and make changes to your Azure Database for MySQL.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run your scripts and make changes to your database in Azure Database for MySQL. The Azure Database for MySQL Deployment task only works with [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview).
@@ -20,7 +20,7 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Database for MySQL deployment v1
@@ -47,39 +47,13 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure Database for MySQL Deployment v1
-# Run your scripts and make changes to your Azure Database for MySQL.
-- task: AzureMysqlDeployment@1
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure Subscription. 
-  # DB Details
-    ServerName: # string. Required. Host Name. 
-    #DatabaseName: # string. Database Name. 
-    SqlUsername: # string. Required. Server Admin Login. 
-    SqlPassword: # string. Required. Password. 
-  # Deployment Package
-    #TaskNameSelector: 'SqlTaskFile' # 'SqlTaskFile' | 'InlineSqlTask'. Type. Default: SqlTaskFile.
-    SqlFile: # string. Required when TaskNameSelector = SqlTaskFile. MySQL Script. 
-    #SqlInline: # string. Required when TaskNameSelector = InlineSqlTask. Inline MySQL Script. 
-    #SqlAdditionalArguments: # string. Additional MySQL Arguments. 
-  # Firewall
-    IpDetectionMethod: 'AutoDetect' # 'AutoDetect' | 'IPAddressRange'. Required. Specify Firewall Rules Using. Default: AutoDetect.
-    #StartIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. Start IP Address. 
-    #EndIpAddress: # string. Required when IpDetectionMethod = IPAddressRange. End IP Address. 
-    #DeleteFirewallRule: true # boolean. Delete Rule After Task Ends. Default: true.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
 Input alias: `ConnectedServiceName`. `string`. Required.<br>
@@ -95,7 +69,7 @@ If your subscription is not listed or if you want to use an existing Service Pri
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ServerName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`ServerName`** - **Host Name**<br>
 `string`. Required.<br>
@@ -113,7 +87,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DatabaseName"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`DatabaseName`** - **Database Name**<br>
 `string`.<br>
@@ -129,7 +103,7 @@ Note: MySQL database names are case-sensitive.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlUsername"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SqlUsername`** - **Server Admin Login**<br>
 `string`. Required.<br>
@@ -143,7 +117,7 @@ When you connect using MySQL Workbench, this is the same value that is used for 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlPassword"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SqlPassword`** - **Password**<br>
 `string`. Required.<br>
@@ -159,7 +133,7 @@ Also, you may mark the variable type as `secret` to secure it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TaskNameSelector"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`TaskNameSelector`** - **Type**<br>
 `string`. Allowed values: `SqlTaskFile` (MySQL Script File), `InlineSqlTask` (Inline MySQL Script). Default value: `SqlTaskFile`.<br>
@@ -176,7 +150,7 @@ Optional. Selects one of the options between Script File & Inline Script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SqlFile`** - **MySQL Script**<br>
 `string`. Required when `TaskNameSelector = SqlTaskFile`.<br>
@@ -195,7 +169,7 @@ When the task is used on Linux platforms, paths remain unchanged. There is no ne
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlInline"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SqlInline`** - **Inline MySQL Script**<br>
 `string`. Required when `TaskNameSelector = InlineSqlTask`.<br>
@@ -207,7 +181,7 @@ Enters the MySQL script to execute on the database selected above.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SqlAdditionalArguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`SqlAdditionalArguments`** - **Additional MySQL Arguments**<br>
 `string`.<br>
@@ -227,7 +201,7 @@ All available options are described in the MySQL client documentation.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="IpDetectionMethod"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`IpDetectionMethod`** - **Specify Firewall Rules Using**<br>
 `string`. Required. Allowed values: `AutoDetect`, `IPAddressRange`. Default value: `AutoDetect`.<br>
@@ -248,7 +222,7 @@ Accepted values:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StartIpAddress"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`StartIpAddress`** - **Start IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
@@ -260,7 +234,7 @@ The starting IP Address of the automation agent machine pool. For example: `196.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="EndIpAddress"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`EndIpAddress`** - **End IP Address**<br>
 `string`. Required when `IpDetectionMethod = IPAddressRange`.<br>
@@ -272,7 +246,7 @@ The ending IP Address of the automation agent machine pool. For example: `196.21
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DeleteFirewallRule"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`DeleteFirewallRule`** - **Delete Rule After Task Ends**<br>
 `boolean`. Default value: `true`.<br>
@@ -292,7 +266,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -315,7 +289,7 @@ Use this task to run your scripts and make changes to your database in Azure Dat
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

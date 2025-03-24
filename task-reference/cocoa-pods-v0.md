@@ -22,7 +22,7 @@ Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # CocoaPods v0
@@ -36,22 +36,6 @@ Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# CocoaPods v0
-# CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. This task runs 'pod install'.
-- task: CocoaPods@0
-  inputs:
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-  # Advanced
-    #forceRepoUpdate: false # boolean. Force repo update. Default: false.
-    #projectDirectory: # string. Project directory.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

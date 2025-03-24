@@ -1,7 +1,7 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (task version 2).
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -79,7 +79,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 ```yaml
 # Visual Studio Test v2
@@ -135,113 +135,6 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Visual Studio Test v2
-# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-- task: VSTest@2
-  inputs:
-  # Test selection
-    testSelector: 'testAssemblies' # 'testAssemblies' | 'testPlan' | 'testRun'. Required. Select tests using. Default: testAssemblies.
-    testAssemblyVer2: # string. Required when testSelector = testAssemblies. Test files. 
-    #testPlan: # string. Required when testSelector = testPlan. Test plan. 
-    #testSuite: # string. Required when testSelector = testPlan. Test suite. 
-    #testConfiguration: # string. Required when testSelector = testPlan. Test configuration. 
-    #tcmTestRun: '$(test.RunId)' # string. Optional. Use when testSelector = testRun. Test Run. Default: $(test.RunId).
-    searchFolder: '$(System.DefaultWorkingDirectory)' # string. Required. Search folder. Default: $(System.DefaultWorkingDirectory).
-    #testFiltercriteria: # string. Optional. Use when testSelector = testAssemblies. Test filter criteria. 
-    #runOnlyImpactedTests: False # boolean. Optional. Use when testSelector = testAssemblies. Run only impacted tests. Default: False.
-    #runAllTestsAfterXBuilds: '50' # string. Optional. Use when testSelector = testAssemblies && runOnlyImpactedTests = true. Number of builds after which all tests should be run. Default: 50.
-    #uiTests: false # boolean. Test mix contains UI tests. Default: false.
-  # Execution options
-    #vstestLocationMethod: 'version' # 'version' | 'location'. Select test platform using. Default: version.
-    #vsTestVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | 'toolsInstaller'. Optional. Use when vstestLocationMethod = version. Test platform version. Default: latest.
-    #vstestLocation: # string. Optional. Use when vstestLocationMethod = location. Path to vstest.console.exe. 
-    #runSettingsFile: # string. Settings file. 
-    #overrideTestrunParameters: # string. Override test run parameters. 
-    #pathtoCustomTestAdapters: # string. Path to custom test adapters. 
-    #runInParallel: False # boolean. Run tests in parallel on multi-core machines. Default: False.
-    #runTestsInIsolation: False # boolean. Run tests in isolation. Default: False.
-    #codeCoverageEnabled: False # boolean. Code coverage enabled. Default: False.
-    #otherConsoleOptions: # string. Other console options. 
-    #diagnosticsEnabled: false # boolean. Collect advanced diagnostics in case of catastrophic failures. Default: false.
-    #collectDumpOn: 'onAbortOnly' # 'onAbortOnly' | 'always' | 'never'. Optional. Use when diagnosticsEnabled = true. Collect process dump and attach to test run report. Default: onAbortOnly.
-    #rerunFailedTests: False # boolean. Rerun failed tests. Default: False.
-    #rerunType: 'basedOnTestFailurePercentage' # 'basedOnTestFailurePercentage' | 'basedOnTestFailureCount'. Optional. Use when rerunFailedTests = true. Do not rerun if test failures exceed specified threshold. Default: basedOnTestFailurePercentage.
-    #rerunFailedThreshold: '30' # string. Optional. Use when rerunFailedTests = true && rerunType = basedOnTestFailurePercentage. % failure. Default: 30.
-    #rerunFailedTestCasesMaxLimit: '5' # string. Optional. Use when rerunFailedTests = true && rerunType = basedOnTestFailureCount. # of failed tests. Default: 5.
-    #rerunMaxAttempts: '3' # string. Optional. Use when rerunFailedTests = true. Maximum # of attempts. Default: 3.
-  # Advanced execution options
-    #distributionBatchType: 'basedOnTestCases' # 'basedOnTestCases' | 'basedOnExecutionTime' | 'basedOnAssembly'. Batch tests. Default: basedOnTestCases.
-    #batchingBasedOnAgentsOption: 'autoBatchSize' # 'autoBatchSize' | 'customBatchSize'. Optional. Use when distributionBatchType = basedOnTestCases. Batch options. Default: autoBatchSize.
-    #customBatchSizeValue: '10' # string. Required when distributionBatchType = basedOnTestCases && batchingBasedOnAgentsOption = customBatchSize. Number of tests per batch. Default: 10.
-    #batchingBasedOnExecutionTimeOption: 'autoBatchSize' # 'autoBatchSize' | 'customTimeBatchSize'. Optional. Use when distributionBatchType = basedOnExecutionTime. Batch options. Default: autoBatchSize.
-    #customRunTimePerBatchValue: '60' # string. Required when distributionBatchType = basedOnExecutionTime && batchingBasedOnExecutionTimeOption = customTimeBatchSize. Running time (sec) per batch. Default: 60.
-    #dontDistribute: False # boolean. Replicate tests instead of distributing when multiple agents are used in the job. Default: False.
-  # Reporting options
-    #testRunTitle: # string. Test run title. 
-    #platform: # string. Build platform. 
-    #configuration: # string. Build configuration. 
-    #publishRunAttachments: true # boolean. Upload test attachments. Default: true.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Visual Studio Test v2
-# Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-- task: VSTest@2
-  inputs:
-  # Test selection
-    testSelector: 'testAssemblies' # 'testAssemblies' | 'testPlan' | 'testRun'. Required. Select tests using. Default: testAssemblies.
-    testAssemblyVer2: # string. Required when testSelector = testAssemblies. Test files. 
-    #testPlan: # string. Required when testSelector = testPlan. Test plan. 
-    #testSuite: # string. Required when testSelector = testPlan. Test suite. 
-    #testConfiguration: # string. Required when testSelector = testPlan. Test configuration. 
-    #tcmTestRun: '$(test.RunId)' # string. Optional. Use when testSelector = testRun. Test Run. Default: $(test.RunId).
-    searchFolder: '$(System.DefaultWorkingDirectory)' # string. Required. Search folder. Default: $(System.DefaultWorkingDirectory).
-    #testFiltercriteria: # string. Optional. Use when testSelector = testAssemblies. Test filter criteria. 
-    #runOnlyImpactedTests: False # boolean. Optional. Use when testSelector = testAssemblies. Run only impacted tests. Default: False.
-    #runAllTestsAfterXBuilds: '50' # string. Optional. Use when testSelector = testAssemblies && runOnlyImpactedTests = true. Number of builds after which all tests should be run. Default: 50.
-    #uiTests: false # boolean. Test mix contains UI tests. Default: false.
-  # Execution options
-    #vstestLocationMethod: 'version' # 'version' | 'location'. Select test platform using. Default: version.
-    #vsTestVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | 'toolsInstaller'. Optional. Use when vstestLocationMethod = version. Test platform version. Default: latest.
-    #vstestLocation: # string. Optional. Use when vstestLocationMethod = location. Path to vstest.console.exe. 
-    #runSettingsFile: # string. Settings file. 
-    #overrideTestrunParameters: # string. Override test run parameters. 
-    #pathtoCustomTestAdapters: # string. Path to custom test adapters. 
-    #runInParallel: False # boolean. Run tests in parallel on multi-core machines. Default: False.
-    #runTestsInIsolation: False # boolean. Run tests in isolation. Default: False.
-    #codeCoverageEnabled: False # boolean. Code coverage enabled. Default: False.
-    #otherConsoleOptions: # string. Other console options. 
-    #diagnosticsEnabled: True # boolean. Collect advanced diagnostics in case of catastrophic failures. Default: True.
-    #collectDumpOn: 'onAbortOnly' # 'onAbortOnly' | 'always' | 'never'. Optional. Use when diagnosticsEnabled = true. Collect process dump and attach to test run report. Default: onAbortOnly.
-    #rerunFailedTests: False # boolean. Rerun failed tests. Default: False.
-    #rerunType: 'basedOnTestFailurePercentage' # 'basedOnTestFailurePercentage' | 'basedOnTestFailureCount'. Optional. Use when rerunFailedTests = true. Do not rerun if test failures exceed specified threshold. Default: basedOnTestFailurePercentage.
-    #rerunFailedThreshold: '30' # string. Optional. Use when rerunFailedTests = true && rerunType = basedOnTestFailurePercentage. % failure. Default: 30.
-    #rerunFailedTestCasesMaxLimit: '5' # string. Optional. Use when rerunFailedTests = true && rerunType = basedOnTestFailureCount. # of failed tests. Default: 5.
-    #rerunMaxAttempts: '3' # string. Optional. Use when rerunFailedTests = true. Maximum # of attempts. Default: 3.
-  # Advanced execution options
-    #distributionBatchType: 'basedOnTestCases' # 'basedOnTestCases' | 'basedOnExecutionTime' | 'basedOnAssembly'. Batch tests. Default: basedOnTestCases.
-    #batchingBasedOnAgentsOption: 'autoBatchSize' # 'autoBatchSize' | 'customBatchSize'. Optional. Use when distributionBatchType = basedOnTestCases. Batch options. Default: autoBatchSize.
-    #customBatchSizeValue: '10' # string. Required when distributionBatchType = basedOnTestCases && batchingBasedOnAgentsOption = customBatchSize. Number of tests per batch. Default: 10.
-    #batchingBasedOnExecutionTimeOption: 'autoBatchSize' # 'autoBatchSize' | 'customTimeBatchSize'. Optional. Use when distributionBatchType = basedOnExecutionTime. Batch options. Default: autoBatchSize.
-    #customRunTimePerBatchValue: '60' # string. Required when distributionBatchType = basedOnExecutionTime && batchingBasedOnExecutionTimeOption = customTimeBatchSize. Running time (sec) per batch. Default: 60.
-    #dontDistribute: False # boolean. Do not distribute tests and replicate instead when multiple agents are used in the job. Default: False.
-  # Reporting options
-    #testRunTitle: # string. Test run title. 
-    #platform: # string. Build platform. 
-    #configuration: # string. Build configuration. 
-    #publishRunAttachments: true # boolean. Upload test attachments. Default: true.
-```
-
-:::moniker-end
-
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -284,7 +177,7 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`testAssemblyVer2`** - **Test files**<br>
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\*test*.dll\n!**\*TestAdapter.dll\n!**\obj\**`.<br>
@@ -367,7 +260,7 @@ Specifies the folder to search for the test assemblies.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resultsFolder"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`resultsFolder`** - **Test results folder**<br>
 `string`. Default value: `$(Agent.TempDirectory)\TestResults`.<br>
@@ -450,7 +343,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
@@ -626,21 +519,9 @@ Specifies the running time (in seconds) per batch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dontDistribute"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`dontDistribute`** - **Replicate tests instead of distributing when multiple agents are used in the job**<br>
-`boolean`. Default value: `False`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Choosing this option will not distribute tests across agents when the task is running in a multi-agent job.
-Each of the selected test(s) will be repeated on each agent. This option is not applicable when the agent job is configured to run with no parallelism or with the multi-config option.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`dontDistribute`** - **Do not distribute tests and replicate instead when multiple agents are used in the job**<br>
 `boolean`. Default value: `False`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choosing this option will not distribute tests across agents when the task is running in a multi-agent job.
@@ -699,7 +580,7 @@ Opts in or out of publishing run level attachments.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnMinTestsNotRun"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`failOnMinTestsNotRun`** - **Fail the task if a minimum number of tests are not run.**<br>
 `boolean`. Default value: `False`.<br>
@@ -711,7 +592,7 @@ Fails the task if a minimum number of tests are not run. This may be useful if a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="minimumExpectedTests"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`minimumExpectedTests`** - **Minimum # of tests**<br>
 `string`. Optional. Use when `failOnMinTestsNotRun = true`. Default value: `1`.<br>
@@ -723,7 +604,7 @@ Specifies the minimum number of tests to run for the task to succeed. The total 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="diagnosticsEnabled"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
 `boolean`. Default value: `false`.<br>
@@ -734,21 +615,9 @@ When this option is checked, a sequence XML file is generated and attached to th
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-**`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
-`boolean`. Default value: `True`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Collects diagnostic data to troubleshoot catastrophic failures, such as a test crash.
-When this option is checked, a sequence XML file is generated and attached to the test run. The sequence file contains information about the sequence in which the tests had run, so a potential culprit test can be identified.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="collectDumpOn"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`collectDumpOn`** - **Collect process dump and attach to test run report**<br>
 `string`. Optional. Use when `diagnosticsEnabled = true`. Allowed values: `onAbortOnly` (On abort only), `always`, `never`. Default value: `onAbortOnly`.<br>

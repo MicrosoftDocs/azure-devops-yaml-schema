@@ -37,7 +37,7 @@ This task is deprecated.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # SQL Server database deploy (Deprecated) v1
@@ -67,38 +67,6 @@ This task is deprecated.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# SQL Server database deploy (Deprecated) v1
-# Deploy SQL Server Database using DACPAC.
-- task: SqlServerDacpacDeployment@1
-  inputs:
-    EnvironmentName: # string. Required. Machines. 
-    #AdminUserName: # string. Admin Login. 
-    #AdminPassword: # string. Password. 
-    #Protocol: # 'Http' | 'Https'. Protocol. 
-    #TestCertificate: true # boolean. Optional. Use when Protocol = Https. Test Certificate. Default: true.
-  # Deployment
-    DacpacFile: # string. Required. DACPAC File. 
-  # Target
-    TargetMethod: 'server' # 'server' | 'connectionString' | 'publishProfile'. Required. Specify SQL Using. Default: server.
-    ServerName: 'localhost' # string. Required when TargetMethod = server. Server Name. Default: localhost.
-    DatabaseName: # string. Required when TargetMethod = server. Database Name. 
-    #SqlUsername: # string. Optional. Use when TargetMethod = server. SQL Username. 
-    #SqlPassword: # string. Optional. Use when TargetMethod = server. SQL Password. 
-    #ConnectionString: # string. Required when TargetMethod = connectionString. Connection String. 
-    #PublishProfile: # string. Publish Profile. 
-    #AdditionalArguments: # string. Additional Arguments. 
-  # Advanced
-    #DeployInParallel: true # boolean. Deploy in Parallel. Default: true.
-    #ResourceFilteringMethod: 'machineNames' # 'machineNames' | 'tags'. Select Machines By. Default: machineNames.
-    #MachineFilter: # string. Deploy to Machines.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -20,7 +20,7 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xamarin.iOS v1
@@ -51,7 +51,6 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

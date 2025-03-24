@@ -46,7 +46,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Visual Studio build v1
@@ -69,30 +69,6 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Visual Studio Build v1
-# Build with MSBuild and set the Visual Studio version property.
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
-    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
-    #msbuildArgs: # string. MSBuild Arguments. 
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #clean: false # boolean. Clean. Default: false.
-  # Advanced
-    #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
-    #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
-    #logProjectEvents: true # boolean. Record Project Details. Default: true.
-    #createLogFile: false # boolean. Create Log File. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -140,7 +116,7 @@ Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to th
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`vsVersion`** - **Visual Studio Version**<br>
 `string`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
@@ -276,7 +252,7 @@ Optional. Creates a log file (Windows only).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="logFileVerbosity"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`logFileVerbosity`** - **Log File Verbosity**<br>
 `string`. Optional. Use when `createLogFile = true`. Allowed values: `quiet`, `minimal`, `normal`, `detailed`, `diagnostic`. Default value: `normal`.<br>

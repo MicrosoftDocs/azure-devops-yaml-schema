@@ -1,14 +1,14 @@
 ---
 title: jobs.deployment.strategy.canary definition
 description: Canary Deployment strategy.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # jobs.deployment.strategy.canary definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Canary deployment strategy rolls out changes to a small subset of servers.
@@ -18,7 +18,7 @@ Canary deployment strategy rolls out changes to a small subset of servers.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 canary:
@@ -48,7 +48,7 @@ canary:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [jobs.deployment.strategy](jobs-deployment-strategy.md)
 
@@ -59,7 +59,7 @@ Definitions that reference this definition: [jobs.deployment.strategy](jobs-depl
 
 <!-- :::properties::: -->
 <!-- :::item name="increments"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`increments`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Maximum batch size for deployment.
@@ -68,7 +68,7 @@ Maximum batch size for deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="preDeploy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`preDeploy`** [preDeployHook](pre-deploy-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Pre deploy hook for canary deployment strategy.
@@ -77,7 +77,7 @@ Pre deploy hook for canary deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploy"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`deploy`** [deployHook](deploy-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Deploy hook for canary deployment strategy.
@@ -86,7 +86,7 @@ Deploy hook for canary deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="routeTraffic"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`routeTraffic`** [routeTrafficHook](route-traffic-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Route traffic hook for canary deployment strategy.
@@ -95,7 +95,7 @@ Route traffic hook for canary deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="postRouteTraffic"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`postRouteTraffic`** [postRouteTrafficHook](post-route-traffic-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 Post route traffic hook for canary deployment strategy.
@@ -104,7 +104,7 @@ Post route traffic hook for canary deployment strategy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="on"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`on`** [onSuccessOrFailureHook](on-success-or-failure-hook.md).<br><!-- :::editable-content name="propDescription"::: -->
 On success or failure hook for canary deployment strategy.

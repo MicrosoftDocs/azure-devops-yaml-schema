@@ -35,7 +35,7 @@ Use this task to build with the CMake cross-platform build system.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020"
+:::moniker range="=azure-pipelines-2020"
 
 ```yaml
 # CMake v1
@@ -47,7 +47,6 @@ Use this task to build with the CMake cross-platform build system.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -121,7 +120,6 @@ Use this task to build with the CMake cross-platform build system.
 ### How do I enable CMake for Microsoft-hosted agents?
 
 The [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted) have CMake installed already, so you don't need to do anything. You do not need to add a demand for CMake in your `azure-pipelines.yml` file.
-
 
 ### How do I enable CMake for my on-premises agent?
 

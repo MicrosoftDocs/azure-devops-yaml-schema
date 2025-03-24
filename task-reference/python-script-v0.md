@@ -2,13 +2,13 @@
 title: PythonScript@0 - Python script v0 task
 description: Run a Python file or inline script.
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # PythonScript@0 - Python script v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run a Python file or inline script.
@@ -20,7 +20,7 @@ Use this task to run a Python file or inline script.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Python script v0
@@ -39,31 +39,13 @@ Use this task to run a Python file or inline script.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Python Script v0
-# Run a Python script.
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath' # 'filePath' | 'inline'. Required. Script source. Default: filePath.
-    scriptPath: # string. Required when scriptSource = filePath. Script path. 
-    #script: # string. Required when scriptSource = inline. Script. 
-    #arguments: # string. Arguments. 
-  # Advanced
-    #pythonInterpreter: # string. Python interpreter. 
-    #workingDirectory: # string. Working directory. 
-    #failOnStderr: false # boolean. Fail on standard error. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="scriptSource"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`scriptSource`** - **Script source**<br>
 `string`. Required. Allowed values: `filePath` (File path), `inline`. Default value: `filePath`.<br>
@@ -75,7 +57,7 @@ Specifies whether the script is a file in the source tree or is written inline i
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scriptPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`scriptPath`** - **Script path**<br>
 `string`. Required when `scriptSource = filePath`.<br>
@@ -87,7 +69,7 @@ Specifies the path of the script to execute. Must be a fully qualified path or r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`script`** - **Script**<br>
 `string`. Required when `scriptSource = inline`.<br>
@@ -99,7 +81,7 @@ Specifies the Python script to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
 `string`.<br>
@@ -111,7 +93,7 @@ Specifies the arguments passed to the script execution available through `sys.ar
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pythonInterpreter"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`pythonInterpreter`** - **Python interpreter**<br>
 `string`.<br>
@@ -124,7 +106,7 @@ Run the [Use Python Version](https://go.microsoft.com/fwlink/?linkid=871498) tas
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
 `string`.<br>
@@ -136,7 +118,7 @@ Specifies the working directory where the script will run. If not specified, the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStderr"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`failOnStderr`** - **Fail on standard error**<br>
 `boolean`. Default value: `false`.<br>
@@ -156,7 +138,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -216,7 +198,7 @@ Run a Python script from the working directory. The task will fail if any text i
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

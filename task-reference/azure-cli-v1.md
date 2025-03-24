@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # AzureCLI@1 - Azure CLI v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Run Azure CLI commands against an Azure subscription in a shell script when running on Linux agent or batch script when running on Windows agent.
@@ -16,19 +16,12 @@ Run Azure CLI commands against an Azure subscription in a shell script when runn
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Run a shell or batch script with Azure CLI commands against an Azure subscription.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure CLI v1
@@ -48,26 +41,6 @@ Run a shell or batch script with Azure CLI commands against an Azure subscriptio
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Azure CLI v1
-# Run a Shell or Batch script with Azure CLI commands against an azure subscription.
-- task: AzureCLI@1
-  inputs:
-    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure subscription. 
-    scriptLocation: 'scriptPath' # 'inlineScript' | 'scriptPath'. Required. Script Location. Default: scriptPath.
-    scriptPath: # string. Required when scriptLocation = scriptPath. Script Path. 
-    #inlineScript: # string. Required when scriptLocation = inlineScript. Inline Script. 
-    #arguments: # string. Alias: args. Arguments. 
-  # Advanced
-    #workingDirectory: # string. Alias: cwd. Working Directory. 
-    #failOnStandardError: false # boolean. Fail on Standard Error. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -144,7 +117,7 @@ Arguments passed to the script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addSpnToEnvironment"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`addSpnToEnvironment`** - **Access service principal details in script**<br>
 `boolean`. Default value: `false`.<br>
@@ -158,7 +131,7 @@ This is honored only when the Azure endpoint has Service Principal authenticatio
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useGlobalConfig"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`useGlobalConfig`** - **Use global Azure CLI configuration**<br>
 `boolean`. Default value: `false`.<br>
@@ -182,7 +155,7 @@ Current working directory where the script is run. If left blank, this input is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStandardError"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`failOnStandardError`** - **Fail on Standard Error**<br>
 `boolean`. Default value: `false`.<br>

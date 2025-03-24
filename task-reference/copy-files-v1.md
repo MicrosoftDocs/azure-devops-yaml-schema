@@ -23,7 +23,7 @@ Use this task to copy files from a source folder to a target folder using match 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy Files v1
@@ -40,7 +40,6 @@ Use this task to copy files from a source folder to a target folder using match 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

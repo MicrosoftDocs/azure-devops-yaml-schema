@@ -36,7 +36,7 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # .NET Core SDK/runtime installer v0
@@ -48,7 +48,6 @@ Use this task to acquire a specific version of the .NET Core SDK from the intern
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

@@ -1,14 +1,14 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019.1"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureWebApp@1 - Azure Web App v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task deploys an Azure Web App for Linux or Windows.
@@ -47,7 +47,7 @@ This task deploys an Azure Web App for Linux or Windows.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Azure Web App v1
@@ -74,38 +74,13 @@ This task deploys an Azure Web App for Linux or Windows.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Azure Web App v1
-# Deploy an Azure Web App for Linux or Windows.
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: # string. Required. Azure subscription. 
-    appType: # 'webApp' | 'webAppLinux'. Required. App type. 
-    appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
-    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #runtimeStack: # string. Optional. Use when appType = webAppLinux. Runtime stack. 
-    #startUpCommand: # string. Optional. Use when appType = webAppLinux. Startup command. 
-  # Application and Configuration Settings
-    #customWebConfig: # string. Optional. Use when appType != webAppLinux && package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #appSettings: # string. App settings. 
-    #configurationStrings: # string. Configuration settings. 
-  # Additional Deployment Options
-    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar. Deployment method. Default: auto.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 `string`. Required.<br>
@@ -117,7 +92,7 @@ Specifies the [Azure Resource Manager subscription connection](/azure/devops/pip
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appType"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appType`** - **App type**<br>
 `string`. Required. Allowed values: `webApp` (Web App on Windows), `webAppLinux` (Web App on Linux).<br>
@@ -129,7 +104,7 @@ Specifies the Azure Web App type.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appName`** - **App name**<br>
 `string`. Required.<br>
@@ -141,7 +116,7 @@ Specifies the name of an existing Azure App Service. Only app services that are 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Optional. Use when `appType != ""`. Default value: `false`.<br>
@@ -156,7 +131,7 @@ If the deployment target is an Azure App Service Environment, leave the slot nam
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroupName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`resourceGroupName`** - **Resource group**<br>
 `string`. Required when `deployToSlotOrASE = true`.<br>
@@ -169,7 +144,7 @@ Specifies the Azure resource group that contains the Azure App Service indicated
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -181,7 +156,7 @@ Specifies an existing slot, excluding the production slot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="package"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`package`** - **Package or folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)/**/*.zip`.<br>
@@ -193,7 +168,7 @@ The file path to the package or folder that contains App Service content generat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customDeployFolder"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`customDeployFolder`** - **Custom Deploy Folder**<br>
 `string`. Optional. Use when `package EndsWith .war`.<br>
@@ -219,7 +194,7 @@ Web App on Linux offers two different options to publish your application: custo
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = webAppLinux`.<br>
@@ -231,7 +206,7 @@ Web App on Linux offers two different options to publish your application: custo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="startUpCommand"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`startUpCommand`** - **Startup command**<br>
 `string`. Optional. Use when `appType = webAppLinux`.<br>
@@ -246,7 +221,7 @@ For example:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customWebConfig"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`customWebConfig`** - **Generate web.config parameters for Python, Node.js, Go and Java apps**<br>
 `string`. Optional. Use when `appType != webAppLinux && package NotEndsWith .war`.<br>
@@ -258,7 +233,7 @@ A standard web.config will be generated and deployed to Azure App Service if the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSettings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`appSettings`** - **App settings**<br>
 `string`.<br>
@@ -270,7 +245,7 @@ Specify the web app application settings using the syntax `-key value` (for exam
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configurationStrings"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`configurationStrings`** - **Configuration settings**<br>
 `string`.<br>
@@ -282,7 +257,7 @@ Specify the web app configuration settings using the syntax `-key value` (for ex
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMethod"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
@@ -302,7 +277,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -386,7 +361,6 @@ This may be because web.config is not present in your app. You can either add a 
 
     :::image type="content" source="media/azure-rm-web-app-deployment-02.png" alt-text="Screenshot of the drop down dialog.":::
 
-
 * Select your application type from the drop down.
 * Click OK. This will populate the web.config parameters required to generate web.config.
 
@@ -450,7 +424,7 @@ If not specified, `auto` is the default value.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|

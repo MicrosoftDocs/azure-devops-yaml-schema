@@ -25,7 +25,7 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy and Publish Build Artifacts v1
@@ -40,7 +40,6 @@ Use this task to copy build artifacts to a staging folder and then publish them 
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

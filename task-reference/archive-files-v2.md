@@ -1,14 +1,14 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
 # ArchiveFiles@2 - Archive files v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Archive files using compression formats such as .7z, .tar, .gz, and .zip.
@@ -16,13 +16,6 @@ Archive files using compression formats such as .7z, .tar, .gz, and .zip.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -49,7 +42,7 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Archive files v2
@@ -69,45 +62,6 @@ Archive files using compression formats such as .7z, .rar, .tar., .gz, and .zip.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019.1"
-
-```yaml
-# Archive files v2
-# Compress files into .7z, .tar.gz, or .zip.
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
-  # Archive
-    archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
-    #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
-    #verbose: false # boolean. Force verbose output. Default: false.
-    #quiet: false # boolean. Force quiet output. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Archive Files v2
-# Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
-  # Archive
-    archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
-    #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -174,7 +128,7 @@ Set compression level or `None` to create an uncompressed .7z file.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`sevenZipCompression`** - **7z compression**<br>
 `string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `5`.<br>
@@ -236,7 +190,7 @@ Supported file formats that can be added to an existing archive:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbose"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`verbose`** - **Force verbose output**<br>
 `boolean`. Default value: `false`.<br>
@@ -248,7 +202,7 @@ If set to true, forces tools to use verbose output. Overrides the 'quiet' settin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="quiet"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`quiet`** - **Force quiet output**<br>
 `boolean`. Default value: `false`.<br>

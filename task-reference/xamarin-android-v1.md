@@ -21,7 +21,7 @@ XamarinAndroid@1 is deprecated. Originally, this task was used to build an Andro
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 XamarinAndroid@1 is deprecated. Originally, this task was used to build an Android app with Xamarin.
@@ -32,17 +32,6 @@ XamarinAndroid@1 is deprecated. Originally, this task was used to build an Andro
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2018"
-
-<!-- :::editable-content name="description"::: -->
-XamarinAndroid@1 is deprecated. Originally, this task was used to build an Android app with Xamarin.
-
-> [!NOTE]
-> This task is deprecated and was retired May 1, 2024.
-
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -76,7 +65,7 @@ XamarinAndroid@1 is deprecated. Originally, this task was used to build an Andro
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Xamarin.Android v1
@@ -103,7 +92,6 @@ XamarinAndroid@1 is deprecated. Originally, this task was used to build an Andro
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -269,7 +257,7 @@ Specifies the JDK version that the task uses during the build process. The `JDKV
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`jdkVersionOption`** - **JDK version**<br>
 Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>

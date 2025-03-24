@@ -20,7 +20,7 @@ Run a PowerShell script.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # PowerShell v1
@@ -37,7 +37,6 @@ Run a PowerShell script.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

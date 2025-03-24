@@ -42,7 +42,7 @@ Use this task to copy files from a source folder to a target folder using match 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Copy files v2
@@ -60,25 +60,6 @@ Use this task to copy files from a source folder to a target folder using match 
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Copy Files v2
-# Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths).
-- task: CopyFiles@2
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: **.
-    TargetFolder: # string. Required. Target Folder. 
-  # Advanced
-    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
-    #OverWrite: false # boolean. Overwrite. Default: false.
-    #flattenFolders: false # boolean. Flatten Folders. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -170,7 +151,7 @@ Optional. Flattens the folder structure and copies all files into the specified 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="preserveTimestamp"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`preserveTimestamp`** - **Preserve Target Timestamp**<br>
 `boolean`. Default value: `false`.<br>
@@ -337,7 +318,6 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 ```
 
-
 #### [Classic](#tab/classic/)
 
 * Source folder
@@ -392,7 +372,6 @@ These files are copied to the staging directory:
 ```
 
 ### Copy everything from the source directory except the .git folder
-
 
 #### [YAML](#tab/yaml/)
 

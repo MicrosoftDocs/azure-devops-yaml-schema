@@ -26,7 +26,7 @@ This task is deprecated; use [DotNetCoreCLI@2](./dotnet-core-cli-v2.md).
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # .NET Core v0
@@ -41,7 +41,6 @@ This task is deprecated; use [DotNetCoreCLI@2](./dotnet-core-cli-v2.md).
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

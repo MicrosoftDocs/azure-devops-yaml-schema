@@ -23,7 +23,7 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # cURL Upload Files v1
@@ -40,7 +40,6 @@ Use this task with [cURL](https://curl.haxx.se/) to upload files. Supported data
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

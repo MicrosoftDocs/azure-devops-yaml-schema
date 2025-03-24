@@ -23,7 +23,7 @@ Use this task to run a program from the command prompt.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Command Line v1
@@ -38,7 +38,6 @@ Use this task to run a program from the command prompt.
 ```
 
 :::moniker-end
-
 
 <!-- :::syntax-end::: -->
 

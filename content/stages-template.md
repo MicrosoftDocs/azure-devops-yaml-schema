@@ -1,14 +1,14 @@
 ---
 title: stages.template definition
 description: You can define a set of stages in one file and use it multiple times in other files.
-ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2020"
+ms.date: 03/20/2025
+monikerRange: "<=azure-pipelines"
 ---
 
 # stages.template definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 You can define a set of stages in one file and use it multiple times in other files.
@@ -18,7 +18,7 @@ You can define a set of stages in one file and use it multiple times in other fi
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 stages:
@@ -30,7 +30,7 @@ stages:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [stages](stages.md)
 
@@ -41,7 +41,7 @@ Definitions that reference this definition: [stages](stages.md)
 
 <!-- :::properties::: -->
 <!-- :::item name="template"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`template`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Reference to a template for this stage.
@@ -50,7 +50,7 @@ Reference to a template for this stage.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="parameters"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`parameters`** template parameters.<br><!-- :::editable-content name="propDescription"::: -->
 Parameters used in a stage template.

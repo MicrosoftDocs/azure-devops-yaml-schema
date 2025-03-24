@@ -1,7 +1,7 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 02/24/2025
+ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -42,7 +42,7 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 ```yaml
 # Bash v3
@@ -61,25 +61,6 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Bash v3
-# Run a Bash script on macOS, Linux, or Windows.
-- task: Bash@3
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-  # Advanced
-    #workingDirectory: # string. Working Directory. 
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
@@ -123,21 +104,10 @@ The arguments passed to the shell script. Either ordinal parameters or named par
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="script"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 **`script`** - **Script**<br>
 `string`. Required when `targetType = inline`. Default value: `# Write your commands here\n\necho 'Hello world'`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The contents of the script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2019.1"
-
-**`script`** - **Script**<br>
-`string`. Required when `targetType = inline`. Default value: `# Write your commands here\n\n# Use the environment variables input below to pass secret variables to this script`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The contents of the script.
 <!-- :::editable-content-end::: -->
@@ -182,7 +152,7 @@ If the input is specified, its value is expanded and used as the path of a start
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="noProfile"::: -->
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`noProfile`** - **Don't load the profile startup/initialization files**<br>
 `boolean`. Default value: `true`.<br>
@@ -194,7 +164,7 @@ Don't load the system-wide startup file `/etc/profile` or any of the personal in
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="noRc"::: -->
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines-2020.1"
 
 **`noRc`** - **Don't read the `~/.bashrc' initialization file**<br>
 `boolean`. Default value: `true`.<br>
@@ -279,7 +249,7 @@ Another way is to set the `BASH_ENV` variable as an environment variable for the
 > [!NOTE]
 > Note that if the `bashEnvValue` input is defined in the Bash task, the pipeline task will override the value of the `BASH_ENV` variable with the value from the `bashEnvValue` input in a case when the `BASH_ENV` environment variable was already defined in the environment.
 
-:::moniker range=">= azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 Bash scripts checked into the repo should be set executable (`chmod +x`).
 Otherwise, the task will show a warning and `source` the file instead.

@@ -2,7 +2,7 @@
 title: AppCenterDistribute@1 - App Center distribute v1 task
 description: Distribute app builds to testers and users via Visual Studio App Center (task version 1).
 ms.date: 02/24/2025
-monikerRange: ">=azure-pipelines-2019"
+monikerRange: "<=azure-pipelines"
 ---
 
 # AppCenterDistribute@1 - App Center distribute v1 task
@@ -33,7 +33,7 @@ This task is deprecated; use [AppCenterDistribute@3](./app-center-distribute-v3.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019.1 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to distribute app builds to testers and users via App Center and Visual Studio App Center.
@@ -41,19 +41,12 @@ Use this task to distribute app builds to testers and users via App Center and V
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Distribute app builds to testers and users via App Center.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # App Center distribute v1
@@ -79,37 +72,13 @@ Distribute app builds to testers and users via App Center.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# App Center Distribute v1
-# Distribute app builds to testers and users via App Center.
-- task: AppCenterDistribute@1
-  inputs:
-    serverEndpoint: # string. Required. App Center service connection. 
-    appSlug: # string. Required. App slug. 
-    appFile: # string. Alias: app. Required. Binary file path. 
-    releaseNotesOption: 'input' # 'input' | 'file'. Alias: releaseNotesSelection. Required. Create release notes. Default: input.
-    releaseNotesInput: # string. Required when releaseNotesSelection = input. Release notes. 
-    #releaseNotesFile: # string. Required when releaseNotesSelection = file. Release notes file. 
-    #distributionGroupId: # string. Alias: destinationId. Destination ID. 
-  # Symbols
-    #symbolsOption: 'Apple' # 'Apple'. Alias: symbolsType. Symbols type. Default: Apple.
-    #symbolsPath: # string. Optional. Use when symbolsType == AndroidNative || symbolsType = Windows. Symbols path. 
-    #symbolsPdbFiles: '**/*.pdb' # string. Alias: pdbPath. Optional. Use when symbolsType = UWP. Symbols path (*.pdb). Default: **/*.pdb.
-    #symbolsDsymFiles: # string. Alias: dsymPath. Optional. Use when symbolsType = Apple. dSYM path. 
-    #symbolsMappingTxtFile: # string. Alias: mappingTxtPath. Optional. Use when symbolsType = AndroidJava. Mapping file. 
-    #symbolsIncludeParentDirectory: # boolean. Alias: packParentFolder. Include all items in parent folder.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="serverEndpoint"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`serverEndpoint`** - **App Center service connection**<br>
 `string`. Required.<br>
@@ -121,7 +90,7 @@ Selects the service connection for Visual Studio App Center. To create one, clic
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appSlug"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`appSlug`** - **App slug**<br>
 `string`. Required.<br>
@@ -133,7 +102,7 @@ The app slug is in the format of `{username}/{app_identifier}`.  To locate `{use
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`appFile`** - **Binary file path**<br>
 Input alias: `app`. `string`. Required.<br>
@@ -145,7 +114,7 @@ The relative path from the repo root to the APK or IPA file you want to publish.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="symbolsOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`symbolsOption`** - **Symbols type**<br>
 Input alias: `symbolsType`. `string`. Allowed values: `Apple`. Default value: `Apple`.<br>
@@ -157,7 +126,7 @@ Includes symbol files to receive symbolicated stack traces in App Center Diagnos
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="symbolsPath"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`symbolsPath`** - **Symbols path**<br>
 `string`. Optional. Use when `symbolsType == AndroidNative || symbolsType = Windows`.<br>
@@ -169,7 +138,7 @@ The relative path from the repo root to the symbols folder.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="symbolsPdbFiles"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`symbolsPdbFiles`** - **Symbols path (*.pdb)**<br>
 Input alias: `pdbPath`. `string`. Optional. Use when `symbolsType = UWP`. Default value: `**/*.pdb`.<br>
@@ -181,7 +150,7 @@ The relative path from the repo root to `.pdb` symbols files. Path may contain [
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="symbolsDsymFiles"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`symbolsDsymFiles`** - **dSYM path**<br>
 Input alias: `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
@@ -193,7 +162,7 @@ The relative path from the repo root to the dSYM folder. Path may contain [wildc
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="symbolsMappingTxtFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
 Input alias: `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
@@ -205,7 +174,7 @@ The relative path from the repo root to Android's `mapping.txt` file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="symbolsIncludeParentDirectory"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`symbolsIncludeParentDirectory`** - **Include all items in parent folder**<br>
 Input alias: `packParentFolder`. `boolean`.<br>
@@ -217,7 +186,7 @@ Uploads the selected symbols file or folder and all other items inside the same 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseNotesOption"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`releaseNotesOption`** - **Create release notes**<br>
 Input alias: `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
@@ -229,7 +198,7 @@ The release notes are attached to the release and shown to testers on the instal
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseNotesInput"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`releaseNotesInput`** - **Release notes**<br>
 `string`. Required when `releaseNotesSelection = input`.<br>
@@ -241,7 +210,7 @@ The release notes for this version.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseNotesFile"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`releaseNotesFile`** - **Release notes file**<br>
 `string`. Required when `releaseNotesSelection = file`.<br>
@@ -253,7 +222,7 @@ Selects a UTF-8 encoded text file which contains the release notes for this vers
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isMandatory"::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 **`isMandatory`** - **Require users to update to this release**<br>
 `boolean`. Default value: `false`.<br>
@@ -265,7 +234,7 @@ The App Center Distribute SDK required to mandate an update. Testers are automat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="distributionGroupId"::: -->
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 **`distributionGroupId`** - **Destination ID**<br>
 Input alias: `destinationId`. `string`.<br>
@@ -285,7 +254,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2019"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -323,7 +292,7 @@ This task is deprecated. Use [AppCenterDistribute@3](./app-center-distribute-v3.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2019 <=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

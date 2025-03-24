@@ -8,7 +8,7 @@ monikerRange: "<=azure-pipelines"
 # Delay@1 - Delay v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Delays further execution of a workflow by a fixed time.
@@ -16,19 +16,12 @@ Delays further execution of a workflow by a fixed time.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2019"
-
-<!-- :::editable-content name="description"::: -->
-Delays further execution of the workflow by a fixed time.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2019.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Delay v1
@@ -39,19 +32,6 @@ Delays further execution of the workflow by a fixed time.
 ```
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2019"
-
-```yaml
-# Delay v1
-# Delay further execution of the workflow by a fixed time.
-- task: Delay@1
-  inputs:
-    delayForMinutes: '0' # string. Required. Delay Time (minutes). Default: 0.
-```
-
-:::moniker-end
-
 
 <!-- :::syntax-end::: -->
 
