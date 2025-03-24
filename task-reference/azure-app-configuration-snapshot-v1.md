@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Create a snapshot in an Azure App Configuration instance.
+Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -173,7 +173,7 @@ This task is used for creating [snapshots](/azure/azure-app-configuration/concep
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | Agent version |  2.144.0 or greater |
-| Task category | Utility |
+| Task category | Deploy |
 
 :::moniker-end
 <!-- :::properties-end::: -->
