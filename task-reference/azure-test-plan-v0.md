@@ -27,7 +27,7 @@ Run manual and automated tests in test plan in Java and Python language.
 
 ```yaml
 # Azure Test Plan v0
-# Run manual and automated tests in test plan in Java and python language.
+# Run manual and automated tests in test plan in Java and Python language.
 - task: AzureTestPlan@0
   inputs:
     testSelector: # 'manualTests' | 'automatedTests'. Required. Test cases to be executed. 
