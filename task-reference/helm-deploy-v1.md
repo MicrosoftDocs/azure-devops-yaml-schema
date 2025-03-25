@@ -581,7 +581,6 @@ Output emitted from the execution of specified Helm command
 A major change for `HelmDeploy@1` task is that helm chart commands are removed:
 
 * The `helm chart` subcommand has been removed
-* `helm chart push` has been removed
 * `helm chart remove` has been removed
 * `helm chart save` has been replaced with `helm package`
 * `helm save` has been removed
