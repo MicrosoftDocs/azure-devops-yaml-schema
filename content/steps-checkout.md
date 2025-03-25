@@ -224,14 +224,14 @@ Where to put the repository. The root directory is $(Pipeline.Workspace). By def
 :::moniker range="=azure-pipelines"
 
 **`sparseCheckoutDirectories`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Specify a directory to enable sparse checkout in cone mode using directory matching. Separate multiple directories using a space.
+Specify a directory to enable sparse checkout in cone mode using directory matching. Separate multiple directories using a space. Supported on agent version 3.253.0/4.253.0 or higher.
 
 ```yml
 - checkout: repo
   sparseCheckoutDirectories: src
 ```
 
-If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
+If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded. Supported on agent version 3.253.0/4.253.0 or higher.
 
 For more information on sparse checkout, see [Bring your monorepo down to size with sparse-checkout](https://github.blog/open-source/git/bring-your-monorepo-down-to-size-with-sparse-checkout/).
 <!-- :::editable-content-end::: -->
