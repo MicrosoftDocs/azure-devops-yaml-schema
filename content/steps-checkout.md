@@ -231,7 +231,7 @@ Specify a directory to enable sparse checkout in cone mode using directory match
   sparseCheckoutDirectories: src
 ```
 
-If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded. Supported on agent version 3.253.0/4.253.0 or higher.
+If both `sparseCheckoutDirectories` and `sparseCheckoutPatterns` are set, `sparseCheckoutDirectories` is used and the setting for `sparseCheckoutPatterns` is disregarded.
 
 For more information on sparse checkout, see [Bring your monorepo down to size with sparse-checkout](https://github.blog/open-source/git/bring-your-monorepo-down-to-size-with-sparse-checkout/).
 <!-- :::editable-content-end::: -->
@@ -242,7 +242,7 @@ For more information on sparse checkout, see [Bring your monorepo down to size w
 :::moniker range="=azure-pipelines"
 
 **`sparseCheckoutPatterns`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Specify a pattern to enable sparse checkout in non-cone mode using pattern matching. Separate multiple patterns using a space.
+Specify a pattern to enable sparse checkout in non-cone mode using pattern matching. Separate multiple patterns using a space. Supported on agent version 3.253.0/4.253.0 or higher.
 
 ```yml
 - checkout: repo
