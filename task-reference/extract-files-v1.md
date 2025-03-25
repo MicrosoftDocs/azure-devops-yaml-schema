@@ -84,7 +84,11 @@ Specifies the pattern filters, one per line, that match the archives to extract.
 * `test/*.zip` extracts all .zip files in the test folder.
 * `**/*.tar` extracts all .tar files in the root folder and sub-folders.
 * `**/bin/*.7z` extracts all .7z files in any sub-folder named "bin".  
+
 The pattern is used to match only archive file paths, not folder paths, and not archive contents to be extracted. So, you should specify patterns, such as `**/bin/**` instead of `**/bin`.
+
+To extract files from other paths (e.g., a pipeline artifact), use the [Copy task](/azure/devops/pipelines/tasks/reference/copy-files-v2) to copy the file you want to extract to the root folder of your repo: $(Build.SourcesDirectory).
+For example, to copy a pipeline artifact, move the file from $(Pipeline.Workspace) to $(Build.SourcesDirectory), then extract it from the root folder or its subfolders.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,6 +100,9 @@ The pattern is used to match only archive file paths, not folder paths, and not 
 `string`. Required. Default value: `*.zip`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  Learn more about the [Extract Files task](/azure/devops/pipelines/tasks/utility/extract-files).
+
+To extract files from other paths (e.g., a pipeline artifact), use the [Copy task](/azure/devops/pipelines/tasks/reference/copy-files-v2) to copy the file you want to extract to the root folder of your repo: $(Build.SourcesDirectory).
+For example, to copy a pipeline artifact, move the file from $(Pipeline.Workspace) to $(Build.SourcesDirectory), then extract it from the root folder or its subfolders.
 <!-- :::editable-content-end::: -->
 <br>
 
