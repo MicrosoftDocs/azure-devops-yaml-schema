@@ -83,6 +83,9 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Azure Resource Manager subscription to configure before running PowerShell.
+
+[!INCLUDE [connection-expression](./includes/azure-subscription-variables.md)]
+
 <!-- :::editable-content-end::: -->
 <br>
 
