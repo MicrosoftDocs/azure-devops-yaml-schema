@@ -1,7 +1,7 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 02/24/2025
+ms.date: 03/25/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -74,6 +74,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
     #platform: # string. Build platform. 
     #configuration: # string. Build configuration. 
     #publishRunAttachments: true # boolean. Upload test attachments. Default: true.
+    #donotPublishTestResults: false # boolean. Optional. Use when runInParallel = false. Disable publishing test results. Default: false.
     #failOnMinTestsNotRun: False # boolean. Fail the task if a minimum number of tests are not run. Default: False.
     #minimumExpectedTests: '1' # string. Optional. Use when failOnMinTestsNotRun = true. Minimum # of tests. Default: 1.
 ```
@@ -502,6 +503,18 @@ Specifies the build configuration against which the tests should be reported. If
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Opts in or out of publishing run level attachments.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="donotPublishTestResults"::: -->
+:::moniker range="=azure-pipelines"
+
+**`donotPublishTestResults`** - **Disable publishing test results**<br>
+`boolean`. Optional. Use when `runInParallel = false`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If this option is turned on, test results won't be published as part of this task. Use Publish Test Results task instead.
 <!-- :::editable-content-end::: -->
 <br>
 
