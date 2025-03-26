@@ -3,6 +3,8 @@ title: jobs.deployment.strategy.rolling definition
 description: Rolling Deployment strategy.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # jobs.deployment.strategy.rolling definition

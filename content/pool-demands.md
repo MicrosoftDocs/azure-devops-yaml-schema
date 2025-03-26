@@ -3,6 +3,8 @@ title: pool.demands definition
 description: Demands (for a private pool).
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # pool.demands definition

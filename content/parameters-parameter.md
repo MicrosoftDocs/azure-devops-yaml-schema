@@ -3,6 +3,8 @@ title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # pipeline.parameters.parameter definition

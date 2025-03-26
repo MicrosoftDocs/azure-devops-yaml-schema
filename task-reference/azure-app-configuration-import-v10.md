@@ -3,6 +3,8 @@ title: AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task
 description: Import key-values to an Azure App Configuration instance.
 ms.date: 03/24/2025
 monikerRange: "=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task

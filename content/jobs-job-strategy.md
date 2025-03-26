@@ -3,6 +3,8 @@ title: jobs.job.strategy definition
 description: Execution strategy for this job.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # jobs.job.strategy definition

@@ -3,6 +3,8 @@ title: AzureKeyVault@2 - Azure Key Vault v2 task
 description: Download Azure Key Vault secrets.
 ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2022"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AzureKeyVault@2 - Azure Key Vault v2 task

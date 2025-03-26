@@ -3,6 +3,8 @@ title: steps.task definition
 description: Runs a task.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # steps.task definition

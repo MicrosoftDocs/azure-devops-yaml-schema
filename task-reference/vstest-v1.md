@@ -3,6 +3,8 @@ title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # VSTest@1 - Visual Studio Test v1 task

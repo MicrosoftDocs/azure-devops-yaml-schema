@@ -3,6 +3,8 @@ title: pr definition
 description: Pull request trigger.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # pr definition

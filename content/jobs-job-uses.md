@@ -3,6 +3,8 @@ title: jobs.job.uses definition
 description: Any resources required by this job that are not already referenced.
 ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2020.1"
+author: juliakm
+ms.author: jukullam
 ---
 
 # jobs.job.uses definition
