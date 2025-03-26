@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-ms.date: 02/24/2025
+ms.date: 03/25/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -29,7 +29,7 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
   inputs:
     notifyUsers: # string. Required. Notify users. 
     #approvers: # string. Approvers. 
-    #allowApproversToApproveTheirOwnRuns: false # boolean. Allow approvers to approve their own run. Default: false.
+    #allowApproversToApproveTheirOwnRuns: true # boolean. Allow approvers to approve their own run. Default: true.
     #instructions: # string. Instructions. 
     #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
 ```
@@ -70,12 +70,9 @@ Specify a comma separated list of users/groups/project teams to act on a manual 
 :::moniker range="=azure-pipelines"
 
 **`allowApproversToApproveTheirOwnRuns`** - **Allow approvers to approve their own run**<br>
-`boolean`. Default value: `false`.<br>
+`boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If this is true, approver will be able to approve their own run.
-
-> [!IMPORTANT]
-> The functionality for `allowApproversToApproveTheirOwnRuns` is still deploying to Azure DevOps, and is currently not enabled.
 <!-- :::editable-content-end::: -->
 <br>
 

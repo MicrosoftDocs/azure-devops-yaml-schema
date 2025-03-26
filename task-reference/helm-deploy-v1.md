@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@1 - Package and deploy Helm charts v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 03/20/2025
+ms.date: 03/25/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -40,12 +40,13 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
     #azureResourceGroupForACR: # string. Required when command == login || command == package || command == push. Resource group. 
     #azureContainerRegistry: # string. Required when command == login || command == package || command == push. Azure Container Registry. 
   # Commands
-    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'package' | 'rollback' | 'upgrade' | 'uninstall'. Required. Command. Default: ls.
+    command: 'ls' # 'create' | 'delete' | 'expose' | 'get' | 'init' | 'install' | 'login' | 'logout' | 'ls' | 'push' | 'package' | 'rollback' | 'upgrade' | 'uninstall'. Required. Command. Default: ls.
     #chartType: 'Name' # 'Name' | 'FilePath'. Required when command == install || command == upgrade. Chart Type. Default: Name.
-    chartName: # string. Required when chartType == Name. Chart Name. 
-    #chartPath: # string. Required when chartType == FilePath || command == package. Chart Path. 
+    #chartName: # string. Required when chartType == Name || command == create. Chart Name. 
+    #chartPath: # string. Required when chartType == FilePath || command == package || command == push. Chart Path. 
+    #remoteRepo: # string. Required when command == push. Remote Repo. 
     #chartVersion: # string. Alias: version. Optional. Use when command == package || command == install || command == upgrade. Version. 
-    #releaseName: # string. Optional. Use when command == install || command == upgrade. Release Name. 
+    #releaseName: # string. Optional. Use when command == install || command == upgrade || command == rollback || command == uninstall || command == delete. Release Name. 
     #overrideValues: # string. Optional. Use when command == install || command == upgrade. Set Values. 
     #valueFile: # string. Optional. Use when command == install || command == upgrade. Value File. 
     #destination: '$(Build.ArtifactStagingDirectory)' # string. Optional. Use when command == package. Destination. Default: $(Build.ArtifactStagingDirectory).
@@ -202,7 +203,7 @@ Select an Azure Container Registry which will be used for helm charts.
 :::moniker range="=azure-pipelines"
 
 **`command`** - **Command**<br>
-`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `upgrade`, `uninstall`. Default value: `ls`.<br>
+`string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `push`, `package`, `rollback`, `upgrade`, `uninstall`. Default value: `ls`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a helm command.
 <!-- :::editable-content-end::: -->
@@ -226,7 +227,7 @@ Select how you want to enter chart info. You can either provide name of the char
 :::moniker range="=azure-pipelines"
 
 **`chartName`** - **Chart Name**<br>
-`string`. Required when `chartType == Name`.<br>
+`string`. Required when `chartType == Name || command == create`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chart reference to install, this can be a url or a chart name. For example, if chart name is 'stable/mysql', the task will run 'helm install stable/mysql'.
 <!-- :::editable-content-end::: -->
@@ -238,9 +239,21 @@ Chart reference to install, this can be a url or a chart name. For example, if c
 :::moniker range="=azure-pipelines"
 
 **`chartPath`** - **Chart Path**<br>
-`string`. Required when `chartType == FilePath || command == package`.<br>
+`string`. Required when `chartType == FilePath || command == package || command == push`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Path to the chart to install. This can be a path to a packaged chart or a path to an unpacked chart directory. For example, if './redis' is specified the task will run 'helm install ./redis'.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="remoteRepo"::: -->
+:::moniker range="=azure-pipelines"
+
+**`remoteRepo`** - **Remote Repo**<br>
+`string`. Required when `command == push`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The remote repository where the chart will be pushed.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +275,7 @@ Specify the exact chart version to install. If this is not specified, the latest
 :::moniker range="=azure-pipelines"
 
 **`releaseName`** - **Release Name**<br>
-`string`. Optional. Use when `command == install || command == upgrade`.<br>
+`string`. Optional. Use when `command == install || command == upgrade || command == rollback || command == uninstall || command == delete`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Release name. If unspecified, it will autogenerate one for you.
 <!-- :::editable-content-end::: -->
@@ -568,7 +581,6 @@ Output emitted from the execution of specified Helm command
 A major change for `HelmDeploy@1` task is that helm chart commands are removed:
 
 * The `helm chart` subcommand has been removed
-* `helm chart push` has been removed
 * `helm chart remove` has been removed
 * `helm chart save` has been replaced with `helm package`
 * `helm save` has been removed
