@@ -3,6 +3,8 @@ title: jobs.deployment.strategy.runOnce definition
 description: RunOnce Deployment strategy.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # jobs.deployment.strategy.runOnce definition

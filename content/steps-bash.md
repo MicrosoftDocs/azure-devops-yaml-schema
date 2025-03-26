@@ -3,6 +3,8 @@ title: steps.bash definition
 description: Runs a script in Bash on Windows, macOS, and Linux.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # steps.bash definition
