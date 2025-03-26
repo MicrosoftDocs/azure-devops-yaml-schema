@@ -17,6 +17,9 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 > [!NOTE]
 > VSTest@3 is the newest version of the task and should be used in your pipelines.
+
+> [!NOTE]
+> VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
