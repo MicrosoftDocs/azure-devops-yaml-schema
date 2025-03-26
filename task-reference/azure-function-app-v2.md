@@ -3,6 +3,8 @@ title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
 ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2022.1"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureFunctionApp@2 - Azure Functions Deploy v2 task

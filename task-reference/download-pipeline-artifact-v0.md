@@ -3,6 +3,8 @@ title: DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 description: Downloads an artifact associated with a pipeline.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # DownloadPipelineArtifact@0 - Download pipeline artifact v0 task

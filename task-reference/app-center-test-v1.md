@@ -3,6 +3,8 @@ title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # AppCenterTest@1 - App Center test v1 task

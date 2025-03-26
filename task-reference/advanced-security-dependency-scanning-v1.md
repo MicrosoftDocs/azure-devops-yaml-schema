@@ -3,6 +3,8 @@ title: AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Sca
 description: Scan for open source dependency vulnerabilities in your source code.
 ms.date: 02/24/2025
 monikerRange: "=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task

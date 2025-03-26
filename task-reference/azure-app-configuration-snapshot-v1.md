@@ -3,6 +3,8 @@ title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 tas
 description: Create a snapshot in an Azure App Configuration instance.
 ms.date: 02/24/2025
 monikerRange: "=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task

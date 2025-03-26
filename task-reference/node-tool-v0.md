@@ -3,6 +3,8 @@ title: NodeTool@0 - Node.js tool installer v0 task
 description: Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # NodeTool@0 - Node.js tool installer v0 task

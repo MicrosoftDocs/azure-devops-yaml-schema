@@ -3,6 +3,8 @@ title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
