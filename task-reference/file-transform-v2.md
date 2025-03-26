@@ -1,7 +1,7 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 03/20/2025
+ms.date: 03/25/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -30,6 +30,7 @@ Use this task to replace tokens with variable values in XML or JSON configuratio
     folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #enableXmlTransform: true # boolean. XML transformation. Default: true.
     #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config' # string. Optional. Use when enableXmlTransform == true. XML Transformation rules. Default: -transform **\*.Release.config -xml **\*.config.
+    #errorOnInvalidSubstitution: false # boolean. Error on empty files and invalid substitution. Default: false.
   # Variable Substitution
     #jsonTargetFiles: # string. JSON target files. 
     #xmlTargetFiles: # string. XML target files.
@@ -154,6 +155,18 @@ For XML, Variables defined in the build or release pipelines will be matched aga
 Variable Substitution is run after configuration transforms.
 
 Note: Only custom variables defined in build/release pipelines are used in substitution. Default/system defined pipeline variables are excluded. If the same variables are defined in the release pipeline and in the stage, then the stage variables will supersede the release pipeline variables.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="errorOnInvalidSubstitution"::: -->
+:::moniker range="=azure-pipelines"
+
+**`errorOnInvalidSubstitution`** - **Error on empty files and invalid substitution.**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+If selected, the pipeline fails if the target files are empty or if the substitution fails.
 <!-- :::editable-content-end::: -->
 <br>
 
