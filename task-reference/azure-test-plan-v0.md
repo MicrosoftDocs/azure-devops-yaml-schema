@@ -1,6 +1,6 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
-description: Run manual and automated tests in test plan in Java and python language.
+description: Run manual and automated tests in test plan in Java and Python language.
 ms.date: 03/17/2025
 monikerRange: "=azure-pipelines"
 ---
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run manual and automated tests in test plan in Java and python language.
+Run manual and automated tests in test plan in Java and Python language.
 
 > [!NOTE]
 > This task is in Public Preview.
@@ -27,7 +27,7 @@ Run manual and automated tests in test plan in Java and python language.
 
 ```yaml
 # Azure Test Plan v0
-# Run manual and automated tests in test plan in Java and python language.
+# Run manual and automated tests in test plan in Java and Python language.
 - task: AzureTestPlan@0
   inputs:
     testSelector: # 'manualTests' | 'automatedTests'. Required. Test cases to be executed. 
