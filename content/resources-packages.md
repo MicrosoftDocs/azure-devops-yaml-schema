@@ -3,6 +3,8 @@ title: resources.packages definition
 description: List of external packages.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.packages definition

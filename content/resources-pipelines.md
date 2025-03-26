@@ -3,6 +3,8 @@ title: resources.pipelines definition
 description: List of pipeline resources.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.pipelines definition

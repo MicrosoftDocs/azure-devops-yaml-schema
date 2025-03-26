@@ -3,6 +3,8 @@ title: boolean definition
 description: Represents a boolean value in a pipeline.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # boolean definition
