@@ -3,6 +3,8 @@ title: resources.builds definition
 description: List of build resources referenced by the pipeline.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.builds definition

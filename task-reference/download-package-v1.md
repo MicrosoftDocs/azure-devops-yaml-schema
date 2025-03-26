@@ -3,6 +3,8 @@ title: DownloadPackage@1 - Download package v1 task
 description: Download a package from a package management feed in Azure Artifacts.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # DownloadPackage@1 - Download package v1 task

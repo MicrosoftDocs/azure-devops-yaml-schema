@@ -3,6 +3,8 @@ title: onSuccessOrFailureHook definition
 description: Used to run steps for rollback actions or clean-up.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # onSuccessOrFailureHook definition

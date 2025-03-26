@@ -3,6 +3,8 @@ title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # steps.powershell definition

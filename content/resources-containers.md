@@ -3,6 +3,8 @@ title: resources.containers definition
 description: List of container images.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.containers definition

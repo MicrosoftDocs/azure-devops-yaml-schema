@@ -3,6 +3,8 @@ title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
 ms.date: 02/24/2025
 monikerRange: "<=azure-pipelines"
+author: steved0x
+ms.author: sdanie
 ---
 
 # VSBuild@1 - Visual Studio build v1 task

@@ -3,6 +3,8 @@ title: Cache@2 - Cache v2 task
 description: Cache files between runs.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: ramiMSFT
+ms.author: rabououn
 ---
 
 # Cache@2 - Cache v2 task

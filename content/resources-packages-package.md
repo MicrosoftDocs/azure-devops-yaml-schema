@@ -3,6 +3,8 @@ title: resources.packages.package definition
 description: A package resource used to reference a NuGet or npm GitHub package.
 ms.date: 03/20/2025
 monikerRange: "<=azure-pipelines"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.packages.package definition

@@ -3,6 +3,8 @@ title: resources.webhooks.webhook definition
 description: A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
 ms.date: 02/24/2025
 monikerRange: ">=azure-pipelines-2020.1"
+author: juliakm
+ms.author: jukullam
 ---
 
 # resources.webhooks.webhook definition
