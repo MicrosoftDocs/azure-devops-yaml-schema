@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@0 - App Center Distribute v0 task
 description: Distribute app builds to testers and users via App Center (task version 1).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -83,7 +83,7 @@ The app slug is in the format of `{username}/{app_identifier}`.  To locate `{use
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **Binary file path**<br>
-Input alias: `app`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the APK or IPA file you want to publish.
 <!-- :::editable-content-end::: -->
@@ -95,7 +95,7 @@ The relative path from the repo root to the APK or IPA file you want to publish.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsOption`** - **Symbols type**<br>
-Input alias: `symbolsType`. `string`. Allowed values: `Apple`. Default value: `Apple`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `symbolsType`. `string`. Allowed values: `Apple`. Default value: `Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes symbol files to receive symbolicated stack traces in App Center Diagnostics.
 <!-- :::editable-content-end::: -->
@@ -119,7 +119,7 @@ The relative path from the repo root to the symbols folder.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsPdbFiles`** - **Symbols path (*.pdb)**<br>
-Input alias: `pdbPath`. `string`. Optional. Use when `symbolsType = UWP`. Default value: `**/*.pdb`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `pdbPath`. `string`. Optional. Use when `symbolsType = UWP`. Default value: `**/*.pdb`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to `.pdb` symbols files. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -131,7 +131,7 @@ The relative path from the repo root to `.pdb` symbols files. Path may contain [
 :::moniker range="<=azure-pipelines"
 
 **`symbolsDsymFiles`** - **dSYM path**<br>
-Input alias: `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the dSYM folder. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -143,7 +143,7 @@ The relative path from the repo root to the dSYM folder. Path may contain [wildc
 :::moniker range="<=azure-pipelines"
 
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
-Input alias: `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `mappingTxtPath`. `string`. Optional. Use when `symbolsType = AndroidJava`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to Android's `mapping.txt` file.
 <!-- :::editable-content-end::: -->
@@ -155,7 +155,7 @@ The relative path from the repo root to Android's `mapping.txt` file.
 :::moniker range="<=azure-pipelines"
 
 **`symbolsIncludeParentDirectory`** - **Include all items in parent folder**<br>
-Input alias: `packParentFolder`. `boolean`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packParentFolder`. `boolean`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Uploads the selected symbols file or folder and all other items inside the same parent folder. This is required for React Native apps.
 <!-- :::editable-content-end::: -->
@@ -167,7 +167,7 @@ Uploads the selected symbols file or folder and all other items inside the same 
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesOption`** - **Create release notes**<br>
-Input alias: `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The release notes will be attached to the release and shown to testers on the installation page.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: FtpUpload@2 - FTP upload v2 task
 description: Upload files using FTP.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -82,7 +82,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 :::moniker range="<=azure-pipelines"
 
 **`credentialsOption`** - **Authentication Method**<br>
-Input alias: `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `credsType`. `string`. Required. Allowed values: `serviceEndpoint` (FTP service connection), `inputs` (Enter credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the authentication method. Use an FTP service connection or enter the connection credentials.
 <!-- :::editable-content-end::: -->
@@ -155,7 +155,7 @@ Specifies the password for the FTP connection.
 :::moniker range="<=azure-pipelines"
 
 **`rootDirectory`** - **Root folder**<br>
-Input alias: `rootFolder`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `rootFolder`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the source folder to upload files from.
 <!-- :::editable-content-end::: -->
@@ -179,7 +179,7 @@ Specifies the file paths or patterns of the files to upload. The string supports
 :::moniker range="<=azure-pipelines"
 
 **`remoteDirectory`** - **Remote directory**<br>
-Input alias: `remotePath`. `string`. Required. Default value: `/upload/$(Build.BuildId)/`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `remotePath`. `string`. Required. Default value: `/upload/$(Build.BuildId)/`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the directory on the remote FTP server where the task uploads files.
 <!-- :::editable-content-end::: -->

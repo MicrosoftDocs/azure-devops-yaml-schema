@@ -1,7 +1,7 @@
 ---
 title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -82,7 +82,7 @@ Test app packages with Visual Studio App Center.
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **Binary application file path**<br>
-Input alias: `app`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the APK or IPA file you want to test.
 <!-- :::editable-content-end::: -->
@@ -94,7 +94,7 @@ The relative path from the repo root to the APK or IPA file you want to test.
 :::moniker range="<=azure-pipelines"
 
 **`artifactsDirectory`** - **Artifacts directory**<br>
-Input alias: `artifactsDir`. `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/AppCenterTest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `artifactsDir`. `string`. Required. Default value: `$(Build.ArtifactStagingDirectory)/AppCenterTest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies where to place the artifacts produced by the prepare step and used by the run step. This directory will be created if it does not already exist.
 <!-- :::editable-content-end::: -->
@@ -106,7 +106,7 @@ Specifies where to place the artifacts produced by the prepare step and used by 
 :::moniker range="<=azure-pipelines"
 
 **`prepareTests`** - **Prepare tests**<br>
-Input alias: `enablePrepare`. `boolean`. Default value: `true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `enablePrepare`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 When set to `true`, this input prepares the tests.
 <!-- :::editable-content-end::: -->
@@ -118,7 +118,7 @@ When set to `true`, this input prepares the tests.
 :::moniker range="<=azure-pipelines"
 
 **`frameworkOption`** - **Test framework**<br>
-Input alias: `framework`. `string`. Required when `enablePrepare = true`. Allowed values: `appium`, `espresso`, `calabash`, `uitest` (Xamarin UI Test), `xcuitest`. Default value: `appium`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `framework`. `string`. Required when `enablePrepare = true`. Allowed values: `appium`, `espresso`, `calabash`, `uitest` (Xamarin UI Test), `xcuitest`. Default value: `appium`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
@@ -129,7 +129,7 @@ Input alias: `framework`. `string`. Required when `enablePrepare = true`. Allowe
 :::moniker range="<=azure-pipelines"
 
 **`appiumBuildDirectory`** - **Build directory**<br>
-Input alias: `appiumBuildDir`. `string`. Required when `enablePrepare = true && framework = appium`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `appiumBuildDir`. `string`. Required when `enablePrepare = true && framework = appium`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the directory with the Appium tests.
 <!-- :::editable-content-end::: -->
@@ -141,7 +141,7 @@ The path to the directory with the Appium tests.
 :::moniker range="<=azure-pipelines"
 
 **`espressoBuildDirectory`** - **Build directory**<br>
-Input alias: `espressoBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `espressoBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the Espresso output directory.
 <!-- :::editable-content-end::: -->
@@ -153,7 +153,7 @@ The path to the Espresso output directory.
 :::moniker range="<=azure-pipelines"
 
 **`espressoTestApkFile`** - **Test APK path**<br>
-Input alias: `espressoTestApkPath`. `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `espressoTestApkPath`. `string`. Optional. Use when `enablePrepare = true && framework = espresso`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the APK file with the Espresso tests. If not set, `build-dir` is used to discover it. A wildcard is allowed.
 <!-- :::editable-content-end::: -->
@@ -165,7 +165,7 @@ The path to the APK file with the Espresso tests. If not set, `build-dir` is use
 :::moniker range="<=azure-pipelines"
 
 **`calabashProjectDirectory`** - **Project directory**<br>
-Input alias: `calabashProjectDir`. `string`. Required when `enablePrepare = true && framework = calabash`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `calabashProjectDir`. `string`. Required when `enablePrepare = true && framework = calabash`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the Calabash workspace directory.
 <!-- :::editable-content-end::: -->
@@ -213,7 +213,7 @@ When set to `true`, this input skips the configuration check specified by the Cu
 :::moniker range="<=azure-pipelines"
 
 **`uiTestBuildDirectory`** - **Build directory**<br>
-Input alias: `uitestBuildDir`. `string`. Required when `enablePrepare = true && framework = uitest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `uitestBuildDir`. `string`. Required when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the directory with the built test assemblies.
 <!-- :::editable-content-end::: -->
@@ -237,7 +237,7 @@ The path to the store file that is used to sign the app.
 :::moniker range="<=azure-pipelines"
 
 **`uiTestStorePassword`** - **Store password**<br>
-Input alias: `uitestStorePass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `uitestStorePass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The password of the store file that is used to sign the app. To encrypt this value, use a new variable with its lock enabled on the Variables tab.
 <!-- :::editable-content-end::: -->
@@ -261,7 +261,7 @@ Specifies the alias that identifies the public/private key pair that is used in 
 :::moniker range="<=azure-pipelines"
 
 **`uiTestKeyPassword`** - **Key password**<br>
-Input alias: `uitestKeyPass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `uitestKeyPass`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the key password for the alias and store file. To encrypt this value, use a new variable with its lock enabled on the Variables tab.
 <!-- :::editable-content-end::: -->
@@ -273,7 +273,7 @@ Specifies the key password for the alias and store file. To encrypt this value, 
 :::moniker range="<=azure-pipelines"
 
 **`uiTestToolsDirectory`** - **Test tools directory**<br>
-Input alias: `uitestToolsDir`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `uitestToolsDir`. `string`. Optional. Use when `enablePrepare = true && framework = uitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the directory with the Xamarin UI test tools that contain *test-cloud.exe*.
 <!-- :::editable-content-end::: -->
@@ -297,7 +297,7 @@ Signs the test server.
 :::moniker range="<=azure-pipelines"
 
 **`xcUITestBuildDirectory`** - **Build directory**<br>
-Input alias: `xcuitestBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `xcuitestBuildDir`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the build output directory (usually `$(ProjectDir)/Build/Products/Debug-iphoneos`).
 <!-- :::editable-content-end::: -->
@@ -309,7 +309,7 @@ The path to the build output directory (usually `$(ProjectDir)/Build/Products/De
 :::moniker range="<=azure-pipelines"
 
 **`xcUITestIpaFile`** - **Test IPA path**<br>
-Input alias: `xcuitestTestIpaPath`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `xcuitestTestIpaPath`. `string`. Optional. Use when `enablePrepare = true && framework = xcuitest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the .ipa file with the XCUITest tests.
 <!-- :::editable-content-end::: -->
@@ -321,7 +321,7 @@ The path to the .ipa file with the XCUITest tests.
 :::moniker range="<=azure-pipelines"
 
 **`prepareOptions`** - **Additional options**<br>
-Input alias: `prepareOpts`. `string`. Optional. Use when `enablePrepare = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `prepareOpts`. `string`. Optional. Use when `enablePrepare = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The additional arguments that are passed to the App Center test prepare step.
 <!-- :::editable-content-end::: -->
@@ -333,7 +333,7 @@ The additional arguments that are passed to the App Center test prepare step.
 :::moniker range="<=azure-pipelines"
 
 **`runTests`** - **Run tests**<br>
-Input alias: `enableRun`. `boolean`. Default value: `true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `enableRun`. `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Runs the tests.
 <!-- :::editable-content-end::: -->
@@ -345,7 +345,7 @@ Runs the tests.
 :::moniker range="<=azure-pipelines"
 
 **`credentialsOption`** - **Authentication method**<br>
-Input alias: `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center service connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `credsType`. `string`. Required when `enableRun = true`. Allowed values: `serviceEndpoint` (App Center service connection), `inputs` (Credentials). Default value: `serviceEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Uses the App Center service connection or enters the credentials to connect to Visual Studio App Center.
 <!-- :::editable-content-end::: -->
@@ -429,7 +429,7 @@ The series name for organizing the test runs (for example: master, production, b
 :::moniker range="<=azure-pipelines"
 
 **`dsymDirectory`** - **dSYM directory**<br>
-Input alias: `dsymDir`. `string`. Optional. Use when `enableRun = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dsymDir`. `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the iOS symbol files.
 <!-- :::editable-content-end::: -->
@@ -441,7 +441,7 @@ The path to the iOS symbol files.
 :::moniker range="<=azure-pipelines"
 
 **`localeOption`** - **System language**<br>
-Input alias: `locale`. `string`. Required when `enableRun = true`. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `locale`. `string`. Required when `enableRun = true`. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Utilize if your language isn't displayed. Select `Other` and enter its locale, such as `en_US`.
 <!-- :::editable-content-end::: -->
@@ -465,7 +465,7 @@ Enters any two-letter ISO-639 language code along with any two-letter ISO 3166 c
 :::moniker range="<=azure-pipelines"
 
 **`loginOptions`** - **Additional options for login**<br>
-Input alias: `loginOpts`. `string`. Optional. Use when `enableRun = true && credsType = inputs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `loginOpts`. `string`. Optional. Use when `enableRun = true && credsType = inputs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The additional arguments that are passed to the Visual Studio App Center login step.
 <!-- :::editable-content-end::: -->
@@ -477,7 +477,7 @@ The additional arguments that are passed to the Visual Studio App Center login s
 :::moniker range="<=azure-pipelines"
 
 **`runOptions`** - **Additional options for run**<br>
-Input alias: `runOpts`. `string`. Optional. Use when `enableRun = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `runOpts`. `string`. Optional. Use when `enableRun = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The additional arguments that are passed to the Visual Studio App Center test run.
 <!-- :::editable-content-end::: -->
@@ -489,7 +489,7 @@ The additional arguments that are passed to the Visual Studio App Center test ru
 :::moniker range="<=azure-pipelines"
 
 **`skipWaitingForResults`** - **Do not wait for test result**<br>
-Input alias: `async`. `boolean`. Optional. Use when `enableRun = true`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `async`. `boolean`. Optional. Use when `enableRun = true`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Executes a command asynchronously and exits when the tests are uploaded without waiting for the test results.
 <!-- :::editable-content-end::: -->
@@ -501,7 +501,7 @@ Executes a command asynchronously and exits when the tests are uploaded without 
 :::moniker range="<=azure-pipelines"
 
 **`cliFile`** - **App Center CLI location**<br>
-Input alias: `cliLocationOverride`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cliLocationOverride`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path to the Visual Studio App Center CLI on the build or release agent.
 <!-- :::editable-content-end::: -->
@@ -513,7 +513,7 @@ The path to the Visual Studio App Center CLI on the build or release agent.
 :::moniker range="<=azure-pipelines"
 
 **`showDebugOutput`** - **Enable debug output**<br>
-Input alias: `debug`. `boolean`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `debug`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Adds `--debug` to the Visual Studio App Center CLI.
 <!-- :::editable-content-end::: -->

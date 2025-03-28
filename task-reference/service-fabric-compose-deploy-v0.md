@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricComposeDeploy@0 - Service Fabric Compose deploy v0 task
 description: Deploy a Docker Compose application to an Azure Service Fabric cluster.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -71,7 +71,7 @@ Use this task to deploy a Docker Compose application to a Service Fabric cluster
 :::moniker range="<=azure-pipelines"
 
 **`clusterConnection`** - **Cluster Service Connection**<br>
-Input alias: `serviceConnectionName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure Service Fabric service connection to be used to connect to the cluster. Choose `Manage` to register a new service connection.
 <!-- :::editable-content-end::: -->
@@ -126,7 +126,7 @@ Specifies how credentials for the Docker container registry will be provided to 
 :::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpointName`. `string`. Optional. Use when `registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. If a certificate matching the Server Certificate Thumbprint in the Cluster Service Connection is installed on the build agent, it will be used to encrypt the password; otherwise, the password will not be encrypted.
 <!-- :::editable-content-end::: -->
@@ -138,7 +138,7 @@ Specifies a Docker registry service connection. If a certificate matching the Se
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->

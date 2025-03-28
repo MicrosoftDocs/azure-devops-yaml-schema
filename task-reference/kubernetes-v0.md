@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@0 - Kubectl v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands (task version 0).
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -83,7 +83,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 :::moniker range="<=azure-pipelines"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
@@ -191,7 +191,7 @@ Select a Container registry type. The task can use Azure Subscription details to
 :::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry service connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
@@ -203,7 +203,7 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `secretType = dockerRegistry && containerRegistryType = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager subscription, which contains Azure Container Registry.
 >[!NOTE]
@@ -361,7 +361,7 @@ Specifies the full path to the `kubectl.exe` file.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory for the Kubectl command.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: PublishTestResults@2 - Publish Test Results v2 task
 description: Publish test results to Azure Pipelines.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -74,13 +74,12 @@ Publish test results to Azure Pipelines.
 :::moniker range="<=azure-pipelines"
 
 **`testResultsFormat`** - **Test result format**<br>
-Input alias: `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`, `CTest`. Default value: `JUnit`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `testRunner`. `string`. Required. Allowed values: `JUnit`, `NUnit`, `VSTest`, `XUnit`, `CTest`. Default value: `JUnit`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the format of the results files you want to publish. The following formats are supported: [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html), [JUnit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd), [NUnit 2](https://docs.nunit.org/), [NUnit 3](https://docs.nunit.org/articles/nunit/technical-notes/usage/Test-Result-XML-Format.html), Visual Studio Test (TRX) and [xUnit 2](https://xunit.net/docs/format-xml-v2).
 
 > [!TIP]
 > `VSTest` format refers to the TRX format. So, it works also if you are producing TRX with [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview) and is not specific to VSTest. The value is VSTest for historical reasons, before the introduction of MTP.
-
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -183,7 +182,7 @@ Optional. Specifies a name for the test run against which the results will be re
 :::moniker range="<=azure-pipelines"
 
 **`buildPlatform`** - **Build Platform**<br>
-Input alias: `platform`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `platform`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the build platform against which the test run should be reported. For example: `x64` or `x86`. If you defined a variable for the platform in your build task, use it here.
 <!-- :::editable-content-end::: -->
@@ -195,7 +194,7 @@ Optional. Specifies the build platform against which the test run should be repo
 :::moniker range="<=azure-pipelines"
 
 **`buildConfiguration`** - **Build Configuration**<br>
-Input alias: `configuration`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `configuration`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the build configuration against which the test run should be reported. For example: `Debug` or `Release`. If you defined a variable for the configuration in your build task, use it here.
 <!-- :::editable-content-end::: -->

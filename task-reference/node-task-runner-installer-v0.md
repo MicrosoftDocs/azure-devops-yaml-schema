@@ -1,7 +1,7 @@
 ---
 title: NodeTaskRunnerInstaller@0 - Node.js tasks runner installer v0 task
 description: Install specific Node.js version to run node tasks.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: ">=azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
@@ -54,7 +54,7 @@ Install specific Node.js version to run node tasks.
 :::moniker range="=azure-pipelines"
 
 **`nodeVersion`** - **Version of runner to install**<br>
-Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1), `16` (Node.js 16.20.2). Default value: `6`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1), `16` (Node.js 16.20.2). Default value: `6`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the node version to install.
 <!-- :::editable-content-end::: -->
@@ -65,7 +65,7 @@ Select the node version to install.
 :::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 **`nodeVersion`** - **Version of runner to install**<br>
-Input alias: `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1). Default value: `6`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `runnerVersion | installVersion`. `string`. Required. Allowed values: `6` (Node.js 6.17.1), `10` (Node.js 10.24.1). Default value: `6`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the node version to install.
 <!-- :::editable-content-end::: -->

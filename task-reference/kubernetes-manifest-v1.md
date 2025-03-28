@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -103,7 +103,7 @@ For more information, see [Remarks](#remarks).
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes service connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `action != bake && connectionType = kubernetesServiceConnection`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `action != bake && connectionType = kubernetesServiceConnection`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/service-endpoints).
 <!-- :::editable-content-end::: -->
@@ -115,7 +115,7 @@ Specifies a [Kubernetes service connection](/azure/devops/pipelines/library/serv
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscriptionConnection`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `action != bake && connectionType = azureResourceManager`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Resource Manager subscription, which contains Azure Container Registry.Note: To configure new service connection, select the Azure subscription from the list and click 'Authorize'. If your subscription is not listed or if you want to use an existing Service Principal, you can setup an Azure service connection using 'Add' or 'Manage' button.
 <!-- :::editable-content-end::: -->

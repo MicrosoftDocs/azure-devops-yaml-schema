@@ -1,7 +1,7 @@
 ---
 title: UniversalPackages@0 - Universal packages v0 task
 description: Download or publish Universal Packages.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -93,7 +93,7 @@ Specifies the folder path where the task downloads the package's contents.
 :::moniker range="<=azure-pipelines"
 
 **`feedsToUse`** - **Feed location**<br>
-Input alias: `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `internalOrExternalDownload`. `string`. Required when `command = download`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -105,7 +105,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **organization/collection connection**<br>
-Input alias: `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoint`. `string`. Optional. Use when `internalOrExternalDownload = external && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -117,7 +117,7 @@ Specifies the credentials to use for external registries located in the selected
 :::moniker range="<=azure-pipelines"
 
 **`vstsFeed`** - **Feed**<br>
-Input alias: `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes the selected feed. You must have Azure Artifacts installed and licensed to select a feed here. Specifies the *FeedName* for an organization-scoped feed and *projectName/FeedName* or *ProjectID/FeedID* for a project-scoped feed.
 <!-- :::editable-content-end::: -->
@@ -129,7 +129,7 @@ Includes the selected feed. You must have Azure Artifacts installed and licensed
 :::moniker range="<=azure-pipelines"
 
 **`vstsFeedPackage`** - **Package name**<br>
-Input alias: `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packageListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the package for the task to download.
 <!-- :::editable-content-end::: -->
@@ -141,7 +141,7 @@ Specifies the name of the package for the task to download.
 :::moniker range="<=azure-pipelines"
 
 **`vstsPackageVersion`** - **Version**<br>
-Input alias: `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `versionListDownload`. `string`. Required when `internalOrExternalDownload = internal && command = download`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the package version or uses a variable containing the version to download. This entry can also be a wildcard expression, such as `*`, to get the highest version. Examples: `1.*` gets the highest version with major version 1, and `1.2.*` gets the highest patch release with major version 1 and minor version 2.
 <!-- :::editable-content-end::: -->
@@ -203,7 +203,7 @@ Specifies the path to list of files to be published.
 :::moniker range="<=azure-pipelines"
 
 **`feedsToUsePublish`** - **Feed location**<br>
-Input alias: `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `internalOrExternalPublish`. `string`. Required when `command = publish`. Allowed values: `internal` (This organization/collection), `external` (Another organization/collection). Default value: `internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from this collection or another collection in Azure Artifacts.
 <!-- :::editable-content-end::: -->
@@ -215,7 +215,7 @@ Specifies a feed from this collection or another collection in Azure Artifacts.
 :::moniker range="<=azure-pipelines"
 
 **`publishFeedCredentials`** - **organization/collection connection**<br>
-Input alias: `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Required when `internalOrExternalPublish = external && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external feeds.
 <!-- :::editable-content-end::: -->
@@ -227,7 +227,7 @@ Specifies the credentials to use for external feeds.
 :::moniker range="<=azure-pipelines"
 
 **`vstsFeedPublish`** - **Destination Feed**<br>
-Input alias: `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the project and the feed's name/GUID to publish to.
 <!-- :::editable-content-end::: -->
@@ -251,7 +251,7 @@ Associates this build/release pipeline's metadata (such as run # and source code
 :::moniker range="<=azure-pipelines"
 
 **`vstsFeedPackagePublish`** - **Package name**<br>
-Input alias: `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packageListPublish`. `string`. Required when `internalOrExternalPublish = internal && command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a package ID to publish or creates a new package ID if you've never published a version of this package before. Package names must be lower case and can only use letters, numbers, and dashes (`-`).
 <!-- :::editable-content-end::: -->
@@ -289,7 +289,7 @@ Specifies the package name when publishing to an external feed.
 :::moniker range="<=azure-pipelines"
 
 **`versionOption`** - **Version**<br>
-Input alias: `versionPublishSelector`. `string`. Required when `command = publish`. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `versionPublishSelector`. `string`. Required when `command = publish`. Allowed values: `major` (Next major), `minor` (Next minor), `patch` (Next patch), `custom`. Default value: `patch`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a version increment strategy. The `custom` value to input your package version manually. For new packages, the first version will be 1.0.0 if you specify `major`, 0.1.0 if you specify `minor`, or 0.0.1 if you specify `patch`. See the [Semantic Versioning spec](https://semver.org/) for more information.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -46,7 +46,7 @@ Use this task to run [CocoaPods pod install](https://guides.cocoapods.org/using/
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory in which to execute this task. If left empty, the repository directory will be used.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@1 - Xamarin.iOS v1 task
 description: Build an iOS app with Xamarin on macOS (task version 1).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -63,7 +63,7 @@ Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more 
 :::moniker range="<=azure-pipelines"
 
 **`solutionFile`** - **Solution**<br>
-Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the relative path from the repository root of the `Xamarin.iOS` solution to the build. May contain wildcards.
 <!-- :::editable-content-end::: -->
@@ -111,7 +111,7 @@ If set to `true`, generates an IPA as a part of the build.
 :::moniker range="<=azure-pipelines"
 
 **`buildForSimulator`** - **Build for iOS Simulator**<br>
-Input alias: `forSimulator`. `boolean`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `forSimulator`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Builds for the iOS Simulator instead of physical iOS devices.
 <!-- :::editable-content-end::: -->
@@ -147,7 +147,7 @@ Optional. Specifies additional command line arguments that are used to the build
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the working directory in which builds will run. If the value is empty, the root of the repository is used.
 <!-- :::editable-content-end::: -->
@@ -159,7 +159,7 @@ Optional. Specifies the working directory in which builds will run. If the value
 :::moniker range="<=azure-pipelines"
 
 **`buildToolOption`** - **Build tool**<br>
-Input alias: `buildTool`. `string`. Allowed values: `xbuild` (xbuild (Xamarin Studio)), `msbuild` (MSBuild (Visual Studio for Mac)). Default value: `xbuild`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `buildTool`. `string`. Allowed values: `xbuild` (xbuild (Xamarin Studio)), `msbuild` (MSBuild (Visual Studio for Mac)). Default value: `xbuild`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the build tools that the task will use.
 <!-- :::editable-content-end::: -->
@@ -171,7 +171,7 @@ Specifies the build tools that the task will use.
 :::moniker range="<=azure-pipelines"
 
 **`mdtoolFile`** - **Build tool path**<br>
-Input alias: `mdtoolLocation`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `mdtoolLocation`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MSBuild (the Visual Studio for Mac build tool). If the value is empty, the default xbuild or MSBuild path is used.
 <!-- :::editable-content-end::: -->
@@ -183,7 +183,7 @@ Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MS
 :::moniker range="<=azure-pipelines"
 
 **`signingOption`** - **Override using**<br>
-Input alias: `signMethod`. `string`. Allowed values: `file` (File Contents), `id` (Identifiers). Default value: `file`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `signMethod`. `string`. Allowed values: `file` (File Contents), `id` (Identifiers). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Use this input if the build uses a signing or provisioning method that is different than the default. Choose `file` to use a P12 certificate and provisioning profile. Choose `id` to retrieve signing settings from the default Keychain and pre-installed profiles. Leave the corresponding fields blank if you do not wish to override the default build settings.
 <!-- :::editable-content-end::: -->
@@ -195,7 +195,7 @@ Use this input if the build uses a signing or provisioning method that is differ
 :::moniker range="<=azure-pipelines"
 
 **`signingIdentity`** - **Signing identity**<br>
-Input alias: `iosSigningIdentity`. `string`. Optional. Use when `signMethod = id`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `iosSigningIdentity`. `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Overrides the signing identity that will be used to sign the build. If the value is empty, the setting in the Xcode project will be used. You may need to select `signingUnlockDefaultKeychain` if you use this option.
 <!-- :::editable-content-end::: -->
@@ -207,7 +207,7 @@ Overrides the signing identity that will be used to sign the build. If the value
 :::moniker range="<=azure-pipelines"
 
 **`signingUnlockDefaultKeychain`** - **Unlock default keychain**<br>
-Input alias: `unlockDefaultKeychain`. `boolean`. Optional. Use when `signMethod = id`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `unlockDefaultKeychain`. `boolean`. Optional. Use when `signMethod = id`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Resolves "User interaction is not allowed" errors by unlocking the default keychain.
 <!-- :::editable-content-end::: -->
@@ -219,7 +219,7 @@ Resolves "User interaction is not allowed" errors by unlocking the default keych
 :::moniker range="<=azure-pipelines"
 
 **`signingDefaultKeychainPassword`** - **Default keychain password**<br>
-Input alias: `defaultKeychainPassword`. `string`. Optional. Use when `signMethod = id`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `defaultKeychainPassword`. `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the password to unlock the default keychain when `signingUnlockDefaultKeychain` is set.
 <!-- :::editable-content-end::: -->
@@ -231,7 +231,7 @@ Specifies the password to unlock the default keychain when `signingUnlockDefault
 :::moniker range="<=azure-pipelines"
 
 **`signingProvisioningProfileID`** - **Provisioning profile UUID**<br>
-Input alias: `provProfileUuid`. `string`. Optional. Use when `signMethod = id`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `provProfileUuid`. `string`. Optional. Use when `signMethod = id`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the UUID of an installed provisioning profile to be used for this build.
 <!-- :::editable-content-end::: -->
@@ -243,7 +243,7 @@ Specifies the UUID of an installed provisioning profile to be used for this buil
 :::moniker range="<=azure-pipelines"
 
 **`signingP12File`** - **P12 certificate file**<br>
-Input alias: `p12`. `string`. Optional. Use when `signMethod = file`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `p12`. `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the relative path to a PKCS12-formatted P12 certificate file containing a signing certificate to be used for this build.
 <!-- :::editable-content-end::: -->
@@ -255,7 +255,7 @@ Specifies the relative path to a PKCS12-formatted P12 certificate file containin
 :::moniker range="<=azure-pipelines"
 
 **`signingP12Password`** - **P12 password**<br>
-Input alias: `p12pwd`. `string`. Optional. Use when `signMethod = file`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `p12pwd`. `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the password to the P12 certificate file. Use a build variable to encrypt this value.
 <!-- :::editable-content-end::: -->
@@ -267,7 +267,7 @@ Specifies the password to the P12 certificate file. Use a build variable to encr
 :::moniker range="<=azure-pipelines"
 
 **`signingProvisioningProfileFile`** - **Provisioning profile file**<br>
-Input alias: `provProfile`. `string`. Optional. Use when `signMethod = file`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `provProfile`. `string`. Optional. Use when `signMethod = file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the UUID of an installed provisioning profile override to be used for this build.
 <!-- :::editable-content-end::: -->
@@ -279,7 +279,7 @@ Specifies the UUID of an installed provisioning profile override to be used for 
 :::moniker range="<=azure-pipelines"
 
 **`signingRemoveProfile`** - **Remove profile after build**<br>
-Input alias: `removeProfile`. `boolean`. Optional. Use when `signMethod = file`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `removeProfile`. `boolean`. Optional. Use when `signMethod = file`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies that the contents of the provisioning profile file should be removed from the build agent after the build is complete. **Only enable this if you are running one agent per user.**.
 <!-- :::editable-content-end::: -->

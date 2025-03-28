@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -146,7 +146,7 @@ If specified, this task captures the full Jenkins build pipeline console output,
 :::moniker range="<=azure-pipelines"
 
 **`isParameterizedJob`** - **Parameterized job**<br>
-Input alias: `parameterizedJob`. `boolean`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `parameterizedJob`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies if the Jenkins job accepts parameters. Use this input even if all default parameter values are used and no parameters are actually specified.
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: XamarinComponentRestore@0 - Xamarin Component Restore v0 task
 description: This task is deprecated. Use 'NuGet' instead.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -51,7 +51,7 @@ This task is deprecated. Use 'NuGet' instead.
 :::moniker range="<=azure-pipelines"
 
 **`solutionFile`** - **Path to solution**<br>
-Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path to the Visual Studio solution file.
 <!-- :::editable-content-end::: -->

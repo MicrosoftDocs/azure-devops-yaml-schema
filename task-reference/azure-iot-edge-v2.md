@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -129,7 +129,7 @@ Selects the deployment json file.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription contains IoT Hub**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required when `action == Deploy to IoT Edge devices`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required when `action == Deploy to IoT Edge devices`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects an Azure subscription that contains IoT Hub.
 <!-- :::editable-content-end::: -->
@@ -230,7 +230,7 @@ Selects a `Container Registry Type`.
 :::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Required when `containerregistrytype = Generic Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpoint`. `string`. Required when `containerregistrytype = Generic Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects a generic Docker registry connection. This is required for build and push.
 <!-- :::editable-content-end::: -->

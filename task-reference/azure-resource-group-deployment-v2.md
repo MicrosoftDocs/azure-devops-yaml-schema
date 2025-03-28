@@ -1,7 +1,7 @@
 ---
 title: AzureResourceGroupDeployment@2 - Azure resource group deployment v2 task
 description: Deploy an Azure Resource Manager (ARM) template to a resource group and manage virtual machines.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -107,7 +107,7 @@ Deploy an Azure Resource Manager (ARM) template to a resource group and manage v
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the service connection that contains an Azure Subscription for the deployment.
 <!-- :::editable-content-end::: -->
@@ -290,7 +290,7 @@ Selecting the WinRM option configures the Windows Remote Management (WinRM) list
 :::moniker range="<=azure-pipelines"
 
 **`teamServicesConnection`** - **Azure Pipelines service connection**<br>
-Input alias: `deploymentGroupEndpoint`. `string`. Required when `(action = Create Or Update Resource Group || action = Select Resource Group) && enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `deploymentGroupEndpoint`. `string`. Required when `(action = Create Or Update Resource Group || action = Select Resource Group) && enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the service connection to connect to an Azure DevOps organization or collection for agent registration.
 
@@ -304,7 +304,7 @@ You can create a service connection using `+New` and then selecting `Token-based
 :::moniker range="<=azure-pipelines"
 
 **`teamProject`** - **Team project**<br>
-Input alias: `project`. `string`. Required when `(action = Create Or Update Resource Group || action = Select Resource Group) && enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `project`. `string`. Required when `(action = Create Or Update Resource Group || action = Select Resource Group) && enableDeploymentPrerequisites = ConfigureVMWithDGAgent`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Team Project which defines the deployment group.
 <!-- :::editable-content-end::: -->

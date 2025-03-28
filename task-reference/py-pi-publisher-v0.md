@@ -1,7 +1,7 @@
 ---
 title: PyPIPublisher@0 - PyPI publisher v0 task
 description: Create and upload an sdist or wheel to a PyPI-compatible index using Twine.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -43,7 +43,7 @@ Use this task to create and upload an sdist or wheel to a PyPI-compatible index 
 :::moniker range="<=azure-pipelines"
 
 **`pypiConnection`** - **PyPI service connection**<br>
-Input alias: `serviceEndpoint`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serviceEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a generic service connection for connecting to the package index.
 <!-- :::editable-content-end::: -->
@@ -55,7 +55,7 @@ Specifies a generic service connection for connecting to the package index.
 :::moniker range="<=azure-pipelines"
 
 **`packageDirectory`** - **Python package directory**<br>
-Input alias: `wd`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `wd`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the directory of the Python package that is created and published where `setup.py` is present.
 <!-- :::editable-content-end::: -->
@@ -67,7 +67,7 @@ Specifies the directory of the Python package that is created and published wher
 :::moniker range="<=azure-pipelines"
 
 **`alsoPublishWheel`** - **Also publish a wheel**<br>
-Input alias: `wheel`. `boolean`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `wheel`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether to create and publish a universal wheel package (platform independent) in addition to an sdist package. More information about [packaging Python projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
 <!-- :::editable-content-end::: -->

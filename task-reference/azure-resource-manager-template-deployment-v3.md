@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -101,7 +101,7 @@ The scope of the deployment. Learn more about [deployment scopes](/Azure/azure-r
 :::moniker range="<=azure-pipelines"
 
 **`azureResourceManagerConnection`** - **Azure Resource Manager connection**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager service connection with access to the selected deployment scope.
 <!-- :::editable-content-end::: -->
@@ -113,7 +113,7 @@ Specifies the Azure Resource Manager service connection with access to the selec
 :::moniker range="<=azure-pipelines"
 
 **`subscriptionId`** - **Subscription**<br>
-Input alias: `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `subscriptionName`. `string`. Required when `deploymentScope != Management Group`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure subscription.
 

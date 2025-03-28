@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -78,7 +78,7 @@ Use this task in a pipeline to sign and align Android APK files.
 :::moniker range="<=azure-pipelines"
 
 **`apkFiles`** - **APK files**<br>
-Input alias: `files`. `string`. Required. Default value: `**/*.apk`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `files`. `string`. Required. Default value: `**/*.apk`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the APK(s) you want to sign. You can use [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns) to specify multiple files. For example:
 
@@ -105,7 +105,7 @@ Signs the APK with a provided Android Keystore file. Unsigned APKs can only run 
 :::moniker range="<=azure-pipelines"
 
 **`apksignerKeystoreFile`** - **Keystore file**<br>
-Input alias: `keystoreFile`. `string`. Required when `apksign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keystoreFile`. `string`. Required when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file path to the Android Keystore file that is used to sign the APK. This file must be uploaded to the [secure files](/azure/devops/pipelines/library/secure-files) library, where it is securely stored with encryption. The Android Keystore file is removed from the agent machine when the pipeline completes.
 
@@ -119,7 +119,7 @@ The file can either be checked into source control or placed on the build machin
 :::moniker range="<=azure-pipelines"
 
 **`apksignerKeystorePassword`** - **Keystore password**<br>
-Input alias: `keystorePass`. `string`. Optional. Use when `apksign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keystorePass`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The key password for the provided Android Keystore file.
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ The key password for the provided Android Keystore file.
 :::moniker range="<=azure-pipelines"
 
 **`apksignerKeystoreAlias`** - **Alias**<br>
-Input alias: `keystoreAlias`. `string`. Optional. Use when `apksign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keystoreAlias`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The alias that identifies the public/private key pair to be used in the Android Keystore file.
 <!-- :::editable-content-end::: -->
@@ -145,7 +145,7 @@ The alias that identifies the public/private key pair to be used in the Android 
 :::moniker range="<=azure-pipelines"
 
 **`apksignerKeyPassword`** - **Key password**<br>
-Input alias: `keyPass`. `string`. Optional. Use when `apksign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `keyPass`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The key password for the alias and keystore file.
 
@@ -184,7 +184,7 @@ Provides options to pass to the `apksigner` command line. See the [apksigner doc
 :::moniker range="<=azure-pipelines"
 
 **`apksignerFile`** - **apksigner location**<br>
-Input alias: `apksignerLocation`. `string`. Optional. Use when `apksign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `apksignerLocation`. `string`. Optional. Use when `apksign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the location of the apksigner executable used during signing. This defaults to the apksigner found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->
@@ -220,7 +220,7 @@ The Android SDK build-tools version that the `zipalign` executable uses for the 
 :::moniker range="<=azure-pipelines"
 
 **`zipalignFile`** - **Zipalign location**<br>
-Input alias: `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `zipalignLocation`. `string`. Optional. Use when `zipalign = true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the location of the `zipalign` executable used during signing. This defaults to the `zipalign` found in the Android SDK version folder that your application builds against.
 <!-- :::editable-content-end::: -->

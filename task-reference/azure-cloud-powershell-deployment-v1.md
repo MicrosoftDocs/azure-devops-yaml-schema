@@ -1,7 +1,7 @@
 ---
 title: AzureCloudPowerShellDeployment@1 - Azure Cloud Service deployment v1 task
 description: Deploy an Azure Cloud Service (task version 1).
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -79,7 +79,7 @@ Deploy an Azure Cloud Service.
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure subscription (Classic)**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Azure subscription to target for deployment.
 <!-- :::editable-content-end::: -->
@@ -187,7 +187,7 @@ The CsCfg path in the default artifact directory.
 :::moniker range="<=azure-pipelines"
 
 **`slotName`** - **Environment (Slot)**<br>
-Input alias: `Slot`. `string`. Required. Default value: `Production`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `Slot`. `string`. Required. Default value: `Production`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Set this value to 'Staging' or use the default.
 <!-- :::editable-content-end::: -->

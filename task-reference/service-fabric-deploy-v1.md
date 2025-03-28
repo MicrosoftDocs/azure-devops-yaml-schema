@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricDeploy@1 - Service Fabric application deployment v1 task
 description: Deploy an Azure Service Fabric application to a cluster.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -460,7 +460,7 @@ Specifies how credentials for the Docker registry are provided.
 :::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = ContainerRegistryEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 
@@ -475,7 +475,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `configureDockerSettings = true && registryCredentials = AzureResourceManagerEndpoint`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 

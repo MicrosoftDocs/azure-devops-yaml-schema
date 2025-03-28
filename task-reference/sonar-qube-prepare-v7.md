@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@7 - Prepare Analysis Configuration v7 task
 description: Prepare SonarQube analysis configuration.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -87,7 +87,7 @@ Select the SonarQube server endpoint for your project. To create one, click the 
 :::moniker range="=azure-pipelines"
 
 **`msBuildVersion`** - **.NET Scanner Version**<br>
-Input alias: `dotnetScannerVersion`. `string`. Optional. Use when `scannerMode = dotnet`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dotnetScannerVersion`. `string`. Optional. Use when `scannerMode = dotnet`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the version of the .NET Scanner to use. Versions can be located [here](https://github.com/SonarSource/sonar-scanner-msbuild/tags).
 <!-- :::editable-content-end::: -->
@@ -99,7 +99,7 @@ Specify the version of the .NET Scanner to use. Versions can be located [here](h
 :::moniker range="=azure-pipelines"
 
 **`cliVersion`** - **Scanner CLI Version**<br>
-Input alias: `cliScannerVersion`. `string`. Optional. Use when `scannerMode = cli`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cliScannerVersion`. `string`. Optional. Use when `scannerMode = cli`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the version of the CLI scanner to use. Versions can be located [here](https://github.com/SonarSource/sonar-scanner-cli/tags).
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: XamarinAndroid@1 - Xamarin.Android v1 task
 description: Build an Android app with Xamarin.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -104,7 +104,7 @@ XamarinAndroid@1 is deprecated. Originally, this task was used to build an Andro
 :::moniker range="<=azure-pipelines"
 
 **`projectFile`** - **Project**<br>
-Input alias: `project`. `string`. Required. Default value: `**/*.csproj`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `project`. `string`. Required. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the relative path from repo root of `Xamarin.Android` project(s) to build. Wildcards can be used. For more information, see the [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns). For example, `**/*.csproj` for all csproj files in all subfolders. The project must have a `PackageForAndroid` target if `Create App Package` is selected.
 <!-- :::editable-content-end::: -->
@@ -128,7 +128,7 @@ Specifies which targets to build in this project. Use a semicolon to separate mu
 :::moniker range="<=azure-pipelines"
 
 **`outputDirectory`** - **Output directory**<br>
-Input alias: `outputDir`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `outputDir`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Provides the output directory for the build. Example: **$(build.binariesDirectory)\/bin\/Release**.
 <!-- :::editable-content-end::: -->
@@ -179,7 +179,7 @@ Passes the clean target, `(/t:clean)`, during the build.
 :::moniker range="<=azure-pipelines"
 
 **`msbuildLocationOption`** - **MSBuild**<br>
-Input alias: `msbuildLocationMethod`. `string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `msbuildLocationMethod`. `string`. Allowed values: `version`, `location` (Specify Location). Default value: `version`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path to MSBuild (on Windows) or xbuild (on macOS). The default behavior is to search for the latest version.
 <!-- :::editable-content-end::: -->
@@ -191,7 +191,7 @@ Specifies the path to MSBuild (on Windows) or xbuild (on macOS). The default beh
 :::moniker range=">=azure-pipelines-2022"
 
 **`msbuildVersionOption`** - **MSBuild version**<br>
-Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the use of the latest version if the preferred version cannot be found. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
@@ -202,7 +202,7 @@ Specifies the use of the latest version if the preferred version cannot be found
 :::moniker range="<=azure-pipelines-2020.1"
 
 **`msbuildVersionOption`** - **MSBuild version**<br>
-Input alias: `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `msbuildVersion`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `15.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the use of the latest version if the preferred version cannot be found. On macOS, xbuild (Mono) or MSBuild (Visual Studio for Mac) will be used.
 <!-- :::editable-content-end::: -->
@@ -214,7 +214,7 @@ Specifies the use of the latest version if the preferred version cannot be found
 :::moniker range="<=azure-pipelines"
 
 **`msbuildFile`** - **MSBuild location**<br>
-Input alias: `msbuildLocation`. `string`. Required when `msbuildLocationMethod = location`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `msbuildLocation`. `string`. Required when `msbuildLocationMethod = location`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Supplies the path to MSBuild (on Windows) or xbuild (on macOS).
 <!-- :::editable-content-end::: -->
@@ -226,7 +226,7 @@ Optional. Supplies the path to MSBuild (on Windows) or xbuild (on macOS).
 :::moniker range="<=azure-pipelines"
 
 **`msbuildArchitectureOption`** - **MSBuild architecture**<br>
-Input alias: `msbuildArchitecture`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `msbuildArchitecture`. `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `x86` (MSBuild x86), `x64` (MSBuild x64). Default value: `x86`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supplies the architecture (x86, x64) of the MSBuild you want to run.
 <!-- :::editable-content-end::: -->
@@ -250,7 +250,7 @@ Specifies additional arguments passed to MSBuild (on Windows) or xbuild (on macO
 :::moniker range="<=azure-pipelines"
 
 **`jdkOption`** - **Select JDK to use for the build**<br>
-Input alias: `jdkSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the JDK version that the task uses during the build process. The `JDKVersion` value specifies a JDK version that the task discovers during builds. The `Path` value specifies a file path for a JDK version.
 <!-- :::editable-content-end::: -->
@@ -262,7 +262,7 @@ Specifies the JDK version that the task uses during the build process. The `JDKV
 :::moniker range="<=azure-pipelines"
 
 **`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `jdkSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the JDK version to use during the build.
 <!-- :::editable-content-end::: -->
@@ -274,7 +274,7 @@ Specifies the JDK version to use during the build.
 :::moniker range="<=azure-pipelines"
 
 **`jdkDirectory`** - **JDK path**<br>
-Input alias: `jdkUserInputPath`. `string`. Required when `jdkSelection = Path`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `jdkSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the JDK version to use during the build at the `jdkSelection` path.
 <!-- :::editable-content-end::: -->
@@ -286,7 +286,7 @@ Specifies the JDK version to use during the build at the `jdkSelection` path.
 :::moniker range="<=azure-pipelines"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
-Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Supplies the architecture (x86, x64) of JDK.
 <!-- :::editable-content-end::: -->

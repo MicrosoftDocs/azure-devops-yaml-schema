@@ -1,7 +1,7 @@
 ---
 title: DownloadGitHubNugetPackage@1 - Download GitHub Nuget Packages v1 task
 description: Restore your nuget packages using dotnet CLI.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -71,7 +71,7 @@ Specifies the version of the package to download from GitHub.
 :::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **Credentials for feed from GitHub**<br>
-Input alias: `externalEndpoints`. `string`. Required when `selectOrConfig = config && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Required when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registry from GitHub.
 <!-- :::editable-content-end::: -->
@@ -83,7 +83,7 @@ Specifies the credentials to use for external registry from GitHub.
 :::moniker range="<=azure-pipelines"
 
 **`restoreDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder where packages are installed. If no folder is specified, packages are restored into the default system working directory.
 <!-- :::editable-content-end::: -->

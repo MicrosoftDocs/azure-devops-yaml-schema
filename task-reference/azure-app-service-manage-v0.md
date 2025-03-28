@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -59,7 +59,7 @@ Start, stop, restart, slot swap, slot delete, install site extensions, or enable
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
@@ -95,7 +95,7 @@ Enters or selects the name of an existing Azure App Service.
 :::moniker range="<=azure-pipelines"
 
 **`SpecifySlotOrASE`** - **Specify Slot or App Service Environment**<br>
-Input alias: `SpecifySlot`. `boolean`. Optional. Use when `Action != Swap Slots && Action != Delete Slot && Action != Start Swap With Preview && Action != Complete Swap && Action != Cancel Swap`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `SpecifySlot`. `boolean`. Optional. Use when `Action != Swap Slots && Action != Delete Slot && Action != Start Swap With Preview && Action != Complete Swap && Action != Cancel Swap`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>

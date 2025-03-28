@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -74,7 +74,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 :::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **File or directory path**<br>
-Input alias: `path`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `path`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path of the file or directory to publish. Can be absolute or relative to the default working directory. Can include [variables](https://go.microsoft.com/fwlink/?LinkID=550988), but wildcards are not supported. See [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts) for more information.
 <!-- :::editable-content-end::: -->
@@ -86,7 +86,7 @@ Specifies the path of the file or directory to publish. Can be absolute or relat
 :::moniker range="<=azure-pipelines"
 
 **`artifact`** - **Artifact name**<br>
-Input alias: `artifactName`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `artifactName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the artifact to publish. It can be any name you choose, for example `drop`. If not set, the default is a unique ID scoped to the job.
 
@@ -101,7 +101,7 @@ Specifies the name of the artifact to publish. It can be any name you choose, fo
 :::moniker range="<=azure-pipelines"
 
 **`publishLocation`** - **Artifact publish location**<br>
-Input alias: `artifactType`. `string`. Required. Allowed values: `pipeline` (Azure Pipelines), `filepath` (A file share). Default value: `pipeline`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `artifactType`. `string`. Required. Allowed values: `pipeline` (Azure Pipelines), `filepath` (A file share). Default value: `pipeline`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether to store the artifact in Azure Pipelines or to copy it to a file share that must be accessible from the pipeline agent.
 <!-- :::editable-content-end::: -->

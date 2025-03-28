@@ -1,7 +1,7 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -145,7 +145,7 @@ Select 'Azure Container Registry' to connect to it by using an Azure Service Con
 :::moniker range="<=azure-pipelines"
 
 **`dockerRegistryConnection`** - **Docker Registry Service Connection**<br>
-Input alias: `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dockerRegistryEndpoint`. `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Docker registry service connection. Required for commands that need to authenticate with a registry.
 <!-- :::editable-content-end::: -->
@@ -157,7 +157,7 @@ Specifies a Docker registry service connection. Required for commands that need 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription.
 <!-- :::editable-content-end::: -->
@@ -493,7 +493,7 @@ If enabled, modifies the Docker image name according to Docker naming convention
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory for the Docker command.
 <!-- :::editable-content-end::: -->

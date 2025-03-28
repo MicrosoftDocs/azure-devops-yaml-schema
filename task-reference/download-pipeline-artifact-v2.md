@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@2 - Download Pipeline Artifacts v2 task
 description: Download build and pipeline artifacts.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -68,7 +68,7 @@ Use this task to download pipeline artifacts from earlier stages in this pipelin
 :::moniker range="<=azure-pipelines"
 
 **`buildType`** - **Download artifacts produced by**<br>
-Input alias: `source`. `string`. Required. Allowed values: `current` (Current run), `specific` (Specific run). Default value: `current`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `source`. `string`. Required. Allowed values: `current` (Current run), `specific` (Specific run). Default value: `current`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Downloads artifacts produced by the current pipeline run or from a specific pipeline run.
 <!-- :::editable-content-end::: -->
@@ -92,7 +92,7 @@ Specifies the project name or GUID from which to download the pipeline artifacts
 :::moniker range="<=azure-pipelines"
 
 **`definition`** - **Build pipeline**<br>
-Input alias: `pipeline`. `string`. Required when `source == specific`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `pipeline`. `string`. Required when `source == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The definition ID of the pipeline. In a running pipeline the `definitionId` can be found in the [System.DefinitionId](/azure/devops/pipelines/build/variables#system-variables-devops-services) variable. The `definitionId` can also be retrieved from the URL on the pipeline overview page in the Azure DevOps portal. In the following URL example, the `definitionId` is 78: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build?definitionId=78&_a=summary`. To download artifacts from a specific pipeline definition, capture the `definitionId` from that pipeline, and specify it as the `pipeline` parameter.
 <!-- :::editable-content-end::: -->
@@ -104,7 +104,7 @@ The definition ID of the pipeline. In a running pipeline the `definitionId` can 
 :::moniker range="<=azure-pipelines"
 
 **`specificBuildWithTriggering`** - **When appropriate, download artifacts from the triggering build.**<br>
-Input alias: `preferTriggeringPipeline`. `boolean`. Optional. Use when `source == specific`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `preferTriggeringPipeline`. `boolean`. Optional. Use when `source == specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If checked, the task downloads artifacts from the triggering build. If there is no triggering build from the specified pipeline, the task downloads artifacts from the build specified in the options below.
 <!-- :::editable-content-end::: -->
@@ -116,7 +116,7 @@ If checked, the task downloads artifacts from the triggering build. If there is 
 :::moniker range="<=azure-pipelines"
 
 **`buildVersionToDownload`** - **Build version to download**<br>
-Input alias: `runVersion`. `string`. Required when `source == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `runVersion`. `string`. Required when `source == specific`. Allowed values: `latest`, `latestFromBranch` (Latest from specific branch and specified Build Tags), `specific` (Specific version). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the build version to download.
 <!-- :::editable-content-end::: -->
@@ -128,7 +128,7 @@ Specifies the build version to download.
 :::moniker range="<=azure-pipelines"
 
 **`branchName`** - **Branch name**<br>
-Input alias: `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/master`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `runBranch`. `string`. Required when `source == specific && runVersion == latestFromBranch`. Default value: `refs/heads/master`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the filter on the branch/ref name. For example: ```refs/heads/develop```.
 <!-- :::editable-content-end::: -->
@@ -140,7 +140,7 @@ Specifies the filter on the branch/ref name. For example: ```refs/heads/develop`
 :::moniker range="<=azure-pipelines"
 
 **`pipelineId`** - **Build**<br>
-Input alias: `runId | buildId`. `string`. Required when `source == specific && runVersion == specific`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `runId | buildId`. `string`. Required when `source == specific && runVersion == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The identifier of the pipeline run from which to download the artifacts. In a running pipeline the `buildId` can be found in the [Build.BuildId](/azure/devops/pipelines/build/variables#build-variables-devops-services) variable. The `buildId` can also be retrieved from the URL on the pipeline run summary page in the Azure DevOps portal. In the following URL example, the `buildId` is 1088: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build/results?buildId=1088&view=results`. To download artifacts from a specific pipeline run, capture the `buildId` from that run, and specify it as the `buildId` parameter.
 <!-- :::editable-content-end::: -->
@@ -188,7 +188,7 @@ If checked, the build task downloads artifacts whether the build succeeds or fai
 :::moniker range="<=azure-pipelines"
 
 **`artifactName`** - **Artifact name**<br>
-Input alias: `artifact`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `artifact`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the name of the artifact to download. If the value is left empty, the task downloads all artifacts associated with the pipeline run.
 <!-- :::editable-content-end::: -->
@@ -200,7 +200,7 @@ Specifies the name of the artifact to download. If the value is left empty, the 
 :::moniker range="<=azure-pipelines"
 
 **`itemPattern`** - **Matching patterns**<br>
-Input alias: `patterns`. `string`. Default value: `**`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `patterns`. `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file matching patterns that limit downloaded files. The value can be one or more file matching patterns that are new line delimited. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -212,7 +212,7 @@ The file matching patterns that limit downloaded files. The value can be one or 
 :::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **Destination directory**<br>
-Input alias: `path | downloadPath`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `path | downloadPath`. `string`. Required. Default value: `$(Pipeline.Workspace)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies either a relative or absolute path on the agent machine where the artifacts will download. If the multi-download option is applied (by leaving an empty artifact name), a sub-directory will be created for each download. Learn more about [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/pipeline-artifacts).
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 1).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -69,7 +69,7 @@ Use this task to send a message to Azure Service Bus using a service connection 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Service Bus service connection**<br>
-Input alias: `connectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an [Azure Service Bus service connection](/azure/devops/pipelines/library/service-endpoints#azure-service-bus-service-connection).
 <!-- :::editable-content-end::: -->

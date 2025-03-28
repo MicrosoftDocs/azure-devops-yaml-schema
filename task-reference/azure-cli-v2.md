@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -109,7 +109,7 @@ Run Azure CLI commands against an Azure subscription in a PowerShell Core/shell 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure Resource Manager service connection for the deployment.
 <!-- :::editable-content-end::: -->
@@ -194,7 +194,7 @@ call az account show
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Script Arguments**<br>
-Input alias: `scriptArguments`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `scriptArguments`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script.
 <!-- :::editable-content-end::: -->
@@ -252,7 +252,7 @@ If this input is false, this task will use its own [Azure CLI configuration dire
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->

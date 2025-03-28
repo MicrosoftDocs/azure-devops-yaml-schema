@@ -1,7 +1,7 @@
 ---
 title: AzureStaticWebApp@0 - Deploy Azure Static Web App v0 task
 description: Build and deploy an Azure Static Web App.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: ">=azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
@@ -85,7 +85,7 @@ This task builds and deploys an Azure Static Web app.
 :::moniker range=">=azure-pipelines-2022"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd | rootDirectory`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd | rootDirectory`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the absolute working directory in which to execute this task. If left empty, the default working directory is used.
 <!-- :::editable-content-end::: -->

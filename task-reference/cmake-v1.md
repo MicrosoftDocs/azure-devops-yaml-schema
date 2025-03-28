@@ -1,7 +1,7 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -57,7 +57,7 @@ Use this task to build with the CMake cross-platform build system.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `build`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `build`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The current working directory when CMake is run.
 

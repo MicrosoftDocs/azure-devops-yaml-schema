@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@1 - Package and deploy Helm charts v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 03/25/2025
+ms.date: 03/28/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -97,7 +97,7 @@ Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by usi
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription, which has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
@@ -145,7 +145,7 @@ Use cluster administrator credentials instead of default cluster user credential
 :::moniker range="=azure-pipelines"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select a Kubernetes service connection.
 <!-- :::editable-content-end::: -->
@@ -169,7 +169,7 @@ Specify K8 namespace to use. Use Tiller namespace can be specified in the advanc
 :::moniker range="=azure-pipelines"
 
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
-Input alias: `azureSubscriptionEndpointForACR`. `string`. Required when `command == login || command == package || command == push`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpointForACR`. `string`. Required when `command == login || command == package || command == push`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription, which has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
@@ -265,7 +265,7 @@ The remote repository where the chart will be pushed.
 :::moniker range="=azure-pipelines"
 
 **`chartVersion`** - **Version**<br>
-Input alias: `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the exact chart version to install. If this is not specified, the latest version is installed. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->

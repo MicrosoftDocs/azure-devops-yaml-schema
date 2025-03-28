@@ -1,7 +1,7 @@
 ---
 title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -70,7 +70,7 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 :::moniker range="<=azure-pipelines"
 
 **`solutionFile`** - **Solution**<br>
-Input alias: `solution`. `string`. Required. Default value: `**/*.sln`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the relative path from the repository root of the `Xamarin.iOS` solution or csproj project to the build. May contain wildcards.
 <!-- :::editable-content-end::: -->
@@ -118,7 +118,7 @@ If set to `true`, generates an IPA as a part of the build.
 :::moniker range="<=azure-pipelines"
 
 **`buildForSimulator`** - **Build for iOS Simulator**<br>
-Input alias: `forSimulator`. `boolean`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `forSimulator`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Builds for the iOS Simulator instead of physical iOS devices.
 <!-- :::editable-content-end::: -->
@@ -154,7 +154,7 @@ Optional. Specifies additional command line arguments that are used to build.
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the working directory in which builds will run. If the value is empty, the root of the repository is used.
 <!-- :::editable-content-end::: -->
@@ -166,7 +166,7 @@ Optional. Specifies the working directory in which builds will run. If the value
 :::moniker range="<=azure-pipelines"
 
 **`mdtoolFile`** - **Build tool path**<br>
-Input alias: `buildToolLocation | mdtoolLocation`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `buildToolLocation | mdtoolLocation`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MSBuild (the Visual Studio for Mac build tool). If the value is empty, the default xbuild or MSBuild path is used.
 <!-- :::editable-content-end::: -->
@@ -178,7 +178,7 @@ Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MS
 :::moniker range="<=azure-pipelines"
 
 **`signingIdentity`** - **Signing identity**<br>
-Input alias: `iosSigningIdentity`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `iosSigningIdentity`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Overrides the signing identity that will be used to sign the build. If the value is empty, the setting in the Xcode project will be used. You may need to select `signingUnlockDefaultKeychain` if you use this option.
 <!-- :::editable-content-end::: -->
@@ -190,7 +190,7 @@ Optional. Overrides the signing identity that will be used to sign the build. If
 :::moniker range="<=azure-pipelines"
 
 **`signingProvisioningProfileID`** - **Provisioning profile UUID**<br>
-Input alias: `provProfileUuid`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `provProfileUuid`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the UUID of an installed provisioning profile override to be used for this build.
 <!-- :::editable-content-end::: -->

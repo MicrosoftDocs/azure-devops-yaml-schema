@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@0 - Invoke REST API v0 task
 description: Invoke REST API as a part of your process (task version 0).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -48,7 +48,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 :::moniker range="<=azure-pipelines"
 
 **`serviceConnection`** - **Generic endpoint**<br>
-Input alias: `connectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the generic service connection that provides the `baseURL` for the call and the authorization to use for the task.
 <!-- :::editable-content-end::: -->

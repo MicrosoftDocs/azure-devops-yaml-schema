@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@0 - Package and deploy Helm charts v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands (task version 0).
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -222,7 +222,7 @@ For more information, see [Service connection](#service-connection) in the follo
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package && command != save`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package && command != save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure Service Connection. Specify an Azure subscription that has your container registry.
 <!-- :::editable-content-end::: -->
@@ -233,7 +233,7 @@ The name of the Azure Service Connection. Specify an Azure subscription that has
 :::moniker range="=azure-pipelines-2020"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The name of the Azure Service Connection. Specify an Azure subscription that has your container registry.
 <!-- :::editable-content-end::: -->
@@ -314,7 +314,7 @@ Uses cluster administrator credentials instead of default cluster user credentia
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package && command != save`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package && command != save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Kubernetes Service Connection.
 <!-- :::editable-content-end::: -->
@@ -325,7 +325,7 @@ Specifies a Kubernetes Service Connection.
 :::moniker range="=azure-pipelines-2020"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
-Input alias: `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a Kubernetes Service Connection.
 <!-- :::editable-content-end::: -->
@@ -360,7 +360,7 @@ The namespace on which you run the `kubectl` commands. If not specified, the tas
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
-Input alias: `azureSubscriptionEndpointForACR`. `string`. Required when `command == save`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpointForACR`. `string`. Required when `command == save`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription that has your Azure Container Registry.
 <!-- :::editable-content-end::: -->
@@ -466,7 +466,7 @@ The path to the chart to install. This can be a path to a packaged chart or a pa
 :::moniker range=">=azure-pipelines-2020.1"
 
 **`chartVersion`** - **Version**<br>
-Input alias: `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the exact chart version to install. If you don't specify the chart version, the task installs the latest version. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->
@@ -477,7 +477,7 @@ Specifies the exact chart version to install. If you don't specify the chart ver
 :::moniker range="=azure-pipelines-2020"
 
 **`chartVersion`** - **Version**<br>
-Input alias: `version`. `string`. Optional. Use when `command == package`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `version`. `string`. Optional. Use when `command == package`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the exact chart version to install. If you don't specify the chart version, the task installs the latest version. Set the version on the chart to this semver version​.
 <!-- :::editable-content-end::: -->
