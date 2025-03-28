@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -34,7 +34,9 @@ Automate performance regression testing with Azure Load Testing.
     #loadTestRunName: # string. Load Test Run Name. 
     #loadTestRunDescription: # string. Load Test Run Description. 
     #secrets: # string. Secrets. 
-    #env: # string. env.
+    #env: # string. env. 
+    #overrideParameters: # string. Override parameters. 
+    #outputVariableName: 'ALTOutputVar' # string. Output Variable Name. Default: ALTOutputVar.
 ```
 
 :::moniker-end
@@ -166,6 +168,43 @@ An array of JSON objects that consist of the name and value for each environment
 
 :::moniker-end
 <!-- :::item-end::: -->
+<!-- :::item name="overrideParameters"::: -->
+:::moniker range="=azure-pipelines"
+
+**`overrideParameters`** - **Override parameters**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Override parameters in the YAML config file using the following JSON format:
+
+```json
+{
+  "testId": "testId",
+  "displayName": "displayName",
+  "description": "description",
+  "engineInstances": 1,
+  "autoStop": {
+    "errorPercentage": 90,
+    "timeWindow": 10
+  }
+}
+```
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="outputVariableName"::: -->
+:::moniker range="=azure-pipelines"
+
+**`outputVariableName`** - **Output Variable Name**<br>
+`string`. Default value: `ALTOutputVar`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Name of the output variable that stores the test run ID for use in subsequent tasks.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
 
 ### Task control options
 
@@ -177,7 +216,13 @@ All tasks have control options in addition to their task inputs. For more inform
 
 :::moniker range="=azure-pipelines"
 
-None.
+This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
+
+<!-- :::item name="ALTOutputVar"::: -->
+**`ALTOutputVar`**<br><!-- :::editable-content name="Value"::: -->
+The test run ID. The name of this variable is configurable using the `outputVariableName` task input.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
 
 :::moniker-end
 <!-- :::outputVariables-end::: -->
