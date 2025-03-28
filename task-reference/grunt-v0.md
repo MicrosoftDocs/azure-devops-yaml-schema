@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -93,7 +93,7 @@ Specifies the additional arguments passed to Grunt. See [Using the CLI](http://g
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the current working directory when the script is run. If not specified, the working directory defaults to the folder where the script is located.
 <!-- :::editable-content-end::: -->

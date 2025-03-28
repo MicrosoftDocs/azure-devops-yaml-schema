@@ -1,7 +1,7 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -108,7 +108,7 @@ Use this task to deploy an Azure SQL Database using DACPAC, or run scripts using
 :::moniker range="<=azure-pipelines"
 
 **`azureConnectionType`** - **Azure Service Connection Type**<br>
-Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
@@ -119,7 +119,7 @@ Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `Connecte
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the target Azure classic subscription for deploying SQL files.
 <!-- :::editable-content-end::: -->
@@ -131,7 +131,7 @@ Specifies the target Azure classic subscription for deploying SQL files.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the target Azure Resource Manager subscription for deploying SQL files.
 <!-- :::editable-content-end::: -->
@@ -276,7 +276,7 @@ Specifies the Azure SQL Server connection string, like `Server=testServer.databa
 :::moniker range="<=azure-pipelines"
 
 **`deployType`** - **Deploy type**<br>
-Input alias: `TaskNameSelector`. `string`. Required. Allowed values: `DacpacTask` (SQL DACPAC File), `SqlTask` (SQL Script File), `InlineSqlTask` (Inline SQL Script). Default value: `DacpacTask`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `TaskNameSelector`. `string`. Required. Allowed values: `DacpacTask` (SQL DACPAC File), `SqlTask` (SQL Script File), `InlineSqlTask` (Inline SQL Script). Default value: `DacpacTask`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>

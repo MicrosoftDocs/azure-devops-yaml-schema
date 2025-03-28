@@ -1,7 +1,7 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -499,7 +499,7 @@ Optional. Specifies additional command line arguments with which to build. This 
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optional. Specifies the working directory in which to run the build. If no value is entered, the root of the repository is used.
 <!-- :::editable-content-end::: -->

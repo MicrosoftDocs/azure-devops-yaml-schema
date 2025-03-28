@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -74,7 +74,7 @@ Use this task to download secrets, such as authentication keys, storage account 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The service connection for the Azure subscription that either contains the Azure Key Vault instance or creates a new connection. Learn more about [connecting to Azure](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@4 - Azure PowerShell v4 task
 description: Run a PowerShell script within an Azure environment (task version 4).
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -106,7 +106,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The Azure Resource Manager subscription to configure before running PowerShell.
 <!-- :::editable-content-end::: -->
@@ -202,7 +202,7 @@ When this is true, this task will restrict the scope of context to the current t
 :::moniker range="<=azure-pipelines"
 
 **`azurePowerShellVersion`** - **Azure PowerShell Version**<br>
-Input alias: `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `TargetAzurePs`. `string`. Allowed values: `LatestVersion` (Latest installed version), `OtherVersion` (Specify other version). Default value: `OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 In case of hosted agents, the supported Azure PowerShell Version is: `1.0.0` (Hosted VS2017 Queue).
 To pick the latest version available on the agent, select `LatestVersion` (Latest installed version).
@@ -217,7 +217,7 @@ For private agents you can specify a preferred version of Azure PowerShell using
 :::moniker range="<=azure-pipelines"
 
 **`preferredAzurePowerShellVersion`** - **Preferred Azure PowerShell Version**<br>
-Input alias: `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `CustomTargetAzurePs`. `string`. Required when `TargetAzurePs = OtherVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The preferred Azure PowerShell Version needs to be a proper semantic version eg. `1.2.3.` Regex like `2.\*,2.3.\*` is not supported. The Hosted VS2017 Pool currently supports Az module version `1.0.0.`
 <!-- :::editable-content-end::: -->

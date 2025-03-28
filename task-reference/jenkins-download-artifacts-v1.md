@@ -1,7 +1,7 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
 description: Download artifacts produced by a Jenkins job (task version 1).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -60,7 +60,7 @@ Use this task to download artifacts produced by a Jenkins job.
 :::moniker range="<=azure-pipelines"
 
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
-Input alias: `serverEndpoint`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serverEndpoint`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the service connection for your Jenkins instance. To create a new service connection, click the Manage link.
 <!-- :::editable-content-end::: -->

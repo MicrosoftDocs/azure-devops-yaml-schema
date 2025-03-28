@@ -1,7 +1,7 @@
 ---
 title: AppCenterDistribute@3 - App Center distribute v3 task
 description: Distribute app builds to testers and users via Visual Studio App Center.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -86,7 +86,7 @@ The app slug is in the format of `{username}/{app_identifier}`.  To locate `{use
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **Binary file path**<br>
-Input alias: `app`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to the APK/AAB or IPA file you want to publish.
 <!-- :::editable-content-end::: -->
@@ -110,7 +110,7 @@ The build version of the uploading binary which needs to be specified for `.zip`
 :::moniker range="<=azure-pipelines"
 
 **`symbolsOption`** - **Symbols type**<br>
-Input alias: `symbolsType`. `string`. Allowed values: `Apple`, `Android`, `UWP`. Default value: `Apple`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `symbolsType`. `string`. Allowed values: `Apple`, `Android`, `UWP`. Default value: `Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Includes symbol files to receive symbolicated stack traces in App Center Diagnostics.
 <!-- :::editable-content-end::: -->
@@ -146,7 +146,7 @@ The relative path to the APPXSYM symbols file. Path may contain [wildcards](/azu
 :::moniker range="<=azure-pipelines"
 
 **`symbolsDsymFiles`** - **dSYM path**<br>
-Input alias: `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dsymPath`. `string`. Optional. Use when `symbolsType = Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to dSYM folder. Path may contain [wildcards](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -158,7 +158,7 @@ The relative path from the repo root to dSYM folder. Path may contain [wildcards
 :::moniker range="<=azure-pipelines"
 
 **`symbolsMappingTxtFile`** - **Mapping file**<br>
-Input alias: `mappingTxtPath`. `string`. Optional. Use when `symbolsType = Android`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `mappingTxtPath`. `string`. Optional. Use when `symbolsType = Android`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repo root to Android's `mapping.txt` file.
 <!-- :::editable-content-end::: -->
@@ -182,7 +182,7 @@ The relative path from the repo root to the additional native libraries you want
 :::moniker range="<=azure-pipelines"
 
 **`symbolsIncludeParentDirectory`** - **Include all items in parent folder**<br>
-Input alias: `packParentFolder`. `boolean`. Optional. Use when `symbolsType = Apple`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packParentFolder`. `boolean`. Optional. Use when `symbolsType = Apple`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Uploads the selected symbols file or folder and all other items inside the same parent folder. This is required for React Native apps.
 <!-- :::editable-content-end::: -->
@@ -194,7 +194,7 @@ Uploads the selected symbols file or folder and all other items inside the same 
 :::moniker range="<=azure-pipelines"
 
 **`releaseNotesOption`** - **Create release notes**<br>
-Input alias: `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `releaseNotesSelection`. `string`. Required. Allowed values: `input` (Enter Release Notes), `file` (Select Release Notes File). Default value: `input`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The release notes will be attached to the release and shown to testers on the installation page.
 <!-- :::editable-content-end::: -->
@@ -254,7 +254,7 @@ Each release is distributed to either groups or a store.
 :::moniker range="<=azure-pipelines"
 
 **`distributionGroupId`** - **Destination IDs**<br>
-Input alias: `destinationGroupIds`. `string`. Optional. Use when `destinationType = groups`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `destinationGroupIds`. `string`. Optional. Use when `destinationType = groups`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The IDs of the distribution groups who will receive the build release. Leave it empty to use the default group, and use commas or semicolons to separate multiple IDs.
 <!-- :::editable-content-end::: -->

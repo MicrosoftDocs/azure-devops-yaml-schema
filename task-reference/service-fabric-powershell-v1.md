@@ -1,7 +1,7 @@
 ---
 title: ServiceFabricPowerShell@1 - Service Fabric PowerShell v1 task
 description: Run a PowerShell script in the context of an Azure Service Fabric cluster connection.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -47,7 +47,7 @@ Use this task to run a PowerShell script within the context of an Azure Service 
 :::moniker range="<=azure-pipelines"
 
 **`clusterConnection`** - **Cluster Service Connection**<br>
-Input alias: `serviceConnectionName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `serviceConnectionName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Service Fabric cluster which will have an established service connection when the specified PowerShell script is executed.
 <!-- :::editable-content-end::: -->

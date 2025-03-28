@@ -1,7 +1,7 @@
 ---
 title: Ant@1 - Ant v1 task
 description: Build with Apache Ant.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -61,7 +61,7 @@ Use this task to build with Apache Ant.
 :::moniker range="<=azure-pipelines"
 
 **`buildFile`** - **Ant build file**<br>
-Input alias: `antBuildFile`. `string`. Required. Default value: `build.xml`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `antBuildFile`. `string`. Required. Default value: `build.xml`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The relative path from the repository root to the Ant build file.
 
@@ -139,7 +139,7 @@ Provides a name for the test run.
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageToolOptions`** - **Code coverage tool**<br>
-Input alias: `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `codeCoverageTool`. `string`. Allowed values: `None`, `Cobertura`, `JaCoCo`. Default value: `None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects the code coverage tool.
 
@@ -158,7 +158,7 @@ After you select one of these tools, the following arguments appear:
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
-Input alias: `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `.`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The comma-separated list of relative paths from the Ant build file to directories containing class files and archive files (`.jar`, `.war`, etc.). Code coverage is reported for class files in these directories. For example: `target/classes,target/testClasses`.
 <!-- :::editable-content-end::: -->
@@ -170,7 +170,7 @@ The comma-separated list of relative paths from the Ant build file to directorie
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageClassFilter`** - **Class inclusion/exclusion filters**<br>
-Input alias: `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `classFilter`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The comma-separated list of filters to include or exclude classes from collecting code coverage. For example: `+:com.`, `+:org.`, `-:my.app*.`.
 <!-- :::editable-content-end::: -->
@@ -182,7 +182,7 @@ The comma-separated list of filters to include or exclude classes from collectin
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageSourceDirectories`** - **Source files directories**<br>
-Input alias: `srcDirectories`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `srcDirectories`. `string`. Optional. Use when `codeCoverageTool != None`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The comma-separated list of relative paths from the Ant build file to source code directories. Code coverage reports will use these to highlight source code. For example: `src/java,src/Test`.
 <!-- :::editable-content-end::: -->
@@ -194,7 +194,7 @@ The comma-separated list of relative paths from the Ant build file to source cod
 :::moniker range="<=azure-pipelines"
 
 **`codeCoverageFailIfEmpty`** - **Fail when code coverage results are missing**<br>
-Input alias: `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `failIfCoverageEmpty`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Fails the build if the code coverage did not produce any results to publish.
 <!-- :::editable-content-end::: -->
@@ -206,7 +206,7 @@ Fails the build if the code coverage did not produce any results to publish.
 :::moniker range="<=azure-pipelines"
 
 **`antHomeDirectory`** - **Set ANT_HOME path**<br>
-Input alias: `antHomeUserInputPath`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `antHomeUserInputPath`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If set, overrides any existing ANT_HOME environment variable with the given path.
 <!-- :::editable-content-end::: -->
@@ -218,7 +218,7 @@ If set, overrides any existing ANT_HOME environment variable with the given path
 :::moniker range="<=azure-pipelines"
 
 **`javaHomeOption`** - **Set JAVA_HOME by**<br>
-Input alias: `javaHomeSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `javaHomeSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME either by selecting a JDK version that will be discovered during builds or by manually entering a JDK path.
 <!-- :::editable-content-end::: -->
@@ -230,7 +230,7 @@ Sets JAVA_HOME either by selecting a JDK version that will be discovered during 
 :::moniker range="<=azure-pipelines"
 
 **`jdkVersionOption`** - **JDK version**<br>
-Input alias: `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Attempts to discover the path to the selected JDK version and sets JAVA_HOME accordingly.
 <!-- :::editable-content-end::: -->
@@ -242,7 +242,7 @@ Attempts to discover the path to the selected JDK version and sets JAVA_HOME acc
 :::moniker range="<=azure-pipelines"
 
 **`jdkUserInputDirectory`** - **JDK path**<br>
-Input alias: `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Sets JAVA_HOME to the given path.
 <!-- :::editable-content-end::: -->
@@ -254,7 +254,7 @@ Sets JAVA_HOME to the given path.
 :::moniker range="<=azure-pipelines"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
-Input alias: `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Optionally supplies the architecture (x86, x64) of the JDK.
 <!-- :::editable-content-end::: -->

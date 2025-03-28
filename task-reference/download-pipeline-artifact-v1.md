@@ -1,7 +1,7 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -95,7 +95,7 @@ Specifies the project name or GUID from which to download the pipeline artifacts
 :::moniker range="<=azure-pipelines"
 
 **`pipeline`** - **Build pipeline**<br>
-Input alias: `definition`. `string`. Required when `buildType == specific`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `definition`. `string`. Required when `buildType == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The definition ID of the pipeline. In a running pipeline the `definitionId` can be found in the [System.DefinitionId](/azure/devops/pipelines/build/variables#system-variables-devops-services) variable. The `definitionId` can also be retrieved from the URL on the pipeline overview page in the Azure DevOps portal. In the following URL example, the `definitionId` is 78: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build?definitionId=78&_a=summary`. To download artifacts from a specific pipeline definition, capture the `definitionId` from that pipeline, and specify it as the `pipeline` parameter.
 <!-- :::editable-content-end::: -->
@@ -143,7 +143,7 @@ Specifies the filter on the branch/ref name. For example: ```refs/heads/develop`
 :::moniker range="<=azure-pipelines"
 
 **`pipelineId`** - **Build**<br>
-Input alias: `buildId`. `string`. Required when `buildType == specific && buildVersionToDownload == specific`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `buildId`. `string`. Required when `buildType == specific && buildVersionToDownload == specific`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The identifier of the pipeline run from which to download the artifacts. In a running pipeline the `buildId` can be found in the [Build.BuildId](/azure/devops/pipelines/build/variables#build-variables-devops-services) variable. The `buildId` can also be retrieved from the URL on the pipeline run summary page in the Azure DevOps portal. In the following URL example, the `buildId` is 1088: `https://dev.azure.com/fabrikam-inc/FabrikamFiber/_build/results?buildId=1088&view=results`. To download artifacts from a specific pipeline run, capture the `buildId` from that run, and specify it as the `buildId` parameter.
 <!-- :::editable-content-end::: -->
@@ -191,7 +191,7 @@ The file matching patterns that limit downloaded files. The value can be one or 
 :::moniker range="<=azure-pipelines"
 
 **`targetPath`** - **Destination directory**<br>
-Input alias: `downloadPath`. `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `downloadPath`. `string`. Required. Default value: `$(System.ArtifactsDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The path on the agent machine where the artifacts will be downloaded.
 <!-- :::editable-content-end::: -->

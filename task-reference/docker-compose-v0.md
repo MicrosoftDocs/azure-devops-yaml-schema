@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@0 - Docker Compose v0 task
 description: Build, push or run multi-container Docker applications with Docker or from the Azure Container registry.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -155,7 +155,7 @@ Specifies a Docker registry service connection. Required when commands need to a
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies an Azure subscription. Name of the Azure Service Connection. To manually set up the connection, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure).
 <!-- :::editable-content-end::: -->
@@ -340,7 +340,7 @@ Specifies ports in the service container to publish to the host. Add each `host-
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory for the service container.
 <!-- :::editable-content-end::: -->
@@ -510,7 +510,7 @@ Specifies a value to produce an error if the additional Docker Compose files do 
 :::moniker range="<=azure-pipelines"
 
 **`currentWorkingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the working directory for the Docker Compose command.
 <!-- :::editable-content-end::: -->

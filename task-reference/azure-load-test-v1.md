@@ -49,7 +49,7 @@ Automate performance regression testing with Azure Load Testing.
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects an Azure Resource Manager subscription to run the load test.
 <!-- :::editable-content-end::: -->

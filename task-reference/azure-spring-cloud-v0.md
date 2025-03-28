@@ -1,7 +1,7 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: ">=azure-pipelines-2022"
 ---
 
@@ -124,7 +124,7 @@ This task deploys applications to Azure Spring Apps and manages those deployment
 :::moniker range=">=azure-pipelines-2022"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [Azure Resource Manager subscription](/azure/devops/pipelines/library/connect-to-azure) for the deployment.
 <!-- :::editable-content-end::: -->

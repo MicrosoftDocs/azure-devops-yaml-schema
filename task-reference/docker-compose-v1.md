@@ -1,7 +1,7 @@
 ---
 title: DockerCompose@1 - Docker Compose v1 task
 description: Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -97,7 +97,7 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select an Azure subscription.
 <!-- :::editable-content-end::: -->
@@ -277,7 +277,7 @@ Ports in the specific service container to publish to the host. Specify each hos
 :::moniker range="=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The working directory for the specific service container.
 <!-- :::editable-content-end::: -->
@@ -445,7 +445,7 @@ Produces an error if the additional Docker Compose files do not exist. This over
 :::moniker range="=azure-pipelines"
 
 **`currentWorkingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Working directory for the Docker Compose command.
 <!-- :::editable-content-end::: -->

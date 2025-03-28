@@ -1,7 +1,7 @@
 ---
 title: XamarinTestCloud@1 - Xamarin Test Cloud v1 task
 description: XamarinTestCloud@1 is deprecated. Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -62,7 +62,7 @@ XamarinTestCloud@1 is deprecated. Originally, this task was used in a build or r
 :::moniker range="<=azure-pipelines"
 
 **`appFile`** - **App file**<br>
-Input alias: `app`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `app`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the relative path from repo root of the app(s) to test.  Wildcards can be used.  For example, `**/*.apk` for all APK files in all subfolders. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -74,7 +74,7 @@ Specifies the relative path from repo root of the app(s) to test.  Wildcards can
 :::moniker range="<=azure-pipelines"
 
 **`dsymFile`** - **dSYM file (iOS only)**<br>
-Input alias: `dsym`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `dsym`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a path relative to the `.ipa` file. To make crash logs easier to read, you can upload a dSYM file that is associated with your app. This field only applies to iOS apps. Wildcards can be used. For example: `*.dSYM`. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->
@@ -98,7 +98,7 @@ Specifies your Xamarin Test Cloud Team API key, which can be found under [Teams 
 :::moniker range="<=azure-pipelines"
 
 **`email`** - **User email**<br>
-Input alias: `user`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `user`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the email address of your [Xamarin Test Cloud account](https://testcloud.xamarin.com/).
 <!-- :::editable-content-end::: -->
@@ -134,7 +134,7 @@ Specifies the series name for organizing test runs (e.g. `master`, `production`,
 :::moniker range="<=azure-pipelines"
 
 **`testAssemblyDirectory`** - **Test assembly directory**<br>
-Input alias: `testDir`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `testDir`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the relative path to the folder containing the test assemblies, such as: `SolutionName/TestsProjectName/bin/Release`.
 <!-- :::editable-content-end::: -->
@@ -146,7 +146,7 @@ Specifies the relative path to the folder containing the test assemblies, such a
 :::moniker range="<=azure-pipelines"
 
 **`parallelizationOption`** - **Parallelization**<br>
-Input alias: `parallelization`. `string`. Required. Allowed values: `none`, `--fixture-chunk` (By test fixture), `--test-chunk` (By test method). Default value: `none`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `parallelization`. `string`. Required. Allowed values: `none`, `--fixture-chunk` (By test fixture), `--test-chunk` (By test method). Default value: `none`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies tests to run simultaneously.
 <!-- :::editable-content-end::: -->
@@ -158,7 +158,7 @@ Specifies tests to run simultaneously.
 :::moniker range="<=azure-pipelines"
 
 **`localeOption`** - **System language**<br>
-Input alias: `locale`. `string`. Required. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `locale`. `string`. Required. Allowed values: `da_DK` (Danish (Denmark)), `nl_NL` (Dutch (Netherlands)), `en_GB` (English (United Kingdom)), `en_US` (English (United States)), `fr_FR` (French (France)), `de_DE` (German (Germany)), `ja_JP` (Japanese (Japan)), `ru_RU` (Russian (Russia)), `es_MX` (Spanish (Mexico)), `es_ES` (Spanish (Spain)), `user` (Other). Default value: `en_US`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies your language. If your language isn't displayed, select `Other` and enter its locale below, such as `en_US`.
 <!-- :::editable-content-end::: -->
@@ -182,7 +182,7 @@ Enters any two-letter ISO-639 language code along with any two-letter ISO 3166 c
 :::moniker range="<=azure-pipelines"
 
 **`testCloudFile`** - **test-cloud.exe location**<br>
-Input alias: `testCloudLocation`. `string`. Required. Default value: `**/packages/**/tools/test-cloud.exe`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `testCloudLocation`. `string`. Required. Default value: `**/packages/**/tools/test-cloud.exe`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path to `test-cloud.exe`. Wildcards can be used, and when they are, the first occurrence of `test-cloud.exe` is used. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
 <!-- :::editable-content-end::: -->

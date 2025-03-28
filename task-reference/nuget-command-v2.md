@@ -1,7 +1,7 @@
 ---
 title: NuGetCommand@2 - NuGet v2 task
 description: Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -143,7 +143,7 @@ Specifies the NuGet command to run. Use the `custom` value to add arguments or t
 :::moniker range="<=azure-pipelines"
 
 **`restoreSolution`** - **Path to solution, packages.config, or project.json**<br>
-Input alias: `solution`. `string`. Required when `command = restore`. Default value: `**/*.sln`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `solution`. `string`. Required when `command = restore`. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the path to the solution, `packages.config`, or `project.json` file that references the packages to be restored.
 <!-- :::editable-content-end::: -->
@@ -155,7 +155,7 @@ Specifies the path to the solution, `packages.config`, or `project.json` file th
 :::moniker range="<=azure-pipelines"
 
 **`feedsToUse`** - **Feeds to use**<br>
-Input alias: `selectOrConfig`. `string`. Required when `command = restore`. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `selectOrConfig`. `string`. Required when `command = restore`. Allowed values: `select` (Feed(s) I select here), `config` (Feeds in my NuGet.config). Default value: `select`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with the `select` value. Alternatively, you can commit a `NuGet.config` file to your source code repository and set its path as the value using the `config` value.
 <!-- :::editable-content-end::: -->
@@ -167,7 +167,7 @@ Specifies a feed from Azure Artifacts and/or NuGet.org for the task to use with 
 :::moniker range="=azure-pipelines"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed. Select from the dropdown or enter [project name/]feed name.**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
@@ -178,7 +178,7 @@ Specifies the selected feed in the generated `NuGet.config`. You must have Packa
 :::moniker range="<=azure-pipelines-2022.2"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts/TFS feed**<br>
-Input alias: `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the selected feed in the generated `NuGet.config`. You must have Package Management installed and licensed to specify a feed here.
 <!-- :::editable-content-end::: -->
@@ -214,7 +214,7 @@ Specifies the path to the `NuGet.config` in your repository that determines the 
 :::moniker range="<=azure-pipelines"
 
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
-Input alias: `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registries located in the selected `NuGet.config`. This is the name of your NuGet service connection. For feeds in this organization or collection, leave this blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
@@ -250,7 +250,7 @@ Prevents NuGet from installing multiple packages in parallel processes when set 
 :::moniker range="<=azure-pipelines"
 
 **`restoreDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packagesDirectory`. `string`. Optional. Use when `command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder in which packages are installed. If no folder is specified, packages are restored into a `packages/` folder alongside the selected solution, `packages.config`, or `project.json`.
 <!-- :::editable-content-end::: -->
@@ -274,7 +274,7 @@ Specifies the amount of detail displayed in the output.
 :::moniker range="<=azure-pipelines"
 
 **`packagesToPush`** - **Path to NuGet package(s) to publish**<br>
-Input alias: `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `searchPatternPush`. `string`. Required when `command = push`. Default value: `$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the pattern to match or path to `nupkg` files to be uploaded. Multiple patterns can be separated by a semicolon.
 <!-- :::editable-content-end::: -->
@@ -298,7 +298,7 @@ Specifies whether the target feed is an internal feed/collection or an external 
 :::moniker range="<=azure-pipelines"
 
 **`publishVstsFeed`** - **Target feed**<br>
-Input alias: `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedPublish`. `string`. Required when `command = push && nuGetFeedType = internal`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies a feed hosted in this account. You must have Azure Artifacts installed and licensed to select a feed here.
 <!-- :::editable-content-end::: -->
@@ -336,7 +336,7 @@ This option is currently only available on Azure Pipelines and Windows agents. I
 :::moniker range="<=azure-pipelines"
 
 **`publishFeedCredentials`** - **NuGet server**<br>
-Input alias: `externalEndpoint`. `string`. Required when `command = push && nuGetFeedType = external`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoint`. `string`. Required when `command = push && nuGetFeedType = external`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the NuGet service connection that contains the external NuGet server’s credentials.
 <!-- :::editable-content-end::: -->
@@ -360,7 +360,7 @@ Specifies the amount of detail displayed in the output.
 :::moniker range="<=azure-pipelines"
 
 **`packagesToPack`** - **Path to csproj or nuspec file(s) to pack**<br>
-Input alias: `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `searchPatternPack`. `string`. Required when `command = pack`. Default value: `**/*.csproj`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the pattern that the task uses to search for csproj directories to pack.
 
@@ -374,7 +374,7 @@ You can separate multiple patterns with a semicolon, and you can make a pattern 
 :::moniker range="<=azure-pipelines"
 
 **`configuration`** - **Configuration to package**<br>
-Input alias: `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `configurationToPack`. `string`. Optional. Use when `command = pack`. Default value: `$(BuildConfiguration)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the configuration to package when using a csproj file.
 <!-- :::editable-content-end::: -->
@@ -386,7 +386,7 @@ Specifies the configuration to package when using a csproj file.
 :::moniker range="<=azure-pipelines"
 
 **`packDestination`** - **Package folder**<br>
-Input alias: `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `outputDir`. `string`. Optional. Use when `command = pack`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder where the task creates packages. If the value is empty, the task creates packages at the source root.
 <!-- :::editable-content-end::: -->
@@ -441,7 +441,7 @@ Specifies the variable name without `$`, `$env`, or `%`.
 :::moniker range="<=azure-pipelines"
 
 **`majorVersion`** - **Major**<br>
-Input alias: `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `1`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `requestedMajorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `1`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -453,7 +453,7 @@ The `X` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`minorVersion`** - **Minor**<br>
-Input alias: `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `requestedMinorVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->
@@ -465,7 +465,7 @@ The `Y` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 :::moniker range="<=azure-pipelines"
 
 **`patchVersion`** - **Patch**<br>
-Input alias: `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `requestedPatchVersion`. `string`. Required when `versioningScheme = byPrereleaseNumber && command = pack`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The `Z` in version [X.Y.Z](http://semver.org/spec/v1.0.0.html).
 <!-- :::editable-content-end::: -->

@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@1 - Invoke REST API v1 task
 description: Invoke a REST API as a part of your pipeline.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -50,7 +50,7 @@ Use this task to invoke a REST API as a part of your pipeline.
 :::moniker range="<=azure-pipelines"
 
 **`connectionType`** - **Connection type**<br>
-Input alias: `connectedServiceNameSelector`. `string`. Required. Allowed values: `connectedServiceName` (Generic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameSelector`. `string`. Required. Allowed values: `connectedServiceName` (Generic), `connectedServiceNameARM` (Azure Resource Manager). Default value: `connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the service connection type to use to invoke the REST API. Select **Azure Resource Manager** to invoke an Azure management API or **Generic** for all other APIs.
 <!-- :::editable-content-end::: -->
@@ -62,7 +62,7 @@ Specifies the service connection type to use to invoke the REST API. Select **Az
 :::moniker range="<=azure-pipelines"
 
 **`serviceConnection`** - **Generic service connection**<br>
-Input alias: `connectedServiceName | genericService`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceName | genericService`. `string`. Required when `connectedServiceNameSelector = connectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the generic service connection that provides the baseUrl for the call and the authorization to use for the task.
 <!-- :::editable-content-end::: -->
@@ -74,7 +74,7 @@ Specifies the generic service connection that provides the baseUrl for the call 
 :::moniker range="<=azure-pipelines"
 
 **`azureServiceConnection`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM | azureSubscription`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM | azureSubscription`. `string`. Required when `connectedServiceNameSelector = connectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure Resource Manager subscription to configure and use for invoking Azure management APIs.
 <!-- :::editable-content-end::: -->

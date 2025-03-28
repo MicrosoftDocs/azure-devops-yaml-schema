@@ -1,7 +1,7 @@
 ---
 title: AzureCLI@1 - Azure CLI v1 task
 description: Run Azure CLI commands against an Azure subscription in a Shell script when running on Linux agent or Batch script when running on Windows agent.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -51,7 +51,7 @@ Run Azure CLI commands against an Azure subscription in a shell script when runn
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Selects an Azure Resource Manager subscription for the deployment.
 <!-- :::editable-content-end::: -->
@@ -108,7 +108,7 @@ call  azure --version || call azure account show
 :::moniker range="<=azure-pipelines"
 
 **`arguments`** - **Arguments**<br>
-Input alias: `args`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `args`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Arguments passed to the script.
 <!-- :::editable-content-end::: -->
@@ -146,7 +146,7 @@ If this is false, this task will use its own separate [Azure CLI configuration d
 :::moniker range="<=azure-pipelines"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. If left blank, this input is the root of the repo (build) or artifacts (release), which is `$(System.DefaultWorkingDirectory)`.
 <!-- :::editable-content-end::: -->

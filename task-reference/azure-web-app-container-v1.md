@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -116,7 +116,7 @@ Specifies an existing slot, excluding the production slot.
 :::moniker range="<=azure-pipelines"
 
 **`containers`** - **Image name**<br>
-Input alias: `imageName`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `imageName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the fully qualified container image name. For example, **myregistry.azurecr.io**/nginx:latest or **python:3.7.2-alpine**/.  
 For a multi-container scenario, multiple container image names can be provided.

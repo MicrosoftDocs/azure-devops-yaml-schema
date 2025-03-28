@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@2 - Azure file copy v2 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 2).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -93,7 +93,7 @@ Specify the absolute path to the source folder, file on the local machine, or a 
 :::moniker range="<=azure-pipelines"
 
 **`azureConnectionType`** - **Azure Connection Type**<br>
-Input alias: `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameSelector`. `string`. Allowed values: `ConnectedServiceName` (Azure Classic), `ConnectedServiceNameARM` (Azure Resource Manager). Default value: `ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the Azure connection type.
 <!-- :::editable-content-end::: -->
@@ -105,7 +105,7 @@ Specify the Azure connection type.
 :::moniker range="<=azure-pipelines"
 
 **`azureClassicSubscription`** - **Azure Classic Subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the target Azure Classic subscription.
 <!-- :::editable-content-end::: -->
@@ -117,7 +117,7 @@ Specify the target Azure Classic subscription.
 :::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure Subscription**<br>
-Input alias: `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceNameARM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the target Azure Resource Manager subscription.
 <!-- :::editable-content-end::: -->
@@ -141,7 +141,7 @@ Specify the destination type to use for copying the files.
 :::moniker range="<=azure-pipelines"
 
 **`classicStorage`** - **Classic Storage Account**<br>
-Input alias: `StorageAccount`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `StorageAccount`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a pre-existing classic storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
@@ -153,7 +153,7 @@ Specify a pre-existing classic storage account. This is the storage account used
 :::moniker range="<=azure-pipelines"
 
 **`storage`** - **RM Storage Account**<br>
-Input alias: `StorageAccountRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `StorageAccountRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify a pre-existing ARM storage account. This is the storage account used as an intermediary for copying files to Azure VMs.
 <!-- :::editable-content-end::: -->
@@ -195,7 +195,7 @@ Example: If you specify a Blob prefix `myvd1`, a virtual directory is created in
 :::moniker range="<=azure-pipelines"
 
 **`cloudService`** - **Cloud Service**<br>
-Input alias: `EnvironmentName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `EnvironmentName`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceName && Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the target Cloud Service.
 <!-- :::editable-content-end::: -->
@@ -207,7 +207,7 @@ Specify the name of the target Cloud Service.
 :::moniker range="<=azure-pipelines"
 
 **`resourceGroup`** - **Resource Group**<br>
-Input alias: `EnvironmentNameRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `EnvironmentNameRM`. `string`. Required when `ConnectedServiceNameSelector = ConnectedServiceNameARM && Destination = AzureVMs`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the name of the target Resource Group.
 <!-- :::editable-content-end::: -->

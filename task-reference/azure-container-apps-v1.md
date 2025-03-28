@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@1 - Azure Container Apps Deploy v1 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps.
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: ">=azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
@@ -61,7 +61,7 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`workingDirectory`** - **Working Directory**<br>
-Input alias: `cwd`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Current working directory where the script is run. Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory).
 <!-- :::editable-content-end::: -->
@@ -87,7 +87,7 @@ When pushing a new image to ACR, the `acrName` and `appSourcePath` task inputs a
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `connectedServiceNameARM`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify an Azure Resource Manager service connection for the deployment. This service connection must be linked to the user's Azure Subscription where the Container App will be created/updated. This service connection _must_ have proper permissions to make these changes within the subscription, for example Contributor role.
 <!-- :::editable-content-end::: -->

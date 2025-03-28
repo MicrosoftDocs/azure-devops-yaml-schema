@@ -1,7 +1,7 @@
 ---
 title: TwineAuthenticate@0 - Python twine upload authenticate v0 task
 description: Authenticate for uploading Python distributions using twine (task version 0).
-ms.date: 02/24/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -47,7 +47,7 @@ Provides `twine` credentials to a `PYPIRC_PATH` environment variable for the sco
 :::moniker range="<=azure-pipelines"
 
 **`artifactFeeds`** - **My feeds (select below)**<br>
-Input alias: `feedList`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `feedList`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the Azure artifact's feed name to authenticate with twine. The authenticating feed must be present within the organization. For project-scoped feeds, use the syntax `projectName/feedNameSelect`.
 <!-- :::editable-content-end::: -->
@@ -59,7 +59,7 @@ Specifies the Azure artifact's feed name to authenticate with twine. The authent
 :::moniker range="<=azure-pipelines"
 
 **`externalFeeds`** - **Feeds from external organizations**<br>
-Input alias: `externalSources`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalSources`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A [twine service connection](/azure/devops/pipelines/library/service-endpoints#python-package-upload-service-connection) name from an external organization to authenticate with twine. The credentials stored in the endpoint must have package upload permissions.
 <!-- :::editable-content-end::: -->

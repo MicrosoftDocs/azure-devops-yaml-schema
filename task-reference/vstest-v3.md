@@ -1,7 +1,7 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 03/25/2025
+ms.date: 03/28/2025
 monikerRange: "=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -96,7 +96,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
-Input alias: `ConnectedServiceName`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify an Azure Resource Manager service connection configured with workload identity federation to use [AzurePipelinesCredential](https://devblogs.microsoft.com/azure-sdk/improve-security-posture-in-azure-service-connections-with-azurepipelinescredential/) in integration tests. For more information, see [Use AzurePipelinesCredential in integration tests](#use-azurepipelinescredential-in-integration-tests).
 

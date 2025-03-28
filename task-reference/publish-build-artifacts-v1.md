@@ -1,7 +1,7 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -122,7 +122,7 @@ Specifies the name of the artifact to create in the publish location. The follow
 :::moniker range="<=azure-pipelines"
 
 **`publishLocation`** - **Artifact publish location**<br>
-Input alias: `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines), `FilePath` (A file share). Default value: `Container`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ArtifactType`. `string`. Required. Allowed values: `Container` (Azure Pipelines), `FilePath` (A file share). Default value: `Container`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether to store the artifact in Azure Pipelines (Container), or to copy it to a file share (FilePath) that must be accessible from the build agent. The input alias: `ArtifactType` is an alternative name for `publishLocation` and can be used interchangeably. For more information, see [Artifacts in Azure Pipelines](/azure/devops/pipelines/artifacts/build-artifacts).
 <!-- :::editable-content-end::: -->

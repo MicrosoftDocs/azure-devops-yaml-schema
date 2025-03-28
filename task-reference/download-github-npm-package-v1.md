@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 03/20/2025
+ms.date: 03/28/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -69,7 +69,7 @@ Specifies the version of the package to download from GitHub.
 :::moniker range="<=azure-pipelines"
 
 **`externalRegistryCredentials`** - **Credentials for registry from GitHub**<br>
-Input alias: `externalEndpoints`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the credentials to use for external registry from GitHub.
 <!-- :::editable-content-end::: -->
@@ -81,7 +81,7 @@ Specifies the credentials to use for external registry from GitHub.
 :::moniker range="<=azure-pipelines"
 
 **`installDirectory`** - **Destination directory**<br>
-Input alias: `packagesDirectory`. `string`.<br>
+[Input alias](index.md#what-are-task-input-aliases): `packagesDirectory`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the folder where packages are installed. If no folder is specified, packages are restored into the default system working directory.
 <!-- :::editable-content-end::: -->
