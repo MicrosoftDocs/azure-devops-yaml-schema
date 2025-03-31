@@ -45,7 +45,10 @@ Use this task to write a comment to your GitHub entity, for example an issue or 
 **`gitHubConnection`** - **GitHub connection (OAuth or PAT)**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. For more information about service connections, see [Manage service connections](https://aka.ms/AA3am5s).
+Specifies the name of the [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#github-service-connection) to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. For more information about service connections, see [Manage service connections](https://aka.ms/AA3am5s).
+
+>[!IMPORTANT]
+> [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#github-service-connection) and [GitHub Enterprise Server service connection](/azure/devops/pipelines/library/service-endpoints#github-enterprise-server-service-connection) are not the same type of service connection. This task supports [GitHub service connection](/azure/devops/pipelines/library/service-endpoints#github-service-connection).
 <!-- :::editable-content-end::: -->
 <br>
 
