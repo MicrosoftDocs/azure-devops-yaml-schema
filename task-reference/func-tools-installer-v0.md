@@ -44,11 +44,11 @@ Use this task to install Azure Functions Core Tools.
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version of Azure Functions Core Tools to install. For example:
 
-`2.7.1575`
+- `2.7.1575`
+- `v2.7.1575`
+- `latest`
 
-`v2.7.1575`
-
-`latest`
+For a list of versions, see [Azure Functions Core Tools releases](https://github.com/Azure/azure-functions-core-tools/releases).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -101,5 +101,8 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
+## See also
+
+* [Develop Azure Functions locally using Core Tools](/azure/azure-functions/functions-run-local)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
