@@ -51,11 +51,36 @@ Definitions that reference this definition: [resources](resources.md)
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+The `resources.pipelines` definition represents a list of pipeline resources. For information and examples of the syntax for an individual pipeline resource in the `resources.pipelines` list, see [resources.pipelines.pipeline](./resources-pipelines-pipeline.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+```yml
+resources:
+ pipelines:
+   - pipeline: source-pipeline
+     source: PipelineTriggerSource
+     project: FabrikamFiber
+     trigger: true
+   - pipeline: other-project-pipeline
+     source: PipelineTriggerFromOtherProject
+     project: FabrikamRepo
+     trigger: true
+
+trigger: none # Only trigger with pipeline resource trigger
+
+pool:
+  vmImage: ubuntu-latest
+
+- bash: echo $(resources.pipeline.source-pipeline.projectName)
+- bash: printenv | sort
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
