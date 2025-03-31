@@ -249,6 +249,23 @@ When specifying a branch, tag, or path, you may use an exact name or a wildcard.
 
 For more information, see [Triggers - CI triggers](/azure/devops/pipelines/build/triggers#ci-triggers) and choose your repository type.
 
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+### Examples
+
+```yaml
+# Build every branch except for main
+trigger:
+  branches:
+    include:
+    - '*' # Must enclose in '' since * is a reserved YAML characters
+    exclude:
+    - main
+```
+
 ```yaml
 # specific branch build with batching
 trigger:
@@ -257,12 +274,6 @@ trigger:
     include:
     - main
 ```
-<!-- :::editable-content-end::: -->
-<!-- :::remarks-end::: -->
-
-<!-- :::examples::: -->
-<!-- :::editable-content name="examples"::: -->
-### Examples
 
 ```yaml
 trigger:
