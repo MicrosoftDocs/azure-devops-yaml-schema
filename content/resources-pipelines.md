@@ -53,7 +53,7 @@ Definitions that reference this definition: [resources](resources.md)
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The `resources.pipelines` definition represents a list of pipeline resources. For information and examples of the syntax for an individual pipeline resources in the `resources.pipelines` list, see [resources.pipelines.pipeline](./resources-pipelines-pipeline.md).
+The `resources.pipelines` definition represents a list of pipeline resources. For information and examples of the syntax for an individual pipeline resource in the `resources.pipelines` list, see [resources.pipelines.pipeline](./resources-pipelines-pipeline.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
