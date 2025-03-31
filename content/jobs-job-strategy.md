@@ -140,7 +140,7 @@ This example uses a `matrix` job strategy to build on multiple platforms.
 
 ```yaml
 # Build NodeJS Express app using Azure Pipelines
-# https://learn.microsoft.com/azure/devops/pipelines/ecosystems/javascript?view=azure-devops
+# https://learn.microsoft.com/azure/devops/pipelines/ecosystems/javascript
 strategy:
   matrix:
     linux:
