@@ -261,7 +261,7 @@ For more information, see [Triggers - CI triggers](/azure/devops/pipelines/build
 trigger:
   branches:
     include:
-    - '*' # Must enclose in '' since * is a reserved YAML characters
+    - '*' # Must enclose in '' since * is a reserved YAML character
     exclude:
     - main
 ```
