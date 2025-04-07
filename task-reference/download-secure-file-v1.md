@@ -167,6 +167,8 @@ This example downloads a secure certificate file and installs it to a trusted ce
 
 #### [Windows](#tab/windows/)
 
+- **Import certificate to CurrentUser root store**:
+
 ```yaml
 - task: DownloadSecureFile@1
   displayName: 'Download certificate'
@@ -184,6 +186,27 @@ This example downloads a secure certificate file and installs it to a trusted ce
     }
     Import-Certificate @params
   displayName: 'Import CA certificate to CurrentUser root store'
+```
+
+- **Import certificate to LocalMachine root store**:
+
+```yaml
+- task: DownloadSecureFile@1
+  displayName: 'Download certificate'
+  inputs:
+    secureFile: 'myCACertificate.pem'
+
+- powershell: |
+    $certPath = '$(caCertificate.secureFilePath)'
+    $certStoreLocation = 'Cert:\LocalMachine\Root'
+
+    Write-Host "Importing certificate $certPath to $certStoreLocation..."
+    $params = @{
+        FilePath = $certPath
+        CertStoreLocation = $certStoreLocation
+    }
+    Import-Certificate @params
+  displayName: 'Import CA certificate to LocalMachine root store'
 ```
 
 * * *
