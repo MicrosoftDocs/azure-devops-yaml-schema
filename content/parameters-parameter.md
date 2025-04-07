@@ -240,6 +240,41 @@ extends:
     parameters:
         yesNo: false 
 ```
+
+You can also use templates to define parameters and then pass those parameters to a pipeline.
+
+```yaml
+# File: template.yml 
+parameters:
+  - name: environment
+    type: string
+    default: 'production'
+
+jobs:
+- job: Deploy
+  displayName: 'Deploy to ${{ parameters.environment }}'
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: echo "Deploying to ${{ parameters.environment }}"
+    displayName: 'Deploy Step'
+```
+
+```yaml
+# File: azure-pipelines.yml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- template: template.yml
+  parameters:
+    environment: 'staging'
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
