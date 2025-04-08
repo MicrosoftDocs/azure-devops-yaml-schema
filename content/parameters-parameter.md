@@ -101,7 +101,7 @@ boolean | deployment | deploymentList | environment | filePath | job | jobList |
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-The type and name fields are required when defining parameters. See all [parameter data types](/azure/devops/pipelines/process/runtime-parameters#parameter-data-types).
+The `type` and `name` fields are required when defining parameters. Learn more about [parameter data types](/azure/devops/pipelines/process/runtime-parameters#parameter-data-types).
 
 ```yaml
 parameters:
@@ -134,49 +134,49 @@ The step, stepList, job, jobList, deployment, deploymentList, stage, and stageLi
 
 ```yaml
 parameters:
-- name: myString
-  type: string
-  default: a string
-- name: myMultiString
-  type: string
-  default: default
-  values:
-    - default
-    - ubuntu
-- name: myNumber
-  type: number
-  default: 2
-  values:
-    - 1
-    - 2
-    - 4
-    - 8
-    - 16
-- name: myBoolean
-  type: boolean
-  default: true
-- name: myObject
-  type: object
-  default:
-    foo: FOO
-    bar: BAR
-    things:
-      - one
-      - two
-      - three
-    nested:
-      one: apple
-      two: pear
-      count: 3
-- name: myStep
-  type: step
-  default:
-    script: echo my step
-- name: mySteplist
-  type: stepList
-  default:
-    - script: echo step one
-    - script: echo step two
+  - name: myString
+    type: string
+    default: a string
+  - name: myMultiString
+    type: string
+    default: default
+    values:
+      - default
+      - ubuntu
+  - name: myNumber
+    type: number
+    default: 2
+    values:
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+  - name: myBoolean
+    type: boolean
+    default: true
+  - name: myObject
+    type: object
+    default:
+      foo: FOO
+      bar: BAR
+      things:
+        - one
+        - two
+        - three
+      nested:
+        one: apple
+        two: pear
+        count: 3
+  - name: myStep
+    type: step
+    default:
+      script: echo my step
+  - name: mySteplist
+    type: stepList
+    default:
+      - script: echo step one
+      - script: echo step two
 
 trigger: none
 
@@ -187,6 +187,7 @@ jobs:
     steps:
       - ${{ parameters.myStep }}
 ```
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -217,7 +218,7 @@ jobs:
       - script: echo The image parameter is ${{ parameters.image }}
 ```
 
-You can use parameters to extend a template. In this example, the pipeline using the template supplies the values to fill into the template.
+Use parameters to extend a template. In this example, the pipeline using the template supplies the values to fill into the template.
 
 ```yaml
 # File: simple-param.yml
@@ -240,6 +241,40 @@ extends:
     parameters:
         yesNo: false 
 ```
+
+Use templates to define parameters and then pass those parameters to a pipeline.
+
+```yaml
+# File: template.yml 
+parameters:
+  - name: environment
+    type: string
+    default: 'production'
+
+jobs:
+- job: Deploy
+  displayName: 'Deploy to ${{ parameters.environment }}'
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: echo "Deploying to ${{ parameters.environment }}"
+    displayName: 'Deploy Step'
+```
+
+```yaml
+# File: azure-pipelines.yml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- template: template.yml
+  parameters:
+    environment: 'staging'
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -247,6 +282,6 @@ extends:
 <!-- :::editable-content name="seeAlso"::: -->
 ## See also
 
-See [templates](/azure/devops/pipelines/process/templates) for more about working with templates.
+See [templates](/azure/devops/pipelines/process/templates) to learn more about working with templates.
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
