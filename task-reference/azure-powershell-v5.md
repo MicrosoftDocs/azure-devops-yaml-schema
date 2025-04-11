@@ -65,7 +65,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
     #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
     #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
   # Azure PowerShell version options
-    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
+    #azurePowerShellVersion: 'OtherVersion' # 'latestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
   # Advanced
     #pwsh: false # boolean. Use PowerShell Core. Default: false.
@@ -281,7 +281,7 @@ The following example shows how to invoke a script from a file and pass script a
       -Arg1 val1 `
       -Arg2 val2 `
       -Arg3 val3
-    azurePowerShellVersion: latestVersion
+    azurePowerShellVersion: LatestVersion
     pwsh: true
 ```
 

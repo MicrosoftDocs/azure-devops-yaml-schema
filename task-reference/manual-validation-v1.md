@@ -48,7 +48,7 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
 **`notifyUsers`** - **Notify users**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Send a manual validation pending email to a comma separated list of specific users (or groups). You can send an email to a group using the `[org name]\group` name syntax.
+Send a manual validation pending email to a comma separated list of specific users (or groups). You can send an email to a group using the `[org name]\group` name syntax. If you can edit the pipeline, you have permission to add email addresses to notifyUsers. No additional permissions are required.
 
 This task input is required, but you can specify an empty string if you don't want to notify anyone, for example during a test run: `notifyUsers: ''`.
 <!-- :::editable-content-end::: -->
