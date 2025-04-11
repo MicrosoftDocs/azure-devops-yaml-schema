@@ -73,31 +73,60 @@ Parameters used in the extend.
 
 Templates and their parameters are turned into constants before the pipeline runs.
 Template parameters provide type safety to input parameters.
-In this example, templates restrict which pools can be used in a pipeline by offering an enumeration of possible options rather than a freeform string.
+In this example, the template `start.yml` defines the parameter `buildSteps`, which is then used in `azure-pipelines.yml`. If a buildStep gets passed with a script step, then it's rejected and the pipeline build fails.
 
 ```yaml
-# template.yml
+# File: start.yml
 parameters:
-- name: userpool
-  type: string
-  default: Azure Pipelines
-  values:
-  - Azure Pipelines
-  - private-pool-1
-  - private-pool-2
+- name: buildSteps # the name of the parameter is buildSteps
+  type: stepList # data type is StepList
+  default: [] # default value of buildSteps
+stages:
+- stage: secure_buildstage
+  pool:
+    vmImage: windows-latest
+  jobs:
+  - job: secure_buildjob
+    steps:
+    - script: echo This happens before code 
+      displayName: 'Base: Pre-build'
+    - script: echo Building
+      displayName: 'Base: Build'
 
-pool: ${{ parameters.userpool }}
-steps:
-- script: # ... removed for clarity
+    - ${{ each step in parameters.buildSteps }}:
+      - ${{ each pair in step }}:
+          ${{ if ne(pair.value, 'CmdLine@2') }}:
+            ${{ pair.key }}: ${{ pair.value }}       
+          ${{ if eq(pair.value, 'CmdLine@2') }}: 
+            # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
+            '${{ pair.value }}': error         
+
+    - script: echo This happens after code
+      displayName: 'Base: Signing'
 ```
 
 ```yaml
-# azure-pipelines.yml
+# File: azure-pipelines.yml
+trigger:
+- main
+
 extends:
-  template: template.yml
+  template: start.yml
   parameters:
-    userpool: private-pool-1
+    buildSteps:  
+      - bash: echo Test #Passes
+        displayName: succeed
+      - bash: echo "Test"
+        displayName: succeed
+      # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
+      - task: CmdLine@2
+        inputs:
+          script: echo "Script Test"
+      # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
+      - script: echo "Script Test"
 ```
+
+
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
