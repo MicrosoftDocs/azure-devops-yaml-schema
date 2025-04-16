@@ -13,7 +13,7 @@ ms.author: rabououn
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Improve build performance by using this task to cache files, like dependencies, between pipeline runs. See [Cache task: how it works](/azure/devops/pipelines/release/caching#cache-task-:-how-it-works) and [Reduce build time using caching](/azure/devops/pipelines/release/caching) for specific examples and more details.
+Improve build performance by using this task to cache files, such as dependencies, between pipeline runs. To add the task, search for **Cache** (cache files between runs) in Classic pipelines or the YAML editor. See [Cache task: how it works](/azure/devops/pipelines/release/caching#cache-task-:-how-it-works) and [Reduce build time using caching](/azure/devops/pipelines/release/caching) for specific examples and more details.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
