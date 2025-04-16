@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-ms.date: 03/28/2025
+ms.date: 04/16/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -414,7 +414,7 @@ The `NuGet.config` in your repository that specifies the feeds from which to res
 **`externalFeedCredentials`** - **Credentials for feeds outside this organization/collection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `externalEndpoints`. `string`. Optional. Use when `selectOrConfig = config && command = restore`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The credentials to use for external registries located in the selected `NuGet.config`. For feeds in this organization/collection, leave this input blank; the build's credentials are used automatically.
+The name of the service connection to use for external registries listed in the selected `NuGet.config`. For feeds within the same organization or collection, leave this input blank; the build's credentials are used automatically.
 <!-- :::editable-content-end::: -->
 <br>
 
