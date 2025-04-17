@@ -1,7 +1,7 @@
 ---
 title: steps.reviewApp definition
 description: Downloads creates a resource dynamically under a deploy phase provider.
-ms.date: 03/20/2025
+ms.date: 04/17/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -13,7 +13,7 @@ ms.author: jukullam
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-The `reviewApp` step creates a resource dynamically under a deploy phase provider.
+The `reviewApp` step deploys every pull request from your Git repository to a dynamic environment resource.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -168,11 +168,34 @@ Number of retries if the task fails.
 ## Remarks
 
 The `reviewApp` keyword is a shortcut for the [Review App task](/azure/devops/pipelines/tasks/reference/review-app-v0).
+
+`ReviewApp` deploys every pull request from your Git repository to a dynamic environment resource. Reviewers can see how those changes look as well as work with other dependent services before they’re merged into the main branch and deployed to production. This will make it easy for you to create and manage **reviewApp** resources and benefit from all the traceability and diagnosis capability of the environment features. By using the **reviewApp** keyword, you can create a clone of a resource (dynamically create a new resource based on an existing resource in an environment) and add the new resource to the environment.
+
+For more information, see [Kubernetes resource - Set up Review App](/azure/devops/pipelines/process/environments-kubernetes#set-up-review-app) and [What’s new in Azure DevOps Sprint 160](https://devblogs.microsoft.com/devops/whats-new-in-azure-devops-sprint-160/).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+
+
+The following is a sample YAML snippet of using reviewApp under environments.
+
+```yaml
+jobs:
+- deployment:
+  environment: 
+     name: smarthotel-dev      
+     resourceName: $(System.PullRequest.PullRequestId) 
+  pool:
+    name: 'ubuntu-latest'
+  strategy:                 
+    runOnce:            
+      pre-deploy: 
+        steps:       
+        - reviewApp: MainNamespace
+```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
@@ -181,5 +204,7 @@ The `reviewApp` keyword is a shortcut for the [Review App task](/azure/devops/pi
 ## See also
 
 - [Review App task](/azure/devops/pipelines/tasks/reference/review-app-v0)
+- [What’s new in Azure DevOps Sprint 160](https://devblogs.microsoft.com/devops/whats-new-in-azure-devops-sprint-160/)
+- [Kubernetes resource - Set up Review App](/azure/devops/pipelines/process/environments-kubernetes#set-up-review-app)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->
