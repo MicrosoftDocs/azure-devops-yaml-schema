@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
-description: Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-ms.date: 03/20/2025
+description: Install and publish npm packages, or run an npm command.
+ms.date: 04/18/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -13,10 +13,10 @@ ms.author: rabououn
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to install and publish npm packages or to run an `npm` command. Supports `npmjs.com` and authenticated registries like Azure Artifacts.
+Use this task to install and publish npm packages or to run an `npm` command.
 
 >[!NOTE]
-> The [npm Authenticate task](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) is the recommended way to authenticate with Azure Artifacts. This task no longer takes new features and only critical bugs are addressed.
+> To authenticate with Azure Artifacts feeds, use the [npm Authenticate](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) task. The `Npm@1` task is no longer under active development, only critical bugs are addressed.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -29,7 +29,7 @@ Use this task to install and publish npm packages or to run an `npm` command. Su
 
 ```yaml
 # npm v1
-# Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
+# Install and publish npm packages, or run an npm command.
 - task: Npm@1
   inputs:
     command: 'install' # 'ci' | 'install' | 'publish' | 'custom'. Required. Command. Default: install.
