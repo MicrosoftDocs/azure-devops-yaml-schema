@@ -224,7 +224,11 @@ None.
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-* [Build your Node.js app with gulp](/azure/devops/pipelines/ecosystems/javascript)
+* [Use JavaScript tasks](/azure/devops/pipelines/ecosystems/customize-javascript)
+
+* [Build and publish a Node.js package](/azure/devops/pipelines/ecosystems/javascript)
+
+* [Deploy apps to Linux VMs](/azure/devops/pipelines/ecosystems/deploy-linux-vm.md#edit-the-code)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
