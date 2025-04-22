@@ -214,9 +214,13 @@ None.
 > [!NOTE]
 > The **Project Collection Build Service** and your project's **Build Service** identity must be set to **Contributor** to publish your packages to a feed using Azure Pipelines. See [Add new users/groups](/azure/devops/artifacts/feeds/feed-permissions#configure-feed-settings) for more details.
 
-### Where can I learn npm commands and arguments?
+### Where can I learn more about the listed npm commands?
 
-* [npm docs](https://docs.npmjs.com/)
+* [npm ci](https://docs.npmjs.com/cli/v11/commands/npm-ci)
+
+* [npm install](https://docs.npmjs.com/cli/v11/commands/npm-install)
+
+* [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish)
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
