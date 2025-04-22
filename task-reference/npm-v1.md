@@ -232,7 +232,7 @@ None.
 
 * [Build and publish a Node.js package](/azure/devops/pipelines/ecosystems/javascript)
 
-* [Deploy apps to Linux VMs](/azure/devops/pipelines/ecosystems/deploy-linux-vm.md#edit-the-code)
+* [Deploy apps to Linux VMs](/azure/devops/pipelines/ecosystems/deploy-linux-vm#edit-the-code)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
