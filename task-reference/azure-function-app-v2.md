@@ -249,7 +249,8 @@ For more information on app settings, see [Environment variables and app setting
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
 
-For `zipDeploy`, the `AzureWebJobsStorage` app setting needs to be set if the `appType` is `functionAppLinux` and the SKU is Linux Consumption.
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
+
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -262,7 +263,7 @@ For `zipDeploy`, the `AzureWebJobsStorage` app setting needs to be set if the `a
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
 
-For `zipDeploy`, the `AzureWebJobsStorage` app setting needs to be set if the `appType` is `functionAppLinux` and the SKU is Linux Consumption.
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -275,7 +276,7 @@ For `zipDeploy`, the `AzureWebJobsStorage` app setting needs to be set if the `a
 <!-- :::editable-content name="helpMarkDown"::: -->
 Chooses the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
 
-For `zipDeploy`, the `AzureWebJobsStorage` app setting needs to be set if the `appType` is `functionAppLinux` and the SKU is Linux Consumption.
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 
