@@ -26,7 +26,7 @@ Import settings from configuration files into Azure App Configuration through bu
 
 ```yaml
 # Azure App Configuration Import v10
-# Import key-values to an Azure App Configuration instance.
+# Import settings from configuration files into Azure App Configuration through build or deployment pipelines.
 - task: AzureAppConfigurationImport@10
   inputs:
   # AppConfiguration
