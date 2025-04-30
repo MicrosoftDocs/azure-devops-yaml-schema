@@ -602,9 +602,9 @@ The task can be used to deploy to a range of Azure App Services such as:
 The following prerequisites must be set up in the target machine(s) for the task to work correctly.
 
 * **App Service instance**. The task is used to deploy a Web App project or Azure Function project to an existing Azure App Service instance, which must exist before the task runs.
-  The App Service instance can be created from the [Azure portal](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/)
+  The App Service instance can be created from the Azure portal
   and [configured](/azure/app-service/configure-common) there.
-  Alternatively, the [Azure PowerShell task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV2) can be used to run
+  Alternatively, the [Azure PowerShell task](./azure-powershell-v5.md) can be used to run
   [Azure PowerShell scripts](/powershell/module/az.websites) to provision and configure the Web App.
 
 * **Azure Subscription**. To deploy to Azure, an Azure subscription must be [linked to the pipeline](/azure/devops/pipelines/library/connect-to-azure).
