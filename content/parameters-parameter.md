@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -187,7 +187,6 @@ jobs:
     steps:
       - ${{ parameters.myStep }}
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -274,7 +273,6 @@ jobs:
   parameters:
     environment: 'staging'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
