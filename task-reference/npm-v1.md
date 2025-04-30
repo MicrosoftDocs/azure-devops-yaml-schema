@@ -13,7 +13,7 @@ ms.author: rabououn
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to install and publish npm packages or to run an `npm` command.
+Use this task to install and publish npm packages or to run an `npm` command. Supports npmjs.com and authenticated registries like Azure Artifacts.
 
 >[!NOTE]
 > To authenticate with Azure Artifacts feeds, use the [npm Authenticate](/azure/devops/pipelines/tasks/reference/npm-authenticate-v0) task. The `Npm@1` task is no longer under active development, only critical bugs are addressed.
