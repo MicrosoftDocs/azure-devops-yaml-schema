@@ -1,6 +1,6 @@
 ---
 title: AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task
-description: Import key-values to an Azure App Configuration instance.
+description: Import settings from configuration files into Azure App Configuration through build or deployment pipelines.
 ms.date: 04/30/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
