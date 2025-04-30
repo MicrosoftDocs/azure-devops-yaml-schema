@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task
 description: Import key-values to an Azure App Configuration instance.
-ms.date: 03/24/2025
+ms.date: 04/30/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -60,7 +60,7 @@ Import settings from configuration files into Azure App Configuration through bu
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Subscription for the Azure App Configuration instance.
 <!-- :::editable-content-end::: -->
