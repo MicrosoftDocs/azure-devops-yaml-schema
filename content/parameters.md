@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters definition
 description: Pipeline template parameters.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam

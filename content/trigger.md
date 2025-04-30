@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -248,7 +248,6 @@ When specifying a branch, tag, or path, you may use an exact name or a wildcard.
 ::: moniker-end
 
 For more information, see [Triggers - CI triggers](/azure/devops/pipelines/build/triggers#ci-triggers) and choose your repository type.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

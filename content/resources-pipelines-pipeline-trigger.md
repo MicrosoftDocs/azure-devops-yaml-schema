@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline.trigger definition
 description: Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
