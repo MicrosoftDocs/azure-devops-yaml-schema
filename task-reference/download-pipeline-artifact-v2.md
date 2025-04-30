@@ -166,7 +166,7 @@ The comma-delimited list of tags that the task uses to return tagged builds. Unt
 **`allowPartiallySucceededBuilds`** - **Download artifacts from partially succeeded builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies if the build task downloads artifacts whether the build succeeds or partially succeeds.
+Specifies whether to download artifacts from partially succeeded builds. To do so, you must set both `allowPartiallySucceededBuilds` and `allowFailedBuilds` to `true`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -178,7 +178,7 @@ Specifies if the build task downloads artifacts whether the build succeeds or pa
 **`allowFailedBuilds`** - **Download artifacts from failed builds.**<br>
 `boolean`. Optional. Use when `source == specific && runVersion != specific`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If checked, the build task downloads artifacts whether the build succeeds or fails.
+Specifies whether to download artifacts from failed builds.
 <!-- :::editable-content-end::: -->
 <br>
 
