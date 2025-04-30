@@ -508,7 +508,7 @@ Specifies the build configuration against which the tests should be reported. If
 **`customLoggerConfig`** - **Custom Logger Configuration**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Use this option if you have a custom logger. To use, provide the logger name along with its parameters in the following format: 'friendlyName;key1=value1;key2=value2;....'.
+Use this option if you have a custom logger. To use, provide the logger name along with its parameters in the following format: `friendlyName;key1=value1;key2=value2;...`.
 <!-- :::editable-content-end::: -->
 <br>
 
