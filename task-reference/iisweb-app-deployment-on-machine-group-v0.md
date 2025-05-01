@@ -234,7 +234,7 @@ Use this task to deploy a website or web app using WebDeploy.
 <!-- :::editable-content name="examples"::: -->
 ## Examples
 
-- [Deployment jobs](/azure/devops/pipelines/process/deployment-jobs.md#rolling-deployment-strategy)
+- [Deployment jobs](/azure/devops/pipelines/process/deployment-jobs#rolling-deployment-strategy)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
