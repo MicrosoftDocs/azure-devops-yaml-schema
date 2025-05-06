@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 04/30/2025
+ms.date: 05/06/2025
 monikerRange: "=azure-pipelines"
 ---
 
