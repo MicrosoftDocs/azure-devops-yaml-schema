@@ -1,7 +1,7 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 04/30/2025
+ms.date: 05/06/2025
 monikerRange: "=azure-pipelines"
 ---
 
