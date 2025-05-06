@@ -1,7 +1,7 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
@@ -20,7 +20,54 @@ Use Kubernetes manifest files to deploy to clusters or even bake the manifest fi
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Deploy to Kubernetes v1
+# Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
+- task: KubernetesManifest@1
+  inputs:
+    #action: 'deploy' # 'bake' | 'createSecret' | 'delete' | 'deploy' | 'patch' | 'promote' | 'scale' | 'reject'. Action. Default: deploy.
+    #connectionType: 'kubernetesServiceConnection' # 'azureResourceManager' | 'kubernetesServiceConnection'. Required when action != bake. Service connection type. Default: kubernetesServiceConnection.
+    #kubernetesServiceConnection: # string. Alias: kubernetesServiceEndpoint. Required when action != bake && connectionType = kubernetesServiceConnection. Kubernetes service connection. 
+    #azureSubscriptionConnection: # string. Alias: azureSubscriptionEndpoint. Required when action != bake && connectionType = azureResourceManager. Azure subscription. 
+    #azureResourceGroup: # string. Required when action != bake && connectionType = azureResourceManager. Resource group. 
+    #kubernetesCluster: # string. Required when action != bake && connectionType = azureResourceManager. Kubernetes cluster. 
+    #useClusterAdmin: false # boolean. Optional. Use when connectionType = azureResourceManager. Use cluster admin credentials. Default: false.
+    #namespace: # string. Namespace. 
+    #strategy: 'none' # 'canary' | 'none'. Optional. Use when action = deploy || action = promote || action = reject. Strategy. Default: none.
+    #trafficSplitMethod: 'pod' # 'pod' | 'smi'. Optional. Use when strategy = canary. Traffic split method. Default: pod.
+    #percentage: '0' # string. Required when strategy = Canary && action = deploy. Percentage. Default: 0.
+    #baselineAndCanaryReplicas: '1' # string. Required when strategy = Canary && action = deploy && trafficSplitMethod = SMI. Baseline and canary replicas. Default: 1.
+    #manifests: # string. Required when action = deploy || action = promote || action = reject. Manifests. 
+    #containers: # string. Optional. Use when action = deploy || action = promote || action = bake. Containers. 
+    #imagePullSecrets: # string. Optional. Use when action = deploy || action = promote. ImagePullSecrets. 
+    #renderType: 'helm' # 'helm' | 'kompose' | 'kustomize'. Optional. Use when action = bake. Render Engine. Default: helm.
+    #dockerComposeFile: # string. Required when action = bake && renderType = kompose. Path to docker compose file. 
+    #helmChart: # string. Required when action = bake && renderType = helm. Helm Chart. 
+    #releaseName: # string. Optional. Use when action = bake && renderType = helm. Helm Release Name. 
+    #overrideFiles: # string. Optional. Use when action = bake && renderType = helm. Override Files. 
+    #overrides: # string. Optional. Use when action = bake && renderType = helm. Overrides. 
+    #kustomizationPath: # string. Optional. Use when action = bake && renderType = kustomize. Kustomization Path. 
+    #resourceToPatch: 'file' # 'file' | 'name'. Required when action = patch. Resource to patch. Default: file.
+    #resourceFileToPatch: # string. Required when action = patch && resourceToPatch = file. File path. 
+    #kind: # 'deployment' | 'replicaset' | 'statefulset'. Required when action = scale || resourceToPatch = name. Kind. 
+    #name: # string. Required when action = scale || resourceToPatch = name. Name. 
+    #replicas: # string. Required when action = scale. Replica count. 
+    #mergeStrategy: 'strategic' # 'json' | 'merge' | 'strategic'. Required when action = patch. Merge Strategy. Default: strategic.
+    #arguments: # string. Optional. Use when action = delete. Arguments. 
+    #patch: # string. Required when action = patch. Patch. 
+    #secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required when action = createSecret. Type of secret. Default: dockerRegistry.
+    #secretName: # string. Optional. Use when action = createSecret. Secret name. 
+    #secretArguments: # string. Optional. Use when action = createSecret && secretType = generic. Arguments. 
+    #dockerRegistryEndpoint: # string. Optional. Use when action = createSecret && secretType = dockerRegistry. Docker registry service connection. 
+    #rolloutStatusTimeout: '0' # string. Optional. Use when action = deploy || action = patch || action = scale || action = promote. Timeout for rollout status. Default: 0.
+    #resourceType: 'Microsoft.ContainerService/managedClusters' # string. Optional. Use when action = deploy. Resource type. Default: Microsoft.ContainerService/managedClusters.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 # Deploy to Kubernetes v1
@@ -536,6 +583,18 @@ Specifies the credentials of the specified service connection that are used to c
 `string`. Optional. Use when `action = deploy || action = patch || action = scale || action = promote`. Default value: `0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the length of time (in seconds) to wait before ending `watch on rollout` status.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="resourceType"::: -->
+:::moniker range="=azure-pipelines"
+
+**`resourceType`** - **Resource type**<br>
+`string`. Optional. Use when `action = deploy`. Default value: `Microsoft.ContainerService/managedClusters`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+The type of the resource (fleet, managed cluster).
 <!-- :::editable-content-end::: -->
 <br>
 

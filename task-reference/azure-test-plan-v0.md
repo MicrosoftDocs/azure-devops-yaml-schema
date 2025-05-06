@@ -1,7 +1,7 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 03/17/2025
+ms.date: 05/06/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -27,7 +27,7 @@ Run manual and automated tests in test plan in Java and Python language.
 
 ```yaml
 # Azure Test Plan v0
-# Run manual and automated tests in test plan in Java and Python language.
+# Run manual and automated tests points of test plan for different testing frameworks like Maven and Gradle for Java, PyTest for Python and Jest for JavaScript.
 - task: AzureTestPlan@0
   inputs:
     testSelector: # 'manualTests' | 'automatedTests'. Required. Test cases to be executed. 
@@ -42,6 +42,7 @@ Run manual and automated tests in test plan in Java and Python language.
     #failTaskOnFailedTests: true # boolean. Fail if there are test failures. Default: true.
     #failTaskOnFailureToPublishResults: false # boolean. Fail if there is failure in publishing test results. Default: false.
     #failTaskOnMissingResultsFile: false # boolean. Fail if no result files are found. Default: false.
+  # advanced
     #publishRunAttachments: true # boolean. Upload test results files. Default: true.
 ```
 
@@ -241,7 +242,7 @@ None.
 | Requirement | Description |
 |-------------|-------------|
 | Pipeline types | YAML, Classic build, Classic release |
-| Runs on | All |
+| Runs on | Agent, DeploymentGroup |
 | [Demands](/azure/devops/pipelines/process/demands) | None |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |

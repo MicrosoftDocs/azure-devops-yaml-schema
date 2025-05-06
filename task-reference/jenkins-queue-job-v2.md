@@ -1,7 +1,7 @@
 ---
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn

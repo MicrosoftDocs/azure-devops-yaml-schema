@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: ">=azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
@@ -248,6 +248,8 @@ For more information on app settings, see [Environment variables and app setting
 `string`. Required when `appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -259,6 +261,8 @@ Specifies the [deployment method](#deployment-methods) for the app. Linux Consum
 `string`. Required when `appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -269,7 +273,9 @@ Specifies the [deployment method](#deployment-methods) for the app. Linux Consum
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.s
+Chooses the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
+
+The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
 <!-- :::editable-content-end::: -->
 <br>
 

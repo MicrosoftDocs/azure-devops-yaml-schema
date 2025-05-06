@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 4).
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -1029,8 +1029,7 @@ The task can be used to deploy to a range of Azure App Services such as:
 The following prerequisites must be set up in the target machine(s) for the task to work correctly.
 
 * **App Service instance**. The task is used to deploy a Web App project or Azure Function project to an existing Azure App Service instance, which must exist before the task runs.
-  The App Service instance can be created from the [Azure portal](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/)
-  and [configured](/azure/app-service/configure-common) there.
+  The App Service instance can be created from the Azure portal and [configured](/azure/app-service/configure-common) there.
   Alternatively, the [Azure PowerShell task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV2) can be used to run
   [Azure PowerShell scripts](/powershell/module/az.websites) to provision and configure the Web App.
 
