@@ -3,8 +3,6 @@ title: XamariniOS@2 - Xamarin.iOS v2 task
 description: Build an iOS app with Xamarin on macOS.
 ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
-author: steved0x
-ms.author: sdanie
 ---
 
 # XamariniOS@2 - Xamarin.iOS v2 task
@@ -13,10 +11,7 @@ ms.author: sdanie
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
-
-> [!NOTE]
-> This task is deprecated and was retired May 1, 2024.
+Build an iOS app with Xamarin on macOS.
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
@@ -26,10 +21,7 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 :::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
-XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
-
-> [!NOTE]
-> This task is deprecated and was retired May 1, 2024.
+Build an iOS app with Xamarin on macOS.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -72,7 +64,7 @@ XamariniOS@2 is deprecated. Originally, this task was used as a pipeline to buil
 **`solutionFile`** - **Solution**<br>
 [Input alias](index.md#what-are-task-input-aliases): `solution`. `string`. Required. Default value: `**/*.sln`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the relative path from the repository root of the `Xamarin.iOS` solution or csproj project to the build. May contain wildcards.
+Relative path from the repository root of the Xamarin.iOS solution to build. May contain wildcards.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -84,7 +76,7 @@ Specifies the relative path from the repository root of the `Xamarin.iOS` soluti
 **`configuration`** - **Configuration**<br>
 `string`. Required. Default value: `Release`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the configuration. Standard configurations are Ad-Hoc, AppStore, Debug, and Release.
+Standard configurations are Ad-Hoc, AppStore, Debug, Release.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -96,7 +88,7 @@ Specifies the configuration. Standard configurations are Ad-Hoc, AppStore, Debug
 **`clean`** - **Clean**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Runs a clean build (`/t:clean`) prior to the build.
+Run a clean build (/t:clean) prior to the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -108,7 +100,7 @@ Optional. Runs a clean build (`/t:clean`) prior to the build.
 **`packageApp`** - **Create app package**<br>
 `boolean`. Default value: `true`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If set to `true`, generates an IPA as a part of the build.
+Indicates whether an IPA should be generated as a part of the build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -120,7 +112,7 @@ If set to `true`, generates an IPA as a part of the build.
 **`buildForSimulator`** - **Build for iOS Simulator**<br>
 [Input alias](index.md#what-are-task-input-aliases): `forSimulator`. `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Builds for the iOS Simulator instead of physical iOS devices.
+Optionally build for the iOS Simulator instead of physical iOS devices.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -132,7 +124,7 @@ Optional. Builds for the iOS Simulator instead of physical iOS devices.
 **`runNugetRestore`** - **Run NuGet restore**<br>
 `boolean`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Runs `nuget restore` on the Xamarin iOS solution to install all referenced packages before the build. The `nuget` tool in the PATH of the build agent machine is used. To use a different version of NuGet or set additional arguments, use the [NuGet Installer Task](https://www.visualstudio.com/docs/build/steps/package/nuget-installer).
+Optionally run `nuget restore` on the Xamarin iOS solution to install all referenced packages before build. The 'nuget' tool in the PATH of the build agent machine will be used. To use a different version of NuGet or set additional arguments, use the [NuGet Tool Installer](https://go.microsoft.com/fwlink/?linkid=852538) task.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -144,7 +136,7 @@ Runs `nuget restore` on the Xamarin iOS solution to install all referenced packa
 **`args`** - **Arguments**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies additional command line arguments that are used to build.
+Additional command line arguments that should be used to build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -156,7 +148,7 @@ Optional. Specifies additional command line arguments that are used to build.
 **`workingDirectory`** - **Working directory**<br>
 [Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the working directory in which builds will run. If the value is empty, the root of the repository is used.
+Working directory in which builds will run. When empty, the root of the repository is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,7 +160,7 @@ Optional. Specifies the working directory in which builds will run. If the value
 **`mdtoolFile`** - **Build tool path**<br>
 [Input alias](index.md#what-are-task-input-aliases): `buildToolLocation | mdtoolLocation`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MSBuild (the Visual Studio for Mac build tool). If the value is empty, the default xbuild or MSBuild path is used.
+Optionally supply the full path to MSBuild (the Visual Studio for Mac build tool). When empty, the default MSBuild path is used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -180,7 +172,7 @@ Optional. Supplies the path to xbuild (the Xamarin Studio mono build tool) or MS
 **`signingIdentity`** - **Signing identity**<br>
 [Input alias](index.md#what-are-task-input-aliases): `iosSigningIdentity`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Overrides the signing identity that will be used to sign the build. If the value is empty, the setting in the Xcode project will be used. You may need to select `signingUnlockDefaultKeychain` if you use this option.
+Optionally override the signing identity that will be used to sign the build. If nothing is entered, the setting in the project will be used.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -192,7 +184,7 @@ Optional. Overrides the signing identity that will be used to sign the build. If
 **`signingProvisioningProfileID`** - **Provisioning profile UUID**<br>
 [Input alias](index.md#what-are-task-input-aliases): `provProfileUuid`. `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the UUID of an installed provisioning profile override to be used for this build.
+Optional UUID of an installed provisioning profile to be used for this build.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -216,21 +208,11 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-## Remarks
-
-Use this task in a pipeline to build an iOS app with Xamarin on macOS. For more information, see the [Xamarin guidance](/azure/devops/pipelines/ecosystems/xamarin) and [Sign your app during CI](/azure/devops/pipelines/apps/mobile/app-signing).
-
-### What's new in this task version
-
-* iOS signing set up has been removed from the task. Use `Secure Files` with supporting tasks `Install Apple Certificate` and `Install Apple Provisioning Profile` to setup signing. Updated options to work better with `Visual Studio for Mac`.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
-## Examples
-
-* [Build your Xamarin app](/azure/devops/pipelines/ecosystems/xamarin)
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
