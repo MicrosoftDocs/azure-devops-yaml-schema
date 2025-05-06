@@ -1,7 +1,7 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 04/30/2025
+ms.date: 05/06/2025
 monikerRange: "=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -78,7 +78,6 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
     #testRunTitle: # string. Test run title. 
     #platform: # string. Build platform. 
     #configuration: # string. Build configuration. 
-    #customLoggerConfig: # string. Custom Logger Configuration. 
     #publishRunAttachments: true # boolean. Upload test attachments. Default: true.
     #donotPublishTestResults: false # boolean. Optional. Use when runInParallel = false. Disable publishing test results. Default: false.
     #failOnMinTestsNotRun: False # boolean. Fail the task if a minimum number of tests are not run. Default: False.
@@ -497,18 +496,6 @@ Specifies the build platform against which the tests should be reported. If you 
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the build configuration against which the tests should be reported. If you have defined a variable for configuration in your build task, use that with this input.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="customLoggerConfig"::: -->
-:::moniker range="=azure-pipelines"
-
-**`customLoggerConfig`** - **Custom Logger Configuration**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Use this option if you have a custom logger. To use, provide the logger name along with its parameters in the following format: `friendlyName;key1=value1;key2=value2;...`.
 <!-- :::editable-content-end::: -->
 <br>
 
