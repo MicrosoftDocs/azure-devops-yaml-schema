@@ -250,7 +250,7 @@ None.
 
 Use this task in a pipeline to sign and align Android APK files.
 
-This version of the task uses apksigner instead of jarsigner to sign APKs.
+This version of the task uses `apksigner` instead of `jarsigner` to sign APKs. [AdnroidSigning@2](./android-signing-v2.md) uses jarsigner to sign APKs and AABs.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
