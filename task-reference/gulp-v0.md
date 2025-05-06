@@ -1,7 +1,7 @@
 ---
 title: gulp@0 - gulp v0 task
 description: Run the gulp Node.js streaming task-based build system (task version 0).
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
 ---
 
