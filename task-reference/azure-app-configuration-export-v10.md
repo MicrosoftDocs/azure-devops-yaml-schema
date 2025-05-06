@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationExport@10 - Azure App Configuration Export v10 task
-description: Export key-values to task variables from Azure App Configuration.
-ms.date: 03/28/2025
+description: Export key-values from Azure App Configuration to task variables in your build or deployment pipelines.
+ms.date: 04/30/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -26,7 +26,7 @@ Export key-values from Azure App Configuration to task variables in your build o
 
 ```yaml
 # Azure App Configuration Export v10
-# Export key-values to task variables from Azure App Configuration.
+# Export key-values from Azure App Configuration to task variables in your build or deployment pipelines.
 - task: AzureAppConfigurationExport@10
   inputs:
     azureSubscription: # string. Alias: ConnectedServiceName. Required. Azure subscription. 

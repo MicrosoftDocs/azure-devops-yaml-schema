@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 03/28/2025
+ms.date: 04/30/2025
 monikerRange: ">=azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
@@ -250,7 +250,6 @@ For more information on app settings, see [Environment variables and app setting
 Specifies the [deployment method](#deployment-methods) for the app. Linux Consumption apps do not support this configuration.
 
 The Azure Web Jobs Storage app settings needs to be set for zip deployments when the SKU is Linux Consumption. Zip deployments use a storage account to upload and mount application code into the app.
-
 <!-- :::editable-content-end::: -->
 <br>
 

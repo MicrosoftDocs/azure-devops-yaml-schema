@@ -1,7 +1,7 @@
 ---
 title: IISWebAppDeploymentOnMachineGroup@0 - IIS web app deploy v0 task
 description: Deploy a website or web application using Web Deploy.
-ms.date: 04/24/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -17,7 +17,6 @@ Use this task to deploy a website or web application using Web Deploy.
 
 > [!IMPORTANT]
 > This task only works with Classic pipelines. Use [IIS Web App Deployment Using WinRM - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp) instead.
-
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

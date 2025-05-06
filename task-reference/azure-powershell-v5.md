@@ -1,7 +1,7 @@
 ---
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
-ms.date: 03/28/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -65,7 +65,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
     #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
     #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
   # Azure PowerShell version options
-    #azurePowerShellVersion: 'OtherVersion' # 'latestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
   # Advanced
     #pwsh: false # boolean. Use PowerShell Core. Default: false.
