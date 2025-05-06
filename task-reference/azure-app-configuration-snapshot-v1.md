@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
-description: Create a snapshot in an Azure App Configuration instance.
-ms.date: 02/24/2025
+description: Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
+ms.date: 04/30/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -26,7 +26,7 @@ Create a configuration snapshot in Azure App Configuration through build or depl
 
 ```yaml
 # Azure App Configuration Snapshot v1
-# Create a snapshot in an Azure App Configuration instance.
+# Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
 - task: AzureAppConfigurationSnapshot@1
   inputs:
   # AppConfiguration
@@ -50,7 +50,7 @@ Create a configuration snapshot in Azure App Configuration through build or depl
 :::moniker range="=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
-Input alias: `ConnectedServiceName`. `string`. Required.<br>
+[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Select the Azure Subscription for the Azure App Configuration instance.
 <!-- :::editable-content-end::: -->

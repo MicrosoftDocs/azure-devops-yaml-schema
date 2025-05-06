@@ -1,7 +1,7 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -210,7 +210,6 @@ This example downloads a secure certificate file and installs it to a trusted ce
     ```
 
 * * *
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
