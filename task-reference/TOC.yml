@@ -1100,34 +1100,6 @@ items:
   - name: WindowsMachineFileCopy@1
     href: windows-machine-file-copy-v1.md
     displayName: Windows machine file copy v1
-- name: Xamarin Component Restore
-  items:
-  - name: XamarinComponentRestore@0
-    href: xamarin-component-restore-v0.md
-    displayName: Xamarin Component Restore v0
-- name: Xamarin License
-  items:
-  - name: XamarinLicense@1
-    href: xamarin-license-v1.md
-    displayName: Xamarin License v1
-- name: Xamarin Test Cloud
-  items:
-  - name: XamarinTestCloud@1
-    href: xamarin-test-cloud-v1.md
-    displayName: Xamarin Test Cloud v1
-- name: Xamarin.Android
-  items:
-  - name: XamarinAndroid@1
-    href: xamarin-android-v1.md
-    displayName: Xamarin.Android v1
-- name: Xamarin.iOS
-  items:
-  - name: XamariniOS@2
-    href: xamarin-ios-v2.md
-    displayName: Xamarin.iOS v2
-  - name: XamariniOS@1
-    href: xamarin-ios-v1.md
-    displayName: Xamarin.iOS v1
 - name: Xcode
   items:
   - name: Xcode@5
