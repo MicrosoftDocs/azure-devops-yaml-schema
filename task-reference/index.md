@@ -60,8 +60,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Publish Quality Gate Result**<br>[SonarQubePublish@7](sonar-qube-publish-v7.md)<br>[SonarQubePublish@6](sonar-qube-publish-v6.md)<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
 | **Run Code Analysis**<br>[SonarQubeAnalyze@7](sonar-qube-analyze-v7.md)<br>[SonarQubeAnalyze@6](sonar-qube-analyze-v6.md)<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube Server. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
-| **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
-| **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
 | **Xcode**<br>[Xcode@5](xcode-v5.md)<br>[Xcode@4](xcode-v4.md) | Build, test, or archive an Xcode workspace on macOS. Optionally package an app. |
 | **Xcode Build**<br>[Xcode@3](xcode-v3.md)<br>[Xcode@2](xcode-v2.md) | Build an Xcode workspace on macOS. |
 | **Xcode Package iOS**<br>[XcodePackageiOS@0](xcode-package-ios-v0.md) | Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below). |
@@ -142,7 +140,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
 | **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
-| **Xamarin Component Restore**<br>[XamarinComponentRestore@0](xamarin-component-restore-v0.md) | This task is deprecated. Use 'NuGet' instead. |
 ## Test tasks
 
 | Task | Description |
@@ -159,7 +156,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Visual Studio Test**<br>[VSTest@3](vstest-v3.md)<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (version 2 and later). |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
-| **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
 ## Tool tasks
 
 | Task | Description |
@@ -234,7 +230,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Shell script**<br>[ShellScript@2](shell-script-v2.md) | Run a shell script using Bash. |
 | **Update Service Fabric App Versions**<br>[ServiceFabricUpdateAppVersions@1](service-fabric-update-app-versions-v1.md) | Automatically updates the versions of a packaged Service Fabric application. |
 | **Update Service Fabric manifests**<br>[ServiceFabricUpdateManifests@2](service-fabric-update-manifests-v2.md) | Automatically update portions of application and service manifests in a packaged Azure Service Fabric application. |
-| **Xamarin License**<br>[XamarinLicense@1](xamarin-license-v1.md) | [Deprecated] Upgrade to free version of Xamarin: https://store.xamarin.com. |
 
 :::moniker-end
 
@@ -264,8 +259,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
-| **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
-| **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
 | **Xcode**<br>[Xcode@5](xcode-v5.md)<br>[Xcode@4](xcode-v4.md) | Build, test, or archive an Xcode workspace on macOS. Optionally package an app. |
 | **Xcode Build**<br>[Xcode@3](xcode-v3.md)<br>[Xcode@2](xcode-v2.md) | Build an Xcode workspace on macOS. |
 | **Xcode Package iOS**<br>[XcodePackageiOS@0](xcode-package-ios-v0.md) | Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below). |
@@ -343,7 +336,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
 | **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
-| **Xamarin Component Restore**<br>[XamarinComponentRestore@0](xamarin-component-restore-v0.md) | This task is deprecated. Use 'NuGet' instead. |
 ## Test tasks
 
 | Task | Description |
@@ -358,7 +350,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
-| **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
 ## Tool tasks
 
 | Task | Description |
@@ -430,7 +421,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Shell script**<br>[ShellScript@2](shell-script-v2.md) | Run a shell script using Bash. |
 | **Update Service Fabric App Versions**<br>[ServiceFabricUpdateAppVersions@1](service-fabric-update-app-versions-v1.md) | Automatically updates the versions of a packaged Service Fabric application. |
 | **Update Service Fabric manifests**<br>[ServiceFabricUpdateManifests@2](service-fabric-update-manifests-v2.md) | Automatically update portions of application and service manifests in a packaged Azure Service Fabric application. |
-| **Xamarin License**<br>[XamarinLicense@1](xamarin-license-v1.md) | [Deprecated] Upgrade to free version of Xamarin: https://store.xamarin.com. |
 
 :::moniker-end
 
@@ -460,8 +450,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven**<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
-| **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
-| **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
 | **Xcode**<br>[Xcode@5](xcode-v5.md)<br>[Xcode@4](xcode-v4.md) | Build, test, or archive an Xcode workspace on macOS. Optionally package an app. |
 | **Xcode Build**<br>[Xcode@3](xcode-v3.md)<br>[Xcode@2](xcode-v2.md) | Build an Xcode workspace on macOS. |
 | **Xcode Package iOS**<br>[XcodePackageiOS@0](xcode-package-ios-v0.md) | Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below). |
@@ -537,7 +525,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
 | **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
-| **Xamarin Component Restore**<br>[XamarinComponentRestore@0](xamarin-component-restore-v0.md) | This task is deprecated. Use 'NuGet' instead. |
 ## Test tasks
 
 | Task | Description |
@@ -552,7 +539,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
-| **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
 ## Tool tasks
 
 | Task | Description |
@@ -623,7 +609,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Shell script**<br>[ShellScript@2](shell-script-v2.md) | Run a shell script using Bash. |
 | **Update Service Fabric App Versions**<br>[ServiceFabricUpdateAppVersions@1](service-fabric-update-app-versions-v1.md) | Automatically updates the versions of a packaged Service Fabric application. |
 | **Update Service Fabric manifests**<br>[ServiceFabricUpdateManifests@2](service-fabric-update-manifests-v2.md) | Automatically update portions of application and service manifests in a packaged Azure Service Fabric application. |
-| **Xamarin License**<br>[XamarinLicense@1](xamarin-license-v1.md) | [Deprecated] Upgrade to free version of Xamarin: https://store.xamarin.com. |
 
 :::moniker-end
 
@@ -653,8 +638,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven**<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
-| **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
-| **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
 | **Xcode**<br>[Xcode@5](xcode-v5.md)<br>[Xcode@4](xcode-v4.md) | Build, test, or archive an Xcode workspace on macOS. Optionally package an app. |
 | **Xcode Build**<br>[Xcode@3](xcode-v3.md)<br>[Xcode@2](xcode-v2.md) | Build an Xcode workspace on macOS. |
 | **Xcode Package iOS**<br>[XcodePackageiOS@0](xcode-package-ios-v0.md) | Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below). |
@@ -729,7 +712,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
 | **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
-| **Xamarin Component Restore**<br>[XamarinComponentRestore@0](xamarin-component-restore-v0.md) | This task is deprecated. Use 'NuGet' instead. |
 ## Test tasks
 
 | Task | Description |
@@ -744,7 +726,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
-| **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
 ## Tool tasks
 
 | Task | Description |
@@ -814,7 +795,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Shell script**<br>[ShellScript@2](shell-script-v2.md) | Run a shell script using Bash. |
 | **Update Service Fabric App Versions**<br>[ServiceFabricUpdateAppVersions@1](service-fabric-update-app-versions-v1.md) | Automatically updates the versions of a packaged Service Fabric application. |
 | **Update Service Fabric manifests**<br>[ServiceFabricUpdateManifests@2](service-fabric-update-manifests-v2.md) | Automatically update portions of application and service manifests in a packaged Azure Service Fabric application. |
-| **Xamarin License**<br>[XamarinLicense@1](xamarin-license-v1.md) | [Deprecated] Upgrade to free version of Xamarin: https://store.xamarin.com. |
 
 :::moniker-end
 
@@ -844,8 +824,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven**<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
-| **Xamarin.Android**<br>[XamarinAndroid@1](xamarin-android-v1.md) | Build an Android app with Xamarin. |
-| **Xamarin.iOS**<br>[XamariniOS@2](xamarin-ios-v2.md)<br>[XamariniOS@1](xamarin-ios-v1.md) | Build an iOS app with Xamarin on macOS. |
 | **Xcode**<br>[Xcode@5](xcode-v5.md)<br>[Xcode@4](xcode-v4.md) | Build, test, or archive an Xcode workspace on macOS. Optionally package an app. |
 | **Xcode Build**<br>[Xcode@3](xcode-v3.md)<br>[Xcode@2](xcode-v2.md) | Build an Xcode workspace on macOS. |
 | **Xcode Package iOS**<br>[XcodePackageiOS@0](xcode-package-ios-v0.md) | Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below). |
@@ -919,7 +897,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Python pip authenticate**<br>[PipAuthenticate@1](pip-authenticate-v1.md)<br>[PipAuthenticate@0](pip-authenticate-v0.md) | Authentication task for the pip client used for installing Python distributions. |
 | **Python twine upload authenticate**<br>[TwineAuthenticate@1](twine-authenticate-v1.md)<br>[TwineAuthenticate@0](twine-authenticate-v0.md) | Authenticate for uploading Python distributions using twine. Add '-r FeedName/EndpointName --config-file $(PYPIRC_PATH)' to your twine upload command. For feeds present in this organization, use the feed name as the repository (-r). Otherwise, use the endpoint name defined in the service connection. |
 | **Universal packages**<br>[UniversalPackages@0](universal-packages-v0.md) | Download or publish Universal Packages. |
-| **Xamarin Component Restore**<br>[XamarinComponentRestore@0](xamarin-component-restore-v0.md) | This task is deprecated. Use 'NuGet' instead. |
 ## Test tasks
 
 | Task | Description |
@@ -934,7 +911,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Visual Studio Test**<br>[VSTest@2](vstest-v2.md)<br>[VSTest@1](vstest-v1.md) | Build, test, package, or publish a .NET application, or run a custom .NET CLI command. |
 | **Visual Studio test agent deployment**<br>[DeployVisualStudioTestAgent@2](deploy-visual-studio-test-agent-v2.md) | DeployVisualStudioTestAgent@2 is deprecated. Use the Visual Studio Test task to run unit and functional tests. |
 | **Visual Studio Test Agent Deployment**<br>[DeployVisualStudioTestAgent@1](deploy-visual-studio-test-agent-v1.md) | Deploy and configure Test Agent to run tests on a set of machines. |
-| **Xamarin Test Cloud**<br>[XamarinTestCloud@1](xamarin-test-cloud-v1.md) | [Deprecated] Test mobile apps with Xamarin Test Cloud using Xamarin.UITest. Instead, use the 'App Center test' task. |
 ## Tool tasks
 
 | Task | Description |
@@ -1004,7 +980,6 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Shell script**<br>[ShellScript@2](shell-script-v2.md) | Run a shell script using Bash. |
 | **Update Service Fabric App Versions**<br>[ServiceFabricUpdateAppVersions@1](service-fabric-update-app-versions-v1.md) | Automatically updates the versions of a packaged Service Fabric application. |
 | **Update Service Fabric manifests**<br>[ServiceFabricUpdateManifests@2](service-fabric-update-manifests-v2.md) | Automatically update portions of application and service manifests in a packaged Azure Service Fabric application. |
-| **Xamarin License**<br>[XamarinLicense@1](xamarin-license-v1.md) | [Deprecated] Upgrade to free version of Xamarin: https://store.xamarin.com. |
 
 :::moniker-end
 
