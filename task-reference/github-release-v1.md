@@ -1,7 +1,7 @@
 ---
 title: GitHubRelease@1 - GitHub Release v1 task
 description: Create, edit, or delete a GitHub release.
-ms.date: 03/20/2025
+ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -343,7 +343,7 @@ The following YAML creates a GitHub release every time the task runs. The build 
   inputs:
     gitHubConnection: zenithworks
     repositoryName: zenithworks/javaAppWithMaven
-    tagSource: manual
+    tagSource: gitTag
     tag: $(Build.BuildNumber)      
     assets: |
       $(Build.ArtifactStagingDirectory)/*.exe

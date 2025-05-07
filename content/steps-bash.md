@@ -1,7 +1,7 @@
 ---
 title: steps.bash definition
 description: Runs a script in Bash on Windows, macOS, and Linux.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam

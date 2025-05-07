@@ -1,7 +1,7 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 03/20/2025
+ms.date: 04/30/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -125,8 +125,6 @@ extends:
       # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
       - script: echo "Script Test"
 ```
-
-
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 

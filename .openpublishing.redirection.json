@@ -11,6 +11,30 @@
       {
         "source_path": "task-reference/advanced-security-codeql-autobuild-v1.md",
         "redirect_url": "/azure/devops/repos/security/configure-github-advanced-security-features"
+      },
+      {
+        "source_path": "task-reference/xamarin-android-v1.md",
+        "redirect_url": "/previous-versions/azure/devops/pipelines/tasks/reference/xamarin-android-v1"
+      },
+      {
+        "source_path": "task-reference/xamarin-component-restore-v0.md",
+        "redirect_url": "/previous-versions/azure/devops/pipelines/tasks/reference/xamarin-component-restore-v0"
+      },
+      {
+        "source_path": "task-reference/xamarin-ios-v1.md",
+        "redirect_url": "/previous-versions/azure/devops/pipelines/tasks/reference/xamarin-ios-v1"
+      },
+      {
+        "source_path": "task-reference/xamarin-ios-v2.md",
+        "redirect_url": "/previous-versions/azure/devops/pipelines/tasks/reference/xamarin-ios-v2"
+      },
+      {
+        "source_path": "task-reference/xamarin-license-v1.md",
+        "redirect_url": "/previous-versions/azure/devops/pipelines/tasks/reference/xamarin-license-v1"
+      },
+      {
+        "source_path": "task-reference/xamarin-test-cloud-v1.md",
+        "redirect_url": "/previous-versions/azure/devops/pipelines/tasks/reference/xamarin-test-cloud-v1"
       }
     ]
   }

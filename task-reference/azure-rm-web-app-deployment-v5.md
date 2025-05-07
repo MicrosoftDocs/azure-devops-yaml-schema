@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@5 - Azure App Service deploy v5 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -43,7 +43,7 @@ Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, 
     #DockerImageTag: # string. Optional. Use when WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = webAppHyperVContainer. Tag. 
     #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppKind != webAppHyperVContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
     #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #RuntimeStack: # 'DOTNETCORE:9.0' | 'DOTNETCORE:8.0' | 'DOTNETCORE:7.0' | 'DOTNETCORE:6.0' | 'NODE:20-lts' | 'NODE:18-lts' | 'NODE:16-lts' | 'PYTHON:3.12' | 'PYTHON:3.11' | 'PYTHON:3.10' | 'PYTHON:3.9' | 'PYTHON:3.8' | 'PHP:8.3' | 'PHP:8.2' | 'PHP:8.1' | 'PHP:8.0' | 'JAVA:21-java21' | 'JAVA:17-java17' | 'JAVA:11-java11' | 'JAVA:8-jre8' | 'JBOSSEAP:8-java17' | 'JBOSSEAP:8-java11' | 'JBOSSEAP:7-java17' | 'JBOSSEAP:7-java11' | 'JBOSSEAP:7-java8' | 'TOMCAT:10.1-java21' | 'TOMCAT:10.1-java17' | 'TOMCAT:10.1-java11' | 'TOMCAT:10.0-java17' | 'TOMCAT:10.0-java11' | 'TOMCAT:10.0-jre8' | 'TOMCAT:9.0-java21' | 'TOMCAT:9.0-java17' | 'TOMCAT:9.0-java11' | 'TOMCAT:9.0-jre8' | 'TOMCAT:8.5-java11' | 'TOMCAT:8.5-jre8'. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
+    #RuntimeStack: # 'DOTNETCORE|9.0' | 'DOTNETCORE|8.0' | 'DOTNETCORE|7.0' | 'DOTNETCORE|6.0' | 'NODE|22-lts' | 'NODE|20-lts' | 'NODE|18-lts' | 'NODE|16-lts' | 'PYTHON|3.13' | 'PYTHON|3.12' | 'PYTHON|3.11' | 'PYTHON|3.10' | 'PYTHON|3.9' | 'PYTHON|3.8' | 'PHP|8.3' | 'PHP|8.2' | 'PHP|8.1' | 'PHP|8.0' | 'JAVA|21-java21' | 'JAVA|17-java17' | 'JAVA|11-java11' | 'JAVA|8-jre8' | 'JBOSSEAP|8-java17' | 'JBOSSEAP|8-java11' | 'JBOSSEAP|7-java17' | 'JBOSSEAP|7-java11' | 'JBOSSEAP|7-java8' | 'TOMCAT|10.1-java21' | 'TOMCAT|10.1-java17' | 'TOMCAT|10.1-java11' | 'TOMCAT|10.0-java17' | 'TOMCAT|10.0-java11' | 'TOMCAT|10.0-jre8' | 'TOMCAT|9.0-java21' | 'TOMCAT|9.0-java17' | 'TOMCAT|9.0-java11' | 'TOMCAT|9.0-jre8' | 'TOMCAT|8.5-java11' | 'TOMCAT|8.5-jre8'. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
     #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppKind = webAppHyperVContainer. Startup command. 
   # Post Deployment Action
@@ -260,7 +260,7 @@ For example, `$(System.DefaultWorkingDirectory)/\*\*/\*.zip` or `$(System.Defaul
 :::moniker range="=azure-pipelines"
 
 **`RuntimeStack`** - **Runtime Stack**<br>
-`string`. Optional. Use when `WebAppKind = webAppLinux`. Allowed values: `DOTNETCORE:9.0` (.NET 9.0), `DOTNETCORE:8.0` (.NET 8.0), `DOTNETCORE:7.0` (.NET 7.0), `DOTNETCORE:6.0` (.NET 6.0), `NODE:20-lts` (Node 20 LTS), `NODE:18-lts` (Node 18 LTS), `NODE:16-lts` (Node 16 LTS), `PYTHON:3.12` (Python 3.12), `PYTHON:3.11` (Python 3.11), `PYTHON:3.10` (Python 3.10), `PYTHON:3.9` (Python 3.9), `PYTHON:3.8` (Python 3.8), `PHP:8.3` (PHP 8.3), `PHP:8.2` (PHP 8.2), `PHP:8.1` (PHP 8.1), `PHP:8.0` (PHP 8.0), `JAVA:21-java21` (Java 21), `JAVA:17-java17` (Java 17), `JAVA:11-java11` (Java 11), `JAVA:8-jre8` (Java 8), `JBOSSEAP:8-java17` (JBoss EAP 8 (Java 17)), `JBOSSEAP:8-java11` (JBoss EAP 8 (Java 11)), `JBOSSEAP:7-java17` (JBoss EAP 7 (Java 17)), `JBOSSEAP:7-java11` (JBoss EAP 7 (Java 11)), `JBOSSEAP:7-java8` (JBoss EAP 7 (Java 8)), `TOMCAT:10.1-java21` (Tomcat 10.1 (Java 21)), `TOMCAT:10.1-java17` (Tomcat 10.1 (Java 17)), `TOMCAT:10.1-java11` (Tomcat 10.1 (Java 11)), `TOMCAT:10.0-java17` (Tomcat 10.0 (Java 17)), `TOMCAT:10.0-java11` (Tomcat 10.0 (Java 11)), `TOMCAT:10.0-jre8` (Tomcat 10.0 (Java 8)), `TOMCAT:9.0-java21` (Tomcat 9.0 (Java 21)), `TOMCAT:9.0-java17` (Tomcat 9.0 (Java 17)), `TOMCAT:9.0-java11` (Tomcat 9.0 (Java 11)), `TOMCAT:9.0-jre8` (Tomcat 9.0 (Java 8)), `TOMCAT:8.5-java11` (Tomcat 8.5 (Java 11)), `TOMCAT:8.5-jre8` (Tomcat 8.5 (Java 8)).<br>
+`string`. Optional. Use when `WebAppKind = webAppLinux`. Allowed values: `DOTNETCORE|9.0` (.NET 9.0), `DOTNETCORE|8.0` (.NET 8.0), `DOTNETCORE|7.0` (.NET 7.0), `DOTNETCORE|6.0` (.NET 6.0), `NODE|22-lts` (Node 22 LTS), `NODE|20-lts` (Node 20 LTS), `NODE|18-lts` (Node 18 LTS), `NODE|16-lts` (Node 16 LTS), `PYTHON|3.13` (Python 3.13), `PYTHON|3.12` (Python 3.12), `PYTHON|3.11` (Python 3.11), `PYTHON|3.10` (Python 3.10), `PYTHON|3.9` (Python 3.9), `PYTHON|3.8` (Python 3.8), `PHP|8.3` (PHP 8.3), `PHP|8.2` (PHP 8.2), `PHP|8.1` (PHP 8.1), `PHP|8.0` (PHP 8.0), `JAVA|21-java21` (Java 21), `JAVA|17-java17` (Java 17), `JAVA|11-java11` (Java 11), `JAVA|8-jre8` (Java 8), `JBOSSEAP|8-java17` (JBoss EAP 8 (Java 17)), `JBOSSEAP|8-java11` (JBoss EAP 8 (Java 11)), `JBOSSEAP|7-java17` (JBoss EAP 7 (Java 17)), `JBOSSEAP|7-java11` (JBoss EAP 7 (Java 11)), `JBOSSEAP|7-java8` (JBoss EAP 7 (Java 8)), `TOMCAT|10.1-java21` (Tomcat 10.1 (Java 21)), `TOMCAT|10.1-java17` (Tomcat 10.1 (Java 17)), `TOMCAT|10.1-java11` (Tomcat 10.1 (Java 11)), `TOMCAT|10.0-java17` (Tomcat 10.0 (Java 17)), `TOMCAT|10.0-java11` (Tomcat 10.0 (Java 11)), `TOMCAT|10.0-jre8` (Tomcat 10.0 (Java 8)), `TOMCAT|9.0-java21` (Tomcat 9.0 (Java 21)), `TOMCAT|9.0-java17` (Tomcat 9.0 (Java 17)), `TOMCAT|9.0-java11` (Tomcat 9.0 (Java 11)), `TOMCAT|9.0-jre8` (Tomcat 9.0 (Java 8)), `TOMCAT|8.5-java11` (Tomcat 8.5 (Java 11)), `TOMCAT|8.5-jre8` (Tomcat 8.5 (Java 8)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the framework and version.
 <!-- :::editable-content-end::: -->
@@ -602,9 +602,9 @@ The task can be used to deploy to a range of Azure App Services such as:
 The following prerequisites must be set up in the target machine(s) for the task to work correctly.
 
 * **App Service instance**. The task is used to deploy a Web App project or Azure Function project to an existing Azure App Service instance, which must exist before the task runs.
-  The App Service instance can be created from the [Azure portal](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/)
+  The App Service instance can be created from the Azure portal
   and [configured](/azure/app-service/configure-common) there.
-  Alternatively, the [Azure PowerShell task](https://github.com/microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV2) can be used to run
+  Alternatively, the [Azure PowerShell task](./azure-powershell-v5.md) can be used to run
   [Azure PowerShell scripts](/powershell/module/az.websites) to provision and configure the Web App.
 
 * **Azure Subscription**. To deploy to Azure, an Azure subscription must be [linked to the pipeline](/azure/devops/pipelines/library/connect-to-azure).

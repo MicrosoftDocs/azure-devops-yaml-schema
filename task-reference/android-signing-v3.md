@@ -1,7 +1,7 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 03/28/2025
+ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -250,7 +250,7 @@ None.
 
 Use this task in a pipeline to sign and align Android APK files.
 
-This version of the task uses apksigner instead of jarsigner to sign APKs.
+This version of the task uses `apksigner` instead of `jarsigner` to sign APKs. [AdnroidSigning@2](./android-signing-v2.md) uses jarsigner to sign APKs and AABs.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

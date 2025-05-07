@@ -1,7 +1,7 @@
 ---
 title: IISWebAppDeployment@1 - IIS Web App deployment (Deprecated) v1 task
 description: Deploy using MSDeploy, then create/update websites and app pools.
-ms.date: 02/24/2025
+ms.date: 05/06/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -16,7 +16,7 @@ ms.author: jukullam
 Use this task to deploy IIS Web App using MSDeploy, then create or update websites and app pools.
 
 > [!IMPORTANT]
-> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [IIS Web App Deployment Using WinRM - Viual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp).
+> [!INCLUDE [task-deprecation](includes/task-deprecation.md)] Use [IIS Web App Deployment Using WinRM - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.iiswebapp).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
