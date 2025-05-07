@@ -343,7 +343,7 @@ The following YAML creates a GitHub release every time the task runs. The build 
   inputs:
     gitHubConnection: zenithworks
     repositoryName: zenithworks/javaAppWithMaven
-    tagSource: manual
+    tagSource: gitTag
     tag: $(Build.BuildNumber)      
     assets: |
       $(Build.ArtifactStagingDirectory)/*.exe
