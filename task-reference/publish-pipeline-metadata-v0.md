@@ -1,7 +1,7 @@
 ---
 title: PublishPipelineMetadata@0 - Publish Pipeline Metadata v0 task
 description: Publish Pipeline Metadata to Evidence store.
-ms.date: 03/20/2025
+ms.date: 05/07/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -15,8 +15,8 @@ This task is automatically injected into your pipelines when **Publish metadata 
 
 > [!IMPORTANT]
 > This task is not intended for direct use in your pipelines.
-
-For more information, see [Evaluate artifact check](/azure/devops/release-notes/2019/sprint-160-update#evaluate-artifact-check) and [Collect automatic and user-specified metadata from pipeline](/azure/devops/release-notes/2019/sprint-162-update#collect-automatic-and-user-specified-metadata-from-pipeline).
+>
+> For more information, see [Evaluate artifact check](/azure/devops/release-notes/2019/sprint-160-update#evaluate-artifact-check) and [Collect automatic and user-specified metadata from pipeline](/azure/devops/release-notes/2019/sprint-162-update#collect-automatic-and-user-specified-metadata-from-pipeline).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -71,8 +71,8 @@ This task is automatically injected into your pipelines when **Publish metadata 
 
 > [!IMPORTANT]
 > This task is not intended for direct use in your pipelines.
-
-For more information, see [Evaluate artifact check](/azure/devops/release-notes/2019/sprint-160-update#evaluate-artifact-check) and [Collect automatic and user-specified metadata from pipeline](/azure/devops/release-notes/2019/sprint-162-update#collect-automatic-and-user-specified-metadata-from-pipeline).
+>
+> For more information, see [Evaluate artifact check](/azure/devops/release-notes/2019/sprint-160-update#evaluate-artifact-check) and [Collect automatic and user-specified metadata from pipeline](/azure/devops/release-notes/2019/sprint-162-update#collect-automatic-and-user-specified-metadata-from-pipeline).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
