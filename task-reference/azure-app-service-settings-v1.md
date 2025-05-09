@@ -222,6 +222,7 @@ steps:
   displayName: Azure Web App Deploy
   inputs:
     azureSubscription: $(azureSubscription)
+    appType: 'webApp'
     appName: $(WebApp_Name)
     package: $(System.DefaultWorkingDirectory)/**/*.zip
 
@@ -230,6 +231,7 @@ steps:
   inputs:
     azureSubscription: $(azureSubscription)
     appName: $(WebApp_Name)
+    resourceGroupName: 'contoso-rg'
    # To deploy the settings on a slot, provide slot name as below. By default, the settings would be applied to the actual Web App (Production slot)
    # slotName: staging
     appSettings: |
