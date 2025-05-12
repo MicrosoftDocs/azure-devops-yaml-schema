@@ -1,0 +1,1123 @@
+items:
+- name: Azure Pipelines task index
+  href: ../../index.md
+- name: .NET Core
+  items:
+  - name: DotNetCoreCLI@2
+    href: ../../dotnet-core-cli-v2.md
+    displayName: .NET Core v2
+  - name: DotNetCoreCLI@1
+    href: ../../dotnet-core-cli-v1.md
+    displayName: .NET Core v1
+  - name: DotNetCoreCLI@0
+    href: ../../dotnet-core-cli-v0.md
+    displayName: .NET Core v0
+- name: .NET Core SDK/runtime installer
+  items:
+  - name: DotNetCoreInstaller@1
+    href: ../../dotnet-core-installer-v1.md
+    displayName: .NET Core SDK/runtime installer v1
+  - name: DotNetCoreInstaller@0
+    href: ../../dotnet-core-installer-v0.md
+    displayName: .NET Core SDK/runtime installer v0
+- name: Advanced Security Dependency Scanning
+  items:
+  - name: AdvancedSecurity-Dependency-Scanning@1
+    href: ../../advanced-security-dependency-scanning-v1.md
+    displayName: Advanced Security Dependency Scanning v1
+- name: Advanced Security Initialize CodeQL
+  items:
+  - name: AdvancedSecurity-Codeql-Init@1
+    href: ../../advanced-security-codeql-init-v1.md
+    displayName: Advanced Security Initialize CodeQL v1
+- name: Advanced Security Perform CodeQL analysis
+  items:
+  - name: AdvancedSecurity-Codeql-Analyze@1
+    href: ../../advanced-security-codeql-analyze-v1.md
+    displayName: Advanced Security Perform CodeQL analysis v1
+- name: Advanced Security Publish Results
+  items:
+  - name: AdvancedSecurity-Publish@1
+    href: ../../advanced-security-publish-v1.md
+    displayName: Advanced Security Publish Results v1
+- name: Android Build
+  items:
+  - name: AndroidBuild@1
+    href: ../../android-build-v1.md
+    displayName: Android Build v1
+- name: Android Signing
+  items:
+  - name: AndroidSigning@3
+    href: ../../android-signing-v3.md
+    displayName: Android Signing v3
+  - name: AndroidSigning@2
+    href: ../../android-signing-v2.md
+    displayName: Android Signing v2
+  - name: AndroidSigning@1
+    href: ../../android-signing-v1.md
+    displayName: Android Signing v1
+- name: Ant
+  items:
+  - name: Ant@1
+    href: ../../ant-v1.md
+    displayName: Ant v1
+- name: App Center distribute
+  items:
+  - name: AppCenterDistribute@3
+    href: ../../app-center-distribute-v3.md
+    displayName: App Center distribute v3
+  - name: AppCenterDistribute@2
+    href: ../../app-center-distribute-v2.md
+    displayName: App Center distribute v2
+  - name: AppCenterDistribute@1
+    href: ../../app-center-distribute-v1.md
+    displayName: App Center distribute v1
+  - name: AppCenterDistribute@0
+    href: ../../app-center-distribute-v0.md
+    displayName: App Center distribute v0
+- name: App Center test
+  items:
+  - name: AppCenterTest@1
+    href: ../../app-center-test-v1.md
+    displayName: App Center test v1
+- name: Archive files
+  items:
+  - name: ArchiveFiles@2
+    href: ../../archive-files-v2.md
+    displayName: Archive files v2
+  - name: ArchiveFiles@1
+    href: ../../archive-files-v1.md
+    displayName: Archive Files v1
+- name: ARM template deployment
+  items:
+  - name: AzureResourceManagerTemplateDeployment@3
+    href: ../../azure-resource-manager-template-deployment-v3.md
+    displayName: ARM template deployment v3
+- name: Azure App Configuration Export
+  items:
+  - name: AzureAppConfigurationExport@10
+    href: ../../azure-app-configuration-export-v10.md
+    displayName: Azure App Configuration Export v10
+- name: Azure App Configuration Import
+  items:
+  - name: AzureAppConfigurationImport@10
+    href: ../../azure-app-configuration-import-v10.md
+    displayName: Azure App Configuration Import v10
+- name: Azure App Configuration Snapshot
+  items:
+  - name: AzureAppConfigurationSnapshot@1
+    href: ../../azure-app-configuration-snapshot-v1.md
+    displayName: Azure App Configuration Snapshot v1
+- name: Azure App Service Classic (Deprecated)
+  items:
+  - name: AzureWebPowerShellDeployment@1
+    href: ../../azure-web-powershell-deployment-v1.md
+    displayName: Azure App Service Classic (Deprecated) v1
+- name: Azure App Service deploy
+  items:
+  - name: AzureRmWebAppDeployment@5
+    href: ../../azure-rm-web-app-deployment-v5.md
+    displayName: Azure App Service deploy v5
+  - name: AzureRmWebAppDeployment@4
+    href: ../../azure-rm-web-app-deployment-v4.md
+    displayName: Azure App Service deploy v4
+  - name: AzureRmWebAppDeployment@3
+    href: ../../azure-rm-web-app-deployment-v3.md
+    displayName: Azure App Service deploy v3
+  - name: AzureRmWebAppDeployment@2
+    href: ../../azure-rm-web-app-deployment-v2.md
+    displayName: Azure App Service deploy v2
+- name: Azure App Service manage
+  items:
+  - name: AzureAppServiceManage@0
+    href: ../../azure-app-service-manage-v0.md
+    displayName: Azure App Service manage v0
+- name: Azure App Service Settings
+  items:
+  - name: AzureAppServiceSettings@1
+    href: ../../azure-app-service-settings-v1.md
+    displayName: Azure App Service Settings v1
+- name: Azure CLI
+  items:
+  - name: AzureCLI@2
+    href: ../../azure-cli-v2.md
+    displayName: Azure CLI v2
+  - name: AzureCLI@1
+    href: ../../azure-cli-v1.md
+    displayName: Azure CLI v1
+- name: Azure CLI Preview
+  items:
+  - name: AzureCLI@0
+    href: ../../azure-cli-v0.md
+    displayName: Azure CLI Preview v0
+- name: Azure Cloud Service deployment
+  items:
+  - name: AzureCloudPowerShellDeployment@2
+    href: ../../azure-cloud-powershell-deployment-v2.md
+    displayName: Azure Cloud Service deployment v2
+  - name: AzureCloudPowerShellDeployment@1
+    href: ../../azure-cloud-powershell-deployment-v1.md
+    displayName: Azure Cloud Service deployment v1
+- name: Azure Container Apps Deploy
+  items:
+  - name: AzureContainerApps@1
+    href: ../../azure-container-apps-v1.md
+    displayName: Azure Container Apps Deploy v1
+  - name: AzureContainerApps@0
+    href: ../../azure-container-apps-v0.md
+    displayName: Azure Container Apps Deploy v0
+- name: Azure Database for MySQL deployment
+  items:
+  - name: AzureMysqlDeployment@1
+    href: ../../azure-mysql-deployment-v1.md
+    displayName: Azure Database for MySQL deployment v1
+- name: Azure file copy
+  items:
+  - name: AzureFileCopy@6
+    href: ../../azure-file-copy-v6.md
+    displayName: Azure file copy v6
+  - name: AzureFileCopy@5
+    href: ../../azure-file-copy-v5.md
+    displayName: Azure file copy v5
+  - name: AzureFileCopy@4
+    href: ../../azure-file-copy-v4.md
+    displayName: Azure file copy v4
+  - name: AzureFileCopy@3
+    href: ../../azure-file-copy-v3.md
+    displayName: Azure file copy v3
+  - name: AzureFileCopy@2
+    href: ../../azure-file-copy-v2.md
+    displayName: Azure file copy v2
+  - name: AzureFileCopy@1
+    href: ../../azure-file-copy-v1.md
+    displayName: Azure file copy v1
+- name: Azure Function on Kubernetes
+  items:
+  - name: AzureFunctionOnKubernetes@1
+    href: ../../azure-function-on-kubernetes-v1.md
+    displayName: Azure Function on Kubernetes v1
+  - name: AzureFunctionOnKubernetes@0
+    href: ../../azure-function-on-kubernetes-v0.md
+    displayName: Azure Function on Kubernetes v0
+- name: Azure Functions Deploy
+  items:
+  - name: AzureFunctionApp@2
+    href: ../../azure-function-app-v2.md
+    displayName: Azure Functions Deploy v2
+  - name: AzureFunctionApp@1
+    href: ../../azure-function-app-v1.md
+    displayName: Azure Functions Deploy v1
+- name: Azure Functions for container
+  items:
+  - name: AzureFunctionAppContainer@1
+    href: ../../azure-function-app-container-v1.md
+    displayName: Azure Functions for container v1
+- name: Azure IoT Edge
+  items:
+  - name: AzureIoTEdge@2
+    href: ../../azure-iot-edge-v2.md
+    displayName: Azure IoT Edge v2
+- name: Azure Key Vault
+  items:
+  - name: AzureKeyVault@2
+    href: ../../azure-key-vault-v2.md
+    displayName: Azure Key Vault v2
+  - name: AzureKeyVault@1
+    href: ../../azure-key-vault-v1.md
+    displayName: Azure Key Vault v1
+- name: Azure Load Testing
+  items:
+  - name: AzureLoadTest@1
+    href: ../../azure-load-test-v1.md
+    displayName: Azure Load Testing v1
+- name: Azure Monitor alerts (Deprecated)
+  items:
+  - name: AzureMonitorAlerts@0
+    href: ../../azure-monitor-alerts-v0.md
+    displayName: Azure Monitor alerts (Deprecated) v0
+- name: Azure Network Load Balancer
+  items:
+  - name: AzureNLBManagement@1
+    href: ../../azure-nlb-management-v1.md
+    displayName: Azure Network Load Balancer v1
+- name: Azure PowerShell
+  items:
+  - name: AzurePowerShell@5
+    href: ../../azure-powershell-v5.md
+    displayName: Azure PowerShell v5
+  - name: AzurePowerShell@4
+    href: ../../azure-powershell-v4.md
+    displayName: Azure PowerShell v4
+  - name: AzurePowerShell@3
+    href: ../../azure-powershell-v3.md
+    displayName: Azure PowerShell v3
+  - name: AzurePowerShell@2
+    href: ../../azure-powershell-v2.md
+    displayName: Azure PowerShell v2
+  - name: AzurePowerShell@1
+    href: ../../azure-powershell-v1.md
+    displayName: Azure PowerShell v1
+- name: Azure resource group deployment
+  items:
+  - name: AzureResourceGroupDeployment@2
+    href: ../../azure-resource-group-deployment-v2.md
+    displayName: Azure resource group deployment v2
+  - name: AzureResourceGroupDeployment@1
+    href: ../../azure-resource-group-deployment-v1.md
+    displayName: Azure Resource Group Deployment v1
+- name: Azure Spring Apps
+  items:
+  - name: AzureSpringCloud@0
+    href: ../../azure-spring-cloud-v0.md
+    displayName: Azure Spring Apps v0
+- name: Azure SQL Database deployment
+  items:
+  - name: SqlAzureDacpacDeployment@1
+    href: ../../sql-azure-dacpac-deployment-v1.md
+    displayName: Azure SQL Database deployment v1
+- name: Azure Test Plan
+  items:
+  - name: AzureTestPlan@0
+    href: ../../azure-test-plan-v0.md
+    displayName: Azure Test Plan v0
+- name: Azure VM scale set deployment
+  items:
+  - name: AzureVmssDeployment@1
+    href: ../../azure-vmss-deployment-v1.md
+    displayName: Azure VM scale set deployment v1
+  - name: AzureVmssDeployment@0
+    href: ../../azure-vmss-deployment-v0.md
+    displayName: Azure VM scale set deployment v0
+- name: Azure Web App
+  items:
+  - name: AzureWebApp@1
+    href: ../../azure-web-app-v1.md
+    displayName: Azure Web App v1
+- name: Azure Web App for Containers
+  items:
+  - name: AzureWebAppContainer@1
+    href: ../../azure-web-app-container-v1.md
+    displayName: Azure Web App for Containers v1
+- name: Bash
+  items:
+  - name: Bash@3
+    href: ../../bash-v3.md
+    displayName: Bash v3
+- name: Batch script
+  items:
+  - name: BatchScript@1
+    href: ../../batch-script-v1.md
+    displayName: Batch script v1
+- name: Build machine image
+  items:
+  - name: PackerBuild@1
+    href: ../../packer-build-v1.md
+    displayName: Build machine image v1
+  - name: PackerBuild@0
+    href: ../../packer-build-v0.md
+    displayName: Build machine image v0
+- name: Cache
+  items:
+  - name: Cache@2
+    href: ../../cache-v2.md
+    displayName: Cache v2
+- name: Cache (Beta)
+  items:
+  - name: CacheBeta@1
+    href: ../../cache-beta-v1.md
+    displayName: Cache (Beta) v1
+  - name: CacheBeta@0
+    href: ../../cache-beta-v0.md
+    displayName: Cache (Beta) v0
+- name: Cargo authenticate (for task runners)
+  items:
+  - name: CargoAuthenticate@0
+    href: ../../cargo-authenticate-v0.md
+    displayName: Cargo authenticate (for task runners) v0
+- name: Check Azure Policy compliance
+  items:
+  - name: AzurePolicyCheckGate@0
+    href: ../../azure-policy-check-gate-v0.md
+    displayName: Check Azure Policy compliance v0
+- name: Chef
+  items:
+  - name: Chef@1
+    href: ../../chef-v1.md
+    displayName: Chef v1
+- name: Chef Knife
+  items:
+  - name: ChefKnife@1
+    href: ../../chef-knife-v1.md
+    displayName: Chef Knife v1
+- name: CMake
+  items:
+  - name: CMake@1
+    href: ../../cmake-v1.md
+    displayName: CMake v1
+- name: CocoaPods
+  items:
+  - name: CocoaPods@0
+    href: ../../cocoa-pods-v0.md
+    displayName: CocoaPods v0
+- name: Command Line
+  items:
+  - name: CmdLine@2
+    href: ../../cmd-line-v2.md
+    displayName: Command Line v2
+  - name: CmdLine@1
+    href: ../../cmd-line-v1.md
+    displayName: Command Line v1
+- name: Conda environment
+  items:
+  - name: CondaEnvironment@1
+    href: ../../conda-environment-v1.md
+    displayName: Conda environment v1
+  - name: CondaEnvironment@0
+    href: ../../conda-environment-v0.md
+    displayName: Conda environment v0
+- name: Container Build
+  items:
+  - name: ContainerBuild@0
+    href: ../../container-build-v0.md
+    displayName: Container Build v0
+- name: Container Structure Test
+  items:
+  - name: ContainerStructureTest@0
+    href: ../../container-structure-test-v0.md
+    displayName: Container Structure Test v0
+- name: Copy and Publish Build Artifacts
+  items:
+  - name: CopyPublishBuildArtifacts@1
+    href: ../../copy-publish-build-artifacts-v1.md
+    displayName: Copy and Publish Build Artifacts v1
+- name: Copy files
+  items:
+  - name: CopyFiles@2
+    href: ../../copy-files-v2.md
+    displayName: Copy files v2
+  - name: CopyFiles@1
+    href: ../../copy-files-v1.md
+    displayName: Copy Files v1
+- name: Copy files over SSH
+  items:
+  - name: CopyFilesOverSSH@0
+    href: ../../copy-files-over-ssh-v0.md
+    displayName: Copy files over SSH v0
+- name: cURL Upload Files
+  items:
+  - name: cURLUploader@2
+    href: ../../curl-uploader-v2.md
+    displayName: cURL Upload Files v2
+  - name: cURLUploader@1
+    href: ../../curl-uploader-v1.md
+    displayName: cURL Upload Files v1
+- name: Decrypt file (OpenSSL)
+  items:
+  - name: DecryptFile@1
+    href: ../../decrypt-file-v1.md
+    displayName: Decrypt file (OpenSSL) v1
+- name: Delay
+  items:
+  - name: Delay@1
+    href: ../../delay-v1.md
+    displayName: Delay v1
+- name: Delete files
+  items:
+  - name: DeleteFiles@1
+    href: ../../delete-files-v1.md
+    displayName: Delete files v1
+- name: Deploy Azure Static Web App
+  items:
+  - name: AzureStaticWebApp@0
+    href: ../../azure-static-web-app-v0.md
+    displayName: Deploy Azure Static Web App v0
+- name: Deploy to Kubernetes
+  items:
+  - name: KubernetesManifest@1
+    href: ../../kubernetes-manifest-v1.md
+    displayName: Deploy to Kubernetes v1
+  - name: KubernetesManifest@0
+    href: ../../kubernetes-manifest-v0.md
+    displayName: Deploy to Kubernetes v0
+- name: Docker
+  items:
+  - name: Docker@2
+    href: ../../docker-v2.md
+    displayName: Docker v2
+  - name: Docker@1
+    href: ../../docker-v1.md
+    displayName: Docker v1
+  - name: Docker@0
+    href: ../../docker-v0.md
+    displayName: Docker v0
+- name: Docker CLI installer
+  items:
+  - name: DockerInstaller@0
+    href: ../../docker-installer-v0.md
+    displayName: Docker CLI installer v0
+- name: Docker Compose
+  items:
+  - name: DockerCompose@1
+    href: ../../docker-compose-v1.md
+    displayName: Docker Compose v1
+  - name: DockerCompose@0
+    href: ../../docker-compose-v0.md
+    displayName: Docker Compose v0
+- name: Download artifacts from file share
+  items:
+  - name: DownloadFileshareArtifacts@1
+    href: ../../download-fileshare-artifacts-v1.md
+    displayName: Download artifacts from file share v1
+- name: Download build artifacts
+  items:
+  - name: DownloadBuildArtifacts@1
+    href: ../../download-build-artifacts-v1.md
+    displayName: Download build artifacts v1
+  - name: DownloadBuildArtifacts@0
+    href: ../../download-build-artifacts-v0.md
+    displayName: Download build artifacts v0
+- name: Download Github Npm Package
+  items:
+  - name: DownloadGithubNpmPackage@1
+    href: ../../download-github-npm-package-v1.md
+    displayName: Download Github Npm Package v1
+- name: Download GitHub Nuget Packages
+  items:
+  - name: DownloadGitHubNugetPackage@1
+    href: ../../download-github-nuget-package-v1.md
+    displayName: Download GitHub Nuget Packages v1
+- name: Download GitHub Release
+  items:
+  - name: DownloadGitHubRelease@0
+    href: ../../download-github-release-v0.md
+    displayName: Download GitHub Release v0
+- name: Download package
+  items:
+  - name: DownloadPackage@1
+    href: ../../download-package-v1.md
+    displayName: Download package v1
+  - name: DownloadPackage@0
+    href: ../../download-package-v0.md
+    displayName: Download package v0
+- name: Download Pipeline Artifacts
+  items:
+  - name: DownloadPipelineArtifact@2
+    href: ../../download-pipeline-artifact-v2.md
+    displayName: Download Pipeline Artifacts v2
+  - name: DownloadPipelineArtifact@1
+    href: ../../download-pipeline-artifact-v1.md
+    displayName: Download Pipeline Artifacts v1
+  - name: DownloadPipelineArtifact@0
+    href: ../../download-pipeline-artifact-v0.md
+    displayName: Download Pipeline Artifacts v0
+- name: Download secure file
+  items:
+  - name: DownloadSecureFile@1
+    href: ../../download-secure-file-v1.md
+    displayName: Download secure file v1
+- name: Duffle tool installer
+  items:
+  - name: DuffleInstaller@0
+    href: ../../duffle-installer-v0.md
+    displayName: Duffle tool installer v0
+- name: Extract files
+  items:
+  - name: ExtractFiles@1
+    href: ../../extract-files-v1.md
+    displayName: Extract files v1
+- name: File transform
+  items:
+  - name: FileTransform@2
+    href: ../../file-transform-v2.md
+    displayName: File transform v2
+  - name: FileTransform@1
+    href: ../../file-transform-v1.md
+    displayName: File transform v1
+- name: FTP upload
+  items:
+  - name: FtpUpload@2
+    href: ../../ftp-upload-v2.md
+    displayName: FTP upload v2
+  - name: FtpUpload@1
+    href: ../../ftp-upload-v1.md
+    displayName: FTP upload v1
+- name: GitHub Comment
+  items:
+  - name: GitHubComment@0
+    href: ../../github-comment-v0.md
+    displayName: GitHub Comment v0
+- name: GitHub Release
+  items:
+  - name: GitHubRelease@1
+    href: ../../github-release-v1.md
+    displayName: GitHub Release v1
+  - name: GitHubRelease@0
+    href: ../../github-release-v0.md
+    displayName: GitHub Release v0
+- name: Go
+  items:
+  - name: Go@0
+    href: ../../go-v0.md
+    displayName: Go v0
+- name: Go tool installer
+  items:
+  - name: GoTool@0
+    href: ../../go-tool-v0.md
+    displayName: Go tool installer v0
+- name: Gradle
+  items:
+  - name: Gradle@4
+    href: ../../gradle-v4.md
+    displayName: Gradle v4
+  - name: Gradle@3
+    href: ../../gradle-v3.md
+    displayName: Gradle v3
+  - name: Gradle@2
+    href: ../../gradle-v2.md
+    displayName: Gradle v2
+  - name: Gradle@1
+    href: ../../gradle-v1.md
+    displayName: Gradle v1
+- name: Grunt
+  items:
+  - name: Grunt@0
+    href: ../../grunt-v0.md
+    displayName: Grunt v0
+- name: gulp
+  items:
+  - name: gulp@1
+    href: ../../gulp-v1.md
+    displayName: gulp v1
+  - name: gulp@0
+    href: ../../gulp-v0.md
+    displayName: gulp v0
+- name: Helm tool installer
+  items:
+  - name: HelmInstaller@1
+    href: ../../helm-installer-v1.md
+    displayName: Helm tool installer v1
+  - name: HelmInstaller@0
+    href: ../../helm-installer-v0.md
+    displayName: Helm tool installer v0
+- name: IIS web app deploy
+  items:
+  - name: IISWebAppDeploymentOnMachineGroup@0
+    href: ../../iisweb-app-deployment-on-machine-group-v0.md
+    displayName: IIS web app deploy v0
+- name: IIS Web App deployment (Deprecated)
+  items:
+  - name: IISWebAppDeployment@1
+    href: ../../iisweb-app-deployment-v1.md
+    displayName: IIS Web App deployment (Deprecated) v1
+- name: IIS web app manage
+  items:
+  - name: IISWebAppManagementOnMachineGroup@0
+    href: ../../iisweb-app-management-on-machine-group-v0.md
+    displayName: IIS web app manage v0
+- name: Index sources and publish symbols
+  items:
+  - name: PublishSymbols@2
+    href: ../../publish-symbols-v2.md
+    displayName: Index sources and publish symbols v2
+  - name: PublishSymbols@1
+    href: ../../publish-symbols-v1.md
+    displayName: Index sources and publish symbols v1
+- name: Install Apple certificate
+  items:
+  - name: InstallAppleCertificate@2
+    href: ../../install-apple-certificate-v2.md
+    displayName: Install Apple certificate v2
+  - name: InstallAppleCertificate@1
+    href: ../../install-apple-certificate-v1.md
+    displayName: Install Apple Certificate v1
+  - name: InstallAppleCertificate@0
+    href: ../../install-apple-certificate-v0.md
+    displayName: Install Apple Certificate v0
+- name: Install Apple provisioning profile
+  items:
+  - name: InstallAppleProvisioningProfile@1
+    href: ../../install-apple-provisioning-profile-v1.md
+    displayName: Install Apple provisioning profile v1
+  - name: InstallAppleProvisioningProfile@0
+    href: ../../install-apple-provisioning-profile-v0.md
+    displayName: Install Apple Provisioning Profile v0
+- name: Install Azure Func Core Tools
+  items:
+  - name: FuncToolsInstaller@0
+    href: ../../func-tools-installer-v0.md
+    displayName: Install Azure Func Core Tools v0
+- name: Install SSH key
+  items:
+  - name: InstallSSHKey@0
+    href: ../../install-ssh-key-v0.md
+    displayName: Install SSH key v0
+- name: Invoke Azure Function
+  items:
+  - name: AzureFunction@1
+    href: ../../azure-function-v1.md
+    displayName: Invoke Azure Function v1
+  - name: AzureFunction@0
+    href: ../../azure-function-v0.md
+    displayName: Invoke Azure Function v0
+- name: Invoke REST API
+  items:
+  - name: InvokeRESTAPI@1
+    href: ../../invoke-rest-api-v1.md
+    displayName: Invoke REST API v1
+  - name: InvokeRESTAPI@0
+    href: ../../invoke-rest-api-v0.md
+    displayName: Invoke REST API v0
+- name: Java tool installer
+  items:
+  - name: JavaToolInstaller@1
+    href: ../../java-tool-installer-v1.md
+    displayName: Java tool installer v1
+  - name: JavaToolInstaller@0
+    href: ../../java-tool-installer-v0.md
+    displayName: Java tool installer v0
+- name: Jenkins download artifacts
+  items:
+  - name: JenkinsDownloadArtifacts@2
+    href: ../../jenkins-download-artifacts-v2.md
+    displayName: Jenkins download artifacts v2
+  - name: JenkinsDownloadArtifacts@1
+    href: ../../jenkins-download-artifacts-v1.md
+    displayName: Jenkins download artifacts v1
+- name: Jenkins queue job
+  items:
+  - name: JenkinsQueueJob@2
+    href: ../../jenkins-queue-job-v2.md
+    displayName: Jenkins queue job v2
+  - name: JenkinsQueueJob@1
+    href: ../../jenkins-queue-job-v1.md
+    displayName: Jenkins Queue Job v1
+- name: Kubectl
+  items:
+  - name: Kubernetes@1
+    href: ../../kubernetes-v1.md
+    displayName: Kubectl v1
+  - name: Kubernetes@0
+    href: ../../kubernetes-v0.md
+    displayName: Kubectl v0
+- name: Kubectl tool installer
+  items:
+  - name: KubectlInstaller@0
+    href: ../../kubectl-installer-v0.md
+    displayName: Kubectl tool installer v0
+- name: Kubelogin tool installer
+  items:
+  - name: KubeloginInstaller@0
+    href: ../../kubelogin-installer-v0.md
+    displayName: Kubelogin tool installer v0
+- name: Manual intervention
+  items:
+  - name: ManualIntervention@8
+    href: ../../manual-intervention-v8.md
+    displayName: Manual intervention v8
+- name: Manual validation
+  items:
+  - name: ManualValidation@1
+    href: ../../manual-validation-v1.md
+    displayName: Manual validation v1
+  - name: ManualValidation@0
+    href: ../../manual-validation-v0.md
+    displayName: Manual validation v0
+- name: Maven
+  items:
+  - name: Maven@4
+    href: ../../maven-v4.md
+    displayName: Maven v4
+  - name: Maven@3
+    href: ../../maven-v3.md
+    displayName: Maven v3
+  - name: Maven@2
+    href: ../../maven-v2.md
+    displayName: Maven v2
+  - name: Maven@1
+    href: ../../maven-v1.md
+    displayName: Maven v1
+- name: Maven Authenticate
+  items:
+  - name: MavenAuthenticate@0
+    href: ../../maven-authenticate-v0.md
+    displayName: Maven Authenticate v0
+- name: Mobile Center Test
+  items:
+  - name: VSMobileCenterTest@0
+    href: ../../vsmobile-center-test-v0.md
+    displayName: Mobile Center Test v0
+- name: MSBuild
+  items:
+  - name: MSBuild@1
+    href: ../../msbuild-v1.md
+    displayName: MSBuild v1
+- name: MySQL database deploy
+  items:
+  - name: MysqlDeploymentOnMachineGroup@1
+    href: ../../mysql-deployment-on-machine-group-v1.md
+    displayName: MySQL database deploy v1
+- name: Node.js tasks runner installer
+  items:
+  - name: NodeTaskRunnerInstaller@0
+    href: ../../node-task-runner-installer-v0.md
+    displayName: Node.js tasks runner installer v0
+- name: Notation
+  items:
+  - name: Notation@0
+    href: ../../notation-v0.md
+    displayName: Notation v0
+- name: npm
+  items:
+  - name: Npm@1
+    href: ../../npm-v1.md
+    displayName: npm v1
+  - name: Npm@0
+    href: ../../npm-v0.md
+    displayName: npm v0
+- name: npm authenticate (for task runners)
+  items:
+  - name: npmAuthenticate@0
+    href: ../../npm-authenticate-v0.md
+    displayName: npm authenticate (for task runners) v0
+- name: NuGet
+  items:
+  - name: NuGetCommand@2
+    href: ../../nuget-command-v2.md
+    displayName: NuGet v2
+- name: NuGet authenticate
+  items:
+  - name: NuGetAuthenticate@1
+    href: ../../nuget-authenticate-v1.md
+    displayName: NuGet authenticate v1
+  - name: NuGetAuthenticate@0
+    href: ../../nuget-authenticate-v0.md
+    displayName: NuGet authenticate v0
+- name: NuGet command
+  items:
+  - name: NuGet@0
+    href: ../../nuget-v0.md
+    displayName: NuGet command v0
+- name: NuGet Installer
+  items:
+  - name: NuGetInstaller@0
+    href: ../../nuget-installer-v0.md
+    displayName: NuGet Installer v0
+- name: NuGet packager
+  items:
+  - name: NuGetPackager@0
+    href: ../../nuget-packager-v0.md
+    displayName: NuGet packager v0
+- name: NuGet publisher
+  items:
+  - name: NuGetPublisher@0
+    href: ../../nuget-publisher-v0.md
+    displayName: NuGet publisher v0
+- name: NuGet Restore
+  items:
+  - name: NuGetRestore@1
+    href: ../../nuget-restore-v1.md
+    displayName: NuGet Restore v1
+- name: NuGet tool installer
+  items:
+  - name: NuGetToolInstaller@1
+    href: ../../nuget-tool-installer-v1.md
+    displayName: NuGet tool installer v1
+  - name: NuGetToolInstaller@0
+    href: ../../nuget-tool-installer-v0.md
+    displayName: NuGet tool installer v0
+- name: Package and deploy Helm charts
+  items:
+  - name: HelmDeploy@1
+    href: ../../helm-deploy-v1.md
+    displayName: Package and deploy Helm charts v1
+  - name: HelmDeploy@0
+    href: ../../helm-deploy-v0.md
+    displayName: Package and deploy Helm charts v0
+- name: PowerShell
+  items:
+  - name: PowerShell@2
+    href: ../../powershell-v2.md
+    displayName: PowerShell v2
+  - name: PowerShell@1
+    href: ../../powershell-v1.md
+    displayName: PowerShell v1
+- name: PowerShell on target machines
+  items:
+  - name: PowerShellOnTargetMachines@3
+    href: ../../powershell-on-target-machines-v3.md
+    displayName: PowerShell on target machines v3
+  - name: PowerShellOnTargetMachines@2
+    href: ../../powershell-on-target-machines-v2.md
+    displayName: PowerShell on Target Machines v2
+  - name: PowerShellOnTargetMachines@1
+    href: ../../powershell-on-target-machines-v1.md
+    displayName: PowerShell on Target Machines v1
+- name: Prepare Analysis Configuration
+  items:
+  - name: SonarQubePrepare@7
+    href: ../../sonar-qube-prepare-v7.md
+    displayName: Prepare Analysis Configuration v7
+  - name: SonarQubePrepare@6
+    href: ../../sonar-qube-prepare-v6.md
+    displayName: Prepare Analysis Configuration v6
+  - name: SonarQubePrepare@5
+    href: ../../sonar-qube-prepare-v5.md
+    displayName: Prepare Analysis Configuration v5
+  - name: SonarQubePrepare@4
+    href: ../../sonar-qube-prepare-v4.md
+    displayName: Prepare Analysis Configuration v4
+- name: Publish build artifacts
+  items:
+  - name: PublishBuildArtifacts@1
+    href: ../../publish-build-artifacts-v1.md
+    displayName: Publish build artifacts v1
+- name: Publish code coverage results
+  items:
+  - name: PublishCodeCoverageResults@2
+    href: ../../publish-code-coverage-results-v2.md
+    displayName: Publish code coverage results v2
+  - name: PublishCodeCoverageResults@1
+    href: ../../publish-code-coverage-results-v1.md
+    displayName: Publish code coverage results v1
+- name: Publish Pipeline Artifacts
+  items:
+  - name: PublishPipelineArtifact@1
+    href: ../../publish-pipeline-artifact-v1.md
+    displayName: Publish Pipeline Artifacts v1
+  - name: PublishPipelineArtifact@0
+    href: ../../publish-pipeline-artifact-v0.md
+    displayName: Publish Pipeline Artifacts v0
+- name: Publish Pipeline Metadata
+  items:
+  - name: PublishPipelineMetadata@0
+    href: ../../publish-pipeline-metadata-v0.md
+    displayName: Publish Pipeline Metadata v0
+- name: Publish Quality Gate Result
+  items:
+  - name: SonarQubePublish@7
+    href: ../../sonar-qube-publish-v7.md
+    displayName: Publish Quality Gate Result v7
+  - name: SonarQubePublish@6
+    href: ../../sonar-qube-publish-v6.md
+    displayName: Publish Quality Gate Result v6
+  - name: SonarQubePublish@5
+    href: ../../sonar-qube-publish-v5.md
+    displayName: Publish Quality Gate Result v5
+  - name: SonarQubePublish@4
+    href: ../../sonar-qube-publish-v4.md
+    displayName: Publish Quality Gate Result v4
+- name: Publish Test Results
+  items:
+  - name: PublishTestResults@2
+    href: ../../publish-test-results-v2.md
+    displayName: Publish Test Results v2
+  - name: PublishTestResults@1
+    href: ../../publish-test-results-v1.md
+    displayName: Publish test results v1
+- name: Publish To Azure Service Bus
+  items:
+  - name: PublishToAzureServiceBus@2
+    href: ../../publish-to-azure-service-bus-v2.md
+    displayName: Publish To Azure Service Bus v2
+  - name: PublishToAzureServiceBus@1
+    href: ../../publish-to-azure-service-bus-v1.md
+    displayName: Publish To Azure Service Bus v1
+  - name: PublishToAzureServiceBus@0
+    href: ../../publish-to-azure-service-bus-v0.md
+    displayName: Publish To Azure Service Bus v0
+- name: PyPI publisher
+  items:
+  - name: PyPIPublisher@0
+    href: ../../py-pi-publisher-v0.md
+    displayName: PyPI publisher v0
+- name: Python pip authenticate
+  items:
+  - name: PipAuthenticate@1
+    href: ../../pip-authenticate-v1.md
+    displayName: Python pip authenticate v1
+  - name: PipAuthenticate@0
+    href: ../../pip-authenticate-v0.md
+    displayName: Python pip authenticate v0
+- name: Python script
+  items:
+  - name: PythonScript@0
+    href: ../../python-script-v0.md
+    displayName: Python script v0
+- name: Python twine upload authenticate
+  items:
+  - name: TwineAuthenticate@1
+    href: ../../twine-authenticate-v1.md
+    displayName: Python twine upload authenticate v1
+  - name: TwineAuthenticate@0
+    href: ../../twine-authenticate-v0.md
+    displayName: Python twine upload authenticate v0
+- name: Query Azure Monitor alerts
+  items:
+  - name: AzureMonitor@1
+    href: ../../azure-monitor-v1.md
+    displayName: Query Azure Monitor alerts v1
+- name: Query Classic Azure Monitor alerts
+  items:
+  - name: AzureMonitor@0
+    href: ../../azure-monitor-v0.md
+    displayName: Query Classic Azure Monitor alerts v0
+- name: Query work items
+  items:
+  - name: queryWorkItems@0
+    href: ../../query-work-items-v0.md
+    displayName: Query work items v0
+- name: Review App
+  items:
+  - name: ReviewApp@0
+    href: ../../review-app-v0.md
+    displayName: Review App v0
+- name: Run Code Analysis
+  items:
+  - name: SonarQubeAnalyze@7
+    href: ../../sonar-qube-analyze-v7.md
+    displayName: Run Code Analysis v7
+  - name: SonarQubeAnalyze@6
+    href: ../../sonar-qube-analyze-v6.md
+    displayName: Run Code Analysis v6
+  - name: SonarQubeAnalyze@5
+    href: ../../sonar-qube-analyze-v5.md
+    displayName: Run Code Analysis v5
+  - name: SonarQubeAnalyze@4
+    href: ../../sonar-qube-analyze-v4.md
+    displayName: Run Code Analysis v4
+- name: Run functional tests
+  items:
+  - name: RunVisualStudioTestsusingTestAgent@1
+    href: ../../run-visual-studio-testsusing-test-agent-v1.md
+    displayName: Run functional tests v1
+- name: Service Fabric application deployment
+  items:
+  - name: ServiceFabricDeploy@1
+    href: ../../service-fabric-deploy-v1.md
+    displayName: Service Fabric application deployment v1
+- name: Service Fabric Compose deploy
+  items:
+  - name: ServiceFabricComposeDeploy@0
+    href: ../../service-fabric-compose-deploy-v0.md
+    displayName: Service Fabric Compose deploy v0
+- name: Service Fabric PowerShell
+  items:
+  - name: ServiceFabricPowerShell@1
+    href: ../../service-fabric-powershell-v1.md
+    displayName: Service Fabric PowerShell v1
+- name: Shell script
+  items:
+  - name: ShellScript@2
+    href: ../../shell-script-v2.md
+    displayName: Shell script v2
+- name: SQL Server database deploy
+  items:
+  - name: SqlDacpacDeploymentOnMachineGroup@0
+    href: ../../sql-dacpac-deployment-on-machine-group-v0.md
+    displayName: SQL Server database deploy v0
+- name: SQL Server database deploy (Deprecated)
+  items:
+  - name: SqlServerDacpacDeployment@1
+    href: ../../sql-server-dacpac-deployment-v1.md
+    displayName: SQL Server database deploy (Deprecated) v1
+- name: SSH
+  items:
+  - name: SSH@0
+    href: ../../ssh-v0.md
+    displayName: SSH v0
+- name: Universal packages
+  items:
+  - name: UniversalPackages@0
+    href: ../../universal-packages-v0.md
+    displayName: Universal packages v0
+- name: Update Service Fabric App Versions
+  items:
+  - name: ServiceFabricUpdateAppVersions@1
+    href: ../../service-fabric-update-app-versions-v1.md
+    displayName: Update Service Fabric App Versions v1
+- name: Update Service Fabric manifests
+  items:
+  - name: ServiceFabricUpdateManifests@2
+    href: ../../service-fabric-update-manifests-v2.md
+    displayName: Update Service Fabric manifests v2
+- name: Use .NET Core
+  items:
+  - name: UseDotNet@2
+    href: ../../use-dotnet-v2.md
+    displayName: Use .NET Core v2
+- name: Use Node.js ecosystem
+  items:
+  - name: UseNode@1
+    href: ../../use-node-v1.md
+    displayName: Use Node.js ecosystem v1
+  - name: NodeTool@0
+    href: ../../node-tool-v0.md
+    displayName: Use Node.js ecosystem v0
+- name: Use Python version
+  items:
+  - name: UsePythonVersion@0
+    href: ../../use-python-version-v0.md
+    displayName: Use Python version v0
+- name: Use Ruby version
+  items:
+  - name: UseRubyVersion@0
+    href: ../../use-ruby-version-v0.md
+    displayName: Use Ruby version v0
+- name: Visual Studio build
+  items:
+  - name: VSBuild@1
+    href: ../../vsbuild-v1.md
+    displayName: Visual Studio build v1
+- name: Visual Studio Test
+  items:
+  - name: VSTest@3
+    href: ../../vstest-v3.md
+    displayName: Visual Studio Test v3
+  - name: VSTest@2
+    href: ../../vstest-v2.md
+    displayName: Visual Studio Test v2
+  - name: VSTest@1
+    href: ../../vstest-v1.md
+    displayName: Visual Studio Test v1
+- name: Visual Studio test agent deployment
+  items:
+  - name: DeployVisualStudioTestAgent@2
+    href: ../../deploy-visual-studio-test-agent-v2.md
+    displayName: Visual Studio test agent deployment v2
+  - name: DeployVisualStudioTestAgent@1
+    href: ../../deploy-visual-studio-test-agent-v1.md
+    displayName: Visual Studio Test Agent Deployment v1
+- name: Visual Studio test platform installer
+  items:
+  - name: VisualStudioTestPlatformInstaller@1
+    href: ../../visual-studio-test-platform-installer-v1.md
+    displayName: Visual Studio test platform installer v1
+- name: Windows machine file copy
+  items:
+  - name: WindowsMachineFileCopy@2
+    href: ../../windows-machine-file-copy-v2.md
+    displayName: Windows machine file copy v2
+  - name: WindowsMachineFileCopy@1
+    href: ../../windows-machine-file-copy-v1.md
+    displayName: Windows machine file copy v1
+- name: Xcode
+  items:
+  - name: Xcode@5
+    href: ../../xcode-v5.md
+    displayName: Xcode v5
+  - name: Xcode@4
+    href: ../../xcode-v4.md
+    displayName: Xcode v4
+- name: Xcode Build
+  items:
+  - name: Xcode@3
+    href: ../../xcode-v3.md
+    displayName: Xcode Build v3
+  - name: Xcode@2
+    href: ../../xcode-v2.md
+    displayName: Xcode Build v2
+- name: Xcode Package iOS
+  items:
+  - name: XcodePackageiOS@0
+    href: ../../xcode-package-ios-v0.md
+    displayName: Xcode Package iOS v0
