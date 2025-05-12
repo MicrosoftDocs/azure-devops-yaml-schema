@@ -177,6 +177,8 @@ You can provide multiple paths separated by commas. The paths must be relative t
 **`sourcesfolder`** - **Sets the folder that contains the sources to be analyzed**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
+Value must be relative to `Build.SourcesDirectory` variable. 
+
 If you don't provide this value, the default sources folder for the pipeline infrastructure is used (provided by the `Build.SourcesDirectory` variable).
 <!-- :::editable-content-end::: -->
 <br>
