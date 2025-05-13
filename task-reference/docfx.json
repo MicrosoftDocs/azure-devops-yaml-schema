@@ -7,7 +7,6 @@
           "**/*.yml"
         ],
         "exclude": [
-          "**tocs**",
           "**/obj/**",
           "**/includes/**",
           "_themes/**",
@@ -20,13 +19,7 @@
           "ThirdPartyNotices.md"
         ],
         "group": "all"
-      },
-      { "files": ["toc.yml"], "src": "tocs/azure-pipelines-2020", "group": "azure-pipelines-2020", "exclude": [] },
-      { "files": ["toc.yml"], "src": "tocs/azure-pipelines-2020.1", "group": "azure-pipelines-2020.2", "exclude": [] },
-      { "files": ["toc.yml"], "src": "tocs/azure-pipelines-2022", "group": "azure-pipelines-2022", "exclude": [] },
-      { "files": ["toc.yml"], "src": "tocs/azure-pipelines-2022.1", "group": "azure-pipelines-2022.1", "exclude": [] },
-      { "files": ["toc.yml"], "src": "tocs/azure-pipelines-2022.2", "group": "azure-pipelines-2022.2", "exclude": [] },
-      { "files": ["toc.yml"], "src": "tocs/azure-pipelines", "group": "azure-pipelines", "exclude": [] }
+      }
     ],
     "resource": [
       {
@@ -73,24 +66,6 @@
       "all": {
         "dest": "all",
         "moniker_range": ">= azure-pipelines-2019 <= azure-pipelines"
-      },
-      "azure-pipelines-2020": { 
-        "moniker_range": "azure-pipelines-2020"
-      },
-      "azure-pipelines-2020.1": { 
-        "moniker_range": "azure-pipelines-2020.1"
-      },
-      "azure-pipelines-2022": { 
-        "moniker_range": "azure-pipelines-2022"
-      },
-      "azure-pipelines-2022.1": { 
-        "moniker_range": "azure-pipelines-2022.1"
-      },
-      "azure-pipelines-2022.2": {
-        "moniker_range": "azure-pipelines-2022.2"
-      },
-      "azure-pipelines": { 
-        "moniker_range": "azure-pipelines"
       }
     }
   }
