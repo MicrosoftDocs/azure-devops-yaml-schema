@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 04/30/2025
+ms.date: 05/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,20 @@ A parameter represents a value passed to a pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+parameters:
+- name: string # Required as first property.
+  displayName: string # Human-readable name for the parameter.
+  type: string
+  default: string | parameters | [ parameters ] # Default value; if no default, then the parameter MUST be given by the user at runtime.
+  values: [ string ] # Allowed list of values (for some data types).
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 parameters:
@@ -83,6 +96,7 @@ boolean | deployment | deploymentList | environment | filePath | job | jobList |
 :::moniker range="<=azure-pipelines"
 
 **`default`** parameters.<br><!-- :::editable-content name="propDescription"::: -->
+Default value; if no default, then the parameter MUST be given by the user at runtime.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -91,6 +105,7 @@ boolean | deployment | deploymentList | environment | filePath | job | jobList |
 :::moniker range="<=azure-pipelines"
 
 **`values`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+Allowed list of values (for some data types).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

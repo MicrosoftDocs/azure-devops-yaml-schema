@@ -1,7 +1,7 @@
 ---
 title: resources.repositories.repository definition
 description: A repository resource is used to reference an additional repository in your pipeline.
-ms.date: 04/30/2025
+ms.date: 05/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,21 @@ The `repository` keyword lets you specify an external repository. Use a reposito
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+repositories:
+- repository: string # Required as first property. Alias for the repository.
+  endpoint: string # ID of the service endpoint connecting to this repository.
+  trigger: none | trigger | [ string ] # CI trigger for this repository, no CI trigger if skipped (only works for Azure Repos).
+  name: string # repository name (format depends on 'type'; does not accept variables).
+  ref: string # ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by default whenever the resource trigger fires.
+  type: git | github | githubenterprise | bitbucket # Type of repository: git, github, githubenterprise, and bitbucket.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
 
 ```yaml
 repositories:
