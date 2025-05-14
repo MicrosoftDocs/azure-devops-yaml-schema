@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 04/30/2025
+ms.date: 05/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,36 @@ A container resource references a container image.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+containers:
+- container: string # Required as first property. Alias of the container.
+  image: string # Required. Container image tag.
+  type: string # Type of the registry like ACR or GCR.
+  trigger: trigger | none | true # Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
+  azureSubscription: string # Azure subscription (ARM service connection) for container registry.
+  resourceGroup: string # Resource group for your ACR.
+  registry: string # Registry for container images.
+  repository: string # Name of the container image repository in ACR.
+  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image; the default is false.
+  endpoint: string # ID of the service endpoint connecting to a private container registry.
+  env: # Variables to map into the container's environment.
+    string: string # Name/value pairs
+  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
+  options: string # Options to pass into container host.
+  ports: [ string ] # Ports to expose on the container.
+  volumes: [ string ] # Volumes to mount on the container.
+  mountReadOnly: # Volumes to mount read-only, the default is all false.
+    work: boolean # Mount the work directory as readonly.
+    externals: boolean # Mount the externals directory as readonly.
+    tools: boolean # Mount the tools directory as readonly.
+    tasks: boolean # Mount the tasks directory as readonly.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
 
 ```yaml
 containers:
@@ -111,6 +140,53 @@ Type of the registry like ACR or GCR.
 
 **`trigger`** [resources.containers.container.trigger](resources-containers-container-trigger.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="azureSubscription"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`azureSubscription`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Azure subscription (ARM service connection) for container registry.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="resourceGroup"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`resourceGroup`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Resource group for your ACR.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="registry"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`registry`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Registry for container images.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="repository"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`repository`** string.<br><!-- :::editable-content name="propDescription"::: -->
+Name of the container image repository in ACR.
+<!-- :::editable-content-end::: -->
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="localImage"::: -->
+:::moniker range="<=azure-pipelines"
+
+**`localImage`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
+When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
+
+This property is useful only for self-hosted agents where the image is already present on the agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -206,53 +282,6 @@ Volumes to mount on the container.
 
 **`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount read-only, the default is all false.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="azureSubscription"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`azureSubscription`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Azure subscription (ARM service connection) for container registry.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="resourceGroup"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`resourceGroup`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Resource group for your ACR.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="registry"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`registry`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Registry for container images.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="repository"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`repository`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Name of the container image repository in ACR.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="localImage"::: -->
-:::moniker range="<=azure-pipelines"
-
-**`localImage`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
-
-This property is useful only for self-hosted agents where the image is already present on the agent machine.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

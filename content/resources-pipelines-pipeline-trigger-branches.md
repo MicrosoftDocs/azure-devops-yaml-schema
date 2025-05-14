@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline.trigger.branches definition
 description: Branches to include or exclude for triggering a run using a pipeline resource.
-ms.date: 04/30/2025
+ms.date: 05/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -54,7 +54,44 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 <!-- :::implementation-item name="branches: object properties"::: -->
 <a name="branchesobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+<!-- :::implementation-signature::: -->
+## branches: include, exclude
+<!-- :::implementation-signature-end::: -->
+
+<!-- :::implementation-description::: -->
+<!-- :::editable-content name="description"::: -->
+Lists of branches to include and exclude.
+<!-- :::editable-content-end::: -->
+<!-- :::implementation-description-end::: -->
+
+<!-- :::implementation-syntax::: -->
+```yaml
+branches:
+  include: [ string ] # List of branches to include.
+  exclude: [ string ] # List of branches to exclude.
+```
+<!-- :::implementation-syntax-end::: -->
+
+<!-- :::implementation-properties::: -->
+### Properties
+
+<!-- :::item name="include"::: -->
+**`include`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+List of branches to include.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::item name="exclude"::: -->
+**`exclude`** string list.<br><!-- :::editable-content name="propDescription"::: -->
+List of branches to exclude.
+<!-- :::editable-content-end::: -->
+<!-- :::item-end::: -->
+<!-- :::implementation-properties-end::: -->
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::implementation-signature::: -->
 ## branches: include, exclude
