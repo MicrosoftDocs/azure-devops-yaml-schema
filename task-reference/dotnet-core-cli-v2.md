@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-ms.date: 05/06/2025
+ms.date: 05/23/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -892,11 +892,11 @@ However, for situations where a team of developers works on a large range of pro
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '**/*.csproj'
     arguments: '-o $(Build.ArtifactStagingDirectory)/Output'
     zipAfterPublish: true
     modifyOutputPath: true
 ```
+
 ### Restore examples
 
 ```YAML
