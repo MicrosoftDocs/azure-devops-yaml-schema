@@ -214,8 +214,6 @@ The `PublishToAzureServiceBus@2` task can be configured using an Azure Resource 
       }
 ```
 
-Azure DevOps automatically populates the [ServiceBusReceivedMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.applicationproperties).
-
 ### Where should a task signal completion?
 
 To signal completion, the external service should POST completion data to the following pipelines REST endpoint.
@@ -226,6 +224,8 @@ To signal completion, the external service should POST completion data to the fo
 **Request Body**
  { "name": "TaskCompleted", "taskId": "taskInstanceId", "jobId": "jobId", "result": "succeeded" }
 ```
+
+Azure DevOps automatically populates the [ServiceBusReceivedMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.applicationproperties).
 
 See [this simple cmdline application](https://github.com/Microsoft/azure-pipelines-extensions/tree/master/ServerTaskHelper/HttpRequestSampleWithoutHandler) for specifics.
 
