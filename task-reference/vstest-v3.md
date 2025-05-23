@@ -1,7 +1,7 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 05/06/2025
+ms.date: 05/23/2025
 monikerRange: "=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -222,7 +222,9 @@ Specifies the folder to store test results. When using the default directory, it
 **`testFiltercriteria`** - **Test filter criteria**<br>
 `string`. Optional. Use when `testSelector = testAssemblies`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies additional criteria to filter tests from test assemblies. For example: `Priority=1|Name=MyTestMethod`. Learn about [command-line options](/previous-versions/jj155796(v=vs.140)).
+Specifies additional criteria to filter tests from test assemblies. For example: `Priority=1|Name=MyTestMethod`. You can use `-` to negate a filter. For more information on filters and options, see [Search and filter the test list](/visualstudio/test/run-unit-tests-with-test-explorer#search-and-filter-the-test-list).
+
+Learn about [command-line options](/previous-versions/jj155796(v=vs.140)).
 <!-- :::editable-content-end::: -->
 <br>
 
