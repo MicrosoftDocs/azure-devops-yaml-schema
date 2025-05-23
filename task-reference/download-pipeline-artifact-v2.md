@@ -203,6 +203,8 @@ Specifies the name of the artifact to download. If the value is left empty, the 
 [Input alias](index.md#what-are-task-input-aliases): `patterns`. `string`. Default value: `**`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The file matching patterns that limit downloaded files. The value can be one or more file matching patterns that are new line delimited. Learn more about [file matching patterns](/azure/devops/pipelines/tasks/file-matching-patterns).
+
+Unlike other tasks, this task will download a file that matches any pattern. Exclude patterns cannot be used to exclude previously included files and will include files that don't match any include patterns.
 <!-- :::editable-content-end::: -->
 <br>
 
