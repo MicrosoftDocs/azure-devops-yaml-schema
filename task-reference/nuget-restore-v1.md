@@ -215,6 +215,21 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+### Why is the build pipeline failing and requesting Single Sign-On (SSO) for authentication?
+
+Build can fail due to expired credentials. Use the [NuGet Authenticate](nuget-authenticate-v1.md) task to prevent failures caused by expired credentials, as it can reinstall the credential provider and refresh the credentials. 
+
+```yaml
+steps:
+# Authenticate with NuGet to ensure credentials are refreshed
+- task: NuGetAuthenticate@1
+# Restore NuGet packages
+- task: NuGetRestore@1
+  inputs:
+    solution: '**/*.sln'
+```
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
