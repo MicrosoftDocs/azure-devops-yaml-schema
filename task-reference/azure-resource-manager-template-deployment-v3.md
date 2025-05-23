@@ -243,8 +243,8 @@ Example: `-storageName fabrikam -adminUsername $(vmusername) -adminPassword (Con
 
 If the parameter value has multiple words, enclose the words in quotes, even if you're passing the value by using variables.
 For example, `-name "parameter value" -name2 "$(var)"`.
-To override object type parameters, use stringified JSON objects.
-For example, `-options ["option1"] -map {"key1": "value1" }`.
+
+If the parameter you're overriding is an object, you can provide a value using a single line stringified JSON object. For example, to override a parameter named `settings` that has two properties, you can use the following format: `-settings "{\"key1\": \"value1\", \"key2\": \"value2\"}"`.
 <!-- :::editable-content-end::: -->
 <br>
 
