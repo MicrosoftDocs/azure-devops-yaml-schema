@@ -1,7 +1,7 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 05/06/2025
+ms.date: 05/23/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -95,6 +95,8 @@ For example:
 * `**\bin\**` copies all files recursively from any bin folder.
 
 The pattern is used to match only file paths, not folder paths. Specify patterns, such as `**\bin\**` instead of `**\bin`.
+
+Wrapping special characters in `[]` can be used to escape literal glob characters in a file name. For example the literal file name `hello[a-z]` can be escaped as `hello[[]a-z]`. For more information, see [File matching patterns reference](/azure/devops/pipelines/tasks/file-matching-patterns).
 
 Use the path separator that matches your build agent type. For example, `/` must be used for Linux agents. More examples are shown below.
 <!-- :::editable-content-end::: -->
