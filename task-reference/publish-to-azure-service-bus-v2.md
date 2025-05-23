@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
 description: Sends a message to Azure Service Bus using a service connectionno, with no agent required.
-ms.date: 05/06/2025
+ms.date: 05/23/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -224,6 +224,8 @@ To signal completion, the external service should POST completion data to the fo
 **Request Body**
  { "name": "TaskCompleted", "taskId": "taskInstanceId", "jobId": "jobId", "result": "succeeded" }
 ```
+
+Azure DevOps automatically populates the [ServiceBusReceivedMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.applicationproperties).
 
 See [this simple cmdline application](https://github.com/Microsoft/azure-pipelines-extensions/tree/master/ServerTaskHelper/HttpRequestSampleWithoutHandler) for specifics.
 
