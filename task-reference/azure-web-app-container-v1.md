@@ -14,6 +14,10 @@ ms.author: jukullam
 
 <!-- :::editable-content name="description"::: -->
 This task deploys containers to Azure App Service.
+
+When deploying a container using this task, the task will not trigger an error message if the specified container image is incorrect.
+Use the Azure portal logs to troubleshoot container deployment issues.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
