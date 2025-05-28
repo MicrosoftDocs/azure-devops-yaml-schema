@@ -636,9 +636,9 @@ The [NuGet Authenticate](nuget-authenticate-v1.md) task will handle injecting cr
 
 If [dotnet CLI commands](/nuget/reference/dotnet-commands) do not support your scenario, please [report this to the .NET CLI team as an issue](https://github.com/NuGet/Home/issues/). You may continue to [pin your agent image](/azure/devops/pipelines/agents/pools-queues#designate-a-pool-in-your-pipeline) to [Ubuntu 22.04 or earlier](/azure/devops/pipelines/agents/hosted#software). Ubuntu 22.04 support will continue until Ubuntu 26.04 is made generally available, no earlier than 2026.
 
-### Why is the build pipeline failing and requesting Single Sign-On (SSO) for authentication?
+### Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?
 
-Build can fail due to expired credentials. Use the [NuGet Authenticate](nuget-authenticate-v1.md) task to prevent failures caused by expired credentials, as it can reinstall the credential provider and refresh the credentials. 
+Builds can fail if credentials have expired. To avoid these failures, we recommend using the [NuGet Authenticate](nuget-authenticate-v1.md) task to reinstall the credential provider and automatically refresh credentials. This ensures uninterrupted access during pipeline execution.
 
 ```yaml
 steps:
