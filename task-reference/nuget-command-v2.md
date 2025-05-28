@@ -635,6 +635,23 @@ Starting with Ubuntu 24.04, Microsft-hosted agents [will not ship with mono](htt
 The [NuGet Authenticate](nuget-authenticate-v1.md) task will handle injecting credentials into the needed places for client tools to authenticate as your pipeline identity. Please see the linked documentation for instructions, FAQs, and examples for using `NuGet Authenticate` with dotnet.
 
 If [dotnet CLI commands](/nuget/reference/dotnet-commands) do not support your scenario, please [report this to the .NET CLI team as an issue](https://github.com/NuGet/Home/issues/). You may continue to [pin your agent image](/azure/devops/pipelines/agents/pools-queues#designate-a-pool-in-your-pipeline) to [Ubuntu 22.04 or earlier](/azure/devops/pipelines/agents/hosted#software). Ubuntu 22.04 support will continue until Ubuntu 26.04 is made generally available, no earlier than 2026.
+
+### Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?
+
+Builds can fail if credentials have expired. To avoid these failures, we recommend using the [NuGet Authenticate](nuget-authenticate-v1.md) task to reinstall the credential provider and automatically refresh credentials. This ensures uninterrupted access during pipeline execution.
+
+```yaml
+steps:
+# Authenticate with NuGet to ensure credentials are refreshed
+- task: NuGetAuthenticate@1
+# Restore NuGet packages
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+```
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
