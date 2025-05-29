@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 05/06/2025
+ms.date: 05/29/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -16,7 +16,7 @@ ms.author: jukullam
 This task deploys containers to Azure App Service.
 
 When deploying a container using this task, the task will not trigger an error message if the specified container image is incorrect.
-Use the Azure portal logs to troubleshoot container deployment issues.
+Use the Azure portal logs to troubleshoot container deployment issues. 
 
 <!-- :::editable-content-end::: -->
 
