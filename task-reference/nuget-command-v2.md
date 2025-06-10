@@ -632,7 +632,7 @@ Starting with Ubuntu 24.04, Microsft-hosted agents [will not ship with mono](htt
 
 #### Migrating to .NET CLI on Ubuntu
 
-The [NuGet Authenticate](nuget-authenticate-v1.md) task will handle injecting credentials into the needed places for client tools to authenticate as your pipeline identity. Please see the linked documentation for instructions, FAQs, and examples for using `NuGet Authenticate` with dotnet.
+The [NuGet Authenticate](nuget-authenticate-v1.md) task will handle injecting credentials into the needed places for client tools to authenticate as your pipeline identity. Please see the [Examples](/azure/devops/pipelines/tasks/reference/nuget-authenticate-v1#examples) and [Remarks](/azure/devops/pipelines/tasks/reference/nuget-authenticate-v1#remarks) sections to learn more about using `NuGet Authenticate` with dotnet.
 
 If [dotnet CLI commands](/nuget/reference/dotnet-commands) do not support your scenario, please [report this to the .NET CLI team as an issue](https://github.com/NuGet/Home/issues/). You may continue to [pin your agent image](/azure/devops/pipelines/agents/pools-queues#designate-a-pool-in-your-pipeline) to [Ubuntu 22.04 or earlier](/azure/devops/pipelines/agents/hosted#software). Ubuntu 22.04 support will continue until Ubuntu 26.04 is made generally available, no earlier than 2026.
 
