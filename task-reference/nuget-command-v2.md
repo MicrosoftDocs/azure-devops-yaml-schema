@@ -14,6 +14,9 @@ ms.author: rabououn
 
 <!-- :::editable-content name="description"::: -->
 Use this task to restore, pack, or push NuGet packages, or run a NuGet command. This task supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. This task also uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+
+> [!TIP]
+> Use [NuGetAuthenticate@1](./nuget-authenticate-v1.md) in your pipeline before this task. For more information, see [Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?](#why-is-my-build-pipeline-failing-and-prompting-for-single-sign-on-sso-authentication).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

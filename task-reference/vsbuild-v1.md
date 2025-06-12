@@ -14,6 +14,9 @@ ms.author: sdanie
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build with MSBuild and set the Visual Studio version property. Learn more about installing [Visual Studio images on Azure](/visualstudio/install/using-visual-studio-vm).
+
+> [!TIP]
+> Use [NuGetAuthenticate@1](./nuget-authenticate-v1.md) in your pipeline before this task. For more information, see [Why is my build pipeline failing and prompting for Single Sign-On (SSO) authentication?](#why-is-my-build-pipeline-failing-and-prompting-for-single-sign-on-sso-authentication).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
