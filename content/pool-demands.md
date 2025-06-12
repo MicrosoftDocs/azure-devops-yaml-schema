@@ -96,9 +96,13 @@ Self-hosted agents have the following system capabilities with similar names to 
 * Agent.OSArchitecture
 * Agent.OSVersion (Windows agents only)
 
-### Default agent capabilities
+### Agent capability scanning
 
-When the agent software starts, it scans for the following software and tools and registers the corresponding capabilities. To rescan for newly instannted software after the agent has started, restart the agent service or run the `./svc.sh install` command on Linux/macOS or `.\svc.cmd install` command on Windows.
+When the agent software starts, it scans for the following software and tools and registers the corresponding capabilities.
+
+> [!TIP]
+>
+> After you install new software on a self-hosted agent, you must restart the agent for the new capability to show up. For more information, see [Restart Windows agent](/azure/devops/pipelines/agents/windows-agent/windows-agent#how-do-i-restart-the-agent), [Restart Linux agent](/azure/devops/pipelines/agents/linux-agent#how-do-i-restart-the-agent), and [Restart Mac agent](/azure/devops/pipelines/agents/osx-agent#how-do-i-restart-the-agent).
 
 #### [Windows agent](#tab/windows/)
 
