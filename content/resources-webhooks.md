@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks definition
 description: List of webhooks.
-ms.date: 05/14/2025
+ms.date: 06/18/2025
 monikerRange: ">=azure-pipelines-2020.1"
 author: juliakm
 ms.author: jukullam
