@@ -1,7 +1,7 @@
 ---
 title: YAML schema reference
 description: Azure Pipelines YAML schema reference
-ms.date: 05/14/2025
+ms.date: 06/18/2025
 monikerRange: "<=azure-pipelines"
 ---
 

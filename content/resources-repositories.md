@@ -1,7 +1,7 @@
 ---
 title: resources.repositories definition
 description: List of external repositories.
-ms.date: 05/14/2025
+ms.date: 06/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
