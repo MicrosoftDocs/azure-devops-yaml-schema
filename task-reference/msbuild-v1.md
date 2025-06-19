@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build with MSBuild.
+
+> [!NOTE]
+> For more information on MSBuild, see [How MSBuild builds projects](/visualstudio/msbuild/build-process-overview).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
