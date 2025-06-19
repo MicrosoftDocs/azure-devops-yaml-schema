@@ -95,6 +95,8 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 
 > [!TIP]
 > If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
+>
+> For information on the differences between MSBuild and Visual Studio build, see [Visual Studio builds vs. MSBuild.exe builds](/visualstudio/msbuild/build-process-overview#visual-studio-builds-vs-msbuildexe-builds).
 <!-- :::editable-content-end::: -->
 <br>
 
