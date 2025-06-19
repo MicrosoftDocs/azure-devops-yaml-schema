@@ -12,6 +12,9 @@ monikerRange: "<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to build with MSBuild.
+
+> [!NOTE]
+> For more information on MSBuild, see [How MSBuild builds projects](/visualstudio/msbuild/build-process-overview).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -92,6 +95,8 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 
 > [!TIP]
 > If you are building a solution, we recommend you use the [Visual Studio build task](/azure/devops/pipelines/tasks/build/visual-studio-build) instead of the MSBuild task.
+>
+> For information on the differences between MSBuild and Visual Studio build, see [Visual Studio builds vs. MSBuild.exe builds](/visualstudio/msbuild/build-process-overview#visual-studio-builds-vs-msbuildexe-builds).
 <!-- :::editable-content-end::: -->
 <br>
 

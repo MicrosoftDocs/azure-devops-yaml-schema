@@ -100,6 +100,8 @@ Make sure the solutions you specify are downloaded by this build pipeline. On th
 > [!TIP]
 > - You can also build MSBuild project (.*proj) files.
 > - If you are building a customized MSBuild project file, we recommend you use the MSBuild task instead of the Visual Studio Build task.
+>
+> For information on the differences between MSBuild and Visual Studio build, see [Visual Studio builds vs. MSBuild.exe builds](/visualstudio/msbuild/build-process-overview#visual-studio-builds-vs-msbuildexe-builds).
 <!-- :::editable-content-end::: -->
 <br>
 
