@@ -1,7 +1,7 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 05/06/2025
+ms.date: 06/13/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -11,7 +11,7 @@ monikerRange: "=azure-pipelines"
 :::moniker range="=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Run manual and automated tests in test plan in Java and Python language.
+Run manual and automated tests in test plan in Java, JavaScript and Python language.
 
 > [!NOTE]
 > This task is in Public Preview.
@@ -226,6 +226,121 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+### Integrate your automated tests with a test plan
+
+Follow the steps below to integrate your automated tests with manual test cases and execute them from Test Plans or via the Azure Test Plan task in your build pipelines:
+
+1. Ensure your project is in Azure DevOps Repos (or GitHub Repos).
+2. Create a pipeline that runs the tests using tasks such as Gradle or Maven. If your tests are already executed as part of an existing pipeline, you can skip this step. Running the tests is essential—only after they have been executed at least once will they be available for association with manual test cases.
+
+    # [Gradle](#tab/gradle)
+    
+    ```yaml
+     trigger: none
+    
+     pool:
+       vmImage: ubuntu-latest
+    
+     steps:
+     - task: Gradle@3
+       inputs:
+         gradleWrapperFile: 'gradlew'
+         workingDirectory: '$(Build.SourcesDirectory)'
+         tasks: 'build'
+         publishJUnitResults: true
+         testResultsFiles: '**/TEST-*.xml'
+         testRunTitle: 'gridinitialexecution'
+         javaHomeOption: 'JDKVersion'
+         sonarQubeRunAnalysis: false
+         spotBugsAnalysis: false
+    ```
+    
+    # [Maven](#tab/maven)
+    
+    ```yaml
+      trigger: none
+    
+      variables:
+      - name: system.debug
+        value: true
+    
+      pool:
+        vmImage: ubuntu-latest
+      
+      steps:
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: false
+    ```
+    
+    # [Python](#tab/python)
+    
+     ```yaml
+     trigger: none    
+     pool:
+       vmImage: windows-latest
+    
+     steps:
+     - task: UsePythonVersion@0
+       inputs:
+         versionSpec: '3.8.10'
+         addToPath: true
+         displayName: 'Use Python $(python.version)'
+    
+     - script: |
+        pip install pytest pytest-azurepipelines
+        pytest
+       displayName: 'pytest'
+    ```
+    
+    * * *
+
+3. The next step is to link the test cases from the Test tab of the pipeline run summary to a manual test case work item. To do this, create a new test case or use an existing one (note the Automation Status column for TC4):
+
+   :::image type="content" source="media/azure-test-plan/test-case-without-automation.png" alt-text="Screenshot of a test case without automation.":::
+
+4. Once you have a test case, return to the pipeline run summary page and associate your automated test with the test case.
+
+   :::image type="content" source="media/azure-test-plan/association-experience.png" alt-text="Screenshot of the association experience in Azure Pipelines":::
+
+5. Here’s how you can tell if a manual test case has an associated automated test:
+
+   :::image type="content" source="media/azure-test-plan/test-case-with-automation.png" alt-text="Screenshot of a test case with automation.":::
+
+   :::image type="content" source="media/azure-test-plan/test-case-associated-automation-tab.png" alt-text="Screenshot of a test case with an associated automated test.":::
+
+6. Now that the test case is associated with a manual test case work item, you can execute it as part of a pipeline by passing the test plan as an argument in the Azure Test Plan task.
+
+    ```yaml
+    trigger: none
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: AzureTestPlan@0
+      inputs:
+        testSelector: 'automatedTests'
+        testPlanOrRunSelector: 'testPlan'
+        testPlan: '21294'
+        testSuite: '229461'
+        testConfiguration: '82'
+        testLanguageInput: 'JavaGradle'
+    ```
+
+Save and run the pipeline.
+
+Here is the pipeline result summary, which shows the outcome for TC4 along with other test cases:
+
+:::image type="content" source="media/azure-test-plan/test-run-results.png" alt-text="Screenshot of the associated automation tab.":::
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
