@@ -1,7 +1,7 @@
 ---
 title: pipeline definition
 description: A pipeline is one or more stages that describe a CI/CD process.
-ms.date: 06/18/2025
+ms.date: 06/23/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -1284,7 +1284,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # What to clean up before the job runs.
 name: string # Pipeline run number.
 appendCommitMessageToRunName: boolean # Append the commit message to the build number. The default is true.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
@@ -1339,6 +1339,8 @@ Container resources to run as a service container.
 <!-- :::item name="workspace"::: -->
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
@@ -1412,7 +1414,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # What to clean up before the job runs.
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 parameters: [ parameter ] # Pipeline template parameters.
@@ -1466,6 +1468,8 @@ Container resources to run as a service container.
 <!-- :::item name="workspace"::: -->
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
@@ -1534,7 +1538,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # What to clean up before the job runs.
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 parameters: [ parameter ] # Pipeline template parameters.
@@ -1587,6 +1591,8 @@ Container resources to run as a service container.
 <!-- :::item name="workspace"::: -->
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->
@@ -1650,7 +1656,7 @@ container: string | container # Container resource name.
 services: # Container resources to run as a service container.
   string: string # Name/value pairs
 workspace: # Workspace options on the agent.
-  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # What to clean up before the job runs.
 name: string # Pipeline run number.
 trigger: none | trigger | [ string ] # Continuous integration triggers.
 parameters: [ parameter ] # Pipeline template parameters.
@@ -1702,6 +1708,8 @@ Container resources to run as a service container.
 <!-- :::item name="workspace"::: -->
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::item name="name"::: -->

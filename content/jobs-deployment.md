@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
-ms.date: 06/18/2025
+ms.date: 06/23/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -37,7 +37,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -65,7 +65,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -92,7 +92,7 @@ jobs:
   environment: string | environment # Target environment name and optionally a resource name to record the deployment history; format: environment-name.resource-name.
   strategy: strategy # Execution strategy for this deployment.
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   container: string | container # Container resource name.
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
@@ -216,6 +216,8 @@ Execution strategy for this deployment.
 
 **`workspace`** [workspace](workspace.md).<br><!-- :::editable-content name="propDescription"::: -->
 Workspace options on the agent.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

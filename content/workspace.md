@@ -1,7 +1,7 @@
 ---
 title: workspace definition
 description: Workspace options on the agent.
-ms.date: 06/18/2025
+ms.date: 06/23/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -24,7 +24,7 @@ Workspace options on the agent.
 
 ```yaml
 workspace:
-  clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+  clean: outputs | resources | all # What to clean up before the job runs.
 ```
 
 :::moniker-end
@@ -50,7 +50,9 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 :::moniker range="<=azure-pipelines"
 
 **`clean`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Which parts of the workspace should be scorched before fetching. outputs | resources | all.
+Which parts of the workspace should be cleaned before the run. Valid values are `outputs`, `resources`, or `all`.
+
+For more information about workspaces, including clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
