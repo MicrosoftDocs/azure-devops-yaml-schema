@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: A job is a collection of steps run by an agent or on a server.
-ms.date: 06/18/2025
+ms.date: 06/23/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -38,7 +38,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -66,7 +66,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   uses: # Any resources required by this job that are not already referenced.
     repositories: [ string ] # Repository references.
     pools: [ string ] # Pool references.
@@ -93,7 +93,7 @@ jobs:
   services: # Container resources to run as a service container.
     string: string # Name/value pairs
   workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # Which parts of the workspace should be scorched before fetching.
+    clean: outputs | resources | all # What to clean up before the job runs.
   steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
 ```
 
