@@ -121,7 +121,7 @@ Provides a newline-separated list of transformation file rules using the syntax:
 <!-- :::editable-content name="helpMarkDown"::: -->
 Provides a newline-separated list of files to substitute the variable values. File names are to be provided relative to the root folder.
 
-For example, to replace the value of `ConnectionString` in the sample below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
+For example, to replace the value of `ConnectionString` in the sample file below, you need to define a variable as `Data.DefaultConnection.ConnectionString` in the build or release pipeline (or release pipeline's environment). 
 
 ```json
 {
