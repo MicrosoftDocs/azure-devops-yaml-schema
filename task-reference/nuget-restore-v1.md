@@ -1,7 +1,7 @@
 ---
 title: NuGetRestore@1 - NuGet Restore v1 task
 description: Restores NuGet packages in preparation for a Visual Studio Build step.
-ms.date: 05/06/2025
+ms.date: 06/18/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -230,7 +230,6 @@ steps:
   inputs:
     solution: '**/*.sln'
 ```
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
