@@ -82,7 +82,8 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, t
 <!-- :::editable-content name="helpMarkDown"::: -->
 Config transforms will be run prior to the Variable Substitution.
 
-XML transformations are supported only for Windows platform.
+> [!IMPORTANT]
+> XML transformations are supported only for the Windows platform.
 <!-- :::editable-content-end::: -->
 <br>
 
