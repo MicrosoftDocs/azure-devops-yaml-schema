@@ -1,7 +1,7 @@
 ---
 title: WindowsMachineFileCopy@1 - Windows machine file copy v1 task
 description: Copy files to remote Windows machines (task version 1).
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn

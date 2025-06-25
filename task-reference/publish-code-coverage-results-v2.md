@@ -1,7 +1,7 @@
 ---
 title: PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 description: Publish code coverage results from a build.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 

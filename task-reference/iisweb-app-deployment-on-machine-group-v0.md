@@ -1,7 +1,7 @@
 ---
 title: IISWebAppDeploymentOnMachineGroup@0 - IIS web app deploy v0 task
 description: Deploy a website or web application using Web Deploy.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam

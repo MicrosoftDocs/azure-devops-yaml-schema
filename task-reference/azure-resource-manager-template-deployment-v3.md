@@ -1,7 +1,7 @@
 ---
 title: AzureResourceManagerTemplateDeployment@3 - ARM template deployment v3 task
 description: Deploy an Azure Resource Manager (ARM) template to all the deployment scopes.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

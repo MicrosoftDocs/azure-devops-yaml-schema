@@ -1,7 +1,7 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -331,7 +331,7 @@ The output path of the generated deployment manifest.
 **`validateGeneratedDeploymentManifest`** - **Validate the schema of generated deployment manifest**<br>
 `string`. Required when `action = Generate deployment manifest`. Allowed values: `true`, `false`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Fail this step if the generated deployment manifest does not pass schema validation. Search `Azure IoT Edge deployment` in [JSON Schema Store](http://schemastore.org/json/) to find latest schema.
+Fail this step if the generated deployment manifest does not pass schema validation. Search `Azure IoT Edge deployment` in [JSON Schema Store](http://schemastore.org/) to find latest schema.
 <!-- :::editable-content-end::: -->
 <br>
 

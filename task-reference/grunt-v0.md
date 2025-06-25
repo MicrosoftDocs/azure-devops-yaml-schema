@@ -1,7 +1,7 @@
 ---
 title: Grunt@0 - Grunt v0 task
 description: Run the Grunt JavaScript task runner.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

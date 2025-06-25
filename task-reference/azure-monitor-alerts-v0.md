@@ -1,7 +1,7 @@
 ---
 title: AzureMonitorAlerts@0 - Azure Monitor alerts (Deprecated) v0 task
 description: Configure alerts on available metrics for an Azure resource (Deprecated).
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: DownloadGithubNpmPackage@1 - Download Github Npm Package v1 task
 description: Install npm packages from GitHub.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn

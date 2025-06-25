@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@1 - Publish To Azure Service Bus v1 task
 description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 1).
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 ---
 

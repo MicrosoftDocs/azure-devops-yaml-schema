@@ -1,7 +1,7 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam

@@ -1,7 +1,7 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 05/06/2025
+ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
