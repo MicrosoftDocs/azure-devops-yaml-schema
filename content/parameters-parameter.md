@@ -13,7 +13,8 @@ ms.author: jukullam
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-A parameter represents a value passed to a pipeline.
+A parameter represents a value passed to a pipeline. Parameters must include a default value.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
