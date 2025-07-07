@@ -1,7 +1,7 @@
 ---
 title: AzureAppServiceManage@0 - Azure App Service manage v0 task
 description: Start, stop, restart, slot swap, slot delete, install site extensions or enable continuous monitoring for an Azure App Service.
-ms.date: 06/24/2025
+ms.date: 07/07/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -180,6 +180,11 @@ Preserves the virtual network settings.
 `string`. Required when `Action = Install Extensions`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Site extensions run on Microsoft Azure App Service. You can install a set of tools as a site extension and better manage your Azure App Service. Restart the App Service so the latest changes take effect.
+
+> [!IMPORTANT]
+> Extensions are supported only for Web App on Windows.
+
+You can specify extensions as `name@version` (e.g., `PythonExtension@3.9.0`). If a version is specified, that exact version will be installed. If you specify `latest` as the version, the latest available version will be installed (in case it already has the latest version, installation will be skipped). If no version is specified, the extension will only be installed if it is not already present. Example: `MyExtension@1.2.3, OtherExtension@latest, LegacyExtension`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -254,7 +259,7 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 
 <!-- :::item name="LocalPathsForInstalledExtensions"::: -->
 **`LocalPathsForInstalledExtensions`**<br><!-- :::editable-content name="Value"::: -->
-This input is the local installation paths for the extensions you select. 
+This input is the local installation paths for the extensions you select.
 
 If you select multiple extensions, the output is a comma-separated list of local paths for each of the extensions you select. The output lists the paths in the order they appear in the Install Extensions field.
 <!-- :::editable-content-end::: -->
