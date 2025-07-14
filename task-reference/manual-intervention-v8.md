@@ -14,6 +14,9 @@ ms.author: jukullam
 
 <!-- :::editable-content name="description"::: -->
 Use this task to pause deployment in a release pipeline and wait for manual intervention.
+
+> [!NOTE]
+> This task can only be used in an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) and is intended for use in a classic release pipeline. This article refers to classic pipelines. For YAML usage, see [Manual Validation task](manual-validation-v0.md).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
