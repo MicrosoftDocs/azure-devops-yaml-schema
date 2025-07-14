@@ -1,7 +1,7 @@
 ---
 title: ManualIntervention@8 - Manual intervention v8 task
 description: Pause deployment and wait for manual intervention.
-ms.date: 06/24/2025
+ms.date: 07/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -26,13 +26,9 @@ Use this task to pause deployment in a release pipeline and wait for manual inte
 :::moniker range="<=azure-pipelines"
 
 ```yaml
-# Manual intervention v8
-# Pause deployment and wait for manual intervention.
-- task: ManualIntervention@8
-  inputs:
-    #instructions: # string. Instructions. 
-    #emailRecipients: # string. Notify users. 
-    #onTimeout: 'reject' # 'reject' | 'resume'. On timeout. Default: reject.
+# This task is supported on classic release pipelines only.
+# Use the classic designer to add and configure this task in a classic release pipeline.
+# See the following Inputs section for details on the inputs that this task supports.
 ```
 
 :::moniker-end
