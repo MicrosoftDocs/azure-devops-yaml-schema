@@ -1,7 +1,7 @@
 ---
 title: includeExcludeFilters definition
 description: Lists of items to include or exclude.
-ms.date: 06/18/2025
+ms.date: 07/14/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie

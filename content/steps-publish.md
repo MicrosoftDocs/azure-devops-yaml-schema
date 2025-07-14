@@ -1,7 +1,7 @@
 ---
 title: steps.publish definition
 description: Publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume.
-ms.date: 06/18/2025
+ms.date: 07/14/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
