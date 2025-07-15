@@ -5,6 +5,7 @@ ms.date: 06/24/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
+ms.custom: sfi-image-nochange
 ---
 
 # HelmDeploy@0 - Package and deploy Helm charts v0 task
