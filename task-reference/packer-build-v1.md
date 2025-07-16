@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 06/24/2025
+ms.date: 07/16/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -22,7 +22,44 @@ Use this task to build a machine image using Packer, which may be used for Azure
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Build machine image v1
+# Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
+- task: PackerBuild@1
+  inputs:
+    templateType: 'builtin' # 'builtin' | 'custom'. Required. Packer template. Default: builtin.
+    #customTemplateLocation: # string. Required when templateType = custom. Packer template location. 
+    #customTemplateParameters: '{}' # string. Optional. Use when templateType = custom. Template parameters. Default: {}.
+  # Azure Details
+    ConnectedServiceName: # string. Required when templateType = builtin. Azure subscription. 
+    #isManagedImage: true # boolean. Optional. Use when templateType = builtin. Managed VM disk image. Default: true.
+    #managedImageName: # string. Required when isManagedImage = true && templateType = builtin. Managed VM Disk Image Name. 
+    location: # string. Required when templateType = builtin. Storage location. 
+    storageAccountName: # string. Required when templateType = builtin. Storage account. 
+    azureResourceGroup: # string. Required when templateType = builtin. Resource group. 
+  # Deployment Inputs
+    baseImageSource: 'default' # 'default' | 'customVhd'. Required when templateType = builtin. Base image source. Default: default.
+    #baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' # 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2016-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2012-Datacenter:windows' | 'MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:windows' | 'Canonical:UbuntuServer:14.04.4-LTS:linux' | 'Canonical:UbuntuServer:16.04-LTS:linux' | 'Canonical:UbuntuServer:18.04-LTS:linux' | 'RedHat:RHEL:7.2:linux' | 'RedHat:RHEL:6.8:linux' | 'OpenLogic:CentOS:7.2:linux' | 'OpenLogic:CentOS:6.8:linux' | 'credativ:Debian:8:linux' | 'credativ:Debian:7:linux' | 'SUSE:openSUSE-Leap:42.2:linux' | 'SUSE:SLES:12-SP2:linux' | 'SUSE:SLES:11-SP4:linux'. Required when baseImageSource = default && templateType = builtin. Base image. Default: MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows.
+    #customImageUrl: # string. Required when baseImageSource = customVhd && templateType = builtin. Base image URL. 
+    #customImageOSType: 'windows' # 'windows' | 'linux'. Required when baseImageSource = customVhd && templateType = builtin. Base image OS. Default: windows.
+    packagePath: # string. Required when templateType = builtin. Deployment Package. 
+    deployScriptPath: # string. Required when templateType = builtin. Deployment script. 
+    #deployScriptArguments: # string. Optional. Use when templateType = builtin. Deployment script arguments. 
+    #canDeleteTempFolder: false # boolean. Optional. Use when templateType = builtin. Delete temp folder. Default: false.
+  # Advanced
+    #additionalBuilderParameters: '{"vm_size":"Standard_D3_v2"}' # string. Optional. Use when templateType = builtin. Additional Builder parameters. Default: {"vm_size":"Standard_D3_v2"}.
+    #skipTempFileCleanupDuringVMDeprovision: true # boolean. Optional. Use when templateType = builtin. Skip temporary file cleanup during deprovision. Default: true.
+    #packerVersion: # string. Optional. Use when templateType = custom. Packer Version. 
+  # Output
+    #imageUri: # string. Image URL or Name. 
+    #imageId: # string. Azure Resource Id.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Build machine image v1
@@ -254,6 +291,18 @@ Specifies the relative path to the powershell script (for Windows) or the shell 
 `string`. Optional. Use when `templateType = builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the arguments to be passed to the deployment script.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="canDeleteTempFolder"::: -->
+:::moniker range="=azure-pipelines"
+
+**`canDeleteTempFolder`** - **Delete temp folder**<br>
+`boolean`. Optional. Use when `templateType = builtin`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+This option allows you to remove temporary folder.
 <!-- :::editable-content-end::: -->
 <br>
 
