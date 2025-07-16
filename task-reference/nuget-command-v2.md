@@ -581,13 +581,13 @@ None.
 ## Remarks
 
 > [!IMPORTANT]
-> The [NuGet Authenticate](nuget-authenticate-v1.md) task is the new recommended way to authenticate with Azure Artifacts and other NuGet repositories. This task no longer takes new features, and only critical bugs are addressed.
+> If you want to authenticate wih Azure Artifacts or other NuGet repositories you must use The [NuGet Authenticate](nuget-authenticate-v1.md) task instead of the `NuGetCommand@2` task. The `NuGetCommand@2` task is no longer being updated with new features; only critical bugs are addressed.
 
-Use this task to install and update NuGet package dependencies, or package and publish NuGet packages. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+Use this task to restore, pack, or push NuGet packages, or run a NuGet commands. This task uses *NuGet.exe* and works with *.NET* Framework apps. If you are working with *.NET Core* or *.NET Standard*, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
 
-If your code depends on NuGet packages, make sure to add this step before your [Visual Studio Build task](vsbuild-v1.md). Also make sure to clear the deprecated **Restore NuGet Packages** checkbox in that task.
+If your code depends on NuGet packages and you need to restore those dependencies before building your project with the [Visual Studio Build task](vsbuild-v1.md) task, you can use the *nugetAuthenticate* and *command line* tasks to restore your packages. Place both tasks before the build step to ensure all dependencies are available before the build starts. See [Restore NuGet packages](/azure/devops/pipelines/packages/nuget-restore) for more details.
 
-If you are working with .NET Core or .NET Standard, use the [.NET Core](dotnet-core-cli-v2.md) task, which has full support for all package scenarios and is currently supported by dotnet.
+When using the [Visual Studio Build task](vsbuild-v1.md) task, make sure to leave the **restoreNugetPackages** argument blank, as the "Restore NuGet Packages" option is deprecated in the *VSBuild@1* task.
 
 > [!TIP]
 > This version of the NuGet task uses NuGet 4.1.0 by default. To select a different version of NuGet, use the [Tool Installer](nuget-tool-installer-v1.md).
