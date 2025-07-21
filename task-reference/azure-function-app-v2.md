@@ -1,7 +1,7 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 06/24/2025
+ms.date: 07/14/2025
 monikerRange: ">=azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
@@ -37,7 +37,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
     #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
     #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
     package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #runtimeStack: # 'DOTNET|6.0' | 'DOTNET-ISOLATED|6.0' | 'DOTNET-ISOLATED|7.0' | 'DOTNET-ISOLATED|8.0' | 'JAVA|8' | 'JAVA|11' | 'JAVA|17' | 'JAVA|21' | 'NODE|14' | 'NODE|16' | 'NODE|18' | 'NODE|20' | 'PYTHON|3.8' | 'PYTHON|3.9' | 'PYTHON|3.10' | 'PYTHON|3.11'. Optional. Use when appType = functionAppLinux && isFlexConsumption = false. Runtime stack. 
+    #runtimeStack: # 'DOTNET|6.0' | 'DOTNET-ISOLATED|6.0' | 'DOTNET-ISOLATED|7.0' | 'DOTNET-ISOLATED|8.0' | 'DOTNET-ISOLATED|9.0' | 'JAVA|8' | 'JAVA|11' | 'JAVA|17' | 'JAVA|21' | 'NODE|14' | 'NODE|16' | 'NODE|18' | 'NODE|20' | 'PYTHON|3.8' | 'PYTHON|3.9' | 'PYTHON|3.10' | 'PYTHON|3.11'. Optional. Use when appType = functionAppLinux && isFlexConsumption = false. Runtime stack. 
   # Application and Configuration Settings
     #appSettings: # string. App settings. 
   # Additional Deployment Options
@@ -205,7 +205,7 @@ The file path to the package or folder that contains App Service content generat
 :::moniker range="=azure-pipelines"
 
 **`runtimeStack`** - **Runtime stack**<br>
-`string`. Optional. Use when `appType = functionAppLinux && isFlexConsumption = false`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>
+`string`. Optional. Use when `appType = functionAppLinux && isFlexConsumption = false`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `DOTNET-ISOLATED|9.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
 
