@@ -1,7 +1,7 @@
 ---
 title: Npm@1 - npm v1 task
 description: Install and publish npm packages, or run an npm command.
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn

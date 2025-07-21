@@ -1,7 +1,7 @@
 ---
 title: DotNetCoreCLI@0 - .NET Core v0 task
 description: Build, test and publish using dotnet core command-line (task version 0).
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 

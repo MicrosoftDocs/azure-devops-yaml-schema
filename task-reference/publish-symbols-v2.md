@@ -1,7 +1,7 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 
