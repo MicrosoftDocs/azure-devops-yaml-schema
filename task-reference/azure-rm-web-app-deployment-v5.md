@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@5 - Azure App Service deploy v5 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 06/24/2025
+ms.date: 07/14/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -44,7 +44,7 @@ Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, 
     #VirtualApplication: # string. Optional. Use when WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppKind != webAppHyperVContainer && WebAppkind != functionAppContainer && WebAppKind != functionApp && webAppKind != functionAppLinux && WebAppKind != "". Virtual application. 
     #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Alias: Package. Required when ConnectionType = PublishProfile || WebAppKind = webApp || WebAppKind = apiApp || WebAppKind = functionApp || WebAppKind = mobileApp || WebAppKind = webAppLinux || webAppKind = functionAppLinux. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
     #RuntimeStack: # 'DOTNETCORE|9.0' | 'DOTNETCORE|8.0' | 'DOTNETCORE|7.0' | 'DOTNETCORE|6.0' | 'NODE|22-lts' | 'NODE|20-lts' | 'NODE|18-lts' | 'NODE|16-lts' | 'PYTHON|3.13' | 'PYTHON|3.12' | 'PYTHON|3.11' | 'PYTHON|3.10' | 'PYTHON|3.9' | 'PYTHON|3.8' | 'PHP|8.3' | 'PHP|8.2' | 'PHP|8.1' | 'PHP|8.0' | 'JAVA|21-java21' | 'JAVA|17-java17' | 'JAVA|11-java11' | 'JAVA|8-jre8' | 'JBOSSEAP|8-java17' | 'JBOSSEAP|8-java11' | 'JBOSSEAP|7-java17' | 'JBOSSEAP|7-java11' | 'JBOSSEAP|7-java8' | 'TOMCAT|10.1-java21' | 'TOMCAT|10.1-java17' | 'TOMCAT|10.1-java11' | 'TOMCAT|10.0-java17' | 'TOMCAT|10.0-java11' | 'TOMCAT|10.0-jre8' | 'TOMCAT|9.0-java21' | 'TOMCAT|9.0-java17' | 'TOMCAT|9.0-java11' | 'TOMCAT|9.0-jre8' | 'TOMCAT|8.5-java11' | 'TOMCAT|8.5-jre8'. Optional. Use when WebAppKind = webAppLinux. Runtime Stack. 
-    #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
+    #RuntimeStackFunction: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'NODE|20' | 'NODE|22' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when WebAppKind = functionAppLinux. Runtime Stack. 
     #StartupCommand: # string. Optional. Use when WebAppKind = webAppLinux || WebAppKind = webAppContainer || WebAppkind = functionAppContainer || WebAppKind = functionAppLinux || WebAppKind = webAppHyperVContainer. Startup command. 
   # Post Deployment Action
     #ScriptType: # 'Inline Script' | 'File Path'. Optional. Use when ConnectionType = AzureRM && WebAppKind != "" && WebAppKind != webAppContainer && WebAppKind != webAppHyperVContainer && WebAppkind != functionAppContainer. Deployment script type. 
@@ -272,7 +272,7 @@ Specify the framework and version.
 :::moniker range="=azure-pipelines"
 
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
-`string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
+`string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `NODE|20` (NODE|20 (functionapp v4)), `NODE|22` (NODE|22 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify the framework and version. Refer to the [Azure Functions runtime versions overview](/azure/azure-functions/functions-versions#languages) for supported runtime versions. Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. Please use the new values from dropdown.
 <!-- :::editable-content-end::: -->
