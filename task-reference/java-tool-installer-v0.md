@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME (task version 0).
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 

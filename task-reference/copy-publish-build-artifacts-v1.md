@@ -1,7 +1,7 @@
 ---
 title: CopyPublishBuildArtifacts@1 - Copy and Publish Build Artifacts v1 task
 description: CopyPublishBuildArtifacts@1 is deprecated. Use the Copy Files task and the Publish Build Artifacts task instead.
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Maven@2 - Maven v2 task
 description: Build, test, and deploy with Apache Maven (task version 2).
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 

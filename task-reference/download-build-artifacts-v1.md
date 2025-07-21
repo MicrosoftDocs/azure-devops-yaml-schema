@@ -1,7 +1,7 @@
 ---
 title: DownloadBuildArtifacts@1 - Download build artifacts v1 task
 description: Download files that were saved as artifacts of a completed build.
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: ">=azure-pipelines-2022.1"
 author: ramiMSFT
 ms.author: rabououn

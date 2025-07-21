@@ -1,7 +1,7 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 06/24/2025
+ms.date: 07/21/2025
 monikerRange: "<=azure-pipelines"
 ---
 
