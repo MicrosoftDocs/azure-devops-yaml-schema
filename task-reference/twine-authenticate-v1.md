@@ -155,12 +155,11 @@ In this example, we are setting authentication for publishing to a private Azure
 - task: TwineAuthenticate@1
   displayName: Twine Authenticate
   inputs:
-    # In this case, name of the feed is 'myTestFeed' in the project 'myTestProject'. Project is needed because the feed is project scoped.
-    artifactFeed: myTestProject/myTestFeed
+    artifactFeed: projectName/feedName    # For project scoped feeds use: projectName/FeedName, or just feedName for organization scoped feeds
   
-# Use command line script to 'twine upload', use -r to pass the repository name and --config-file to pass the environment variable set by the authenticate task.
 - script: |
-     python -m twine upload -r myTestFeed --config-file $(PYPIRC_PATH) dist/*.whl
+     python -m twine upload -r feedName --config-file $(PYPIRC_PATH) dist/*.whl # Use -r to pass the repository name (defined in the .pypirc file), and --config-file to point to the .pypirc path set by the TwineAuthenticate task
+  displayName: Upload package with Twine
 ```
 
 The `artifactFeed` input will contain the project and the feed name if the feed is project scoped. If the feed is organization scoped, only the feed name must be provided. [Learn more](/azure/devops/artifacts/feeds/project-scoped-feeds).
@@ -182,12 +181,11 @@ In this example, we are setting up authentication for publishing to the official
 - task: TwineAuthenticate@1
   displayName: Twine Authenticate
   inputs:
-    # In this case, name of the service connection is "pypitest".
-    pythonUploadServiceConnection: pypitest
+    pythonUploadServiceConnection: pypitest # Name of the Python package upload service connection
   
-# Use command line script to 'twine upload', use -r to pass the repository name and --config-file to pass the environment variable set by the authenticate task.
 - script: |
-     python -m twine upload -r "pypitest" --config-file $(PYPIRC_PATH) dist/*.whl
+     python -m twine upload -r "pypitest" --config-file $(PYPIRC_PATH) dist/*.whl # Use -r to pass the repository name, and --config-file to point to the .pypirc path set by the TwineAuthenticate task
+  displayName: Upload package with Twine
 ```
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
