@@ -665,6 +665,8 @@ steps:
 
 Restore all your solutions with packages from a selected feed.
 
+#### [Windows](#tab/windows/)
+
 ```YAML
 # Restore from a project scoped feed in the same organization
 - task: NuGetCommand@2
@@ -707,6 +709,25 @@ Restore all your solutions with packages from a selected feed.
     feedsToUse: 'config'
     nugetConfigPath: 'nuget.config'
 ```
+
+#### [Linux](#tab/linux/)
+
+```YAML
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    version: 9.x
+    performMultiLevelLookup: true
+    includePreviewVersions: true
+
+- task: NuGetAuthenticate@1
+  displayName: 'NuGet Authenticate'
+
+- script: |
+      dotnet restore <SOLUTION_PATH>
+```
+
+---
 
 ### Package
 
