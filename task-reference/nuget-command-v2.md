@@ -747,6 +747,8 @@ Create a NuGet package in the destination folder.
 > [!NOTE]
 > Pipeline artifacts are downloaded to the `Pipeline.Workspace` directory, and to the `System.ArtifactsDirectory` directory for classic release pipelines. `packagesToPush` value can be set to `$(Pipeline.Workspace)/**/*.nupkg` or `$(System.ArtifactsDirectory)/**/*.nupkg` respectively.
 
+#### [Windows](#tab/windows/)
+
 * Push/Publish a package to a feed defined in your NuGet.config.
 
     ```YAML
@@ -791,6 +793,23 @@ Create a NuGet package in the destination folder.
         feedsToUse: 'config'
         includeNugetOrg: 'true'
     ```
+
+#### [Linux](#tab/linux/)
+
+```YAML
+- task: NuGetAuthenticate@1
+  displayName: 'NuGet Authenticate'
+
+- task: UseDotNet@2 
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    version: 9.x
+
+- script: |
+      dotnet nuget push --source <SOURCE_NAME>  --api-key <ANY_STRING> <PACKAGE_PATH>     
+```
+
+---
 
 ### Custom
 
