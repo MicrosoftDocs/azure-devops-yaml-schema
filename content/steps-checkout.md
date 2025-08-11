@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 07/14/2025
+ms.date: 08/11/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -400,6 +400,11 @@ The checkout step uses the `--tags` option when fetching the contents of a Git r
 
 Whether to synchronize tags when checking out a repository can be configured in YAML by setting the `fetchTags` property, and in the UI by configuring the **Sync tags** setting.
 
+To configure whether to synchronize tags when checking out a repository, you can either set the `fetchTags` property in the `checkout` step, or configure the **Sync tags** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
+
+> [!NOTE]
+> If you explicitly set `fetchTags` in your `checkout` step, that setting takes priority over the **Sync tags** setting configured in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
+
 To configure the setting in YAML, set the `fetchTags` property.
 
 ```YAML
@@ -414,9 +419,6 @@ To configure the setting in the pipeline UI, edit your YAML pipeline, and choose
 
 * For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is `true`.
 * For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is `false`.
-
-> [!IMPORTANT]
-> A **Sync tags** setting of true in the UI takes precedence over a `fetchTags: false` statement in the YAML. If **Sync tags** is set to true in the UI, tags are synced even if `fetchTags` is set to false in the YAML.
 
 ::: moniker-end
 <!-- :::editable-content-end::: -->
