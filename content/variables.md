@@ -1,7 +1,7 @@
 ---
 title: variables definition
 description: Define variables using name/value pairs.
-ms.date: 07/14/2025
+ms.date: 08/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
