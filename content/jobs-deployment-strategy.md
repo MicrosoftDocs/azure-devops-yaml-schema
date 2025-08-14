@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy definition
 description: Execution strategy for this deployment.
-ms.date: 07/14/2025
+ms.date: 08/14/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn

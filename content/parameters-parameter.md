@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 07/14/2025
+ms.date: 08/14/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
