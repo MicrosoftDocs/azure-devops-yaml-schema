@@ -374,7 +374,9 @@ Edits web app configuration settings using the syntax `-key value`. Values conta
 **`enableCustomDeployment`** - **Select deployment method**<br>
 [Input alias](index.md#what-are-task-input-aliases): `UseWebDeploy`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppKind != webAppHyperVContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-If unchecked or false, the task auto-detects the best deployment method based on the app type, package format, and other parameters. Check this option in the task assistant to view the supported deployment methods, and choose one for deploying your app.
+This boolean flag allows you to manually select the deployment method instead of letting the task auto-detect it. When set to `true`, you can choose between `webDeploy` (default), `zipDeploy`, or `runFromZip`.
+
+If unchecked or false, the task auto-detects the best deployment method based on the app type, package format, and other parameters. 
 <!-- :::editable-content-end::: -->
 <br>
 
