@@ -1,7 +1,7 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 07/21/2025
+ms.date: 08/29/2025
 monikerRange: ">=azure-pipelines-2022.1"
 ---
 
