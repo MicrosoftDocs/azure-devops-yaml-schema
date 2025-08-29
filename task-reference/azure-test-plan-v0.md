@@ -1,7 +1,7 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 07/21/2025
+ms.date: 08/29/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -30,14 +30,13 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 # Run manual and automated tests points of test plan for different testing frameworks like Maven and Gradle for Java, PyTest for Python and Jest for JavaScript.
 - task: AzureTestPlan@0
   inputs:
-    #azureSubscription: # string. Alias: ConnectedServiceName. Azure Resource Manager connection. 
     testSelector: # 'manualTests' | 'automatedTests'. Required. Test cases to be executed. 
     testPlanOrRunSelector: 'testPlan' # 'testPlan' | 'testRun'. Required. Select tests using. Default: testPlan.
     #testRunId: '$(test.RunId)' # string. Required when testPlanOrRunSelector = testRun. Test Run. Default: $(test.RunId).
     testPlan: # string. Required when testPlanOrRunSelector = testPlan. Test plan. 
     testSuite: # string. Required when testPlanOrRunSelector = testPlan. Test suite. 
     testConfiguration: # string. Required. Test configuration. 
-    #testLanguageInput: # 'JavaMaven' | 'JavaGradle' | 'Python' | 'JavaScriptJest' | 'Playwright'. Select Test framework language. 
+    #testLanguageInput: # 'JavaMaven' | 'JavaGradle' | 'Python' | 'JavaScriptJest'. Select Test framework language. 
     #pomFilePath: # string. Optional. Use when testLanguageInput = JavaMaven. Pom file path. 
     #gradleFilePath: # string. Optional. Use when testLanguageInput = JavaGradle. Gradle file path. 
     #failTaskOnFailedTests: true # boolean. Fail if there are test failures. Default: true.
@@ -53,18 +52,6 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
-
-**`azureSubscription`** - **Azure Resource Manager connection**<br>
-[Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Select an Azure Resource Manager service connection.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
 <!-- :::item name="testSelector"::: -->
 :::moniker range="=azure-pipelines"
 
@@ -141,7 +128,7 @@ Select Test Configuration.
 :::moniker range="=azure-pipelines"
 
 **`testLanguageInput`** - **Select Test framework language**<br>
-`string`. Allowed values: `JavaMaven` (Java - Maven), `JavaGradle` (Java - Gradle), `Python` (Python - PyTest), `JavaScriptJest` (JavaScript - Jest), `Playwright` (JavaScript/TypeScript - Playwright).<br>
+`string`. Allowed values: `JavaMaven` (Java - Maven), `JavaGradle` (Java - Gradle), `Python` (Python - PyTest), `JavaScriptJest` (JavaScript - Jest).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Test Framework Language of automated tests in test plan.
 <!-- :::editable-content-end::: -->
