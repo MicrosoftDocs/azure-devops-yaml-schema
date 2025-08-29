@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 07/14/2025
+ms.date: 08/29/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -356,7 +356,7 @@ Number of retries if the task fails.
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-:::moniker range="azure-pipelines"
+:::moniker range=">=azure-pipelines-2022.1"
 
 * [Shallow fetch](#shallow-fetch)
 * [Clean property](#clean-property)
@@ -364,7 +364,7 @@ Number of retries if the task fails.
 
 :::moniker-end
 
-:::moniker range="<azure-pipelines"
+:::moniker range="<azure-pipelines-2022.1"
 
 * [Shallow fetch](#shallow-fetch)
 * [Clean property](#clean-property)
@@ -392,13 +392,16 @@ To configure the fetch depth for a pipeline, you can either set the `fetchDepth`
 
 If the `clean` property is unset, then its default value is configured by the **clean** setting in the UI settings for YAML pipelines, which is set to true by default. In addition to the cleaning option available using `checkout`, you can also configure cleaning in a workspace. For more information about workspaces and clean options, see the [workspace](/azure/devops/pipelines/process/phases#workspace) topic in [Jobs](/azure/devops/pipelines/process/phases).
 
-::: moniker range="= azure-pipelines"
+::: moniker range=">= azure-pipelines-2022.1"
 
 ### Sync tags
 
 The checkout step uses the `--tags` option when fetching the contents of a Git repository. This causes the server to fetch all tags as well as all objects that are pointed to by those tags. This increases the time to run the task in a pipeline, particularly if you have a large repository with a number of tags. Furthermore, the checkout step syncs tags even when you enable the shallow fetch option, thereby possibly defeating its purpose. To reduce the amount of data fetched or pulled from a Git repository, Microsoft has added a new option to checkout to control the behavior of syncing tags. This option is available both in classic and YAML pipelines.
 
-Whether to synchronize tags when checking out a repository can be configured in YAML by setting the `fetchTags` property, and in the UI by configuring the **Sync tags** setting.
+To configure whether to synchronize tags when checking out a repository, you can either set the `fetchTags` property in the `checkout` step, or configure the **Sync tags** setting in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
+
+> [!NOTE]
+> If you explicitly set `fetchTags` in your `checkout` step, that setting takes priority over the **Sync tags** setting configured in the [pipeline settings UI](/azure/devops/pipelines/repos/azure-repos-git#sync-tags).
 
 To configure the setting in YAML, set the `fetchTags` property.
 
@@ -414,9 +417,6 @@ To configure the setting in the pipeline UI, edit your YAML pipeline, and choose
 
 * For existing pipelines created before the release of [Azure DevOps sprint 209](/azure/devops/release-notes/2022/sprint-209-update#do-not-sync-tags-when-fetching-a-git-repository), released in September 2022, the default for syncing tags remains the same as the existing behavior before the **Sync tags** options was added, which is `true`.
 * For new pipelines created after Azure DevOps sprint release 209, the default for syncing tags is `false`.
-
-> [!IMPORTANT]
-> A **Sync tags** setting of true in the UI takes precedence over a `fetchTags: false` statement in the YAML. If **Sync tags** is set to true in the UI, tags are synced even if `fetchTags` is set to false in the YAML.
 
 ::: moniker-end
 <!-- :::editable-content-end::: -->
