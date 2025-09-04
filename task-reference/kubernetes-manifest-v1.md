@@ -668,7 +668,7 @@ The following YAML code is an example of deploying to a Kubernetes namespace by 
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy
   inputs:
     kubernetesServiceConnection: someK8sSC1
@@ -700,7 +700,7 @@ The following YAML code shows a sample creation of Docker registry secrets by us
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Create secret
   inputs: 
     action: createSecret
@@ -715,7 +715,7 @@ This YAML code shows a sample creation of generic secrets:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Create secret
   inputs: 
     action: createSecret
@@ -732,7 +732,7 @@ The following YAML code is an example of baking manifest files from Helm charts.
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   name: bake
   displayName: Bake K8s manifests from Helm chart
   inputs:
@@ -740,7 +740,7 @@ steps:
     helmChart: charts/sample
     overrides: 'image.repository:nginx'
 
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy K8s manifests
   inputs:
     kubernetesServiceConnection: someK8sSC
@@ -759,7 +759,7 @@ The following YAML code is an example of baking manifest files generated with Ku
 
 ```yaml
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   name: bake
   displayName: Bake K8s manifests from kustomization path
   inputs:
@@ -767,7 +767,7 @@ steps:
     renderType: kustomize
     kustomizationPath: folderContainingKustomizationFile
 
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy K8s manifests
   inputs:
     kubernetesServiceConnection: k8sSC1
@@ -780,7 +780,7 @@ The following YAML code is an example of baking manifest files generated with Ko
 
 ```yaml
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   name: bake
   displayName: Bake K8s manifests from Docker Compose
   inputs:
@@ -788,7 +788,7 @@ steps:
     renderType: kompose
     dockerComposeFile: docker-compose.yaml
 
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Deploy K8s manifests
   inputs:
     kubernetesServiceConnection: k8sSC1
@@ -802,7 +802,7 @@ The following YAML code shows an example of scaling objects:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Scale
   inputs: 
     action: scale
@@ -819,7 +819,7 @@ The following YAML code shows an example of object patching:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Patch
   inputs: 
     action: patch
@@ -837,7 +837,7 @@ This YAML code shows a sample object deletion:
 
 ```YAML
 steps:
-- task: KubernetesManifest@0
+- task: KubernetesManifest@1
   displayName: Delete
   inputs:
     action: delete
