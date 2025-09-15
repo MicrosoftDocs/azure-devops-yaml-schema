@@ -17,7 +17,10 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 > [!NOTE]
 > There is a newer version of this task. [VSTest@3](./vstest-v3.md) is the newest version of the task and should be used in your pipelines.
->
+
+> [!NOTE]
+> The VSTest@2 task, cannot re-run failed **Data-driven tests**.
+
 > [!NOTE]
 > VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
 <!-- :::editable-content-end::: -->
