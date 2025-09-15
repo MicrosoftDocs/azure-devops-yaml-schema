@@ -18,7 +18,7 @@ Use this task to run tests with Visual Studio test runner.
 This version of the task is deprecated; use [VSTest@3](./vstest-v3.md).
 
 > [!NOTE]
-> The VSTest@1 task, cannot re-run failed **Data-driven tests**.
+> The VSTest@1 task can't rerun failed **Data-driven tests**.
 
 > [!NOTE]
 > VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
