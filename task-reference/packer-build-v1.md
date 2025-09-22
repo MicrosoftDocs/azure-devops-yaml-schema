@@ -1,8 +1,8 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -297,7 +297,7 @@ Specifies the arguments to be passed to the deployment script.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="canDeleteTempFolder"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`canDeleteTempFolder`** - **Delete temp folder**<br>
 `boolean`. Optional. Use when `templateType = builtin`. Default value: `false`.<br>

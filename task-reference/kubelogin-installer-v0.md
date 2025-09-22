@@ -1,7 +1,7 @@
 ---
 title: KubeloginInstaller@0 - Kubelogin tool installer v0 task
 description: Helps to install kubelogin.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -38,7 +38,7 @@ Installs kubelogin and adds it to the PATH of your agent.
 ## Inputs
 
 <!-- :::item name="kubeloginVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`kubeloginVersion`** - **kubelogin version**<br>
 `string`. Default value: `latest`.<br>
@@ -50,7 +50,7 @@ The version of kubelogin to use, for example `0.0.30`, or `latest` to use the la
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="gitHubConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`gitHubConnection`** - **GitHub Connection**<br>
 `string`.<br>

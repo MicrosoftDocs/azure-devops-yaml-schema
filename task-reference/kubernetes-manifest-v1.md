@@ -1,8 +1,8 @@
 ---
 title: KubernetesManifest@1 - Deploy to Kubernetes v1 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts.
-ms.date: 08/29/2025
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
 # KubernetesManifest@1 - Deploy to Kubernetes v1 task
@@ -589,7 +589,7 @@ Specifies the length of time (in seconds) to wait before ending `watch on rollou
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`resourceType`** - **Resource type**<br>
 `string`. Optional. Use when `action = deploy`. Default value: `Microsoft.ContainerService/managedClusters`.<br>

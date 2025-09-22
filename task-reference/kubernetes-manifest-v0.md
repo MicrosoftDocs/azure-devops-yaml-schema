@@ -1,8 +1,8 @@
 ---
 title: KubernetesManifest@0 - Deploy to Kubernetes v0 task
 description: Use Kubernetes manifest files to deploy to clusters or even bake the manifest files to be used for deployments using Helm charts (task version 0).
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # KubernetesManifest@0 - Deploy to Kubernetes v0 task

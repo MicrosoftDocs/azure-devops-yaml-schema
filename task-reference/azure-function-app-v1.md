@@ -1,8 +1,8 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
 ---
@@ -259,7 +259,7 @@ The file path to the package or folder that contains App Service content generat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `DOTNET-ISOLATED|9.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>

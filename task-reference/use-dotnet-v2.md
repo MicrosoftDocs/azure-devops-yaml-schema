@@ -1,8 +1,8 @@
 ---
 title: UseDotNet@2 - Use dotnet v2 task
 description: Acquires a specific version of the .NET Core SDK from the internet or the local cache and adds it to the PATH. Use this task to change the version of .NET Core used in subsequent tasks. Additionally provides proxy support.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
 ---
@@ -215,7 +215,7 @@ Learn more about [multi-level SharedFX lookup](https://github.com/dotnet/core-se
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="requestTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`requestTimeout`** - **Set timeout for package download request**<br>
 `string`. Default value: `300000`.<br>
