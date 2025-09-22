@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@1 - Java tool installer v1 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -51,7 +51,7 @@ Acquire a specific version of Java from a user-supplied Azure blob or the tool c
 ## Inputs
 
 <!-- :::item name="versionSpec"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`versionSpec`** - **JDK version**<br>
 `string`. Required. Default value: `8`.<br>
@@ -63,7 +63,7 @@ Specifies the JDK version to make available on the path. Use a whole number vers
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkArchitectureOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 `string`. Required. Allowed values: `x64`, `x86`.<br>
@@ -75,7 +75,7 @@ Specifies the architecture (`x86`, `x64`) of the JDK.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkSourceOption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`jdkSourceOption`** - **JDK source**<br>
 `string`. Required. Allowed values: `AzureStorage` (Azure Storage), `LocalDirectory` (Local Directory), `PreInstalled` (Pre-installed).<br>
@@ -90,7 +90,7 @@ Specifies the source for the compressed JDK. The source can be Azure blob storag
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`jdkFile`** - **JDK file**<br>
 `string`. Required when `jdkSourceOption == LocalDirectory`.<br>
@@ -102,7 +102,7 @@ Specifies the path to the JDK archive file that contains the compressed JDK. The
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceManagerEndpoint"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureResourceManagerEndpoint`** - **Azure subscription**<br>
 `string`. Required when `jdkSourceOption == AzureStorage`.<br>
@@ -117,7 +117,7 @@ Specifies the Azure Resource Manager subscription for the JDK.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureStorageAccountName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureStorageAccountName`** - **Storage account name**<br>
 `string`. Required when `jdkSourceOption == AzureStorage`.<br>
@@ -132,7 +132,7 @@ Specifies Azure Classic or Resource Manager storage accounts. Select the storage
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureContainerName`** - **Container name**<br>
 `string`. Required when `jdkSourceOption == AzureStorage`.<br>
@@ -144,7 +144,7 @@ Specifies the name of the container in the storage account where the JDK is loca
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureCommonVirtualFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureCommonVirtualFile`** - **Common virtual path**<br>
 `string`. Required when `jdkSourceOption == AzureStorage`.<br>
@@ -156,7 +156,7 @@ Specifies the path to the JDK inside the Azure storage container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDestinationDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`jdkDestinationDirectory`** - **Destination directory**<br>
 `string`. Required when `jdkSourceOption != PreInstalled`.<br>
@@ -168,7 +168,7 @@ Specifies the destination directory where the JDK should be extracted. On Linux 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroupName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureResourceGroupName`** - **Resource Group name**<br>
 `string`. Optional. Use when `jdkSourceOption == AzureStorage`.<br>
@@ -180,7 +180,7 @@ Resource Group name of the storage account.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanDestinationDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`cleanDestinationDirectory`** - **Clean destination directory**<br>
 `boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>
@@ -192,7 +192,7 @@ Specifies the option to clean the destination directory before JDK is extracted 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="createExtractDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`createExtractDirectory`** - **Create directory for extracting**<br>
 `boolean`. Optional. Use when `jdkSourceOption != PreInstalled`. Default value: `true`.<br>

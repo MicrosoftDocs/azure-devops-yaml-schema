@@ -1,7 +1,7 @@
 ---
 title: PublishToAzureServiceBus@2 - Publish To Azure Service Bus v2 task
 description: Sends a message to Azure Service Bus using a service connectionno, with no agent required.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -49,7 +49,7 @@ This version of the task supports Entra ID and Workload identity federation thro
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure Resource Manager service connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `connectedServiceName`. `string`. Required.<br>
@@ -61,7 +61,7 @@ Specifies an [Azure Resource Manager service connection](/azure/devops/pipelines
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceBusQueueName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`serviceBusQueueName`** - **Azure Service Bus Queue name**<br>
 `string`. Required.<br>
@@ -73,7 +73,7 @@ Specify the name of the queue for which the message is intended.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceBusNamespace"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`serviceBusNamespace`** - **Azure Service Bus Namespace**<br>
 `string`. Required.<br>
@@ -85,7 +85,7 @@ Specify the namespace of your Azure Service Bus.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="messageBody"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`messageBody`** - **Message body**<br>
 `string`.<br>
@@ -97,7 +97,7 @@ Specifies the JSON `messageBody`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sessionId"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`sessionId`** - **Session Id**<br>
 `string`.<br>
@@ -109,7 +109,7 @@ Specifies the session ID with which the message is published. For session-based 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signPayload"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`signPayload`** - **Sign the Message**<br>
 `boolean`. Default value: `false`.<br>
@@ -121,7 +121,7 @@ If set to `true`, a private certificate will be added to the message.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="certificateString"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`certificateString`** - **Certificate Variable**<br>
 `string`. Required when `signPayload = true`.<br>
@@ -133,7 +133,7 @@ Specifies the secret variable that contains the certificate content. This can al
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signatureKey"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`signatureKey`** - **Signature Property Key**<br>
 `string`. Optional. Use when `signPayload = true`. Default value: `signature`.<br>
@@ -145,7 +145,7 @@ In Message Properties, specifies the key where the signature is. If left empty, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForCompletion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`waitForCompletion`** - **Wait for task completion**<br>
 `boolean`. Default value: `false`.<br>
@@ -157,7 +157,7 @@ If set to `true`, this task will wait for the TaskCompleted event for the specif
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useDataContractSerializer"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`useDataContractSerializer`** - **Use .NET data contract serializer**<br>
 `boolean`. Default value: `true`.<br>

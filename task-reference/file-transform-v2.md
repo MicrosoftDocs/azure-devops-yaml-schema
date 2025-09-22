@@ -1,8 +1,8 @@
 ---
 title: FileTransform@2 - File transform v2 task
 description: Replace tokens with variable values in XML or JSON configuration files.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # FileTransform@2 - File transform v2 task
@@ -75,7 +75,7 @@ For example, `$(System.DefaultWorkingDirectory)/**/*.zip`. For zipped folders, t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableXmlTransform"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`enableXmlTransform`** - **XML transformation**<br>
 `boolean`. Default value: `true`.<br>
@@ -90,7 +90,7 @@ Config transforms will be run prior to the Variable Substitution.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xmlTransformationRules"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`xmlTransformationRules`** - **XML Transformation rules**<br>
 `string`. Optional. Use when `enableXmlTransform == true`. Default value: `-transform **\*.Release.config -xml **\*.config`.<br>
@@ -162,7 +162,7 @@ Note: Only custom variables defined in build/release pipelines are used in subst
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorOnInvalidSubstitution"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`errorOnInvalidSubstitution`** - **Error on empty files and invalid substitution.**<br>
 `boolean`. Default value: `false`.<br>

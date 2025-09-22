@@ -1,8 +1,8 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task

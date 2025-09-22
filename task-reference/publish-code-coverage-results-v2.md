@@ -1,8 +1,8 @@
 ---
 title: PublishCodeCoverageResults@2 - Publish code coverage results v2 task
 description: Publish code coverage results from a build.
-ms.date: 08/29/2025
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
 # PublishCodeCoverageResults@2 - Publish code coverage results v2 task

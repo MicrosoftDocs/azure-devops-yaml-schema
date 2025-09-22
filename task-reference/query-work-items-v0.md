@@ -1,8 +1,8 @@
 ---
 title: queryWorkItems@0 - Query work items v0 task
 description: Execute a work item query and check the number of items returned.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # queryWorkItems@0 - Query work items v0 task

@@ -1,7 +1,7 @@
 ---
 title: AzureVmssDeployment@1 - Azure VM scale set deployment v1 task
 description: Deploy a virtual machine scale set image.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -53,7 +53,7 @@ Deploy a virtual machine scale set image.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -65,7 +65,7 @@ Select the Azure Resource Manager subscription for the scale set.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="action"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Update image` (Update VM Scale set by using an image), `Configure application startup` (Run Custom Script VM extension on VM scale set). Default value: `Update image`.<br>
@@ -77,7 +77,7 @@ Choose between updating a VM scale set by using a VHD image and/or by running de
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vmssName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`vmssName`** - **Virtual Machine scale set name**<br>
 `string`. Required.<br>
@@ -89,7 +89,7 @@ Name of VM scale set which you want to update by using either a VHD image or by 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vmssOsType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`vmssOsType`** - **OS type**<br>
 `string`. Required. Allowed values: `Windows`, `Linux`.<br>
@@ -101,7 +101,7 @@ Select the operating system type of VM scale set.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageUrl"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`imageUrl`** - **Image URL**<br>
 `string`. Required when `action = Update image || action = UpdateImage`.<br>
@@ -113,7 +113,7 @@ Specify the URL of VHD image. If it is an Azure storage blob URL, the storage ac
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customScriptsDirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`customScriptsDirectory`** - **Custom script directory**<br>
 `string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
@@ -125,7 +125,7 @@ Path to directory containing custom script(s) that will be run by using Custom S
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customScript"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`customScript`** - **Command**<br>
 `string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
@@ -137,7 +137,7 @@ The script that will be run by using Custom Script VM extension. This script can
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customScriptArguments"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`customScriptArguments`** - **Arguments**<br>
 `string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
@@ -149,7 +149,7 @@ The custom script will be invoked with arguments passed. Build/Release variables
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customScriptsStorageAccount"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`customScriptsStorageAccount`** - **Azure storage account where custom scripts will be uploaded**<br>
 `string`. Optional. Use when `action = Configure application startup || action = Update image || action = UpdateImage`.<br>
@@ -161,7 +161,7 @@ The Custom Script Extension downloads and executes scripts provided by you on ea
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="skipArchivingCustomScripts"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`skipArchivingCustomScripts`** - **Skip Archiving custom scripts**<br>
 `boolean`. Default value: `false`.<br>

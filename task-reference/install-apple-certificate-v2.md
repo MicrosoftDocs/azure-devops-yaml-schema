@@ -1,8 +1,8 @@
 ---
 title: InstallAppleCertificate@2 - Install Apple certificate v2 task
 description: Install an Apple certificate required to build on a macOS agent machine.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # InstallAppleCertificate@2 - Install Apple certificate v2 task

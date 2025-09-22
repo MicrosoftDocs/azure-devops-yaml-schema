@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -53,7 +53,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 ## Inputs
 
 <!-- :::item name="enableAutomaticCodeQLInstall"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`enableAutomaticCodeQLInstall`** - **Enable automatic CodeQL detection and installation**<br>
 `boolean`. Default value: `false`.<br>
@@ -65,7 +65,7 @@ Selecting this option will set the task to automatically check for CodeQL on the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="languages"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`languages`** - **Languages to analyze**<br>
 `string`. Allowed values: `csharp`, `cpp`, `go`, `java`, `javascript`, `python`, `ruby`, `swift`.<br>
@@ -88,7 +88,7 @@ You can set the language here in the task, or you can specify the language in a 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="querysuite"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`querysuite`** - **CodeQL Query Suite to use for analysis.**<br>
 `string`. Allowed values: `Select a query suite...`, `code-scanning`, `security-extended`, `security-experimental`, `security-and-quality`. Default value: `Select a query suite...`.<br>
@@ -100,7 +100,7 @@ The query suite, i.e. ruleset, used for analysis. You can specify the value here
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildtype"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`buildtype`** - **Select build mode (manual vs none)**<br>
 `string`. Allowed values: `Manual`, `None`. Default value: `Manual`.<br>
@@ -114,7 +114,7 @@ For more information on the different build modes including a comparison on the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ram"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`ram`** - **Options to control RAM usage in MB**<br>
 `string`.<br>
@@ -128,7 +128,7 @@ You can specify `ram` here in the task, or you can specify it in a pipeline vari
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="threads"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`threads`** - **Use this many threads to evaluate queries**<br>
 `string`.<br>
@@ -142,7 +142,7 @@ You can specify `threads` here in the task, or you can specify it in a pipeline 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeqlpathstoignore"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`codeqlpathstoignore`** - **Set a list of paths to exclude in the CodeQL analysis**<br>
 `string`.<br>
@@ -157,7 +157,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeqlpathstoinclude"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`codeqlpathstoinclude`** - **Set a list of additional paths to include in the CodeQL analysis**<br>
 `string`.<br>
@@ -172,7 +172,7 @@ You can provide multiple paths separated by commas. The paths must be relative t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sourcesfolder"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`sourcesfolder`** - **Sets the folder that contains the sources to be analyzed**<br>
 `string`.<br>
@@ -184,7 +184,7 @@ Value must be relative to `Build.SourcesDirectory` variable. If you don't provid
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loglevel"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`loglevel`** - **Set the log level for the CodeQL analysis**<br>
 `string`. Allowed values: `0` (Warning), `1` (Verbose), `2` (Debug), `_` (Default (Warning)). Default value: `_`.<br>
@@ -198,7 +198,7 @@ You can specify `loglevel` here in the task, or you can specify it in a pipeline
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configfilepath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`configfilepath`** - **Use this to enable custom query analysis in codeql (path must be absolute).**<br>
 `string`.<br>
@@ -210,7 +210,7 @@ If path is not provided, then codeql analysis will proceed with default queries.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeqltoolsdirectory"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`codeqltoolsdirectory`** - **Set a custom CodeQL tools directory (path must be absolute)**<br>
 `string`.<br>

@@ -1,7 +1,7 @@
 ---
 title: Notation@0 - Notation v0 task
 description: Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -58,7 +58,7 @@ Azure Pipepine Task for setting up Notation CLI, sign and verify with Notation.
 ## Inputs
 
 <!-- :::item name="command"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`command`** - **Command to run**<br>
 `string`. Required. Allowed values: `install`, `sign`, `verify`. Default value: `install`.<br>
@@ -74,7 +74,7 @@ Specifies the command mode of the task.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isCustomVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`isCustomVersion`** - **Custom Version**<br>
 `boolean`. Optional. Use when `command = install`. Default value: `false`.<br>
@@ -86,7 +86,7 @@ Specify `true` to provide a custom version of Notation for the task by specifyin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="version"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`version`** - **Version**<br>
 `string`. Required when `command = install && isCustomVersion = false`. Default value: `1.3.2`.<br>
@@ -98,7 +98,7 @@ The version of Notation to install. Example: 1.0.0, 1, 1.0, 1.0.0.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="url"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`url`** - **Download URL**<br>
 `string`. Required when `command = install && isCustomVersion = true`.<br>
@@ -110,7 +110,7 @@ The URL to a custom version of Notation to use, for example: `https://github.com
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checksum"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`checksum`** - **Checksum**<br>
 `string`. Required when `command = install && isCustomVersion = true`.<br>
@@ -122,7 +122,7 @@ The SHA-256 checksum of the downloaded file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactRefs"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`artifactRefs`** - **Artifact references**<br>
 `string`. Optional. Use when `command = verify || command = sign`.<br>
@@ -134,7 +134,7 @@ Container artifact references for signing. If not specified, the task uses the a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="signatureFormat"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`signatureFormat`** - **Signature Format**<br>
 `string`. Optional. Use when `(command = sign || command = verify) && command = sign`. Allowed values: `cose`, `jws`. Default value: `cose`.<br>
@@ -146,7 +146,7 @@ Signature envelope format.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowReferrersAPI"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`allowReferrersAPI`** - **[Experimental] Allow Referrers API**<br>
 `boolean`. Optional. Use when `command = sign || command = verify`. Default value: `false`.<br>
@@ -158,7 +158,7 @@ Use the Referrers API to sign signatures, if not supported (returns 404), fallba
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="plugin"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`plugin`** - **Plugin**<br>
 `string`. Required when `command = sign`. Allowed values: `azureKeyVault` (Azure Key Vault Plugin). Default value: `azureKeyVault`.<br>
@@ -169,7 +169,7 @@ Use the Referrers API to sign signatures, if not supported (returns 404), fallba
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="akvPluginVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`akvPluginVersion`** - **Plugin Version**<br>
 `string`. Required when `plugin = azureKeyVault && command = sign`. Default value: `1.2.1`.<br>
@@ -181,7 +181,7 @@ The version of the Azure Key Vault plugin to be installed. See the [notation-azu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azurekvServiceConection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azurekvServiceConection`** - **Azure Key Vault service connection**<br>
 `string`. Optional. Use when `plugin = azureKeyVault && command = sign`.<br>
@@ -193,7 +193,7 @@ Select the Azure subscription for the key vault if prefer to use service connect
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="keyid"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`keyid`** - **Key ID**<br>
 `string`. Required when `plugin = azureKeyVault && command = sign`.<br>
@@ -205,7 +205,7 @@ The Key ID is the key or certificate identifier for Azure Key Vault.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="caCertBundle"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`caCertBundle`** - **Certificate Bundle File Path**<br>
 `string`. Optional. Use when `plugin = azureKeyVault && command = sign`.<br>
@@ -217,7 +217,7 @@ The certificate bundle file with root and all intermediate certificates, startin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="selfSigned"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`selfSigned`** - **Self-signed Certificate**<br>
 `boolean`. Optional. Use when `plugin = azureKeyVault && command = sign`. Default value: `false`.<br>
@@ -229,7 +229,7 @@ Whether the certificate is a self-signed certificate.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timestampURL"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`timestampURL`** - **Timestamp URL**<br>
 `string`. Optional. Use when `command = sign`.<br>
@@ -241,7 +241,7 @@ RFC 3161 Timestamping Authority (TSA) server URL. (Require Notation v1.2.0 or la
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="timestampRootCert"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`timestampRootCert`** - **Timestamp Root Certificate**<br>
 `string`. Optional. Use when `command = sign`.<br>
@@ -253,7 +253,7 @@ filepath of timestamp authority root certificate. (Require Notation v1.2.0 or la
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trustPolicy"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`trustPolicy`** - **Trust Policy File Path**<br>
 `string`. Required when `command = verify`.<br>
@@ -265,7 +265,7 @@ The path to the [trust policy](https://github.com/notaryproject/specifications/b
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="trustStore"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`trustStore`** - **Trust Store Folder Path**<br>
 `string`. Required when `command = verify`.<br>

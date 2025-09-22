@@ -1,8 +1,8 @@
 ---
 title: CmdLine@2 - Command line v2 task
 description: Run a command line script using Bash on Linux and macOS and cmd.exe on Windows.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # CmdLine@2 - Command line v2 task

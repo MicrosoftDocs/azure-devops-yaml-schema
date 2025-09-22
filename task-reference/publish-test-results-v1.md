@@ -1,8 +1,8 @@
 ---
 title: PublishTestResults@1 - Publish test results v1 task
 description: Publish test results to Azure Pipelines (task version 1).
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # PublishTestResults@1 - Publish test results v1 task

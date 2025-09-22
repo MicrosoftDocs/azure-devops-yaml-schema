@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationExport@10 - Azure App Configuration Export v10 task
 description: Export key-values from Azure App Configuration to task variables in your build or deployment pipelines.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -47,7 +47,7 @@ Export key-values from Azure App Configuration to task variables in your build o
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -59,7 +59,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppConfigurationEndpoint"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`AppConfigurationEndpoint`** - **App Configuration Endpoint**<br>
 `string`. Required.<br>
@@ -71,7 +71,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SelectionMode"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`SelectionMode`** - **Selection Mode**<br>
 `string`. Allowed values: `Default`, `Snapshot`. Default value: `Default`.<br>
@@ -83,7 +83,7 @@ Selection mode specifies how the key-values read from a configuration store are 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="KeyFilter"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`KeyFilter`** - **Key Filter**<br>
 `string`. Required when `SelectionMode = Default`. Default value: `*`.<br>
@@ -95,7 +95,7 @@ The filter can be used to select what key-values are requested from Azure App Co
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Label"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Label`** - **Label**<br>
 `string`. Optional. Use when `SelectionMode = Default`.<br>
@@ -107,7 +107,7 @@ Specifies which label should be used when selecting key-values from App Configur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SnapshotName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`SnapshotName`** - **Snapshot name**<br>
 `string`. Required when `SelectionMode = Snapshot`.<br>
@@ -119,7 +119,7 @@ Specifies snapshot from which key-values should be retrieved in Azure App Config
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TrimKeyPrefix"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`TrimKeyPrefix`** - **Trim Key Prefix**<br>
 `string`.<br>
@@ -131,7 +131,7 @@ Specifies one or more prefixes that should be trimmed from App Configuration key
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SuppressWarningForOverriddenKeys"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`SuppressWarningForOverriddenKeys`** - **Suppress warning for overridden keys**<br>
 `boolean`. Default value: `false`.<br>
@@ -143,7 +143,7 @@ Specifies whether or not to suppress the warning shown when existing keys are ov
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TreatKeyVaultErrorsAsWarning"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`TreatKeyVaultErrorsAsWarning`** - **Treat key vault resolution errors as warnings**<br>
 `boolean`. Default value: `false`.<br>

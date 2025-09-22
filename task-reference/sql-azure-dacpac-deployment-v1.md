@@ -1,8 +1,8 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task

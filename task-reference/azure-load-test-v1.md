@@ -1,7 +1,7 @@
 ---
 title: AzureLoadTest@1 - Azure Load Testing v1 task
 description: Automate performance regression testing with Azure Load Testing.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 ---
 
@@ -46,7 +46,7 @@ Automate performance regression testing with Azure Load Testing.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
@@ -58,7 +58,7 @@ Selects an Azure Resource Manager subscription to run the load test.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestConfigFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`loadTestConfigFile`** - **Load Test File**<br>
 `string`. Required.<br>
@@ -71,7 +71,7 @@ See [Test configuration YAML reference](/azure/load-testing/reference-test-confi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`resourceGroup`** - **Load Test Resource Group**<br>
 `string`. Required.<br>
@@ -83,7 +83,7 @@ Enters or selects the Azure Resource Group that contains the Load test resource.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestResource"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`loadTestResource`** - **Load Test Resource Name**<br>
 `string`. Required.<br>
@@ -95,7 +95,7 @@ Enters or selects the name of an existing Azure Load Testing resource.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestRunName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`loadTestRunName`** - **Load Test Run Name**<br>
 `string`.<br>
@@ -107,7 +107,7 @@ Custom name for the load test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestRunDescription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`loadTestRunDescription`** - **Load Test Run Description**<br>
 `string`.<br>
@@ -119,7 +119,7 @@ Custom description for the load test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secrets"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`secrets`** - **Secrets**<br>
 `string`.<br>
@@ -144,7 +144,7 @@ An array of JSON objects that consist of the name and value for each secret. The
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`env`** - **env**<br>
 `string`.<br>
@@ -169,7 +169,7 @@ An array of JSON objects that consist of the name and value for each environment
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideParameters"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`overrideParameters`** - **Override parameters**<br>
 `string`.<br>
@@ -194,7 +194,7 @@ Override parameters in the YAML config file using the following JSON format:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="outputVariableName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`outputVariableName`** - **Output Variable Name**<br>
 `string`. Default value: `ALTOutputVar`.<br>

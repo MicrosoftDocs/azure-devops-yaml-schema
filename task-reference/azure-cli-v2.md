@@ -1,8 +1,8 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 08/29/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # AzureCLI@2 - Azure CLI v2 task
@@ -285,7 +285,7 @@ If this input is false, the line `if ((Test-Path -LiteralPath variable:\LASTEXIT
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="visibleAzLogin"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`visibleAzLogin`** - **az login output visibility**<br>
 `boolean`. Default value: `true`.<br>

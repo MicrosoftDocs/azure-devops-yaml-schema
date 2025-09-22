@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 08/29/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -41,7 +41,7 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 ## Inputs
 
 <!-- :::item name="WaitForProcessing"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`WaitForProcessing`** - **Enable Wait for Processing**<br>
 `boolean`. Default value: `false`.<br>
@@ -53,7 +53,7 @@ Wait for Advanced Security to process published SARIF file before completing.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessingInterval"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`WaitForProcessingInterval`** - **Wait for Processing Time Interval**<br>
 `string`. Optional. Use when `WaitForProcessing = true`. Default value: `5`.<br>
@@ -65,7 +65,7 @@ Time, in seconds, to wait between each call to Advanced Security to check SARIF 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessingTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`WaitForProcessingTimeout`** - **Wait for Processing Timeout**<br>
 `string`. Optional. Use when `WaitForProcessing = true`. Default value: `120`.<br>
