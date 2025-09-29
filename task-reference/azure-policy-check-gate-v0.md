@@ -13,7 +13,10 @@ ms.author: jukullam
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to check the security and compliance assessment for Azure Policy.
+Use this task to check the security and compliance assessment for Azure Policy with deployment [gates](/azure/devops/pipelines/release/approvals/gates).
+
+This task can be used as either pre-deployment or post-deployment gate. Pre-deployment gates run before deployment and post-deployment gates run after. If a pre-deployment policy compliance check fails, the deployment stops.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
