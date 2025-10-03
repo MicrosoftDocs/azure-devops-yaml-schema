@@ -379,7 +379,7 @@ Enables custom deployment method selection. When set to `true`, you must explici
 
 When set to `false` (default), the task automatically detects the best deployment method based on the app type, package format, and other parameters.
 
-**Note**: Enabling custom deployment doesn't disable Web Deploy. Instead, enabling custom deployment requires you to explicitly choose your preferred deployment method instead of relying on auto-detection.
+> [!NOTE] Enabling custom deployment doesn't disable Web Deploy. Instead, enabling custom deployment requires you to explicitly choose your preferred deployment method instead of relying on auto-detection.
 
 **Example**:
 
