@@ -1,8 +1,8 @@
 ---
 title: AzureFunctionApp@2 - Azure Functions Deploy v2 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-ms.date: 07/21/2025
-monikerRange: ">=azure-pipelines-2022.1"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
 ---
@@ -98,7 +98,7 @@ Select the Azure Function App type for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isFlexConsumption"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`isFlexConsumption`** - **Is Function App on Flex Consumption Plan**<br>
 `boolean`. Default value: `false`.<br>
@@ -122,7 +122,7 @@ Specify the name of an existing Azure Functions App. The Function Apps listed wi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`deployToSlotOrASE`** - **Deploy to Slot or App Service Environment**<br>
 `boolean`. Optional. Use when `appType != "" && isFlexConsumption = false`. Default value: `false`.<br>
@@ -167,7 +167,7 @@ Enters or selects the Azure Resource group that contains the Azure App Service s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="slotName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`slotName`** - **Slot**<br>
 `string`. Required when `deployToSlotOrASE = true`. Default value: `production`.<br>
@@ -202,7 +202,7 @@ The file path to the package or folder that contains App Service content generat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux && isFlexConsumption = false`. Allowed values: `DOTNET|6.0`, `DOTNET-ISOLATED|6.0`, `DOTNET-ISOLATED|7.0`, `DOTNET-ISOLATED|8.0`, `DOTNET-ISOLATED|9.0`, `JAVA|8`, `JAVA|11`, `JAVA|17`, `JAVA|21`, `NODE|14`, `NODE|16`, `NODE|18`, `NODE|20`, `PYTHON|3.8`, `PYTHON|3.9`, `PYTHON|3.10`, `PYTHON|3.11`.<br>
@@ -242,7 +242,7 @@ For more information on app settings, see [Environment variables and app setting
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMethod"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != "" && isFlexConsumption = false && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>

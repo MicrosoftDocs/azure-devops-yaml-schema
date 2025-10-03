@@ -1,8 +1,8 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 07/21/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -170,19 +170,19 @@ This example downloads a secure certificate file and installs it to a trusted ce
 - **Import certificate to CurrentUser root store**:
 
     ```yaml
+    ## Download a secure file to the agent machine
     - task: DownloadSecureFile@1
-      displayName: 'Download certificate'
+      displayName: 'Download CA certificate'
       inputs:
         secureFile: 'myCACertificate.pem'
     
     - powershell: |
-        $certPath = '$(caCertificate.secureFilePath)'
+        $certPath = "$(caCertificate.secureFilePath)"
         $certStoreLocation = 'Cert:\CurrentUser\Root'
-    
         Write-Host "Importing certificate $certPath to $certStoreLocation..."
         $params = @{
-            FilePath = $certPath
-            CertStoreLocation = $certStoreLocation
+          FilePath = $certPath
+          CertStoreLocation = $certStoreLocation
         }
         Import-Certificate @params
       displayName: 'Import CA certificate to CurrentUser root store'
@@ -191,19 +191,20 @@ This example downloads a secure certificate file and installs it to a trusted ce
 - **Import certificate to LocalMachine root store**:
 
     ```yaml
+    ## Download a secure file to the agent machine
     - task: DownloadSecureFile@1
-      displayName: 'Download certificate'
+      displayName: 'Download CA certificate'
       inputs:
         secureFile: 'myCACertificate.pem'
     
     - powershell: |
-        $certPath = '$(caCertificate.secureFilePath)'
+        $certPath = "$(caCertificate.secureFilePath)"
         $certStoreLocation = 'Cert:\LocalMachine\Root'
     
         Write-Host "Importing certificate $certPath to $certStoreLocation..."
         $params = @{
-            FilePath = $certPath
-            CertStoreLocation = $certStoreLocation
+          FilePath = $certPath
+          CertStoreLocation = $certStoreLocation
         }
         Import-Certificate @params
       displayName: 'Import CA certificate to LocalMachine root store'

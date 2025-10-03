@@ -1,8 +1,8 @@
 ---
 title: VSTest@2 - Visual Studio Test v2 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task (task version 2).
-ms.date: 07/21/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: steved0x
 ms.author: sdanie
 ---
@@ -17,7 +17,10 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 > [!NOTE]
 > There is a newer version of this task. [VSTest@3](./vstest-v3.md) is the newest version of the task and should be used in your pipelines.
->
+
+> [!NOTE]
+> The VSTest@2 task can't rerun failed **Data-driven tests**.
+
 > [!NOTE]
 > VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
 <!-- :::editable-content-end::: -->

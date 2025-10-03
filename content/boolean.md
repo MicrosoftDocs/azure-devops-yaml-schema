@@ -14,6 +14,7 @@ ms.author: sdanie
 
 <!-- :::editable-content name="description"::: -->
 Represents a boolean value in a pipeline.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

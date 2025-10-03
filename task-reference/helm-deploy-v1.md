@@ -1,7 +1,7 @@
 ---
 title: HelmDeploy@1 - Package and deploy Helm charts v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands.
-ms.date: 07/21/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -82,7 +82,7 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
 ## Inputs
 
 <!-- :::item name="connectionType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`connectionType`** - **Connection Type**<br>
 `string`. Required when `command != logout && command != package`. Allowed values: `Azure Resource Manager`, `Kubernetes Service Connection`, `None`. Default value: `Azure Resource Manager`.<br>
@@ -94,7 +94,7 @@ Select 'Azure Resource Manager' to connect to an Azure Kubernetes Service by usi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
@@ -106,7 +106,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureResourceGroup`** - **Resource group**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
@@ -118,7 +118,7 @@ Select an Azure Resource Group.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesCluster"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`kubernetesCluster`** - **Kubernetes cluster**<br>
 `string`. Required when `connectionType = Azure Resource Manager && command != logout && command != package`.<br>
@@ -130,7 +130,7 @@ Select an Azure Managed Cluster.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="useClusterAdmin"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`useClusterAdmin`** - **Use cluster admin credentials**<br>
 `boolean`. Optional. Use when `connectionType = Azure Resource Manager && command != logout && command != package`. Default value: `false`.<br>
@@ -142,7 +142,7 @@ Use cluster administrator credentials instead of default cluster user credential
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceConnection"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`kubernetesServiceConnection`** - **Kubernetes Service Connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `kubernetesServiceEndpoint`. `string`. Required when `connectionType = Kubernetes Service Connection && command != logout && command != package`.<br>
@@ -154,7 +154,7 @@ Select a Kubernetes service connection.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`namespace`** - **Namespace**<br>
 `string`. Optional. Use when `command != logout && command != package`.<br>
@@ -166,7 +166,7 @@ Specify K8 namespace to use. Use Tiller namespace can be specified in the advanc
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionForACR"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscriptionForACR`** - **Azure subscription for Container Registry**<br>
 [Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpointForACR`. `string`. Required when `command == login || command == package || command == push`.<br>
@@ -178,7 +178,7 @@ Select an Azure subscription, which has your Azure Container Registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroupForACR"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureResourceGroupForACR`** - **Resource group**<br>
 `string`. Required when `command == login || command == package || command == push`.<br>
@@ -190,7 +190,7 @@ Select an Azure Resource Group, which has your Container Registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Required when `command == login || command == package || command == push`.<br>
@@ -202,7 +202,7 @@ Select an Azure Container Registry which will be used for helm charts.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `push`, `package`, `rollback`, `upgrade`, `uninstall`. Default value: `ls`.<br>
@@ -214,7 +214,7 @@ Select a helm command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`chartType`** - **Chart Type**<br>
 `string`. Required when `command == install || command == upgrade`. Allowed values: `Name`, `FilePath` (File Path). Default value: `Name`.<br>
@@ -226,7 +226,7 @@ Select how you want to enter chart info. You can either provide name of the char
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`chartName`** - **Chart Name**<br>
 `string`. Required when `chartType == Name || command == create`.<br>
@@ -238,7 +238,7 @@ Chart reference to install, this can be a url or a chart name. For example, if c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartPath"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`chartPath`** - **Chart Path**<br>
 `string`. Required when `chartType == FilePath || command == package || command == push`.<br>
@@ -250,7 +250,7 @@ Path to the chart to install. This can be a path to a packaged chart or a path t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="remoteRepo"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`remoteRepo`** - **Remote Repo**<br>
 `string`. Required when `command == push`.<br>
@@ -262,7 +262,7 @@ The remote repository where the chart will be pushed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartVersion"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`chartVersion`** - **Version**<br>
 [Input alias](index.md#what-are-task-input-aliases): `version`. `string`. Optional. Use when `command == package || command == install || command == upgrade`.<br>
@@ -274,7 +274,7 @@ Specify the exact chart version to install. If this is not specified, the latest
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="releaseName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`releaseName`** - **Release Name**<br>
 `string`. Optional. Use when `command == install || command == upgrade || command == rollback || command == uninstall || command == delete`.<br>
@@ -286,7 +286,7 @@ Release name. If unspecified, it will autogenerate one for you.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideValues"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`overrideValues`** - **Set Values**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
@@ -298,7 +298,7 @@ Set values on the command line (can specify multiple or separate values with com
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="valueFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`valueFile`** - **Value File**<br>
 `string`. Optional. Use when `command == install || command == upgrade`.<br>
@@ -310,7 +310,7 @@ Specify values in a YAML file or a URL. For example, specifying myvalues.yaml wi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destination"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`destination`** - **Destination**<br>
 `string`. Optional. Use when `command == package`. Default value: `$(Build.ArtifactStagingDirectory)`.<br>
@@ -322,7 +322,7 @@ Specify values in a YAML file or a URL.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="canaryimage"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`canaryimage`** - **Use canary image version.**<br>
 `boolean`. Optional. Use when `command == init`. Default value: `false`.<br>
@@ -334,7 +334,7 @@ Use the canary Tiller image, the latest pre-release version of Tiller.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="upgradetiller"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`upgradetiller`** - **Upgrade Tiller**<br>
 `boolean`. Optional. Use when `command == init`. Default value: `true`.<br>
@@ -346,7 +346,7 @@ Upgrade if Tiller is already installed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="updatedependency"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`updatedependency`** - **Update Dependency**<br>
 `boolean`. Optional. Use when `command == install || command == package`. Default value: `false`.<br>
@@ -358,7 +358,7 @@ Run helm dependency update before installing the chart. Update dependencies from
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="save"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`save`** - **Save**<br>
 `boolean`. Optional. Use when `command == package`. Default value: `true`.<br>
@@ -370,7 +370,7 @@ Save packaged chart to local chart repository (default true)​.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="install"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`install`** - **Install if release not present.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `true`.<br>
@@ -382,7 +382,7 @@ If a release by this name doesn't already exist, run an install​.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="recreate"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`recreate`** - **Recreate Pods.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
@@ -394,7 +394,7 @@ Performs pods restart for the resource if applicable.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resetValues"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`resetValues`** - **Reset Values.**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
@@ -406,7 +406,7 @@ Reset the values to the ones built into the chart.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="force"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`force`** - **Force**<br>
 `boolean`. Optional. Use when `command == upgrade`. Default value: `false`.<br>
@@ -418,7 +418,7 @@ Force resource update through delete/recreate if needed​.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="waitForExecution"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`waitForExecution`** - **Wait**<br>
 `boolean`. Optional. Use when `command == init || command == install || command == upgrade`. Default value: `true`.<br>
@@ -430,7 +430,7 @@ Block till command execution completes.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `command != login && command != logout`.<br>
@@ -442,7 +442,7 @@ Helm command options.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableTls"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`enableTls`** - **Enable TLS**<br>
 `boolean`. Optional. Use when `command != login && command != logout && command != package`. Default value: `false`.<br>
@@ -454,7 +454,7 @@ Enables using SSL between Helm and Tiller.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="caCert"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`caCert`** - **CA certificate**<br>
 `string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
@@ -466,7 +466,7 @@ CA cert used to issue certificate for tiller and helm client.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="certificate"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`certificate`** - **Certificate**<br>
 `string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
@@ -478,7 +478,7 @@ Specify Tiller certificate or Helm client certificate.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="privatekey"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`privatekey`** - **Key**<br>
 `string`. Required when `enableTls == true && command != login && command != logout && command != package`.<br>
@@ -490,7 +490,7 @@ Specify Tiller Key or Helm client key.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tillernamespace"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`tillernamespace`** - **Tiller namespace**<br>
 `string`. Optional. Use when `command != login && command != logout && command != package`.<br>
@@ -502,7 +502,7 @@ Specify K8 namespace of tiller.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStderr"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`failOnStderr`** - **Fail on Standard Error**<br>
 `boolean`. Optional. Use when `command != login && command != logout && command != package`. Default value: `false`.<br>
@@ -514,7 +514,7 @@ If this is true, this task will fail if any errors are written to the error pipe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishPipelineMetadata"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`publishPipelineMetadata`** - **Publish pipeline metadata**<br>
 `boolean`. Optional. Use when `command != login && command != logout && command != package`. Default value: `true`.<br>
@@ -526,7 +526,7 @@ If this is true, the task will collect and publish deployment metadata.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartNameForACR"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`chartNameForACR`** - **Chart Name For Azure Container Registry**<br>
 `string`. Required when `command == package || command == push`.<br>
@@ -538,7 +538,7 @@ Chart name with which the chart will be stored in Azure Container Registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="chartPathForACR"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`chartPathForACR`** - **Chart Path for Azure Container Registry**<br>
 `string`. Required when `command == package || command == push`.<br>

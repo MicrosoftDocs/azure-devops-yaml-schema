@@ -1,8 +1,8 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 07/21/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
 ---
@@ -13,7 +13,10 @@ ms.author: jukullam
 :::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to check the security and compliance assessment for Azure Policy.
+Use this task to check the security and compliance assessment for Azure Policy with deployment [gates](/azure/devops/pipelines/release/approvals/gates).
+
+This task can be used as either pre-deployment or post-deployment gate. Pre-deployment gates run before deployment and post-deployment gates run after. If a pre-deployment policy compliance check fails, the deployment stops.
+
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

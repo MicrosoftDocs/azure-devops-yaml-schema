@@ -784,6 +784,9 @@ items:
   - name: NuGetCommand@2
     href: nuget-command-v2.md
     displayName: NuGet v2
+  - name: NuGet@0
+    href: nuget-v0.md
+    displayName: NuGet v0
 - name: NuGet authenticate
   items:
   - name: NuGetAuthenticate@1
@@ -792,11 +795,6 @@ items:
   - name: NuGetAuthenticate@0
     href: nuget-authenticate-v0.md
     displayName: NuGet authenticate v0
-- name: NuGet command
-  items:
-  - name: NuGet@0
-    href: nuget-v0.md
-    displayName: NuGet command v0
 - name: NuGet Installer
   items:
   - name: NuGetInstaller@0

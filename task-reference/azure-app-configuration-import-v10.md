@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationImport@10 - Azure App Configuration Import v10 task
 description: Import settings from configuration files into Azure App Configuration through build or deployment pipelines.
-ms.date: 07/21/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -57,7 +57,7 @@ Import settings from configuration files into Azure App Configuration through bu
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -69,7 +69,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppConfigurationEndpoint"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`AppConfigurationEndpoint`** - **App Configuration Endpoint**<br>
 `string`. Required.<br>
@@ -81,7 +81,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ConfigurationFile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`ConfigurationFile`** - **Configuration File Path**<br>
 `string`. Required.<br>
@@ -93,7 +93,7 @@ The path to the configuration file (supported: yaml, json, properties).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UseFilePathExtension"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`UseFilePathExtension`** - **Use the file path extension to determine the file format**<br>
 `boolean`. Default value: `true`.<br>
@@ -105,7 +105,7 @@ Specifies whether or not to use the file path extension to determine the file fo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="FileFormat"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`FileFormat`** - **File Format**<br>
 `string`. Optional. Use when `UseFilePathExtension = false`. Allowed values: `json`, `yaml`, `properties`.<br>
@@ -117,7 +117,7 @@ The configuration file format. If no format is provided, then the format default
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="FileContentProfile"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`FileContentProfile`** - **File Content Profile**<br>
 `string`. Allowed values: `appconfig/default` (Default), `appconfig/kvset` (KVSet). Default value: `appconfig/default`.<br>
@@ -131,7 +131,7 @@ The configuration file's [content profile](/azure/azure-app-configuration/concep
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Separator"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Separator`** - **Separator**<br>
 `string`. Optional. Use when `FileContentProfile = appconfig/default`. Allowed values: `.` (.  (Period)), `/` (/  (Forward Slash)), `:` (:  (Colon)), `;` (;  (Semicolon)), `,` (,  (Comma)), `-` (-  (Hyphen)), `_` (_  (Underscore)), `__` (__ (Double Underscore)).<br>
@@ -143,7 +143,7 @@ Separator is used to flatten the configuration file (json & yaml files). It is r
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Depth"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Depth`** - **Depth**<br>
 `string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
@@ -155,7 +155,7 @@ Depth to flatten to in configuration file (json and yaml files).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Prefix"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Prefix`** - **Prefix**<br>
 `string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
@@ -167,7 +167,7 @@ A prefix to append to all keys in the configuration file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Label"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Label`** - **Label**<br>
 `string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
@@ -179,7 +179,7 @@ Specifies a string that's added to each key-value as the label within the App Co
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ContentType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`ContentType`** - **Content Type**<br>
 `string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
@@ -191,7 +191,7 @@ Species a string that is added as the content type to all keys in the configurat
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Tags"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Tags`** - **Tags**<br>
 `string`. Optional. Use when `FileContentProfile = appconfig/default`.<br>
@@ -203,7 +203,7 @@ Specifies one or more tags that should be added to key-value settings being impo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ExcludeFeatureFlags"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`ExcludeFeatureFlags`** - **Exclude feature flags**<br>
 `boolean`. Optional. Use when `FileContentProfile = appconfig/default`. Default value: `false`.<br>
@@ -215,7 +215,7 @@ Specifies whether or not any feature flags provided in the configuration file wi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Strict"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Strict`** - **Delete key-values that are not included in the configuration file**<br>
 `boolean`. Default value: `false`.<br>
@@ -231,7 +231,7 @@ The behavior of this option depends on the configuration file's [content profile
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DryRun"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`DryRun`** - **Dry run**<br>
 `boolean`. Default value: `false`.<br>
@@ -243,7 +243,7 @@ When dry run is enabled, this task will not perform any updates to App Configura
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ImportMode"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`ImportMode`** - **Import Mode**<br>
 `string`. Allowed values: `All`, `Ignore-Match`. Default value: `Ignore-Match`.<br>

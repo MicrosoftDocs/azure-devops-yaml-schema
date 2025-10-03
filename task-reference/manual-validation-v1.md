@@ -1,7 +1,7 @@
 ---
 title: ManualValidation@1 - Manual validation v1 task
 description: Pause a pipeline run to wait for manual interaction. Works only with YAML pipelines.
-ms.date: 07/21/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -43,7 +43,7 @@ Pause a pipeline run to wait for manual interaction. Works only with YAML pipeli
 ## Inputs
 
 <!-- :::item name="notifyUsers"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`notifyUsers`** - **Notify users**<br>
 `string`. Required.<br>
@@ -57,7 +57,7 @@ This task input is required, but you can specify an empty string if you don't wa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="approvers"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`approvers`** - **Approvers**<br>
 `string`.<br>
@@ -69,7 +69,7 @@ Specify a comma separated list of users/groups/project teams to act on a manual 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowApproversToApproveTheirOwnRuns"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`allowApproversToApproveTheirOwnRuns`** - **Allow approvers to approve their own run**<br>
 `boolean`. Default value: `true`.<br>
@@ -81,7 +81,7 @@ If this is true, approver will be able to approve their own run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="instructions"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`instructions`** - **Instructions**<br>
 `string`.<br>
@@ -93,7 +93,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`onTimeout`** - **On timeout**<br>
 `string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>

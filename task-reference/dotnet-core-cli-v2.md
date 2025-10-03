@@ -1,8 +1,8 @@
 ---
 title: DotNetCoreCLI@2 - .NET Core v2 task
 description: Build, test, package, or publish a .NET application, or run a custom .NET CLI command.
-ms.date: 07/21/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # DotNetCoreCLI@2 - .NET Core v2 task
@@ -191,7 +191,7 @@ Build, test, package, or publish a .NET application, or run a custom .NET CLI co
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`.<br>
@@ -362,7 +362,7 @@ You can either select a feed from Azure Artifacts and/or `NuGet.org` here, or yo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstsFeed"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`vstsFeed`** - **Use packages from this Azure Artifacts feed. Select from the dropdown or enter [project name/]feed name.**<br>
 [Input alias](index.md#what-are-task-input-aliases): `feedRestore`. `string`. Optional. Use when `selectOrConfig = select && command = restore`.<br>
@@ -445,7 +445,7 @@ Specifies the folder in which packages are installed. If no folder is specified,
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosityRestore"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`verbosityRestore`** - **Verbosity**<br>
 `string`. Optional. Use when `command = restore`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Normal`.<br>
@@ -678,7 +678,7 @@ Specifies a list of `token = value` pairs, separated by semicolons, where each o
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosityPack"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`verbosityPack`** - **Verbosity**<br>
 `string`. Optional. Use when `command = pack`. Allowed values: `-`, `Quiet`, `Minimal`, `Normal`, `Detailed`, `Diagnostic`. Default value: `Normal`.<br>
@@ -713,7 +713,7 @@ The current working directory where the script is run. `Empty` is the root of th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="requestTimeout"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`requestTimeout`** - **Set timeout for package download request**<br>
 `string`. Default value: `300000`.<br>

@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
 description: Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
-ms.date: 07/21/2025
+ms.date: 09/22/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -47,7 +47,7 @@ Create a configuration snapshot in Azure App Configuration through build or depl
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -59,7 +59,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppConfigurationEndpoint"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`AppConfigurationEndpoint`** - **App Configuration Endpoint**<br>
 `string`. Required.<br>
@@ -71,7 +71,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SnapshotName"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`SnapshotName`** - **Snapshot Name**<br>
 `string`. Required.<br>
@@ -83,7 +83,7 @@ Provide a name for the snapshot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CompositionType"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`CompositionType`** - **Composition Type**<br>
 `string`. Required. Allowed values: `key` (Key (default)), `key_label` (Key-Label). Default value: `key`.<br>
@@ -97,7 +97,7 @@ Provide a name for the snapshot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Filters"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Filters`** - **Filters for key-values**<br>
 `string`. Required.<br>
@@ -109,7 +109,7 @@ Specifies snapshot filters that represent the key and label filters used to buil
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RetentionPeriod"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`RetentionPeriod`** - **Days to retain archived snapshot**<br>
 `string`. Default value: `30`.<br>
@@ -121,7 +121,7 @@ Archived snapshots can be recovered during the retention period. Choose the numb
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Tags"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-2022.2"
 
 **`Tags`** - **Tags**<br>
 `string`.<br>

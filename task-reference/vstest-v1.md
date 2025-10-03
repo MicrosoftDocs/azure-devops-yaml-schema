@@ -1,8 +1,8 @@
 ---
 title: VSTest@1 - Visual Studio Test v1 task
 description: Run tests with Visual Studio test runner.
-ms.date: 07/21/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: steved0x
 ms.author: sdanie
 ---
@@ -16,6 +16,9 @@ ms.author: sdanie
 Use this task to run tests with Visual Studio test runner.
 
 This version of the task is deprecated; use [VSTest@3](./vstest-v3.md).
+
+> [!NOTE]
+> The VSTest@1 task can't rerun failed **Data-driven tests**.
 
 > [!NOTE]
 > VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).

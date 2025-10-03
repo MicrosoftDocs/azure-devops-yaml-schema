@@ -1,8 +1,8 @@
 ---
 title: AzureFileCopy@3 - Azure file copy v3 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 3).
-ms.date: 07/21/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 09/22/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # AzureFileCopy@3 - Azure file copy v3 task
