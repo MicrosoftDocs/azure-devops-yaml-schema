@@ -79,7 +79,7 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 **`connectedServiceNameARM`** - **Azure Resource Manager connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `azureSubscription`. `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Select the Azure Resource Manager subscription for the deployment.
+Select the Azure Resource Manager connection for the deployment. The service connection must be connected to an active Azure subscription.
 <!-- :::editable-content-end::: -->
 <br>
 
