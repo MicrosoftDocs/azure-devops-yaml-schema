@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # DockerCompose@1 - Docker Compose v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
@@ -70,7 +70,7 @@ Build, push or run multi-container Docker applications. Task can be used with Do
 ## Inputs
 
 <!-- :::item name="containerregistrytype"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`containerregistrytype`** - **Container Registry Type**<br>
 `string`. Required. Allowed values: `Azure Container Registry`, `Container Registry`. Default value: `Azure Container Registry`.<br>
@@ -82,7 +82,7 @@ Select a Container Registry Type.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerRegistryEndpoint"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`dockerRegistryEndpoint`** - **Docker Registry Service Connection**<br>
 `string`. Optional. Use when `containerregistrytype = Container Registry`.<br>
@@ -94,7 +94,7 @@ Select a Docker registry service connection. Required for commands that need to 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `azureSubscriptionEndpoint`. `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
@@ -106,7 +106,7 @@ Select an Azure subscription.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="azureContainerRegistry"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`azureContainerRegistry`** - **Azure Container Registry**<br>
 `string`. Optional. Use when `containerregistrytype = Azure Container Registry`.<br>
@@ -118,7 +118,7 @@ Select an Azure Container Registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposeFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`dockerComposeFile`** - **Docker Compose File**<br>
 `string`. Required. Default value: `**/docker-compose.yml`.<br>
@@ -130,7 +130,7 @@ Path to the primary Docker Compose file to use.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="additionalDockerComposeFiles"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`additionalDockerComposeFiles`** - **Additional Docker Compose Files**<br>
 `string`.<br>
@@ -142,7 +142,7 @@ Additional Docker Compose files to be combined with the primary Docker Compose f
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposeFileArgs"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`dockerComposeFileArgs`** - **Environment Variables**<br>
 `string`.<br>
@@ -154,7 +154,7 @@ Environment variables to be set during the command. Specify each name=value pair
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="projectName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`projectName`** - **Project Name**<br>
 `string`. Default value: `$(Build.Repository.Name)`.<br>
@@ -166,7 +166,7 @@ Project name used for default naming of images and containers.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="qualifyImageNames"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`qualifyImageNames`** - **Qualify Image Names**<br>
 `boolean`. Default value: `true`.<br>
@@ -178,7 +178,7 @@ Qualify image names for built services with the Docker registry service connecti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="action"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`action`** - **Action**<br>
 `string`. Required. Allowed values: `Build services` (Build service images), `Push services` (Push service images), `Run services` (Run service images), `Run a specific service` (Run a specific service image), `Lock services` (Lock service images), `Write service image digests`, `Combine configuration`, `Run a Docker Compose command`. Default value: `Run a Docker Compose command`.<br>
@@ -190,7 +190,7 @@ Select a Docker Compose action.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="additionalImageTags"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`additionalImageTags`** - **Additional Image Tags**<br>
 `string`. Optional. Use when `action = Build services || action = Push services`.<br>
@@ -202,7 +202,7 @@ Additional tags for the Docker images being built or pushed.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeSourceTags"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`includeSourceTags`** - **Include Source Tags**<br>
 `boolean`. Optional. Use when `action = Build services || action = Push services`. Default value: `false`.<br>
@@ -214,7 +214,7 @@ Include Git tags when building or pushing Docker images.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="includeLatestTag"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`includeLatestTag`** - **Include Latest Tag**<br>
 `boolean`. Optional. Use when `action = Build services || action = Push services`. Default value: `false`.<br>
@@ -226,7 +226,7 @@ Include the 'latest' tag when building or pushing Docker images.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="buildImages"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`buildImages`** - **Build Images**<br>
 `boolean`. Optional. Use when `action = Run services`. Default value: `true`.<br>
@@ -238,7 +238,7 @@ Build images before starting service containers.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="serviceName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`serviceName`** - **Service Name**<br>
 `string`. Required when `action = Run a specific service`.<br>
@@ -250,7 +250,7 @@ Name of the specific service to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`containerName`** - **Container Name**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
@@ -262,7 +262,7 @@ Name of the specific service container to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ports"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`ports`** - **Ports**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
@@ -274,7 +274,7 @@ Ports in the specific service container to publish to the host. Specify each hos
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`workingDirectory`** - **Working Directory**<br>
 [Input alias](index.md#what-are-task-input-aliases): `workDir`. `string`. Optional. Use when `action = Run a specific service`.<br>
@@ -286,7 +286,7 @@ The working directory for the specific service container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="entrypoint"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`entrypoint`** - **Entry Point Override**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
@@ -298,7 +298,7 @@ Override the default entry point for the specific service container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerCommand"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`containerCommand`** - **Command**<br>
 `string`. Optional. Use when `action = Run a specific service`.<br>
@@ -310,7 +310,7 @@ Command to run in the specific service container. For example, if the image cont
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="detached"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`detached`** - **Run in Background**<br>
 `boolean`. Optional. Use when `action = Run services || action = Run a specific service`. Default value: `true`.<br>
@@ -322,7 +322,7 @@ Run the service containers in the background.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="abortOnContainerExit"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`abortOnContainerExit`** - **Abort on Container Exit**<br>
 `boolean`. Optional. Use when `action = Run services && detached == false`. Default value: `true`.<br>
@@ -334,7 +334,7 @@ Stop all containers when any container exits.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="imageDigestComposeFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`imageDigestComposeFile`** - **Image Digest Compose File**<br>
 `string`. Required when `action = Write service image digests`. Default value: `$(Build.StagingDirectory)/docker-compose.images.yml`.<br>
@@ -346,7 +346,7 @@ Path to a Docker Compose file that is created and populated with the full image 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="removeBuildOptions"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`removeBuildOptions`** - **Remove Build Options**<br>
 `boolean`. Optional. Use when `action = Lock services || action = Combine configuration`. Default value: `false`.<br>
@@ -358,7 +358,7 @@ Remove the build options from the output Docker Compose file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="baseResolveDirectory"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`baseResolveDirectory`** - **Base Resolve Directory**<br>
 `string`. Optional. Use when `action = Lock services || action = Combine configuration`.<br>
@@ -370,7 +370,7 @@ The base directory from which relative paths in the output Docker Compose file s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="outputDockerComposeFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`outputDockerComposeFile`** - **Output Docker Compose File**<br>
 `string`. Required when `action = Lock services || action = Combine configuration`. Default value: `$(Build.StagingDirectory)/docker-compose.yml`.<br>
@@ -382,7 +382,7 @@ Path to an output Docker Compose file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposeCommand"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`dockerComposeCommand`** - **Command**<br>
 `string`. Required when `action = Run a Docker Compose command`.<br>
@@ -394,7 +394,7 @@ Docker Compose command to execute with arguments. For example, 'rm --all' to rem
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="arguments"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`arguments`** - **Arguments**<br>
 `string`. Optional. Use when `action != Lock services && action != Combine configuration && action != Write service image digests`.<br>
@@ -406,7 +406,7 @@ Docker Compose command options. Ex:<br> For build command,<br>--pull --compress 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerHostEndpoint"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`dockerHostEndpoint`** - **Docker Host Service Connection**<br>
 `string`.<br>
@@ -418,7 +418,7 @@ Select a Docker host service connection. Defaults to the agent's host.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="nopIfNoDockerComposeFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`nopIfNoDockerComposeFile`** - **No-op if no Docker Compose File**<br>
 `boolean`. Default value: `false`.<br>
@@ -430,7 +430,7 @@ If the Docker Compose file does not exist, skip this task. This is useful when t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="requireAdditionalDockerComposeFiles"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`requireAdditionalDockerComposeFiles`** - **Require Additional Docker Compose Files**<br>
 `boolean`. Default value: `false`.<br>
@@ -442,7 +442,7 @@ Produces an error if the additional Docker Compose files do not exist. This over
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="currentWorkingDirectory"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`currentWorkingDirectory`** - **Working Directory**<br>
 [Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`. Default value: `$(System.DefaultWorkingDirectory)`.<br>
@@ -454,7 +454,7 @@ Working directory for the Docker Compose command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dockerComposePath"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`dockerComposePath`** - **Docker Compose executable Path**<br>
 `string`.<br>
@@ -474,7 +474,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 

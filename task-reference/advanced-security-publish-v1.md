@@ -10,7 +10,7 @@ ms.author: jukullam
 # AdvancedSecurity-Publish@1 - Advanced Security Publish Results v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service.
@@ -48,7 +48,7 @@ Combines SARIF file(s) produced by code scanning tool(s), enhances the combined 
 ## Inputs
 
 <!-- :::item name="SarifsInputDirectory"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`SarifsInputDirectory`** - **SARIF(s) Input Directory**<br>
 `string`.<br>
@@ -60,7 +60,7 @@ Path to the directory containing the SARIF file(s) that need to be combined, enh
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Category"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`Category`** - **Category**<br>
 `string`.<br>
@@ -72,7 +72,7 @@ Category to associate scan results with when enhancing the SARIF file(s) before 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessing"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`WaitForProcessing`** - **Enable Wait for Processing**<br>
 `boolean`. Default value: `false`.<br>
@@ -84,7 +84,7 @@ Wait for Advanced Security to process published SARIF file before completing.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessingInterval"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`WaitForProcessingInterval`** - **Wait for Processing Time Interval**<br>
 `string`. Optional. Use when `WaitForProcessing = true`. Default value: `5`.<br>
@@ -96,7 +96,7 @@ Time, in seconds, to wait between each call to Advanced Security to check SARIF 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessingTimeout"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`WaitForProcessingTimeout`** - **Wait for Processing Timeout**<br>
 `string`. Optional. Use when `WaitForProcessing = true`. Default value: `120`.<br>
@@ -116,7 +116,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

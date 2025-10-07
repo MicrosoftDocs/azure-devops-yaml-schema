@@ -1,8 +1,8 @@
 ---
 title: VSTest@3 - Visual Studio Test v3 task
 description: Run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VsTest) runner. Test frameworks that have a Visual Studio test adapter such as MsTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. can be run. Tests can be distributed on multiple agents using this task.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: steved0x
 ms.author: sdanie
 ---
@@ -10,7 +10,7 @@ ms.author: sdanie
 # VSTest@3 - Visual Studio Test v3 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. You can run test frameworks that have a Visual Studio test adapter. Example frameworks are MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task.
@@ -31,7 +31,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Visual Studio Test v3
@@ -96,7 +96,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`.<br>
@@ -111,7 +111,7 @@ Specify an Azure Resource Manager service connection configured with workload id
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testSelector"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testSelector`** - **Select tests using**<br>
 `string`. Required. Allowed values: `testAssemblies` (Test assemblies), `testPlan` (Test plan), `testRun` (Test run). Default value: `testAssemblies`.<br>
@@ -125,7 +125,7 @@ Specify an Azure Resource Manager service connection configured with workload id
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testAssemblyVer2"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testAssemblyVer2`** - **Test files**<br>
 `string`. Required when `testSelector = testAssemblies`. Default value: `**\bin\**\*test.dll\n**\bin\**\*tests.dll`.<br>
@@ -148,7 +148,7 @@ Runs tests from the specified files. Ordered tests and webtests can be run by sp
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlan"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testPlan`** - **Test plan**<br>
 `string`. Required when `testSelector = testPlan`.<br>
@@ -160,7 +160,7 @@ Specifies a test plan containing test suites with automated test cases.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testSuite"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testSuite`** - **Test suite**<br>
 `string`. Required when `testSelector = testPlan`.<br>
@@ -172,7 +172,7 @@ Specifies one or more test suites containing automated test cases. Test case wor
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testConfiguration"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testConfiguration`** - **Test configuration**<br>
 `string`. Required when `testSelector = testPlan`.<br>
@@ -184,7 +184,7 @@ Specifies the test configuration.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tcmTestRun"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`tcmTestRun`** - **Test Run**<br>
 `string`. Optional. Use when `testSelector = testRun`. Default value: `$(test.RunId)`.<br>
@@ -196,7 +196,7 @@ Specifies the test run-based selection that is used when triggering automated te
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="searchFolder"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`searchFolder`** - **Search folder**<br>
 `string`. Required. Default value: `$(System.DefaultWorkingDirectory)`.<br>
@@ -208,7 +208,7 @@ Specifies the folder to search for the test assemblies.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resultsFolder"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`resultsFolder`** - **Test results folder**<br>
 `string`. Default value: `$(Agent.TempDirectory)\TestResults`.<br>
@@ -220,7 +220,7 @@ Specifies the folder to store test results. When using the default directory, it
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testFiltercriteria"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testFiltercriteria`** - **Test filter criteria**<br>
 `string`. Optional. Use when `testSelector = testAssemblies`.<br>
@@ -234,7 +234,7 @@ Learn about [command-line options](/previous-versions/jj155796(v=vs.140)).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runOnlyImpactedTests"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`runOnlyImpactedTests`** - **Run only impacted tests**<br>
 `boolean`. Optional. Use when `testSelector = testAssemblies`. Default value: `False`.<br>
@@ -246,7 +246,7 @@ Automatically specifies and runs the tests needed to validate the code change. L
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runAllTestsAfterXBuilds"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`runAllTestsAfterXBuilds`** - **Number of builds after which all tests should be run**<br>
 `string`. Optional. Use when `testSelector = testAssemblies && runOnlyImpactedTests = true`. Default value: `50`.<br>
@@ -258,7 +258,7 @@ Specifies the number of builds to be executed before all tests are automatically
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="uiTests"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`uiTests`** - **Test mix contains UI tests**<br>
 `boolean`. Default value: `false`.<br>
@@ -270,7 +270,7 @@ To run UI tests, ensure that the agent is set to run in [interactive mode](/azur
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstestLocationMethod"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`vstestLocationMethod`** - **Select test platform using**<br>
 `string`. Allowed values: `version`, `location` (Specific location). Default value: `version`.<br>
@@ -282,7 +282,7 @@ Specifies which test platform to use.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsTestVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`vsTestVersion`** - **Test platform version**<br>
 `string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
@@ -294,7 +294,7 @@ Specifies the version of Visual Studio Test to use. If **latest** is specified, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vstestLocation"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`vstestLocation`** - **Path to vstest.console.exe**<br>
 `string`. Optional. Use when `vstestLocationMethod = location`.<br>
@@ -306,7 +306,7 @@ Specifies the path to VSTest.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runSettingsFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`runSettingsFile`** - **Settings file**<br>
 `string`.<br>
@@ -318,7 +318,7 @@ Specifies the path to a `runsettings` or `testsettings` file to use with the tes
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideTestrunParameters"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`overrideTestrunParameters`** - **Override test run parameters**<br>
 `string`.<br>
@@ -330,7 +330,7 @@ Overrides the parameters defined in the `TestRunParameters` section of a `runset
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pathtoCustomTestAdapters"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`pathtoCustomTestAdapters`** - **Path to custom test adapters**<br>
 `string`.<br>
@@ -342,7 +342,7 @@ Specifies the directory path to custom test adapters. Adapters residing in the s
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runInParallel"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`runInParallel`** - **Run tests in parallel on multi-core machines**<br>
 `boolean`. Default value: `False`.<br>
@@ -354,7 +354,7 @@ If set to `true`, tests are run in parallel and leverage available cores of the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runTestsInIsolation"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`runTestsInIsolation`** - **Run tests in isolation**<br>
 `boolean`. Default value: `False`.<br>
@@ -366,7 +366,7 @@ Runs the tests in an isolated process. This likely leads to fewer errors in the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageEnabled"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`codeCoverageEnabled`** - **Code coverage enabled**<br>
 `boolean`. Default value: `False`.<br>
@@ -378,7 +378,7 @@ Collects code coverage information from the test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="otherConsoleOptions"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`otherConsoleOptions`** - **Other console options**<br>
 `string`.<br>
@@ -392,7 +392,7 @@ These options are not supported and will be ignored when running tests using the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="distributionBatchType"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`distributionBatchType`** - **Batch tests**<br>
 `string`. Allowed values: `basedOnTestCases` (Based on number of tests and agents), `basedOnExecutionTime` (Based on past running time of tests), `basedOnAssembly` (Based on test assemblies). Default value: `basedOnTestCases`.<br>
@@ -410,7 +410,7 @@ A batch is a group of tests. A batch of tests runs its tests at the same time, a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="batchingBasedOnAgentsOption"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`batchingBasedOnAgentsOption`** - **Batch options**<br>
 `string`. Optional. Use when `distributionBatchType = basedOnTestCases`. Allowed values: `autoBatchSize` (Automatically determine the batch size), `customBatchSize` (Specify a batch size). Default value: `autoBatchSize`.<br>
@@ -422,7 +422,7 @@ Specifies simple batching based on the number of tests and agents participating 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customBatchSizeValue"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`customBatchSizeValue`** - **Number of tests per batch**<br>
 `string`. Required when `distributionBatchType = basedOnTestCases && batchingBasedOnAgentsOption = customBatchSize`. Default value: `10`.<br>
@@ -434,7 +434,7 @@ Specifies the batch size.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="batchingBasedOnExecutionTimeOption"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`batchingBasedOnExecutionTimeOption`** - **Batch options**<br>
 `string`. Optional. Use when `distributionBatchType = basedOnExecutionTime`. Allowed values: `autoBatchSize` (Automatically determine the batch time), `customTimeBatchSize` (Specify running time per batch). Default value: `autoBatchSize`.<br>
@@ -446,7 +446,7 @@ This batching considers past running times to create batches of tests where each
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customRunTimePerBatchValue"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`customRunTimePerBatchValue`** - **Running time (sec) per batch**<br>
 `string`. Required when `distributionBatchType = basedOnExecutionTime && batchingBasedOnExecutionTimeOption = customTimeBatchSize`. Default value: `60`.<br>
@@ -458,7 +458,7 @@ Specifies the running time (in seconds) per batch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="dontDistribute"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`dontDistribute`** - **Replicate tests instead of distributing when multiple agents are used in the job**<br>
 `boolean`. Default value: `False`.<br>
@@ -471,7 +471,7 @@ Each of the selected test(s) will be repeated on each agent. This option is not 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testRunTitle`** - **Test run title**<br>
 `string`.<br>
@@ -483,7 +483,7 @@ Specifies a name for the test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="platform"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`platform`** - **Build platform**<br>
 `string`.<br>
@@ -495,7 +495,7 @@ Specifies the build platform against which the tests should be reported. If you 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configuration"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`configuration`** - **Build configuration**<br>
 `string`.<br>
@@ -507,7 +507,7 @@ Specifies the build configuration against which the tests should be reported. If
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishRunAttachments"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`publishRunAttachments`** - **Upload test attachments**<br>
 `boolean`. Default value: `true`.<br>
@@ -519,7 +519,7 @@ Opts in or out of publishing run level attachments.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="donotPublishTestResults"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`donotPublishTestResults`** - **Disable publishing test results**<br>
 `boolean`. Optional. Use when `runInParallel = false`. Default value: `false`.<br>
@@ -531,7 +531,7 @@ If this option is turned on, test results won't be published as part of this tas
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failOnMinTestsNotRun"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`failOnMinTestsNotRun`** - **Fail the task if a minimum number of tests are not run.**<br>
 `boolean`. Default value: `False`.<br>
@@ -543,7 +543,7 @@ Fails the task if a minimum number of tests are not run. This may be useful if a
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="minimumExpectedTests"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`minimumExpectedTests`** - **Minimum # of tests**<br>
 `string`. Optional. Use when `failOnMinTestsNotRun = true`. Default value: `1`.<br>
@@ -555,7 +555,7 @@ Specifies the minimum number of tests to run for the task to succeed. The total 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="diagnosticsEnabled"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`diagnosticsEnabled`** - **Collect advanced diagnostics in case of catastrophic failures**<br>
 `boolean`. Default value: `false`.<br>
@@ -568,7 +568,7 @@ When this option is checked, a sequence XML file is generated and attached to th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="collectDumpOn"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`collectDumpOn`** - **Collect process dump and attach to test run report**<br>
 `string`. Optional. Use when `diagnosticsEnabled = true`. Allowed values: `onAbortOnly` (On abort only), `always`, `never`. Default value: `onAbortOnly`.<br>
@@ -584,7 +584,7 @@ Collects a mini dump that can be used for further analysis.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rerunFailedTests"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`rerunFailedTests`** - **Rerun failed tests**<br>
 `boolean`. Default value: `False`.<br>
@@ -596,7 +596,7 @@ Reruns any failed tests until they pass or until the maximum number of attempts 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rerunType"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`rerunType`** - **Do not rerun if test failures exceed specified threshold**<br>
 `string`. Optional. Use when `rerunFailedTests = true`. Allowed values: `basedOnTestFailurePercentage` (% failure), `basedOnTestFailureCount` (# of failed tests). Default value: `basedOnTestFailurePercentage`.<br>
@@ -608,7 +608,7 @@ Avoids rerunning tests when the failure rate crosses the specified threshold. Th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rerunFailedThreshold"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`rerunFailedThreshold`** - **% failure**<br>
 `string`. Optional. Use when `rerunFailedTests = true && rerunType = basedOnTestFailurePercentage`. Default value: `30`.<br>
@@ -620,7 +620,7 @@ Avoids rerunning tests when the percentage of failed test cases crosses the spec
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rerunFailedTestCasesMaxLimit"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`rerunFailedTestCasesMaxLimit`** - **# of failed tests**<br>
 `string`. Optional. Use when `rerunFailedTests = true && rerunType = basedOnTestFailureCount`. Default value: `5`.<br>
@@ -632,7 +632,7 @@ Avoids rerunning tests when the number of failed test cases crosses the specifie
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="rerunMaxAttempts"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`rerunMaxAttempts`** - **Maximum # of attempts**<br>
 `string`. Optional. Use when `rerunFailedTests = true`. Default value: `3`.<br>
@@ -652,7 +652,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -731,7 +731,7 @@ This error occur if any of the test methods has priority set above 255, fix the 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

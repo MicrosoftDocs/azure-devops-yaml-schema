@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # Gradle@4 - Gradle v4 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Build using a Gradle wrapper script.
@@ -63,7 +63,7 @@ Build using a Gradle wrapper script.
 ## Inputs
 
 <!-- :::item name="gradleWrapperFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`gradleWrapperFile`** - **Gradle wrapper**<br>
 [Input alias](index.md#what-are-task-input-aliases): `wrapperScript`. `string`. Required. Default value: `gradlew`.<br>
@@ -75,7 +75,7 @@ Specifies the `gradlew` wrapper's location within the repository that will be us
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workingDirectory"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`workingDirectory`** - **Working directory**<br>
 [Input alias](index.md#what-are-task-input-aliases): `cwd`. `string`.<br>
@@ -87,7 +87,7 @@ Specifies the working directory to run the Gradle build. The task uses the repos
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="options"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`options`** - **Options**<br>
 `string`.<br>
@@ -99,7 +99,7 @@ Specifies the command line options that will be passed to the Gradle wrapper. Se
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tasks"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`tasks`** - **Tasks**<br>
 `string`. Required. Default value: `build`.<br>
@@ -113,7 +113,7 @@ See [Gradle Build Script Basics](https://docs.gradle.org/current/userguide/tutor
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishJUnitResults"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`publishJUnitResults`** - **Publish to Azure Pipelines**<br>
 `boolean`. Default value: `true`.<br>
@@ -125,7 +125,7 @@ Publishes JUnit test results produced by the Gradle build to Azure Pipelines. Th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testResultsFiles"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`testResultsFiles`** - **Test results files**<br>
 `string`. Required when `publishJUnitResults = true`. Default value: `**/TEST-*.xml`.<br>
@@ -137,7 +137,7 @@ The file path for test results. [Wildcards](/azure/devops/pipelines/tasks/file-m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunTitle"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`testRunTitle`** - **Test run title**<br>
 `string`. Optional. Use when `publishJUnitResults = true`.<br>
@@ -149,7 +149,7 @@ Provides a name for the JUnit test case results for this build.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="javaHomeOption"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`javaHomeOption`** - **Set JAVA_HOME by**<br>
 [Input alias](index.md#what-are-task-input-aliases): `javaHomeSelection`. `string`. Required. Allowed values: `JDKVersion` (JDK Version), `Path`. Default value: `JDKVersion`.<br>
@@ -161,7 +161,7 @@ Sets JAVA_HOME by selecting a JDK version that the task discovers during builds 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`jdkVersionOption`** - **JDK version**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
@@ -173,7 +173,7 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`jdkDirectory`** - **JDK path**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkUserInputPath`. `string`. Required when `javaHomeSelection = Path`.<br>
@@ -185,7 +185,7 @@ Sets JAVA_HOME to the given path.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkArchitectureOption"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkArchitecture`. `string`. Optional. Use when `jdkVersion != default`. Allowed values: `x86`, `x64`. Default value: `x64`.<br>
@@ -197,7 +197,7 @@ Supplies the JDK architecture (x86 or x64).
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="gradleOptions"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`gradleOptions`** - **Set GRADLE_OPTS**<br>
 [Input alias](index.md#what-are-task-input-aliases): `gradleOpts`. `string`. Default value: `-Xmx1024m`.<br>
@@ -209,7 +209,7 @@ Sets the GRADLE_OPTS environment variable, which is used to send command-line ar
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sonarQubeRunAnalysis"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`sonarQubeRunAnalysis`** - **Run SonarQube or SonarCloud Analysis**<br>
 [Input alias](index.md#what-are-task-input-aliases): `sqAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -221,7 +221,7 @@ This option has changed from version 1 of the **Gradle** task to use the [SonarQ
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sqGradlePluginVersionChoice"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`sqGradlePluginVersionChoice`** - **SonarQube scanner for Gradle version**<br>
 `string`. Required when `sqAnalysisEnabled = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
@@ -233,7 +233,7 @@ Specifies the SonarQube Gradle plugin version to use. Declare the version in the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sonarQubeGradlePluginVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`sonarQubeGradlePluginVersion`** - **SonarQube scanner for Gradle plugin version**<br>
 [Input alias](index.md#what-are-task-input-aliases): `sqGradlePluginVersion`. `string`. Required when `sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify`. Default value: `2.6.1`.<br>
@@ -245,7 +245,7 @@ Contains the version number of the [SonarQube Gradle plugin](https://plugins.gra
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkStyleRunAnalysis"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`checkStyleRunAnalysis`** - **Run Checkstyle**<br>
 [Input alias](index.md#what-are-task-input-aliases): `checkstyleAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -257,7 +257,7 @@ Runs the Checkstyle tool with the default Sun checks. Results are uploaded as bu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="findBugsRunAnalysis"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`findBugsRunAnalysis`** - **Run FindBugs**<br>
 [Input alias](index.md#what-are-task-input-aliases): `findbugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -269,7 +269,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pmdRunAnalysis"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`pmdRunAnalysis`** - **Run PMD**<br>
 [Input alias](index.md#what-are-task-input-aliases): `pmdAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -281,7 +281,7 @@ Uses the PMD Java static analysis tool to look for bugs in the code. The results
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsAnalysis"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`spotBugsAnalysis`** - **Run SpotBugs**<br>
 [Input alias](index.md#what-are-task-input-aliases): `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -293,7 +293,7 @@ Runs `spotBugs` when `true`. This plugin works with Gradle v5.6 or later. Learn 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsGradlePluginVersionChoice"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`spotBugsGradlePluginVersionChoice`** - **Spotbugs plugin version**<br>
 `string`. Required when `spotBugsAnalysisEnabled = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
@@ -305,7 +305,7 @@ Specifies the SpotBugs Gradle plugin version to use. The version can be declared
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotbugsGradlePluginVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`spotbugsGradlePluginVersion`** - **Version number**<br>
 `string`. Required when `spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify`. Default value: `4.7.0`.<br>
@@ -325,7 +325,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

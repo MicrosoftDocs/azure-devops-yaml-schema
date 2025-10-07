@@ -1,8 +1,8 @@
 ---
 title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
 description: Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
@@ -22,7 +22,7 @@ Create a configuration snapshot in Azure App Configuration through build or depl
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure App Configuration Snapshot v1
@@ -47,7 +47,7 @@ Create a configuration snapshot in Azure App Configuration through build or depl
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -59,7 +59,7 @@ Select the Azure Subscription for the Azure App Configuration instance.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppConfigurationEndpoint"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`AppConfigurationEndpoint`** - **App Configuration Endpoint**<br>
 `string`. Required.<br>
@@ -71,7 +71,7 @@ Provide the endpoint of an existing [Azure App Configuration](/azure/azure-app-c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SnapshotName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`SnapshotName`** - **Snapshot Name**<br>
 `string`. Required.<br>
@@ -83,7 +83,7 @@ Provide a name for the snapshot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CompositionType"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`CompositionType`** - **Composition Type**<br>
 `string`. Required. Allowed values: `key` (Key (default)), `key_label` (Key-Label). Default value: `key`.<br>
@@ -97,7 +97,7 @@ Provide a name for the snapshot.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Filters"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`Filters`** - **Filters for key-values**<br>
 `string`. Required.<br>
@@ -109,7 +109,7 @@ Specifies snapshot filters that represent the key and label filters used to buil
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RetentionPeriod"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`RetentionPeriod`** - **Days to retain archived snapshot**<br>
 `string`. Default value: `30`.<br>
@@ -121,7 +121,7 @@ Archived snapshots can be recovered during the retention period. Choose the numb
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Tags"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`Tags`** - **Tags**<br>
 `string`.<br>
@@ -141,7 +141,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -164,7 +164,7 @@ This task is used for creating [snapshots](/azure/azure-app-configuration/concep
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

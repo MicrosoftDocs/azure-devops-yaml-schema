@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # SonarQubePrepare@4 - Prepare Analysis Configuration v4 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to prepare a SonarQube analysis configuration.
@@ -54,7 +54,7 @@ Use this task to prepare a SonarQube analysis configuration.
 ## Inputs
 
 <!-- :::item name="SonarQube"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`SonarQube`** - **SonarQube Server Endpoint**<br>
 `string`. Required.<br>
@@ -66,7 +66,7 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="scannerMode"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`scannerMode`** - **Choose the way to run the analysis**<br>
 `string`. Required. Allowed values: `MSBuild` (Integrate with MSBuild), `Other` (Integrate with Maven or Gradle), `CLI` (Use standalone scanner). Default value: `MSBuild`.<br>
@@ -87,7 +87,7 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configMode"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`configMode`** - **Mode**<br>
 `string`. Required when `scannerMode = CLI`. Allowed values: `file` (Store configuration with my source code (sonar-project.properties)), `manual` (Manually provide configuration). Default value: `file`.<br>
@@ -99,7 +99,7 @@ Specifies your preferred configuration method.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="configFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`configFile`** - **Settings File**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = file`. Default value: `sonar-project.properties`.<br>
@@ -111,7 +111,7 @@ Specifies the configuration settings and project properties. Learn more about th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cliProjectKey"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`cliProjectKey`** - **Project Key**<br>
 `string`. Required when `scannerMode = CLI && configMode = manual`.<br>
@@ -123,7 +123,7 @@ Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="projectKey"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`projectKey`** - **Project Key**<br>
 `string`. Required when `scannerMode = MSBuild`.<br>
@@ -135,7 +135,7 @@ Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cliProjectName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`cliProjectName`** - **Project Name**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = manual`.<br>
@@ -147,7 +147,7 @@ Specifies the SonarQube project name. For example, `sonar.projectName`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="projectName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`projectName`** - **Project Name**<br>
 `string`. Optional. Use when `scannerMode = MSBuild`.<br>
@@ -159,7 +159,7 @@ Specifies the SonarQube project name. For example, `sonar.projectName`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cliProjectVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`cliProjectVersion`** - **Project Version**<br>
 `string`. Optional. Use when `scannerMode = CLI && configMode = manual`. Default value: `1.0`.<br>
@@ -171,7 +171,7 @@ Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="projectVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`projectVersion`** - **Project Version**<br>
 `string`. Optional. Use when `scannerMode = MSBuild`. Default value: `1.0`.<br>
@@ -183,7 +183,7 @@ Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cliSources"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`cliSources`** - **Sources directory root**<br>
 `string`. Required when `scannerMode = CLI && configMode = manual`. Default value: `.`.<br>
@@ -195,7 +195,7 @@ Specifies the path to the root directory containing source files. This value is 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="extraProperties"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`extraProperties`** - **Additional Properties**<br>
 `string`. Default value: `# Additional properties that will be passed to the scanner, \n# Put one key=value per line, example:\n# sonar.exclusions=**/*.bin`.<br>
@@ -215,7 +215,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # AzureLoadTest@1 - Azure Load Testing v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Automate performance regression testing with Azure Load Testing.
@@ -46,7 +46,7 @@ Automate performance regression testing with Azure Load Testing.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `connectedServiceNameARM`. `string`. Required.<br>
@@ -58,7 +58,7 @@ Selects an Azure Resource Manager subscription to run the load test.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestConfigFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`loadTestConfigFile`** - **Load Test File**<br>
 `string`. Required.<br>
@@ -71,7 +71,7 @@ See [Test configuration YAML reference](/azure/load-testing/reference-test-confi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resourceGroup"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`resourceGroup`** - **Load Test Resource Group**<br>
 `string`. Required.<br>
@@ -83,7 +83,7 @@ Enters or selects the Azure Resource Group that contains the Load test resource.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestResource"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`loadTestResource`** - **Load Test Resource Name**<br>
 `string`. Required.<br>
@@ -95,7 +95,7 @@ Enters or selects the name of an existing Azure Load Testing resource.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestRunName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`loadTestRunName`** - **Load Test Run Name**<br>
 `string`.<br>
@@ -107,7 +107,7 @@ Custom name for the load test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="loadTestRunDescription"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`loadTestRunDescription`** - **Load Test Run Description**<br>
 `string`.<br>
@@ -119,7 +119,7 @@ Custom description for the load test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="secrets"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`secrets`** - **Secrets**<br>
 `string`.<br>
@@ -144,7 +144,7 @@ An array of JSON objects that consist of the name and value for each secret. The
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`env`** - **env**<br>
 `string`.<br>
@@ -169,7 +169,7 @@ An array of JSON objects that consist of the name and value for each environment
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overrideParameters"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`overrideParameters`** - **Override parameters**<br>
 `string`.<br>
@@ -194,7 +194,7 @@ Override parameters in the YAML config file using the following JSON format:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="outputVariableName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`outputVariableName`** - **Output Variable Name**<br>
 `string`. Default value: `ALTOutputVar`.<br>
@@ -214,7 +214,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 

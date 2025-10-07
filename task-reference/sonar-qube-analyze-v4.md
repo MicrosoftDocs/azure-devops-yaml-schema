@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # SonarQubeAnalyze@4 - Run Code Analysis v4 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to run the scanner and upload the results to the SonarQube server.
@@ -56,7 +56,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
