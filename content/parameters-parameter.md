@@ -20,7 +20,7 @@ A parameter represents a value passed to a pipeline. Parameters must include a d
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 parameters:

@@ -1,7 +1,7 @@
 ---
 title: boolean definition
 description: Represents a boolean value in a pipeline.
-ms.date: 08/14/2025
+ms.date: 10/06/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -50,7 +50,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [trigger](t
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
