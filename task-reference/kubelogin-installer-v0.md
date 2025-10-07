@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # KubeloginInstaller@0 - Kubelogin tool installer v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Installs kubelogin and adds it to the PATH of your agent.
@@ -38,7 +38,7 @@ Installs kubelogin and adds it to the PATH of your agent.
 ## Inputs
 
 <!-- :::item name="kubeloginVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`kubeloginVersion`** - **kubelogin version**<br>
 `string`. Default value: `latest`.<br>
@@ -50,7 +50,7 @@ The version of kubelogin to use, for example `0.0.30`, or `latest` to use the la
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="gitHubConnection"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`gitHubConnection`** - **GitHub Connection**<br>
 `string`.<br>
@@ -70,7 +70,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

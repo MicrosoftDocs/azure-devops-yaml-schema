@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # SonarQubeAnalyze@7 - Run Code Analysis v7 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Run scanner and upload the results to the SonarQube server.
@@ -39,7 +39,7 @@ Run scanner and upload the results to the SonarQube server.
 ## Inputs
 
 <!-- :::item name="jdkversion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`jdkversion`** - **JDK version source for analysis**<br>
 `string`. Required. Allowed values: `JAVA_HOME` (Use JAVA_HOME), `JAVA_HOME_17_X64` (Use built-in JAVA_HOME_17_X64 (hosted agent)), `JAVA_HOME_21_X64` (Use built-in JAVA_HOME_21_X64 (hosted agent)). Default value: `JAVA_HOME_17_X64`.<br>
@@ -60,7 +60,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

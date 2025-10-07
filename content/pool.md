@@ -41,7 +41,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 | Implementation | Description |
 |---|---|
@@ -169,7 +169,7 @@ Name of the VM image you want to use; valid only in the Microsoft-hosted pool.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::implementation-signature::: -->
 ## pool: name, demands

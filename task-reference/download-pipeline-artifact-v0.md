@@ -1,8 +1,8 @@
 ---
 title: DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 description: Downloads an artifact associated with a pipeline.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # DownloadPipelineArtifact@0 - Download pipeline artifact v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.

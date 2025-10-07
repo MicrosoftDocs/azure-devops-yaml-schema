@@ -10,7 +10,7 @@ ms.author: jukullam
 # AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Scan your application for any vulnerabilities in open source components used in your source code. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
@@ -40,7 +40,7 @@ Scan your application for any vulnerabilities in open source components used in 
 ## Inputs
 
 <!-- :::item name="directoryExclusionList"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`directoryExclusionList`** - **Directory exclusion list**<br>
 `string`.<br>
@@ -60,7 +60,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

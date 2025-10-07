@@ -1,8 +1,8 @@
 ---
 title: AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 description: Deploy an Azure Cloud Service.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # AzureCloudPowerShellDeployment@2 - Azure Cloud Service deployment v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Deploy an Azure Cloud Service.

@@ -1,8 +1,8 @@
 ---
 title: GoTool@0 - Go tool installer v0 task
 description: Find in cache or download a specific version of Go and add it to the PATH.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # GoTool@0 - Go tool installer v0 task

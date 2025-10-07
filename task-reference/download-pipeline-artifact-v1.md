@@ -1,8 +1,8 @@
 ---
 title: DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 description: Download a named artifact from a pipeline to a local path.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # DownloadPipelineArtifact@1 - Download pipeline artifact v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
@@ -20,6 +20,21 @@ There is a newer version of this task. For more information, see [DownloadPipeli
 > [!NOTE]
 > For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to download pipeline artifacts from earlier stages in this pipeline, or from another pipeline.
+
+There is a newer version of this task. For more information, see [DownloadPipelineArtifact@2](./download-pipeline-artifact-v2.md).
+
+> [!NOTE]
+> For more information, including Azure CLI commands, see [downloading artifacts](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml#download-artifacts).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 

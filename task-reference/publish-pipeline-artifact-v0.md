@@ -1,20 +1,32 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to publish a local directory or file as a named artifact for the current pipeline.
 
 There is a newer version of this task. For more information, see [PublishPipelineArtifact@1](./publish-pipeline-artifact-v1.md).
 <!-- :::editable-content-end::: -->
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
+
+<!-- :::editable-content name="description"::: -->
+Use this task to publish a local directory or file as a named artifact for the current pipeline.
+
+There is a newer version of this task. For more information, see [PublishPipelineArtifact@1](./publish-pipeline-artifact-v1.md).
+<!-- :::editable-content-end::: -->
+
+<!-- This task is deprecated. -->
 
 :::moniker-end
 

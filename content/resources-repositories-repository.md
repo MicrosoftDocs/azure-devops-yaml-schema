@@ -20,7 +20,7 @@ The `repository` keyword lets you specify an external repository. Use a reposito
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 repositories:

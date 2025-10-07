@@ -1,8 +1,8 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
 description: Pause a YAML pipeline run to wait for manual interaction - Preview (task version 0).
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1"
 author: juliakm
 ms.author: jukullam
 ---
@@ -22,7 +22,7 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Manual validation v0

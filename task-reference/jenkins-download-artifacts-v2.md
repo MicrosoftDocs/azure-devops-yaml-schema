@@ -1,8 +1,8 @@
 ---
 title: JenkinsDownloadArtifacts@2 - Jenkins download artifacts v2 task
 description: Download artifacts produced by a Jenkins job.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # JenkinsDownloadArtifacts@2 - Jenkins download artifacts v2 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Download artifacts produced by a Jenkins job.
@@ -25,7 +25,7 @@ Download artifacts produced by a Jenkins job.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Jenkins download artifacts v2
@@ -59,7 +59,7 @@ Download artifacts produced by a Jenkins job.
 ## Inputs
 
 <!-- :::item name="jenkinsServerConnection"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`jenkinsServerConnection`** - **Jenkins service connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `serverEndpoint`. `string`. Required.<br>
@@ -71,7 +71,7 @@ Select the service connection for your Jenkins instance. To create one, click th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`jobName`** - **Job name**<br>
 `string`. Required.<br>
@@ -83,7 +83,7 @@ The name of the Jenkins job to download artifacts from.  This must exactly match
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jenkinsJobType"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`jenkinsJobType`** - **Jenkins job type**<br>
 `string`. Optional. Use when `jobName = invalidjobName`.<br>
@@ -95,7 +95,7 @@ Jenkins job type, detected automatically.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="saveTo"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`saveTo`** - **Save to**<br>
 `string`. Required. Default value: `jenkinsArtifacts`.<br>
@@ -107,7 +107,7 @@ Jenkins artifacts will be downloaded and saved to this directory.  This director
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jenkinsBuild"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`jenkinsBuild`** - **Download artifacts produced by**<br>
 `string`. Required. Allowed values: `LastSuccessfulBuild` (Last Successful Build), `BuildNumber` (Build Number). Default value: `LastSuccessfulBuild`.<br>
@@ -119,7 +119,7 @@ Download artifacts produced by the last successful build, or from a specific bui
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jenkinsBuildNumber"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`jenkinsBuildNumber`** - **Jenkins build number**<br>
 `string`. Required when `jenkinsBuild == BuildNumber`. Default value: `1`.<br>
@@ -131,7 +131,7 @@ Download artifacts produced by this build.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="itemPattern"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`itemPattern`** - **Item Pattern**<br>
 `string`. Default value: `**`.<br>
@@ -143,7 +143,7 @@ Specify files to be downloaded as multi line minimatch pattern. [More Informatio
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="downloadCommitsAndWorkItems"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`downloadCommitsAndWorkItems`** - **Download Commits and WorkItems**<br>
 `boolean`. Default value: `false`.<br>
@@ -155,7 +155,7 @@ Enables downloading the commits and work item details associated with the Jenkin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="startJenkinsBuildNumber"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`startJenkinsBuildNumber`** - **Download commits and work items from**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == true && jenkinsBuild == BuildNumber`.<br>
@@ -167,7 +167,7 @@ Optional start build number for downloading commits and work items. If provided,
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactDetailsFileNameSuffix"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`artifactDetailsFileNameSuffix`** - **Commit and WorkItem FileName**<br>
 `string`. Optional. Use when `downloadCommitsAndWorkItems == invalid`.<br>
@@ -179,7 +179,7 @@ Optional file name suffix for commits and work item attachments. Attachments wil
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="propagatedArtifacts"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`propagatedArtifacts`** - **Artifacts are propagated to Azure**<br>
 `boolean`. Default value: `false`.<br>
@@ -191,7 +191,7 @@ Check this if Jenkins artifacts were propagated to Azure. To upload Jenkins arti
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="artifactProvider"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`artifactProvider`** - **Artifact Provider**<br>
 `string`. Required when `propagatedArtifacts == notValid`. Allowed values: `azureStorage` (Azure Storage). Default value: `azureStorage`.<br>
@@ -203,7 +203,7 @@ Choose the external storage provider used in Jenkins job to upload the artifacts
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ConnectedServiceNameARM"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`ConnectedServiceNameARM`** - **Azure Subscription**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
@@ -218,7 +218,7 @@ Choose the Azure Resource Manager subscription for the artifacts.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="storageAccountName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`storageAccountName`** - **Storage Account Name**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
@@ -230,7 +230,7 @@ Azure Classic and Resource Manager stoarge accounts are listed. Select the Stora
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="containerName"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`containerName`** - **Container Name**<br>
 `string`. Required when `propagatedArtifacts == true`.<br>
@@ -242,7 +242,7 @@ Name of the container in the storage account to which artifacts are uploaded.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="commonVirtualPath"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`commonVirtualPath`** - **Common Virtual Path**<br>
 `string`. Optional. Use when `propagatedArtifacts == true`.<br>
@@ -262,7 +262,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -287,7 +287,7 @@ This version of the task uses an [Azure Resource Manager service connection](/az
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|
