@@ -20,7 +20,7 @@ A container resource references a container image.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 containers:

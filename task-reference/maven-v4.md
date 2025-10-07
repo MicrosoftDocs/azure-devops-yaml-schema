@@ -1,8 +1,8 @@
 ---
 title: Maven@4 - Maven v4 task
 description: Build, test, and deploy with Apache Maven.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 ---
 
 # Maven@4 - Maven v4 task
@@ -20,7 +20,7 @@ Build, test, and deploy with Apache Maven.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Maven v4
@@ -122,7 +122,7 @@ Build, test, and deploy with Apache Maven.
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`azureSubscription`** - **Azure Resource Manager connection**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`.<br>
@@ -310,7 +310,7 @@ Sets `JAVA_HOME` either by selecting a JDK version that will be discovered durin
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkVersionOption"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`jdkVersionOption`** - **JDK version**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.21` (JDK 21), `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>

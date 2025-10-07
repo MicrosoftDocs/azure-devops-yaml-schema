@@ -1,8 +1,8 @@
 ---
 title: AzureRmWebAppDeployment@4 - Azure App Service deploy v4 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 4).
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
 ---
@@ -75,7 +75,7 @@ Use this task to deploy to Azure App Service a web, mobile, or API app using Doc
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022.2 <=azure-pipelines-server"
 
 ```yaml
 # Azure App Service deploy v4
@@ -555,7 +555,7 @@ Specify the framework and version.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RuntimeStackFunction"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `NODE|20` (NODE|20 (functionapp v4)), `NODE|22` (NODE|22 (functionapp v4)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
@@ -566,7 +566,7 @@ Specify the framework and version. Refer to the [Azure Functions runtime version
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-server"
 
 **`RuntimeStackFunction`** - **Runtime Stack**<br>
 `string`. Optional. Use when `WebAppKind = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>

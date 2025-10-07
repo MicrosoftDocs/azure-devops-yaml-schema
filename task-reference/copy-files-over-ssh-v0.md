@@ -1,8 +1,8 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # CopyFilesOverSSH@0 - Copy files over SSH v0 task
@@ -20,7 +20,7 @@ Copy files or build artifacts to a remote machine over SSH.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Copy files over SSH v0
@@ -234,7 +234,7 @@ Flattens the folder structure and copies all files into the specified target fol
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="concurrentUploads"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`concurrentUploads`** - **Number of concurrent uploads when copying files**<br>
 `string`. Default value: `10`.<br>
@@ -246,7 +246,7 @@ Number of concurrent uploads when copying files. Default is 10.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenUploads"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`delayBetweenUploads`** - **Delay between queueing uploads (in milliseconds)**<br>
 `string`. Default value: `50`.<br>
@@ -286,7 +286,7 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

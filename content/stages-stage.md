@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 08/14/2025
+ms.date: 10/06/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -39,7 +39,7 @@ stages:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-server"
 
 ```yaml
 stages:

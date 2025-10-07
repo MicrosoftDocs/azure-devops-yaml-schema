@@ -1,8 +1,8 @@
 ---
 title: XcodePackageiOS@0 - Xcode Package iOS v0 task
 description: Generate an .ipa file from Xcode build output using xcrun (Xcode 7 or below).
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
 ---

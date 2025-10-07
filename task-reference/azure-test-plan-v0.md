@@ -1,14 +1,14 @@
 ---
 title: AzureTestPlan@0 - Azure Test Plan v0 task
 description: Run manual and automated tests in test plan in Java and Python language.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
 # AzureTestPlan@0 - Azure Test Plan v0 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Run manual and automated tests in test plan in Java, JavaScript and Python language.
@@ -23,7 +23,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure Test Plan v0
@@ -53,7 +53,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 ## Inputs
 
 <!-- :::item name="testSelector"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testSelector`** - **Test cases to be executed**<br>
 `string`. Required. Allowed values: `manualTests` (Manual tests), `automatedTests` (Automated tests).<br>
@@ -65,7 +65,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlanOrRunSelector"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testPlanOrRunSelector`** - **Select tests using**<br>
 `string`. Required. Allowed values: `testPlan` (Test plan), `testRun` (Test run). Default value: `testPlan`.<br>
@@ -77,7 +77,7 @@ Run manual and automated tests in test plan in Java, JavaScript and Python langu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testRunId"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testRunId`** - **Test Run**<br>
 `string`. Required when `testPlanOrRunSelector = testRun`. Default value: `$(test.RunId)`.<br>
@@ -89,7 +89,7 @@ Test run based selection is used when triggering automated test runs from the te
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testPlan"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testPlan`** - **Test plan**<br>
 `string`. Required when `testPlanOrRunSelector = testPlan`.<br>
@@ -101,7 +101,7 @@ Type or paste the test plan ID containing test suites with test cases.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testSuite"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testSuite`** - **Test suite**<br>
 `string`. Required when `testPlanOrRunSelector = testPlan`.<br>
@@ -113,7 +113,7 @@ Select one or more test suites containing test cases.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testConfiguration"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testConfiguration`** - **Test configuration**<br>
 `string`. Required.<br>
@@ -125,7 +125,7 @@ Select Test Configuration.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="testLanguageInput"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`testLanguageInput`** - **Select Test framework language**<br>
 `string`. Allowed values: `JavaMaven` (Java - Maven), `JavaGradle` (Java - Gradle), `Python` (Python - PyTest), `JavaScriptJest` (JavaScript - Jest).<br>
@@ -137,7 +137,7 @@ Test Framework Language of automated tests in test plan.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pomFilePath"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`pomFilePath`** - **Pom file path**<br>
 `string`. Optional. Use when `testLanguageInput = JavaMaven`.<br>
@@ -149,7 +149,7 @@ Relative path from the repository root to the Maven POM file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="gradleFilePath"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`gradleFilePath`** - **Gradle file path**<br>
 `string`. Optional. Use when `testLanguageInput = JavaGradle`.<br>
@@ -161,7 +161,7 @@ Relative path from the repository root to the build.gradle file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="publishRunAttachments"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`publishRunAttachments`** - **Upload test results files**<br>
 `boolean`. Default value: `true`.<br>
@@ -173,7 +173,7 @@ Upload logs and other files containing diagnostic information collected when the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailedTests"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`failTaskOnFailedTests`** - **Fail if there are test failures**<br>
 `boolean`. Default value: `true`.<br>
@@ -185,7 +185,7 @@ Fail the task if there are any test failures. Check this option to fail the task
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnFailureToPublishResults"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`failTaskOnFailureToPublishResults`** - **Fail if there is failure in publishing test results**<br>
 `boolean`. Default value: `false`.<br>
@@ -197,7 +197,7 @@ Fail if there is failure in publishing test results. Check this option to fail t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failTaskOnMissingResultsFile"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`failTaskOnMissingResultsFile`** - **Fail if no result files are found**<br>
 `boolean`. Default value: `false`.<br>
@@ -217,7 +217,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
@@ -352,7 +352,7 @@ Here is the pipeline result summary, which shows the outcome for TC4 along with 
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

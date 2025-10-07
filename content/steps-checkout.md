@@ -20,7 +20,7 @@ Use `checkout` to configure how the pipeline checks out source code.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 steps:
@@ -169,7 +169,7 @@ Depth of Git graph to fetch.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="fetchFilter"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`fetchFilter`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Use `fetchFilter` to filter Git history for partial cloning. The `fetchFilter` setting supports treeless and blobless fetches. For a treeless fetch, specify `fetchFilter: tree:0` and to specify a blobless fetch, specify `fetchFilter: blob:none`. The default is no filtering.
@@ -223,7 +223,7 @@ Where to put the repository. The root directory is $(Pipeline.Workspace). By def
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sparseCheckoutDirectories"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`sparseCheckoutDirectories`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Specify a directory to enable sparse checkout in cone mode using directory matching. Separate multiple directories using a space. Supported on agent version 3.253.0/4.253.0 and higher with Git 2.25 or higher.
@@ -241,7 +241,7 @@ For more information on sparse checkout, see [Bring your monorepo down to size w
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sparseCheckoutPatterns"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`sparseCheckoutPatterns`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Specify a pattern to enable sparse checkout in non-cone mode using pattern matching. Separate multiple patterns using a space. Supported on agent version 3.253.0/4.253.0 and higher with Git 2.25 or higher.
@@ -259,7 +259,7 @@ For more information on sparse checkout, see [Bring your monorepo down to size w
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="workspaceRepo"::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 **`workspaceRepo`** string.<br><!-- :::editable-content name="propDescription"::: -->
 When true, use the repository root directory as the default working directory for the pipeline. The default is false.

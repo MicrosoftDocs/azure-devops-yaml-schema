@@ -1,8 +1,8 @@
 ---
 title: PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
 description: Sends a message to Azure Service Bus using a service connection, with no agent required (task version 0).
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 
 # PublishToAzureServiceBus@0 - Publish To Azure Service Bus v0 task
