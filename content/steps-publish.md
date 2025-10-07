@@ -18,7 +18,7 @@ The `publish` keyword publishes (uploads) a file or folder as a pipeline artifac
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 The `publish` keyword publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume.

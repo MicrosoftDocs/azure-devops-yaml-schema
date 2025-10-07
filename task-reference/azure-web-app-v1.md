@@ -1,8 +1,8 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
 ---
@@ -22,7 +22,7 @@ This task deploys an Azure Web App for Linux or Windows.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure Web App v1
@@ -185,7 +185,7 @@ In all other instances, it is deployed to `<appname>.azurewebsited.net/<customWa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runtimeStack"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = webAppLinux`. Allowed values: `DOTNETCORE|9.0` (.NET 9.0), `DOTNETCORE|8.0` (.NET 8.0), `DOTNETCORE|7.0` (.NET 7.0), `DOTNETCORE|6.0` (.NET 6.0), `NODE|22-lts` (Node 22 LTS), `NODE|20-lts` (Node 20 LTS), `NODE|18-lts` (Node 18 LTS), `NODE|16-lts` (Node 16 LTS), `PYTHON|3.13` (Python 3.13), `PYTHON|3.12` (Python 3.12), `PYTHON|3.11` (Python 3.11), `PYTHON|3.10` (Python 3.10), `PYTHON|3.9` (Python 3.9), `PYTHON|3.8` (Python 3.8), `PHP|8.3` (PHP 8.3), `PHP|8.2` (PHP 8.2), `PHP|8.1` (PHP 8.1), `PHP|8.0` (PHP 8.0), `JAVA|21-java21` (Java 21), `JAVA|17-java17` (Java 17), `JAVA|11-java11` (Java 11), `JAVA|8-jre8` (Java 8), `JBOSSEAP|8-java17` (JBoss EAP 8 (Java 17)), `JBOSSEAP|8-java11` (JBoss EAP 8 (Java 11)), `JBOSSEAP|7-java17` (JBoss EAP 7 (Java 17)), `JBOSSEAP|7-java11` (JBoss EAP 7 (Java 11)), `JBOSSEAP|7-java8` (JBoss EAP 7 (Java 8)), `TOMCAT|10.1-java21` (Tomcat 10.1 (Java 21)), `TOMCAT|10.1-java17` (Tomcat 10.1 (Java 17)), `TOMCAT|10.1-java11` (Tomcat 10.1 (Java 11)), `TOMCAT|10.0-java17` (Tomcat 10.0 (Java 17)), `TOMCAT|10.0-java11` (Tomcat 10.0 (Java 11)), `TOMCAT|10.0-jre8` (Tomcat 10.0 (Java 8)), `TOMCAT|9.0-java21` (Tomcat 9.0 (Java 21)), `TOMCAT|9.0-java17` (Tomcat 9.0 (Java 17)), `TOMCAT|9.0-java11` (Tomcat 9.0 (Java 11)), `TOMCAT|9.0-jre8` (Tomcat 9.0 (Java 8)), `TOMCAT|8.5-java11` (Tomcat 8.5 (Java 11)), `TOMCAT|8.5-jre8` (Tomcat 8.5 (Java 8)).<br>
@@ -411,7 +411,7 @@ If not specified, `auto` is the default value.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -54,7 +54,7 @@ Definitions that reference this definition: [resources.pipelines.pipeline.trigge
 <!-- :::implementation-item name="branches: object properties"::: -->
 <a name="branchesobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::implementation-signature::: -->
 ## branches: include, exclude

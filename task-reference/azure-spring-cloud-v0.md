@@ -1,8 +1,8 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 09/22/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+ms.date: 10/07/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureSpringCloud@0 - Azure Spring Apps v0 task
@@ -23,7 +23,7 @@ This task deploys applications to Azure Spring Apps and manages those deployment
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 ```yaml
 # Azure Spring Apps v0
@@ -376,7 +376,7 @@ Edits the app's JVM options. A string containing JVM options, such as `-Xms1024m
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RuntimeVersion"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">=azure-pipelines-server"
 
 **`RuntimeVersion`** - **Runtime Version**<br>
 `string`. Optional. Use when `Action = Deploy && DeploymentType = Artifacts`. Allowed values: `Java_8` (Java 8), `Java_11` (Java 11), `Java_17` (Java 17), `Java_21` (Java 21), `NetCore_31` (.Net Core 3.1). Default value: `Java_11`.<br>

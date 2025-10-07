@@ -8,7 +8,7 @@ monikerRange: "=azure-pipelines"
 # SonarQubePublish@7 - Publish Quality Gate Result v7 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
@@ -39,7 +39,7 @@ Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be 
 ## Inputs
 
 <!-- :::item name="pollingTimeoutSec"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`pollingTimeoutSec`** - **Timeout (s)**<br>
 `string`. Required. Default value: `300`.<br>
@@ -59,7 +59,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 

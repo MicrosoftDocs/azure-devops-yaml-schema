@@ -10,7 +10,7 @@ ms.author: jukullam
 # AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 
 <!-- :::description::: -->
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
 Analyzes the code in an Azure Repos Git repository to find security vulnerabilities and coding errors. You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features) enabled for the repository being scanned.
@@ -41,7 +41,7 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 ## Inputs
 
 <!-- :::item name="WaitForProcessing"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`WaitForProcessing`** - **Enable Wait for Processing**<br>
 `boolean`. Default value: `false`.<br>
@@ -53,7 +53,7 @@ Wait for Advanced Security to process published SARIF file before completing.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessingInterval"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`WaitForProcessingInterval`** - **Wait for Processing Time Interval**<br>
 `string`. Optional. Use when `WaitForProcessing = true`. Default value: `5`.<br>
@@ -65,7 +65,7 @@ Time, in seconds, to wait between each call to Advanced Security to check SARIF 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="WaitForProcessingTimeout"::: -->
-:::moniker range=">azure-pipelines-2022.2"
+:::moniker range=">azure-pipelines-server"
 
 **`WaitForProcessingTimeout`** - **Wait for Processing Timeout**<br>
 `string`. Optional. Use when `WaitForProcessing = true`. Default value: `120`.<br>
@@ -85,7 +85,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="=azure-pipelines"
+:::moniker range=">=azure-pipelines-server"
 
 None.
 
