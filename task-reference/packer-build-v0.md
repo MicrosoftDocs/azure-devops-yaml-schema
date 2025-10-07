@@ -82,6 +82,10 @@ Use this task to build a machine image using Packer, which may be used for Azure
 `string`. Required. Allowed values: `builtin` (Auto generated), `custom` (User provided). Default value: `builtin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies whether you want the task to auto generate a Packer template or use a custom template provided by you.
+
+> [!NOTE]
+> If you're using a custom template, make sure it is written in JSON format. HCL2 templates are not currently supported.
+
 <!-- :::editable-content-end::: -->
 <br>
 
