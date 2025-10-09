@@ -373,8 +373,16 @@ Edits web app configuration settings using the syntax `-key value`. Values conta
 
 **`enableCustomDeployment`** - **Select deployment method**<br>
 [Input alias](index.md#what-are-task-input-aliases): `UseWebDeploy`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppKind != webAppHyperVContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
+
 <!-- :::editable-content name="helpMarkDown"::: -->
-If unchecked or false, the task auto-detects the best deployment method based on the app type, package format, and other parameters. Check this option in the task assistant to view the supported deployment methods, and choose one for deploying your app.
+Enables custom deployment method selection. When set to `true`, you must explicitly choose the deployment method using the `DeploymentType` parameter. You can select from `webDeploy` (default), `zipDeploy`, or `runFromZip`.
+
+When set to `false` (default), the task automatically detects the best deployment method based on the app type, package format, and other parameters.
+
+> [!NOTE]
+> Enabling custom deployment doesn't disable Web Deploy. Instead, enabling custom deployment requires you to explicitly choose your preferred deployment method instead of relying on auto-detection.
+
+
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -622,9 +630,11 @@ The following prerequisites must be set up in the target machine(s) for the task
 
 ### Deployment methods
 
-Several deployment methods are available in this task. Web Deploy (msdeploy.exe) is the default.
-To change the deployment option, expand **Additional Deployment Options** and enable **Select deployment method**
-to choose from additional package-based deployment options.
+Several deployment methods are available in this task. Web Deploy (msdeploy.exe) is the default when auto-detection is used.
+To manually choose a deployment method, expand **Additional Deployment Options** and enable **Select deployment method**
+(or set `enableCustomDeployment: true` in YAML). This allows you to explicitly choose from `webDeploy`, `zipDeploy`, or `runFromZip` deployment options.
+
+When auto-detection is disabled, you must specify your preferred deployment method. The task will not default to Web Deploy - it requires an explicit choice.
 
 Based on the type of Azure App Service and agent, the task chooses a suitable deployment technology. The different deployment technologies used by the task are:
 
