@@ -83,6 +83,33 @@ The maximum value for a delay is 60 days (86400 minutes). The default timeout fo
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+### Delay for 30 minutes
+
+The following YAML snippet creates a job to delay for 30 minutes before continuing execution.
+```YAML
+- job: DelayTask
+  pool: server # 'server' is a reserved word for agentless jobs. Delay task must be agentless.
+  steps:
+    - task: Delay@V1
+      inputs:
+        delayForMinutes: '30'
+```
+
+### Delay for 7 days
+
+The following YAML snippet creates a job which delays for 7 days (10080 minutes) before continuing execution.
+```YAML
+- job: DelayTask
+  pool: server
+  timeoutInMinutes: 10081
+  steps:
+    - task: Delay@V1
+      inputs:
+        delayForMinutes: '10080'
+```
+> [!NOTE]
+> You must set the `timeoutInMinutes` property to be at least a minute longer than the `delayForMinutes` parameter on Delay@V1. The default `timeoutInMinutes` is 60 minutes on an agentless job.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
