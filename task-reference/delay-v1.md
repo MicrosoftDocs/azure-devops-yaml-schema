@@ -75,7 +75,9 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 > [!NOTE]
 > Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
-The maximum value for a delay is 60 days (86400 minutes).
+The maximum value for a delay is 60 days (86400 minutes). The default timeout for [agentless jobs](/azure/devops/pipelines/process/phases#server-jobs) is [60 minutes](/azure/devops/pipelines/process/phases#timeoutss). To use delays longer than 60 minutes, set the parent job’s [timeoutInMinutes](/azure/devops/pipelines/process/phases#timeouts) property to a higher value.
+
+
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
