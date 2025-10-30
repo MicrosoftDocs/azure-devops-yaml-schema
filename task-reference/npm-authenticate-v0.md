@@ -107,10 +107,13 @@ This task will only add authentication details to one `.npmrc` file at a time. I
 ```YAML
 - task: npmAuthenticate@0
   inputs:
-    workingFile: $(agent.tempdirectory)/.npmrc
-- script: echo ##vso[task.setvariable variable=NPM_CONFIG_USERCONFIG]$(agent.tempdirectory)/.npmrc
+    workingFile: $(Agent.TempDirectory)/.npmrc
+
+- script: echo "##vso[task.setvariable variable=NPM_CONFIG_USERCONFIG]$(Agent.TempDirectory)/.npmrc"
+
 - script: npm ci
   workingDirectory: project1
+
 - script: npm ci
   workingDirectory: project2
 ```
@@ -124,8 +127,8 @@ To do so, you can either:
 * Set the environment variables `http_proxy`/`https_proxy` and optionally `no_proxy` to your proxy settings. See [npm config](https://docs.npmjs.com/misc/config#https-proxy) for details. Note that these are commonly used variables which other non-`npm` tools (e.g. curl) may also use.
 
 * Add the proxy settings to the [npm configuration](https://docs.npmjs.com/misc/config), either manually, by using [npm config set](https://docs.npmjs.com/cli/config#set), or by setting [environment variables](https://docs.npmjs.com/misc/config#environment-variables) prefixed with `NPM_CONFIG_`.
-  >**Caution:**  
-  >`npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
+  > [!IMPORTANT]  
+  > `npm` task runners may not be compatible with all methods of proxy configuration supported by `npm`.
 
 * Specify the proxy with a command line flag when calling `npm`.
   ```YAML
@@ -159,18 +162,20 @@ If the pipeline is running in a different project than the project hosting the f
 If the only authenticated registries you use are Azure Artifacts registries in your organization, you only need to specify the path to an `.npmrc` file to the `npmAuthenticate` task.
 
 #### `.npmrc`
+
 ```
 registry=https://pkgs.dev.azure.com/{organization}/_packaging/{feed}/npm/registry/
 always-auth=true
 ```
 
 #### `npm`
+
 ```YAML
 - task: npmAuthenticate@0
   inputs:
     workingFile: .npmrc
 - script: npm ci
-# ...
+
 - script: npm publish
 ```
 
@@ -191,15 +196,17 @@ always-auth=true
 The registry URL pointing to an Azure Artifacts feed may or may not contain the project. An URL for a project scoped feed must contain the project, and the URL for an organization scoped feed must not contain the project. Learn more about [project scoped feeds](/azure/devops/artifacts/feeds/project-scoped-feeds).
 
 #### npm
+
 ```YAML
 - task: npmAuthenticate@0
   inputs:
     workingFile: .npmrc
-    customEndpoint: OtherOrganizationNpmConnection, ThirdPartyRepositoryNpmConnection
+    customEndpoint: OtherOrganizationNpmConnection, ThirdPartyRepositoryNpmConnection # Name of your service connection
 - script: npm ci
-# ...
+
 - script: npm publish -registry https://pkgs.dev.azure.com/{otherorganization}/_packaging/{feed}/npm/registry/
 ```
+
 `OtherOrganizationNpmConnection` and `ThirdPartyRepositoryNpmConnection` are the names of [npm service connections](/azure/devops/pipelines/library/service-endpoints#npm-service-connection) that have been configured and authorized for use in your pipeline, and have URLs that match those in the specified `.npmrc` file.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
