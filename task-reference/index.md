@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 10/07/2025
+ms.date: 11/10/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -327,9 +327,8 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Maven Authenticate**<br>[MavenAuthenticate@0](maven-authenticate-v0.md) | Provides credentials for Azure Artifacts feeds and external maven repositories. |
 | **npm**<br>[Npm@1](npm-v1.md)<br>[Npm@0](npm-v0.md) | Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts. |
 | **npm authenticate (for task runners)**<br>[npmAuthenticate@0](npm-authenticate-v0.md) | Don't use this task if you're also using the npm task. Provides npm credentials to an .npmrc file in your repository for the scope of the build. This enables npm task runners like gulp and Grunt to authenticate with private registries. |
-| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
+| **NuGet**<br>[NuGetCommand@2](nuget-command-v2.md)<br>[NuGet@0](nuget-v0.md) | Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task. |
 | **NuGet authenticate**<br>[NuGetAuthenticate@1](nuget-authenticate-v1.md)<br>[NuGetAuthenticate@0](nuget-authenticate-v0.md) | Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604. |
-| **NuGet command**<br>[NuGet@0](nuget-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
 | **NuGet Installer**<br>[NuGetInstaller@0](nuget-installer-v0.md) | Installs or restores missing NuGet packages. Use NuGetAuthenticate@0 task for latest capabilities. |
 | **NuGet packager**<br>[NuGetPackager@0](nuget-packager-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
 | **NuGet publisher**<br>[NuGetPublisher@0](nuget-publisher-v0.md) | Deprecated: use the “NuGet” task instead. It works with the new Tool Installer framework so you can easily use new versions of NuGet without waiting for a task update, provides better support for authenticated feeds outside this organization/collection, and uses NuGet 4 by default. |
