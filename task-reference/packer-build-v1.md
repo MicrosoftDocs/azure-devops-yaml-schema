@@ -1,7 +1,7 @@
 ---
 title: PackerBuild@1 - Build machine image v1 task
 description: Build a machine image using Packer, which may be used for Azure Virtual machine scale set deployment.
-ms.date: 10/07/2025
+ms.date: 11/10/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: ramiMSFT
 ms.author: rabououn
@@ -110,7 +110,6 @@ Specifies whether the task auto generates a Packer template or uses a custom tem
 
 > [!NOTE]
 > If you're using a custom template, make sure it is written in JSON format. HCL2 templates are not currently supported.
-
 <!-- :::editable-content-end::: -->
 <br>
 
