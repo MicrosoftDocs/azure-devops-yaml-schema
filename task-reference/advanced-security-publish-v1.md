@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Publish@1 - Advanced Security Publish Results v1 task
 description: Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service.
-ms.date: 09/22/2025
+ms.date: 11/10/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -35,6 +35,7 @@ Combines SARIF file(s) produced by code scanning tool(s), enhances the combined 
 - task: AdvancedSecurity-Publish@1
   inputs:
     #SarifsInputDirectory: # string. SARIF(s) Input Directory. 
+    #EnableRecursiveScanning: false # boolean. Enable Recursive Scanning. Default: false.
     #Category: # string. Category. 
     #WaitForProcessing: false # boolean. Enable Wait for Processing. Default: false.
     #WaitForProcessingInterval: '5' # string. Optional. Use when WaitForProcessing = true. Wait for Processing Time Interval. Default: 5.
@@ -53,7 +54,19 @@ Combines SARIF file(s) produced by code scanning tool(s), enhances the combined 
 **`SarifsInputDirectory`** - **SARIF(s) Input Directory**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Path to the directory containing the SARIF file(s) that need to be combined, enhanced, and published to Advanced Security. When not specified, the task will look for SARIF file(s) in pre-determined locations.
+Path(s) to the directory or directories containing the SARIF file(s) that need to be combined, enhanced, and published to Advanced Security. Multiple directories can be specified (one per line). When not specified, the task will look for SARIF file(s) in pre-determined locations.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="EnableRecursiveScanning"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`EnableRecursiveScanning`** - **Enable Recursive Scanning**<br>
+`boolean`. Default value: `false`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+When enabled, searches for SARIF files recursively in subdirectories of the specified directories.
 <!-- :::editable-content-end::: -->
 <br>
 
