@@ -1,7 +1,7 @@
 ---
 title: boolean definition
 description: Represents a boolean value in a pipeline.
-ms.date: 10/06/2025
+ms.date: 11/10/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -14,7 +14,6 @@ ms.author: sdanie
 
 <!-- :::editable-content name="description"::: -->
 Represents a boolean value in a pipeline.
-
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
