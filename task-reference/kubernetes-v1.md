@@ -1,7 +1,7 @@
 ---
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-ms.date: 10/07/2025
+ms.date: 11/11/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 ---
 

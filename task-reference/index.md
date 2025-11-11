@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 11/10/2025
+ms.date: 11/11/2025
 monikerRange: "<=azure-pipelines"
 ---
 

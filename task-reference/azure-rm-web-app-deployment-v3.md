@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@3 - Azure App Service deploy v3 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby (task version 3).
-ms.date: 10/07/2025
+ms.date: 11/11/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
