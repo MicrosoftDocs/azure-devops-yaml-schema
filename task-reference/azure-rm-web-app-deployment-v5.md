@@ -1,7 +1,7 @@
 ---
 title: AzureRmWebAppDeployment@5 - Azure App Service deploy v5 task
 description: Deploy to Azure App Service a web, mobile, or API app using Docker, Java, .NET, .NET Core, Node.js, PHP, Python, or Ruby.
-ms.date: 09/22/2025
+ms.date: 11/10/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -373,7 +373,6 @@ Edits web app configuration settings using the syntax `-key value`. Values conta
 
 **`enableCustomDeployment`** - **Select deployment method**<br>
 [Input alias](index.md#what-are-task-input-aliases): `UseWebDeploy`. `boolean`. Optional. Use when `ConnectionType = AzureRM && WebAppKind != webAppLinux && WebAppKind != webAppContainer && WebAppKind != webAppHyperVContainer && WebAppkind != functionAppContainer && webAppKind != functionAppLinux && WebAppKind != "" && Package NotEndsWith .war && Package NotEndsWith .jar`. Default value: `false`.<br>
-
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enables custom deployment method selection. When set to `true`, you must explicitly choose the deployment method using the `DeploymentType` parameter. You can select from `webDeploy` (default), `zipDeploy`, or `runFromZip`.
 
@@ -381,8 +380,6 @@ When set to `false` (default), the task automatically detects the best deploymen
 
 > [!NOTE]
 > Enabling custom deployment doesn't disable Web Deploy. Instead, enabling custom deployment requires you to explicitly choose your preferred deployment method instead of relying on auto-detection.
-
-
 <!-- :::editable-content-end::: -->
 <br>
 
