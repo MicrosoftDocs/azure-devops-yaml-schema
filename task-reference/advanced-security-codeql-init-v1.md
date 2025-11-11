@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 09/22/2025
+ms.date: 11/11/2025
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
