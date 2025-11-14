@@ -1,7 +1,7 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 11/11/2025
+ms.date: 11/14/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
@@ -22,7 +22,35 @@ This task deploys an Azure Web App for Linux or Windows.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-server"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure Web App v1
+# Deploy an Azure Web App for Linux or Windows.
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: # string. Required. Azure subscription. 
+    appType: # 'webApp' | 'webAppLinux'. Required. App type. 
+    appName: # string. Required. App name. 
+    #deployToSlotOrASE: false # boolean. Optional. Use when appType != "". Deploy to Slot or App Service Environment. Default: false.
+    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
+    #customDeployFolder: # string. Optional. Use when package EndsWith .war. Custom Deploy Folder. 
+    #runtimeStack: # 'DOTNETCORE|9.0' | 'DOTNETCORE|8.0' | 'DOTNETCORE|7.0' | 'DOTNETCORE|6.0' | 'NODE|22-lts' | 'NODE|20-lts' | 'NODE|18-lts' | 'NODE|16-lts' | 'PYTHON|3.13' | 'PYTHON|3.12' | 'PYTHON|3.11' | 'PYTHON|3.10' | 'PYTHON|3.9' | 'PYTHON|3.8' | 'PHP|8.3' | 'PHP|8.2' | 'PHP|8.1' | 'PHP|8.0' | 'JAVA|21-java21' | 'JAVA|17-java17' | 'JAVA|11-java11' | 'JAVA|8-jre8' | 'JBOSSEAP|8-java17' | 'JBOSSEAP|8-java11' | 'JBOSSEAP|7-java17' | 'JBOSSEAP|7-java11' | 'JBOSSEAP|7-java8' | 'TOMCAT|10.1-java21' | 'TOMCAT|10.1-java17' | 'TOMCAT|10.1-java11' | 'TOMCAT|10.0-java17' | 'TOMCAT|10.0-java11' | 'TOMCAT|10.0-jre8' | 'TOMCAT|9.0-java21' | 'TOMCAT|9.0-java17' | 'TOMCAT|9.0-java11' | 'TOMCAT|9.0-jre8' | 'TOMCAT|8.5-java11' | 'TOMCAT|8.5-jre8'. Optional. Use when appType = webAppLinux. Runtime stack. 
+    #startUpCommand: # string. Optional. Use when appType = webAppLinux. Startup command. 
+    #siteContainersConfig: # string. Site Containers Config. 
+  # Application and Configuration Settings
+    #customWebConfig: # string. Optional. Use when appType != webAppLinux && package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
+    #appSettings: # string. App settings. 
+    #configurationStrings: # string. Configuration settings. 
+  # Additional Deployment Options
+    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar. Deployment method. Default: auto.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
 
 ```yaml
 # Azure Web App v1
@@ -265,6 +293,18 @@ Specify the web app configuration settings using the syntax `-key value` (for ex
 `string`. Required when `appType != webAppLinux && appType != "" && package NotEndsWith .war && package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Choose the [deployment method](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app#deployment-methods) for the app. Acceptable values are **auto**, **zipDeploy**, and **runFromPackage**.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="siteContainersConfig"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`siteContainersConfig`** - **Site Containers Config**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provide siteContainers-config JSON for SiteContainers deployments.
 <!-- :::editable-content-end::: -->
 <br>
 

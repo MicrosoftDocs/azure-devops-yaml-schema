@@ -1,7 +1,7 @@
 ---
 title: AzureWebAppContainer@1 - Azure Web App for Containers v1 task
 description: Deploy containers to Azure App Service.
-ms.date: 11/11/2025
+ms.date: 11/14/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
 author: juliakm
 ms.author: jukullam
@@ -24,7 +24,30 @@ When you deploy a container using this task, you don't see an error message if t
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure Web App for Containers v1
+# Deploy containers to Azure App Service.
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: # string. Required. Azure subscription. 
+    appName: # string. Required. App name. 
+    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
+    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
+    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
+    #containers: # string. Alias: imageName. Image name. 
+    #multicontainerConfigFile: # string. Configuration File. 
+    #containerCommand: # string. Startup command. 
+    #siteContainersConfig: # string. Site Containers Config. 
+  # Application and Configuration Settings
+    #appSettings: # string. App settings. 
+    #configurationStrings: # string. Configuration settings.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Azure Web App for Containers v1
@@ -173,6 +196,18 @@ Edits the web app application settings using the syntax -key value (for example:
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Edits the web app application settings using the syntax -key value (for example: `-phpVersion 5.6 -linuxFxVersion: node|6.11`). A value containing spaces should be enclosed in double quotes.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="siteContainersConfig"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`siteContainersConfig`** - **Site Containers Config**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Provide siteContainers-config JSON for SiteContainers deployments.
 <!-- :::editable-content-end::: -->
 <br>
 
