@@ -305,9 +305,10 @@ Writes the additional arguments to be passed to the `restore` command.
 <!-- :::editable-content name="helpMarkDown"::: -->
 Enabling this option will generate a `test results` TRX file in `$(Agent.TempDirectory)`, and the results will be published to the server.
 
-This option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
+For VSTest, this option appends `--logger trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
+For Microsoft.Testing.Platform, when detected as the test runner in `global.json`, this option appends `--report-trx --results-directory $(Agent.TempDirectory)` to the command line arguments.
 
-Code coverage can be collected by adding the `--collect "Code coverage"` option to the command line arguments.
+Code coverage can be collected by adding the `--collect "Code coverage"` (for VSTest), or `--coverage` (for Microsoft.Testing.Platform) option to the command line arguments.
 <!-- :::editable-content-end::: -->
 <br>
 
