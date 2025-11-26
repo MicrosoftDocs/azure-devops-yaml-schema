@@ -53,7 +53,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
     #uiTests: false # boolean. Test mix contains UI tests. Default: false.
   # Execution options
     #vstestLocationMethod: 'version' # 'version' | 'location'. Select test platform using. Default: version.
-    #vsTestVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | 'toolsInstaller'. Optional. Use when vstestLocationMethod = version. Test platform version. Default: latest.
+    #vsTestVersion: 'latest' # 'latest' | '18.0'  | '17.0' | '16.0' | '15.0' | '14.0' | 'toolsInstaller'. Optional. Use when vstestLocationMethod = version. Test platform version. Default: latest.
     #vstestLocation: # string. Optional. Use when vstestLocationMethod = location. Path to vstest.console.exe. 
     #runSettingsFile: # string. Settings file. 
     #overrideTestrunParameters: # string. Override test run parameters. 
@@ -343,7 +343,7 @@ Specifies which test platform to use.
 :::moniker range=">=azure-pipelines-2022.1"
 
 **`vsTestVersion`** - **Test platform version**<br>
-`string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
+`string`. Optional. Use when `vstestLocationMethod = version`. Allowed values: `latest`, `18.0` (Visual Studio 2026), `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `toolsInstaller` (Installed by Tools Installer). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specifies the version of Visual Studio Test to use. If **latest** is specified, this input chooses the latest version (from the list of allowed values) that is installed. To run tests without needing Visual Studio on the agent, use the **Installed by tools installer** option. Be sure to include the **Visual Studio Test Platform Installer** task to acquire the test platform from NuGet.
 <!-- :::editable-content-end::: -->
