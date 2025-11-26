@@ -33,7 +33,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
-    #vsVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
+    #vsVersion: 'latest' # 'latest' | '18.0' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
     #msbuildArgs: # string. MSBuild Arguments. 
     #platform: # string. Platform. 
     #configuration: # string. Configuration. 
@@ -111,7 +111,7 @@ Make sure the solutions you specify are downloaded by this build pipeline. On th
 :::moniker range=">=azure-pipelines-2022"
 
 **`vsVersion`** - **Visual Studio Version**<br>
-`string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
+`string`. Allowed values: `latest`, `18.0` (Visual Studio 2026), `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The value of this input must match the version of Visual Studio used to create your solution.
 
@@ -288,7 +288,7 @@ If set to `true`, enables the default logger for MSBuild.
 **`customVersion`** - **Custom Version**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Sets a custom version of Visual Studio. Examples: `15.0`, `16.0`, `17.0`. The required version of Visual Studio must be installed in the system.
+Sets a custom version of Visual Studio. Examples: `15.0`, `16.0`, `17.0`, `18.0`. The required version of Visual Studio must be installed in the system.
 
 **Azure Pipelines**: If your team wants to use Visual Studio 2022 with the Microsoft-hosted agents, select `windows-2022` as your default build pool. For more info see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
 <!-- :::editable-content-end::: -->
