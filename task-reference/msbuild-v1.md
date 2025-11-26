@@ -32,7 +32,7 @@ Use this task to build with MSBuild.
   inputs:
     solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
     #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
+    #msbuildVersion: 'latest' # 'latest' | '18.0' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
     #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
@@ -117,7 +117,7 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 :::moniker range=">=azure-pipelines-2022"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
-`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
+`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `18.0` (MSBuild 18.0), `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
 <!-- :::editable-content-end::: -->
