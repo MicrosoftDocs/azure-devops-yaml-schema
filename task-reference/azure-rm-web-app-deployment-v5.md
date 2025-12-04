@@ -632,6 +632,15 @@ To manually choose a deployment method, expand **Additional Deployment Options**
 (or set `enableCustomDeployment: true` in YAML). This allows you to explicitly choose from `webDeploy`, `zipDeploy`, or `runFromZip` deployment options.
 
 When auto-detection is disabled, you must specify your preferred deployment method. The task will not default to Web Deploy - it requires an explicit choice.
+installed into the App\_Data folder.
+
+### Deployment methods
+
+Several deployment methods are available in this task. Web Deploy (msdeploy.exe) is the default when auto-detection is used.
+To manually choose a deployment method, expand **Additional Deployment Options** and enable **Select deployment method**
+(or set `enableCustomDeployment: true` in YAML). This allows you to explicitly choose from `webDeploy`, `zipDeploy`, or `runFromZip` deployment options.
+
+When auto-detection is disabled, you must specify your preferred deployment method. The task will not default to Web Deploy - it requires an explicit choice.
 
 Based on the type of Azure App Service and agent, the task chooses a suitable deployment technology. The different deployment technologies used by the task are:
 
@@ -817,11 +826,12 @@ variables:
 
 steps:
 
-- task: AzureRMWebAppDeployment@4
+- task: AzureRmWebAppDeployment@5
   displayName: Azure App Service Deploy
   inputs:
-    appType: webAppContainer
-    ConnectedServiceName: $(azureSubscriptionEndpoint)
+    ConnectionType: 'AzureRM'
+    azureSubscription: $(azureSubscriptionEndpoint)
+    appType: 'webAppContainer'
     WebAppName: $(WebAppName)
     DockerNamespace: $(DockerNamespace)
     DockerRepository: $(DockerRepository)
@@ -853,14 +863,14 @@ stages:
             buildType: 'current'
             artifactName: 'drop'
             targetPath: '$(System.DefaultWorkingDirectory)'
-        - task: AzureRmWebAppDeployment@4
+        - task: AzureRmWebAppDeployment@5
           inputs:
             ConnectionType: 'AzureRM'
             azureSubscription: 'Fabrikam Azure Subscription - PartsUnlimited'
             appType: 'webApp'
             WebAppName: 'partsunlimited'
-            deployToSlotOrASE: true
             ResourceGroupName: 'rgPartsUnlimited'
+            deployToSlotOrASE: true
             SlotName: 'Dev'
             packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
@@ -876,16 +886,16 @@ stages:
             buildType: 'current'
             artifactName: 'drop'
             targetPath: '$(System.DefaultWorkingDirectory)'
-        - task: AzureRmWebAppDeployment@4
+        - task: AzureRmWebAppDeployment@5
           inputs:
-            appType: webApp
-            ConnectionType: AzureRM            
-            ConnectedServiceName: 'Fabrikam Azure Subscription - PartsUnlimited'
-            ResourceGroupName: 'rgPartsUnlimited'
+            ConnectionType: 'AzureRM'
+            azureSubscription: 'Fabrikam Azure Subscription - PartsUnlimited'
+            appType: 'webApp'
             WebAppName: 'partsunlimited'
-            Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+            ResourceGroupName: 'rgPartsUnlimited'
             deployToSlotOrASE: true
             SlotName: 'staging'
+            packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 ```
 
 ### Sample Post deployment script
