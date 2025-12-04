@@ -632,15 +632,6 @@ To manually choose a deployment method, expand **Additional Deployment Options**
 (or set `enableCustomDeployment: true` in YAML). This allows you to explicitly choose from `webDeploy`, `zipDeploy`, or `runFromZip` deployment options.
 
 When auto-detection is disabled, you must specify your preferred deployment method. The task will not default to Web Deploy - it requires an explicit choice.
-installed into the App\_Data folder.
-
-### Deployment methods
-
-Several deployment methods are available in this task. Web Deploy (msdeploy.exe) is the default when auto-detection is used.
-To manually choose a deployment method, expand **Additional Deployment Options** and enable **Select deployment method**
-(or set `enableCustomDeployment: true` in YAML). This allows you to explicitly choose from `webDeploy`, `zipDeploy`, or `runFromZip` deployment options.
-
-When auto-detection is disabled, you must specify your preferred deployment method. The task will not default to Web Deploy - it requires an explicit choice.
 
 Based on the type of Azure App Service and agent, the task chooses a suitable deployment technology. The different deployment technologies used by the task are:
 
