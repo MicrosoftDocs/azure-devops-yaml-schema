@@ -19,7 +19,7 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 > VSTest@3 is the newest version of the task and should be used in your pipelines.
 
 > [!NOTE]
-> The VSTest@3 task can't rerun failed **Data-driven tests**.
+> The VSTest@3 task can rerun failed **Data-driven tests**, only with static parameters, for MsTest, xUnit and nUnit frameworks.
 
 > [!NOTE]
 > VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
@@ -694,11 +694,19 @@ To run automated tests that use TestCase as a data source, the following is need
 1. Create a [PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) that is authorized for the scope “Work Items (full)”.
 1. Add a secure build or release variable called `Test.TestCaseAccessToken` with the value set to the PAT created in the previous step.
 
+### Can I use this task for data-driven (parameterized tests)?
+Yes. The task supports only data-driven tests with static parameters. It is required for you to add an enviroment variable to your pipeline:
+- For MsTest : USE_MSTEST_RE_RUN_PATTERN: true
+- For xUnit : USE_XUNIT_RE_RUN_PATTERN: true
+- For nUnit: USE_NUNIT_RE_RUN_PATTERN: true
+<img width="584" height="362" alt="image" src="https://github.com/user-attachments/assets/325a31bb-fcf0-4434-bca8-a72b31b87a05" />
+
+
 ### I am running into issues when running data-driven xUnit, NUnit and MSTest tests with some of the task options. Are there known limitations?
 
 Data-driven tests that use xUnit, NUnit and MSTest test frameworks have some known limitations and **cannot** be used with the following task options:
 
-1. Rerun failed tests.
+1. Rerunning of failed tests for MsTest, xUnit and nUnit tests, works with data driven tests that contain static parameters.
 1. Distributing tests on multiple agents and batching options.
 1. Test Impact Analysis.
 
