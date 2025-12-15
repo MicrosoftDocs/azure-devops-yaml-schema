@@ -16,7 +16,7 @@ ms.author: sdanie
 Use this task to run unit and functional tests (Selenium, Appium, Coded UI test, etc.) using the Visual Studio Test (VSTest) runner. You can run test frameworks that have a Visual Studio test adapter. Example frameworks are MSTest, xUnit, NUnit, Chutzpah (for JavaScript tests using QUnit, Mocha and Jasmine), etc. Tests can be distributed on multiple agents using this task.
 
 > [!NOTE]
-> There is a newer version of this task. [VSTest@3](./vstest-v3.md) is the newest version of the task and should be used in your pipelines.
+> There is a newer version of this task. [VSTest@3](./vstest-v3.md) is the newest version of the task and should be used in your pipelines. The v2 task will be deprecated.
 
 > [!NOTE]
 > The VSTest@2 task can't rerun failed **Data-driven tests**.
