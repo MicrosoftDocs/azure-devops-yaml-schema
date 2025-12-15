@@ -695,12 +695,13 @@ To run automated tests that use TestCase as a data source, the following is need
 1. Add a secure build or release variable called `Test.TestCaseAccessToken` with the value set to the PAT created in the previous step.
 
 ### Can I use this task for data-driven (parameterized tests)?
-Yes. The task supports only data-driven tests with static parameters. It is required for you to add an enviroment variable to your pipeline:
-- For MsTest : USE_MSTEST_RE_RUN_PATTERN: true
-- For xUnit : USE_XUNIT_RE_RUN_PATTERN: true
-- For nUnit: USE_NUNIT_RE_RUN_PATTERN: true
-<img width="584" height="362" alt="image" src="https://github.com/user-attachments/assets/325a31bb-fcf0-4434-bca8-a72b31b87a05" />
 
+Yes. The task supports only data-driven tests with static parameters. It is required for you to add an enviroment variable to your pipeline:
+- For MsTest: `USE_MSTEST_RE_RUN_PATTERN: true`
+- For xUnit: `USE_XUNIT_RE_RUN_PATTERN: true`
+- For nUnit: `USE_NUNIT_RE_RUN_PATTERN: true`
+
+:::image type="content" source="./media/vs-test/test-env-var.png" alt-text="Screenshot of VSTest@3 environment variable for parameterized tests.":::
 
 ### I am running into issues when running data-driven xUnit, NUnit and MSTest tests with some of the task options. Are there known limitations?
 
