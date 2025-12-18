@@ -2,7 +2,7 @@
 title: WindowsMachineFileCopy@2 - Windows machine file copy v2 task
 description: Copy files to remote Windows machines.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -42,26 +42,6 @@ Use this task to copy files to remote Windows machines.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Windows machine file copy v2
-# Copy files to remote Windows machines.
-- task: WindowsMachineFileCopy@2
-  inputs:
-    SourcePath: # string. Required. Source. 
-    #MachineNames: # string. Machines. 
-    #AdminUserName: # string. Admin Login. 
-    #AdminPassword: # string. Password. 
-    TargetPath: # string. Required. Destination Folder. 
-  # Advanced Options
-    #CleanTargetBeforeCopy: false # boolean. Clean Target. Default: false.
-    #CopyFilesInParallel: true # boolean. Copy Files in Parallel. Default: true.
-    #AdditionalArguments: # string. Additional Arguments.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -92,16 +72,6 @@ For example: `dbserver.fabrikam.com, dbserver_int.fabrikam.com:5986, 192.168.12.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`MachineNames`** - **Machines**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies a comma-separated list of machine IP addresses or FQDNs, optionally including the port number. For example: `dbserver.fabrikam.com, dbserver_int.fabrikam.com:5986, 192.168.12.34`. You can also specify the output variable of other tasks, for example `$(variableName)`, or you can use the name of an [Azure Resource Group](/azure/azure-resource-manager/management/overview).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdminUserName"::: -->
 :::moniker range=">=azure-pipelines-2022"
@@ -115,16 +85,6 @@ Specifies the username of a domain or a local administrative account on the targ
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`AdminUserName`** - **Admin Login**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the username of a domain or a local administrative account on the target host(s). Formats such as **domain\username**, **username**, and **machine-name\username** are supported. UPN formats, such as `username@domain.com`, and built-in system accounts, such as **NT Authority\System**, are not supported.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AdminPassword"::: -->
 :::moniker range=">=azure-pipelines-2022"
@@ -138,16 +98,6 @@ Specifies the password for the administrator login for the target machines. Vari
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`AdminPassword`** - **Password**<br>
-`string`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the password for the administrator login for the target machines. Variables defined in build or release pipelines, such as `$(passwordVariable)`, are accepted. You can mark the variable as `secret` to secure it.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"

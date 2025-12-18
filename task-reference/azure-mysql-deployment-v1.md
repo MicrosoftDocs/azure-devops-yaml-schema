@@ -2,7 +2,7 @@
 title: AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task
 description: Run your scripts and make changes to your Azure Database for MySQL.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # AzureMysqlDeployment@1 - Azure Database for MySQL deployment v1 task

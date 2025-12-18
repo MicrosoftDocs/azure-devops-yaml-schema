@@ -2,7 +2,7 @@
 title: GitHubRelease@0 - GitHub Release v0 task
 description: Create, edit, or delete a GitHub release (task version 0).
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # GitHubRelease@0 - GitHub Release v0 task
@@ -333,7 +333,7 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ## Remarks
 

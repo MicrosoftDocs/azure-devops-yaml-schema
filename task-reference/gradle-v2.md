@@ -2,7 +2,7 @@
 title: Gradle@2 - Gradle v2 task
 description: Build using a Gradle wrapper script (task version 2).
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # Gradle@2 - Gradle v2 task
@@ -155,80 +155,6 @@ Build using a Gradle wrapper script.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# Gradle v2
-# Build using a Gradle wrapper script.
-- task: Gradle@2
-  inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-    #options: # string. Options. 
-    tasks: 'build' # string. Required. Tasks. Default: build.
-  # JUnit Test Results
-    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
-    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
-  # Code Coverage
-    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    codeCoverageClassFilesDirectories: 'build/classes/main/' # string. Alias: classFilesDirectories. Required when codeCoverageTool != None. Class files directories. Default: build/classes/main/.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-  # Advanced
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
-    #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
-  # Code Analysis
-    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
-    #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
-    #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
-    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
-    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
-    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Gradle v2
-# Build using a Gradle wrapper script.
-- task: Gradle@2
-  inputs:
-    gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle wrapper. Default: gradlew.
-    #workingDirectory: # string. Alias: cwd. Working directory. 
-    #options: # string. Options. 
-    tasks: 'build' # string. Required. Tasks. Default: build.
-  # JUnit Test Results
-    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
-    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
-  # Code Coverage
-    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    #codeCoverageClassFilesDirectories: 'build/classes/main/' # string. Alias: classFilesDirectories. Required when codeCoverageTool = false. Class files directories. Default: build/classes/main/.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-  # Advanced
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
-    #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
-  # Code Analysis
-    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud Analysis. Default: false.
-    #sqGradlePluginVersionChoice: 'specify' # 'specify' | 'build'. Required when sqAnalysisEnabled = true. SonarQube scanner for Gradle version. Default: specify.
-    #sonarQubeGradlePluginVersion: '2.6.1' # string. Alias: sqGradlePluginVersion. Required when sqAnalysisEnabled = true && sqGradlePluginVersionChoice = specify. SonarQube scanner for Gradle plugin version. Default: 2.6.1.
-    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
-    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
-    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -333,7 +259,7 @@ Specifies a code coverage tool to determine the code that is covered by the test
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageClassFilesDirectories"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
 [Input alias](index.md#what-are-task-input-aliases): `classFilesDirectories`. `string`. Required when `codeCoverageTool != None`. Default value: `build/classes/main/`.<br>
@@ -344,16 +270,6 @@ The comma-separated list of directories containing class files and archive files
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-**`codeCoverageClassFilesDirectories`** - **Class files directories**<br>
-[Input alias](index.md#what-are-task-input-aliases): `classFilesDirectories`. `string`. Required when `codeCoverageTool = false`. Default value: `build/classes/main/`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The comma-separated list of directories containing class files and archive files (.jar, .war, and more). Code coverage is reported for class files in these directories. Normally, the task searches classes under `build/classes/java/main` (for Gradle 4+), which is the default class directory for Gradle builds.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range="<=azure-pipelines"
@@ -415,7 +331,7 @@ Attempts to discover the path to the selected JDK version and set JAVA_HOME acco
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`jdkVersionOption`** - **JDK version**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>

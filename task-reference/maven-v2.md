@@ -2,7 +2,7 @@
 title: Maven@2 - Maven v2 task
 description: Build, test, and deploy with Apache Maven (task version 2).
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # Maven@2 - Maven v2 task
@@ -153,88 +153,6 @@ Use this task to build, test, and deploy with Apache Maven.
   # Code Analysis
     #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
     #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
-    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
-    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
-    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
-    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# Maven v2
-# Build, test, and deploy with Apache Maven.
-- task: Maven@2
-  inputs:
-    mavenPOMFile: 'pom.xml' # string. Required. Maven POM file. Default: pom.xml.
-    #goals: 'package' # string. Goal(s). Default: package.
-    #options: # string. Options. 
-  # JUnit Test Results
-    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
-    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
-  # Code Coverage
-    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageTool = JaCoCo. Class files directories. 
-    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool = JaCoCo. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-    #codeCoverageRestoreOriginalPomXml: false # boolean. Alias: restoreOriginalPomXml. Optional. Use when codeCoverageTool != None. Restore original pom.xml after task execution. Default: false.
-  # Advanced
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
-    mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
-    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
-    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
-    #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
-    #mavenAuthenticateFeed: true # boolean. Alias: mavenFeedAuthenticate. Authenticate built-in Maven feeds. Default: true.
-  # Code Analysis
-    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
-    #isJacocoCoverageReportXML: false # boolean. Optional. Use when sqAnalysisEnabled = true && codeCoverageTool = JaCoCo. Use XML Jacoco reports for SonarQube analysis. Default: false.
-    #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
-    #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
-    #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
-    #findBugsRunAnalysis: false # boolean. Alias: findbugsAnalysisEnabled. Run FindBugs. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Maven v2
-# Build, test, and deploy with Apache Maven.
-- task: Maven@2
-  inputs:
-    mavenPOMFile: 'pom.xml' # string. Required. Maven POM file. Default: pom.xml.
-    #goals: 'package' # string. Goal(s). Default: package.
-    #options: # string. Options. 
-  # JUnit Test Results
-    #publishJUnitResults: true # boolean. Publish to Azure Pipelines. Default: true.
-    testResultsFiles: '**/TEST-*.xml' # string. Required when publishJUnitResults = true. Test results files. Default: **/TEST-*.xml.
-    #testRunTitle: # string. Optional. Use when publishJUnitResults = true. Test run title. 
-  # Code Coverage
-    #codeCoverageToolOption: 'None' # 'None' | 'Cobertura' | 'JaCoCo'. Alias: codeCoverageTool. Code coverage tool. Default: None.
-    #codeCoverageClassFilter: # string. Alias: classFilter. Optional. Use when codeCoverageTool != None. Class inclusion/exclusion filters. 
-    #codeCoverageClassFilesDirectories: # string. Alias: classFilesDirectories. Optional. Use when codeCoverageTool = JaCoCo. Class files directories. 
-    #codeCoverageSourceDirectories: # string. Alias: srcDirectories. Optional. Use when codeCoverageTool = JaCoCo. Source files directories. 
-    #codeCoverageFailIfEmpty: false # boolean. Alias: failIfCoverageEmpty. Optional. Use when codeCoverageTool != None. Fail when code coverage results are missing. Default: false.
-  # Advanced
-    javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
-    #jdkVersionOption: 'default' # 'default' | '1.11' | '1.10' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK version. Default: default.
-    #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK path. 
-    #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK architecture. Default: x64.
-    mavenVersionOption: 'Default' # 'Default' | 'Path'. Alias: mavenVersionSelection. Required. Maven version. Default: Default.
-    #mavenDirectory: # string. Alias: mavenPath. Required when mavenVersionSelection = Path. Maven path. 
-    #mavenSetM2Home: false # boolean. Optional. Use when mavenVersionSelection = Path. Set M2_HOME variable. Default: false.
-    #mavenOptions: '-Xmx1024m' # string. Alias: mavenOpts. Set MAVEN_OPTS to. Default: -Xmx1024m.
-    #mavenAuthenticateFeed: true # boolean. Alias: mavenFeedAuthenticate. Authenticate built-in Maven feeds. Default: true.
-  # Code Analysis
-    #sonarQubeRunAnalysis: false # boolean. Alias: sqAnalysisEnabled. Run SonarQube or SonarCloud analysis. Default: false.
     #sqMavenPluginVersionChoice: 'latest' # 'latest' | 'pom'. Required when sqAnalysisEnabled = true. SonarQube scanner for Maven version. Default: latest.
     #checkStyleRunAnalysis: false # boolean. Alias: checkstyleAnalysisEnabled. Run Checkstyle. Default: false.
     #pmdRunAnalysis: false # boolean. Alias: pmdAnalysisEnabled. Run PMD. Default: false.
@@ -395,7 +313,7 @@ Fails the build if code coverage did not produce any results to publish.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageRestoreOriginalPomXml"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`codeCoverageRestoreOriginalPomXml`** - **Restore original pom.xml after task execution**<br>
 [Input alias](index.md#what-are-task-input-aliases): `restoreOriginalPomXml`. `boolean`. Optional. Use when `codeCoverageTool != None`. Default value: `false`.<br>
@@ -441,16 +359,6 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`jdkVersionOption`** - **JDK version**<br>
-[Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` accordingly.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"
@@ -536,7 +444,7 @@ Automatically authenticates with Azure Artifacts feeds. If Artifacts feeds are n
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`mavenAuthenticateFeed`** - **Authenticate built-in Maven feeds**<br>
 [Input alias](index.md#what-are-task-input-aliases): `mavenFeedAuthenticate`. `boolean`. Default value: `true`.<br>
@@ -561,7 +469,7 @@ Enable this option to run [SonarQube or SonarCloud analysis](http://redirect.son
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="isJacocoCoverageReportXML"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`isJacocoCoverageReportXML`** - **Use XML Jacoco reports for SonarQube analysis**<br>
 `boolean`. Optional. Use when `sqAnalysisEnabled = true && codeCoverageTool = JaCoCo`. Default value: `false`.<br>

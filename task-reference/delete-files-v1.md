@@ -2,7 +2,7 @@
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # DeleteFiles@1 - Delete files v1 task
@@ -33,20 +33,6 @@ Delete folders, or files matching a pattern.
     #RemoveSourceFolder: false # boolean. Remove SourceFolder. Default: false.
   # Advanced
     #RemoveDotFiles: false # boolean. Remove files starting with a dot. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Delete files v1
-# Delete folders, or files matching a pattern.
-- task: DeleteFiles@1
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: 'myFileShare' # string. Required. Contents. Default: myFileShare.
-    #RemoveSourceFolder: false # boolean. Remove SourceFolder. Default: false.
 ```
 
 :::moniker-end
@@ -215,20 +201,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.92.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

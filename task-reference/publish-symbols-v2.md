@@ -2,7 +2,7 @@
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # PublishSymbols@2 - Index sources and publish symbols v2 task
@@ -73,31 +73,6 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
     #DetailedLog: true # boolean. Verbose logging. Default: true.
     #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
     #UseNetCoreClientTool: false # boolean. Use NetCore client tool. Default: false.
-    #SymbolsMaximumWaitTime: # string. Max wait time (min). 
-    #SymbolsProduct: # string. Product. 
-    #SymbolsVersion: # string. Version. 
-    #SymbolsArtifactName: 'Symbols_$(BuildConfiguration)' # string. Artifact name. Default: Symbols_$(BuildConfiguration).
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Index sources and publish symbols v2
-# Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-- task: PublishSymbols@2
-  inputs:
-    #SymbolsFolder: '$(Build.SourcesDirectory)' # string. Path to symbols folder. Default: $(Build.SourcesDirectory).
-    SearchPattern: '**/bin/**/*.pdb' # string. Required. Search pattern. Default: **/bin/**/*.pdb.
-    #IndexSources: true # boolean. Index sources. Default: true.
-    #PublishSymbols: true # boolean. Publish symbols. Default: true.
-    SymbolServerType: # 'TeamServices' | 'FileShare'. Required when PublishSymbols = true. Symbol server type. 
-    #SymbolsPath: # string. Optional. Use when PublishSymbols = true && SymbolServerType = FileShare. Path to publish symbols. 
-    #CompressSymbols: false # boolean. Optional. Use when SymbolServerType = FileShare. Compress symbols. Default: false.
-  # Advanced
-    #DetailedLog: true # boolean. Verbose logging. Default: true.
-    #TreatNotIndexedAsWarning: false # boolean. Warn if not indexed. Default: false.
     #SymbolsMaximumWaitTime: # string. Max wait time (min). 
     #SymbolsProduct: # string. Product. 
     #SymbolsVersion: # string. Version. 
@@ -395,20 +370,6 @@ Symbols are associated with the build that published to Azure Pipelines they are
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.95.0 or greater |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

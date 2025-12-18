@@ -2,7 +2,7 @@
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # Kubernetes@1 - Kubectl v1 task
@@ -69,7 +69,7 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Kubectl v1
@@ -113,54 +113,6 @@ Deploy, configure, update a Kubernetes cluster in Azure Container Service by run
     #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
     #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
     #outputFormat: 'json' # 'json' | 'yaml' | 'none'. Output format. Default: json.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Kubectl v1
-# Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-- task: Kubernetes@1
-  inputs:
-  # Kubernetes Cluster
-    #connectionType: 'Kubernetes Service Connection' # 'Azure Resource Manager' | 'Kubernetes Service Connection' | 'None'. Required when command != logout. Service connection type. Default: Kubernetes Service Connection.
-    #kubernetesServiceEndpoint: # string. Required when connectionType = Kubernetes Service Connection && command != logout. Kubernetes service connection. 
-    #azureSubscriptionEndpoint: # string. Required when connectionType = Azure Resource Manager && command != logout. Azure subscription. 
-    #azureResourceGroup: # string. Required when connectionType = Azure Resource Manager && command != logout. Resource group. 
-    #kubernetesCluster: # string. Required when connectionType = Azure Resource Manager && command != logout. Kubernetes cluster. 
-    #useClusterAdmin: false # boolean. Optional. Use when connectionType = Azure Resource Manager && command != logout. Use cluster admin credentials. Default: false.
-    #namespace: # string. Optional. Use when command != logout. Namespace. 
-  # Commands
-    #command: # 'apply' | 'create' | 'delete' | 'exec' | 'expose' | 'get' | 'login' | 'logout' | 'logs' | 'run' | 'set' | 'top'. Command. 
-    #useConfigurationFile: false # boolean. Optional. Use when command != login && command != logout. Use configuration. Default: false.
-    #configurationType: 'configuration' # 'configuration' | 'inline'. Optional. Use when useConfigurationFile = true. Configuration type. Default: configuration.
-    configuration: # string. Required when configurationType = configuration. File path. 
-    #inline: # string. Required when configurationType = inline. Inline configuration. 
-    #arguments: # string. Optional. Use when command != login && command != logout. Arguments. 
-  # Secrets
-    #secretType: 'dockerRegistry' # 'dockerRegistry' | 'generic'. Required when command != login && command != logout. Type of secret. Default: dockerRegistry.
-    #secretArguments: # string. Optional. Use when secretType = generic && command != login && command != logout. Arguments. 
-    #containerRegistryType: 'Azure Container Registry' # 'Azure Container Registry' | 'Container Registry'. Required when secretType = dockerRegistry && command != login && command != logout. Container registry type. Default: Azure Container Registry.
-    #dockerRegistryEndpoint: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Container Registry && command != login && command != logout. Docker registry service connection. 
-    #azureSubscriptionEndpointForSecrets: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout. Azure subscription. 
-    #azureContainerRegistry: # string. Optional. Use when secretType = dockerRegistry && containerRegistryType = Azure Container Registry && command != login && command != logout. Azure container registry. 
-    #secretName: # string. Optional. Use when command != login && command != logout. Secret name. 
-    #forceUpdate: true # boolean. Optional. Use when command != login && command != logout. Force update secret. Default: true.
-  # ConfigMaps
-    #configMapName: # string. Optional. Use when command != login && command != logout. ConfigMap name. 
-    #forceUpdateConfigMap: false # boolean. Optional. Use when command != login && command != logout. Force update configmap. Default: false.
-    #useConfigMapFile: false # boolean. Optional. Use when command != login && command != logout. Use file. Default: false.
-    #configMapFile: # string. Required when useConfigMapFile = true && command != login && command != logout. ConfigMap file. 
-    #configMapArguments: # string. Optional. Use when useConfigMapFile = false && command != login && command != logout. Arguments. 
-  # Advanced
-    #versionOrLocation: 'version' # 'version' | 'location'. Kubectl. Default: version.
-    #versionSpec: '1.13.2' # string. Optional. Use when versionOrLocation = version. Version spec. Default: 1.13.2.
-    #checkLatest: false # boolean. Optional. Use when versionOrLocation = version. Check for latest version. Default: false.
-    #specifyLocation: # string. Required when versionOrLocation = location. Path to kubectl. 
-    #workingDirectory: '$(System.DefaultWorkingDirectory)' # string. Alias: cwd. Working directory. Default: $(System.DefaultWorkingDirectory).
-    #outputFormat: 'json' # 'json' | 'yaml'. Output format. Default: json.
 ```
 
 :::moniker-end
@@ -564,7 +516,7 @@ Working directory for the Kubectl command.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="outputFormat"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`outputFormat`** - **Output format**<br>
 `string`. Allowed values: `json`, `yaml`, `none`. Default value: `json`.<br>
@@ -575,16 +527,6 @@ Output format. The list of allowed values provides some common choices for ease 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-**`outputFormat`** - **Output format**<br>
-`string`. Allowed values: `json`, `yaml`. Default value: `json`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Output format. The list of allowed values provides some common choices for ease of selection when using the task assistant, but you can specify other [output options](https://kubernetes.io/docs/reference/kubectl/#output-options) such as `jsonpath={.items[*].spec['initContainers', 'containers'][*].image}`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options

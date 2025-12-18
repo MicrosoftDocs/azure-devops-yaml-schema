@@ -2,7 +2,7 @@
 title: AppCenterTest@1 - App Center test v1 task
 description: Test app packages with Visual Studio App Center.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -603,7 +603,7 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

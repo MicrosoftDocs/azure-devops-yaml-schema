@@ -2,7 +2,7 @@
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -127,58 +127,6 @@ Update a function app with .NET, Python, JavaScript, PowerShell, Java based web 
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# Azure Functions Deploy v1
-# Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-- task: AzureFunctionApp@1
-  inputs:
-    azureSubscription: # string. Required. Azure Resource Manager connection. 
-    appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
-    appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
-    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #runtimeStack: # 'DOTNET|2.2' | 'DOTNET|3.1' | 'JAVA|8' | 'JAVA|11' | 'NODE|8' | 'NODE|10' | 'NODE|12' | 'NODE|14' | 'PYTHON|3.6' | 'PYTHON|3.7' | 'PYTHON|3.8'. Optional. Use when appType = functionAppLinux. Runtime stack. 
-    #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
-  # Application and Configuration Settings
-    #customWebConfig: # string. Optional. Use when appType != functionAppLinux && package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #appSettings: # string. App settings. 
-    #configurationStrings: # string. Configuration settings. 
-  # Additional Deployment Options
-    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Azure Functions Deploy v1
-# Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications.
-- task: AzureFunctionApp@1
-  inputs:
-    azureSubscription: # string. Required. Azure Resource Manager connection. 
-    appType: # 'functionApp' | 'functionAppLinux'. Required. App type. 
-    appName: # string. Required. App name. 
-    #deployToSlotOrASE: false # boolean. Deploy to Slot or App Service Environment. Default: false.
-    #resourceGroupName: # string. Required when deployToSlotOrASE = true. Resource group. 
-    #slotName: 'production' # string. Required when deployToSlotOrASE = true. Slot. Default: production.
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip' # string. Required. Package or folder. Default: $(System.DefaultWorkingDirectory)/**/*.zip.
-    #runtimeStack: # 'DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0' | 'DOCKER|microsoft/azure-functions-node8:2.0'. Optional. Use when appType = functionAppLinux. Runtime stack. 
-    #startUpCommand: # string. Optional. Use when appType = functionAppLinux. Startup command. 
-  # Application and Configuration Settings
-    #customWebConfig: # string. Optional. Use when appType != functionAppLinux && package NotEndsWith .war. Generate web.config parameters for Python, Node.js, Go and Java apps. 
-    #appSettings: # string. App settings. 
-    #configurationStrings: # string. Configuration settings. 
-  # Additional Deployment Options
-    #deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required when appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar. Deployment method. Default: auto.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -219,16 +167,6 @@ Enters or selects the name of an existing Azure Functions App. The Function Apps
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`appName`** - **App name**<br>
-`string`. Required.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Enters or selects the name of an existing Azure Functions App. The Function Apps listed will be based on the selected app type.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
 :::moniker range="<=azure-pipelines"
@@ -318,7 +256,7 @@ Specify the framework and version your function app will run on. You can use any
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`runtimeStack`** - **Runtime stack**<br>
 `string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOTNET|2.2` (DOTNET|2.2 (functionapp v2)), `DOTNET|3.1` (DOTNET|3.1 (functionapp v3)), `JAVA|8` (JAVA|8 (functionapp v2/v3)), `JAVA|11` (JAVA|11  (functionapp v3)), `NODE|8` (NODE|8 (functionapp v2)), `NODE|10` (NODE|10 (functionapp v2/v3)), `NODE|12` (NODE|12 (functionapp v3)), `NODE|14` (NODE|14 (functionapp v3)), `PYTHON|3.6` (PYTHON|3.6 (functionapp v2/v3)), `PYTHON|3.7` (PYTHON|3.7 (functionapp v2/v3)), `PYTHON|3.8` (PYTHON|3.8 (functionapp v3)).<br>
@@ -329,16 +267,6 @@ Specify the framework and version your function app will run on. You can use any
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-**`runtimeStack`** - **Runtime stack**<br>
-`string`. Optional. Use when `appType = functionAppLinux`. Allowed values: `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` (.NET), `DOCKER|microsoft/azure-functions-node8:2.0` (JavaScript).<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specify the framework and version your function app will run on. You can use any of the [supported runtime versions](/azure/azure-functions/functions-versions#languages). Old values like `DOCKER|microsoft/azure-functions-*` are deprecated. New values are listed in the drop-down list in the [task assistant](/azure/devops/pipelines/get-started/yaml-pipeline-editor#use-task-assistant). If there is a newer version of a framework available in the [supported runtime versions](/azure/azure-functions/functions-versions#languages) you can specify it even if it is not in the list.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="startUpCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -405,16 +333,6 @@ Chooses the [deployment method](#deployment-methods) for the app.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`deploymentMethod`** - **Deployment method**<br>
-`string`. Required when `appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Run From Package). Default value: `auto`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Chooses the [deployment method](#deployment-methods) for the app.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options

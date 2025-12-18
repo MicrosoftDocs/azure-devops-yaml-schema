@@ -2,7 +2,7 @@
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -82,49 +82,6 @@ Use this task to run a PowerShell script on Linux, macOS, or Windows.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# PowerShell v2
-# Run a PowerShell script on Linux, macOS, or Windows.
-- task: PowerShell@2
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-  # Advanced
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #showWarnings: false # boolean. Show warnings as Azure DevOps warnings. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# PowerShell v2
-# Run a PowerShell script on Linux, macOS, or Windows.
-- task: PowerShell@2
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-  # Advanced
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #ignoreLASTEXITCODE: false # boolean. Ignore $LASTEXITCODE. Default: false.
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -192,16 +149,6 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`errorActionPreference`** - **ErrorActionPreference**<br>
-`string`. Allowed values: `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="warningPreference"::: -->
 :::moniker range=">=azure-pipelines-2022"
@@ -276,7 +223,7 @@ If the value of this boolean is `true`, the task fails if any errors are written
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="showWarnings"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`showWarnings`** - **Show warnings as Azure DevOps warnings**<br>
 `boolean`. Default value: `false`.<br>

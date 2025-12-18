@@ -2,7 +2,7 @@
 title: VisualStudioTestPlatformInstaller@1 - Visual Studio test platform installer v1 task
 description: Acquire the test platform from nuget.org or the tool cache. Satisfies the ‘vstest’ demand and can be used for running tests and collecting diagnostic data using the Visual Studio Test task.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
 ---
@@ -193,7 +193,7 @@ See [Run automated tests from test plans](/azure/devops/test/run-automated-tests
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

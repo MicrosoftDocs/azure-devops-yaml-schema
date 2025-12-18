@@ -2,7 +2,7 @@
 title: JenkinsQueueJob@2 - Jenkins queue job v2 task
 description: Queue a job on a Jenkins server.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -41,26 +41,6 @@ Use this task to queue a job on a Jenkins server.
     #failOnUnstableResult: false # boolean. Fail on unstable result. Default: false.
     #retryCount: '3' # string. Number of retries for failed connection. Default: 3.
     #delayBetweenRetries: '60' # string. Time between retries. Default: 60.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Jenkins queue job v2
-# Queue a job on a Jenkins server.
-- task: JenkinsQueueJob@2
-  inputs:
-    serverEndpoint: # string. Required. Jenkins service connection. 
-    jobName: # string. Required. Job name. 
-    #isMultibranchJob: false # boolean. Job is of multibranch pipeline type. Default: false.
-    #multibranchPipelineBranch: # string. Required when isMultibranchJob = true. Multibranch pipeline branch. 
-    #captureConsole: true # boolean. Capture console output and wait for completion. Default: true.
-    #capturePipeline: true # boolean. Optional. Use when captureConsole = true. Capture pipeline output and wait for pipeline completion. Default: true.
-  # Advanced
-    #isParameterizedJob: false # boolean. Alias: parameterizedJob. Parameterized job. Default: false.
-    #jobParameters: # string. Optional. Use when parameterizedJob = true. Job parameters.
 ```
 
 :::moniker-end
@@ -280,7 +260,7 @@ Results will be downloaded to the **$(Build.StagingDirectory)/jenkinsResults/Job
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 | Requirement | Description |
 |-------------|-------------|

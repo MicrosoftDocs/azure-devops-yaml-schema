@@ -2,7 +2,7 @@
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
@@ -57,19 +57,6 @@ Use this task to publish a local directory or file as a named artifact for the c
     artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
     targetPath: # string. Required. Path to publish. 
     #properties: # string. Custom properties.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Publish Pipeline Artifacts v0
-# Publish a local directory or file as a named artifact for the current pipeline.
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
-    targetPath: # string. Required. Path to publish.
 ```
 
 :::moniker-end
@@ -179,21 +166,6 @@ There is a newer version of this task. For more information, see [PublishPipelin
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | Agent version |  2.199 or greater |
-| Task category | Utility |
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.155.1 or greater |
 | Task category | Utility |
 
 :::moniker-end

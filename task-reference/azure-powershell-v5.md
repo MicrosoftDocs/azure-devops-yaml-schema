@@ -2,7 +2,7 @@
 title: AzurePowerShell@5 - Azure PowerShell v5 task
 description: Run a PowerShell script within an Azure environment.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -50,7 +50,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Azure PowerShell v5
@@ -267,7 +267,6 @@ To troubleshoot issues related to service connections, see [Service Connection t
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
 ## Examples
-
 
 The following example shows how to invoke a script from a file and pass script arguments to it.
 

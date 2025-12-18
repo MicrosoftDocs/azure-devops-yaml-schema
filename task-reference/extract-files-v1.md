@@ -2,7 +2,7 @@
 title: ExtractFiles@1 - Extract files v1 task
 description: Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # ExtractFiles@1 - Extract files v1 task
@@ -36,42 +36,13 @@ Use this task to extract a variety of archive and compression files, such as .7z
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# Extract files v1
-# Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-- task: ExtractFiles@1
-  inputs:
-    archiveFilePatterns: '**/*.zip' # string. Required. Archive file patterns. Default: **/*.zip.
-    destinationFolder: # string. Required. Destination folder. 
-    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
-    #overwriteExistingFiles: false # boolean. Overwrite existing files. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Extract files v1
-# Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-- task: ExtractFiles@1
-  inputs:
-    archiveFilePatterns: '*.zip' # string. Required. Archive file patterns. Default: *.zip.
-    destinationFolder: # string. Required. Destination folder. 
-    #cleanDestinationFolder: true # boolean. Clean destination folder before extracting. Default: true.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
 ## Inputs
 
 <!-- :::item name="archiveFilePatterns"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`archiveFilePatterns`** - **Archive file patterns**<br>
 `string`. Required. Default value: `**/*.zip`.<br>
@@ -94,19 +65,6 @@ For example, to copy a pipeline artifact, move the file from $(Pipeline.Workspac
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-**`archiveFilePatterns`** - **Archive file patterns**<br>
-`string`. Required. Default value: `*.zip`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the file paths or patterns of the archive files to extract.  Supports multiple lines of minimatch patterns.  Learn more about the [Extract Files task](/azure/devops/pipelines/tasks/utility/extract-files).
-
-To extract files from other paths (e.g., a pipeline artifact), use the [Copy task](/azure/devops/pipelines/tasks/reference/copy-files-v2) to copy the file you want to extract to the root folder of your repo: $(Build.SourcesDirectory).
-For example, to copy a pipeline artifact, move the file from $(Pipeline.Workspace) to $(Build.SourcesDirectory), then extract it from the root folder or its subfolders.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="destinationFolder"::: -->
 :::moniker range="<=azure-pipelines"
@@ -133,7 +91,7 @@ Specifies the option to delete the entire content of the destination directory (
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="overwriteExistingFiles"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`overwriteExistingFiles`** - **Overwrite existing files**<br>
 `boolean`. Default value: `false`.<br>
@@ -232,20 +190,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

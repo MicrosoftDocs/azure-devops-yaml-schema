@@ -2,7 +2,7 @@
 title: AzurePowerShell@4 - Azure PowerShell v4 task
 description: Run a PowerShell script within an Azure environment (task version 4).
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -48,7 +48,7 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # Azure PowerShell v4
@@ -63,30 +63,6 @@ Use this task to run a PowerShell script within an Azure environment. The Azure 
     #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
     #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
     #RestrictContextToCurrentTask: false # boolean. Restrict scope of context to current task. Default: false.
-  # Azure PowerShell version options
-    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
-    preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
-  # Advanced
-    #pwsh: false # boolean. Use PowerShell Core. Default: false.
-    #workingDirectory: # string. Working Directory.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Azure PowerShell v4
-# Run a PowerShell script within an Azure environment.
-- task: AzurePowerShell@4
-  inputs:
-    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required. Azure Subscription. 
-    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
-    #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
-    #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
-    #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
-    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
-    #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
   # Azure PowerShell version options
     #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
     preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
@@ -187,7 +163,7 @@ When this is true, this task will fail if any errors are written to the error pi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RestrictContextToCurrentTask"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`RestrictContextToCurrentTask`** - **Restrict scope of context to current task**<br>
 `boolean`. Default value: `false`.<br>

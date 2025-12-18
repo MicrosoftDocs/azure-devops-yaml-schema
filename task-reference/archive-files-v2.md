@@ -2,7 +2,7 @@
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # ArchiveFiles@2 - Archive files v2 task
@@ -33,27 +33,6 @@ Archive files using compression formats such as .7z, .tar, .gz, and .zip.
   # Archive
     archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
     #sevenZipCompression: 'normal' # 'ultra' | 'maximum' | 'normal' | 'fast' | 'fastest' | 'none'. Optional. Use when archiveType = 7z. 7z compression. Default: normal.
-    #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
-    #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
-    #verbose: false # boolean. Force verbose output. Default: false.
-    #quiet: false # boolean. Force quiet output. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Archive files v2
-# Compress files into .7z, .tar.gz, or .zip.
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)' # string. Required. Root folder or file to archive. Default: $(Build.BinariesDirectory).
-    #includeRootFolder: true # boolean. Prepend root folder name to archive paths. Default: true.
-  # Archive
-    archiveType: 'zip' # 'zip' | '7z' | 'tar' | 'wim'. Required. Archive type. Default: zip.
-    #sevenZipCompression: '5' # 'ultra' | 'maximum' | 'normal' | 'fast' | 'fastest' | 'none'. Optional. Use when archiveType = 7z. 7z compression. Default: 5.
     #tarCompression: 'gz' # 'gz' | 'bz2' | 'xz' | 'none'. Optional. Use when archiveType = tar. Tar compression. Default: gz.
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' # string. Required. Archive file to create. Default: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip.
     #replaceExistingArchive: true # boolean. Replace existing archive. Default: true.
@@ -128,16 +107,6 @@ Set compression level or `None` to create an uncompressed .7z file.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`sevenZipCompression`** - **7z compression**<br>
-`string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `5`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Set a compression format or `None` to create an uncompressed .7z file.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="tarCompression"::: -->
 :::moniker range="<=azure-pipelines"
@@ -261,20 +230,6 @@ Standard archive formats are supported including .zip, .jar, .war, .ear, .tar, .
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

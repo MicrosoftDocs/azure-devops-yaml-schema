@@ -2,7 +2,7 @@
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
@@ -49,22 +49,6 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Publish Pipeline Artifacts v1
-# Publish (upload) a file or directory as a named artifact for the current run.
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
-    #artifact: # string. Alias: artifactName. Artifact name. 
-    publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
-    #fileSharePath: # string. Required when artifactType = filepath. File share path. 
-    #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
-    #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -229,20 +213,6 @@ The `publish` and `download` keywords are shortcuts for the PublishPipelineArtif
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.159.2 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

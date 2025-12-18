@@ -2,13 +2,13 @@
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # Docker@2 - Docker v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Build or push Docker images, log in or log out, start or stop containers, or run a Docker command.
@@ -16,13 +16,6 @@ Build or push Docker images, log in or log out, start or stop containers, or run
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::editable-content name="description"::: -->
-Build or push Docker images, log in or log out, or run a Docker command.
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
@@ -51,49 +44,6 @@ Build or push Docker images, log in or log out, or run a Docker command.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-# Docker v2
-# Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-- task: Docker@2
-  inputs:
-  # Container Repository
-    #containerRegistry: # string. Container registry. 
-    #repository: # string. Optional. Use when command != login && command != logout && command != start && command != stop. Container repository. 
-  # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout' | 'start' | 'stop'. Required. Command. Default: buildAndPush.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
-    #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments. 
-    #addPipelineData: true # boolean. Add Pipeline metadata to image(s). Default: true.
-    #container: # string. Optional. Use when command = start || command = stop. Container.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Docker v2
-# Build or push Docker images, login or logout, or run a Docker command.
-- task: Docker@2
-  inputs:
-  # Container Repository
-    #containerRegistry: # string. Container registry. 
-    #repository: # string. Optional. Use when command != login && command != logout. Container repository. 
-  # Commands
-    command: 'buildAndPush' # 'buildAndPush' | 'build' | 'push' | 'login' | 'logout'. Required. Command. Default: buildAndPush.
-    Dockerfile: '**/Dockerfile' # string. Required when command = build || command = buildAndPush. Dockerfile. Default: **/Dockerfile.
-    #buildContext: '**' # string. Optional. Use when command = build || command = buildAndPush. Build context. Default: **.
-    #tags: '$(Build.BuildId)' # string. Optional. Use when command = build || command = push || command = buildAndPush. Tags. Default: $(Build.BuildId).
-    #arguments: # string. Optional. Use when command != login && command != logout && command != buildAndPush. Arguments. 
-    #addPipelineData: true # boolean. Add Pipeline metadata to image(s). Default: true.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -112,7 +62,7 @@ Name of the [Docker registry service connection](/azure/devops/pipelines/library
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="repository"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`repository`** - **Container repository**<br>
 `string`. Optional. Use when `command != login && command != logout && command != start && command != stop`.<br>
@@ -123,19 +73,9 @@ Specifies the name of the repository.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-**`repository`** - **Container repository**<br>
-`string`. Optional. Use when `command != login && command != logout`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the name of the repository.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`, `start`, `stop`. Default value: `buildAndPush`.<br>
@@ -146,16 +86,6 @@ Specifies the Docker command to run.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-**`command`** - **Command**<br>
-`string`. Required. Allowed values: `buildAndPush`, `build`, `push`, `login`, `logout`. Default value: `buildAndPush`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the Docker command to run.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Dockerfile"::: -->
 :::moniker range="<=azure-pipelines"
@@ -232,7 +162,7 @@ By default, base image data like base image name, or digest are added and help w
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="container"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`container`** - **Container**<br>
 `string`. Optional. Use when `command = start || command = stop`.<br>
@@ -460,7 +390,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -475,20 +405,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Build |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

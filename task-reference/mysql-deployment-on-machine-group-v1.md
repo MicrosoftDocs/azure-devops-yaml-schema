@@ -2,7 +2,7 @@
 title: MysqlDeploymentOnMachineGroup@1 - MySQL database deploy v1 task
 description: Run scripts and make changes to a MySQL Database.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -122,7 +122,7 @@ This string is the same value that is used for `Username` in `Parameters` in MyS
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`SqlUsername`** - **Mysql User Name**<br>
 `string`. Required.<br>

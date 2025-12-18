@@ -2,7 +2,7 @@
 title: JavaToolInstaller@0 - Java tool installer v0 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME (task version 0).
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # JavaToolInstaller@0 - Java tool installer v0 task
@@ -61,27 +61,6 @@ Use this task to acquire a specific version of Java from a user-supplied Azure b
     #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
     #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
     #createExtractDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Create directory for extracting. Default: true.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Java tool installer v0
-# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '8' # string. Required. JDK version. Default: 8.
-    jdkArchitectureOption: # 'x64' | 'x86'. Required. JDK architecture. 
-    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory' | 'PreInstalled'. Required. JDK source. 
-    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
-    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
-    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
-    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
-    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
-    #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
-    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
 ```
 
 :::moniker-end
@@ -333,35 +312,6 @@ Here's an example of using "pre-installed" feature. This feature allows you to u
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Java, JDK |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Java |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

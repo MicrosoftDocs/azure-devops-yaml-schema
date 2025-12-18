@@ -2,7 +2,7 @@
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
 ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+monikerRange: "<=azure-pipelines"
 ---
 
 # Bash@3 - Bash v3 task
@@ -38,26 +38,6 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
     #workingDirectory: # string. Working Directory. 
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #bashEnvValue: # string. Set value for BASH_ENV environment variable.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Bash v3
-# Run a Bash script on macOS, Linux, or Windows.
-- task: Bash@3
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-  # Advanced
-    #workingDirectory: # string. Working Directory. 
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #noProfile: true # boolean. Don't load the profile startup/initialization files. Default: true.
-    #noRc: true # boolean. Don't read the `~/.bashrc' initialization file. Default: true.
 ```
 
 :::moniker-end
@@ -152,27 +132,10 @@ If the input is specified, its value is expanded and used as the path of a start
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="noProfile"::: -->
-:::moniker range="<=azure-pipelines-2020.1"
 
-**`noProfile`** - **Don't load the profile startup/initialization files**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Don't load the system-wide startup file `/etc/profile` or any of the personal initialization files.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="noRc"::: -->
-:::moniker range="<=azure-pipelines-2020.1"
 
-**`noRc`** - **Don't read the `~/.bashrc' initialization file**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 
 ### Task control options
