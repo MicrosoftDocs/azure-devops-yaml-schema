@@ -1,8 +1,8 @@
 ---
 title: InstallSSHKey@0 - Install SSH key v0 task
 description: Install an SSH key prior to a build or deployment.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InstallSSHKey@0 - Install SSH key v0 task
@@ -335,7 +335,7 @@ The SSH keys are now installed, and you can proceed with the script to connect b
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

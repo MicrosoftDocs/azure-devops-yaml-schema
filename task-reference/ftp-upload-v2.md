@@ -1,8 +1,8 @@
 ---
 title: FtpUpload@2 - FTP upload v2 task
 description: Upload files using FTP.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # FtpUpload@2 - FTP upload v2 task
@@ -297,7 +297,7 @@ Use this task to upload files to a remote machine using FTP or securely with FTP
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,8 +1,8 @@
 ---
 title: Maven@3 - Maven v3 task
 description: Build, test, and deploy with Apache Maven (task version 3).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Maven@3 - Maven v3 task
@@ -305,7 +305,7 @@ Specifies a name for the test run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="allowBrokenSymlinks"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`allowBrokenSymlinks`** - **Allow broken symbolic links**<br>
 [Input alias](index.md#what-are-task-input-aliases): `allowBrokenSymbolicLinks`. `boolean`. Optional. Use when `publishJUnitResults = true`. Default value: `true`.<br>
@@ -415,7 +415,7 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 **`jdkVersionOption`** - **JDK version**<br>
 [Input alias](index.md#what-are-task-input-aliases): `jdkVersion`. `string`. Optional. Use when `javaHomeSelection = JDKVersion`. Allowed values: `default`, `1.17` (JDK 17), `1.11` (JDK 11), `1.10` (JDK 10 (out of support)), `1.9` (JDK 9 (out of support)), `1.8` (JDK 8), `1.7` (JDK 7), `1.6` (JDK 6 (out of support)). Default value: `default`.<br>
@@ -426,7 +426,6 @@ Attempts to discover the path to the selected JDK version and sets `JAVA_HOME` a
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="jdkDirectory"::: -->
 :::moniker range="<=azure-pipelines"
@@ -631,7 +630,7 @@ Uses the FindBugs static analysis tool to look for bugs in the code. Results are
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsRunAnalysis"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`spotBugsRunAnalysis`** - **Run SpotBugs analysis**<br>
 [Input alias](index.md#what-are-task-input-aliases): `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -643,7 +642,7 @@ Enable this option to run the SpotBugs code analysis plugin. More information ab
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`spotBugsVersion`** - **Version number**<br>
 [Input alias](index.md#what-are-task-input-aliases): `spotBugsMavenPluginVersion`. `string`. Optional. Use when `spotBugsAnalysisEnabled = true`. Default value: `4.5.3.0`.<br>
@@ -655,7 +654,7 @@ Learn about [the available versions of SpotBugs](https://mvnrepository.com/artif
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsGoal"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`spotBugsGoal`** - **The goal for the spotbugs plugin**<br>
 `string`. Optional. Use when `spotBugsAnalysisEnabled = true`. Allowed values: `spotbugs` ("spotbugs" - Creates a report on found bugs), `check` ("check" - Pipeline fails if bugs were detected). Default value: `spotbugs`.<br>
@@ -667,7 +666,7 @@ Specifies the goal of the plugin. Learn more about [SpotBugs goals](https://spot
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="failWhenBugsFound"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`failWhenBugsFound`** - **Fail when bugs are found with spotbugs:check**<br>
 [Input alias](index.md#what-are-task-input-aliases): `spotBugsFailWhenBugsFound | sbFailWhenBugsFound`. `boolean`. Optional. Use when `spotBugsAnalysisEnabled = true && spotBugsGoal = check`. Default value: `true`.<br>

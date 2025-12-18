@@ -1,8 +1,8 @@
 ---
 title: InstallAppleProvisioningProfile@1 - Install Apple provisioning profile v1 task
 description: Install an Apple provisioning profile required to build on a macOS agent machine.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InstallAppleProvisioningProfile@1 - Install Apple provisioning profile v1 task
@@ -137,7 +137,7 @@ You can install an Apple provisioning profile that is:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

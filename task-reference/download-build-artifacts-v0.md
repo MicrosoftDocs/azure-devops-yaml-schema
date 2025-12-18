@@ -1,8 +1,8 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -59,7 +59,7 @@ If you're using Azure DevOps Services, we recommend using [Download Pipeline Art
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 ```yaml
 # Download build artifacts v0
@@ -252,7 +252,7 @@ The path on the agent machine where the artifacts are downloaded.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanDestinationFolder"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`cleanDestinationFolder`** - **Clean destination folder**<br>
 `boolean`. Default value: `false`.<br>
@@ -276,7 +276,7 @@ The number of files to download simultaneously.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkDownloadedFiles"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`checkDownloadedFiles`** - **Check downloaded files**<br>
 `boolean`. Default value: `false`.<br>
@@ -288,7 +288,7 @@ If `true`, this build task checks that all files are fully downloaded.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryDownloadCount"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryDownloadCount`** - **Retry count**<br>
 `string`. Default value: `4`.<br>
@@ -312,7 +312,7 @@ Optional number of times to retry downloading a build artifact if the download b
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="extractTars"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`extractTars`** - **Extract all files that are stored inside tar archives**<br>
 `boolean`.<br>

@@ -1,8 +1,8 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie
 ---
@@ -25,7 +25,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio build v1
@@ -84,7 +84,7 @@ Make sure the solutions you specify are downloaded by this build pipeline. On th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`vsVersion`** - **Visual Studio Version**<br>
 `string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
@@ -98,7 +98,6 @@ Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to th
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArgs"::: -->
 :::moniker range="<=azure-pipelines"
@@ -233,7 +232,7 @@ Specifies the verbosity level in log files.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableDefaultLogger"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`enableDefaultLogger`** - **Enable Default Logger**<br>
 `boolean`. Default value: `true`.<br>
@@ -245,7 +244,7 @@ If set to `true`, enables the default logger for MSBuild.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`customVersion`** - **Custom Version**<br>
 `string`.<br>

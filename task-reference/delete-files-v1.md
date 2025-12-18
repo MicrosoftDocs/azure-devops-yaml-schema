@@ -1,8 +1,8 @@
 ---
 title: DeleteFiles@1 - Delete files v1 task
 description: Delete folders, or files matching a pattern.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DeleteFiles@1 - Delete files v1 task
@@ -21,7 +21,7 @@ Delete folders, or files matching a pattern.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Delete files v1
@@ -87,7 +87,7 @@ Attempts to remove the source folder after attempting to remove `Contents`. If y
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RemoveDotFiles"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`RemoveDotFiles`** - **Remove files starting with a dot**<br>
 `boolean`. Default value: `false`.<br>
@@ -186,7 +186,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

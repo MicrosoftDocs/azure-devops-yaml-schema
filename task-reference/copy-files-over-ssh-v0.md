@@ -1,8 +1,8 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFilesOverSSH@0 - Copy files over SSH v0 task
@@ -45,7 +45,7 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Copy files over SSH v0
@@ -152,7 +152,7 @@ Deletes all existing files and sub-folders in the target folder before copying.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanHiddenFilesInTarget"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`cleanHiddenFilesInTarget`** - **Remove hidden files in target folder**<br>
 `boolean`. Optional. Use when `cleanTargetFolder = true`. Default value: `false`.<br>
@@ -279,7 +279,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|

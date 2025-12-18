@@ -1,8 +1,8 @@
 ---
 title: JenkinsDownloadArtifacts@1 - Jenkins download artifacts v1 task
 description: Download artifacts produced by a Jenkins job (task version 1).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -283,7 +283,7 @@ Use this task to download artifacts produced by a Jenkins job.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

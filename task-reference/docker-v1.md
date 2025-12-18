@@ -1,8 +1,8 @@
 ---
 title: Docker@1 - Docker v1 task
 description: Build, tag, push, or run Docker images, or run a Docker command.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Docker@1 - Docker v1 task
@@ -23,7 +23,7 @@ Build, tag, push, or run Docker images, or run a Docker command. Use this task w
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Docker v1
@@ -88,7 +88,7 @@ Specifies the Azure Container Registry to connect using an Azure Service Connect
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addBaseImageData"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
@@ -480,7 +480,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 

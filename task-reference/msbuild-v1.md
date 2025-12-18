@@ -1,8 +1,8 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # MSBuild@1 - MSBuild v1 task
@@ -23,7 +23,7 @@ Use this task to build with MSBuild.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # MSBuild v1
@@ -88,7 +88,7 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
@@ -98,7 +98,6 @@ If the preferred version cannot be found, the latest version found is used inste
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildArchitecture"::: -->
 :::moniker range="<=azure-pipelines"

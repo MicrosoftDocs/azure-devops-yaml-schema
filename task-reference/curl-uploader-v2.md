@@ -1,8 +1,8 @@
 ---
 title: cURLUploader@2 - cURL Upload Files v2 task
 description: Use cURL's supported protocols to upload files.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # cURLUploader@2 - cURL Upload Files v2 task
@@ -194,7 +194,7 @@ such as FTP, FTPS, SFTP, HTTP, and more.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

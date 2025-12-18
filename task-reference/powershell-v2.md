@@ -1,8 +1,8 @@
 ---
 title: PowerShell@2 - PowerShell v2 task
 description: Run a PowerShell script on Linux, macOS, or Windows.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
 ---
@@ -138,7 +138,7 @@ Specifies the contents of the script. The maximum supported inline script length
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="errorActionPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`errorActionPreference`** - **ErrorActionPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `stop`.<br>
@@ -148,10 +148,9 @@ Prepends the line `$ErrorActionPreference = 'VALUE'` at the top of your script.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="warningPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`warningPreference`** - **WarningPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -163,7 +162,7 @@ When not set to  `Default`, prepends the line `$WarningPreference = 'VALUE'` at 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="informationPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`informationPreference`** - **InformationPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -175,7 +174,7 @@ When not set to `Default`, prepends the line `$InformationPreference = 'VALUE'` 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="verbosePreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`verbosePreference`** - **VerbosePreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -187,7 +186,7 @@ When not set to `Default`, prepends the line `$VerbosePreference = 'VALUE'` at t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="debugPreference"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`debugPreference`** - **DebugPreference**<br>
 `string`. Allowed values: `default`, `stop`, `continue`, `silentlyContinue`. Default value: `default`.<br>
@@ -271,7 +270,7 @@ Specifies the working directory where the script is run. If a value is not speci
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runScriptInSeparateScope"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`runScriptInSeparateScope`** - **Run script in the separate scope**<br>
 `boolean`. Default value: `false`.<br>

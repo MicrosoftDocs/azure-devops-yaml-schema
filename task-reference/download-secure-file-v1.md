@@ -1,8 +1,8 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -65,7 +65,6 @@ Optional. Specifies the number of times to retry downloading a secure file if th
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="socketTimeout"::: -->
 :::moniker range="<=azure-pipelines"
@@ -194,7 +193,7 @@ This example downloads a secure certificate file and installs it to a trusted ce
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

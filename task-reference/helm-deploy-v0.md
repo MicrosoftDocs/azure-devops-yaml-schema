@@ -1,8 +1,8 @@
 ---
 title: HelmDeploy@0 - Package and deploy Helm charts v0 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running helm commands (task version 0).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
 ms.custom: sfi-image-nochange
@@ -24,7 +24,7 @@ Use this task to deploy, configure, or update a Kubernetes cluster in Azure Cont
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Package and deploy Helm charts v0
@@ -100,7 +100,6 @@ For more information, see [Service connection](#service-connection) in the follo
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
@@ -113,7 +112,6 @@ The name of the Azure Service Connection. Specify an Azure subscription that has
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureResourceGroup"::: -->
 :::moniker range="<=azure-pipelines"
@@ -126,7 +124,6 @@ The name of the resource group within the subscription. Specify an Azure Resourc
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesCluster"::: -->
 :::moniker range="<=azure-pipelines"
@@ -139,7 +136,6 @@ The name of the AKS cluster. Specify an Azure Managed Cluster.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="useClusterAdmin"::: -->
 :::moniker range="<=azure-pipelines"
@@ -152,7 +148,6 @@ Uses cluster administrator credentials instead of default cluster user credentia
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="kubernetesServiceConnection"::: -->
 :::moniker range="<=azure-pipelines"
@@ -165,7 +160,6 @@ Specifies a Kubernetes Service Connection.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="namespace"::: -->
 :::moniker range="<=azure-pipelines"
@@ -178,7 +172,6 @@ The namespace on which you run the `kubectl` commands. If not specified, the tas
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="azureSubscriptionForACR"::: -->
 :::moniker range="<=azure-pipelines"
@@ -217,7 +210,7 @@ Specifies an Azure Container Registry to be used for pushing Helm charts.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`command`** - **Command**<br>
 `string`. Required. Allowed values: `create`, `delete`, `expose`, `get`, `init`, `install`, `login`, `logout`, `ls`, `package`, `rollback`, `save`, `upgrade`, `uninstall`. Default value: `ls`.<br>
@@ -227,7 +220,6 @@ Specifies a Helm command.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="chartType"::: -->
 :::moniker range="<=azure-pipelines"
@@ -276,7 +268,6 @@ Specifies the exact chart version to install. If you don't specify the chart ver
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="releaseName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -464,7 +455,6 @@ Enables using SSL between Helm and Tiller.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="caCert"::: -->
 :::moniker range="<=azure-pipelines"
@@ -477,7 +467,6 @@ The CA cert used to issue a certificate for the Tiller and Helm client.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="certificate"::: -->
 :::moniker range="<=azure-pipelines"
@@ -490,7 +479,6 @@ Specify the Tiller certificate or the Helm client certificate.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="privatekey"::: -->
 :::moniker range="<=azure-pipelines"
@@ -503,7 +491,6 @@ Specify the Tiller key or the Helm client key.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="tillernamespace"::: -->
 :::moniker range="<=azure-pipelines"
@@ -516,7 +503,6 @@ Specify Tiller's Kubernetes namespace.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
@@ -529,7 +515,6 @@ If this input is `true`, this task fails if any errors are written to the error 
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="publishPipelineMetadata"::: -->
 :::moniker range="<=azure-pipelines"

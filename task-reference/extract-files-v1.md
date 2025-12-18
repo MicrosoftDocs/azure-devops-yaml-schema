@@ -1,8 +1,8 @@
 ---
 title: ExtractFiles@1 - Extract files v1 task
 description: Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # ExtractFiles@1 - Extract files v1 task
@@ -20,7 +20,7 @@ Use this task to extract a variety of archive and compression files, such as .7z
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Extract files v1
@@ -64,7 +64,6 @@ For example, to copy a pipeline artifact, move the file from $(Pipeline.Workspac
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="destinationFolder"::: -->
 :::moniker range="<=azure-pipelines"
@@ -103,7 +102,7 @@ Specifies the option to overwrite existing files in the destination directory if
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="pathToSevenZipTool"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`pathToSevenZipTool`** - **Path to 7z utility**<br>
 `string`.<br>
@@ -175,7 +174,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

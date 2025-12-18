@@ -1,8 +1,8 @@
 ---
 title: AzureFunctionApp@1 - Azure Functions v1 task
 description: Update a function app with .NET, Python, JavaScript, PowerShell, Java based web applications (task version 1).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
 ---
@@ -156,7 +156,7 @@ Selects the Azure Resource Manager subscription for the deployment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="appName"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`appName`** - **Azure Functions App name**<br>
 `string`. Required.<br>
@@ -166,7 +166,6 @@ Enters or selects the name of an existing Azure Functions App. The Function Apps
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="deployToSlotOrASE"::: -->
 :::moniker range="<=azure-pipelines"
@@ -266,7 +265,6 @@ Specify the framework and version your function app will run on. You can use any
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="startUpCommand"::: -->
 :::moniker range="<=azure-pipelines"
@@ -322,7 +320,7 @@ Enter the configuration strings using the syntax `-key value` (for example: `-ph
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="deploymentMethod"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`deploymentMethod`** - **Deployment method**<br>
 `string`. Required when `appType != functionAppLinux && appType != "" && package NotEndsWith .war && Package NotEndsWith .jar`. Allowed values: `auto` (Auto-detect), `zipDeploy` (Zip Deploy), `runFromPackage` (Zip Deploy with Run From Package). Default value: `auto`.<br>
@@ -332,7 +330,6 @@ Chooses the [deployment method](#deployment-methods) for the app.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 
 ### Task control options

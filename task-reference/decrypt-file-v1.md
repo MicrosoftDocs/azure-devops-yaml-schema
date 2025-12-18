@@ -1,8 +1,8 @@
 ---
 title: DecryptFile@1 - Decrypt file (OpenSSL) v1 task
 description: Decrypt a file using OpenSSL.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # DecryptFile@1 - Decrypt file (OpenSSL) v1 task
@@ -135,7 +135,7 @@ Use this task to decrypt files using OpenSSL.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

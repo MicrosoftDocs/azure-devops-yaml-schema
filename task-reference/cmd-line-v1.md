@@ -1,8 +1,8 @@
 ---
 title: CmdLine@1 - Command Line v1 task
 description: Run a command line with arguments.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CmdLine@1 - Command Line v1 task

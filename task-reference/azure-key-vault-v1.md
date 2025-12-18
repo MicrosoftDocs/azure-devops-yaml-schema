@@ -1,8 +1,8 @@
 ---
 title: AzureKeyVault@1 - Azure Key Vault v1 task
 description: Download Azure Key Vault secrets (task version 1).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -35,7 +35,7 @@ Use this task to download secrets, such as authentication keys, storage account 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Key Vault v1
@@ -80,7 +80,7 @@ The name of the Azure Key Vault that contains the secrets to download.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SecretsFilter"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`SecretsFilter`** - **Secrets filter**<br>
 `string`. Required. Default value: `*`.<br>
@@ -90,10 +90,9 @@ Downloads secret names according to the entered value. The value can be the defa
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="RunAsPreJob"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
 `boolean`. Default value: `false`.<br>
@@ -103,7 +102,6 @@ Runs the task before the job execution begins. Exposes secrets to all tasks in t
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 
 ### Task control options

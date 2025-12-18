@@ -1,8 +1,8 @@
 ---
 title: Gradle@2 - Gradle v2 task
 description: Build using a Gradle wrapper script (task version 2).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Gradle@2 - Gradle v2 task
@@ -269,7 +269,6 @@ The comma-separated list of directories containing class files and archive files
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageClassFilter"::: -->
 :::moniker range="<=azure-pipelines"
@@ -296,7 +295,7 @@ Fails the build if code coverage did not produce any results to publish.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="codeCoverageGradle5xOrHigher"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`codeCoverageGradle5xOrHigher`** - **Gradle version >= 5.x**<br>
 [Input alias](index.md#what-are-task-input-aliases): `gradle5xOrHigher`. `boolean`. Optional. Use when `codeCoverageTool = JaCoCo`. Default value: `true`.<br>
@@ -462,7 +461,7 @@ Uses the PMD Java static analysis tool to look for bugs in the code. The results
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsAnalysis"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`spotBugsAnalysis`** - **Run SpotBugs**<br>
 [Input alias](index.md#what-are-task-input-aliases): `spotBugsAnalysisEnabled`. `boolean`. Default value: `false`.<br>
@@ -474,7 +473,7 @@ Runs `spotBugs` when `true`. This plugin works with Gradle v5.6 or later. Learn 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotBugsGradlePluginVersionChoice"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`spotBugsGradlePluginVersionChoice`** - **Spotbugs plugin version**<br>
 `string`. Required when `spotBugsAnalysisEnabled = true`. Allowed values: `specify` (Specify version number), `build` (Use plugin applied in your build.gradle). Default value: `specify`.<br>
@@ -486,7 +485,7 @@ Specifies the SpotBugs Gradle plugin version to use. The version can be declared
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="spotbugsGradlePluginVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`spotbugsGradlePluginVersion`** - **Version number**<br>
 `string`. Required when `spotBugsAnalysisEnabled = true && spotBugsGradlePluginVersionChoice = specify`. Default value: `4.7.0`.<br>

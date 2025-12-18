@@ -1,8 +1,8 @@
 ---
 title: WindowsMachineFileCopy@2 - Windows machine file copy v2 task
 description: Copy files to remote Windows machines.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -22,7 +22,7 @@ Use this task to copy files to remote Windows machines.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Windows machine file copy v2
@@ -60,7 +60,7 @@ The path to the files to copy. Specifies the absolute path of the source folder 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="MachineNames"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`MachineNames`** - **Machines**<br>
 `string`. Required.<br>
@@ -71,10 +71,9 @@ For example: `dbserver.fabrikam.com, dbserver_int.fabrikam.com:5986, 192.168.12.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="AdminUserName"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`AdminUserName`** - **Admin Login**<br>
 `string`. Required.<br>
@@ -84,10 +83,9 @@ Specifies the username of a domain or a local administrative account on the targ
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="AdminPassword"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`AdminPassword`** - **Password**<br>
 `string`. Required.<br>
@@ -97,7 +95,6 @@ Specifies the password for the administrator login for the target machines. Vari
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="TargetPath"::: -->
 :::moniker range="<=azure-pipelines"

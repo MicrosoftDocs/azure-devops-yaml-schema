@@ -1,8 +1,8 @@
 ---
 title: PublishSymbols@2 - Index sources and publish symbols v2 task
 description: Index your source code and publish symbols to a file share or Azure Artifacts symbol server.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishSymbols@2 - Index sources and publish symbols v2 task
@@ -53,7 +53,7 @@ Symbol servers enable your debugger to automatically retrieve the correct symbol
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Index sources and publish symbols v2
@@ -191,7 +191,7 @@ Compresses symbols when publishing to file share.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SymbolExpirationInDays"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`SymbolExpirationInDays`** - **Symbol Expiration (in days)**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = TeamServices`. Default value: `36530`.<br>
@@ -203,7 +203,7 @@ Specifies the number of days that symbols should be retained.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="IndexableFileFormats"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`IndexableFileFormats`** - **Symbol file formats to publish**<br>
 `string`. Optional. Use when `PublishSymbols = true && SymbolServerType = TeamServices`. Allowed values: `Default` (The Default set of symbols to upload), `Pdb` (Only Pdb based symbols Windows pdb's and managed Portable pdb's.), `SourceMap` (Only JavaScript based SourceMap symbols (*.js.map)), `All` (All supported symbol formats). Default value: `Default`.<br>
@@ -239,7 +239,7 @@ Specifies whether to warn if sources are not indexed for a PDB file. Otherwise, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UseNetCoreClientTool"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`UseNetCoreClientTool`** - **Use NetCore client tool**<br>
 `boolean`. Default value: `false`.<br>
@@ -355,7 +355,7 @@ Symbols are associated with the build that published to Azure Pipelines they are
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,8 +1,8 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Bash@3 - Bash v3 task
@@ -23,7 +23,7 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Bash v3
@@ -120,7 +120,7 @@ If this is true, this task will fail if any errors are written to the `StandardE
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="bashEnvValue"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`bashEnvValue`** - **Set value for BASH_ENV environment variable**<br>
 `string`.<br>
@@ -130,12 +130,6 @@ If the input is specified, its value is expanded and used as the path of a start
 <br>
 
 :::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="noProfile"::: -->
-
-<!-- :::item-end::: -->
-<!-- :::item name="noRc"::: -->
-
 <!-- :::item-end::: -->
 
 ### Task control options

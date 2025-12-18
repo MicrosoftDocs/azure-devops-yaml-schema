@@ -1,8 +1,8 @@
 ---
 title: Docker@0 - Docker v0 task
 description: Build, tag, push, or run Docker images, or run a Docker command (task version 0).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Docker@0 - Docker v0 task
@@ -36,7 +36,7 @@ Build, tag, push, run Docker images, or run a Docker command. Use this task with
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Docker v0
@@ -159,7 +159,7 @@ Specifies the path to the Docker file. The task uses the first Docker file it fi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addBaseImageData"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>
@@ -479,7 +479,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 

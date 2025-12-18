@@ -1,8 +1,8 @@
 ---
 title: InstallAppleCertificate@2 - Install Apple certificate v2 task
 description: Install an Apple certificate required to build on a macOS agent machine.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # InstallAppleCertificate@2 - Install Apple certificate v2 task
@@ -166,7 +166,7 @@ Specifies the `Common Name` of the subject in the signing certificate.  Will att
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="setUpPartitionIdACLForPrivateKey"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`setUpPartitionIdACLForPrivateKey`** - **Set up partition_id ACL for the imported private key**<br>
 `boolean`.<br>
@@ -233,7 +233,7 @@ You can use this task to install an Apple certificate that is stored as a [secur
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

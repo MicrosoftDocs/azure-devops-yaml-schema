@@ -1,8 +1,8 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFiles@2 - Copy files v2 task
@@ -20,7 +20,7 @@ Use this task to copy files from a source folder to a target folder using match 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy files v2
@@ -146,7 +146,7 @@ Preserves the target file timestamp by using the original source file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCount"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCount`** - **Retry count to copy the file**<br>
 `string`. Default value: `0`.<br>
@@ -158,7 +158,7 @@ Specifies the retry count to copy the file. This string is useful for intermitte
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenRetries"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`delayBetweenRetries`** - **Delay between two retries.**<br>
 `string`. Default value: `1000`.<br>
@@ -170,7 +170,7 @@ Specifies the delay between two retries. This string is useful for intermittent 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ignoreMakeDirErrors"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`ignoreMakeDirErrors`** - **Ignore errors during creation of target folder.**<br>
 `boolean`. Default value: `false`.<br>
@@ -402,7 +402,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

@@ -1,8 +1,8 @@
 ---
 title: Kubernetes@1 - Kubectl v1 task
 description: Deploy, configure, update a Kubernetes cluster in Azure Container Service by running kubectl commands.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Kubernetes@1 - Kubectl v1 task
@@ -526,7 +526,6 @@ Output format. The list of allowed values provides some common choices for ease 
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 
 ### Task control options

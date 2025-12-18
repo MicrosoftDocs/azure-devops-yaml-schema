@@ -1,8 +1,8 @@
 ---
 title: RunVisualStudioTestsusingTestAgent@1 - Run functional tests v1 task
 description: RunVisualStudioTestsusingTestAgent@1 and its companion task (Visual Studio Test Agent Deployment) are deprecated. Use the Visual Studio Test task instead. The VSTest task can run unit as well as functional tests. Run tests on one or more agents using the multi-agent job setting. Use the 'Visual Studio Test Platform' task to run tests without needing Visual Studio on the agent. VSTest task also brings new capabilities such as automatically rerunning failed tests.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # RunVisualStudioTestsusingTestAgent@1 - Run functional tests v1 task

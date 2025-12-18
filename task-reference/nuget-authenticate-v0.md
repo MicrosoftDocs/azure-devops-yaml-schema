@@ -1,8 +1,8 @@
 ---
 title: NuGetAuthenticate@0 - NuGet authenticate v0 task
 description: This version of the task is deprecated, use NuGetAuthenticateV1 instead. Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -10,7 +10,7 @@ ms.author: rabououn
 # NuGetAuthenticate@0 - NuGet authenticate v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenticate-v1.md) instead. Use this task to configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 2.1.400, or MSBuild >= 15.8.166.59604.
@@ -25,7 +25,7 @@ This version of the task is deprecated. Use [NuGetAuthenticate@1](nuget-authenti
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # NuGet authenticate v0

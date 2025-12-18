@@ -1,7 +1,7 @@
 ---
 title: JavaToolInstaller@1 - Java tool installer v1 task
 description: Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-ms.date: 11/11/2025
+ms.date: 12/18/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 ---
 
@@ -23,7 +23,30 @@ Acquire a specific version of Java from a user-supplied Azure blob or the tool c
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-server"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Java tool installer v1
+# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
+- task: JavaToolInstaller@1
+  inputs:
+    versionSpec: '8' # string. Required. JDK version. Default: 8.
+    jdkArchitectureOption: # 'x64' | 'x86' | 'arm64'. Required. JDK architecture. 
+    jdkSourceOption: # 'AzureStorage' | 'LocalDirectory' | 'PreInstalled'. Required. JDK source. 
+    #jdkFile: # string. Required when jdkSourceOption == LocalDirectory. JDK file. 
+    #azureResourceManagerEndpoint: # string. Required when jdkSourceOption == AzureStorage. Azure subscription. 
+    #azureStorageAccountName: # string. Required when jdkSourceOption == AzureStorage. Storage account name. 
+    #azureContainerName: # string. Required when jdkSourceOption == AzureStorage. Container name. 
+    #azureCommonVirtualFile: # string. Required when jdkSourceOption == AzureStorage. Common virtual path. 
+    #jdkDestinationDirectory: # string. Required when jdkSourceOption != PreInstalled. Destination directory. 
+    #azureResourceGroupName: # string. Optional. Use when jdkSourceOption == AzureStorage. Resource Group name. 
+    #cleanDestinationDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Clean destination directory. Default: true.
+    #createExtractDirectory: true # boolean. Optional. Use when jdkSourceOption != PreInstalled. Create directory for extracting. Default: true.
+```
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
 
 ```yaml
 # Java tool installer v1
@@ -63,7 +86,18 @@ Specifies the JDK version to make available on the path. Use a whole number vers
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jdkArchitectureOption"::: -->
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
+
+**`jdkArchitectureOption`** - **JDK architecture**<br>
+`string`. Required. Allowed values: `x64`, `x86`, `arm64`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specifies the architecture (`x86`, `x64`) of the JDK.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+
+:::moniker range="=azure-pipelines-server"
 
 **`jdkArchitectureOption`** - **JDK architecture**<br>
 `string`. Required. Allowed values: `x64`, `x86`.<br>

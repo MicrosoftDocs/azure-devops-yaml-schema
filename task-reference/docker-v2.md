@@ -1,8 +1,8 @@
 ---
 title: Docker@2 - Docker v2 task
 description: Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Docker@2 - Docker v2 task
@@ -21,7 +21,7 @@ Build or push Docker images, log in or log out, start or stop containers, or run
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Docker v2
@@ -72,7 +72,6 @@ Specifies the name of the repository.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="command"::: -->
 :::moniker range="<=azure-pipelines"
@@ -85,7 +84,6 @@ Specifies the Docker command to run.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="Dockerfile"::: -->
 :::moniker range="<=azure-pipelines"
@@ -150,7 +148,7 @@ By default, pipeline data like source branch name, or build ID are added and hel
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="addBaseImageData"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`addBaseImageData`** - **Add base image metadata to image(s)**<br>
 `boolean`. Default value: `true`.<br>

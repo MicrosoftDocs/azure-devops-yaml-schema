@@ -1,8 +1,8 @@
 ---
 title: CocoaPods@0 - CocoaPods v0 task
 description: Install CocoaPods dependencies for Swift and Objective-C Cocoa projects.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CocoaPods@0 - CocoaPods v0 task
@@ -112,7 +112,7 @@ Use this task to run CocoaPods [pod install](https://guides.cocoapods.org/using/
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

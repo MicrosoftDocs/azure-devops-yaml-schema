@@ -1,8 +1,8 @@
 ---
 title: Xcode@5 - Xcode v5 task
 description: Build, test, or archive an Xcode workspace on macOS. Optionally package an app.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Xcode@5 - Xcode v5 task
@@ -20,7 +20,7 @@ Use this task to build, test, or archive an Xcode workspace on macOS, and option
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Xcode v5
@@ -132,7 +132,7 @@ Optional. Specifies an Xcode scheme name. *Must be a shared scheme* (shared chec
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="xcodeVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`xcodeVersion`** - **Xcode version**<br>
 `string`. Allowed values: `8` (Xcode 8), `9` (Xcode 9), `10` (Xcode 10), `11` (Xcode 11), `12` (Xcode 12), `13` (Xcode 13), `default`, `specifyPath` (Specify path). Default value: `default`.<br>
@@ -142,7 +142,6 @@ Specifies the target version of Xcode. Select `Default` to use the default versi
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="xcodeDeveloperDir"::: -->
 :::moniker range="<=azure-pipelines"
@@ -359,7 +358,6 @@ Specifies an Xcode simulator name used for UI testing. For example, `iPhone X` (
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="destinationDevices"::: -->
 :::moniker range="<=azure-pipelines"

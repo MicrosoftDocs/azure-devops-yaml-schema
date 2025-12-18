@@ -1,8 +1,8 @@
 ---
 title: SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
 description: Deploy an Azure SQL Database using DACPAC or run scripts using SQLCMD.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # SqlAzureDacpacDeployment@1 - Azure SQL Database deployment v1 task
@@ -113,7 +113,6 @@ Specify the option to connect to the Azure SQL Server database. You can provide 
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="ServerName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -126,7 +125,6 @@ Specifies the Azure SQL Server name, like `Fabrikam.database.windows.net.placeho
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="DatabaseName"::: -->
 :::moniker range="<=azure-pipelines"
@@ -139,7 +137,6 @@ Specifies the name of the Azure SQL database where the files are deployed.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="SqlUsername"::: -->
 :::moniker range="<=azure-pipelines"

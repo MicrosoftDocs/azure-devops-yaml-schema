@@ -1,8 +1,8 @@
 ---
 title: AzureIoTEdge@2 - Azure IoT Edge v2 task
 description: Build and deploy an Azure IoT Edge image.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureIoTEdge@2 - Azure IoT Edge v2 task
@@ -24,7 +24,7 @@ This task supports custom variables. If you're not familiar with how to use vari
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure IoT Edge v2
@@ -247,7 +247,7 @@ The path of Azure IoT Edge solution `.template.json`. This file defines the modu
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="defaultPlatform"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`defaultPlatform`** - **Default platform**<br>
 `string`. Required when `action = Build module images || action = Push module images || action = Generate deployment manifest`. Allowed values: `amd64`, `windows-amd64`, `arm32v7`, `arm64v8`. Default value: `amd64`.<br>
@@ -257,7 +257,6 @@ In your `.template.json`, you can leave the modules platform unspecified. For th
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="fillRegistryCredential"::: -->
 :::moniker range="<=azure-pipelines"

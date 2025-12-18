@@ -1,8 +1,8 @@
 ---
 title: ArchiveFiles@2 - Archive files v2 task
 description: Compress files into .7z, .tar.gz, or .zip.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # ArchiveFiles@2 - Archive files v2 task
@@ -21,7 +21,7 @@ Archive files using compression formats such as .7z, .tar, .gz, and .zip.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Archive files v2
@@ -96,7 +96,7 @@ Example, to create an archive named `foo.jar`:
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="sevenZipCompression"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`sevenZipCompression`** - **7z compression**<br>
 `string`. Optional. Use when `archiveType = 7z`. Allowed values: `ultra`, `maximum`, `normal`, `fast`, `fastest`, `none`. Default value: `normal`.<br>
@@ -106,7 +106,6 @@ Set compression level or `None` to create an uncompressed .7z file.
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="tarCompression"::: -->
 :::moniker range="<=azure-pipelines"
@@ -215,7 +214,7 @@ Standard archive formats are supported including .zip, .jar, .war, .ear, .tar, .
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

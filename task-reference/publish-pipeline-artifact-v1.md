@@ -1,8 +1,8 @@
 ---
 title: PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
 description: Publish (upload) a file or directory as a named artifact for the current run.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishPipelineArtifact@1 - Publish Pipeline Artifacts v1 task
@@ -31,7 +31,7 @@ Use this task to publish (upload) a file or directory as a named artifact for th
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish Pipeline Artifacts v1
@@ -130,7 +130,7 @@ Specifies the degree of parallelism, or the number of threads used, to perform t
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="properties"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`properties`** - **Custom properties**<br>
 `string`.<br>
@@ -198,7 +198,7 @@ The `publish` and `download` keywords are shortcuts for the PublishPipelineArtif
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|

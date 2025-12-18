@@ -1,8 +1,8 @@
 ---
 title: AzureCLI@2 - Azure CLI v2 task
 description: Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureCLI@2 - Azure CLI v2 task
@@ -98,7 +98,6 @@ Type of script. Select a `bash` or `pscore` script when running on Linux agent. 
 <br>
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="scriptLocation"::: -->
 :::moniker range="<=azure-pipelines"

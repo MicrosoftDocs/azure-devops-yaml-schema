@@ -1,8 +1,8 @@
 ---
 title: PublishBuildArtifacts@1 - Publish build artifacts v1 task
 description: Publish build artifacts to Azure Pipelines or a Windows file share.
-ms.date: 11/11/2025
-monikerRange: "<=azure-pipelines"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishBuildArtifacts@1 - Publish build artifacts v1 task
@@ -160,7 +160,7 @@ Specifies the degree of parallelism (the number of threads) used to perform the 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="StoreAsTar"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`StoreAsTar`** - **Tar the artifact before uploading**<br>
 `boolean`. Default value: `false`.<br>
