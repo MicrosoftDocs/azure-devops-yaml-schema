@@ -1,7 +1,7 @@
 ---
 title: YAML schema reference
 description: Azure Pipelines YAML schema reference
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -521,7 +521,7 @@ Tasks run in an execution context, which is either the agent host or a container
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="target.settableVariables"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 [**target.settableVariables**](target-settable-variables.md)<br><!-- :::editable-content name="description"::: -->
 Restrictions on which variables that can be set.

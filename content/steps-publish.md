@@ -1,7 +1,7 @@
 ---
 title: steps.publish definition
 description: Publishes (uploads) a file or folder as a pipeline artifact that other jobs and pipelines can consume.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -31,7 +31,7 @@ The `publish` keyword publishes (uploads) a file or folder as a pipeline artifac
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -157,7 +157,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.

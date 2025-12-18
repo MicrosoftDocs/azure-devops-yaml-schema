@@ -1,7 +1,7 @@
 ---
 title: pr definition
 description: Pull request trigger.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -30,7 +30,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -177,7 +177,7 @@ pr:
 <!-- :::implementation-item name="pr: object properties"::: -->
 <a name="probjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## pr: autoCancel, branches, paths, drafts

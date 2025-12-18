@@ -1,7 +1,7 @@
 ---
 title: jobs.job definition
 description: A job is a collection of steps run by an agent or on a server.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,7 @@ A [job](/azure/devops/pipelines/process/phases) is a collection of steps run by 
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 jobs:
@@ -197,7 +197,7 @@ A list of steps to run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
 Job related information passed from a pipeline when extending a template. See remarks for more information. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).

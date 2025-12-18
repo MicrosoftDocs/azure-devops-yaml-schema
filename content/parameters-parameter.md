@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -83,7 +83,6 @@ See [**types**](#types).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
-
 <!-- :::item-end::: -->
 <!-- :::item name="default"::: -->
 :::moniker range="<=azure-pipelines"

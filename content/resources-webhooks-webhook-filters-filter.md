@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook.filters.filter definition
 description: Filters used to customize the triggers for a webhook event.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam

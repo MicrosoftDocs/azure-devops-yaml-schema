@@ -1,7 +1,7 @@
 ---
 title: steps.pwsh definition
 description: Runs a script in PowerShell Core on Windows, macOS, and Linux.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,7 @@ The `pwsh` step runs a script in PowerShell Core on Windows, macOS, and Linux.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -176,7 +176,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.

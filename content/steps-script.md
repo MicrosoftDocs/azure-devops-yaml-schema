@@ -1,7 +1,7 @@
 ---
 title: steps.script definition
 description: Runs a script using cmd.exe on Windows and Bash on other platforms.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,7 @@ The `script` step runs a script using cmd.exe on Windows and Bash on other platf
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -156,7 +156,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.

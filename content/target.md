@@ -1,7 +1,7 @@
 ---
 title: target definition
 description: Tasks run in an execution context, which is either the agent host or a container.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -30,7 +30,7 @@ Definitions that reference this definition: [steps.task](steps-task.md), [steps.
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -99,7 +99,7 @@ Available options are the word `host` to target the agent host plus any containe
 <!-- :::implementation-item name="target: object properties"::: -->
 <a name="targetobjectproperties"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## target: container, commands, settableVariables

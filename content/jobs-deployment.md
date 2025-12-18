@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment definition
 description: A deployment job is a special type of job. It's a collection of steps to run sequentially against the environment.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -21,7 +21,7 @@ It's a collection of steps to run sequentially against the environment.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 jobs:
@@ -200,7 +200,7 @@ Container resources to run as a service container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="templateContext"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`templateContext`** templateContext.<br><!-- :::editable-content name="propDescription"::: -->
 Deployment related information passed from a pipeline when extending a template. See remarks for more information. For more information about `templateContext`, see [Extended YAML Pipelines templates can now be passed context information for stages, jobs, and deployments](/azure/devops/release-notes/2022/sprint-202-update#extended-yaml-pipelines-templates-can-now-be-passed-context-information-for-stages-jobs-and-deployments) and [Templates - Use templateContext to pass properties to templates](/azure/devops/pipelines/process/templates#use-templatecontext-to-pass-properties-to-templates).

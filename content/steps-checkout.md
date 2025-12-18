@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -318,7 +318,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.

@@ -1,7 +1,7 @@
 ---
 title: steps.download definition
 description: Downloads artifacts associated with the current run or from another Azure Pipeline that is associated as a pipeline resource.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -20,7 +20,7 @@ The `download` step downloads artifacts associated with the current run or from 
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -156,7 +156,7 @@ Time to wait for this task to complete before the server kills it.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails.
