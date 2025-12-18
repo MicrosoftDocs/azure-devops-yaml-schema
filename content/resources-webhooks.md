@@ -2,7 +2,7 @@
 title: resources.webhooks definition
 description: List of webhooks.
 ms.date: 11/10/2025
-monikerRange: ">=azure-pipelines-2020.1"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # resources.webhooks definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 List of webhook resources referenced by the pipeline.
@@ -20,7 +20,7 @@ List of webhook resources referenced by the pipeline.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 webhooks: [ webhook ] # List of webhooks.
@@ -30,7 +30,7 @@ webhooks: [ webhook ] # List of webhooks.
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources](resources.md)
 
@@ -40,7 +40,7 @@ Definitions that reference this definition: [resources](resources.md)
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

@@ -118,7 +118,7 @@ For each occurrence of *string2*, a variable called *string2* with the value *st
 
 The optional `maxParallel` keyword specifies the maximum number of simultaneous matrix legs to run at once.
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If `maxParallel` is unspecified or set to 0, no limit is applied.
 

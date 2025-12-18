@@ -107,7 +107,7 @@ variables: { string: string }
 
 Variables defined at different scopes:
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 ```yaml
 variables:      # pipeline-level
@@ -194,7 +194,7 @@ variables:
   readonly: true
 ```
 
-::: moniker range=">=azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 You can also include [variables from templates](/azure/devops/pipelines/process/templates#variable-reuse).
 

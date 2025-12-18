@@ -39,14 +39,6 @@ Definitions that reference this definition: [steps.task](steps-task.md), [steps.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Implementation | Description |
-|---|---|
-| [target: string](#targetstring) | Environment in which to run this step or task. |
-| [target: container, commands](#targetobjectproperties) | Configure step target with environment and allowed list of commands. |
-
-:::moniker-end
 <!-- :::implementations-list-end::: -->
 
 <!-- :::remarks::: -->
@@ -150,42 +142,6 @@ Restrictions on which variables that can be set.
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-<!-- :::implementation-signature::: -->
-## target: container, commands
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Configure step target with environment and allowed list of commands.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-target:
-  container: string # Container to target (or 'host' for host machine).
-  commands: any | restricted # Set of allowed logging commands ('any' or 'restricted').
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="container"::: -->
-**`container`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Container to target (or 'host' for host machine).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="commands"::: -->
-**`commands`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Set of allowed logging commands ('any' or 'restricted'). any | restricted.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
 <!-- :::objectAnyOf-end::: -->
 
 <!-- :::remarks::: -->

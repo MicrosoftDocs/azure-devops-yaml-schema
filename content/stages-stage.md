@@ -56,20 +56,6 @@ stages:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-stages:
-- stage: string # Required as first property. ID of the stage.
-  displayName: string # Human-readable name for the stage.
-  pool: string | pool # Pool where jobs in this stage will run unless otherwise specified.
-  dependsOn: string | [ string ] # Any stages which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this stage.
-  variables: variables | [ variable ] # Stage-specific variables.
-  jobs: [ job | deployment | template ] # Jobs which make up the stage.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -204,7 +190,7 @@ As an owner of a resource like an environment, you can define checks that are re
 Currently, manual approval checks are supported on [environments](/azure/devops/pipelines/process/environments).
 For more information, see [Approvals](/azure/devops/pipelines/process/approvals).
 
-:::moniker range="> azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ### Exclusive lock
 

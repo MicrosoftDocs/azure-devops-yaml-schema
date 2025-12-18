@@ -48,57 +48,6 @@ jobs:
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-```yaml
-jobs:
-- job: string # Required as first property. ID of the job.
-  displayName: string # Human-readable name for the job.
-  dependsOn: string | [ string ] # Any jobs which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this job.
-  continueOnError: string # Continue running even on failure?
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
-  variables: variables | [ variable ] # Job-specific variables.
-  strategy: strategy # Execution strategy for this job.
-  pool: string | pool # Pool where this job will run.
-  container: string | container # Container resource name.
-  services: # Container resources to run as a service container.
-    string: string # Name/value pairs
-  workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # What to clean up before the job runs.
-  uses: # Any resources required by this job that are not already referenced.
-    repositories: [ string ] # Repository references.
-    pools: [ string ] # Pool references.
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-jobs:
-- job: string # Required as first property. ID of the job.
-  displayName: string # Human-readable name for the job.
-  dependsOn: string | [ string ] # Any jobs which must complete before this one.
-  condition: string # Evaluate this condition expression to determine whether to run this job.
-  continueOnError: string # Continue running even on failure?
-  timeoutInMinutes: string # Time to wait for this job to complete before the server kills it.
-  cancelTimeoutInMinutes: string # Time to wait for the job to cancel before forcibly terminating it.
-  variables: variables | [ variable ] # Job-specific variables.
-  strategy: strategy # Execution strategy for this job.
-  pool: string | pool # Pool where this job will run.
-  container: string | container # Container resource name.
-  services: # Container resources to run as a service container.
-    string: string # Name/value pairs
-  workspace: # Workspace options on the agent.
-    clean: outputs | resources | all # What to clean up before the job runs.
-  steps: [ task | script | powershell | pwsh | bash | checkout | download | downloadBuild | getPackage | publish | template | reviewApp ] # A list of steps to run.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
@@ -230,7 +179,7 @@ Workspace options on the agent. For more information about workspaces, including
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="uses"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`uses`** [jobs.job.uses](jobs-job-uses.md).<br><!-- :::editable-content name="propDescription"::: -->
 Specifies resources required by this job that are not already referenced elsewhere in the pipeline, for example by a [checkout](./steps-checkout.md) step or a [repository resource](./resources-repositories-repository.md). For more information about `uses`, see [Limit job authorization scope](/azure/devops/pipelines/repos/azure-repos-git#limit-job-authorization-scope) and ["uses" statement for pre-declaring resources](/azure/devops/release-notes/2021/sprint-181-update#uses-statement-for-pre-declaring-resources).

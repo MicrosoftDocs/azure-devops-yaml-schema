@@ -40,16 +40,6 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Implementation | Description |
-|---|---|
-| [pr: none](#prstring) | Disable pull request triggers. |
-| [pr: string list](#prstringlist) | List of branches that trigger a run. |
-| [pr: autoCancel, branches, paths](#probjectproperties) | Full syntax for complete control. |
-
-:::moniker-end
-
 <!-- :::implementations-list-end::: -->
 
 <!-- :::remarks::: -->
@@ -68,7 +58,7 @@ There are three distinct syntax options for the `pr` keyword: a list of branches
 
 ::: moniker-end
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If you specify an `exclude` clause without an `include` clause for `branches` or `paths`, it is equivalent to specifying `*` in the `include` clause.
 
@@ -234,53 +224,6 @@ File paths to include or exclude for triggering a run.
 <!-- :::item name="drafts"::: -->
 **`drafts`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Whether to start a run when a draft PR is created. Default: true.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-<!-- :::implementation-signature::: -->
-## pr: autoCancel, branches, paths
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Full syntax for complete control.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-pr:
-  autoCancel: boolean # Whether to cancel running PR builds when a new commit lands in the branch. Default: true.
-  branches: # Branch names to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-  paths: # File paths to include or exclude for triggering a run.
-    include: [ string ] # List of items to include.
-    exclude: [ string ] # List of items to exclude.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="autoCancel"::: -->
-**`autoCancel`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Whether to cancel running PR builds when a new commit lands in the branch. Default: true.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="branches"::: -->
-**`branches`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-Branch names to include or exclude for triggering a run.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="paths"::: -->
-**`paths`** [includeExcludeFilters](include-exclude-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
-File paths to include or exclude for triggering a run.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::implementation-properties-end::: -->

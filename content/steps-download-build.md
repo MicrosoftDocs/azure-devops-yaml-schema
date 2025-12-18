@@ -42,27 +42,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-steps:
-- downloadBuild: string # Required as first property. Alias of the build resource.
-  artifact: string # Artifact name.
-  path: string # Path to download the artifact into.
-  patterns: string # Downloads the files which matches the patterns.
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  target: string | target # Environment in which to run this task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-```
-
-:::moniker-end
-
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->

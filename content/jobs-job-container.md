@@ -112,7 +112,7 @@ steps:
 <!-- :::implementation-item name="container: image"::: -->
 <a name="containerimage"></a>
 <!-- :::objectAnyOf::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## container: image
@@ -184,74 +184,6 @@ Volumes to mount on the container.
 <!-- :::item name="mountReadOnly"::: -->
 **`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount read-only, the default is all false.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::implementation-properties-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-<!-- :::implementation-signature::: -->
-## container: image
-<!-- :::implementation-signature-end::: -->
-
-<!-- :::implementation-description::: -->
-<!-- :::editable-content name="description"::: -->
-Specify job container using image tag and options.
-<!-- :::editable-content-end::: -->
-<!-- :::implementation-description-end::: -->
-
-<!-- :::implementation-syntax::: -->
-```yaml
-container:
-  image: string # Required. Container image tag.
-  endpoint: string # ID of the service endpoint connecting to a private container registry.
-  env: # Variables to map into the container's environment.
-    string: string # Name/value pairs
-  mapDockerSocket: boolean # Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
-  options: string # Options to pass into container host.
-  ports: [ string ] # Ports to expose on the container.
-  volumes: [ string ] # Volumes to mount on the container.
-```
-<!-- :::implementation-syntax-end::: -->
-
-<!-- :::implementation-properties::: -->
-### Properties
-
-<!-- :::item name="image"::: -->
-**`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
-Container image tag.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="endpoint"::: -->
-**`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
-ID of the service endpoint connecting to a private container registry.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="env"::: -->
-**`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
-Variables to map into the container's environment.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="mapDockerSocket"::: -->
-**`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
-Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="options"::: -->
-**`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
-Options to pass into container host.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="ports"::: -->
-**`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
-Ports to expose on the container.
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-<!-- :::item name="volumes"::: -->
-**`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
-Volumes to mount on the container.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 <!-- :::implementation-properties-end::: -->

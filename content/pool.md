@@ -55,7 +55,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 You can specify a pool at the pipeline, stage, or job level.
 :::moniker-end
 

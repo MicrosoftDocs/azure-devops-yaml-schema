@@ -125,7 +125,7 @@ Execution strategy for this job.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="jobs.job.uses"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**jobs.job.uses**](jobs-job-uses.md)<br><!-- :::editable-content name="description"::: -->
 Any resources required by this job that are not already referenced.
@@ -314,7 +314,7 @@ A repository resource is used to reference an additional repository in your pipe
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks**](resources-webhooks.md)<br><!-- :::editable-content name="description"::: -->
 List of webhooks.
@@ -323,7 +323,7 @@ List of webhooks.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks.webhook"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks.webhook**](resources-webhooks-webhook.md)<br><!-- :::editable-content name="description"::: -->
 A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
@@ -332,7 +332,7 @@ A webhook resource enables you to integrate your pipeline with an external servi
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks.webhook.filters"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks.webhook.filters**](resources-webhooks-webhook-filters.md)<br><!-- :::editable-content name="description"::: -->
 List of trigger filters.
@@ -341,7 +341,7 @@ List of trigger filters.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="resources.webhooks.webhook.filters.filter"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**resources.webhooks.webhook.filters.filter**](resources-webhooks-webhook-filters-filter.md)<br><!-- :::editable-content name="description"::: -->
 Webhook resource trigger filter.
@@ -610,7 +610,7 @@ Items to include or exclude.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 [**mountReadOnly**](mount-read-only.md)<br><!-- :::editable-content name="description"::: -->
 Volumes to mount read-only, the default is all false.

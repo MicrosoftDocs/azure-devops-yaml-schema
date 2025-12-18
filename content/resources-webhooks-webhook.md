@@ -2,7 +2,7 @@
 title: resources.webhooks.webhook definition
 description: A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
 ms.date: 11/10/2025
-monikerRange: ">=azure-pipelines-2020.1"
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # resources.webhooks.webhook definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
@@ -20,7 +20,7 @@ A webhook resource enables you to integrate your pipeline with an external servi
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 webhooks:
@@ -34,7 +34,7 @@ webhooks:
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.webhooks](resources-webhooks.md)
 
@@ -45,7 +45,7 @@ Definitions that reference this definition: [resources.webhooks](resources-webho
 
 <!-- :::properties::: -->
 <!-- :::item name="webhook"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`webhook`** string. Required as first property.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the webhook. Acceptable values: [-_A-Za-z0-9]*.
@@ -55,7 +55,7 @@ For Azure DevOps webhook, `webhook` must always be a `WebHook`.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="connection"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`connection`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the connection. In case of offline webhook this will be the type of Incoming Webhook otherwise it will be the type of the webhook extension.
@@ -64,7 +64,7 @@ Name of the connection. In case of offline webhook this will be the type of Inco
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Name of the webhook extension. Leave this empty if it is an offline webhook.
@@ -73,7 +73,7 @@ Name of the webhook extension. Leave this empty if it is an offline webhook.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="filters"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`filters`** [resources.webhooks.webhook.filters](resources-webhooks-webhook-filters.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of trigger filters.

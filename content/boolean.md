@@ -59,21 +59,12 @@ Definitions that reference this definition: [pipeline](pipeline.md), [trigger](t
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 > [!NOTE]
 > This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
 
 Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), [jobs.job.container](jobs-job-container.md), [schedules.cron](schedules-cron.md), [variables.name](variables-name.md), [mountReadOnly](mount-read-only.md), [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md), [resources.containers.container](resources-containers-container.md), [resources.containers.container.trigger](resources-containers-container-trigger.md), [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-> [!NOTE]
-> This definition is a supporting definition and is not intended for use directly in a pipeline. This article provides the YAML syntax for this supporting type, but does not show usage examples. For more information and examples for using this supporting type, see the following **Definitions that reference this definition** articles.
-
-Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), [jobs.job.container](jobs-job-container.md), [schedules.cron](schedules-cron.md), [variables.name](variables-name.md), [steps.task](steps-task.md), [steps.script](steps-script.md), [steps.powershell](steps-powershell.md), [steps.pwsh](steps-pwsh.md), [steps.bash](steps-bash.md), [steps.checkout](steps-checkout.md), [steps.download](steps-download.md), [steps.downloadBuild](steps-download-build.md), [steps.getPackage](steps-get-package.md), [steps.publish](steps-publish.md), [steps.reviewApp](steps-review-app.md), [resources.containers.container](resources-containers-container.md), [resources.containers.container.trigger](resources-containers-container-trigger.md), [resources.pipelines.pipeline.trigger](resources-pipelines-pipeline-trigger.md)
 
 :::moniker-end
 

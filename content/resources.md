@@ -20,7 +20,7 @@ Resources specifies builds, repositories, pipelines, and other resources used by
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 resources:
@@ -29,19 +29,6 @@ resources:
   pipelines: [ pipeline ] # List of pipeline resources.
   repositories: [ repository ] # List of repository resources.
   webhooks: [ webhook ] # List of webhooks.
-  packages: [ package ] # List of package resources.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-resources:
-  builds: [ build ] # List of build resources referenced by the pipeline.
-  containers: [ container ] # List of container images.
-  pipelines: [ pipeline ] # List of pipeline resources.
-  repositories: [ repository ] # List of repository resources.
   packages: [ package ] # List of package resources.
 ```
 
@@ -97,7 +84,7 @@ List of repository resources.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="webhooks"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`webhooks`** [resources.webhooks](resources-webhooks.md).<br><!-- :::editable-content name="propDescription"::: -->
 List of webhooks.
