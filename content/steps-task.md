@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: Runs a task.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -22,7 +22,7 @@ All tasks support the following set of common properties.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 steps:
@@ -39,26 +39,6 @@ steps:
   name: string # ID of the step.
   timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
   retryCountOnTaskFailure: string # Number of retries if the task fails.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-steps:
-- task: string # Required as first property. Name of the task to run.
-  inputs: # Inputs for the task.
-    string: string # Name/value pairs
-  condition: string # Evaluate this condition expression to determine whether to run this task.
-  continueOnError: boolean # Continue running even on failure?
-  displayName: string # Human-readable name for the task.
-  target: string | target # Environment in which to run this task.
-  enabled: boolean # Run this task when the job runs?
-  env: # Variables to map into the process's environment.
-    string: string # Name/value pairs
-  name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
 ```
 
 :::moniker-end
@@ -169,7 +149,7 @@ Time to wait for this task to complete before the server kills it. For example, 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCountOnTaskFailure"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails. On Azure DevOps Server 2022, 2022.1, and 2022.2, retries are supported only on agent jobs. For more information, see [Azure DevOps service update November 16, 2021 - Automatic retries for a task](/azure/devops/release-notes/2021/sprint-195-update#automatic-retries-for-a-task) and [Azure DevOps service update June 14, 2025 - Retries for server tasks](/azure/devops/release-notes/2024/sprint-240-update#retries-for-server-tasks).

@@ -1,8 +1,8 @@
 ---
 title: resources.webhooks.webhook.filters definition
 description: List of trigger filters.
-ms.date: 11/10/2025
-monikerRange: ">=azure-pipelines-2020.1"
+ms.date: 12/18/2025
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # resources.webhooks.webhook.filters definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 List of trigger filters.
@@ -20,7 +20,7 @@ List of trigger filters.
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 filters: [ filter ] # List of trigger filters.
@@ -30,7 +30,7 @@ filters: [ filter ] # List of trigger filters.
 <!-- :::syntax-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [resources.webhooks.webhook](resources-webhooks-webhook.md)
 
@@ -40,7 +40,7 @@ Definitions that reference this definition: [resources.webhooks.webhook](resourc
 ## List types
 
 <!-- :::list-types::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 | Type | Description |
 |---|---|

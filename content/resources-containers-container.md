@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -49,7 +49,7 @@ containers:
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 containers:
@@ -69,23 +69,6 @@ containers:
     externals: boolean # Mount the externals directory as readonly.
     tools: boolean # Mount the tools directory as readonly.
     tasks: boolean # Mount the tasks directory as readonly.
-  azureSubscription: string # Azure subscription (ARM service connection) for container registry.
-  resourceGroup: string # Resource group for your ACR.
-  registry: string # Registry for container images.
-  repository: string # Name of the container image repository in ACR.
-  localImage: boolean # When true, uses a locally tagged image instead of using docker pull to get the image. The default is false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-containers:
-- container: string # Required as first property. Alias of the container.
-  type: string # Type of the registry like ACR or GCR.
-  endpoint: string # ID of the service endpoint connecting to a private container registry.
-  trigger: trigger | none | true # Specify none to disable, true to trigger on all image tags, or use the full syntax as described in the following examples.
   azureSubscription: string # Azure subscription (ARM service connection) for container registry.
   resourceGroup: string # Resource group for your ACR.
   registry: string # Registry for container images.
@@ -118,7 +101,7 @@ ID for the container. Acceptable values: [-_A-Za-z0-9]*.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="image"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`image`** string. Required.<br><!-- :::editable-content name="propDescription"::: -->
 Container image tag.
@@ -200,7 +183,7 @@ ID of the service endpoint connecting to a private container registry.  [Templat
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`endpoint`** string.<br><!-- :::editable-content name="propDescription"::: -->
 ID of the service endpoint connecting to a private container registry.
@@ -209,7 +192,7 @@ ID of the service endpoint connecting to a private container registry.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="env"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`env`** string dictionary.<br><!-- :::editable-content name="propDescription"::: -->
 Variables to map into the container's environment.
@@ -218,7 +201,7 @@ Variables to map into the container's environment.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mapDockerSocket"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`mapDockerSocket`** [boolean](boolean.md).<br><!-- :::editable-content name="propDescription"::: -->
 Set this flag to false to force the agent not to setup the /var/run/docker.sock volume on container jobs.
@@ -235,7 +218,7 @@ Options to pass into container host. [Template expressions are supported](/azure
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`options`** string.<br><!-- :::editable-content name="propDescription"::: -->
 Options to pass into container host.
@@ -252,7 +235,7 @@ Ports to expose on the container. [Template expressions are supported](/azure/de
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`ports`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Ports to expose on the container.
@@ -269,7 +252,7 @@ Volumes to mount on the container. [Template expressions are supported](/azure/d
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 **`volumes`** string list.<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount on the container.
@@ -278,7 +261,7 @@ Volumes to mount on the container.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="mountReadOnly"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`mountReadOnly`** [mountReadOnly](mount-read-only.md).<br><!-- :::editable-content name="propDescription"::: -->
 Volumes to mount read-only, the default is all false.

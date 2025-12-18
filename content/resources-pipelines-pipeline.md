@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -20,7 +20,7 @@ If you have an Azure Pipeline that produces artifacts, your pipeline can consume
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 pipelines:
@@ -35,23 +35,6 @@ pipelines:
     branches: branches # Branches to include or exclude for triggering a run.
     stages: [ string ] # List of stages that when matched will trigger the pipeline.
     tags: [ string ] # List of tags that when matched will trigger the pipeline.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-pipelines:
-- pipeline: string # Required as first property. ID of the pipeline resource.
-  project: string # Project for the source; defaults to current project.
-  source: string # Name of the pipeline that produces the artifact.
-  version: string # The pipeline run number to pick the artifact, defaults to latest pipeline successful across all stages; used only for manual or scheduled triggers.
-  branch: string # Branch to pick the artifact. Optional; defaults to all branches, used only for manual or scheduled triggers.
-  tags: [ string ] # List of tags required on the pipeline to pickup default artifacts. Optional; used only for manual or scheduled triggers.
-  trigger:  # Specify none to disable, true to include all branches, or use the full syntax as described in the following examples.
-    enabled: boolean # Whether the trigger is enabled; defaults to true.
-    branches: branches # Branches to include or exclude for triggering a run.
 ```
 
 :::moniker-end
@@ -141,19 +124,13 @@ Specify none to disable, true to include all branches, or use the full syntax as
 > [!NOTE]
 > `pipeline:` specifies the name of the pipeline resource. Use the label defined here when referring to the pipeline resource from other parts of the pipeline, such as when using pipeline resource variables or downloading artifacts.
 
-:::moniker range=">= azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 For more information about `stages` and `tags` in the pipeline resource trigger, see [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
 
 :::moniker-end
 
-:::moniker range="azure-pipelines-2020"
-
-For more information about pipeline resource triggers, see [pipeline-completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
-
-:::moniker-end
-
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ### Pipeline resource trigger syntax
 
@@ -162,7 +139,7 @@ For more information about pipeline resource triggers, see [pipeline-completion 
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 There are several ways to define triggers in a pipeline resource. To trigger a run when any run of the referenced pipeline completes, use `trigger: true`.
 
@@ -218,7 +195,7 @@ resources:
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 To filter by stages or tags, use the following `trigger` syntax.
 
@@ -237,13 +214,13 @@ resources:
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 For more information, see [Pipeline completion triggers](/azure/devops/pipelines/process/pipeline-triggers).
 
 :::moniker-end
 
-:::moniker range=">= azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 > [!IMPORTANT]
 > When you define a resource trigger, if its pipeline resource is from the same repo as the current pipeline, triggering follows the same branch and commit on which the event is raised.
@@ -251,7 +228,7 @@ For more information, see [Pipeline completion triggers](/azure/devops/pipelines
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020"
+:::moniker range="<=azure-pipelines"
 
 ### Pipeline resource metadata as predefined variables
 

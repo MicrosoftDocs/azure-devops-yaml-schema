@@ -1,8 +1,8 @@
 ---
 title: Bash@3 - Bash v3 task
 description: Run a Bash script on macOS, Linux, or Windows.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # Bash@3 - Bash v3 task
@@ -23,7 +23,7 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Bash v3
@@ -38,26 +38,6 @@ Use this task to run a Bash script on macOS, Linux, or Windows.
     #workingDirectory: # string. Working Directory. 
     #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
     #bashEnvValue: # string. Set value for BASH_ENV environment variable.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Bash v3
-# Run a Bash script on macOS, Linux, or Windows.
-- task: Bash@3
-  inputs:
-    #targetType: 'filePath' # 'filePath' | 'inline'. Type. Default: filePath.
-    filePath: # string. Required when targetType = filePath. Script Path. 
-    #arguments: # string. Optional. Use when targetType = filePath. Arguments. 
-    #script: # string. Required when targetType = inline. Script. 
-  # Advanced
-    #workingDirectory: # string. Working Directory. 
-    #failOnStderr: false # boolean. Fail on Standard Error. Default: false.
-    #noProfile: true # boolean. Don't load the profile startup/initialization files. Default: true.
-    #noRc: true # boolean. Don't read the `~/.bashrc' initialization file. Default: true.
 ```
 
 :::moniker-end
@@ -140,35 +120,12 @@ If this is true, this task will fail if any errors are written to the `StandardE
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="bashEnvValue"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`bashEnvValue`** - **Set value for BASH_ENV environment variable**<br>
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the input is specified, its value is expanded and used as the path of a startup file to execute before running the script. If the environment variable `BASH_ENV` has already been defined, the task will override this variable only for the current task. Learn more about [Bash Startup Files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="noProfile"::: -->
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`noProfile`** - **Don't load the profile startup/initialization files**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Don't load the system-wide startup file `/etc/profile` or any of the personal initialization files.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-<!-- :::item-end::: -->
-<!-- :::item name="noRc"::: -->
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`noRc`** - **Don't read the `~/.bashrc' initialization file**<br>
-`boolean`. Default value: `true`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
 <!-- :::editable-content-end::: -->
 <br>
 

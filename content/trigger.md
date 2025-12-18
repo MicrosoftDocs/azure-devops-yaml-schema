@@ -1,7 +1,7 @@
 ---
 title: trigger definition
 description: Continuous integration (push) trigger.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -63,7 +63,7 @@ YAML pipelines are configured by default with a CI trigger on all branches, unle
 
 There are three distinct syntax options for the `trigger` keyword: a list of branches to include, a way to disable CI triggers, and the full syntax for complete control.
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 If you specify an `exclude` clause without an `include` clause for `branches`, `tags`, or `paths`, it is equivalent to specifying `*` in the `include` clause.
 
@@ -240,7 +240,7 @@ If you have many team members uploading changes often, you may want to reduce th
 
 When specifying a branch, tag, or path, you may use an exact name or a wildcard. For more information, see [wildcards](/azure/devops/pipelines/repos/github#wildcards).
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 
 > [!IMPORTANT]
 > `batch` is not supported in [repository resource](./resources-repositories-repository.md) triggers.

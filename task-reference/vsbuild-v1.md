@@ -1,8 +1,8 @@
 ---
 title: VSBuild@1 - Visual Studio build v1 task
 description: Build with MSBuild and set the Visual Studio version property.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: steved0x
 ms.author: sdanie
 ---
@@ -25,7 +25,7 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Visual Studio build v1
@@ -47,30 +47,6 @@ Use this task to build with MSBuild and set the Visual Studio version property. 
     #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
     #enableDefaultLogger: true # boolean. Enable Default Logger. Default: true.
     #customVersion: # string. Custom Version.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Visual Studio build v1
-# Build with MSBuild and set the Visual Studio version property.
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln' # string. Required. Solution. Default: **\*.sln.
-    #vsVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '11.0'. Visual Studio Version. Default: latest.
-    #msbuildArgs: # string. MSBuild Arguments. 
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #clean: false # boolean. Clean. Default: false.
-  # Advanced
-    #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
-    #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. MSBuild Architecture. Default: x86.
-    #logProjectEvents: true # boolean. Record Project Details. Default: true.
-    #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
 ```
 
 :::moniker-end
@@ -108,25 +84,10 @@ Make sure the solutions you specify are downloaded by this build pipeline. On th
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="vsVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`vsVersion`** - **Visual Studio Version**<br>
 `string`. Allowed values: `latest`, `17.0` (Visual Studio 2022), `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-The value of this input must match the version of Visual Studio used to create your solution.
-
-Adds the `/p:VisualStudioVersion={numeric_visual_studio_version}` argument to the MSBuild command run by the build. For example, if you specify **Visual Studio 2015**, `/p:VisualStudioVersion=14.0` is added to the MSBuild command.
-
-**Azure Pipelines**: If your team wants to use Visual Studio with the Microsoft-hosted agents, select **windows-latest** as your default build pool. See [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted).
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`vsVersion`** - **Visual Studio Version**<br>
-`string`. Allowed values: `latest`, `16.0` (Visual Studio 2019), `15.0` (Visual Studio 2017), `14.0` (Visual Studio 2015), `12.0` (Visual Studio 2013), `11.0` (Visual Studio 2012). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The value of this input must match the version of Visual Studio used to create your solution.
 
@@ -271,7 +232,7 @@ Specifies the verbosity level in log files.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="enableDefaultLogger"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`enableDefaultLogger`** - **Enable Default Logger**<br>
 `boolean`. Default value: `true`.<br>
@@ -283,7 +244,7 @@ If set to `true`, enables the default logger for MSBuild.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="customVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`customVersion`** - **Custom Version**<br>
 `string`.<br>

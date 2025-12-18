@@ -1,7 +1,7 @@
 ---
 title: pipeline.parameters.parameter definition
 description: Represents a value passed to a pipeline.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -76,18 +76,10 @@ Human-readable name for the parameter.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="type"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
 See [**types**](#types).
-<!-- :::editable-content-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-**`type`** string.<br><!-- :::editable-content name="propDescription"::: -->
-boolean | deployment | deploymentList | environment | filePath | job | jobList | number | object | pool | secureFile | serviceConnection | stage | stageList | step | stepList | string.
 <!-- :::editable-content-end::: -->
 
 :::moniker-end

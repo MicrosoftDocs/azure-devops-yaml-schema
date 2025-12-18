@@ -1,8 +1,8 @@
 ---
 title: DownloadBuildArtifacts@0 - Download build artifacts v0 task
 description: Download files that were saved as artifacts of a completed build (task version 0).
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -59,7 +59,7 @@ If you're using Azure DevOps Services, we recommend using [Download Pipeline Art
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 ```yaml
 # Download build artifacts v0
@@ -85,32 +85,6 @@ If you're using Azure DevOps Services, we recommend using [Download Pipeline Art
     #checkDownloadedFiles: false # boolean. Check downloaded files. Default: false.
     #retryDownloadCount: '4' # string. Retry count. Default: 4.
     #extractTars: # boolean. Extract all files that are stored inside tar archives.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Download build artifacts v0
-# Download files that were saved as artifacts of a completed build.
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
-    #project: # string. Required when buildType == specific. Project. 
-    #pipeline: # string. Alias: definition. Required when buildType == specific. Build pipeline. 
-    #specificBuildWithTriggering: false # boolean. Optional. Use when buildType == specific. When appropriate, download artifacts from the triggering build. Default: false.
-    #buildVersionToDownload: 'latest' # 'latest' | 'latestFromBranch' | 'specific'. Required when buildType == specific. Build version to download. Default: latest.
-    #allowPartiallySucceededBuilds: false # boolean. Optional. Use when buildType == specific && buildVersionToDownload != specific. Download artifacts even from partially succeeded builds. Default: false.
-    #branchName: 'refs/heads/master' # string. Required when buildType == specific && buildVersionToDownload == latestFromBranch. Branch name. Default: refs/heads/master.
-    #buildId: # string. Required when buildType == specific && buildVersionToDownload == specific. Build. 
-    #tags: # string. Optional. Use when buildType == specific && buildVersionToDownload != specific. Build Tags. 
-    downloadType: 'single' # 'single' | 'specific'. Required. Download type. Default: single.
-    artifactName: # string. Required when downloadType == single. Artifact name. 
-    #itemPattern: '**' # string. Matching pattern. Default: **.
-    downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
-  # Advanced
-    #parallelizationLimit: '8' # string. Parallelization limit. Default: 8.
 ```
 
 :::moniker-end
@@ -278,7 +252,7 @@ The path on the agent machine where the artifacts are downloaded.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanDestinationFolder"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`cleanDestinationFolder`** - **Clean destination folder**<br>
 `boolean`. Default value: `false`.<br>
@@ -302,7 +276,7 @@ The number of files to download simultaneously.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="checkDownloadedFiles"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`checkDownloadedFiles`** - **Check downloaded files**<br>
 `boolean`. Default value: `false`.<br>
@@ -314,7 +288,7 @@ If `true`, this build task checks that all files are fully downloaded.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryDownloadCount"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryDownloadCount`** - **Retry count**<br>
 `string`. Default value: `4`.<br>
@@ -338,7 +312,7 @@ Optional number of times to retry downloading a build artifact if the download b
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="extractTars"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`extractTars`** - **Extract all files that are stored inside tar archives**<br>
 `boolean`.<br>
@@ -358,7 +332,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -367,18 +341,6 @@ This task defines the following [output variables](/azure/devops/pipelines/proce
 Stores the build artifact source's build number.
 
 Please note that this input returns **BuildId** due to backward compatibility. For more information, see [Variables](/azure/devops/pipelines/build/variables#build-variables-devops-services).
-<!-- :::editable-content-end::: -->
-<!-- :::item-end::: -->
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
-
-<!-- :::item name="BuildNumber"::: -->
-**`BuildNumber`**<br><!-- :::editable-content name="Value"::: -->
-Stores the build artifact source's build number.
 <!-- :::editable-content-end::: -->
 <!-- :::item-end::: -->
 

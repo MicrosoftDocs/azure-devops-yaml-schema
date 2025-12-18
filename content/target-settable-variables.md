@@ -1,8 +1,8 @@
 ---
 title: target.settableVariables definition
 description: Restrictions on which variables that can be set.
-ms.date: 11/10/2025
-monikerRange: ">=azure-pipelines-2022"
+ms.date: 12/18/2025
+monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # target.settableVariables definition
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Restrictions on which variables that can be set by a step.
@@ -20,7 +20,7 @@ Restrictions on which variables that can be set by a step.
 <!-- :::description-end::: -->
 
 <!-- :::parents::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 Definitions that reference this definition: [target](target.md)
 
@@ -30,7 +30,7 @@ Definitions that reference this definition: [target](target.md)
 ## Implementations
 
 <!-- :::implementations-list::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Implementation | Description |
 |---|---|
@@ -57,7 +57,7 @@ You can disable setting all variables for a step, or restrict the settable varia
 <!-- :::implementation-item name="settableVariables: string"::: -->
 <a name="settablevariablesstring"></a>
 <!-- :::stringAnyOf::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## settableVariables: none
@@ -106,7 +106,7 @@ steps:
 <!-- :::implementation-item name="settableVariables: string list"::: -->
 <a name="settablevariablesstringlist"></a>
 <!-- :::arrayAnyOf::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::implementation-signature::: -->
 ## settableVariables: string list

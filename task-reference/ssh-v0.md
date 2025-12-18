@@ -1,8 +1,8 @@
 ---
 title: SSH@0 - SSH v0 task
 description: Run shell commands or a script on a remote machine using SSH.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # SSH@0 - SSH v0 task
@@ -43,7 +43,7 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022"
+:::moniker range="=azure-pipelines-2022"
 
 ```yaml
 # SSH v0
@@ -60,26 +60,6 @@ Use this task to run shell commands or a script on a remote machine using SSH. T
   # Advanced
     #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
     #interactiveSession: false # boolean. Enable interactive session. Default: false.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# SSH v0
-# Run shell commands or a script on a remote machine using SSH.
-- task: SSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    runOptions: 'commands' # 'commands' | 'script' | 'inline'. Required. Run. Default: commands.
-    commands: # string. Required when runOptions = commands. Commands. 
-    #scriptPath: # string. Required when runOptions = script. Shell script path. 
-    #inline: # string. Required when runOptions = inline. Inline Script. 
-    #args: # string. Optional. Use when runOptions = script. Arguments. 
-  # Advanced
-    #failOnStdErr: true # boolean. Fail on STDERR. Default: true.
     readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
 ```
 
@@ -157,7 +137,7 @@ Writes the shell script to run on the remote machine.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="interpreterCommand"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`interpreterCommand`** - **Interpreter command**<br>
 `string`. Optional. Use when `runOptions = inline`. Default value: `/bin/bash`.<br>
@@ -193,7 +173,7 @@ If the value is `true`, the build fails when the remote commands or script write
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="interactiveSession"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`interactiveSession`** - **Enable interactive session**<br>
 `boolean`. Default value: `false`.<br>
@@ -311,7 +291,7 @@ For OpenSSL v1.0.1 and higher, NodeJS v0.11.12 and higher (on agent):
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -326,20 +306,6 @@ For OpenSSL v1.0.1 and higher, NodeJS v0.11.12 and higher (on agent):
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.102.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

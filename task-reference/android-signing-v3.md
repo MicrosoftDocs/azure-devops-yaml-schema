@@ -1,8 +1,8 @@
 ---
 title: AndroidSigning@3 - Android Signing v3 task
 description: Sign and align Android APK files.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
 ---
@@ -22,7 +22,7 @@ Use this task in a pipeline to sign and align Android APK files.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Android Signing v3
@@ -47,28 +47,6 @@ Use this task in a pipeline to sign and align Android APK files.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Android Signing v3
-# Sign and align Android APK files.
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk' # string. Alias: files. Required. APK files. Default: **/*.apk.
-  # Signing Options
-    #apksign: true # boolean. Sign the APK. Default: true.
-    apksignerKeystoreFile: # string. Alias: keystoreFile. Required when apksign = true. Keystore file. 
-    #apksignerKeystorePassword: # string. Alias: keystorePass. Optional. Use when apksign = true. Keystore password. 
-    #apksignerKeystoreAlias: # string. Alias: keystoreAlias. Optional. Use when apksign = true. Alias. 
-    #apksignerKeyPassword: # string. Alias: keyPass. Optional. Use when apksign = true. Key password. 
-    #apksignerArguments: '--verbose' # string. Optional. Use when apksign = true. apksigner arguments. Default: --verbose.
-    #apksignerFile: # string. Alias: apksignerLocation. Optional. Use when apksign = true. apksigner location. 
-  # Zipalign Options
-    #zipalign: true # boolean. Zipalign. Default: true.
-    #zipalignFile: # string. Alias: zipalignLocation. Optional. Use when zipalign = true. Zipalign location.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -157,7 +135,7 @@ The key password for the alias and keystore file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="apksignerVersion"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`apksignerVersion`** - **apksigner version**<br>
 `string`. Optional. Use when `apksign = true`. Default value: `latest`.<br>
@@ -205,7 +183,7 @@ Select if you want to zipalign your package. This reduces the amount of RAM cons
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="zipalignVersion"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`zipalignVersion`** - **Zipalign version**<br>
 `string`. Optional. Use when `zipalign = true`. Default value: `latest`.<br>
@@ -262,7 +240,7 @@ This version of the task uses `apksigner` instead of `jarsigner` to sign APKs. [
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -273,21 +251,6 @@ This version of the task uses `apksigner` instead of `jarsigner` to sign APKs. [
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task runs using the following [command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): restricted |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | This task has permission to [set the following variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions): Setting variables is disabled |
 | Agent version |  2.182.1 or greater |
-| Task category | Build |
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: JDK |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
 | Task category | Build |
 
 :::moniker-end

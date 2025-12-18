@@ -1,7 +1,7 @@
 ---
 title: deployHook definition
 description: Used to run steps that deploy your application.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie

@@ -1,8 +1,8 @@
 ---
 title: AzureNLBManagement@1 - Azure Network Load Balancer v1 task
 description: Connect or disconnect an Azure virtual machine's network interface to a Load Balancer's back end address pool.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureNLBManagement@1 - Azure Network Load Balancer v1 task

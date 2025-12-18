@@ -1,7 +1,7 @@
 ---
 title: AzureContainerApps@1 - Azure Container Apps Deploy v1 task
 description: An Azure DevOps Task to build and deploy Azure Container Apps.
-ms.date: 11/11/2025
+ms.date: 12/18/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1"
 author: juliakm
 ms.author: jukullam
@@ -22,7 +22,39 @@ An Azure DevOps Task to build and deploy Azure Container Apps.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022.1"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Azure Container Apps Deploy v1
+# An Azure DevOps Task to build and deploy Azure Container Apps.
+- task: AzureContainerApps@1
+  inputs:
+  # advanced
+    #workingDirectory: # string. Alias: cwd. Working Directory. 
+    #appSourcePath: # string. Application source path. 
+    azureSubscription: # string. Alias: connectedServiceNameARM. Required. Azure Resource Manager connection. 
+    #acrName: # string. Azure Container Registry name. 
+    #acrUsername: # string. Azure Container Registry username. 
+    #acrPassword: # string. Azure Container Registry password. 
+    #dockerfilePath: # string. Dockerfile path. 
+    #imageToBuild: # string. Docker image to build. 
+    #imageToDeploy: # string. Docker image to deploy. 
+    #containerAppName: # string. Azure Container App name. 
+    #resourceGroup: # string. Azure resource group name. 
+    #containerAppEnvironment: # string. Azure Container App environment. 
+    #runtimeStack: # string. Application runtime stack. 
+    #kind: # string. Container App kind. 
+    #targetPort: # string. Application target port. 
+    #location: # string. Location of the Container App. 
+    #environmentVariables: # string. Environment variables. 
+    #ingress: # string. Ingress setting. 
+    #yamlConfigPath: # string. YAML configuration file path. 
+    #disableTelemetry: # boolean. Disable telemetry.
+```
+
+:::moniker-end
+
+:::moniker range=">=azure-pipelines-2022.1 <=azure-pipelines-server"
 
 ```yaml
 # Azure Container Apps Deploy v1
@@ -212,6 +244,18 @@ The name of the Azure Container App environment to use with the application. If 
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The platform version stack used in the final runnable application image that is deployed to the Container App. The value should be provided in the formation `<platform>:<version>`. If not provided, this value is determined by Oryx based on the contents of the provided application. Please refer to [this document](https://github.com/microsoft/Oryx/blob/main/doc/supportedRuntimeVersions.md) for more information on supported runtime stacks for Oryx.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="kind"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`kind`** - **Container App kind**<br>
+`string`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Set to `functionapp` to get built in support and autoscaling to run Azure functions on Azure Container apps.
 <!-- :::editable-content-end::: -->
 <br>
 

@@ -1,7 +1,7 @@
 ---
 title: AzureKeyVault@2 - Azure Key Vault v2 task
 description: Download Azure Key Vault secrets.
-ms.date: 11/11/2025
+ms.date: 12/18/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -10,7 +10,7 @@ ms.author: rabououn
 # AzureKeyVault@2 - Azure Key Vault v2 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to download secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords from an [Azure Key Vault](/rest/api/keyvault/about-keys--secrets-and-certificates) instance. The task can be used to fetch the latest values of all or a subset of secrets from the vault and set them as variables that can be used in subsequent tasks of a pipeline. The task is Node-based and works with agents on Linux, macOS, and Windows.
@@ -22,7 +22,7 @@ Use this task to download secrets, such as authentication keys, storage account 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Azure Key Vault v2
@@ -42,7 +42,7 @@ Use this task to download secrets, such as authentication keys, storage account 
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -54,7 +54,7 @@ Select the service connection for the Azure subscription containing the Azure Ke
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="KeyVaultName"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`KeyVaultName`** - **Key vault**<br>
 `string`. Required.<br>
@@ -66,7 +66,7 @@ The name of the Azure Key Vault that contains the secrets to download.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="SecretsFilter"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`SecretsFilter`** - **Secrets filter**<br>
 `string`. Required. Default value: `*`.<br>
@@ -78,7 +78,7 @@ Downloads secret names according to the entered value. The value can be the defa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="RunAsPreJob"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`RunAsPreJob`** - **Make secrets available to whole job**<br>
 `boolean`. Default value: `false`.<br>
@@ -98,7 +98,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -201,7 +201,7 @@ For more information, see [Get started with Azure Key Vault certificates](/archi
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

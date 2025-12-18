@@ -1,8 +1,8 @@
 ---
 title: CopyFilesOverSSH@0 - Copy files over SSH v0 task
 description: Copy files or build artifacts to a remote machine over SSH.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFilesOverSSH@0 - Copy files over SSH v0 task
@@ -45,7 +45,7 @@ Copy files or build artifacts to a remote machine over SSH.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Copy files over SSH v0
@@ -60,28 +60,6 @@ Copy files or build artifacts to a remote machine over SSH.
     #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
     #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
     #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
-    readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
-    #overwrite: true # boolean. Overwrite. Default: true.
-    #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-    #flattenFolders: false # boolean. Flatten folders. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Copy files over SSH v0
-# Copy files or build artifacts to a remote machine over SSH.
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: # string. Required. SSH service connection. 
-    #sourceFolder: # string. Source folder. 
-    contents: '**' # string. Required. Contents. Default: **.
-    #targetFolder: # string. Target folder. 
-  # Advanced
-    #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
-    #cleanTargetFolder: false # boolean. Clean target folder. Default: false.
     readyTimeout: '20000' # string. Required. SSH handshake timeout. Default: 20000.
     #overwrite: true # boolean. Overwrite. Default: true.
     #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
@@ -174,7 +152,7 @@ Deletes all existing files and sub-folders in the target folder before copying.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="cleanHiddenFilesInTarget"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`cleanHiddenFilesInTarget`** - **Remove hidden files in target folder**<br>
 `boolean`. Optional. Use when `cleanTargetFolder = true`. Default value: `false`.<br>
@@ -301,7 +279,7 @@ None.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -316,35 +294,6 @@ None.
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.102.0 or greater |
-| Task category | Deploy |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

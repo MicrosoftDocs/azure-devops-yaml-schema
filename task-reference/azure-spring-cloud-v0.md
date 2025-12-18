@@ -1,14 +1,14 @@
 ---
 title: AzureSpringCloud@0 - Azure Spring Apps v0 task
 description: Deploy applications to Azure Spring Apps and manage deployments.
-ms.date: 11/11/2025
+ms.date: 12/18/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureSpringCloud@0 - Azure Spring Apps v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 This task deploys applications to Azure Spring Apps and manages those deployments.
@@ -121,7 +121,7 @@ This task deploys applications to Azure Spring Apps and manages those deployment
 ## Inputs
 
 <!-- :::item name="azureSubscription"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`azureSubscription`** - **Azure subscription**<br>
 [Input alias](index.md#what-are-task-input-aliases): `ConnectedServiceName`. `string`. Required.<br>
@@ -133,7 +133,7 @@ Specifies the [Azure Resource Manager subscription](/azure/devops/pipelines/libr
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Action"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`Action`** - **Action**<br>
 `string`. Required. Allowed values: `Deploy`, `Set Production` (Set Production Deployment), `Delete Staging Deployment`. Default value: `Deploy`.<br>
@@ -145,7 +145,7 @@ The action to be performed on Azure Spring Apps.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AzureSpringCloud"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`AzureSpringCloud`** - **Azure Spring Apps Name**<br>
 `string`. Required.<br>
@@ -157,7 +157,7 @@ The name or resource ID of the Azure Spring Apps instance to deploy.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="AppName"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`AppName`** - **App**<br>
 `string`. Required.<br>
@@ -181,7 +181,7 @@ To deploy with source code or Java package, choose "Artifacts"; To deploy with c
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="UseStagingDeployment"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`UseStagingDeployment`** - **Use Staging Deployment**<br>
 `boolean`. Optional. Use when `Action = Deploy || Action = Set Production`. Default value: `true`.<br>
@@ -195,7 +195,7 @@ If set to `true`, apply the task to the [deployment](/azure/spring-apps/concept-
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="CreateNewDeployment"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`CreateNewDeployment`** - **Create a new staging deployment if one does not exist.**<br>
 `boolean`. Optional. Use when `Action = Deploy && UseStagingDeployment = false`. Default value: `false`.<br>
@@ -207,7 +207,7 @@ If set to `true`, and the deployment specified by `DeploymentName` does not exis
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DeploymentName"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`DeploymentName`** - **Deployment**<br>
 `string`. Optional. Use when `UseStagingDeployment = false && Action != Delete Staging Deployment`.<br>
@@ -341,7 +341,7 @@ The arguments of the container image.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="EnvironmentVariables"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`EnvironmentVariables`** - **Environment Variables**<br>
 `string`. Optional. Use when `Action = Deploy`.<br>
@@ -410,7 +410,7 @@ The runtime version on which the app will run.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="DotNetCoreMainEntryPath"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`DotNetCoreMainEntryPath`** - **Main Entry Path**<br>
 `string`. Optional. Use when `RuntimeVersion = NetCore_31`.<br>
@@ -422,7 +422,7 @@ The path to the .NET executable relative to the zip root.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="Version"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`Version`** - **Version**<br>
 `string`. Optional. Use when `Action = Deploy`.<br>
@@ -442,7 +442,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 This task defines the following [output variables](/azure/devops/pipelines/process/variables#use-output-variables-from-tasks), which you can consume in downstream steps, jobs, and stages.
 
@@ -561,7 +561,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
