@@ -1,7 +1,7 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 12/09/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -80,7 +80,6 @@ A pipeline can extend a single template. The template file should be a complete,
 
 - **`extends`**: Creates a pipeline that inherits from a template. Used at the root level of a pipeline.
 - **`include`**: Imports template content directly. Used at specific points within a pipeline.
-
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 

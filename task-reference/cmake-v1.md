@@ -1,8 +1,8 @@
 ---
 title: CMake@1 - CMake v1 task
 description: Build with the CMake cross-platform build system.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CMake@1 - CMake v1 task
@@ -20,7 +20,7 @@ Use this task to build with the CMake cross-platform build system.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # CMake v1
@@ -31,19 +31,6 @@ Use this task to build with the CMake cross-platform build system.
     #cmakeArgs: # string. Arguments. 
   # Advanced
     #runInsideShell: false # boolean. Run cmake command inside shell. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# CMake v1
-# Build with the CMake cross-platform build system.
-- task: CMake@1
-  inputs:
-    #workingDirectory: 'build' # string. Alias: cwd. Working Directory. Default: build.
-    #cmakeArgs: # string. Arguments.
 ```
 
 :::moniker-end
@@ -84,7 +71,7 @@ The arguments passed to CMake.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="runInsideShell"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`runInsideShell`** - **Run cmake command inside shell**<br>
 `boolean`. Default value: `false`.<br>

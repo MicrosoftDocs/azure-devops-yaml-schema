@@ -1,7 +1,7 @@
 ---
 title: pool definition
 description: Which pool to use for a job of the pipeline.
-ms.date: 11/10/2025
+ms.date: 12/18/2025
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -55,7 +55,7 @@ Definitions that reference this definition: [pipeline](pipeline.md), [stages.sta
 <!-- :::editable-content name="remarks"::: -->
 ## Remarks
 
-::: moniker range=">= azure-pipelines-2020"
+::: moniker range="<=azure-pipelines"
 You can specify a pool at the pipeline, stage, or job level.
 :::moniker-end
 

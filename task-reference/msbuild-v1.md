@@ -1,8 +1,8 @@
 ---
 title: MSBuild@1 - MSBuild v1 task
 description: Build with MSBuild.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # MSBuild@1 - MSBuild v1 task
@@ -23,7 +23,7 @@ Use this task to build with MSBuild.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # MSBuild v1
@@ -33,32 +33,6 @@ Use this task to build with MSBuild.
     solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
     #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
     #msbuildVersion: 'latest' # 'latest' | '17.0' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
-    #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
-    #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
-    #platform: # string. Platform. 
-    #configuration: # string. Configuration. 
-    #msbuildArguments: # string. MSBuild Arguments. 
-    #clean: false # boolean. Clean. Default: false.
-  # Advanced
-    #maximumCpuCount: false # boolean. Build in Parallel. Default: false.
-    #restoreNugetPackages: false # boolean. Restore NuGet Packages. Default: false.
-    #logProjectEvents: false # boolean. Record Project Details. Default: false.
-    #createLogFile: false # boolean. Create Log File. Default: false.
-    #logFileVerbosity: 'normal' # 'quiet' | 'minimal' | 'normal' | 'detailed' | 'diagnostic'. Optional. Use when createLogFile = true. Log File Verbosity. Default: normal.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# MSBuild v1
-# Build with MSBuild.
-- task: MSBuild@1
-  inputs:
-    solution: '**/*.sln' # string. Required. Project. Default: **/*.sln.
-    #msbuildLocationMethod: 'version' # 'version' | 'location'. MSBuild. Default: version.
-    #msbuildVersion: 'latest' # 'latest' | '16.0' | '15.0' | '14.0' | '12.0' | '4.0'. Optional. Use when msbuildLocationMethod = version. MSBuild Version. Default: latest.
     #msbuildArchitecture: 'x86' # 'x86' | 'x64'. Optional. Use when msbuildLocationMethod = version. MSBuild Architecture. Default: x86.
     #msbuildLocation: # string. Optional. Use when msbuildLocationMethod = location. Path to MSBuild. 
     #platform: # string. Platform. 
@@ -114,21 +88,10 @@ Make sure the projects you specify are downloaded by this build pipeline. On the
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="msbuildVersion"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`msbuildVersion`** - **MSBuild Version**<br>
 `string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `17.0` (MSBuild 17.0), `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-**`msbuildVersion`** - **MSBuild Version**<br>
-`string`. Optional. Use when `msbuildLocationMethod = version`. Allowed values: `latest`, `16.0` (MSBuild 16.0), `15.0` (MSBuild 15.0), `14.0` (MSBuild 14.0), `12.0` (MSBuild 12.0), `4.0` (MSBuild 4.0). Default value: `latest`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 If the preferred version cannot be found, the latest version found is used instead. On an macOS agent, `xbuild` (Mono) is used if version is lower than `15.0`.
 <!-- :::editable-content-end::: -->

@@ -1,8 +1,8 @@
 ---
 title: AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
 description: Observe the configured classic Azure Monitor rules for active alerts.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # AzureMonitor@0 - Query Classic Azure Monitor alerts v0 task
@@ -21,7 +21,7 @@ Observe the configured classic Azure Monitor rules for active alerts.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 <!-- :::editable-content name="description"::: -->
 Observe the configured classic Azure Monitor rules for active alerts.
@@ -30,14 +30,6 @@ This task is deprecated; use [AzureMonitor@1](./azure-monitor-v1.md).
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-<!-- :::editable-content name="description"::: -->
-Observe the configured classic Azure Monitor rules for active alerts.
-<!-- :::editable-content-end::: -->
 
 :::moniker-end
 

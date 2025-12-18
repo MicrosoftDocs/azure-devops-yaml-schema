@@ -1,8 +1,8 @@
 ---
 title: DownloadSecureFile@1 - Download secure file v1 task
 description: Download a secure file to the agent machine.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
 ---
@@ -23,7 +23,7 @@ Use this task to download a secure file to the agent machine.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Download secure file v1
@@ -33,19 +33,6 @@ Use this task to download a secure file to the agent machine.
     secureFile: # string. Required. Secure File. 
     #retryCount: '8' # string. Retry Count. Default: 8.
     #socketTimeout: # string. Socket Timeout.
-```
-
-:::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Download secure file v1
-# Download a secure file to the agent machine.
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: # string. Required. Secure File. 
-    #retryCount: '5' # string. Retry Count. Default: 5.
 ```
 
 :::moniker-end
@@ -68,7 +55,7 @@ Specifies the name or unique identifier (GUID) of the secure file that is downlo
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCount"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`retryCount`** - **Retry Count**<br>
 `string`. Default value: `8`.<br>
@@ -78,20 +65,9 @@ Optional. Specifies the number of times to retry downloading a secure file if th
 <br>
 
 :::moniker-end
-
-:::moniker range="=azure-pipelines-2020"
-
-**`retryCount`** - **Retry Count**<br>
-`string`. Default value: `5`.<br>
-<!-- :::editable-content name="helpMarkDown"::: -->
-Optional. Specifies the number of times to retry downloading a secure file if the download fails.
-<!-- :::editable-content-end::: -->
-<br>
-
-:::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="socketTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`socketTimeout`** - **Socket Timeout**<br>
 `string`.<br>
@@ -217,7 +193,7 @@ This example downloads a secure certificate file and installs it to a trusted ce
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -232,20 +208,6 @@ This example downloads a secure certificate file and installs it to a trusted ce
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.116.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

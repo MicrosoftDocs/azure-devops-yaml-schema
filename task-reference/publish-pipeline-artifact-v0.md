@@ -1,8 +1,8 @@
 ---
 title: PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
 description: Publish a local directory or file as a named artifact for the current pipeline.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # PublishPipelineArtifact@0 - Publish Pipeline Artifacts v0 task
@@ -47,7 +47,7 @@ Use this task to publish a local directory or file as a named artifact for the c
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Publish Pipeline Artifacts v0
@@ -57,19 +57,6 @@ Use this task to publish a local directory or file as a named artifact for the c
     artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
     targetPath: # string. Required. Path to publish. 
     #properties: # string. Custom properties.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Publish Pipeline Artifacts v0
-# Publish a local directory or file as a named artifact for the current pipeline.
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'drop' # string. Required. The name of this artifact. Default: drop.
-    targetPath: # string. Required. Path to publish.
 ```
 
 :::moniker-end
@@ -104,7 +91,7 @@ Specifies the folder or file path to publish. This can be a fully qualified path
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="properties"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`properties`** - **Custom properties**<br>
 `string`.<br>
@@ -168,7 +155,7 @@ There is a newer version of this task. For more information, see [PublishPipelin
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -179,21 +166,6 @@ There is a newer version of this task. For more information, see [PublishPipelin
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | Agent version |  2.199 or greater |
-| Task category | Utility |
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.155.1 or greater |
 | Task category | Utility |
 
 :::moniker-end

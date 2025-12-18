@@ -1,8 +1,8 @@
 ---
 title: ManualValidation@0 - Manual validation v0 task
 description: Pause a YAML pipeline run to wait for manual interaction - Preview (task version 0).
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
 ---
@@ -10,7 +10,7 @@ ms.author: jukullam
 # ManualValidation@0 - Manual validation v0 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Use this task to pause a YAML pipeline run to wait for manual interaction.
@@ -36,7 +36,7 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.2"
+:::moniker range="<=azure-pipelines-2022.2"
 
 ```yaml
 # Manual validation v0
@@ -55,7 +55,7 @@ Use this task to pause a YAML pipeline run to wait for manual interaction.
 ## Inputs
 
 <!-- :::item name="notifyUsers"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`notifyUsers`** - **Notify users**<br>
 `string`. Required.<br>
@@ -69,7 +69,7 @@ This task input is required, but you can specify an empty string if you don't wa
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="instructions"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`instructions`** - **Instructions**<br>
 `string`.<br>
@@ -81,7 +81,7 @@ Specifies the instructions that are shown to the user when resuming or rejecting
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="onTimeout"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`onTimeout`** - **On timeout**<br>
 `string`. Allowed values: `reject`, `resume`. Default value: `reject`.<br>
@@ -101,7 +101,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 None.
 
@@ -162,7 +162,7 @@ This example uses `timeoutInMinutes` which is a [common task property](/azure/de
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|

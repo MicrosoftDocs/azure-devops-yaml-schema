@@ -1,8 +1,8 @@
 ---
 title: CopyFiles@2 - Copy files v2 task
 description: Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
 # CopyFiles@2 - Copy files v2 task
@@ -20,7 +20,7 @@ Use this task to copy files from a source folder to a target folder using match 
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 ```yaml
 # Copy files v2
@@ -38,25 +38,6 @@ Use this task to copy files from a source folder to a target folder using match 
     #retryCount: '0' # string. Retry count to copy the file. Default: 0.
     #delayBetweenRetries: '1000' # string. Delay between two retries. Default: 1000.
     #ignoreMakeDirErrors: false # boolean. Ignore errors during creation of target folder. Default: false.
-```
-
-:::moniker-end
-
-:::moniker range="<=azure-pipelines-2020.1"
-
-```yaml
-# Copy files v2
-# Copy files from a source folder to a target folder using patterns matching file paths (not folder paths).
-- task: CopyFiles@2
-  inputs:
-    #SourceFolder: # string. Source Folder. 
-    Contents: '**' # string. Required. Contents. Default: **.
-    TargetFolder: # string. Required. Target Folder. 
-  # Advanced
-    #CleanTargetFolder: false # boolean. Clean Target Folder. Default: false.
-    #OverWrite: false # boolean. Overwrite. Default: false.
-    #flattenFolders: false # boolean. Flatten Folders. Default: false.
-    #preserveTimestamp: false # boolean. Preserve Target Timestamp. Default: false.
 ```
 
 :::moniker-end
@@ -165,7 +146,7 @@ Preserves the target file timestamp by using the original source file.
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="retryCount"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`retryCount`** - **Retry count to copy the file**<br>
 `string`. Default value: `0`.<br>
@@ -177,7 +158,7 @@ Specifies the retry count to copy the file. This string is useful for intermitte
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="delayBetweenRetries"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`delayBetweenRetries`** - **Delay between two retries.**<br>
 `string`. Default value: `1000`.<br>
@@ -189,7 +170,7 @@ Specifies the delay between two retries. This string is useful for intermittent 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="ignoreMakeDirErrors"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`ignoreMakeDirErrors`** - **Ignore errors during creation of target folder.**<br>
 `boolean`. Default value: `false`.<br>
@@ -421,7 +402,7 @@ steps:
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
@@ -436,20 +417,6 @@ steps:
 
 :::moniker-end
 
-:::moniker range="<=azure-pipelines-2020.1"
-
-| Requirement | Description |
-|-------------|-------------|
-| Pipeline types | YAML, Classic build |
-| Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
-| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  1.91.0 or greater |
-| Task category | Utility |
-
-:::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->

@@ -1,8 +1,8 @@
 ---
 title: UseNode@1 - Use Node.js ecosystem v1 task
 description: Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-ms.date: 11/11/2025
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022 || =azure-pipelines-2020.1 || =azure-pipelines-2020"
+ms.date: 12/18/2025
+monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
 ---
@@ -39,7 +39,7 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2020.1 <=azure-pipelines-2022.1"
+:::moniker range="<=azure-pipelines-2022.1"
 
 ```yaml
 # Use Node.js ecosystem v1
@@ -53,18 +53,6 @@ Use this task to find, download, and cache a specified version of [Node.js](http
 
 :::moniker-end
 
-:::moniker range="=azure-pipelines-2020"
-
-```yaml
-# Use Node.js ecosystem v1
-# Set up a Node.js environment and add it to the PATH, additionally providing proxy support.
-- task: UseNode@1
-  inputs:
-    #version: '10.x' # string. Version. Default: 10.x.
-    #checkLatest: false # boolean. Check for Latest Version. Default: false.
-```
-
-:::moniker-end
 <!-- :::syntax-end::: -->
 
 <!-- :::inputs::: -->
@@ -95,7 +83,7 @@ Checks online for the latest available version that satisfies the version spec. 
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="force32bit"::: -->
-:::moniker range=">=azure-pipelines-2020.1"
+:::moniker range="<=azure-pipelines"
 
 **`force32bit`** - **Use 32 bit version on x64 agents**<br>
 `boolean`. Default value: `false`.<br>

@@ -1,7 +1,7 @@
 ---
 title: NuGetAuthenticate@1 - NuGet authenticate v1 task
 description: Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
-ms.date: 11/11/2025
+ms.date: 12/18/2025
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn
@@ -10,7 +10,7 @@ ms.author: rabououn
 # NuGetAuthenticate@1 - NuGet authenticate v1 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 <!-- :::editable-content name="description"::: -->
 Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repositories. Requires NuGet >= 4.8.5385, dotnet >= 6, or MSBuild >= 15.8.166.59604.
@@ -35,7 +35,7 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 
 :::moniker-end
 
-:::moniker range=">=azure-pipelines-2022 <=azure-pipelines-server"
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # NuGet authenticate v1
@@ -53,7 +53,7 @@ Configure NuGet tools to authenticate with Azure Artifacts and other NuGet repos
 ## Inputs
 
 <!-- :::item name="forceReinstallCredentialProvider"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`forceReinstallCredentialProvider`** - **Reinstall the credential provider even if already installed**<br>
 `boolean`. Default value: `false`.<br>
@@ -65,7 +65,7 @@ Optional. Reinstalls the credential provider to the user profile directory, even
 :::moniker-end
 <!-- :::item-end::: -->
 <!-- :::item name="nuGetServiceConnections"::: -->
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 **`nuGetServiceConnections`** - **Service connection credentials for feeds outside this organization**<br>
 `string`.<br>
@@ -85,7 +85,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-2022"
+:::moniker range="<=azure-pipelines"
 
 None.
 
