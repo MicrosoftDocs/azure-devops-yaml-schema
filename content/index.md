@@ -700,6 +700,13 @@ Here are the syntax conventions used in the YAML schema reference.
 * The symbol `|` indicates there are multiple data types available for the keyword.
   For instance, `job | template` means either a job definition or a template reference is allowed.
 
+## Previous versions
+
+* [Azure DevOps Server 2020.1 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2020&pivots=azure-pipelines-2020-1&preserve-view=true)
+* [Azure DevOps Server 2020 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2020&pivots=azure-pipelines-2020&preserve-view=true)
+* [Azure DevOps Server 2019.1 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2019&pivots=azure-pipelines-2019-1&preserve-view=true)
+* [Azure DevOps Server 2019 YAML schema reference](/previous-versions/azure/devops/pipelines/yaml-schema/?view=azure-devops-2019&pivots=azure-pipelines-2019&preserve-view=true)
+
 ## See also
 
 This reference covers the schema of an Azure Pipelines YAML file.

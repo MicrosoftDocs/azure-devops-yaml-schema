@@ -874,3 +874,11 @@ Yes: [Add a build task](/azure/devops/extend/develop/add-build-task)
 ### What are installer tasks?
 
 To learn more about tool installer tasks, see [Tool installers](/azure/devops/pipelines/process/tasks#tool-installers).
+
+## Previous versions
+
+- [Azure DevOps Server 2020.1 task reference](/previous-versions/azure/devops/pipelines/tasks/reference/?view=azure-devops-2020&pivots=azure-pipelines-2020-1&preserve-view=true)
+- [Azure DevOps Server 2020 task reference](/previous-versions/azure/devops/pipelines/tasks/reference/?view=azure-devops-2020&pivots=azure-pipelines-2020&preserve-view=true)
+- [Azure DevOps Server 2019.1 task reference](/previous-versions/azure/devops/pipelines/tasks/reference/?view=azure-devops-2019&pivots=azure-pipelines-2019-1&preserve-view=true)
+- [Azure DevOps Server 2019 task reference](/previous-versions/azure/devops/pipelines/tasks/reference/?view=azure-devops-2019&pivots=azure-pipelines-2019&preserve-view=true)
+- [TFS 2018 task reference](/previous-versions/azure/devops/pipelines/tasks/?view=tfs-2018&preserve-view=true)
