@@ -696,7 +696,7 @@ To run automated tests that use TestCase as a data source, the following is need
 
 ### Can I use this task for data-driven (parameterized tests)?
 
-Yes. The task supports only data-driven tests with static parameters. It is required for you to add an enviroment variable to your pipeline:
+Yes. The task supports only data-driven tests with static parameters and no custom displayName. It is required for you to add an enviroment variable to your pipeline:
 - For MsTest: `USE_MSTEST_RE_RUN_PATTERN: true`
 - For xUnit: `USE_XUNIT_RE_RUN_PATTERN: true`
 - For nUnit: `USE_NUNIT_RE_RUN_PATTERN: true`
