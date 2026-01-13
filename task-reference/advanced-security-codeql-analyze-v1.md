@@ -105,15 +105,55 @@ For the task to successfully complete and populate the Advanced Security tab for
 
 The task is available to run on self-hosted agents as well as Microsoft-hosted agents. For self-hosted agents, see [additional self-hosted agent set-up instructions](/azure/devops/repos/security/configure-github-advanced-security-features#extra-prerequisites-for-self-hosted-agents).
 
-The pipeline must call the tasks in the following order.
+
+#### Task Order
+The analysis task must appear after the initialize task for successful completion. 
+
+##### Interpreted Languages
+For interpreted languages, no build mode customization is required. See [Code scanning build mode customization](azure/devops/repos/security/github-advanced-security-code-scanning?view=azure-devops#code-scanning-build-mode-customization) for more details.
 
 1. Initialize CodeQL
-1. AutoBuild (or your custom build tasks)
 1. Perform CodeQL analysis
 
-The AutoBuild task is optional and may be replaced with your custom build tasks. Either AutoBuild or your custom build tasks must be run for your project to be analyzed.
+```YAML
+# Initialize CodeQL database
+- task: AdvancedSecurity-Codeql-Init@1
+  inputs: 
+    languages: 'javascript'
+  displayName: 'Advanced Security Initialize CodeQL' 
 
-The analysis task must appear after the initialize task for successful completion.
+# Run analysis 
+- task: AdvancedSecurity-Codeql-Analyze@1 
+  displayName: 'Advanced Security Code Scanning' 
+```
+
+##### Compiled Languages
+
+For compiled languages, either `buildtype: None` or custom build tasks that invoke the compiler must be configured for your project to be analyzed. For more information on the different build modes, including a comparison on the benefits of each build mode, see [Initialize CodeQL buildtype input](azure/devops/pipelines/tasks/reference/advanced-security-codeql-init-v1?view=azure-pipelines#inputs).
+
+
+1. Initialize CodeQL (buildtype: None)
+1. Perform CodeQL analysis
+
+```YAML
+# Initialize CodeQL database
+- task: AdvancedSecurity-Codeql-Init@1
+  inputs: 
+    languages: 'csharp'
+    buildtype: 'None'
+  displayName: 'Advanced Security Initialize CodeQL' 
+
+# Run analysis 
+- task: AdvancedSecurity-Codeql-Analyze@1 
+  displayName: 'Advanced Security Code Scanning' 
+```
+
+Alternatively,
+
+1. Initialize CodeQL (by default or with buildtype: Manual)
+1. custom build tasks
+1. Perform CodeQL analysis
+
 
 ```YAML
 # Initialize CodeQL database 
@@ -122,9 +162,12 @@ The analysis task must appear after the initialize task for successful completio
     languages: 'csharp' 
   displayName: 'Advanced Security Initialize CodeQL' 
 
-# Build project using Autobuild or your own custom build steps 
-- task: AdvancedSecurity-Codeql-Autobuild@1
-  displayName: 'Advanced Security Autobuild' 
+# Restore/Build project using your own custom build steps 
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/*.sln'
 
 # Run analysis 
 - task: AdvancedSecurity-Codeql-Analyze@1 
