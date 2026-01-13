@@ -110,7 +110,7 @@ The task is available to run on self-hosted agents as well as Microsoft-hosted a
 The analysis task must appear after the initialize task for successful completion. 
 
 ##### Interpreted Languages
-For interpreted languages, no build mode customization is required. See [Code scanning build mode customization](azure/devops/repos/security/github-advanced-security-code-scanning#code-scanning-build-mode-customization) for more details.
+For interpreted languages, no build mode customization is required. See [Code scanning build mode customization](/azure/devops/repos/security/github-advanced-security-code-scanning#code-scanning-build-mode-customization) for more details.
 
 1. Initialize CodeQL
 1. Perform CodeQL analysis
@@ -129,7 +129,7 @@ For interpreted languages, no build mode customization is required. See [Code sc
 
 ##### Compiled Languages
 
-For compiled languages, either `buildtype: None` or custom build tasks that invoke the compiler must be configured for your project to be analyzed. For more information on the different build modes, including a comparison on the benefits of each build mode, see [Initialize CodeQL buildtype input](../advanced-security-codeql-init-v1#inputs).
+For compiled languages, either `buildtype: None` or custom build tasks that invoke the compiler must be configured for your project to be analyzed. For more information on the different build modes, including a comparison on the benefits of each build mode, see [Initialize CodeQL buildtype input](../advanced-security-codeql-init-v1.md#inputs).
 
 
 1. Initialize CodeQL (buildtype: None)
