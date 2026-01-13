@@ -129,7 +129,7 @@ For interpreted languages, no build mode customization is required. See [Code sc
 
 ##### Compiled Languages
 
-For compiled languages, either `buildtype: None` or custom build tasks that invoke the compiler must be configured for your project to be analyzed. For more information on the different build modes, including a comparison on the benefits of each build mode, see [Initialize CodeQL buildtype input](azure/devops/pipelines/tasks/reference/advanced-security-codeql-init-v1#inputs).
+For compiled languages, either `buildtype: None` or custom build tasks that invoke the compiler must be configured for your project to be analyzed. For more information on the different build modes, including a comparison on the benefits of each build mode, see [Initialize CodeQL buildtype input](../advanced-security-codeql-init-v1#inputs).
 
 
 1. Initialize CodeQL (buildtype: None)
