@@ -1,7 +1,7 @@
 ---
 title: GoTool@0 - Go tool installer v0 task
 description: Find in cache or download a specific version of Go and add it to the PATH.
-ms.date: 12/18/2025
+ms.date: 01/13/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -21,7 +21,23 @@ Use this task to find in the tools cache or download a specific version of Go an
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# Go tool installer v0
+# Find in cache or download a specific version of Go and add it to the PATH.
+- task: GoTool@0
+  inputs:
+    version: '1.10' # string. Required. Version. Default: 1.10.
+  # Advanced
+    #goPath: # string. GOPATH. 
+    #goBin: # string. GOBIN. 
+    #goDownloadUrl: 'https://go.dev/dl' # string. Go download URL. Default: https://go.dev/dl.
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # Go tool installer v0
@@ -72,6 +88,24 @@ A custom value for the GOPATH environment variable.
 `string`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 A custom value for the GOBIN environment variable.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="goDownloadUrl"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`goDownloadUrl`** - **Go download URL**<br>
+`string`. Default value: `https://go.dev/dl`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+URL for downloading Go binaries. The following values are supported:
+
+- `https://go.dev/dl` - [Official Go distribution](https://go.dev/dl). This is the default if this parameter is not set.
+- `https://aka.ms/golang/release/latest` - the [Microsoft build of Go](https://github.com/microsoft/go), a fork of the official Go distribution. See [the Migration Guide](https://github.com/microsoft/go/blob/microsoft/main/eng/doc/MigrationGuide.md) for an introduction to the Microsoft build of Go.
+
+> [!NOTE]
+> This parameter takes priority over the `GOTOOL_GODOWNLOADURL` environment variable if both are set.
 <!-- :::editable-content-end::: -->
 <br>
 
