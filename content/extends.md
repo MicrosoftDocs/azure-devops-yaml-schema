@@ -94,12 +94,6 @@ The simplest way to use `extends` is to have a pipeline inherit stages and jobs 
 ```yaml
 # File: base-pipeline.yml
 # This is the base template that other pipelines extend
-trigger:
-  - main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
 stages:
 - stage: Build
   jobs:
@@ -112,11 +106,17 @@ stages:
 ```yaml
 # File: azure-pipelines.yml
 # This pipeline extends the base template
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 extends:
   template: base-pipeline.yml
 ```
 
-In this example, the pipeline in `azure-pipelines.yml` inherits the trigger, pool, stages, and jobs from `base-pipeline.yml`.
+In this example, the pipeline in `azure-pipelines.yml` extends the base template to inherit the stages and jobs. The `trigger` and `pool` are defined in the consuming pipeline, not in the template.
 
 ### Extends with parameters
 
@@ -129,12 +129,6 @@ parameters:
   type: string
   default: 'Debug'
 
-trigger:
-  - main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
 stages:
 - stage: Build
   jobs:
@@ -146,11 +140,19 @@ stages:
 
 ```yaml
 # File: azure-pipelines.yml
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 extends:
   template: base-pipeline.yml
   parameters:
     buildConfiguration: 'Release'
 ```
+
+In this example, the template defines parameters and stages, while the consuming pipeline defines `trigger` and `pool` alongside the `extends` keyword.
 
 ### Multi-stage pipeline with extends
 
@@ -158,13 +160,7 @@ You can use `extends` to inherit multiple stages from a template. This is useful
 
 ```yaml
 # File: multi-stage-template.yml
-# This template defines a complete three-stage pipeline
-trigger:
-  - main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
+# This template defines a three-stage pipeline structure
 stages:
 - stage: Build
   displayName: 'Build Stage'
@@ -202,11 +198,17 @@ stages:
 
 ```yaml
 # File: azure-pipelines.yml
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 extends:
   template: multi-stage-template.yml
 ```
 
-In this example, the pipeline automatically inherits all three stages (Build, Test, and Deploy) with their dependencies and job definitions from the template.
+In this example, the pipeline extends the template to inherit all three stages (Build, Test, and Deploy) with their dependencies and job definitions. The `trigger` and `pool` are defined in the consuming pipeline.
 
 ### Type-safe parameters with extends
 
