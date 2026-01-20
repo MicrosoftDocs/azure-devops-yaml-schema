@@ -1,7 +1,7 @@
 ---
 title: GoTool@0 - Go tool installer v0 task
 description: Find in cache or download a specific version of Go and add it to the PATH.
-ms.date: 01/13/2026
+ms.date: 01/20/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -102,10 +102,10 @@ A custom value for the GOBIN environment variable.
 URL for downloading Go binaries. The following values are supported:
 
 - `https://go.dev/dl` - [Official Go distribution](https://go.dev/dl). This is the default if this parameter is not set.
-- `https://aka.ms/golang/release/latest` - the [Microsoft build of Go](https://github.com/microsoft/go), a fork of the official Go distribution. See [the Migration Guide](https://github.com/microsoft/go/blob/microsoft/main/eng/doc/MigrationGuide.md) for an introduction to the Microsoft build of Go.
+- `https://aka.ms/golang/release/latest` - the [Microsoft build of Go](https://github.com/microsoft/go) prefix, a fork of the official Go distribution. See [the Migration Guide](https://github.com/microsoft/go/blob/microsoft/main/eng/doc/MigrationGuide.md) for an introduction to the Microsoft build of Go.
 
 > [!NOTE]
-> This parameter takes priority over the `GOTOOL_GODOWNLOADURL` environment variable if both are set.
+> You can optionally specify the download URL for Go binaries by setting the `GOTOOL_GODOWNLOADURL` environment variable. If both the **Go download URL** task parameter and the `GOTOOL_GODOWNLOADURL` environment variable are set, the task parameter takes precedence.
 <!-- :::editable-content-end::: -->
 <br>
 
