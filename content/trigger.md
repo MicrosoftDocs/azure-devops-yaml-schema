@@ -157,6 +157,16 @@ trigger: [ string ] # List of branches that trigger a run.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+### Remarks
+
+Pushing a commit to branches specified in the list trigger a run. In addition to specifying branch names in the `branches` lists, you can also configure triggers when a tag is pushed by using the following format:
+
+```yaml
+trigger:
+- refs/tags/{tagname}
+```
+
+For more information on tags, choose your repository type in [Supported repositories](/azure/devops/pipelines/repos/), and go to the CI triggers section.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
