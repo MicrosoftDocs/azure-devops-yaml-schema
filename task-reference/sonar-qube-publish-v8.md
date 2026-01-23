@@ -1,25 +1,20 @@
 ---
-title: SonarQubePublish@4 - Publish Quality Gate Result v4 task
-description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis (task version 4).
-ms.date: 11/11/2025
+title: SonarQubePublish@8 - Publish Quality Gate Result v8 task
+description: Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+ms.date: 01/23/2026
 monikerRange: "=azure-pipelines"
 ---
 
-# SonarQubePublish@4 - Publish Quality Gate Result v4 task
+# SonarQubePublish@8 - Publish Quality Gate Result v8 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to publish SonarQube's Quality Gate result on the Azure DevOps build result. Use this after the analysis.
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubePublish@8](./sonar-qube-publish-v8.md).
+Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
 
 [!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -30,9 +25,9 @@ Use this task to publish SonarQube's Quality Gate result on the Azure DevOps bui
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Publish Quality Gate Result v4
-# Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
-- task: SonarQubePublish@4
+# Publish Quality Gate Result v8
+# Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+- task: SonarQubePublish@8
   inputs:
     pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: 300.
 ```
@@ -49,7 +44,7 @@ Use this task to publish SonarQube's Quality Gate result on the Azure DevOps bui
 **`pollingTimeoutSec`** - **Timeout (s)**<br>
 `string`. Required. Default value: `300`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This task polls SonarQube until the analysis is completed or until the timeout is reached. This task also adds a build property with the Quality Gate status of the current build(s) analyses.
+This task will poll SonarQube Server until the analysis is completed, or until the timeout is reached. It also add a build property with the quality gate status of the current build(s) analyses.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -64,7 +59,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
 
 None.
 
@@ -73,10 +68,6 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-## Remarks
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubePublish@7](./sonar-qube-publish-v7.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -98,7 +89,7 @@ None.
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
+| Agent version |  3.218.0 or greater |
 | Task category | Build |
 
 :::moniker-end
@@ -106,8 +97,5 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

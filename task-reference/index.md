@@ -1,7 +1,7 @@
 ---
 title: Azure Pipelines task reference
 description: Reference for the built-in tasks for Azure Pipelines & TFS.
-ms.date: 11/11/2025
+ms.date: 01/23/2026
 monikerRange: "<=azure-pipelines"
 ---
 
@@ -56,9 +56,9 @@ For how-tos and tutorials about authoring pipelines using tasks, including creat
 | **Jenkins Queue Job**<br>[JenkinsQueueJob@1](jenkins-queue-job-v1.md) | Queue a job on a Jenkins server. |
 | **Maven**<br>[Maven@4](maven-v4.md)<br>[Maven@3](maven-v3.md)<br>[Maven@2](maven-v2.md)<br>[Maven@1](maven-v1.md) | Build, test, and deploy with Apache Maven. |
 | **MSBuild**<br>[MSBuild@1](msbuild-v1.md) | Build with MSBuild. |
-| **Prepare Analysis Configuration**<br>[SonarQubePrepare@7](sonar-qube-prepare-v7.md)<br>[SonarQubePrepare@6](sonar-qube-prepare-v6.md)<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube Server analysis configuration. |
-| **Publish Quality Gate Result**<br>[SonarQubePublish@7](sonar-qube-publish-v7.md)<br>[SonarQubePublish@6](sonar-qube-publish-v6.md)<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
-| **Run Code Analysis**<br>[SonarQubeAnalyze@7](sonar-qube-analyze-v7.md)<br>[SonarQubeAnalyze@6](sonar-qube-analyze-v6.md)<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube Server. |
+| **Prepare Analysis Configuration**<br>[SonarQubePrepare@8](sonar-qube-prepare-v8.md)<br>[SonarQubePrepare@7](sonar-qube-prepare-v7.md)<br>[SonarQubePrepare@6](sonar-qube-prepare-v6.md)<br>[SonarQubePrepare@5](sonar-qube-prepare-v5.md)<br>[SonarQubePrepare@4](sonar-qube-prepare-v4.md) | Prepare SonarQube Server analysis configuration. |
+| **Publish Quality Gate Result**<br>[SonarQubePublish@8](sonar-qube-publish-v8.md)<br>[SonarQubePublish@7](sonar-qube-publish-v7.md)<br>[SonarQubePublish@6](sonar-qube-publish-v6.md)<br>[SonarQubePublish@5](sonar-qube-publish-v5.md)<br>[SonarQubePublish@4](sonar-qube-publish-v4.md) | Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis. |
+| **Run Code Analysis**<br>[SonarQubeAnalyze@8](sonar-qube-analyze-v8.md)<br>[SonarQubeAnalyze@7](sonar-qube-analyze-v7.md)<br>[SonarQubeAnalyze@6](sonar-qube-analyze-v6.md)<br>[SonarQubeAnalyze@5](sonar-qube-analyze-v5.md)<br>[SonarQubeAnalyze@4](sonar-qube-analyze-v4.md) | Run scanner and upload the results to the SonarQube Server. |
 | **Visual Studio build**<br>[VSBuild@1](vsbuild-v1.md) | Build with MSBuild and set the Visual Studio version property. |
 | **Xcode**<br>[Xcode@5](xcode-v5.md)<br>[Xcode@4](xcode-v4.md) | Build, test, or archive an Xcode workspace on macOS. Optionally package an app. |
 | **Xcode Build**<br>[Xcode@3](xcode-v3.md)<br>[Xcode@2](xcode-v2.md) | Build an Xcode workspace on macOS. |

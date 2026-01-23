@@ -1,25 +1,20 @@
 ---
-title: SonarQubePublish@4 - Publish Quality Gate Result v4 task
-description: Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis (task version 4).
-ms.date: 11/11/2025
+title: SonarQubeAnalyze@8 - Run Code Analysis v8 task
+description: Run scanner and upload the results to the SonarQube Server.
+ms.date: 01/23/2026
 monikerRange: "=azure-pipelines"
 ---
 
-# SonarQubePublish@4 - Publish Quality Gate Result v4 task
+# SonarQubeAnalyze@8 - Run Code Analysis v8 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to publish SonarQube's Quality Gate result on the Azure DevOps build result. Use this after the analysis.
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubePublish@8](./sonar-qube-publish-v8.md).
+Run scanner and upload the results to the SonarQube Server.
 
 [!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -30,11 +25,11 @@ Use this task to publish SonarQube's Quality Gate result on the Azure DevOps bui
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Publish Quality Gate Result v4
-# Publish SonarQube's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
-- task: SonarQubePublish@4
+# Run Code Analysis v8
+# Run scanner and upload the results to the SonarQube Server.
+- task: SonarQubeAnalyze@8
   inputs:
-    pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: 300.
+    jdkversion: 'JAVA_HOME_17_X64' # 'JAVA_HOME' | 'JAVA_HOME_17_X64' | 'JAVA_HOME_21_X64'. Required. JDK version source for analysis. Default: JAVA_HOME_17_X64.
 ```
 
 :::moniker-end
@@ -43,13 +38,14 @@ Use this task to publish SonarQube's Quality Gate result on the Azure DevOps bui
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="pollingTimeoutSec"::: -->
+<!-- :::item name="jdkversion"::: -->
 :::moniker range=">azure-pipelines-server"
 
-**`pollingTimeoutSec`** - **Timeout (s)**<br>
-`string`. Required. Default value: `300`.<br>
+**`jdkversion`** - **JDK version source for analysis**<br>
+`string`. Required. Allowed values: `JAVA_HOME` (Use JAVA_HOME), `JAVA_HOME_17_X64` (Use built-in JAVA_HOME_17_X64 (hosted agent)), `JAVA_HOME_21_X64` (Use built-in JAVA_HOME_21_X64 (hosted agent)). Default value: `JAVA_HOME_17_X64`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-This task polls SonarQube until the analysis is completed or until the timeout is reached. This task also adds a build property with the Quality Gate status of the current build(s) analyses.
+Select the wanted Java version for the analysis : You can choose with either Self provided JAVA_HOME which will pick up the value of this env variable, or you can choose the built-in JAVA_HOME_XX_X64 value on hosted agent. 
+Default value is JAVA_HOME_11_X64, however if you choose either of the proposed value and they are not available, JAVA_HOME value will be picked up instead.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -64,7 +60,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
 
 None.
 
@@ -73,10 +69,6 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-## Remarks
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubePublish@7](./sonar-qube-publish-v7.md).
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -94,11 +86,11 @@ None.
 |-------------|-------------|
 | Pipeline types | YAML, Classic build |
 | Runs on | Agent, DeploymentGroup |
-| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Demands](/azure/devops/pipelines/process/demands) | Self-hosted agents must have [capabilities](/azure/devops/pipelines/agents/agents#capabilities) that match the following [demands](/azure/devops/pipelines/process/demands) to run jobs that use this task: java |
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
+| Agent version |  3.218.0 or greater |
 | Task category | Build |
 
 :::moniker-end
@@ -106,8 +98,5 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

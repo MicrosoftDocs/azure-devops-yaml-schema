@@ -1,7 +1,7 @@
 ---
 title: GitHubRelease@1 - GitHub Release v1 task
 description: Create, edit, or delete a GitHub release.
-ms.date: 12/18/2025
+ms.date: 01/23/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
@@ -20,7 +20,40 @@ Use this task to create, edit, or delete a GitHub release.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
+
+```yaml
+# GitHub Release v1
+# Create, edit, or delete a GitHub release.
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: # string. Required. GitHub connection (OAuth or PAT). 
+    repositoryName: '$(Build.Repository.Name)' # string. Required. Repository. Default: $(Build.Repository.Name).
+    action: 'create' # 'create' | 'edit' | 'delete'. Required. Action. Default: create.
+    #target: '$(Build.SourceVersion)' # string. Required when action = create || action = edit. Target. Default: $(Build.SourceVersion).
+    tagSource: 'gitTag' # 'gitTag' | 'userSpecifiedTag'. Required when action = create. Tag source. Default: gitTag.
+    #tagPattern: # string. Optional. Use when tagSource = gitTag. Tag Pattern. 
+    #tag: # string. Required when action = edit || action = delete || tagSource = userSpecifiedTag. Tag. 
+    #title: # string. Optional. Use when action = create || action = edit. Release title. 
+    #releaseNotesSource: 'filePath' # 'filePath' | 'inline'. Optional. Use when action = create || action = edit. Release notes source. Default: filePath.
+    #releaseNotesFilePath: # string. Optional. Use when releaseNotesSource = filePath. Release notes file path. 
+    #releaseNotesInline: # string. Optional. Use when releaseNotesSource = inline. Release notes. 
+    #assets: '$(Build.ArtifactStagingDirectory)/*' # string. Optional. Use when action = create || action = edit. Assets. Default: $(Build.ArtifactStagingDirectory)/*.
+    #assetUploadMode: 'delete' # 'delete' | 'replace'. Optional. Use when action = edit. Asset upload mode. Default: delete.
+    #isDraft: false # boolean. Optional. Use when action = create || action = edit. Draft release. Default: false.
+    #isPreRelease: false # boolean. Optional. Use when action = create || action = edit. Pre-release. Default: false.
+    #makeLatest: 'true' # 'true' | 'false' | 'legacy'. Optional. Use when action = create || action = edit. Make Latest. Default: true.
+    #addChangeLog: true # boolean. Optional. Use when action = create || action = edit. Add changelog. Default: true.
+  # Changelog configuration
+    changeLogCompareToRelease: 'lastFullRelease' # 'lastFullRelease' | 'lastNonDraftRelease' | 'lastNonDraftReleaseByTag'. Required when addChangeLog = true. Compare to. Default: lastFullRelease.
+    #changeLogCompareToReleaseTag: # string. Required when changeLogCompareToRelease = lastNonDraftReleaseByTag && addChangeLog = true. Release Tag. 
+    changeLogType: 'commitBased' # 'commitBased' | 'issueBased'. Required when addChangeLog = true. Changelog type. Default: commitBased.
+    #changeLogLabels: '[{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }]' # string. Optional. Use when changeLogType = issueBased && addChangeLog = true. Categories. Default: [{ "label" : "bug", "displayName" : "Bugs", "state" : "closed" }].
+```
+
+:::moniker-end
+
+:::moniker range="<=azure-pipelines-server"
 
 ```yaml
 # GitHub Release v1
@@ -233,6 +266,18 @@ Indicates whether the release should be saved as a draft (unpublished). If `fals
 `boolean`. Optional. Use when `action = create || action = edit`. Default value: `false`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 Indicates whether the release should be marked as a pre-release.
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="makeLatest"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`makeLatest`** - **Make Latest**<br>
+`string`. Optional. Use when `action = create || action = edit`. Allowed values: `true`, `false`, `legacy`. Default value: `true`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify whether to designate this release as the 'latest' release for the repository. Set to 'false' to prevent marking this release as latest, or 'legacy' to use GitHub's legacy latest-release determination based on creation date and semantic versioning.
 <!-- :::editable-content-end::: -->
 <br>
 
