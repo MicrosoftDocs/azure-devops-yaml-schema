@@ -140,7 +140,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 <!-- :::item name="timeoutInMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 
-**`timeoutInMinutes`** string.<br><!-- :::editable-content name="propDescription"::: -->
+**`timeoutInMinutes`** integer.<br><!-- :::editable-content name="propDescription"::: -->
 Time to wait for this task to complete before the server kills it. For example, to configure a 10 minute timeout, use `timeoutInMinutes: 10`.
 
 [!INCLUDE [task-timeout](./includes/task-timeout.md)]
@@ -151,7 +151,7 @@ Time to wait for this task to complete before the server kills it. For example, 
 <!-- :::item name="retryCountOnTaskFailure"::: -->
 :::moniker range="<=azure-pipelines"
 
-**`retryCountOnTaskFailure`** string.<br><!-- :::editable-content name="propDescription"::: -->
+**`retryCountOnTaskFailure`** integer.<br><!-- :::editable-content name="propDescription"::: -->
 Number of retries if the task fails. On Azure DevOps Server 2022, 2022.1, and 2022.2, retries are supported only on agent jobs. For more information, see [Azure DevOps service update November 16, 2021 - Automatic retries for a task](/azure/devops/release-notes/2021/sprint-195-update#automatic-retries-for-a-task) and [Azure DevOps service update June 14, 2025 - Retries for server tasks](/azure/devops/release-notes/2024/sprint-240-update#retries-for-server-tasks).
 <!-- :::editable-content-end::: -->
 
