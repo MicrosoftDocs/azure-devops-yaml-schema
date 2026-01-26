@@ -75,12 +75,40 @@ Use this task in an [agentless job](/azure/devops/pipelines/process/phases#serve
 > [!NOTE]
 > Can be used in only an [agentless job](/azure/devops/pipelines/process/phases#server-jobs) of a release pipeline.
 
-The maximum value for a delay is 60 days (86400 minutes).
+The maximum value for a delay is 60 days (86400 minutes). The default timeout for [agentless jobs](/azure/devops/pipelines/process/phases#server-jobs) is [60 minutes](/azure/devops/pipelines/process/phases#agentless-jobs-supported-tasks). To use delays which are 60 minutes or longer, set the parent job’s [timeoutInMinutes](/azure/devops/pipelines/process/phases#timeouts) property to a higher value. Otherwise, the job will time out and fail.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
 <!-- :::examples::: -->
 <!-- :::editable-content name="examples"::: -->
+## Examples
+### Delay for 30 minutes
+
+The following YAML snippet creates a job to delay for 30 minutes before continuing execution.
+```YAML
+- job: DelayTask
+  pool: server # 'server' is a reserved word for agentless jobs. Delay task must be agentless.
+  steps:
+  - task: Delay@V1
+    inputs:
+      delayForMinutes: '30'
+```
+
+### Delay for 7 days
+
+The following YAML snippet creates a job which delays for 7 days (10080 minutes) before continuing execution.
+```YAML
+- job: DelayTask
+  pool: server
+  timeoutInMinutes: 10081
+  steps:
+  - task: Delay@V1
+    inputs:
+      delayForMinutes: '10080'
+```
+
+> [!NOTE]
+> You must set the `timeoutInMinutes` property to be at least a minute longer than the `delayForMinutes` parameter on the Delay@V1 task. The default `timeoutInMinutes` is 60 minutes on an agentless job. Failing to do so will cause the task to timeout.
 <!-- :::editable-content-end::: -->
 <!-- :::examples-end::: -->
 
