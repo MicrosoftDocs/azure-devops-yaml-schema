@@ -24,7 +24,7 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 
 :::moniker range="=azure-pipelines"
 
-```yaml
+```yml
 # Advanced Security Perform CodeQL analysis v1
 # Finalizes the CodeQL database and runs the analysis queries.
 - task: AdvancedSecurity-Codeql-Analyze@1
@@ -119,7 +119,7 @@ For interpreted languages, no build mode customization is required. See [Code sc
 1. Initialize CodeQL
 1. Perform CodeQL analysis
 
-```YAML
+```yml
 # Initialize CodeQL database
 - task: AdvancedSecurity-Codeql-Init@1
   inputs: 
@@ -138,7 +138,7 @@ For compiled languages, either `buildtype: None` or custom build tasks that invo
 1. Initialize CodeQL (`buildtype: None`)
 1. Perform CodeQL analysis
 
-```YAML
+```yml
 # Initialize CodeQL database
 - task: AdvancedSecurity-Codeql-Init@1
   inputs: 
@@ -157,7 +157,7 @@ Alternatively,
 1. Custom build tasks
 1. Perform CodeQL analysis
 
-```YAML
+```yml
 # Initialize CodeQL database 
 - task: AdvancedSecurity-Codeql-Init@1
   inputs: 
