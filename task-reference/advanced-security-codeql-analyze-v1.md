@@ -105,11 +105,12 @@ For the task to successfully complete and populate the Advanced Security tab for
 
 The task is available to run on self-hosted agents as well as Microsoft-hosted agents. For self-hosted agents, see [additional self-hosted agent set-up instructions](/azure/devops/repos/security/configure-github-advanced-security-features#extra-prerequisites-for-self-hosted-agents).
 
-
 #### Task Order
-The analysis task must appear after the initialize task for successful completion. 
 
-##### Interpreted Languages
+The analysis task must appear after the initialize task for successful completion.
+
+#### Interpreted Languages
+
 For interpreted languages, no build mode customization is required. See [Code scanning build mode customization](/azure/devops/repos/security/github-advanced-security-code-scanning#code-scanning-build-mode-customization) for more details.
 
 1. Initialize CodeQL
@@ -127,12 +128,11 @@ For interpreted languages, no build mode customization is required. See [Code sc
   displayName: 'Advanced Security Code Scanning' 
 ```
 
-##### Compiled Languages
+#### Compiled Languages
 
 For compiled languages, either `buildtype: None` or custom build tasks that invoke the compiler must be configured for your project to be analyzed. For more information on the different build modes, including a comparison on the benefits of each build mode, see [Initialize CodeQL buildtype input](./advanced-security-codeql-init-v1.md#inputs).
 
-
-1. Initialize CodeQL (buildtype: None)
+1. Initialize CodeQL (`buildtype: None`)
 1. Perform CodeQL analysis
 
 ```YAML
@@ -150,10 +150,9 @@ For compiled languages, either `buildtype: None` or custom build tasks that invo
 
 Alternatively,
 
-1. Initialize CodeQL (by default or with buildtype: Manual)
-1. custom build tasks
+1. Initialize CodeQL (by default or with `buildtype: Manual`)
+1. Custom build tasks
 1. Perform CodeQL analysis
-
 
 ```YAML
 # Initialize CodeQL database 
