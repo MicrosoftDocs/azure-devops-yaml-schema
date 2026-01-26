@@ -26,7 +26,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 
 :::moniker range="=azure-pipelines"
 
-```yaml
+```yml
 # Advanced Security Initialize CodeQL v1
 # Initializes the CodeQL database in preparation for building.
 - task: AdvancedSecurity-Codeql-Init@1
@@ -107,7 +107,7 @@ The query suite, i.e. ruleset, used for analysis. You can specify the value here
 <!-- :::editable-content name="helpMarkDown"::: -->
 Specify `Manual` if you want to manually build the project before running the CodeQL analysis. Specify `None` if you want to run the CodeQL analysis without building the project.
 
-For more information on the different build modes including a comparison on the benefits of each build mode, see [CodeQL code scanning for compiled languages](https://docs.github.com/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-the-codeql-analysis-workflow-and-compiled-languages). To use `autobuild`, add the [AdvancedSecurity-CodeQL-Autobuild@1](./advanced-security-codeql-autobuild-v1.md) task to your pipeline. For more information, see [Code scanning build mode customization](/azure/devops/repos/security/github-advanced-security-code-scanning#code-scanning-build-mode-customization).
+For more information on the different build modes including a comparison on the benefits of each build mode, see [CodeQL code scanning for compiled languages](https://docs.github.com/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-the-codeql-analysis-workflow-and-compiled-languages) and [Code scanning build mode customization](/azure/devops/repos/security/github-advanced-security-code-scanning#code-scanning-build-mode-customization).
 <!-- :::editable-content-end::: -->
 <br>
 
