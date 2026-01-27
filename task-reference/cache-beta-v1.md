@@ -1,7 +1,7 @@
 ---
 title: CacheBeta@1 - Cache (Beta) v1 task
 description: Cache files between runs (task version 1).
-ms.date: 12/18/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: ramiMSFT
 ms.author: rabououn

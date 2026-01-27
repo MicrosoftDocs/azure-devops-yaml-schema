@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -24,7 +24,7 @@ Analyzes the code in an Azure Repos Git repository to find security vulnerabilit
 
 :::moniker range="=azure-pipelines"
 
-```yml
+```yaml
 # Advanced Security Perform CodeQL analysis v1
 # Finalizes the CodeQL database and runs the analysis queries.
 - task: AdvancedSecurity-Codeql-Analyze@1

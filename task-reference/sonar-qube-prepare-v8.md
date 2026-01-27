@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@8 - Prepare Analysis Configuration v8 task
 description: Prepare SonarQube Server analysis configuration.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 
