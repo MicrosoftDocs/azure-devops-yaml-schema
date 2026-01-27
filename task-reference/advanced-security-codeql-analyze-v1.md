@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Analyze@1 - Advanced Security Perform CodeQL analysis v1 task
 description: Finalizes the CodeQL database and runs the analysis queries.
-ms.date: 11/11/2025
+ms.date: 01/23/2026
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -196,7 +196,7 @@ Alternatively,
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
+| Agent version |  2.209.0 or greater |
 | Task category | Build |
 
 :::moniker-end

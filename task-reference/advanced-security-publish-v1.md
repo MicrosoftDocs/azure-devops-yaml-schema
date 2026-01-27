@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Publish@1 - Advanced Security Publish Results v1 task
 description: Combines SARIF file(s) produced by code scanning tool(s), enhances the combined SARIF file, and publishes the enhanced SARIF file to the Advanced Security service.
-ms.date: 11/11/2025
+ms.date: 01/23/2026
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -164,7 +164,7 @@ This task isn't needed when using [GitHub Advanced Security for Azure DevOps](/a
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
+| Agent version |  2.209.0 or greater |
 | Task category | Build |
 
 :::moniker-end
