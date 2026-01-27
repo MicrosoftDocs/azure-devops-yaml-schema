@@ -1,7 +1,7 @@
 ---
 title: resources.pipelines.pipeline definition
 description: A pipeline resource.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -52,6 +52,7 @@ Definitions that reference this definition: [resources.pipelines](resources-pipe
 ## Properties
 
 <!-- :::properties::: -->
+<a name="pipeline-property"></a>
 <!-- :::item name="pipeline"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -61,6 +62,7 @@ ID of the pipeline resource. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="project-property"></a>
 <!-- :::item name="project"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -70,6 +72,7 @@ Project for the source; defaults to current project.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="source-property"></a>
 <!-- :::item name="source"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,6 +82,7 @@ Name of the pipeline that produces the artifact. If the pipeline is contained in
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -88,6 +92,7 @@ The pipeline run number to pick the artifact, defaults to latest pipeline succes
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="branch-property"></a>
 <!-- :::item name="branch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,6 +102,7 @@ Branch to pick the artifact. Optional; defaults to all branches, used only for m
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="tags-property"></a>
 <!-- :::item name="tags"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -106,6 +112,7 @@ List of tags required on the pipeline to pickup default artifacts. Optional; use
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trigger-property"></a>
 <!-- :::item name="trigger"::: -->
 :::moniker range="<=azure-pipelines"
 

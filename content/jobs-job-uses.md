@@ -1,7 +1,7 @@
 ---
 title: jobs.job.uses definition
 description: Any resources required by this job that are not already referenced.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -42,6 +42,7 @@ Definitions that reference this definition: [jobs.job](jobs-job.md), [jobs.deplo
 ## Properties
 
 <!-- :::properties::: -->
+<a name="repositories-property"></a>
 <!-- :::item name="repositories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -51,6 +52,7 @@ Specifies Azure Repos repositories required by a job that are not already refere
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pools-property"></a>
 <!-- :::item name="pools"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -1,7 +1,7 @@
 ---
 title: jobs.template definition
 description: A set of jobs defined in a template.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -42,6 +42,7 @@ Definitions that reference this definition: [jobs](jobs.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="template-property"></a>
 <!-- :::item name="template"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -51,6 +52,7 @@ Reference to a template for this deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range="<=azure-pipelines"
 

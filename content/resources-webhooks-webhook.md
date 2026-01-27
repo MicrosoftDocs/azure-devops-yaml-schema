@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook definition
 description: A webhook resource enables you to integrate your pipeline with an external service to automate the workflow.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -44,6 +44,7 @@ Definitions that reference this definition: [resources.webhooks](resources-webho
 ## Properties
 
 <!-- :::properties::: -->
+<a name="webhook-property"></a>
 <!-- :::item name="webhook"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ For Azure DevOps webhook, `webhook` must always be a `WebHook`.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connection-property"></a>
 <!-- :::item name="connection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -63,6 +65,7 @@ Name of the connection. In case of offline webhook this will be the type of Inco
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -72,6 +75,7 @@ Name of the webhook extension. Leave this empty if it is an offline webhook.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="filters-property"></a>
 <!-- :::item name="filters"::: -->
 :::moniker range="<=azure-pipelines"
 

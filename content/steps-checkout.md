@@ -1,7 +1,7 @@
 ---
 title: steps.checkout definition
 description: Configure how the pipeline checks out source code.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -114,6 +114,7 @@ Definitions that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="checkout-property"></a>
 <!-- :::item name="checkout"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -126,6 +127,7 @@ Configures checkout for the specified repository. Specify `self`, `none`, [repos
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="clean-property"></a>
 <!-- :::item name="clean"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -135,6 +137,7 @@ If true, run git clean -ffdx followed by git reset --hard HEAD before fetching. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="fetchDepth-property"></a>
 <!-- :::item name="fetchDepth"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -144,6 +147,7 @@ Depth of Git graph to fetch.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="fetchFilter-property"></a>
 <!-- :::item name="fetchFilter"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -153,6 +157,7 @@ Use `fetchFilter` to filter Git history for partial cloning. The `fetchFilter` s
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="fetchTags-property"></a>
 <!-- :::item name="fetchTags"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -162,6 +167,7 @@ Set to 'true' to sync tags when fetching the repo, or 'false' to not sync tags. 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="lfs-property"></a>
 <!-- :::item name="lfs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,6 +177,7 @@ Set to 'true' to download Git-LFS files. Default is not to download them.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="persistCredentials-property"></a>
 <!-- :::item name="persistCredentials"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -180,6 +187,7 @@ Set to 'true' to leave the OAuth token in the Git config after the initial fetch
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="submodules-property"></a>
 <!-- :::item name="submodules"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -189,6 +197,7 @@ Set to 'true' for a single level of submodules or 'recursive' to get submodules 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="path-property"></a>
 <!-- :::item name="path"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -198,6 +207,7 @@ Where to put the repository. The root directory is $(Pipeline.Workspace). By def
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sparseCheckoutDirectories-property"></a>
 <!-- :::item name="sparseCheckoutDirectories"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -216,6 +226,7 @@ For more information on sparse checkout, see [Bring your monorepo down to size w
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="sparseCheckoutPatterns-property"></a>
 <!-- :::item name="sparseCheckoutPatterns"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -234,6 +245,7 @@ For more information on sparse checkout, see [Bring your monorepo down to size w
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workspaceRepo-property"></a>
 <!-- :::item name="workspaceRepo"::: -->
 :::moniker range=">=azure-pipelines-server"
 
@@ -243,6 +255,7 @@ When true, use the repository root directory as the default working directory fo
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="condition-property"></a>
 <!-- :::item name="condition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -252,6 +265,7 @@ Evaluate this condition expression to determine whether to run this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="continueOnError-property"></a>
 <!-- :::item name="continueOnError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -261,6 +275,7 @@ Continue running even on failure?
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -270,6 +285,7 @@ Human-readable name for the task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="target-property"></a>
 <!-- :::item name="target"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -279,6 +295,7 @@ Environment in which to run this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enabled-property"></a>
 <!-- :::item name="enabled"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -288,6 +305,7 @@ Run this task when the job runs?
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="env-property"></a>
 <!-- :::item name="env"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -297,6 +315,7 @@ Variables to map into the process's environment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -306,6 +325,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="timeoutInMinutes-property"></a>
 <!-- :::item name="timeoutInMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -317,6 +337,7 @@ Time to wait for this task to complete before the server kills it.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retryCountOnTaskFailure-property"></a>
 <!-- :::item name="retryCountOnTaskFailure"::: -->
 :::moniker range="<=azure-pipelines"
 

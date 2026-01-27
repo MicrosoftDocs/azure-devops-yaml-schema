@@ -1,7 +1,7 @@
 ---
 title: stages.stage definition
 description: A stage is a collection of related jobs.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -69,6 +69,7 @@ Definitions that reference this definition: [stages](stages.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="stage-property"></a>
 <!-- :::item name="stage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +79,7 @@ ID of the stage.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +89,7 @@ Human-readable name for the stage.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pool-property"></a>
 <!-- :::item name="pool"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -96,6 +99,7 @@ Pool where jobs in this stage will run unless otherwise specified.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="dependsOn-property"></a>
 <!-- :::item name="dependsOn"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +109,7 @@ Any stages which must complete before this one. By default stages are run sequen
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="condition-property"></a>
 <!-- :::item name="condition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -114,6 +119,7 @@ Evaluate this condition expression to determine whether to run this stage.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="variables-property"></a>
 <!-- :::item name="variables"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -123,6 +129,7 @@ Stage-specific variables.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="jobs-property"></a>
 <!-- :::item name="jobs"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -132,6 +139,7 @@ Jobs which make up the stage.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="lockBehavior-property"></a>
 <!-- :::item name="lockBehavior"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,6 +149,7 @@ Behavior lock requests from this stage should exhibit in relation to other exclu
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trigger-property"></a>
 <!-- :::item name="trigger"::: -->
 :::moniker range="=azure-pipelines"
 
@@ -150,6 +159,7 @@ Stage trigger manual or automatic (default). manual | automatic.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="isSkippable-property"></a>
 <!-- :::item name="isSkippable"::: -->
 :::moniker range="=azure-pipelines"
 
@@ -159,6 +169,7 @@ Setting false prevents the stage from being skipped. By default it's always true
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="templateContext-property"></a>
 <!-- :::item name="templateContext"::: -->
 :::moniker range="<=azure-pipelines"
 

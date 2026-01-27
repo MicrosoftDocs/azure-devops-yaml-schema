@@ -1,7 +1,7 @@
 ---
 title: variables.group definition
 description: Reference variables from a variable group.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -41,6 +41,7 @@ Definitions that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="group-property"></a>
 <!-- :::item name="group"::: -->
 :::moniker range="<=azure-pipelines"
 

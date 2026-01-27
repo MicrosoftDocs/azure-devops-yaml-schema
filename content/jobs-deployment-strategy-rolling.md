@@ -1,7 +1,7 @@
 ---
 title: jobs.deployment.strategy.rolling definition
 description: Rolling Deployment strategy.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
@@ -60,6 +60,7 @@ Definitions that reference this definition: [jobs.deployment.strategy](jobs-depl
 ## Properties
 
 <!-- :::properties::: -->
+<a name="maxParallel-property"></a>
 <!-- :::item name="maxParallel"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,6 +70,7 @@ Maximum number of jobs running in parallel.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="preDeploy-property"></a>
 <!-- :::item name="preDeploy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -78,6 +80,7 @@ Pre deploy hook for rolling deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="deploy-property"></a>
 <!-- :::item name="deploy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,6 +90,7 @@ Deploy hook for rolling deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="routeTraffic-property"></a>
 <!-- :::item name="routeTraffic"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -96,6 +100,7 @@ Route traffic hook for rolling deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="postRouteTraffic-property"></a>
 <!-- :::item name="postRouteTraffic"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,6 +110,7 @@ Post route traffic hook for rolling deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="on-property"></a>
 <!-- :::item name="on"::: -->
 :::moniker range="<=azure-pipelines"
 

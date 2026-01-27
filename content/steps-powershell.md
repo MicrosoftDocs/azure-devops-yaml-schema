@@ -1,7 +1,7 @@
 ---
 title: steps.powershell definition
 description: Runs a script using either Windows PowerShell (on Windows) or pwsh (Linux and macOS).
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -56,6 +56,7 @@ Definitions that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="powershell-property"></a>
 <!-- :::item name="powershell"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -65,6 +66,7 @@ Inline PowerShell script.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="errorActionPreference-property"></a>
 <!-- :::item name="errorActionPreference"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -74,6 +76,7 @@ Unless otherwise specified, the error action preference defaults to the value st
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="failOnStderr-property"></a>
 <!-- :::item name="failOnStderr"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -83,6 +86,7 @@ Fail the task if output is sent to Stderr?
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ignoreLASTEXITCODE-property"></a>
 <!-- :::item name="ignoreLASTEXITCODE"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +96,7 @@ Check the final exit code of the script to determine whether the step succeeded?
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="workingDirectory-property"></a>
 <!-- :::item name="workingDirectory"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,6 +106,7 @@ Start the script with this working directory.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="condition-property"></a>
 <!-- :::item name="condition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -110,6 +116,7 @@ Evaluate this condition expression to determine whether to run this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="continueOnError-property"></a>
 <!-- :::item name="continueOnError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,6 +126,7 @@ Continue running even on failure?
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -128,6 +136,7 @@ Human-readable name for the task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="target-property"></a>
 <!-- :::item name="target"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -137,6 +146,7 @@ Environment in which to run this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="enabled-property"></a>
 <!-- :::item name="enabled"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -146,6 +156,7 @@ Run this task when the job runs?
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="env-property"></a>
 <!-- :::item name="env"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -155,6 +166,7 @@ Variables to map into the process's environment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -164,6 +176,7 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="timeoutInMinutes-property"></a>
 <!-- :::item name="timeoutInMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -175,6 +188,7 @@ Time to wait for this task to complete before the server kills it.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="retryCountOnTaskFailure-property"></a>
 <!-- :::item name="retryCountOnTaskFailure"::: -->
 :::moniker range="<=azure-pipelines"
 

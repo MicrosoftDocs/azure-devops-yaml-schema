@@ -1,7 +1,7 @@
 ---
 title: extends definition
 description: Extends a pipeline using a template.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -43,6 +43,7 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="template-property"></a>
 <!-- :::item name="template"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,6 +53,7 @@ The template referenced by the pipeline to extend.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range="<=azure-pipelines"
 

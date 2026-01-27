@@ -1,7 +1,7 @@
 ---
 title: includeExcludeFilters definition
 description: Lists of items to include or exclude.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -46,6 +46,7 @@ Definitions that reference this definition: [trigger](trigger.md), [pr](pr.md), 
 ## Properties
 
 <!-- :::properties::: -->
+<a name="include-property"></a>
 <!-- :::item name="include"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,6 +86,7 @@ pr:
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="exclude-property"></a>
 <!-- :::item name="exclude"::: -->
 :::moniker range="<=azure-pipelines"
 

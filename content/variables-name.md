@@ -1,7 +1,7 @@
 ---
 title: variables.name definition
 description: Define variables using name and full syntax.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -44,6 +44,7 @@ Definitions that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
+<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -53,6 +54,7 @@ Variable name.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="value-property"></a>
 <!-- :::item name="value"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -62,6 +64,7 @@ Variable value.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="readonly-property"></a>
 <!-- :::item name="readonly"::: -->
 :::moniker range="<=azure-pipelines"
 

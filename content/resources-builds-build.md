@@ -1,7 +1,7 @@
 ---
 title: resources.builds.build definition
 description: A build resource used to reference artifacts from a run.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -48,6 +48,7 @@ Definitions that reference this definition: [resources.builds](resources-builds.
 ## Properties
 
 <!-- :::properties::: -->
+<a name="build-property"></a>
 <!-- :::item name="build"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,6 +58,7 @@ Alias or name of build artifact. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -66,6 +68,7 @@ Name of the artifact type.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="connection-property"></a>
 <!-- :::item name="connection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -75,6 +78,7 @@ Name of the connection. This connection will be used for all the communication r
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="source-property"></a>
 <!-- :::item name="source"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -84,6 +88,7 @@ Name of the source definition/build/job.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,6 +97,7 @@ Name of the source definition/build/job.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="branch-property"></a>
 <!-- :::item name="branch"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +106,7 @@ Name of the source definition/build/job.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trigger-property"></a>
 <!-- :::item name="trigger"::: -->
 :::moniker range="<=azure-pipelines"
 

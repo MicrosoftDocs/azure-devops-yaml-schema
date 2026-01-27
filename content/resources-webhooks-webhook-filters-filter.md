@@ -1,7 +1,7 @@
 ---
 title: resources.webhooks.webhook.filters.filter definition
 description: Filters used to customize the triggers for a webhook event.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -42,6 +42,7 @@ Definitions that reference this definition: [resources.webhooks.webhook.filters]
 ## Properties
 
 <!-- :::properties::: -->
+<a name="path-property"></a>
 <!-- :::item name="path"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -51,6 +52,7 @@ json path to select data from event payload.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="value-property"></a>
 <!-- :::item name="value"::: -->
 :::moniker range="<=azure-pipelines"
 

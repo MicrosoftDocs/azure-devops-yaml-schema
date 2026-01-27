@@ -1,7 +1,7 @@
 ---
 title: onSuccessHook definition
 description: Used to run steps for clean-up actions.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -45,6 +45,7 @@ Definitions that reference this definition: [onSuccessOrFailureHook](on-success-
 ## Properties
 
 <!-- :::properties::: -->
+<a name="steps-property"></a>
 <!-- :::item name="steps"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,6 +55,7 @@ A list of steps to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="pool-property"></a>
 <!-- :::item name="pool"::: -->
 :::moniker range="<=azure-pipelines"
 

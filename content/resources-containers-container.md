@@ -1,7 +1,7 @@
 ---
 title: resources.containers.container definition
 description: A container resource used to reference a container image.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -91,6 +91,7 @@ Definitions that reference this definition: [resources.containers](resources-con
 ## Properties
 
 <!-- :::properties::: -->
+<a name="container-property"></a>
 <!-- :::item name="container"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -100,6 +101,7 @@ ID for the container. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="image-property"></a>
 <!-- :::item name="image"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,6 +111,7 @@ Container image tag.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -118,6 +121,7 @@ Type of the registry like ACR or GCR.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="trigger-property"></a>
 <!-- :::item name="trigger"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -127,6 +131,7 @@ Specify none to disable, true to trigger on all image tags, or use the full synt
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="azureSubscription-property"></a>
 <!-- :::item name="azureSubscription"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -136,6 +141,7 @@ Azure subscription (ARM service connection) for container registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="resourceGroup-property"></a>
 <!-- :::item name="resourceGroup"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -145,6 +151,7 @@ Resource group for your ACR.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="registry-property"></a>
 <!-- :::item name="registry"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -154,6 +161,7 @@ Registry for container images.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="repository-property"></a>
 <!-- :::item name="repository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -163,6 +171,7 @@ Name of the container image repository in ACR.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="localImage-property"></a>
 <!-- :::item name="localImage"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -174,6 +183,7 @@ This property is useful only for self-hosted agents where the image is already p
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="endpoint-property"></a>
 <!-- :::item name="endpoint"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -191,6 +201,7 @@ ID of the service endpoint connecting to a private container registry.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="env-property"></a>
 <!-- :::item name="env"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -200,6 +211,7 @@ Variables to map into the container's environment.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mapDockerSocket-property"></a>
 <!-- :::item name="mapDockerSocket"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -209,6 +221,7 @@ Set this flag to false to force the agent not to setup the /var/run/docker.sock 
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="options-property"></a>
 <!-- :::item name="options"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -226,6 +239,7 @@ Options to pass into container host.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="ports-property"></a>
 <!-- :::item name="ports"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -243,6 +257,7 @@ Ports to expose on the container.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="volumes-property"></a>
 <!-- :::item name="volumes"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -260,6 +275,7 @@ Volumes to mount on the container.
 
 :::moniker-end
 <!-- :::item-end::: -->
+<a name="mountReadOnly-property"></a>
 <!-- :::item name="mountReadOnly"::: -->
 :::moniker range="<=azure-pipelines"
 
