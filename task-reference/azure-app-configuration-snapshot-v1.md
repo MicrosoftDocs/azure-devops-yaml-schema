@@ -1,7 +1,7 @@
 ---
 title: AzureAppConfigurationSnapshot@1 - Azure App Configuration Snapshot v1 task
 description: Create a configuration snapshot in Azure App Configuration through build or deployment pipelines.
-ms.date: 11/11/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server"
 author: juliakm
 ms.author: jukullam

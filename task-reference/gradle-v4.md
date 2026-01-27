@@ -1,7 +1,7 @@
 ---
 title: Gradle@4 - Gradle v4 task
 description: Build using a Gradle wrapper script.
-ms.date: 11/11/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 

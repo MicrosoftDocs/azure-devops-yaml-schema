@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -26,7 +26,7 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 
 :::moniker range="=azure-pipelines"
 
-```yml
+```yaml
 # Advanced Security Initialize CodeQL v1
 # Initializes the CodeQL database in preparation for building.
 - task: AdvancedSecurity-Codeql-Init@1

@@ -1,7 +1,7 @@
 ---
 title: InvokeRESTAPI@0 - Invoke REST API v0 task
 description: Invoke REST API as a part of your process (task version 0).
-ms.date: 12/18/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 
