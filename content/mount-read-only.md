@@ -47,7 +47,6 @@ Definitions that reference this definition: [jobs.job.container](jobs-job-contai
 ## Properties
 
 <!-- :::properties::: -->
-<a name="work-property"></a>
 <!-- :::item name="work"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,7 +56,6 @@ Mount the work directory as readonly.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="externals-property"></a>
 <!-- :::item name="externals"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,7 +65,6 @@ Mount the externals directory as readonly.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="tools-property"></a>
 <!-- :::item name="tools"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,7 +74,6 @@ Mount the tools directory as readonly.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="tasks-property"></a>
 <!-- :::item name="tasks"::: -->
 :::moniker range="<=azure-pipelines"
 

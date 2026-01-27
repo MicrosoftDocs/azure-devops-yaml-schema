@@ -47,7 +47,6 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="builds-property"></a>
 <!-- :::item name="builds"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,7 +56,6 @@ List of build resources referenced by the pipeline.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="containers-property"></a>
 <!-- :::item name="containers"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,7 +65,6 @@ List of container images.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="pipelines-property"></a>
 <!-- :::item name="pipelines"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,7 +74,6 @@ List of pipeline resources.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="repositories-property"></a>
 <!-- :::item name="repositories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,7 +83,6 @@ List of repository resources.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="webhooks-property"></a>
 <!-- :::item name="webhooks"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,7 +92,6 @@ List of webhooks.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="packages-property"></a>
 <!-- :::item name="packages"::: -->
 :::moniker range="<=azure-pipelines"
 

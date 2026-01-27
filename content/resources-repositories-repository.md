@@ -75,7 +75,6 @@ Definitions that reference this definition: [resources.repositories](resources-r
 ## Properties
 
 <!-- :::properties::: -->
-<a name="repository-property"></a>
 <!-- :::item name="repository"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -85,7 +84,6 @@ Alias for the specified repository. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="endpoint-property"></a>
 <!-- :::item name="endpoint"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -95,7 +93,6 @@ ID of the service endpoint connecting to this repository.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="trigger-property"></a>
 <!-- :::item name="trigger"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -109,7 +106,6 @@ CI trigger for this repository, no CI trigger if omitted.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -119,7 +115,6 @@ Repository name. Format depends on 'type'; does not accept variables.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="ref-property"></a>
 <!-- :::item name="ref"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -137,7 +132,6 @@ ref name to checkout; defaults to 'refs/heads/main'. The branch checked out by d
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range="<=azure-pipelines"
 

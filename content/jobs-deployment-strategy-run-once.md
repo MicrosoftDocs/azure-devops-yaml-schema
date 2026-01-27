@@ -59,7 +59,6 @@ Definitions that reference this definition: [jobs.deployment.strategy](jobs-depl
 ## Properties
 
 <!-- :::properties::: -->
-<a name="preDeploy-property"></a>
 <!-- :::item name="preDeploy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -69,7 +68,6 @@ Pre deploy hook for runOnce deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="deploy-property"></a>
 <!-- :::item name="deploy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -79,7 +77,6 @@ Deploy hook for runOnce deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="routeTraffic-property"></a>
 <!-- :::item name="routeTraffic"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -89,7 +86,6 @@ Route traffic hook for runOnce deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="postRouteTraffic-property"></a>
 <!-- :::item name="postRouteTraffic"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -99,7 +95,6 @@ Post route traffic hook for runOnce deployment strategy.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="on-property"></a>
 <!-- :::item name="on"::: -->
 :::moniker range="<=azure-pipelines"
 

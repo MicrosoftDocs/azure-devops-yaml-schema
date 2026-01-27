@@ -42,7 +42,6 @@ Definitions that reference this definition: [jobs.job](jobs-job.md), [jobs.deplo
 ## Properties
 
 <!-- :::properties::: -->
-<a name="repositories-property"></a>
 <!-- :::item name="repositories"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,7 +51,6 @@ Specifies Azure Repos repositories required by a job that are not already refere
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="pools-property"></a>
 <!-- :::item name="pools"::: -->
 :::moniker range="<=azure-pipelines"
 

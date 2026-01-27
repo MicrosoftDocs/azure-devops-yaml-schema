@@ -42,7 +42,6 @@ Definitions that reference this definition: [stages](stages.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="template-property"></a>
 <!-- :::item name="template"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,7 +51,6 @@ Reference to a template for this stage.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range="<=azure-pipelines"
 

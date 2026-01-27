@@ -42,7 +42,6 @@ Definitions that reference this definition: [jobs](jobs.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="template-property"></a>
 <!-- :::item name="template"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,7 +51,6 @@ Reference to a template for this deployment.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range="<=azure-pipelines"
 

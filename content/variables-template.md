@@ -42,7 +42,6 @@ Definitions that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="template-property"></a>
 <!-- :::item name="template"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,7 +51,6 @@ Template file with variables.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -49,7 +49,6 @@ Definitions that reference this definition: [jobs.deployment.strategy.runOnce](j
 ## Properties
 
 <!-- :::properties::: -->
-<a name="failure-property"></a>
 <!-- :::item name="failure"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -59,7 +58,6 @@ Runs on failure of any step.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="success-property"></a>
 <!-- :::item name="success"::: -->
 :::moniker range="<=azure-pipelines"
 

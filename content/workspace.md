@@ -46,7 +46,6 @@ Definitions that reference this definition: [pipeline](pipeline.md), [jobs.job](
 ## Properties
 
 <!-- :::properties::: -->
-<a name="clean-property"></a>
 <!-- :::item name="clean"::: -->
 :::moniker range="<=azure-pipelines"
 

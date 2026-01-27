@@ -58,7 +58,6 @@ Definitions that reference this definition: [parameters](parameters.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,7 +66,6 @@ Definitions that reference this definition: [parameters](parameters.md)
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,7 +75,6 @@ Human-readable name for the parameter.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,7 +84,6 @@ See [**types**](#types).
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="default-property"></a>
 <!-- :::item name="default"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -97,7 +93,6 @@ Default value; if no default, then the parameter MUST be given by the user at ru
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="values-property"></a>
 <!-- :::item name="values"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -47,7 +47,6 @@ Definitions that reference this definition: [resources.packages](resources-packa
 ## Properties
 
 <!-- :::properties::: -->
-<a name="package-property"></a>
 <!-- :::item name="package"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -57,7 +56,6 @@ Alias of package artifact. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="type-property"></a>
 <!-- :::item name="type"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -67,7 +65,6 @@ Type of the package. Ex - NuGet, NPM etc.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="connection-property"></a>
 <!-- :::item name="connection"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -77,7 +74,6 @@ Name of the connection. This connection will be used for all the communication r
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -87,7 +83,6 @@ Name of the package.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="version-property"></a>
 <!-- :::item name="version"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -96,7 +91,6 @@ Name of the package.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="tag-property"></a>
 <!-- :::item name="tag"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -105,7 +99,6 @@ Name of the package.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="trigger-property"></a>
 <!-- :::item name="trigger"::: -->
 :::moniker range="<=azure-pipelines"
 

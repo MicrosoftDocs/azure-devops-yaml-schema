@@ -44,7 +44,6 @@ Definitions that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -54,7 +53,6 @@ Variable name.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="value-property"></a>
 <!-- :::item name="value"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -64,7 +62,6 @@ Variable value.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="readonly-property"></a>
 <!-- :::item name="readonly"::: -->
 :::moniker range="<=azure-pipelines"
 

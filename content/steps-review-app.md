@@ -52,7 +52,6 @@ Definitions that reference this definition: [steps](steps.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="reviewApp-property"></a>
 <!-- :::item name="reviewApp"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -62,7 +61,6 @@ Use this task under deploy phase provider to create a resource dynamically.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="condition-property"></a>
 <!-- :::item name="condition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -72,7 +70,6 @@ Evaluate this condition expression to determine whether to run this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="continueOnError-property"></a>
 <!-- :::item name="continueOnError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -82,7 +79,6 @@ Continue running even on failure?
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -92,7 +88,6 @@ Human-readable name for the task.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="target-property"></a>
 <!-- :::item name="target"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -102,7 +97,6 @@ Environment in which to run this task.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="enabled-property"></a>
 <!-- :::item name="enabled"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -112,7 +106,6 @@ Run this task when the job runs?
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="env-property"></a>
 <!-- :::item name="env"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -122,7 +115,6 @@ Variables to map into the process's environment.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="name-property"></a>
 <!-- :::item name="name"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -132,7 +124,6 @@ ID of the step. Acceptable values: [-_A-Za-z0-9]*.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="timeoutInMinutes-property"></a>
 <!-- :::item name="timeoutInMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -144,7 +135,6 @@ Time to wait for this task to complete before the server kills it.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="retryCountOnTaskFailure-property"></a>
 <!-- :::item name="retryCountOnTaskFailure"::: -->
 :::moniker range="<=azure-pipelines"
 

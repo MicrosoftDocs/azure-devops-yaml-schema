@@ -45,7 +45,6 @@ Definitions that reference this definition: [jobs.deployment.strategy.runOnce](j
 ## Properties
 
 <!-- :::properties::: -->
-<a name="steps-property"></a>
 <!-- :::item name="steps"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -55,7 +54,6 @@ A list of steps to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="pool-property"></a>
 <!-- :::item name="pool"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -43,7 +43,6 @@ Definitions that reference this definition: [pipeline](pipeline.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="template-property"></a>
 <!-- :::item name="template"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -53,7 +52,6 @@ The template referenced by the pipeline to extend.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="parameters-property"></a>
 <!-- :::item name="parameters"::: -->
 :::moniker range="<=azure-pipelines"
 

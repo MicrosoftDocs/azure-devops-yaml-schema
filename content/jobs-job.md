@@ -61,7 +61,6 @@ Definitions that reference this definition: [jobs](jobs.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="job-property"></a>
 <!-- :::item name="job"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,7 +70,6 @@ ID of the job. Acceptable values: Valid names may only contain alphanumeric char
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,7 +79,6 @@ Human-readable name for the job.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="dependsOn-property"></a>
 <!-- :::item name="dependsOn"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,7 +88,6 @@ Any jobs which must complete before this one.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="condition-property"></a>
 <!-- :::item name="condition"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -101,7 +97,6 @@ Evaluate this condition expression to determine whether to run this job.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="continueOnError-property"></a>
 <!-- :::item name="continueOnError"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -111,7 +106,6 @@ Continue running even on failure?
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="timeoutInMinutes-property"></a>
 <!-- :::item name="timeoutInMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -121,7 +115,6 @@ Time to wait for this job to complete before the server kills it.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="cancelTimeoutInMinutes-property"></a>
 <!-- :::item name="cancelTimeoutInMinutes"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -131,7 +124,6 @@ Time to wait for the job to cancel before forcibly terminating it.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="variables-property"></a>
 <!-- :::item name="variables"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -141,7 +133,6 @@ Job-specific variables.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="strategy-property"></a>
 <!-- :::item name="strategy"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -151,7 +142,6 @@ Execution strategy for this job.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="pool-property"></a>
 <!-- :::item name="pool"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -161,7 +151,6 @@ Pool where this job will run.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="container-property"></a>
 <!-- :::item name="container"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -171,7 +160,6 @@ Container resource name.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="services-property"></a>
 <!-- :::item name="services"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -181,7 +169,6 @@ Container resources to run as a service container.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="workspace-property"></a>
 <!-- :::item name="workspace"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -191,7 +178,6 @@ Workspace options on the agent. For more information about workspaces, including
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="uses-property"></a>
 <!-- :::item name="uses"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -201,7 +187,6 @@ Specifies resources required by this job that are not already referenced elsewhe
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="steps-property"></a>
 <!-- :::item name="steps"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -211,7 +196,6 @@ A list of steps to run.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="templateContext-property"></a>
 <!-- :::item name="templateContext"::: -->
 :::moniker range="<=azure-pipelines"
 

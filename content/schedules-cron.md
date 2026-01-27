@@ -61,7 +61,6 @@ Definitions that reference this definition: [schedules](schedules.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="cron-property"></a>
 <!-- :::item name="cron"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -71,7 +70,6 @@ Cron syntax defining a schedule in UTC time.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="displayName-property"></a>
 <!-- :::item name="displayName"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -81,7 +79,6 @@ Optional friendly name given to a specific schedule.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="branches-property"></a>
 <!-- :::item name="branches"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -91,7 +88,6 @@ Branch names to include or exclude for triggering a run.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="batch-property"></a>
 <!-- :::item name="batch"::: -->
 :::moniker range=">=azure-pipelines-2022.1"
 
@@ -110,7 +106,6 @@ The `batch` property is affected by the setting of the `always` property. When `
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="always-property"></a>
 <!-- :::item name="always"::: -->
 :::moniker range="<=azure-pipelines"
 

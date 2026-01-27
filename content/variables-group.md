@@ -41,7 +41,6 @@ Definitions that reference this definition: [variables](variables.md)
 ## Properties
 
 <!-- :::properties::: -->
-<a name="group-property"></a>
 <!-- :::item name="group"::: -->
 :::moniker range="<=azure-pipelines"
 

@@ -42,7 +42,6 @@ Definitions that reference this definition: [resources.webhooks.webhook.filters]
 ## Properties
 
 <!-- :::properties::: -->
-<a name="path-property"></a>
 <!-- :::item name="path"::: -->
 :::moniker range="<=azure-pipelines"
 
@@ -52,7 +51,6 @@ json path to select data from event payload.
 
 :::moniker-end
 <!-- :::item-end::: -->
-<a name="value-property"></a>
 <!-- :::item name="value"::: -->
 :::moniker range="<=azure-pipelines"
 
