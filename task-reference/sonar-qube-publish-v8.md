@@ -1,17 +1,19 @@
 ---
-title: FuncToolsInstaller@0 - Install Azure Func Core Tools v0 task
-description: Install Azure Func Core Tools.
+title: SonarQubePublish@8 - Publish Quality Gate Result v8 task
+description: Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
 ms.date: 01/27/2026
-monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
+monikerRange: "=azure-pipelines"
 ---
 
-# FuncToolsInstaller@0 - Install Azure Func Core Tools v0 task
+# SonarQubePublish@8 - Publish Quality Gate Result v8 task
 
 <!-- :::description::: -->
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to install Azure Functions Core Tools.
+Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
@@ -20,14 +22,14 @@ Use this task to install Azure Functions Core Tools.
 <!-- :::syntax::: -->
 ## Syntax
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 ```yaml
-# Install Azure Func Core Tools v0
-# Install Azure Func Core Tools.
-- task: FuncToolsInstaller@0
+# Publish Quality Gate Result v8
+# Publish SonarQube Server's Quality Gate result on the Azure DevOps build result, to be used after the actual analysis.
+- task: SonarQubePublish@8
   inputs:
-    #version: 'latest' # string. Version. Default: latest.
+    pollingTimeoutSec: '300' # string. Required. Timeout (s). Default: 300.
 ```
 
 :::moniker-end
@@ -36,19 +38,13 @@ Use this task to install Azure Functions Core Tools.
 <!-- :::inputs::: -->
 ## Inputs
 
-<!-- :::item name="version"::: -->
-:::moniker range="<=azure-pipelines"
+<!-- :::item name="pollingTimeoutSec"::: -->
+:::moniker range=">azure-pipelines-server"
 
-**`version`** - **Version**<br>
-`string`. Default value: `latest`.<br>
+**`pollingTimeoutSec`** - **Timeout (s)**<br>
+`string`. Required. Default value: `300`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the version of Azure Functions Core Tools to install. For example:
-
-- `2.7.1575`
-- `v2.7.1575`
-- `latest`
-
-For a list of versions, see [Azure Functions Core Tools releases](https://github.com/Azure/azure-functions-core-tools/releases).
+This task will poll SonarQube Server until the analysis is completed, or until the timeout is reached. It also add a build property with the quality gate status of the current build(s) analyses.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -63,7 +59,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range="<=azure-pipelines"
+:::moniker range=">azure-pipelines-server"
 
 None.
 
@@ -83,26 +79,23 @@ None.
 <!-- :::properties::: -->
 ## Requirements
 
-:::moniker range="<=azure-pipelines"
+:::moniker range="=azure-pipelines"
 
 | Requirement | Description |
 |-------------|-------------|
-| Pipeline types | YAML, Classic build, Classic release |
+| Pipeline types | YAML, Classic build |
 | Runs on | Agent, DeploymentGroup |
 | [Demands](/azure/devops/pipelines/process/demands) | None |
-| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | Running this task satisfies the following [demands](/azure/devops/pipelines/process/demands) for any subsequent tasks in the same job: Func |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
-| Task category | Tool |
+| Agent version |  3.218.0 or greater |
+| Task category | Build |
 
 :::moniker-end
 <!-- :::properties-end::: -->
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [Develop Azure Functions locally using Core Tools](/azure/azure-functions/functions-run-local)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

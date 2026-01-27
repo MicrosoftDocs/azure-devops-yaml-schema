@@ -1,7 +1,7 @@
 ---
 title: AzureFileCopy@4 - Azure file copy v4 task
 description: Copy files to Azure Blob Storage or virtual machines (task version 4).
-ms.date: 12/18/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 ---
 

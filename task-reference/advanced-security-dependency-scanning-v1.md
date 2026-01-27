@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Dependency-Scanning@1 - Advanced Security Dependency Scanning v1 task
 description: Scan for open source dependency vulnerabilities in your source code.
-ms.date: 11/11/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -129,7 +129,7 @@ For the most accurate scanning results, add the Advanced Security dependency sca
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.206.1 or greater |
+| Agent version |  2.209.0 or greater |
 | Task category | Utility |
 
 :::moniker-end

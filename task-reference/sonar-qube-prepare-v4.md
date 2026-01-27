@@ -1,7 +1,7 @@
 ---
 title: SonarQubePrepare@4 - Prepare Analysis Configuration v4 task
 description: Prepare SonarQube analysis configuration (task version 4).
-ms.date: 11/11/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -14,7 +14,9 @@ monikerRange: "=azure-pipelines"
 Use this task to prepare a SonarQube analysis configuration.
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubePrepare@7](./sonar-qube-prepare-v7.md).
+> This task is deprecated; use [SonarQubePrepare@8](./sonar-qube-prepare-v8.md).
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->

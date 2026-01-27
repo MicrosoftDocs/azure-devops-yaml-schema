@@ -1,25 +1,20 @@
 ---
-title: SonarQubePrepare@5 - Prepare Analysis Configuration v5 task
-description: Prepare SonarQube analysis configuration (task version 5).
+title: SonarQubePrepare@8 - Prepare Analysis Configuration v8 task
+description: Prepare SonarQube Server analysis configuration.
 ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 
-# SonarQubePrepare@5 - Prepare Analysis Configuration v5 task
+# SonarQubePrepare@8 - Prepare Analysis Configuration v8 task
 
 <!-- :::description::: -->
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
 
 <!-- :::editable-content name="description"::: -->
-Use this task to prepare a SonarQube analysis configuration.
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubePrepare@8](./sonar-qube-prepare-v8.md).
+Prepare SonarQube Server analysis configuration.
 
 [!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
-
-<!-- This task is deprecated. -->
 
 :::moniker-end
 <!-- :::description-end::: -->
@@ -30,21 +25,23 @@ Use this task to prepare a SonarQube analysis configuration.
 :::moniker range="=azure-pipelines"
 
 ```yaml
-# Prepare Analysis Configuration v5
-# Prepare SonarQube analysis configuration.
-- task: SonarQubePrepare@5
+# Prepare Analysis Configuration v8
+# Prepare SonarQube Server analysis configuration.
+- task: SonarQubePrepare@8
   inputs:
     SonarQube: # string. Required. SonarQube Server Endpoint. 
-    scannerMode: 'MSBuild' # 'MSBuild' | 'Other' | 'CLI'. Required. Choose the way to run the analysis. Default: MSBuild.
-    #configMode: 'file' # 'file' | 'manual'. Required when scannerMode = CLI. Mode. Default: file.
-    #configFile: 'sonar-project.properties' # string. Optional. Use when scannerMode = CLI && configMode = file. Settings File. Default: sonar-project.properties.
-    #cliProjectKey: # string. Required when scannerMode = CLI && configMode = manual. Project Key. 
-    projectKey: # string. Required when scannerMode = MSBuild. Project Key. 
-    #cliProjectName: # string. Optional. Use when scannerMode = CLI && configMode = manual. Project Name. 
-    #projectName: # string. Optional. Use when scannerMode = MSBuild. Project Name. 
-    #cliProjectVersion: '1.0' # string. Optional. Use when scannerMode = CLI && configMode = manual. Project Version. Default: 1.0.
-    #projectVersion: '1.0' # string. Optional. Use when scannerMode = MSBuild. Project Version. Default: 1.0.
-    #cliSources: '.' # string. Required when scannerMode = CLI && configMode = manual. Sources directory root. Default: ..
+    scannerMode: 'dotnet' # 'dotnet' | 'cli' | 'other'. Required. Choose the way to run the analysis. Default: dotnet.
+    #msBuildVersion: # string. Alias: dotnetScannerVersion. Optional. Use when scannerMode = dotnet. .NET Scanner Version. 
+    #cliVersion: # string. Alias: cliScannerVersion. Optional. Use when scannerMode = cli. Scanner CLI Version. 
+    #configMode: 'file' # 'file' | 'manual'. Required when scannerMode = cli. Mode. Default: file.
+    #configFile: 'sonar-project.properties' # string. Optional. Use when scannerMode = cli && configMode = file. Settings File. Default: sonar-project.properties.
+    #cliProjectKey: # string. Required when scannerMode = cli && configMode = manual. Project Key. 
+    projectKey: # string. Required when scannerMode = dotnet. Project Key. 
+    #cliProjectName: # string. Optional. Use when scannerMode = cli && configMode = manual. Project Name. 
+    #projectName: # string. Optional. Use when scannerMode = dotnet. Project Name. 
+    #cliProjectVersion: '1.0' # string. Optional. Use when scannerMode = cli && configMode = manual. Project Version. Default: 1.0.
+    #projectVersion: '1.0' # string. Optional. Use when scannerMode = dotnet. Project Version. Default: 1.0.
+    #cliSources: '.' # string. Required when scannerMode = cli && configMode = manual. Sources directory root. Default: ..
   # Advanced
     #extraProperties: # string. Additional Properties.
 ```
@@ -61,7 +58,7 @@ Use this task to prepare a SonarQube analysis configuration.
 **`SonarQube`** - **SonarQube Server Endpoint**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube server endpoint for your project. To create one, click the `Manage` link, create a new SonarQube Server Endpoint, and enter your server url and token.
+Select the SonarQube Server endpoint for your project. To create one, click the Manage link and create a new SonarQube Server Endpoint, enter your server url and token.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -71,18 +68,40 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 :::moniker range=">azure-pipelines-server"
 
 **`scannerMode`** - **Choose the way to run the analysis**<br>
-`string`. Required. Allowed values: `MSBuild` (Integrate with MSBuild), `Other` (Integrate with Maven or Gradle), `CLI` (Use standalone scanner). Default value: `MSBuild`.<br>
+`string`. Required. Allowed values: `dotnet` (Integrate with .NET), `cli` (Use standalone SonarScanner CLI), `other` (Integrate with Maven or Gradle). Default value: `dotnet`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-**MSBuild**
-- Put this task before your MSBuild task.
-- Add the `Run Code Analysis` task after the MSBuild/VSTest tasks.
+####dotnet
+* Put this task before your build task
+* Add the 'Run Code Analysis' task after the MSBuild/VSTest tasks
+####Maven/Gradle
+* Put this task before the Maven/Gradle task
+* Tick the 'Run SonarQube (Server, Cloud) Analysis' checkbox in the Maven/Gradle task configuration.
+####Others
+For other cases you can use the standalone scanner (sonar-scanner) and set all configuration with this task, and then add the 'Run Code Analysis' task.
+<!-- :::editable-content-end::: -->
+<br>
 
-**Maven/Gradle**
-- Put this task before the Maven/Gradle task.
-- Tick the `Run SonarQube Analysis` checkbox in the Maven/Gradle task configuration.
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="msBuildVersion"::: -->
+:::moniker range=">azure-pipelines-server"
 
-**Others**
-- For other cases, you can use the standalone scanner (sonar-scanner), set all configurations with this task, and then add the `Run Code Analysis` task.
+**`msBuildVersion`** - **.NET Scanner Version**<br>
+[Input alias](index.md#what-are-task-input-aliases): `dotnetScannerVersion`. `string`. Optional. Use when `scannerMode = dotnet`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the version of the .NET Scanner to use. Versions can be located [here](https://github.com/SonarSource/sonar-scanner-msbuild/tags).
+<!-- :::editable-content-end::: -->
+<br>
+
+:::moniker-end
+<!-- :::item-end::: -->
+<!-- :::item name="cliVersion"::: -->
+:::moniker range=">azure-pipelines-server"
+
+**`cliVersion`** - **Scanner CLI Version**<br>
+[Input alias](index.md#what-are-task-input-aliases): `cliScannerVersion`. `string`. Optional. Use when `scannerMode = cli`.<br>
+<!-- :::editable-content name="helpMarkDown"::: -->
+Specify the version of the CLI scanner to use. Versions can be located [here](https://github.com/SonarSource/sonar-scanner-cli/tags).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -92,9 +111,9 @@ Specifies the SonarQube server endpoint for your project. To create one, click t
 :::moniker range=">azure-pipelines-server"
 
 **`configMode`** - **Mode**<br>
-`string`. Required when `scannerMode = CLI`. Allowed values: `file` (Store configuration with my source code (sonar-project.properties)), `manual` (Manually provide configuration). Default value: `file`.<br>
+`string`. Required when `scannerMode = cli`. Allowed values: `file` (Store configuration with my source code (sonar-project.properties)), `manual` (Manually provide configuration). Default value: `file`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies your preferred configuration method.
+Choose your preferred configuration method.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -104,9 +123,9 @@ Specifies your preferred configuration method.
 :::moniker range=">azure-pipelines-server"
 
 **`configFile`** - **Settings File**<br>
-`string`. Optional. Use when `scannerMode = CLI && configMode = file`. Default value: `sonar-project.properties`.<br>
+`string`. Optional. Use when `scannerMode = cli && configMode = file`. Default value: `sonar-project.properties`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the configuration settings and project properties. Learn more about the [SonarQube Extension for Azure DevOps](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html).
+More information is available [here](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarqube-extension-for-azure-devops/).
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -116,9 +135,9 @@ Specifies the configuration settings and project properties. Learn more about th
 :::moniker range=">azure-pipelines-server"
 
 **`cliProjectKey`** - **Project Key**<br>
-`string`. Required when `scannerMode = CLI && configMode = manual`.<br>
+`string`. Required when `scannerMode = cli && configMode = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
+The SonarQube Server project unique key, i.e. `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -128,9 +147,9 @@ Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 :::moniker range=">azure-pipelines-server"
 
 **`projectKey`** - **Project Key**<br>
-`string`. Required when `scannerMode = MSBuild`.<br>
+`string`. Required when `scannerMode = dotnet`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
+The SonarQube Server project unique key, i.e. `sonar.projectKey`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -140,9 +159,9 @@ Specifies the SonarQube project unique key. For example, `sonar.projectKey`.
 :::moniker range=">azure-pipelines-server"
 
 **`cliProjectName`** - **Project Name**<br>
-`string`. Optional. Use when `scannerMode = CLI && configMode = manual`.<br>
+`string`. Optional. Use when `scannerMode = cli && configMode = manual`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube project name. For example, `sonar.projectName`.
+The SonarQube Server project name, i.e. `sonar.projectName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -152,9 +171,9 @@ Specifies the SonarQube project name. For example, `sonar.projectName`.
 :::moniker range=">azure-pipelines-server"
 
 **`projectName`** - **Project Name**<br>
-`string`. Optional. Use when `scannerMode = MSBuild`.<br>
+`string`. Optional. Use when `scannerMode = dotnet`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube project name. For example, `sonar.projectName`.
+The SonarQube Server project name, i.e. `sonar.projectName`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -164,9 +183,9 @@ Specifies the SonarQube project name. For example, `sonar.projectName`.
 :::moniker range=">azure-pipelines-server"
 
 **`cliProjectVersion`** - **Project Version**<br>
-`string`. Optional. Use when `scannerMode = CLI && configMode = manual`. Default value: `1.0`.<br>
+`string`. Optional. Use when `scannerMode = cli && configMode = manual`. Default value: `1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube project version. For example, `sonar.projectVersion`.
+The SonarQube Server project version, i.e. `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -176,9 +195,9 @@ Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 :::moniker range=">azure-pipelines-server"
 
 **`projectVersion`** - **Project Version**<br>
-`string`. Optional. Use when `scannerMode = MSBuild`. Default value: `1.0`.<br>
+`string`. Optional. Use when `scannerMode = dotnet`. Default value: `1.0`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the SonarQube project version. For example, `sonar.projectVersion`.
+The SonarQube Server project version, i.e. `sonar.projectVersion`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -188,9 +207,9 @@ Specifies the SonarQube project version. For example, `sonar.projectVersion`.
 :::moniker range=">azure-pipelines-server"
 
 **`cliSources`** - **Sources directory root**<br>
-`string`. Required when `scannerMode = CLI && configMode = manual`. Default value: `.`.<br>
+`string`. Required when `scannerMode = cli && configMode = manual`. Default value: `.`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies the path to the root directory containing source files. This value is set to the `sonar.sources` SonarQube property.
+Path to the root directory containing source files. This value is set to the `sonar.sources` property.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -202,7 +221,7 @@ Specifies the path to the root directory containing source files. This value is 
 **`extraProperties`** - **Additional Properties**<br>
 `string`. Default value: `# Additional properties that will be passed to the scanner, \n# Put one key=value per line, example:\n# sonar.exclusions=**/*.bin`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Specifies [additional properties](https://redirect.sonarsource.com/doc/analysis-parameters.html) to be passed to the scanner. Specify each `key=value` pair on a new line.
+[Additional properties](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/analysis-parameters/) to be passed to the scanner. Specify each key=value pair on a new line.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -217,7 +236,7 @@ All tasks have control options in addition to their task inputs. For more inform
 <!-- :::outputVariables::: -->
 ## Output variables
 
-:::moniker range=">=azure-pipelines-server"
+:::moniker range=">azure-pipelines-server"
 
 None.
 
@@ -226,12 +245,6 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
-## Remarks
-
-> [!NOTE]
-> This task is deprecated; use [SonarQubePrepare@7](./sonar-qube-prepare-v7.md).
-
-- **Support non-MSBuild projects:** This task can also configure analysis for non-MSBuild projects.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
@@ -253,7 +266,7 @@ None.
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version |  2.144.0 or greater |
+| Agent version |  3.218.0 or greater |
 | Task category | Build |
 
 :::moniker-end
@@ -261,8 +274,5 @@ None.
 
 <!-- :::see-also::: -->
 <!-- :::editable-content name="seeAlso"::: -->
-## See also
-
-* [SonarQube Azure DevOps Integration](https://docs.sonarqube.org/latest/analysis/azuredevops-integration/)
 <!-- :::editable-content-end::: -->
 <!-- :::see-also-end::: -->

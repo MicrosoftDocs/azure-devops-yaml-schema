@@ -1,7 +1,7 @@
 ---
 title: SonarQubeAnalyze@4 - Run Code Analysis v4 task
 description: Run scanner and upload the results to the SonarQube server (task version 4).
-ms.date: 11/11/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 ---
 
@@ -14,7 +14,9 @@ monikerRange: "=azure-pipelines"
 Use this task to run the scanner and upload the results to the SonarQube server.
 
 > [!NOTE]
-> This task is deprecated; use [SonarQubeAnalyze@7](./sonar-qube-analyze-v7.md).
+> This task is deprecated; use [SonarQubeAnalyze@8](./sonar-qube-analyze-v8.md).
+
+[!INCLUDE [SonarQube Tasks note](includes/sonar-qube-tasks-note.md)]
 <!-- :::editable-content-end::: -->
 
 <!-- This task is deprecated. -->

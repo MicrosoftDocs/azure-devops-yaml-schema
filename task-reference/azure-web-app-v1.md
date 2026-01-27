@@ -1,7 +1,7 @@
 ---
 title: AzureWebApp@1 - Azure Web App v1 task
 description: Deploy an Azure Web App for Linux or Windows.
-ms.date: 12/18/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam

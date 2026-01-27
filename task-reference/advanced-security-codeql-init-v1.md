@@ -1,7 +1,7 @@
 ---
 title: AdvancedSecurity-Codeql-Init@1 - Advanced Security Initialize CodeQL v1 task
 description: Initializes the CodeQL database in preparation for building.
-ms.date: 11/11/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines"
 author: juliakm
 ms.author: jukullam
@@ -26,13 +26,13 @@ You must have [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/se
 
 :::moniker range="=azure-pipelines"
 
-```yml
+```yaml
 # Advanced Security Initialize CodeQL v1
 # Initializes the CodeQL database in preparation for building.
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
     #enableAutomaticCodeQLInstall: false # boolean. Enable automatic CodeQL detection and installation. Default: false.
-    #languages: # 'csharp' | 'cpp' | 'go' | 'java' | 'javascript' | 'python' | 'ruby' | 'swift'. Languages to analyze. 
+    #languages: # 'csharp' | 'cpp' | 'go' | 'java' | 'javascript' | 'python' | 'ruby' | 'rust' | 'swift'. Languages to analyze. 
     #querysuite: 'Select a query suite...' # 'Select a query suite...' | 'code-scanning' | 'security-extended' | 'security-experimental' | 'security-and-quality'. CodeQL Query Suite to use for analysis. Default: Select a query suite....
     #buildtype: 'Manual' # 'Manual' | 'None'. Select build mode (manual vs none). Default: Manual.
   # Advanced
@@ -68,7 +68,7 @@ Selecting this option will set the task to automatically check for CodeQL on the
 :::moniker range=">azure-pipelines-server"
 
 **`languages`** - **Languages to analyze**<br>
-`string`. Allowed values: `csharp`, `cpp`, `go`, `java`, `javascript`, `python`, `ruby`, `swift`.<br>
+`string`. Allowed values: `csharp`, `cpp`, `go`, `java`, `javascript`, `python`, `ruby`, `rust`, `swift`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
 The programming language to analyze. Multiple languages can be separated by a comma.
 
@@ -274,7 +274,7 @@ The AutoBuild task is optional and may be replaced with your custom build tasks.
 | [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
 | [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
 | [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
-| Agent version | All supported agent versions. |
+| Agent version |  2.209.0 or greater |
 | Task category | Build |
 
 :::moniker-end

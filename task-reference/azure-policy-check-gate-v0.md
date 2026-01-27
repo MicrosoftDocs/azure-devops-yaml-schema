@@ -1,7 +1,7 @@
 ---
 title: AzurePolicyCheckGate@0 - Check Azure Policy compliance v0 task
 description: Security and compliance assessment for Azure Policy.
-ms.date: 12/18/2025
+ms.date: 01/27/2026
 monikerRange: "=azure-pipelines || =azure-pipelines-server || =azure-pipelines-2022.2 || =azure-pipelines-2022.1 || =azure-pipelines-2022"
 author: juliakm
 ms.author: jukullam
