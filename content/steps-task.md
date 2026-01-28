@@ -1,7 +1,7 @@
 ---
 title: steps.task definition
 description: Runs a task.
-ms.date: 01/23/2026
+ms.date: 01/27/2026
 monikerRange: "<=azure-pipelines"
 author: steved0x
 ms.author: sdanie
@@ -37,8 +37,8 @@ steps:
   env: # Variables to map into the process's environment.
     string: string # Name/value pairs
   name: string # ID of the step.
-  timeoutInMinutes: string # Time to wait for this task to complete before the server kills it.
-  retryCountOnTaskFailure: string # Number of retries if the task fails.
+  timeoutInMinutes: integer # Time to wait for this task to complete before the server kills it.
+  retryCountOnTaskFailure: integer # Number of retries if the task fails.
 ```
 
 :::moniker-end
