@@ -23,6 +23,8 @@ Use this task to run unit and functional tests (Selenium, Appium, Coded UI test,
 
 > [!NOTE]
 > VSTest Azure task is specific to VSTest-platform. It doesn't support the newer [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview).
+>
+> The [DotNetCoreCLI@2](./dotnet-core-cli-v2.md) task supports the [Microsoft.Testing.Platform (MTP)](https://aka.ms/mtp-overview). For more information, see [Microsoft.Testing.Platform Now Fully Supported in Azure DevOps](https://devblogs.microsoft.com/dotnet/microsoft-testing-platform-azure-retry/).
 <!-- :::editable-content-end::: -->
 
 :::moniker-end
