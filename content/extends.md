@@ -75,11 +75,6 @@ The `extends` keyword allows a pipeline to use another pipeline (or template) as
 - **Template inheritance**: Build pipelines from templates with parameters
 
 A pipeline can extend a single template. The template file should be a complete, valid pipeline structure. When you use `extends`, your pipeline YAML becomes a template that references the base template and optionally overrides parameters.
-
-### Extends vs includes
-
-- **`extends`**: Creates a pipeline that inherits from a template. Used at the root level of a pipeline.
-- **`include`**: Imports template content directly. Used at specific points within a pipeline.
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
 
