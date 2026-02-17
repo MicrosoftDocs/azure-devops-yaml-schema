@@ -158,3 +158,40 @@ All tasks have control options in addition to their task inputs. For more inform
 
 <!-- :::inputs-end::: -->
 
+<!-- :::outputVariables::: -->
+## Output variables
+
+None.
+
+<!-- :::outputVariables-end::: -->
+
+<!-- :::remarks::: -->
+<!-- :::editable-content name="remarks"::: -->
+## Remarks
+
+Use this task to publish or download Universal Packages to and from Azure Artifacts feeds. The task supports two authentication methods:
+
+- *Build service identity* (default): When no service connection is specified, the task uses the pipeline's built-in build service identity. This is the simplest setup and works for feeds within the same organization.
+
+- *Azure DevOps Service Connection (WIF)*: When *adoServiceConnection* is specified, the task uses **Workload Identity Federation** to authenticate. This enables cross-organization feed access and eliminates the need for PATs.
+
+#### Q: My pipeline needs to access a feed in a different project
+
+A: If the pipeline runs in a different project than the one hosting the feed, you must grant the build service or service connection identity read/write permissions in the target project. See Package permissions in Azure Pipelines for more details.
+
+#### Q: My pipeline needs to access a feed in a different organization
+
+A: Use the *adoServiceConnection* and *organization* inputs together to access feeds in a different Azure DevOps organization. The service connection must be configured with a Workload Identity Federation credential that has permissions on the target organization's feed.
+
+#### Version increment behavior
+
+When you use *versionIncrement*, the task queries the feed for the highest existing version of the specified package and increments the appropriate component:
+
+- patch: 1.2.3 -> 1.2.4
+- minor: 1.2.3 -> 1.3.0
+- major: 1.2.3 -> 2.0.0
+
+If the package does not yet exist in the feed, the task starts with the initial version defined in the *versionIncrement* input table. After the task completes, the resolved version is available in the *packageVersion* output variable.
+
+<!-- :::editable-content-end::: -->
+<!-- :::remarks-end::: -->
