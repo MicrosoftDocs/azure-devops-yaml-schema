@@ -203,11 +203,11 @@ If the package does not yet exist in the feed, the task starts with the initial 
 ## Examples
 
 - [Download a package from a project-scoped feed](#download-a-package-from-a-project-scoped-feed)
-- [Download a package from an organization-scoped feed](#download-a-package-from-a-organization-scoped-feed)
-- [Download the latest version of a package](#download-the-latest-version-of a-package)
+- [Download a package from an organization-scoped feed](#download-a-package-from-an-organization-scoped-feed)
+- [Download the latest version of a package](#download-the-latest-version-of-a-package)
 - [Publish a package with an explicit version](#publish-a-package-with-an-explicit-version)
 - [Publish a package with automatic version increment](#publish-a-package-with-automatic-version-increment)
-- [Download using a service connection (WIF)](#download-using-a-service-connection-(WIF))
+- [Download using a service connection (WIF)](#download-using-a-service-connection-wif)
 - [Download a package from a feed in a different organization](#download-a-package-from-a-feed-in-a-different-organization)
 - [Publish across organizations with auto-increment](#publish-across-organizations-with-auto-increment)
 
