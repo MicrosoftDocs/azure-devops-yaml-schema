@@ -1,21 +1,22 @@
 ---
-title: UniversalPackages@1 - Universal packages v1 task
-description: Download or publish Universal Packages to and from Azure Artifacts feeds.
+title: UniversalPackages@1 - Universal Packages v1 task
+description: Publish or download Universal Packages to and from Azure Artifacts feeds.
 ms.date: 02/17/2026
 monikerRange: "azure-pipelines"
 author: ramiMSFT
 ms.author: rabououn
 ---
 
-# UniversalPackages@1 - Universal packages v1 task
+# UniversalPackages@1 - Universal Packages v1 task
 
 <!-- :::description::: -->
 
-Use this task to download or publish Universal Packages to and from Azure Artifacts feeds. This version supports Workload Identity Federation (WIF) through Azure DevOps service connections, enabling authentication without Personal Access Tokens (PATs).
+Use this task to publish or download Universal Packages to and from Azure Artifacts feeds. This version supports Workload Identity Federation (WIF) through Azure DevOps service connections, enabling authentication without Personal Access Tokens (PATs).
 
 <!-- :::description-end::: -->
 
 <!-- :::syntax::: -->
+
 ## Syntax
 
 ```yaml
@@ -195,3 +196,171 @@ If the package does not yet exist in the feed, the task starts with the initial 
 
 <!-- :::editable-content-end::: -->
 <!-- :::remarks-end::: -->
+
+<!-- :::examples::: -->
+<!-- :::editable-content name="examples"::: -->
+
+## Examples
+
+- [Download a package from a project-scoped feed](#download-a-package-from-a-project-scoped-feed)
+- [Download a package from an organization-scoped feed](#download-a-package-from-a-organization-scoped-feed)
+- [Download the latest version of a package](#download-the-latest-version-of a-package)
+- [Publish a package with an explicit version](#publish-a-package-with-an-explicit-version)
+- [Publish a package with automatic version increment](#publish-a-package-with-automatic-version-increment)
+- [Download using a service connection (WIF)](#download-using-a-service-connection-(WIF))
+- [Download a package from a feed in a different organization](#download-a-package-from-a-feed-in-a-different-organization)
+- [Publish across organizations with auto-increment](#publish-across-organizations-with-auto-increment)
+
+#### Download a package from a project-scoped feed
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  displayName: 'Download from project-scoped feed'
+  inputs:
+    command: download
+    feed: 'my-project/my-feed'
+    packageName: 'my-package'
+    packageVersion: '2.*'
+    directory: '$(Build.SourcesDirectory)/packages'
+```
+
+#### Download a package from an organization-scoped feed
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  displayName: 'Download universal package'
+  inputs:
+    command: download
+    feed: 'my-feed'
+    packageName: 'my-package'
+    packageVersion: '1.0.0'
+    directory: '$(Build.SourcesDirectory)/packages'
+```
+
+#### Download the latest version of a package
+
+Use a wildcard expression to always download the latest available version:
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  displayName: 'Download latest package'
+  inputs:
+    command: download
+    feed: 'my-feed'
+    packageName: 'my-package'
+    packageVersion: '*'
+    directory: '$(Build.SourcesDirectory)/packages'
+```
+
+
+#### Publish a package with an explicit version
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  displayName: 'Publish universal package'
+  inputs:
+    command: publish
+    feed: 'my-feed'
+    packageName: 'my-app'
+    packageVersion: '1.0.0'
+    directory: '$(Build.ArtifactStagingDirectory)'
+    packageDescription: 'Initial release of my-app'
+```
+
+#### Publish a package with automatic version increment
+
+Use *versionIncrement* to automatically bump the version based on what's already in the feed:
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  name: publishStep
+  displayName: 'Publish with auto-increment'
+  inputs:
+    command: publish
+    feed: 'my-project/my-feed'
+    packageName: 'my-app'
+    versionIncrement: patch
+    directory: '$(Build.ArtifactStagingDirectory)'
+    packageDescription: 'Automated build $(Build.BuildNumber)'
+
+- script: echo "Published version $(publishStep.packageVersion)"
+  displayName: 'Display published version'
+```
+
+#### Download using a service connection (WIF)
+
+Authenticate with Workload Identity Federation instead of the build service identity:
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  displayName: 'Download with WIF auth'
+  inputs:
+    command: download
+    adoServiceConnection: 'my-ado-service-connection'
+    feed: 'my-feed'
+    packageName: 'my-package'
+    packageVersion: '1.0.0'
+    directory: '$(Build.SourcesDirectory)/packages'
+```
+
+#### Download a package from a feed in a different organization
+
+Use *adoServiceConnection* with organization to download or publish across organizations:
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  displayName: 'Download from another org'
+  inputs:
+    command: download
+    adoServiceConnection: 'cross-org-connection'
+    organization: 'other-org'
+    feed: 'shared-project/shared-feed'
+    packageName: 'shared-tools'
+    packageVersion: '*'
+    directory: '$(Build.SourcesDirectory)/tools'
+```
+
+#### Publish across organizations with auto-increment
+
+```yaml
+steps:
+- task: UniversalPackages@1
+  name: crossOrgPublish
+  displayName: 'Publish to another org'
+  inputs:
+    command: publish
+    adoServiceConnection: 'cross-org-connection'
+    organization: 'other-org'
+    feed: 'shared-feed'
+    packageName: 'my-library'
+    versionIncrement: minor
+    directory: '$(Build.ArtifactStagingDirectory)'
+    packageDescription: 'Cross-org publish from $(Build.Repository.Name)'
+```
+
+<!-- :::editable-content-end::: -->
+<!-- :::examples-end::: -->
+
+<!-- :::properties::: -->
+
+## Requirements
+
+| Requirement | Description |
+|-------------|-------------|
+| Pipeline types | YAML, Classic build, Classic release |
+| Runs on | Agent, DeploymentGroup |
+| [Demands](/azure/devops/pipelines/process/demands) | None |
+| [Capabilities](/azure/devops/pipelines/agents/agents#capabilities) | This task does not satisfy any demands for subsequent tasks in the job. |
+| [Command restrictions](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| [Settable variables](/azure/devops/pipelines/security/templates#agent-logging-command-restrictions) | Any |
+| Agent version |  4.248.0 or greater |
+| Task category | Package |
+
+<!-- :::properties-end::: -->
