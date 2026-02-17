@@ -57,9 +57,9 @@ Specifies the Universal Package command to run: download a package from a feed, 
 [Input aliases](index.md#what-are-task-input-aliases): `workloadIdentityServiceConnection`, `azureDevOpsServiceConnection`.  
 `string`. Optional.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of an Azure DevOps Service Connection that uses Workload Identity Federation (WIF) to authenticate. When specified, the task uses the service connection identity instead of the pipeline's build service identity. This enables scenarios such as cross-organization feed access and WIF-based authentication without PATs.
+The name of an Azure DevOps Service Connection that uses Workload Identity Federation (WIF) for authentication. When specified, the task uses the service connection identity instead of the pipeline's build service identity. This enables scenarios such as cross-organization feed access and WIF-based authentication without PATs.
 
-If not specified, the task authenticates using the pipeline's built-in build service identity. See [Setting up an Azure DevOps Service Connection]() for setup instructions.
+When not specified, the task authenticates using the pipeline’s built‑in build service identity. See [Setting up an Azure DevOps Service Connection]() for setup instructions.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -70,9 +70,9 @@ If not specified, the task authenticates using the pipeline's built-in build ser
 **`organization`** - **Organization**<br>
 `string`. Optional. Use when `adoServiceConnection` is specified.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The Azure DevOps organization name where the target feed is located (for example, `myorg` from `https://dev.azure.com/myorg`). Use this input when the feed is in a different organization than the one running the pipeline.
+The name of the Azure DevOps organization that hosts the target feed. Use this input when the feed is in a different organization than the one running the pipeline.
+If not specified, the task uses the current pipeline’s organization.
 
-When not specified, the task uses the current pipeline's organization.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -94,7 +94,7 @@ The name of the Azure Artifacts feed. For organization-scoped feeds, specify onl
 **`packageName`** - **Package name**<br>
 `string`. Required.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-The name of the Universal Package to download or publish. Package names must be lower case and can only use letters, numbers, and dashes (`-`).
+The name of the Universal Package to download or publish. Package names must be lower case and can only use letters, numbers, and dashes `-`.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -107,7 +107,7 @@ The name of the Universal Package to download or publish. Package names must be 
 <!-- :::editable-content name="helpMarkDown"::: -->
 The version of the package. Required for `download`. For `publish`, specify either this input or `versionIncrement`, but not both.
 
-For downloads, this can be a wildcard expression such as `*` to get the highest version, `1.*` to get the highest version with major version 1, or `1.2.*` to get the highest patch release with major version 1 and minor version 2. Wildcard patterns are not supported with pre-release packages.
+For downloads, this can be a wildcard expression such as `*` to get the latest version, `1.*` to get the latest version with major version 1, or `1.2.*` to get the latest patch release with major version 1 and minor version 2. Wildcard patterns are not supported for pre-release packages.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -118,15 +118,14 @@ For downloads, this can be a wildcard expression such as `*` to get the highest 
 **`versionIncrement`** - **Version increment**<br>
 `string`. Optional. Use when `command = publish`. Allowed values: `major` (Major), `minor` (Minor), `patch` (Patch).<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Automatically increments the package version. The task queries the feed for the highest existing version of the package and increments the specified component. Cannot be used together with `packageVersion`.
+Automatically increments the package version. The task queries the feed for the latest existing version of the package and increments the specified component. Cannot be used together with `packageVersion`.
 
-For new packages (no existing version in the feed), the starting version is:
+For new packages with no existing versions in the feed, the starting version is:
 
 - `major`: 1.0.0  
 - `minor`: 0.1.0  
 - `patch`: 0.0.1  
 
-See the Semantic Versioning specification for more information.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -137,7 +136,7 @@ See the Semantic Versioning specification for more information.
 **`directory`** - **Directory**<br>
 `filePath`. Required. Default value: `$(System.DefaultWorkingDirectory)`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-For downloads, specifies the folder path where the package contents will be downloaded. For publish, specifies the path to the directory containing files to publish.
+For downloads, specifies the folder path where the package contents will be downloaded. For publish, specifies the path to the directory that contains the files to publish.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -148,7 +147,7 @@ For downloads, specifies the folder path where the package contents will be down
 **`packageDescription`** - **Description**<br>
 `string`. Optional. Use when `command = publish`.<br>
 <!-- :::editable-content name="helpMarkDown"::: -->
-Description of the package contents and/or the changes made in this version of the package.
+Description of the package contents and/or the changes included in this version of the package.
 <!-- :::editable-content-end::: -->
 <br>
 
@@ -168,6 +167,7 @@ None.
 
 <!-- :::remarks::: -->
 <!-- :::editable-content name="remarks"::: -->
+
 ## Remarks
 
 Use this task to publish or download Universal Packages to and from Azure Artifacts feeds. The task supports two authentication methods:
@@ -176,17 +176,17 @@ Use this task to publish or download Universal Packages to and from Azure Artifa
 
 - *Azure DevOps Service Connection (WIF)*: When *adoServiceConnection* is specified, the task uses **Workload Identity Federation** to authenticate. This enables cross-organization feed access and eliminates the need for PATs.
 
-#### Q: My pipeline needs to access a feed in a different project
+#### Access a feed in a different project
 
-A: If the pipeline runs in a different project than the one hosting the feed, you must grant the build service or service connection identity read/write permissions in the target project. See Package permissions in Azure Pipelines for more details.
+If the pipeline runs in a different project than the one hosting the feed, you must grant the build service or service connection identity read/write permissions in the target project. See Package permissions in Azure Pipelines for more details.
 
-#### Q: My pipeline needs to access a feed in a different organization
+#### Access a feed in a different organization
 
-A: Use the *adoServiceConnection* and *organization* inputs together to access feeds in a different Azure DevOps organization. The service connection must be configured with a Workload Identity Federation credential that has permissions on the target organization's feed.
+Use the *adoServiceConnection* and *organization* inputs together to access feeds in a different Azure DevOps organization. The service connection must be configured with a Workload Identity Federation credential that has permissions on the target organization's feed. For an example, see [Download a package from a feed in a different organization](#download-a-package-from-a-feed-in-a-different-organization).
 
-#### Version increment behavior
+##### Version increment behavior
 
-When you use *versionIncrement*, the task queries the feed for the highest existing version of the specified package and increments the appropriate component:
+When you use *versionIncrement*, the task queries the feed for the latest existing version of the specified package and increments the appropriate component:
 
 - patch: 1.2.3 -> 1.2.4
 - minor: 1.2.3 -> 1.3.0
